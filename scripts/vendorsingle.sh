@@ -34,5 +34,19 @@ ${MIBDUMP:-uv run mibdump} \
 	 $mib >log/$v-j.log 2>log/$v-j.err
 
 
+# Publish the same files the compile above consumed.
+#
+# `mib=$(find $1 -type f ...)` is recursive, so a nested vendor directory is
+# compiled and lands in output/json, output/texts and output/notexts -- and is
+# therefore indexed. `cp -f $1/*` was not recursive, so its ASN.1 never reached
+# output/asn1: cp reported "omitting directory", the script has no set -e, and
+# the build carried on. That left MIB_INDEX naming modules MIB_SOURCES answers
+# 404 for -- 19 of them, all under src/vendor/alcatel/stellar, two carrying 30
+# index rows between them. See pysnmp/mibs#371.
+#
+# Flattened rather than mirrored, because output/asn1 is a flat tree: sc4snmp
+# substitutes a bare module name into MIB_SOURCES and fetches asn1/<NAME>.
+#
 # Skip when compiling the staged bundle itself: source and target are the same tree.
-[ "$(cd "$1" && pwd)" = "$(pwd)/output/asn1" ] || cp -f $1/* output/asn1
+[ "$(cd "$1" && pwd)" = "$(pwd)/output/asn1" ] \
+	|| find "$1" -type f ! -name '.*' -exec cp -f {} output/asn1/ \;

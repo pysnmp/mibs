@@ -193,59 +193,24 @@ if [ -d output/asn1 ]; then
   # index.py still indexes it, so MIB_INDEX names a module MIB_SOURCES answers
   # 404 for, and the two published artifacts disagree.
   #
-  # Nineteen modules are in that state today, all under src/vendor/alcatel/
-  # stellar. scripts/vendor.sh fans out over the depth-1 directories of
-  # src/vendor, and scripts/vendorsingle.sh then compiles with a *recursive*
-  # find but publishes with `cp -f $1/*`, which is not recursive -- so a nested
-  # vendor directory is compiled and indexed while its ASN.1 is never copied.
-  # Two of the nineteen carry 30 rows in index-frozen.csv between them.
-  #
-  # Pinned as the exact set rather than a count. A twentieth fails here, and so
-  # does fixing these, which is the prompt to delete them from this list.
-  # See pysnmp/mibs#371.
+  # Nineteen modules were in that state, all under src/vendor/alcatel/stellar,
+  # two of them carrying 30 rows in index-frozen.csv between them. Fixed in
+  # pysnmp/mibs#371: scripts/vendorsingle.sh compiled with a recursive find but
+  # published with `cp -f $1/*`, which is not recursive, so a nested vendor
+  # directory never reached output/asn1. The exception list this check carried
+  # is gone with them; the assertion is now absolute.
   echo "== asn1: every source module reaches the published tree"
-  UNPUBLISHED_KNOWN="$(mktemp)"
-  cat >"$UNPUBLISHED_KNOWN" <<'KNOWN'
-ALCATEL-NGOAW-BASE-MIB
-ALCATEL-NGOAW-DEVICES-MIB
-OAW-AP1101
-OAW-AP1201
-OAW-AP1201BG
-OAW-AP1201H
-OAW-AP1201HL
-OAW-AP1201L
-OAW-AP1221
-OAW-AP1222
-OAW-AP1231
-OAW-AP1232
-OAW-AP1251
-OAW-AP1251D
-OAW-AP1321
-OAW-AP1322
-OAW-AP1361
-OAW-AP1361D
-OAW-AP1362
-KNOWN
-  sort -o "$UNPUBLISHED_KNOWN" "$UNPUBLISHED_KNOWN"
-
   MISSING="$(mktemp)"
   comm -23 "$SRC_NAMES" "$PUB" >"$MISSING"
+  UNPUBLISHED="$(grep -c . "$MISSING" || true)"
 
-  if diff -q "$UNPUBLISHED_KNOWN" "$MISSING" >/dev/null; then
-    pass "the 19 known-unpublished modules, and no others (pysnmp/mibs#371)"
+  if [ "$UNPUBLISHED" = "0" ]; then
+    pass "every source module is published"
   else
-    NEW="$(comm -13 "$UNPUBLISHED_KNOWN" "$MISSING" | grep -c . || true)"
-    GONE="$(comm -23 "$UNPUBLISHED_KNOWN" "$MISSING" | grep -c . || true)"
-    if [ "$NEW" != "0" ]; then
-      fail "$NEW source modules are newly absent from output/asn1"
-      comm -13 "$UNPUBLISHED_KNOWN" "$MISSING" | head -10 >&2
-    fi
-    if [ "$GONE" != "0" ]; then
-      fail "$GONE modules now publish that pysnmp/mibs#371 pins as unpublished -- remove them from UNPUBLISHED_KNOWN"
-      comm -23 "$UNPUBLISHED_KNOWN" "$MISSING" | head -10 >&2
-    fi
+    fail "$UNPUBLISHED source modules are absent from output/asn1"
+    head -10 "$MISSING" >&2
   fi
-  rm -f "$UNPUBLISHED_KNOWN" "$MISSING" "$PUB"
+  rm -f "$MISSING" "$PUB"
 elif [ -d output ]; then
   fail "output/asn1 is missing, but output/ exists -- the build did not complete"
 fi
