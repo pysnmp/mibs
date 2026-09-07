@@ -48,6 +48,7 @@ approach, not a gap to be closed later.
 
 from __future__ import annotations
 
+import datetime
 import difflib
 import io
 import json
@@ -362,6 +363,12 @@ def fetch(path: str, entry: dict[str, Any], publisher: dict[str, Any]) -> bytes:
             data = _archive(publisher["url"]).read(member)
         except KeyError as exc:
             raise NotAModule(f"{member} is not in the archive") from exc
+        except zipfile.BadZipFile as exc:
+            # A member that will not decompress -- a bad CRC, a truncated
+            # entry. The archive opened, so this is not unreachability;
+            # it is one module we cannot read, and the sweep should carry
+            # on to the rest.
+            raise NotAModule(f"{member} will not decompress: {exc}") from exc
     else:
         raise SystemExit(f"{path}: unknown publisher kind {kind!r}")
 
@@ -532,47 +539,61 @@ def changed_ranges(baseline: bytes, ours: bytes) -> tuple[list[tuple[int, int]],
     return ranges, deletions
 
 
+#: A line of ``git blame --line-porcelain`` that opens a record: the
+#: commit, then the line numbers. Everything after it until the next such
+#: line describes that one line of the file.
+BLAMED = re.compile(r"^([0-9a-f]{40}) \d+ \d+")
+
+
 def attribute(path: str, ranges: Iterable[tuple[int, int]]) -> tuple[list[str], bool]:
-    """Name the commits of ours that produced the given lines of *path*.
+    """Name the commits of ours that wrote the given lines of *path*.
 
     Returns:
-        The commit subjects that last wrote those lines, newest first,
-        and whether any range was last written by the import itself --
-        that second value being the silent, unattributable patching this
-        repository inherited and cannot recover.
+        The commit subjects that last wrote any of those lines, newest
+        first, and whether any of the lines trace no further back than
+        the import -- that second value being the silent, unattributable
+        patching this repository inherited and cannot recover.
 
-    Only the *newest* commit to touch a range counts. Every line in a
-    file carries its import somewhere in its history, since that is
-    where the file began, so asking whether the import appears at all
-    would mark everything inherited. Asking whether anything came after
-    it is what separates a repair we made from text we received.
+    Attributed a line at a time, with ``git blame``, rather than a hunk
+    at a time. A hunk is not all of one provenance: a repair of ours
+    sitting next to lines the import brought in is the normal shape of
+    these files, and asking who last touched the *range* answers for the
+    newest line in it. That would report the hunk as ours and drop the
+    inherited part on the floor -- which is the one thing this is here to
+    be honest about.
     """
     imported = import_commits(path)
-    subjects: dict[str, None] = {}
+    lines = (ROOT / path).read_bytes().count(b"\n")
+    seen: dict[str, tuple[int, str]] = {}
     inherited = False
 
     for start, stop in ranges:
-        log = _git(
-            "log",
-            f"-L{start},{stop}:{path}",
-            "--format=%x00%H %ad %s",
-            "--date=short",
-        )
-        touching = [
-            line[1:]
-            for line in log.split("\n")
-            if line.startswith("\x00") and line[1:].strip()
-        ]
-
-        if not touching:
-            inherited = True
+        # changed_ranges counts a trailing empty string as a line; git
+        # does not, so a hunk running to the end of the file would ask
+        # blame for a line past the end and get an error instead of an
+        # answer.
+        first, last = max(start, 1), min(stop, lines)
+        if first > last:
             continue
 
-        commit, rest = touching[0].split(" ", 1)
+        blame = _git("blame", "--line-porcelain", f"-L{first},{last}", "--", path)
 
-        if commit in imported:
-            inherited = True
-        else:
-            subjects[rest] = None
+        commit = ""
+        when = 0
+        for line in blame.split("\n"):
+            opens = BLAMED.match(line)
+            if opens:
+                commit = opens.group(1)
+            elif line.startswith("author-time "):
+                when = int(line.split(" ", 1)[1])
+            elif line.startswith("summary "):
+                if commit in imported:
+                    inherited = True
+                elif commit:
+                    seen[commit] = (when, line.split(" ", 1)[1])
 
-    return list(subjects), inherited
+    newest = sorted(seen.values(), key=lambda item: item[0], reverse=True)
+
+    return [
+        f"{datetime.date.fromtimestamp(when)} {subject}" for when, subject in newest
+    ], inherited

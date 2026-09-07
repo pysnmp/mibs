@@ -26,6 +26,11 @@ jobs:
 
   mib-sources:
     name: MIB source manifest
+    permissions:
+      # Reads the tree and nothing else. The workflow as a whole has no
+      # permissions block, so without this the job would inherit the
+      # repository default, which includes write.
+      contents: read
     # Offline half of the freshness tooling: does mib-sources.json still
     # describe the tree it is checked in against? The half that talks to
     # vendors runs on a schedule instead, in mib-freshness.yml, so a

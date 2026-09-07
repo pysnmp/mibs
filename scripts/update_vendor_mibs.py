@@ -416,6 +416,10 @@ def explain(manifest: dict[str, Any], paths: list[str]) -> int:
             sys.stderr.write(f"{path}: no publisher on record\n")
             continue
 
+        if not (ROOT / path).is_file():
+            sys.stderr.write(f"{path}: in the manifest but not checked in\n")
+            continue
+
         local = (ROOT / path).read_bytes()
         try:
             upstream = fetch(path, entry, publisher_for(manifest, entry))
@@ -503,6 +507,11 @@ def adopt(manifest: dict[str, Any], paths: list[str]) -> int:
             failed += 1
             continue
 
+        if not (ROOT / path).is_file():
+            sys.stderr.write(f"{path}: in the manifest but not checked in\n")
+            failed += 1
+            continue
+
         local = (ROOT / path).read_bytes()
         try:
             upstream = fetch(path, entry, publisher_for(manifest, entry))
@@ -542,6 +551,17 @@ def adopt(manifest: dict[str, Any], paths: list[str]) -> int:
                 "back than the import, so what it repairs is not recorded "
                 "anywhere"
             )
+
+        # Every patch needs a reason, or --validate rejects the manifest
+        # this just wrote. Where our history has nothing to say, that
+        # itself is the reason and is worth stating plainly rather than
+        # leaving a hole for somebody to trip over later.
+        entry.setdefault(
+            "reason",
+            "Inherited from the import: no commit of ours records what "
+            "this repairs. Replace this with the purpose once somebody "
+            "has read the two texts.",
+        )
         entry.pop("divergence", None)
 
         sys.stdout.write(f"{path}: patch written to {relative}\n")
@@ -563,18 +583,40 @@ def update(manifest: dict[str, Any], paths: list[str]) -> int:
     wanted = paths or sorted(modules)
     staged: dict[str, bytes] = {}
 
-    for path in wanted:
-        entry = modules.get(path)
-        if entry is None:
+    unknown = [path for path in wanted if path not in modules]
+    if unknown:
+        for path in unknown:
             sys.stderr.write(f"{path}: no publisher on record\n")
-            return 1
+        return 1
 
+    def one(path: str) -> tuple[str, bytes | None, str]:
+        entry = modules[path]
         try:
-            staged[path] = wanted_text(path, entry, publisher_for(manifest, entry))
+            return (
+                path,
+                wanted_text(path, entry, publisher_for(manifest, entry)),
+                "",
+            )
         except (Unreachable, NotAModule, ValueError) as exc:
-            sys.stderr.write(f"{path}: {exc}\n")
-            sys.stderr.write("Nothing written; src/ is unchanged.\n")
-            return 1
+            return path, None, str(exc)
+
+    # Through the same pool the sweep uses. Refreshing a whole vendor
+    # directory one module at a time would take the hour WORKERS exists
+    # to avoid. Every fetch is collected before anything is written, so
+    # this is still all-or-nothing.
+    failures = []
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        for path, data, error in pool.map(one, wanted):
+            if data is None:
+                failures.append(f"{path}: {error}")
+            else:
+                staged[path] = data
+
+    if failures:
+        for failure in failures:
+            sys.stderr.write(f"{failure}\n")
+        sys.stderr.write("Nothing written; src/ is unchanged.\n")
+        return 1
 
     changed = 0
     for path, data in staged.items():
@@ -623,7 +665,12 @@ def discover(manifest: dict[str, Any], name: str, directory: str) -> int:
         except NotAModule as exc:
             return path, "unserved", str(exc)
         except Unreachable as exc:
-            return path, "unserved", str(exc)
+            # Kept apart from "unserved" on purpose. A vendor that does
+            # not publish a module and a vendor whose site was down for
+            # a minute look the same to the fetch and mean opposite
+            # things: the first is a fact to record, the second is a
+            # reason to run this again.
+            return path, "unreachable", str(exc)
 
         if (ROOT / path).read_bytes() == upstream:
             return path, "matches", ""
@@ -661,11 +708,12 @@ def discover(manifest: dict[str, Any], name: str, directory: str) -> int:
         ("matches", "adopted, identical to the publisher"),
         ("differs", "adopted, but our text differs -- run --explain"),
         ("unserved", "not served by this publisher, left unmanaged"),
+        ("unreachable", "could not be reached; state unknown, run again"),
         ("known", "already in the manifest"),
     ):
         group = outcomes.get(outcome, [])
         sys.stdout.write(f"\n{len(group)} {title}\n")
-        if outcome in ("differs", "unserved"):
+        if outcome in ("differs", "unserved", "unreachable"):
             for path, detail in sorted(group):
                 sys.stdout.write(f"  {path}{': ' + detail if detail else ''}\n")
 
