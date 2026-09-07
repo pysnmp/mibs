@@ -63,6 +63,11 @@ jobs:
       - run: make index
         env:
           MIBDUMP: ${{ github.workspace }}/.venv/bin/mibdump
+      # Runs after 'make index' so it checks the built index.csv and
+      # index-v2.csv as well as the checked-in frozen snapshot. Gates before
+      # the image build, which is the expensive part.
+      - name: OID index contract
+        run: ./tests/index-contract.sh
       - uses: actions/upload-artifact@v7
         with:
           path: log/
