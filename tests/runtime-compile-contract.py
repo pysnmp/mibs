@@ -80,6 +80,11 @@ def ok(message):
 
 # --- copied from sc4snmp, unmodified ----------------------------------------
 # splunk_connect_for_snmp/snmp/manager.py at 1.17.0.
+#
+# Unmodified means unmodified, down to `is_mib_resolved(id)` shadowing a
+# builtin: the value of this block is that it diffs clean against theirs, so a
+# reader can confirm at a glance that we test their behaviour and not our
+# transcription of it. Renaming would be safe and would cost exactly that.
 
 DEFAULT_STANDARD_MIBS = [
     "HOST-RESOURCES-MIB",
@@ -91,7 +96,7 @@ DEFAULT_STANDARD_MIBS = [
 ]
 
 
-def is_mib_resolved(id):
+def is_mib_resolved(id):  # noqa: A002 -- verbatim; see the marker above
     if (
         id.startswith("RFC1213-MIB::")
         or id.startswith("SNMPv2-SMI::enterprises.")

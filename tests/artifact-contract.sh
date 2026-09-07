@@ -57,25 +57,31 @@ echo "== asn1: source filenames are bare module names"
 
 # The two .mib-sources control files are build input, not MIBs; the Makefile
 # drops them with grep -v '^\.' when it composes the published tree.
+# sort -u, not sort: 58 basenames occur in more than one source directory, and
+# `comm` pairs duplicate lines -- so a non-unique list would report every extra
+# occurrence as unpublished. What is published is one file per name.
 SRC_NAMES="$(mktemp)"
-find src -type f -exec basename {} \; | grep -v '^\.' | sort >"$SRC_NAMES"
+find src -type f -exec basename {} \; | grep -v '^\.' | sort -u >"$SRC_NAMES"
 
 DOTTED="$(grep -c '\.' "$SRC_NAMES" || true)"
 if [ "$DOTTED" = "0" ]; then
-  pass "no source filename carries an extension"
+  pass "no source module name carries an extension"
 else
-  fail "$DOTTED source filenames carry an extension; @mib@ substitution would 404"
+  fail "$DOTTED source module names carry an extension; @mib@ substitution would 404"
   grep '\.' "$SRC_NAMES" | head -5 >&2
 fi
 
 UNSAFE="$(grep -c '[^A-Za-z0-9._~-]' "$SRC_NAMES" || true)"
 if [ "$UNSAFE" = "0" ]; then
-  pass "every source filename is URL-safe unescaped"
+  pass "every source module name is URL-safe unescaped"
 else
-  fail "$UNSAFE source filenames need percent-encoding; those modules are unfetchable"
+  fail "$UNSAFE source module names need percent-encoding; those modules are unfetchable"
   grep '[^A-Za-z0-9._~-]' "$SRC_NAMES" | head -5 >&2
 fi
-rm -f "$SRC_NAMES"
+# Deliberately not removed here: the published-set check below compares against
+# it, and a name-shape check that passes while the module is unreachable is the
+# gap that check exists to close.
+trap 'rm -f "$SRC_NAMES"' EXIT
 
 # ---------------------------------------------------------------------------
 # standard.txt -- characterized, not depended on
@@ -165,7 +171,6 @@ if [ -d output/asn1 ]; then
   PUBCOUNT="$(grep -c . "$PUB" || true)"
   PUBDOTTED="$(grep -c '\.' "$PUB" || true)"
   PUBUNSAFE="$(grep -c '[^A-Za-z0-9._~-]' "$PUB" || true)"
-  rm -f "$PUB"
 
   [ "$PUBDOTTED" = "0" ] || fail "$PUBDOTTED published filenames carry an extension"
   [ "$PUBDOTTED" = "0" ] && pass "no published filename carries an extension"
@@ -179,6 +184,68 @@ if [ -d output/asn1 ]; then
   else
     fail "output/asn1 holds $PUBCOUNT modules, below the floor of 250 -- looks truncated"
   fi
+
+  # -------------------------------------------------------------------------
+  # Every source module reaches the published tree
+  # -------------------------------------------------------------------------
+  #
+  # A correctly-named module nothing publishes is worse than a badly-named one:
+  # index.py still indexes it, so MIB_INDEX names a module MIB_SOURCES answers
+  # 404 for, and the two published artifacts disagree.
+  #
+  # Nineteen modules are in that state today, all under src/vendor/alcatel/
+  # stellar. scripts/vendor.sh fans out over the depth-1 directories of
+  # src/vendor, and scripts/vendorsingle.sh then compiles with a *recursive*
+  # find but publishes with `cp -f $1/*`, which is not recursive -- so a nested
+  # vendor directory is compiled and indexed while its ASN.1 is never copied.
+  # Two of the nineteen carry 30 rows in index-frozen.csv between them.
+  #
+  # Pinned as the exact set rather than a count. A twentieth fails here, and so
+  # does fixing these, which is the prompt to delete them from this list.
+  # See pysnmp/mibs#371.
+  echo "== asn1: every source module reaches the published tree"
+  UNPUBLISHED_KNOWN="$(mktemp)"
+  cat >"$UNPUBLISHED_KNOWN" <<'KNOWN'
+ALCATEL-NGOAW-BASE-MIB
+ALCATEL-NGOAW-DEVICES-MIB
+OAW-AP1101
+OAW-AP1201
+OAW-AP1201BG
+OAW-AP1201H
+OAW-AP1201HL
+OAW-AP1201L
+OAW-AP1221
+OAW-AP1222
+OAW-AP1231
+OAW-AP1232
+OAW-AP1251
+OAW-AP1251D
+OAW-AP1321
+OAW-AP1322
+OAW-AP1361
+OAW-AP1361D
+OAW-AP1362
+KNOWN
+  sort -o "$UNPUBLISHED_KNOWN" "$UNPUBLISHED_KNOWN"
+
+  MISSING="$(mktemp)"
+  comm -23 "$SRC_NAMES" "$PUB" >"$MISSING"
+
+  if diff -q "$UNPUBLISHED_KNOWN" "$MISSING" >/dev/null; then
+    pass "the 19 known-unpublished modules, and no others (pysnmp/mibs#371)"
+  else
+    NEW="$(comm -13 "$UNPUBLISHED_KNOWN" "$MISSING" | grep -c . || true)"
+    GONE="$(comm -23 "$UNPUBLISHED_KNOWN" "$MISSING" | grep -c . || true)"
+    if [ "$NEW" != "0" ]; then
+      fail "$NEW source modules are newly absent from output/asn1"
+      comm -13 "$UNPUBLISHED_KNOWN" "$MISSING" | head -10 >&2
+    fi
+    if [ "$GONE" != "0" ]; then
+      fail "$GONE modules now publish that pysnmp/mibs#371 pins as unpublished -- remove them from UNPUBLISHED_KNOWN"
+      comm -23 "$UNPUBLISHED_KNOWN" "$MISSING" | head -10 >&2
+    fi
+  fi
+  rm -f "$UNPUBLISHED_KNOWN" "$MISSING" "$PUB"
 elif [ -d output ]; then
   fail "output/asn1 is missing, but output/ exists -- the build did not complete"
 fi
