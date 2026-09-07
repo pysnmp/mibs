@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import hashlib
 import pathlib
 import sys
 import time
@@ -75,12 +76,20 @@ def publisher_for(manifest: dict[str, Any], entry: dict[str, Any]) -> dict[str, 
 
 
 class Finding:
-    """One thing a sweep noticed about one module."""
+    """One thing a sweep noticed about one module.
 
-    def __init__(self, path: str, kind: str, detail: str) -> None:
+    Carries the fingerprint of the bytes the publisher served, where a
+    fetch happened. Two looks at a module agree only if they agree about
+    the text, not merely about the verdict.
+    """
+
+    def __init__(
+        self, path: str, kind: str, detail: str, fingerprint: str = ""
+    ) -> None:
         self.path = path
         self.kind = kind
         self.detail = detail
+        self.fingerprint = fingerprint
 
     def __str__(self) -> str:
         return f"{self.path}: {self.detail}"
@@ -111,13 +120,15 @@ def inspect(
 
     ours = local.read_bytes()
 
+    served = hashlib.sha256(upstream).hexdigest()
+
     if "patch" in entry:
         try:
             expected = apply_patch(
                 upstream, (PATCHES / entry["patch"]).read_text(), path
             )
         except ValueError as exc:
-            return Finding(path, "patch-stale", str(exc).split(": ", 1)[-1])
+            return Finding(path, "patch-stale", str(exc).split(": ", 1)[-1], served)
     else:
         expected = upstream
 
@@ -128,6 +139,7 @@ def inspect(
                 "divergence-resolved",
                 "recorded as diverging, but now matches its publisher -- "
                 "drop the divergence record from mib-sources.json",
+                served,
             )
         return None
 
@@ -145,6 +157,7 @@ def inspect(
         "drift",
         f"no longer matches its publisher (ours {revision_of(ours)}, "
         f"published {revision_of(upstream)})",
+        served,
     )
 
 
@@ -192,16 +205,29 @@ def confirmed(
 
     second = inspect(path, entry, publisher)
 
-    if second is not None and second.kind == first.kind:
+    # Both the verdict and the bytes behind it. Two mangled responses
+    # can each produce "drift" while differing from one another and from
+    # what the vendor actually publishes; agreeing on the verdict alone
+    # would confirm the very thing this is here to rule out. What is
+    # being established is that the publisher's text is stable.
+    if (
+        second is not None
+        and second.kind == first.kind
+        and second.fingerprint == first.fingerprint
+    ):
         return second
+
+    if second is not None and second.kind == first.kind:
+        served = "the same verdict on different text"
+    else:
+        served = f"first {first.kind}, then " + (second.kind if second else "a match")
 
     return Finding(
         path,
         "unstable",
         "its publisher served different answers to two fetches moments "
-        f"apart (first {first.kind}, then "
-        f"{second.kind if second else 'a match'}) -- reporting the "
-        "source as unreliable rather than guessing which was real",
+        f"apart ({served}) -- reporting the source as unreliable rather "
+        "than guessing which was real",
     )
 
 

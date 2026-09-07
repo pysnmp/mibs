@@ -315,9 +315,25 @@ def normalize_eol(data: bytes) -> bytes:
 _archives: dict[str, zipfile.ZipFile] = {}
 
 
+#: Guards the archive cache. Held across the download, so the first
+#: thread to want an archive fetches it and the rest wait for that one
+#: rather than starting their own.
+_archive_lock = threading.Lock()
+
+
 def _archive(url: str) -> zipfile.ZipFile:
-    """The zip at *url*, downloaded at most once per run."""
-    if url not in _archives:
+    """The zip at *url*, downloaded at most once per run.
+
+    Checking the cache and filling it have to happen together. A sweep
+    runs its fetches in parallel, and every worker that wants a module
+    from the same archive reaches this at once -- so a bare
+    check-then-set would have all of them miss, and all of them download
+    the same file.
+    """
+    with _archive_lock:
+        if url in _archives:
+            return _archives[url]
+
         try:
             _archives[url] = zipfile.ZipFile(io.BytesIO(download(url)))
         except zipfile.BadZipFile as exc:
@@ -327,7 +343,7 @@ def _archive(url: str) -> zipfile.ZipFile:
             # every module the archive holds.
             raise Unreachable(f"{url}: {exc}") from exc
 
-    return _archives[url]
+        return _archives[url]
 
 
 def module_of(path: str) -> str:
