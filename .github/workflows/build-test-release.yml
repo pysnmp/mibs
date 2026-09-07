@@ -70,6 +70,8 @@ jobs:
         run: ./tests/index-contract.sh
       - name: Published artifact contract
         run: ./tests/artifact-contract.sh
+      - name: Runtime-compile contract
+        run: uv run python ./tests/runtime-compile-contract.py
       - uses: actions/upload-artifact@v7
         with:
           path: log/
