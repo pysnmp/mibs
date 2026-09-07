@@ -1,0 +1,11 @@
+--- a/CISCO-IPMCAST-MIB
++++ b/CISCO-IPMCAST-MIB
+@@ -9,7 +9,7 @@
+         RowStatus, TruthValue            FROM SNMPv2-TC
+         OwnerString                      FROM RFC1271-MIB
+         MODULE-COMPLIANCE, OBJECT-GROUP  FROM SNMPv2-CONF
+-        igmpInterfaceEntry               FROM IGMP-MIB;
++        igmpInterfaceEntry               FROM IGMP-STD-MIB;
+ 
+     ciscoMcastMIB MODULE-IDENTITY
+         LAST-UPDATED "9407301359Z"

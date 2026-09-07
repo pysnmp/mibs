@@ -24,6 +24,36 @@ jobs:
           python-version: "3.11"
       - uses: pre-commit/action@v3.0.1
 
+  mib-sources:
+    name: MIB source manifest
+    permissions:
+      # Reads the tree and nothing else. The workflow as a whole has no
+      # permissions block, so without this the job would inherit the
+      # repository default, which includes write.
+      contents: read
+    # Offline half of the freshness tooling: does mib-sources.json still
+    # describe the tree it is checked in against? The half that talks to
+    # vendors runs on a schedule instead, in mib-freshness.yml, so a
+    # contributor's pull request cannot go red over somebody's outage.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.12.9"
+          python-version: "3.11"
+          enable-cache: true
+      - run: uv sync --frozen
+      - name: Test the provenance tooling
+        # Offline and quick. Covers the two judgements that were wrong
+        # once and looked right: per-line attribution, and confirming
+        # drift on the publisher's bytes rather than on the verdict.
+        run: uv run python tests/test_mib_sources.py
+      - run: uv run python scripts/update_vendor_mibs.py --validate
+
   build:
     name: Build Release
     needs:

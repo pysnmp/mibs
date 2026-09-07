@@ -1,0 +1,74 @@
+name: MIB freshness
+
+# Re-fetches every MIB that mib-sources.json names a publisher for and
+# reports anything whose checked-in bytes are no longer that publisher's
+# text with our patch applied.
+#
+# This repository spent years with no way to ask that question. MIBs
+# arrived in bulk from the snmplabs and librenms collections, were
+# hand-repaired where they would not compile, and the repair and the
+# import blurred into one another in the file -- so a copy carrying a
+# deliberate one-line fix and a copy eight years behind its vendor were
+# indistinguishable on disk. mib-sources.json takes the two apart by
+# keeping the vendor's own text as the baseline and our change as a
+# patch beside it, the way pysmi does for the base MIBs it bundles.
+#
+# A separate, scheduled workflow rather than a step in CI: it depends on
+# a third-party site being reachable, and a contributor's pull request
+# should not go red over an outage that has nothing to do with their
+# change. Nothing here writes to the repository -- a vendor revision is
+# a change somebody reviews, not one a robot lands.
+
+on:
+  schedule:
+    # Monthly, on the 3rd at 05:41 UTC. An arbitrary off-peak time, and
+    # deliberately not the 1st: half the automation on GitHub runs then,
+    # and a sweep that makes upwards of a thousand requests to one host
+    # is a poor thing to add to that pile. Nothing tracked here turns
+    # over faster than a month.
+    - cron: "41 5 3 * *"
+  workflow_dispatch:
+  # Changing the manifest, a patch or the tooling is exactly when the
+  # sweep should run -- those are the only files in the repository that
+  # can make it wrong.
+  pull_request:
+    paths:
+      - "mib-sources.json"
+      - "scripts/mib_sources.py"
+      - "scripts/update_vendor_mibs.py"
+      - "scripts/mib-patches/**"
+      - ".github/workflows/mib-freshness.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          # The sweep reads git history to tell a fix of ours from a
+          # file that arrived already repaired. A shallow clone would
+          # make every difference look inherited.
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.12.9"
+          python-version: "3.11"
+          enable-cache: true
+      - name: Check the manifest against the tree
+        # Offline, and the cheapest thing that can be wrong: a patch
+        # file deleted, an entry naming a publisher that is not defined.
+        # Run first so a broken manifest is not reported as a thousand
+        # unreachable modules.
+        run: uv run python scripts/update_vendor_mibs.py --validate
+      - name: Compare checked-in MIBs against their publishers
+        run: uv run python scripts/update_vendor_mibs.py --check
+      - name: Report how much of src/ has a publisher on record
+        # Coverage is the honest number: most of this repository still
+        # has no fetchable source. Run it whatever the check did, so a
+        # single stale MIB does not hide the size of the gap.
+        if: always()
+        run: uv run python scripts/update_vendor_mibs.py --report

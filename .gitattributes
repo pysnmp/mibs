@@ -1,0 +1,9 @@
+# MIB text is compared byte for byte against what its publisher serves
+# (see mib-sources.json). Git's end-of-line filters would rewrite that
+# text on checkout, so a Windows working copy would report every tracked
+# module as diverging and a patch cut on one would not apply on the
+# other. Treat everything under src/ as opaque bytes.
+src/** -text
+
+# The patches are cut against those bytes and must survive the same way.
+scripts/mib-patches/** -text
