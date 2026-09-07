@@ -580,14 +580,27 @@ def adopt(manifest: dict[str, Any], paths: list[str]) -> int:
 
         # Every patch needs a reason, or --validate rejects the manifest
         # this just wrote. Where our history has nothing to say, that
-        # itself is the reason and is worth stating plainly rather than
-        # leaving a hole for somebody to trip over later.
-        entry.setdefault(
-            "reason",
-            "Inherited from the import: no commit of ours records what "
-            "this repairs. Replace this with the purpose once somebody "
-            "has read the two texts.",
-        )
+        # itself is the reason -- but only what was actually established
+        # may be written down. A patch that only removes publisher text
+        # leaves no line of ours for git to blame, so attribution comes
+        # back empty *and* not inherited; saying "inherited" there would
+        # assert a provenance nothing checked.
+        if inherited:
+            unattributed = (
+                "Inherited from the import: no commit of ours records "
+                "what this repairs. Replace this with the purpose once "
+                "somebody has read both texts."
+            )
+        else:
+            unattributed = (
+                "Our text differs from the publisher's and nothing in "
+                "our history says why -- a patch that only removes "
+                "publisher text leaves no line to attribute. Replace "
+                "this with the purpose once somebody has read both "
+                "texts."
+            )
+
+        entry.setdefault("reason", unattributed)
         entry.pop("divergence", None)
 
         sys.stdout.write(f"{path}: patch written to {relative}\n")
