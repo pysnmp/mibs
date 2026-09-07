@@ -310,40 +310,90 @@ def normalize_eol(data: bytes) -> bytes:
     return data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
 
 
-#: Archives already pulled during this run. A vendor that ships its whole
-#: MIB set in one zip must be downloaded once, not once per module.
-_archives: dict[str, zipfile.ZipFile] = {}
+#: What a run has learned about each archive URL: the open zip, or the
+#: failure that settled it. Failures are remembered too -- an outage is
+#: an answer, and re-deriving it once per module is what makes a sweep
+#: crawl exactly when a publisher is down.
+_archives: dict[str, tuple[zipfile.ZipFile | None, str]] = {}
+
+#: One lock per archive URL, so a slow or failing publisher delays only
+#: the modules that need it. Created under _registry, which is held just
+#: long enough to read or write the two dictionaries and never across a
+#: download.
+_archive_locks: dict[str, threading.Lock] = {}
+_registry = threading.Lock()
 
 
-#: Guards the archive cache. Held across the download, so the first
-#: thread to want an archive fetches it and the rest wait for that one
-#: rather than starting their own.
-_archive_lock = threading.Lock()
+def _settled(url: str) -> tuple[zipfile.ZipFile | None, str] | None:
+    """What this run already knows about *url*, if anything."""
+    with _registry:
+        return _archives.get(url)
+
+
+def _deliver(known: tuple[zipfile.ZipFile | None, str]) -> zipfile.ZipFile:
+    """Hand back a settled archive, or re-raise how it failed.
+
+    A fresh exception each time rather than a stored one: the same
+    instance raised from several threads accumulates their tracebacks
+    into one another's.
+    """
+    archive, failure = known
+
+    if archive is None:
+        raise Unreachable(failure)
+
+    return archive
 
 
 def _archive(url: str) -> zipfile.ZipFile:
-    """The zip at *url*, downloaded at most once per run.
+    """The zip at *url*, fetched at most once per run.
 
-    Checking the cache and filling it have to happen together. A sweep
-    runs its fetches in parallel, and every worker that wants a module
-    from the same archive reaches this at once -- so a bare
-    check-then-set would have all of them miss, and all of them download
-    the same file.
+    Every worker that wants a module from the same archive arrives here
+    together, so checking and filling cannot be separate steps or all of
+    them miss and all of them download. But the wait has to be per URL
+    and it has to cover failure too:
+
+    - A lock shared by every archive would make one slow publisher hold
+      up the others for no reason.
+    - Remembering only successes leaves an unreachable archive to be
+      retried by each of its modules in turn -- three attempts and two
+      backoffs apiece, against a sixty-second timeout. A publisher being
+      down would cost minutes per module instead of once.
+
+    Raises:
+        Unreachable: the archive could not be fetched or opened, whether
+            this call found that out or an earlier one did.
     """
-    with _archive_lock:
-        if url in _archives:
-            return _archives[url]
+    known = _settled(url)
+    if known is not None:
+        return _deliver(known)
+
+    with _registry:
+        lock = _archive_locks.setdefault(url, threading.Lock())
+
+    settled: tuple[zipfile.ZipFile | None, str]
+
+    with lock:
+        # Another worker may have settled it while this one waited.
+        known = _settled(url)
+        if known is not None:
+            return _deliver(known)
 
         try:
-            _archives[url] = zipfile.ZipFile(io.BytesIO(download(url)))
-        except zipfile.BadZipFile as exc:
+            opened = zipfile.ZipFile(io.BytesIO(download(url)))
+        except (Unreachable, zipfile.BadZipFile) as exc:
             # Not a zip means the download was cut short, or the vendor
             # is serving an error page where the archive used to be.
             # Either way it is a failure to reach them, not a change in
             # every module the archive holds.
-            raise Unreachable(f"{url}: {exc}") from exc
+            settled = (None, f"{url}: {exc}")
+        else:
+            settled = (opened, "")
 
-        return _archives[url]
+        with _registry:
+            _archives[url] = settled
+
+    return _deliver(settled)
 
 
 def module_of(path: str) -> str:
