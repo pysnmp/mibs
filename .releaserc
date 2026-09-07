@@ -41,17 +41,34 @@
               }
             ],
             "countMatches": true
+          },
+          # uv.lock records this project's own version in its [[package]]
+          # entry. Nothing else in the lock derives from it, so stamp that one
+          # line directly. Running `uv lock` here instead would re-resolve the
+          # whole graph to rewrite a string, which needs registry metadata the
+          # release job has no reason to be holding.
+          #
+          # The lookbehind pins the match to the pysnmp-mibs entry so a
+          # dependency that happens to share the version cannot be hit.
+          {
+            "files": ["uv.lock"],
+            "from": "(?<=name = \"pysnmp-mibs\"\\nversion = \")[^\"]+",
+            "to": "${nextRelease.version}",
+            "results": [
+              {
+                "file": "uv.lock",
+                "hasChanged": true,
+                "numMatches": 1,
+                "numReplacements": 1
+              }
+            ],
+            "countMatches": true
           }
         ]
       }
     ],
-    # Runs after the replace plugin has stamped pyproject.toml, so
-    # `uv lock` sees the new version and rewrites the one line of the
-    # lock that records it. Offline on purpose: the cache is warm from
-    # the `uv sync --frozen` earlier in this job, and a release must not
-    # be able to re-resolve dependencies from the network on its way out.
     ["@semantic-release/exec", {
-      "prepareCmd": 'yq -i eval ".appVersion = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml;yq -i eval ".version = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml;uv lock --offline'
+      "prepareCmd": 'yq -i eval ".appVersion = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml;yq -i eval ".version = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml'
     }],
     "@semantic-release/release-notes-generator",
     [
