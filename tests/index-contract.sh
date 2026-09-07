@@ -112,8 +112,12 @@ echo "== every module named in the index is still carried somewhere"
 #
 # "Carried" means src/ or pysmi's bundled ASN.1, since 'make bundled-asn1'
 # stages the bundle into the published tree alongside src/.
-DEAD_MODULE_CEILING=60
-DEAD_ROW_CEILING=333
+#
+# COFFEE-POT-MIB joined them when src/standard was deleted: pysmi does not
+# bundle it and nothing imports it, so the snapshot's two rows for it now name
+# a module the site cannot serve.
+DEAD_MODULE_CEILING=61
+DEAD_ROW_CEILING=335
 
 if BUNDLE="$(uv run python -c 'import importlib.util,pathlib;print(importlib.util.find_spec("pysmi.mibs.asn1").submodule_search_locations[0])' 2>/dev/null)" \
    && [ -d "$BUNDLE" ]; then

@@ -1,8 +1,6 @@
 .DEFAULT_GOAL := help
 PY ?= uv run
 .PHONY: all vendor bundled-asn1
-#RFC=$(notdir $(wildcard mibs/*))
-RFC=$(wildcard src/standard/*)
 
 # fetch:  ## Download all mibs from the source
 # 	@# Wget recursive
@@ -26,14 +24,12 @@ render:
 	helm template --namespace default --output-dir rendered/manifests/default default charts/mibserver
 	./render_manifests.sh
 
-standard: bundled-asn1 $(RFC)
-	@# Compile mibs
-
-	{ find src/standard -type f; find output/asn1 -maxdepth 1 -type f; } | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
+standard: bundled-asn1
+	@# Compile the standard MIBs, which now come entirely from the pysmi bundle
+	find output/asn1 -maxdepth 1 -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
 	./scripts/vendorsingle.sh output/asn1
-	./scripts/vendor.sh standard	
 
-vendor: bundled-asn1 $(RFC)
+vendor: bundled-asn1
 	./scripts/vendor.sh vendor
 
 localmibs:
@@ -44,7 +40,7 @@ index: standard vendor  ##generate index
 	touch output/.nojekyll
 	$(PY) python index.py
 
-index-local-mibs: bundled-asn1 $(RFC) localmibs
+index-local-mibs: bundled-asn1 localmibs
 	touch output/.nojekyll
 	$(PY) python index.py
 
