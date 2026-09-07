@@ -1,0 +1,4073 @@
+{
+  "modules": {
+    "src/vendor/cisco/ACTONA-ACTASTOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/AIRESPACE-REF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/AIRESPACE-SWITCHING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/AIRESPACE-WIRELESS-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-ADDRESS-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-BMGT-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-CAP": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-CERT-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-DHCP-SERVER-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-DHCP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-DNS-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-EVENT-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-FILTER-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-FTP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-GENERAL-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-GLOBAL-REG": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-HARDWARE-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-HTTP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-IP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-L2TP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-LBSSF-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-MULTILINK-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-NAT-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-PPP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-PPPOE-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-PPTP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-SDI-ACE-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-SEP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-SESSION-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-SSH-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-SSL-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-SYNC-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-T1E1-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-TELNET-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ALTIGA-VERSION-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ATM-RMON-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/AWC-VLAN-CFG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/BASIS-GENERIC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/BASIS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/BASIS-ONLINE-DIAG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/BASIS-RAS-DISK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/BASIS-SERIAL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/BASIS-SHELF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CALISTA-DPA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-5800-HEALTH-MON-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-6400-CHASSIS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAA-CLIENT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAA-CLIENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAA-SERVER-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAA-SERVER-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAA-SERVER-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAA-SERVER-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAA-SESSION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAL5-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AAL5-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ACCESS-ENVMON-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ACL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ADAPTER-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/CISCO-ADMISSION-POLICY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ADSL-CAP-LINE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ADSL-DMT-LINE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ALARM-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ALPS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ANNOUNCEMENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AON-STATUS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-APPLIANCE-REDUNDANCY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-APPLICATION-ACCELERATION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-APPLICATION-ACCELERATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-APPNAV-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-APPNAV-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-APS-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-APS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ASN-GATEWAY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ASPP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-ACCESS-LIST-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-ADDR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-CELL-LAYER-CAPABILITY": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-CELL-LAYER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-CONN-INFO-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-CONN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-DUAL-PHY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-IF-PHYS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-NETWORK-CLOCK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-PVC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-PVCTRAP-EXTN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-QOS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-RM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-SERVICE-REGISTRY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-SIG-DIAG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-SWITCH-ADDR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-SWITCH-CUG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-SWITCH-FR-IWF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-SWITCH-FR-RM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-TRAFFIC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-TRUNK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-TRUNK-STAT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-TRUNK-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-VIRTUAL-IF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM-VIRTUAL-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ATM2-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AUTH-FRAMEWORK-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AUTH-FRAMEWORK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-AUTHORIZATION-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BBSM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BERT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BERT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BGP-POLICY-ACCOUNTING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BGP-POLICY-ACCOUNTING-MIB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BGP4-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BITS-CLOCK-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BITS-CLOCK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BOOT-HWDIAGS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BRIDGE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BRIDGE-DOMAIN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BRIDGE-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BRIDGE-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BSC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BSTUN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BULK-FILE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BULK-FILE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-BUS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-C12000-IF-HC-COUNTERS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-C2900-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-C8500-REDUNDANCY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-ADM-C-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-ADMISSION-CTRL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-AVAILABILITY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-DIAG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-DIAG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-DSG-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-IRON-BUS-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-L2VPN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-METERING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-METERING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-QOS-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-SPECTRUM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-SPECTRUM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-WIDEBAND-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CABLE-WIDEBAND-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAC-SYSTEM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CALL-APPLICATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CALL-HISTORY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CALL-RESOURCE-POOL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CALL-TRACKER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CALL-TRACKER-MODEM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CALL-TRACKER-TCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CALLHOME-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CALLHOME-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAS-IF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAS-IF-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAS-IF-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAS-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CASA-FA-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CASA-FA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CASA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAT6K-CROSSBAR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAT6K-CROSSBAR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CAT6k-NAT-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CATOS-ACL-QOS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CATOS-ACL-QOS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CBP-TARGET-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CBP-TARGET-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CBP-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CCM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CCM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CCME-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDMA-AHDLC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDMA-PDSN-CRP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDMA-PDSN-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDMA-PDSN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-AUTHMGR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-BWMGR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-CS-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-FSI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-INGEST-TUNING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-INGESTMGR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-ISA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-SERVER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CDSTV-SERVICES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CEF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CEF-TC": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CFS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CHANNEL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CIDS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CIPCMPC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CIPCSNA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CIPLAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CIPTCPIP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CIPTG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CIRCUIT-INTERFACE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CLASS-BASED-QOS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CLASS-BASED-QOS-MIB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CLUSTER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CNO-SWITCH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-COMMON-MGMT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-COMMON-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-COMMON-ROLES-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-COMMON-ROLES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-COMPRESSION-SERVICE-ADAPTER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONFIG-COPY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONFIG-COPY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONFIG-MAN-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONFIG-MAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONTACT-CENTER-APPS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONTENT-DELIVERY-STREAMING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONTENT-ENGINE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONTENT-NETWORK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONTENT-SERVICES-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONTENT-SERVICES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONTEXT-MAPPING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CONTEXT-MAPPING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-COPS-CLIENT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-COPS-CLIENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CRYPTO-ACCELERATOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CSG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CSG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CUICAPPS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-CVP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DATA-COLLECTION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DATA-COLLECTION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DDP-IAPP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DEVICE-EXCEPTION-REPORTING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DEVICE-LOCATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DHCP-RELAY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DHCP-SNOOPING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DHCP-SNOOPING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIAL-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIAMETER-BASE-PROTOCOL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIAMETER-BASE-PROTOCOL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIAMETER-CC-APPL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIAMETER-CC-APPL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIAMETER-SG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIAMETER-SG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIFFSERV-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIGITAL-MEDIA-SYSTEMS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIGITAL-MEDIA-SYSTEMS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DISMAN-EVENT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DISMAN-EXPRESSION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIST-DIRECTOR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DIST-DIRECTOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DLR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DLSW-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DLSW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DNAC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DNS-CLIENT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DNS-CLIENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DNS-SERVER-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOCS-EXT-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOCS-REMOTE-QUERY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-ANTENNA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-ASSOCIATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-CONTEXT-SERVICES-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-CONTEXT-SERVICES-CLIENT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-CONTEXT-SERVICES-CLIENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-CONTEXT-SERVICES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-HT-MAC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-HT-MAC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-HT-PHY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-HT-PHY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-LBS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-QOS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-RADAR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-RADIO-DIAGNOSTIC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-RADIO-DIAGNOSTIC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-SSID-SECURITY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-WIDS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT11-WIDS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DOT3-OAM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DS0-CROSS-CONNECT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DS0BUNDLE-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DS0BUNDLE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DS1-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DS1-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DS3-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DS3-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DS3-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DSG-IF-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DSL-PROVISION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DSP-MGMT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DSP-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DSPU-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DTI-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DYNAMIC-ARP-INSPECTION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DYNAMIC-ARP-INSPECTION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DYNAMIC-PORT-VSAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DYNAMIC-TEMPLATE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-DYNAMIC-TEMPLATE-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-EIGRP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-EMBEDDED-EVENT-MGR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENERGYWISE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENH-IPSEC-FLOW-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENHANCED-IMAGE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENHANCED-IMAGE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENHANCED-IPSEC-FLOW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENHANCED-MEMPOOL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENHANCED-MEMPOOL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENHANCED-SLB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENHANCED-SLB-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENHANCED-WRED-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-ALARM-MIB": {
+      "patch": "cisco/CISCO-ENTITY-ALARM-MIB.patch",
+      "publisher": "cisco-mibs-v2",
+      "reason": "The module uses Unsigned32 but imports it FROM CISCO-TC, which does not define it. Imported FROM SNMPv2-SMI instead, where it comes from."
+    },
+    "src/vendor/cisco/CISCO-ENTITY-ASSET-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-ASSET-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-DIAG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-DIAG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-DIAG-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-DISPLAY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-DISPLAY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-FRU-CONTROL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-FRU-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-PERFORMANCE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-PFE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-PROVISIONING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-QFP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-SENSOR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-SENSOR-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-SENSOR-HISTORY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-SENSOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-SENSOR-RFC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENTITY-VENDORTYPE-OID-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENVMON-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ENVMON-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-EPC-GATEWAY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-EPM-NOTIFICATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ERM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ERM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ERR-DISABLE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ERR-DISABLE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ETHER-CFM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ETHER-CFM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ETHER-WIS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ETHERLIKE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ETHERLIKE-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ETHERLIKE-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ETHERNET-ACCESS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ETHERNET-FABRIC-EXTENDER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-EVC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-EVC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-EXT-SCSI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRIC-C12K-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRIC-HFR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRIC-HFR-MIB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRIC-MCAST-APPL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRIC-MCAST-APPL-MIB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRIC-MCAST-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRIC-MCAST-MIB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRICPATH-TOPOLOGY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FABRICPATH-TOPOLOGY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FASTHUB-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/CISCO-FC-DEVICE-ALIAS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-FE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-FE-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-MULTICAST-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-PM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-ROUTE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-SDV-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-SPAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FC-TUNNEL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FCC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FCIP-MGMT-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FCIP-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FCOE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FCPING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FCS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FCSP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FCTRACEROUTE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FDMI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FEATURE-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FICON-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FILTER-GROUP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FIPS-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FIREWALL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FIREWALL-TC": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FLASH-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FLASH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FLEX-LINKS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FLEX-LINKS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FLOW-CLONE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FLOW-METADATA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FLOW-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FLOW-MONITOR-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FRAME-RELAY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FSPF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FTP-CLIENT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-FTP-CLIENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GATEKEEPER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GDOI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GGSN-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GGSN-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GGSN-GEO-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GGSN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GGSN-QOS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GGSN-QOS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GGSN-SERVICE-AWARE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GPRS-ACC-PT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GPRS-ACC-PT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GPRS-CHARGING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GPRS-CHARGING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GPRS-GTP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GPRS-ISGSN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GPRS-L2RLY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GSLB-DNS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GSLB-DNS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GSLB-HEALTH-MON-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GSLB-HEALTH-MON-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GSLB-SYSTEM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GSLB-SYSTEM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GSLB-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GTP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GTP-DIRECTOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GTP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GTPV2-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-GYROAC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-H225-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-H320-DIAL-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-H323-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-H324-DIAL-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HARDWARE-IP-VERIFY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HARDWARE-IP-VERIFY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HC-ALARM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HC-ALARM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HC-RMON-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HEALTH-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HOST-RESOURCES-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HSRP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HSRP-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HSRP-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HSRP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HW-MODULE-CONTROL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-HW-MODULE-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ICSUDSU-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IDSL-LINE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IEEE8021-CFM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IEEE8021-CFM-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IEEE8021-CFM-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IEEE8021-CFM-V2-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IEEE8021-PAE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IEEE8023-LAG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-ATM2-PVCTRAP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-BFD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-DHCP-SERVER-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-DHCP-SERVER-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-DHCP-SERVER-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-DHCP-SERVER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-DOT11-QOS-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-DOT11-QOS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-FRR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-IP-FORWARD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-IP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-IPMROUTE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-IPMROUTE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-ISIS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-ISIS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-ISNS-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-MEGACO-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-MPLS-ID-STD-03-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-MPLS-TE-EXT-STD-03-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-MPLS-TE-P2MP-STD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-MPLS-VPN-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-MSDP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-NAT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-NAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PIM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PIM-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PIM-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PIM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PPVPN-MPLS-VPN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-ATM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-ENET-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-ENET-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-FR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-MPLS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-PW-TDM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-SCTP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-SCTP-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-SCTP-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-SCTP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-VDSL-LINE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-VPLS-BGP-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-VPLS-GENERIC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-VPLS-LDP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-VRRP-07-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IETF-VRRP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IF-CALL-SERVICE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IF-EXTENSION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IF-EXTENSION-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IF-LINK-CONFIG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IF-LOOPBACK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IF-MONITOR-NOTIF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IF-THRESHOLD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IGMP-FILTER-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IGMP-FILTER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IGMP-SNOOPING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IGMP-SNOOPING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IKE-CONF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IKE-CONFIGURATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IKE-FLOW-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IKE-FLOW-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IKE-FLOW-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IKE-FLOW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMA-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMA-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMAGE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMAGE-CHECK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMAGE-LICENSE-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMAGE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMAGE-TC": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IMAGE-UPGRADE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-INTERFACE-XCVR-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-INTERFACETOPN-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-INTERFACETOPN-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-INTERFACETOPN-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-ADDRESS-POOL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-ADDRESS-POOL-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-CBR-METRICS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-ENCRYPTION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-FORWARD-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-IF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-LOCAL-POOL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-NW-DISCOVERY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-NW-DISCOVERY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-PROTOCOL-FILTER-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-PROTOCOL-FILTER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-RAN-BACKHAUL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-RAN-BACKHAUL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-UPLINK-REDIRECT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IP-URPF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPMCAST-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPMROUTE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSEC-FLOW-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSEC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSEC-POLICY-MAP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSEC-PROV-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSEC-PROVISIONING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSEC-SIGNALING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSEC-SIGNALING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSEC-TC": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSLA-AUTOMEASURE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSLA-ECHO-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSLA-ETHERNET-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSLA-JITTER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSLA-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSLA-VIDEO-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSLA-VIDEO-PROFILE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPSLA-VIDEO-PROFILE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPV6-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IPV6-MLD-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ISCSI-GW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ISCSI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ISDN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ISDNU-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ISNS-CLIENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-ACL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-ACL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-ACT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-ACT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-DSMR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-DSMR-SMPP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-DSMR-UCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GACT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GACT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GRT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GRT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GSCCP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GSCCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GSP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GSP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GSP2-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GSP2-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-GTCAP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-MLR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-MLR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-MONITOR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-MSU-RATES-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-MSU-RATES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-RT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-RT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-SCCP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-SCCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-SP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-SP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-SP2-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-SP2-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-XUA-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ITP-XUA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IVR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-IVR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-JOB-MONITORING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L2-CONTROL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L2-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L2-DEV-MONITORING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L2-TUNNEL-CONFIG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L2-TUNNEL-CONFIG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L2L3-INTERFACE-CONFIG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L2L3-INTERFACE-CONFIG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L2NAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L4L7MODULE-REDUNDANCY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L4L7MODULE-REDUNDANCY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L4L7MODULE-RESOURCE-LIMIT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LAG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LAG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LATITUDE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LEC-DATA-VCC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LEC-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LECS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LICENSE-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LICENSE-MGR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LICENSE-MGR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LICENSE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LINK-ERROR-MONITOR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LINK-ERROR-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LISP-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LIVEDATA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LLDP-EXT-MED-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LOCAL-AUTH-USER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LOCAL-DIRECTOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LPTS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LRE-CPE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-ACL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-AP-MIB": {
+      "patch": "cisco/CISCO-LWAPP-AP-MIB.patch",
+      "publisher": "cisco-mibs-v2",
+      "reason": "Uses CLDot11Band without importing it. Added to the IMPORTS from CISCO-LWAPP-TC-MIB, which is where the textual convention is defined."
+    },
+    "src/vendor/cisco/CISCO-LWAPP-CCX-RM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-CDP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-CLIENT-ROAMING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-CLIENT-ROAMING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-CLOUD-SERVICES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DHCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-CCX-CLIENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CALIB-CAPABILITY": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CCX-REPORTS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CCX-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-TS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-LDAP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOT11-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-DOWNLOAD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-GUEST-LAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-HA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-IDS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-INTERFACE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-IPV6-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-LINKTEST-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-LOCAL-AUTH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MDNS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MESH-BATTERY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MESH-LINKTEST-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MESH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MESH-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MFP-CAPABILITY": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MFP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MOBILITY-EXT-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-MOBILITY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-NBAR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-NETFLOW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-OPENDNS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-PMIP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-QOS-CAPABILITY": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-RF-CAPABILITY": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-RF-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-RLAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-RRM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-SCHEDULED-WLAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-SI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-TC-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-TRUSTSEC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-TSM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-TSM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-TUNNEL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-U3INTERFACE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-WLAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-WLAN-POLICY-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-LWAPP-WLAN-SECURITY-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MAC-AUTH-BYPASS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MAC-AUTH-BYPASS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MAC-NOTIFICATION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MAC-NOTIFICATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MAU-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MAU-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MAU-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MDI-METRICS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEDIA-GATEWAY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEDIA-GATEWAY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEDIA-METRICS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEDIA-QUALITY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEDIA-QUALITY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEDIATRACE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEETINGPLACE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEGACO-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEGACO-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEMORY-POOL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MEMORY-POOL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-METRO-PHY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-ATM-UNI-PORT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-CARD-FEATURE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-DSX1-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-DSX3-BERT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-DSX3-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-ENVMON-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-MODULE-RSRC-PART-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-PXM-CLOCK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-RPM-CONN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-RPM-RSRC-PART-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-RPM-SUBIF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX82XX-VIRTUAL-PORT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX8800-IF-MAPPING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MGX8800-IF-MAPPING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MIP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MLD-SNOOPING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MLD-SNOOPING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MMAIL-DIAL-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MMODAL-CONTACT-APPS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MOBILE-IP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MOBILE-IP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MODEM-MGMT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MODEM-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MODULE-AUTO-SHUTDOWN-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MODULE-AUTO-SHUTDOWN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MODULE-VIRTUALIZATION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MODULE-VIRTUALIZATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MPLS-LSR-EXT-STD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MPLS-TC-EXT-STD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MPLS-TE-STD-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MPOA-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MRP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MSATA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MSP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-MVPN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NAC-NAD-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NAC-NAD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NAC-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NAT-CGN-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NAT-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NDE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NDE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NETFLOW-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NETFLOW-LITE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NETFLOW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NETINT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NETINT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NETSYNC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NETWORK-REGISTRAR-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NETWORK-VIRTUALIZATION-OVERLAY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NHRP-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NMS-APPL-HEALTH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NOTIFICATION-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NOTIFICATION-LOG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NPORT-VIRTUALIZATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NTP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-NTP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OAM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OBMI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OPTICAL-IF-CROSS-CONNECT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OPTICAL-IF-EXTN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OPTICAL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OPTICAL-MONITOR-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OPTICAL-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OPTICAL-MONITORING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OPTICAL-OTS-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OPTICAL-PATCH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OSCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OSPF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OSPF-TRAP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OTN-IF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OTN-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OTV-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OTV-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-OUTAGE-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-P-BRIDGE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-P2P-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PACKET-CAPTURE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PACKET-CAPTURE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PAE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PAE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PAGP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PAGP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PFC-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PFC-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PFR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PIM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PKI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PKI-PARTICIPATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PMON-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PNNI-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PNNI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-POE-PD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-POLICY-GROUP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-POLICY-GROUP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-POP-MGMT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-POP-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PORT-CHANNEL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PORT-QOS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PORT-QOS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PORT-SECURITY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PORT-SECURITY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PORT-STORM-CONTROL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PORT-STORM-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PORT-TRACK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-POWER-ETHERNET-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-POWER-ETHERNET-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-POWER-ETHERNET-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PPPOE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PREFERRED-PATH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PRINTER-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PRIVATE-VLAN-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PRIVATE-VLAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PROCESS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PROCESS-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PRODUCTS-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PROP-ATM-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PROXY-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PRP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PSA-MICROCODE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PSD-CLIENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PSM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PSM-MIB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PTOPO-EXTN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-PTP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-Q-BRIDGE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QINQ-VLAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QLLC01-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QOS-PIB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QOS-PIB-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QOS-POLICY-CONFIG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QOS-POLICY-CONFIG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QOS-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QP-LBG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-QUEUE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RADIUS-ACC-CLIENT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RADIUS-AUTH-CLIENT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RADIUS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RADIUS-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RADIUS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-REMOTE-ACCESS-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-REPEATER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-REPORT-INTERVAL-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RESILIENT-ETHERNET-PROTOCOL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RF-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RF-SUPPLEMENTAL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RFC1213-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RFC1406-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RFC1407-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RHINO-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RMON-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RMON-CONFIG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RMON-CONFIG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RMON2-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ROUTE-POLICIES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RPMS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RS-232-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RSCN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RSRB-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RTP-METRICS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RTTMON-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RTTMON-ICMP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RTTMON-IP-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RTTMON-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RTTMON-RTP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-RTTMON-TC-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SAA-APM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SAN-BASE-SVC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SCSI-FLOW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SCSI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SCTP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SCTP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SDG-MDNS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SDLLC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SDSL-LINE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SECURE-SHELL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SECURE-SHELL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SECY-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SELECTIVE-VRF-DOWNLOAD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SERVICE-CONTROL-ATTACK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SERVICE-CONTROL-LINK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SERVICE-CONTROL-RDR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SERVICE-CONTROL-SUBSCRIBERS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SERVICE-CONTROL-TP-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SERVICE-CONTROLLER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SESS-BORDER-CTRLR-EVENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SESS-BORDER-CTRLR-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SEU-MITIGATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SIBU-FLASH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SIBU-MANAGERS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SIP-CALLS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SIP-UA-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SIP-UA-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SLB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SLB-DFP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SLB-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SLB-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SLB-HEALTH-MON-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SLB-HEALTH-MON-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SLB-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SM-FILE-DOWNLOAD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SMART-INSTALL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SMART-LIC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SME-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SMI": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SMON-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNA-LLC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNAPSHOT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-COMMUNITY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-FRAMEWORK-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-MPD-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-NOTIFICATION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-NOTIFICATION-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-TARGET-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-TARGET-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-USM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-USM-OIDS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-VACM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMP-VACM-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SNMPv2-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SONET-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SONET-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SONET-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SRP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SRP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SRST-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SSG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SSG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SSL-PROXY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SSL-PROXY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SSLVPN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SSM-PROV-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ST-TC": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-STACK-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-STACK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-STACKMAKER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-STACKWISE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-STP-EXTENSIONS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-STP-EXTENSIONS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-STUN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SUBSCRIBER-IDENTITY-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SUBSCRIBER-SESSION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SUBSCRIBER-SESSION-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SVC-INTERFACE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SVI-AUTOSTATE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SVI-AUTOSTATE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-CEF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-CEF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-CGMP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-ENGINE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-ENGINE-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-FABRIC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-FABRIC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-HARDWARE-CAPACITY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-HARDWARE-CAPACITY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-MULTICAST-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-MULTICAST-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-NETFLOW-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-NETFLOW-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-QOS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-QOS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-RATE-LIMITER-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-RATE-LIMITER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-STATS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-STATS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SWITCH-USAGE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYS-INFO-LOG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYS-INFO-LOG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSAPPL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSLOG-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSLOG-EVENT-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSLOG-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSLOG-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSLOG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSTEM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSTEM-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSTEM-EXT-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-SYSTEM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TBRIDGE-DEV-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TC": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TC-NO-U32": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TCP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TCP-METRICS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TCP-STD-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TCPOFFLOAD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TELEPRESENCE-CALL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TELEPRESENCE-CALL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TELEPRESENCE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TELEPRESENCE-EXCHANGE-SYSTEM-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TELEPRESENCE-EXCHANGE-SYSTEM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TELEPRESENCE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TELNET-SERVER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TEMPERATURE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-THREAT-MITIGATION-SERVICE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-THREAT-MITIGATION-SERVICE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TM": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TN3270SERVER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TPC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRANSACTION-CONNECTION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-INTERFACE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-INTERFACE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-POLICY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-POLICY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-SERVER-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-SERVER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-SXP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-SXP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TRUSTSEC-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-TS-STACK-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/CISCO-UBE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-UDLDP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-UDLDP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-UDP-STD-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-UNITY-EXPRESS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-UNITY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-USP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VDC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VDC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIDEO-SESSION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIDEO-SESSION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIDEO-TC": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VINES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIRTUAL-INTERFACE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIRTUAL-NIC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIRTUAL-NW-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIRTUAL-SWITCH-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VIRTUAL-SWITCH-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISION-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-ATM-TRUNK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-CAC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-CAS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-CODEC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-CONN-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-CONN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-CONN-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-DSX0-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-DSX1-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-DSX1-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-HDLC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-MODULE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-MODULE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-PORT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-RSRC-PART-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-SESSION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-SESSION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-SVC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VISM-TRAPS-MIB": {
+      "patch": "cisco/CISCO-VISM-TRAPS-MIB.patch",
+      "publisher": "cisco-mibs-v2",
+      "reason": "Imports intSrvFlowStatus FROM INT-SERV-MIB, a module name that was never published -- RFC 2213 calls it INTEGRATED-SERVICES-MIB."
+    },
+    "src/vendor/cisco/CISCO-VISM-XGCP-EXT": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-BRIDGING-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-BRIDGING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-GROUP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-GROUP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-IFTABLE-RELATIONSHIP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-MEMBERSHIP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-MEMBERSHIP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-TRANSLATION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VLAN-TRANSLATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VMPS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VMPS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOA-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-AALX-PROFILE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-AALX-PROFILE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-ANALOG-IF-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-ANALOG-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-APPLICATIONS-OID-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-APPS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-ATM-DIAL-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-CARD-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-CAS-MODULE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-CAS-MODULE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-CONNECTIVITY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-DIAL-CONTROL-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-DIAL-CONTROL-MIB": {
+      "patch": "cisco/CISCO-VOICE-DIAL-CONTROL-MIB.patch",
+      "publisher": "cisco-mibs-v2",
+      "reason": "Imports intSrvFlowStatus FROM INT-SERV-MIB, a module name that was never published -- RFC 2213 calls it INTEGRATED-SERVICES-MIB."
+    },
+    "src/vendor/cisco/CISCO-VOICE-DNIS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-ENABLED-LINK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-FR-DIAL-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-HDLC-DIAL-CONTROL-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-LMR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-TONE-CADENCE-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-TONE-CADENCE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VOICE-URI-CLASS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VPC-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VPC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VPDN-MGMT-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VPDN-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VPN-LIC-USAGE-MONITOR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VQE-TOOLS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VQES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VRF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VSAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VSI-CONTROLLER-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VSI-CONTROLLER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VSIMASTER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VTP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-VTP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-3G-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-AAL2-PROFILES-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ANNOUNCEMENT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ATM-CONN-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ATM-CONN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ATM-CONN-STAT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ATM-CONN-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ATM-COSB-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ATM-CUG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ATM-PARTY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-ATM-PREF-ROUTE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-BBIF-ATM-CONN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-BBIF-ATM-CONN-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-BBIF-ILMI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-BBIF-PORT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-CELL-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-CELL-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-CES-CONN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-CES-CONN-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-CES-PORT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-CES-RSRC-PART-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-CODEC-GEN-PARM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-FEEDER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-FR-CONN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-FR-CONN-STAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-FR-PORT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-FR-RSRC-PART-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-FR-SIGNALING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-FR-X21-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-LAPD-TRUNK-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-MG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-MGC-REDUN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-MODULE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-NCDP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-NCDP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-OPTIMIZATION-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-OPTIMIZATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-PAR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-RPM-CONN-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-RSRC-PART-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-RSRC-PART-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-RTP-CONN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-SCT-MGMT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-SONET-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-SRCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-SRM-BERT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-SRM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-SVC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-T38-FAXRELAY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-TOPOLOGY-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-TOPOLOGY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-TRAP-VARS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WAN-VISM-TONE-PLAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WBX-MEETING-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WDS-IDS-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WDS-IDS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WDS-INFO-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-DOCS-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-DOCS-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-EXP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-HOTSPOT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-IF-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-NOTIFICATION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-P2MP-LINK-METRICS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-P2MP-PHY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-P2MP-RF-METRICS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-P2P-BPI-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WIRELESS-TC-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WLAN-MAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WLAN-VLAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WPAN-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WRED-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-WWNMGR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-XDSL-LINE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-XGCP-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-XGCP-EXT-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-XGCP-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-XGCP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ZS-EXT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-ZS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCOWAN-SMI": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCOWORKS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/COMPAT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/DIFFSERV-MIB-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/EXPRESSION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/GENERICOBJECT-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ISIS-CAPABILTY-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/LANOPTICS-ALERTS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/LANOPTICS-BRIDGE-OPTION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/LANOPTICS-ETHERNET-OPTION-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/LANOPTICS-HUB-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/LANOPTICS-RING-MANAGER-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/LANOPTICS-SYSTEM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/MPLS-LDP-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/NETRANGER": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/OLD-CISCO-CHASSIS-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/OLD-CISCO-CPU-MIB": {
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/OLD-CISCO-INTERFACES-MIB": {
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/OLD-CISCO-MEMORY-MIB": {
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/OLD-CISCO-SYS-MIB": {
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/OLD-CISCO-SYSTEM-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/OLD-CISCO-TCP-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/OLD-CISCO-TS-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "cisco-mibs-v1"
+    },
+    "src/vendor/cisco/ONS15501-CAPABILITY": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/ONS15501-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/PCUBE-SE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/PCUBE-SMI": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/RPHY-NDF-NDR-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/RTM-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/netsnmp/LM-SENSORS-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-AGENT-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-EXAMPLES-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-EXTEND-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-PASS-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-TC": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-VACM-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/UCD-DEMO-MIB": {
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/UCD-DISKIO-MIB": {
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/UCD-DLMOD-MIB": {
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/UCD-IPFWACC-MIB": {
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/UCD-SNMP-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/synology/SYNOLOGY-DISK-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "synology"
+    },
+    "src/vendor/synology/SYNOLOGY-RAID-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "synology"
+    },
+    "src/vendor/synology/SYNOLOGY-SYSTEM-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "synology"
+    },
+    "src/vendor/ubnt/UBNT-AirMAX-MIB": {
+      "publisher": "ubiquiti-airos"
+    },
+    "src/vendor/ubnt/UBNT-MIB": {
+      "divergence": {
+        "note": "not yet reviewed",
+        "recorded": "2026-09-07"
+      },
+      "publisher": "ubiquiti-airos"
+    }
+  },
+  "publishers": {
+    "cisco-mibs-v1": {
+      "homepage": "https://github.com/cisco/cisco-mibs",
+      "kind": "file",
+      "name": "Cisco Systems",
+      "note": "The SMIv1 half of the same repository. A handful of the oldest Cisco modules were never reissued in SMIv2 and appear only here.",
+      "url": "https://raw.githubusercontent.com/cisco/cisco-mibs/main/v1/{module}.my"
+    },
+    "cisco-mibs-v2": {
+      "homepage": "https://github.com/cisco/cisco-mibs",
+      "kind": "file",
+      "name": "Cisco Systems",
+      "note": "Cisco publishes its MIBs as a git repository rather than a release artefact, so a module is fetchable at a stable path and its history is public. Pinned to the default branch on purpose: a tag would make staleness undetectable, which is the thing this manifest exists to prevent.",
+      "url": "https://raw.githubusercontent.com/cisco/cisco-mibs/main/v2/{module}.my"
+    },
+    "net-snmp": {
+      "homepage": "https://github.com/net-snmp/net-snmp",
+      "kind": "file",
+      "name": "Net-SNMP",
+      "note": "The agent's own MIBs, taken from the branch the project releases from.",
+      "url": "https://raw.githubusercontent.com/net-snmp/net-snmp/master/mibs/{module}.txt"
+    },
+    "synology": {
+      "homepage": "https://kb.synology.com/en-global/DSM/tutorial/What_is_SNMP_MIB",
+      "kind": "archive",
+      "member": "Synology_MIB_File/{module}.txt",
+      "name": "Synology",
+      "note": "Synology ships every DSM MIB in one archive, revised in place. The archive holds several modules this repository has never carried.",
+      "url": "https://global.download.synology.com/download/Document/Software/DeveloperGuide/Firmware/DSM/All/enu/Synology_MIB_File.zip"
+    },
+    "ubiquiti-airos": {
+      "homepage": "https://help.ui.com/",
+      "kind": "archive",
+      "member": "{module}.txt",
+      "name": "Ubiquiti",
+      "note": "The airOS MIB archive. Covers the two general airOS modules only; the EdgeMAX, airFiber and UniFi modules are not published this way.",
+      "url": "https://dl.ubnt.com/firmwares/airos-ubnt-mib/ubnt-mib.zip"
+    }
+  }
+}

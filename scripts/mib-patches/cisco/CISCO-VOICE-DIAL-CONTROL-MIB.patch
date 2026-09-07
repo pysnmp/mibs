@@ -1,0 +1,11 @@
+--- a/CISCO-VOICE-DIAL-CONTROL-MIB
++++ b/CISCO-VOICE-DIAL-CONTROL-MIB
+@@ -38,7 +38,7 @@
+     callActivePeerId
+         FROM DIAL-CONTROL-MIB
+     QosService
+-        FROM INT-SERV-MIB
++        FROM INTEGRATED-SERVICES-MIB
+     ifIndex,
+     InterfaceIndexOrZero
+         FROM IF-MIB

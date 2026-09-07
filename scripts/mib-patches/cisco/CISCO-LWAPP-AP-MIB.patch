@@ -1,0 +1,12 @@
+--- a/CISCO-LWAPP-AP-MIB
++++ b/CISCO-LWAPP-AP-MIB
+@@ -46,7 +46,8 @@
+     CLApDot11RadioSubband,
+     CLApDot11RadioRole,
+     CLApMode,
+-    CLApNtpStatus
++    CLApNtpStatus,
++    CLDot11Band
+         FROM CISCO-LWAPP-TC-MIB
+     cldRegulatoryDomain
+         FROM CISCO-LWAPP-DOT11-MIB

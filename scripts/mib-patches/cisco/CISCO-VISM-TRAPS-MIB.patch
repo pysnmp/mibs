@@ -1,0 +1,11 @@
+--- a/CISCO-VISM-TRAPS-MIB
++++ b/CISCO-VISM-TRAPS-MIB
+@@ -99,7 +99,7 @@
+         cwAnnFileName,
+         cwAnnFileCodec,
+         cwAnnFileStatus              FROM CISCO-WAN-ANNOUNCEMENT-MIB
+-        intSrvFlowStatus             FROM INT-SERV-MIB
++        intSrvFlowStatus             FROM INTEGRATED-SERVICES-MIB
+         rsvpSessionDestAddr,
+         rsvpResvFwdStatus,
+         rsvpResvStatus,

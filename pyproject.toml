@@ -17,3 +17,20 @@ dev = [
 
 [tool.uv]
 package = false
+
+[tool.isort]
+# black and isort disagree about how to wrap a long import unless isort is
+# told to defer to it. Without this the two pre-commit hooks rewrite the
+# same lines back and forth.
+profile = "black"
+
+[tool.mypy]
+python_version = "3.11"
+
+[[tool.mypy.overrides]]
+# pysmi's lexer is imported by scripts/mib_sources.py to read MIB text.
+# The pre-commit mypy hook runs in its own environment, where the project's
+# dependencies are not installed, so the import is unresolvable there even
+# though it resolves fine at runtime.
+module = ["pysmi.*"]
+ignore_missing_imports = true
