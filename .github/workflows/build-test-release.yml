@@ -47,6 +47,11 @@ jobs:
           python-version: "3.11"
           enable-cache: true
       - run: uv sync --frozen
+      - name: Test the provenance tooling
+        # Offline and quick. Covers the two judgements that were wrong
+        # once and looked right: per-line attribution, and confirming
+        # drift on the publisher's bytes rather than on the verdict.
+        run: uv run python tests/test_mib_sources.py
       - run: uv run python scripts/update_vendor_mibs.py --validate
 
   build:
