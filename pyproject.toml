@@ -13,6 +13,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pre-commit>=4.6.2,<5",
+    "pysnmp>=7,<8",
 ]
 
 [tool.uv]
