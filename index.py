@@ -60,6 +60,14 @@ def arcs(oid):
 OBJECT_CLASSES = ("objecttype", "notificationtype")
 ANCHOR_CLASSES = ("moduleidentity", "objectidentity")
 
+# A module's MODULE-IDENTITY sits on the arc the module owns. An OBJECT-IDENTITY
+# on that same arc is a forward declaration: CLAB-DEF-MIB registers clabTopoMib
+# so its siblings can hang objects off it, but CLAB-TOPO-MIB is the module that
+# arc belongs to. Rank the owner above the module that merely names it, or a
+# refreshed anchor module outranks the owner on revision date alone.
+ANCHOR_RANK = {"moduleidentity": 0, "objectidentity": 1}
+ANCHOR_RANK_FALLBACK = 2
+
 tiers = classify()
 index: dict[str, tuple] = {}
 modules = set()
@@ -79,16 +87,15 @@ for filename in sorted(os.listdir(JSON_DIR)):
         for d in jmib.values()
         if isinstance(d, dict) and d.get("class") in OBJECT_CLASSES
     ]
-    rank = (
+    prefix = (
         1 if statuses and all(s == "obsolete" for s in statuses) else 0,
         tiers.get(module, TIER_STANDARD),
         0 if has_identity else 1,
-        -revision_rank(jmib),
-        module,
     )
+    suffix = (-revision_rank(jmib), module)
 
     oids = [
-        data["oid"]
+        (data["oid"], ANCHOR_RANK[data["class"]])
         for data in jmib.values()
         if isinstance(data, dict)
         and data.get("class") in ANCHOR_CLASSES
@@ -96,7 +103,7 @@ for filename in sorted(os.listdir(JSON_DIR)):
     ]
     if not oids:
         oids = [
-            data["oid"]
+            (data["oid"], ANCHOR_RANK_FALLBACK)
             for data in jmib.values()
             if isinstance(data, dict)
             and "class" in data
@@ -106,7 +113,8 @@ for filename in sorted(os.listdir(JSON_DIR)):
     if not oids and "-TC" not in filename:
         print(f"Unable to index {JSON_DIR}/{filename}")
 
-    for oid in oids:
+    for oid, anchor in oids:
+        rank = prefix + (anchor,) + suffix
         index[oid] = rank if oid not in index else min(index[oid], rank)
 
 with open(CURRENT_OUT, "w") as f:
