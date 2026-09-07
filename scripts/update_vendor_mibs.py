@@ -25,6 +25,7 @@ import argparse
 import datetime
 import pathlib
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
@@ -88,7 +89,7 @@ class Finding:
 def inspect(
     path: str, entry: dict[str, Any], publisher: dict[str, Any]
 ) -> Finding | None:
-    """Compare one checked-in module against its publisher.
+    """Compare one checked-in module against its publisher, once.
 
     Returns:
         What is wrong with it, or None if the publisher's text with our
@@ -147,6 +148,63 @@ def inspect(
     )
 
 
+#: How long to wait before looking a second time at a module that
+#: appeared to differ. Only ever paid by modules that differ.
+CONFIRM_PAUSE = 5.0
+
+#: Findings that rest on the exact bytes a publisher served, and so are
+#: only as trustworthy as that one response. The others -- a file missing
+#: from the tree, a publisher that would not answer -- do not turn on the
+#: content and are reported as they are found.
+BYTE_DERIVED = {"drift", "patch-stale", "divergence-resolved"}
+
+
+def confirmed(
+    path: str, entry: dict[str, Any], publisher: dict[str, Any]
+) -> Finding | None:
+    """Inspect a module, looking twice before believing bad news.
+
+    A vendor revision is stable across two fetches seconds apart. A
+    response that arrived mangled -- an edge cache serving something odd,
+    a body cut short in a way the length check did not catch -- is not.
+    Reporting one of those as "the vendor revised this" is the worst
+    thing this tool can do, because a monthly sweep that cries wolf is a
+    monthly sweep nobody reads.
+
+    So a byte-derived finding is re-fetched once. Two looks that agree
+    are reported. Two that disagree are reported as exactly that -- an
+    unstable source, which is a fact about the publisher and not about
+    our copy -- rather than being turned into drift or quietly dropped.
+
+    The cost is one extra request per module that differs, and only
+    those.
+    """
+    first = inspect(path, entry, publisher)
+
+    if first is None or first.kind not in BYTE_DERIVED:
+        return first
+
+    # Far enough apart to be a genuinely independent sample. An
+    # immediate retry would land inside whatever produced the first
+    # answer -- a burst limit, an edge node with a bad copy -- and
+    # agree with it for the wrong reason.
+    time.sleep(CONFIRM_PAUSE)
+
+    second = inspect(path, entry, publisher)
+
+    if second is not None and second.kind == first.kind:
+        return second
+
+    return Finding(
+        path,
+        "unstable",
+        "its publisher served different answers to two fetches moments "
+        f"apart (first {first.kind}, then "
+        f"{second.kind if second else 'a match'}) -- reporting the "
+        "source as unreliable rather than guessing which was real",
+    )
+
+
 def sweep(manifest: dict[str, Any], paths: list[str] | None = None) -> list[Finding]:
     """Inspect every covered module, or just *paths*, in parallel."""
     modules = covered(manifest)
@@ -156,7 +214,7 @@ def sweep(manifest: dict[str, Any], paths: list[str] | None = None) -> list[Find
     def one(path: str) -> Finding | None:
         entry = modules[path]
 
-        return inspect(path, entry, publisher_for(manifest, entry))
+        return confirmed(path, entry, publisher_for(manifest, entry))
 
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         for finding in pool.map(one, wanted):
@@ -179,6 +237,10 @@ FATAL = {
     "divergence-resolved",
 }
 
+#: Reported, but not failure. Like an unreachable publisher, an unstable
+#: one says nothing about whether our copy is right.
+INCONCLUSIVE = {"unreachable", "unstable"}
+
 
 def check(manifest: dict[str, Any]) -> int:
     """Report every module that no longer matches its publisher.
@@ -191,13 +253,13 @@ def check(manifest: dict[str, Any]) -> int:
     findings = sweep(manifest)
     modules = covered(manifest)
     fatal = [f for f in findings if f.kind in FATAL]
-    unreachable = [f for f in findings if f.kind == "unreachable"]
+    inconclusive = [f for f in findings if f.kind in INCONCLUSIVE]
     known = [f for f in findings if f.kind == "known-divergence"]
 
     for group, title in (
         (fatal, "Out of step with their publisher"),
         (known, "Known divergences, awaiting review"),
-        (unreachable, "Publishers that could not be reached"),
+        (inconclusive, "Publishers that could not be pinned down"),
     ):
         if group:
             sys.stderr.write(f"\n{title}:\n")
@@ -219,10 +281,10 @@ def check(manifest: dict[str, Any]) -> int:
         )
         return 1
 
-    if unreachable:
+    if inconclusive:
         sys.stderr.write(
-            f"\n{len(unreachable)} publisher(s) unreachable; the sweep is "
-            "incomplete rather than failing.\n"
+            f"\n{len(inconclusive)} publisher(s) unreachable or unstable; "
+            "the sweep is incomplete rather than failing.\n"
         )
         return 2
 

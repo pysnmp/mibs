@@ -116,6 +116,15 @@ def download(url: str) -> bytes:
         try:
             with urllib.request.urlopen(url, timeout=TIMEOUT) as response:  # noqa: S310
                 data: bytes = response.read()
+                declared = response.headers.get("Content-Length")
+
+            # A body that ends early arrives as a short read, not as an
+            # error. Left alone it becomes text that differs from the
+            # module we have -- which this tool would report as the
+            # vendor having revised it. Drift has to mean drift.
+            if declared is not None and len(data) != int(declared):
+                raise OSError(f"truncated: {len(data)} bytes of {declared}")
+
             return data
         except urllib.error.HTTPError as exc:
             if exc.code < 500:
@@ -308,7 +317,14 @@ _archives: dict[str, zipfile.ZipFile] = {}
 def _archive(url: str) -> zipfile.ZipFile:
     """The zip at *url*, downloaded at most once per run."""
     if url not in _archives:
-        _archives[url] = zipfile.ZipFile(io.BytesIO(download(url)))
+        try:
+            _archives[url] = zipfile.ZipFile(io.BytesIO(download(url)))
+        except zipfile.BadZipFile as exc:
+            # Not a zip means the download was cut short, or the vendor
+            # is serving an error page where the archive used to be.
+            # Either way it is a failure to reach them, not a change in
+            # every module the archive holds.
+            raise Unreachable(f"{url}: {exc}") from exc
 
     return _archives[url]
 
