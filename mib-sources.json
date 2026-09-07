@@ -1711,7 +1711,9 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-IPMCAST-MIB": {
-      "publisher": "cisco-mibs-v2"
+      "patch": "cisco/CISCO-IPMCAST-MIB.patch",
+      "publisher": "cisco-mibs-v2",
+      "reason": "Imports igmpInterfaceEntry FROM IGMP-MIB, a superseded draft this repository has retired. RFC 2933 publishes the module as IGMP-STD-MIB."
     },
     "src/vendor/cisco/CISCO-IPMROUTE-MIB": {
       "publisher": "cisco-mibs-v2"
