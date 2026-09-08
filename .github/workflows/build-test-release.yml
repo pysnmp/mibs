@@ -54,6 +54,29 @@ jobs:
         run: uv run python tests/test_mib_sources.py
       - run: uv run python scripts/update_vendor_mibs.py --validate
 
+  chart:
+    name: Chart contract
+    permissions:
+      # Reads the tree and nothing else, like mib-sources above.
+      contents: read
+    # Renders charts/mibserver and checks it against rendered/, which is
+    # committed as evidence of what the chart produces and which nothing
+    # regenerated until now -- so a template edit could leave those files
+    # describing a chart that no longer exists. Also asserts that a writable
+    # root follows from either local-MIB input, the property #208 was about.
+    #
+    # Its own job rather than a step in build: it needs helm and a checkout
+    # and nothing else, so it answers in seconds instead of behind a corpus
+    # build. See pysnmp/mibs#372.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install Helm
+        uses: azure/setup-helm@v5
+      - run: ./tests/chart-contract.sh
+
   build:
     name: Build Release
     needs:

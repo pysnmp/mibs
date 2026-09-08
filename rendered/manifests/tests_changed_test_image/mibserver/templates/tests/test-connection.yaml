@@ -3,11 +3,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "release-name-mibserver-test-connection"
+  name: "default-mibserver-test-connection"
   labels:
     helm.sh/chart: mibserver-CURRENT-VERSION
     app.kubernetes.io/name: mibserver
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: default
     app.kubernetes.io/version: "CURRENT-VERSION"
     app.kubernetes.io/managed-by: Helm
   annotations:
@@ -19,7 +19,7 @@ spec:
       image: repository:new-tag
       imagePullPolicy: Always
       command: ['wget']
-      args: ['release-name-mibserver:80/index.csv', '-O', '/dev/null']
+      args: ['default-mibserver:80/index.csv', '-O', '/dev/null']
       securityContext:
         capabilities:
           drop:
