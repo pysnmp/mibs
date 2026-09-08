@@ -120,14 +120,16 @@ echo "== every module named in the index is still carried somewhere"
 # The ceilings went 61/335 -> 217/1658 when pysmi 3.0.0rc5 held 275 of its 485
 # bundled modules in pysmi/mibs/future/ (pysnmp/pysmi#220). The wheel carries
 # 210, so 156 modules this repository used to publish by staging the bundle are
-# no longer staged, and the snapshot's rows for them name nothing carried. That
-# is upstream's stated trade, not rot appearing here: nothing in src/ imports
-# any of the 156, so no module fails to compile -- what is lost is the site
-# answering for their OIDs.
+# no longer staged, and the snapshot's rows for them name nothing carried.
 #
-# The ceilings come back down if those answers are wanted, by re-homing the
-# modules under this repository's own src/ rather than by relaxing this check
-# further. Anything above these numbers is new rot and should fail.
+# Those 156 were removed deliberately, upstream, as modules nothing imports --
+# not defective, and not rot appearing here. Nothing in src/ imports any of
+# them, so no module fails to compile; the effect is that the site no longer
+# answers for their OIDs.
+#
+# The ceilings come back down by re-homing the modules under this repository's
+# own src/, which is what restores those answers -- not by relaxing this check
+# further. Anything above these numbers is unaccounted for and should fail.
 DEAD_MODULE_CEILING=217
 DEAD_ROW_CEILING=1658
 
