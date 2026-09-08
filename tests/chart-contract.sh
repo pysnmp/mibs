@@ -49,6 +49,7 @@ if ! command -v helm >/dev/null 2>&1; then
   exit 1
 fi
 
+CHART="charts/mibserver"
 MANIFESTS="$(mktemp -d)"
 trap 'rm -rf "$MANIFESTS"' EXIT
 
@@ -78,6 +79,22 @@ fi
 
 echo "the serving container"
 
+# An upgrade carrying a values file from before this chart pinned the tag has
+# image.tag: "", which rendered "nginxinc/nginx-unprivileged:" -- a reference
+# no runtime can pull.
+EMPTY_TAG="$(
+  helm template default "$CHART" --namespace default --set image.tag="" \
+    --show-only templates/deployment.yaml \
+    | sed -n 's/^ *image: "\(nginx[^"]*\)"$/\1/p' | head -1
+)"
+
+case "$EMPTY_TAG" in
+  *:) fail "an empty image.tag renders $EMPTY_TAG, which nothing can pull" ;;
+  "") fail "an empty image.tag renders no nginx image at all" ;;
+  *) pass "an empty image.tag falls back to $EMPTY_TAG" ;;
+esac
+
+
 deployment() {
   echo "$MANIFESTS/$1/mibserver/templates/deployment.yaml"
 }
@@ -88,6 +105,14 @@ SERVING_IMAGE="$(
 )"
 if [ -z "$SERVING_IMAGE" ]; then
   SERVING_IMAGE="$(grep -o 'image: "nginx[^"]*"' "$(deployment default)" | head -1 || true)"
+fi
+
+# Dropping every capability does not set no_new_privs, so a setuid binary
+# could still gain privileges.
+if grep -q 'allowPrivilegeEscalation: false' "$(deployment default)"; then
+  pass "privilege escalation is disabled"
+else
+  fail "the serving container may escalate privileges"
 fi
 
 if printf '%s' "$SERVING_IMAGE" | grep -q 'nginx'; then
@@ -115,9 +140,10 @@ fi
 #
 # Rendered above from rendered/values_*.yaml:
 #
-#   default            neither input      -- no local MIBs, no init container
-#   tests_create_pvc   pathToMibs only    -- chart creates the PVC
-#   tests_existing_pvc existingClaim only -- chart uses that PVC
+#   default                 neither input      -- no local MIBs, no init container
+#   tests_create_pvc        pathToMibs only    -- chart creates the PVC
+#   tests_existing_pvc      existingClaim only -- chart uses that PVC
+#   tests_null_persistence  pathToMibs, persistence omitted entirely
 #
 # #208 was a user unable to mount an existing PVC: readOnlyRootFilesystem was
 # derived from pathToMibs alone, so supplying only existingClaim left the
@@ -177,6 +203,20 @@ assert_compiles_local_mibs() {
 
 assert_compiles_local_mibs tests_create_pvc
 assert_compiles_local_mibs tests_existing_pvc
+
+# A values file that omits persistence, or nulls it, is a supported override
+# and used to fail the render: every guard reached into the map for
+# existingClaim, storageClass and size. That it renders at all is the
+# assertion; that it renders the same deployment as pathToMibs alone is what
+# makes it supported rather than merely tolerated.
+assert_compiles_local_mibs tests_null_persistence
+assert_read_only tests_null_persistence true
+
+if [ -f "$MANIFESTS/tests_null_persistence/mibserver/templates/pv-claim.yaml" ]; then
+  pass "tests_null_persistence: the chart still creates the claim it promises"
+else
+  fail "tests_null_persistence: pathToMibs produced no PersistentVolumeClaim"
+fi
 
 if grep -q 'name: compile-local-mibs' "$(deployment default)"; then
   fail "default: an init container runs where no MIBs were supplied"

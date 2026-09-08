@@ -1,4 +1,4 @@
-{{- if and .Values.localMibs.pathToMibs (eq .Values.localMibs.persistence.existingClaim "") }}
+{{- if and .Values.localMibs.pathToMibs (not (include "mibserver.existingClaim" .)) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -6,10 +6,10 @@ metadata:
   labels:
     {{- include "mibserver.labels" . | nindent 4 }}
 spec:
-  storageClassName: {{ .Values.localMibs.persistence.storageClass | default "microk8s-hostpath" }}
+  storageClassName: {{ dig "storageClass" "microk8s-hostpath" (.Values.localMibs.persistence | default dict) }}
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: {{ .Values.localMibs.persistence.size | default "3Gi" }}
+      storage: {{ dig "size" "3Gi" (.Values.localMibs.persistence | default dict) }}
 {{- end }}

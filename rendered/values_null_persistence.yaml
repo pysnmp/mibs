@@ -1,0 +1,6 @@
+# A values file that omits the persistence map entirely, which is what an
+# override setting only pathToMibs looks like once helm has merged it -- and
+# what used to fail the render by reaching into a nil map for existingClaim.
+localMibs:
+  pathToMibs: /var/lib/mibs
+  persistence: null

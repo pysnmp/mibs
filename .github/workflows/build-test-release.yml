@@ -173,10 +173,17 @@ jobs:
             -o type=local,dest=/tmp/corpus-image .
       - name: Serving contract
         run: ./tests/serving-contract.sh /tmp/corpus-image
-      # Only a branch that publishes needs credentials. A pull request builds
-      # the images to prove the Dockerfiles still work and pushes nothing.
+      # Only a ref that publishes needs credentials. A pull request builds the
+      # images to prove the Dockerfiles still work and pushes nothing.
+      #
+      # The tag ref matters as much as main: semantic-release tags the commit
+      # main just built, that tag starts a second run, and only in that run
+      # does docker/metadata-action have a version to derive the semver tags
+      # from. The chart's appVersion names those tags, so a gate that excluded
+      # the tag run would leave every release pointing at images nothing had
+      # pushed.
       - name: Login to GitHub Packages Docker Registry
-        if: github.ref == 'refs/heads/main'
+        if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
         uses: docker/login-action@v4.6.0
         with:
           registry: ghcr.io
@@ -209,7 +216,7 @@ jobs:
           file: docker/corpus.Dockerfile
           build-args: |
             CORPUS=output
-          push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
@@ -240,7 +247,7 @@ jobs:
           file: docker/corpus.Dockerfile
           build-args: |
             CORPUS=output-compact
-          push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta_compact.outputs.tags }}
           labels: ${{ steps.docker_meta_compact.outputs.labels }}
@@ -268,7 +275,7 @@ jobs:
         with:
           context: .
           file: docker/tools.Dockerfile
-          push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta_tools.outputs.tags }}
           labels: ${{ steps.docker_meta_tools.outputs.labels }}

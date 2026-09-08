@@ -1,5 +1,4 @@
 {{- $localMibs := include "mibserver.localMibs" . }}
-{{- $createPV := and .Values.localMibs.pathToMibs (eq .Values.localMibs.persistence.existingClaim "") }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,6 +47,7 @@ spec:
           image: "{{ .Values.tools.repository }}:{{ .Values.tools.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.tools.pullPolicy }}
           securityContext:
+            allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
@@ -58,10 +58,12 @@ spec:
           command:
             - /bin/sh
             - -c
-            # The index merge is a union of the published rows and the
-            # locally-compiled ones, which is what this deployment has always
-            # served: a consumer that had an answer for an OID keeps it, and
-            # an OID only the local MIBs define gains one.
+            # The merge keeps every published row and adds a local one only
+            # for an OID the corpus does not already answer -- the same rule
+            # the overlay follows for the modules themselves. A union of whole
+            # rows, which is what this deployment used to do, leaves two rows
+            # for an OID both define, and a consumer parsing into a map takes
+            # whichever it reads last.
             - |
               set -eu
               mibcorpus --quiet \
@@ -69,9 +71,9 @@ spec:
                 --namespace=vendor:local:/local-mibs \
                 --output-directory={{ include "mibserver.overlayRoot" . }} \
                 --emit=asn1 --emit=json --emit=index-v2 --emit=report
-              sort -u \
-                {{ include "mibserver.overlayRoot" . }}/index-v2.csv \
+              awk -F, 'NR==FNR { published[$2]; print; next } !($2 in published)' \
                 {{ include "mibserver.corpusRoot" . }}/index.csv \
+                {{ include "mibserver.overlayRoot" . }}/index-v2.csv \
                 >{{ include "mibserver.overlayRoot" . }}/index.csv
           resources:
             {{- toYaml .Values.tools.resources | nindent 12 }}
@@ -90,6 +92,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
+            allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
@@ -101,7 +104,10 @@ spec:
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          # The default repeats values.yaml's pin, for an upgrade carrying a
+          # values file from before this chart stopped defaulting the tag to
+          # appVersion: an empty tag there would otherwise render "nginx:".
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "1.29.1-bookworm" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           # Straight to nginx, past the base image's entrypoint scripts: the
           # config is complete as rendered and there is nothing to template or
@@ -183,8 +189,8 @@ spec:
       {{- if $localMibs }}
         - name: task-pv-storage
           persistentVolumeClaim:
-          {{- if .Values.localMibs.persistence.existingClaim }}
-            claimName: {{ .Values.localMibs.persistence.existingClaim | quote }}
+          {{- with include "mibserver.existingClaim" . }}
+            claimName: {{ . | quote }}
         {{ else }}
             claimName: {{ include "mibserver.fullname" . }}
         {{- end }}

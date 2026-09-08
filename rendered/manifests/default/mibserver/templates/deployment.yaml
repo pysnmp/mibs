@@ -34,6 +34,7 @@ spec:
       containers:
         - name: mibserver
           securityContext:
+            allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
@@ -45,6 +46,9 @@ spec:
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001
+          # The default repeats values.yaml's pin, for an upgrade carrying a
+          # values file from before this chart stopped defaulting the tag to
+          # appVersion: an empty tag there would otherwise render "nginx:".
           image: "nginxinc/nginx-unprivileged:1.29.1-bookworm"
           imagePullPolicy: IfNotPresent
           # Straight to nginx, past the base image's entrypoint scripts: the

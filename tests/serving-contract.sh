@@ -99,12 +99,33 @@ grep -q "listen       8000;" "$WORK/nginx.conf" || {
 pass "config rendered from the chart"
 
 # An overlay of the shape the init container leaves behind: one module that is
-# not in the corpus, and an index naming it.
+# not in the corpus, and an index naming it -- merged by the rule the init
+# container merges by, taken out of the chart so the two cannot drift.
 mkdir -p "$WORK/overlay/asn1"
 printf 'LOCAL-ONLY-MIB DEFINITIONS ::= BEGIN\nEND\n' >"$WORK/overlay/asn1/LOCAL-ONLY-MIB"
-sort -u - "$CORPUS/index.csv" <<'ROW' >"$WORK/overlay/index.csv"
-LOCAL-ONLY-MIB,1.3.6.1.4.1.99999.1
-ROW
+
+# One OID the corpus already answers for, and one only the local MIBs define.
+COLLIDING_OID="$(head -1 "$CORPUS/index.csv" | cut -d, -f2)"
+COLLIDING_MODULE="$(head -1 "$CORPUS/index.csv" | cut -d, -f1)"
+{
+  printf 'LOCAL-ONLY-MIB,1.3.6.1.4.1.99999.1\n'
+  printf 'LOCAL-SQUATTER-MIB,%s\n' "$COLLIDING_OID"
+} >"$WORK/overlay/index-v2.csv"
+
+MERGE="$(
+  helm template default "$CHART" --namespace default \
+    --values rendered/values_existing_pvc.yaml \
+    --show-only templates/deployment.yaml \
+    | sed -n 's/^ *\(awk -F,.*\)$/\1/p' | head -1
+)"
+
+if [ -z "$MERGE" ]; then
+  echo "FAIL: the chart no longer merges the index with awk -- update this test" >&2
+  exit 1
+fi
+
+awk -F, 'NR==FNR { published[$2]; print; next } !($2 in published)' \
+  "$CORPUS/index.csv" "$WORK/overlay/index-v2.csv" >"$WORK/overlay/index.csv"
 chmod -R a+rX "$WORK"
 
 echo "== starting $NGINX_IMAGE over the built corpus"
@@ -195,6 +216,24 @@ if [ "$code" = "200" ] \
 else
   fail "merged index.csv returned $code without both halves"
 fi
+
+echo "== overlay: one row per OID, and it is the published one"
+# A union of whole rows leaves two rows for an OID both sides define, and a
+# consumer parsing into a map takes whichever it reads last. The merge keeps
+# the published answer and adds only what the corpus has no answer for --
+# the same rule the modules themselves follow.
+rows="$(awk -F, -v oid="$COLLIDING_OID" '$2 == oid' "$WORK/body" | wc -l | tr -d ' ')"
+answer="$(awk -F, -v oid="$COLLIDING_OID" '$2 == oid {print $1}' "$WORK/body" | head -1)"
+
+if [ "$rows" = "1" ] && [ "$answer" = "$COLLIDING_MODULE" ]; then
+  pass "$COLLIDING_OID has one row, and it is $COLLIDING_MODULE"
+else
+  fail "$COLLIDING_OID has $rows row(s), answering ${answer:-nothing}"
+fi
+
+duplicates="$(cut -d, -f2 "$WORK/body" | sort | uniq -d | wc -l | tr -d ' ')"
+[ "$duplicates" = "0" ] || fail "$duplicates OIDs appear more than once in the merged index"
+[ "$duplicates" = "0" ] && pass "no OID appears twice in the merged index"
 
 echo "== overlay: the corpus wins for a module both hold"
 # The overlay is a fallback, not an override. A user copy of a published module
