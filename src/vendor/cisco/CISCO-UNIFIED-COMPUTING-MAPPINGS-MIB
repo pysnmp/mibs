@@ -6,9 +6,9 @@
 -- child managed object to parent managed object,
 -- and managed object distinguished name to OID.
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -51,7 +51,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-MIB;
 
 cucsMappingsObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems

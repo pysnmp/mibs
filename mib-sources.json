@@ -1,5 +1,8 @@
 {
   "modules": {
+    "src/vendor/aironet/AWC-VLAN-CFG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
     "src/vendor/cisco/ACTONA-ACTASTOR-MIB": {
       "publisher": "cisco-mibs-v2"
     },
@@ -10,10 +13,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/AIRESPACE-WIRELESS-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/ALTIGA-ADDRESS-STATS-MIB": {
@@ -115,9 +114,6 @@
     "src/vendor/cisco/ATM-RMON-MIB": {
       "publisher": "cisco-mibs-v2"
     },
-    "src/vendor/cisco/AWC-VLAN-CFG-MIB": {
-      "publisher": "cisco-mibs-v2"
-    },
     "src/vendor/cisco/BASIS-GENERIC-MIB": {
       "publisher": "cisco-mibs-v2"
     },
@@ -161,10 +157,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-AAA-SERVER-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-AAA-SESSION-MIB": {
@@ -199,10 +191,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-ALARM-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-ALPS-MIB": {
@@ -360,10 +348,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-BGP4-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-BITS-CLOCK-CAPABILITY": {
@@ -793,10 +777,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-DNS-SERVER-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-DOCS-EXT-MIB": {
@@ -1149,8 +1129,8 @@
     },
     "src/vendor/cisco/CISCO-FC-FE-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text does not parse: a second DESCRIPTION string at line 101 has no REVISION of its own. Bad grammar near QUOTED_STRING.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -1569,10 +1549,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-IF-EXTENSION-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-IF-LINK-CONFIG-MIB": {
@@ -2028,8 +2004,8 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CALIB-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher re-registered the module from 1.3.6.1.4.1.9.7.502 to .1165. Held: index-frozen.csv promises the old arc and the refresh adds no pollable objects.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2046,10 +2022,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-TS-MIB": {
@@ -2060,8 +2032,8 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-DOT11-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text parses but does not compile: cld11axTargetWakeupTimeBroadcastEntry has no parent table.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2110,8 +2082,8 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-MFP-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher re-registered the module from 1.3.6.1.4.1.9.7.504 to .1173. Held: index-frozen.csv promises the old arc and the refresh adds no pollable objects.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2142,22 +2114,22 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-QOS-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher re-registered the module from 1.3.6.1.4.1.9.7.505 to .1158. Held: index-frozen.csv promises the old arc and the refresh adds no pollable objects.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-RF-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher re-registered the module from 1.3.6.1.4.1.9.7.23999 to .1155. Held: index-frozen.csv promises the old arc and the refresh adds no pollable objects.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-RF-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text does not parse: a stray '.' follows a closing quote at line 199.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2165,10 +2137,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-RRM-MIB": {
@@ -2180,10 +2148,13 @@
     "src/vendor/cisco/CISCO-LWAPP-SI-MIB": {
       "publisher": "cisco-mibs-v2"
     },
+    "src/vendor/cisco/CISCO-LWAPP-SYS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
     "src/vendor/cisco/CISCO-LWAPP-TC-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text does not parse: the file carries two END tokens. Bad grammar near END at line 868.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2207,16 +2178,12 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-WLAN-POLICY-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text parses but does not compile: DEFVAL 'notconfigured' for cLWlanAAAPolicyCustomString1 is an unquoted bareword for an OCTET STRING.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-WLAN-SECURITY-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-MAC-AUTH-BYPASS-CAPABILITY": {
@@ -2494,10 +2461,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-OPTICAL-OTS-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-OPTICAL-PATCH-MIB": {
@@ -2752,10 +2715,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-RF-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-RF-SUPPLEMENTAL-MIB": {
@@ -2856,6 +2815,50 @@
     "src/vendor/cisco/CISCO-SDSL-LINE-MIB": {
       "publisher": "cisco-mibs-v2"
     },
+    "src/vendor/cisco/CISCO-SDWAN-APP-ROUTE-MIB": {
+      "publisher": "cisco-mibs-sdwan",
+      "vars": {
+        "release": "26.1"
+      }
+    },
+    "src/vendor/cisco/CISCO-SDWAN-BFD-MIB": {
+      "publisher": "cisco-mibs-sdwan",
+      "vars": {
+        "release": "26.1"
+      }
+    },
+    "src/vendor/cisco/CISCO-SDWAN-OMP-MIB": {
+      "publisher": "cisco-mibs-sdwan",
+      "vars": {
+        "release": "26.1"
+      }
+    },
+    "src/vendor/cisco/CISCO-SDWAN-OPER-SYSTEM-MIB": {
+      "divergence": {
+        "note": "held at our copy: release 26.1's text imports CISCO-SDWAN-MODELS-MIB, which Cisco publishes in no release directory and nowhere else in the repository, so the module comes out unprocessed. 17.15 is the newest release without that import, but its CISCO-SDWAN-BFD-MIB does not parse.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-sdwan",
+      "vars": {
+        "release": "26.1"
+      }
+    },
+    "src/vendor/cisco/CISCO-SDWAN-POLICY-MIB": {
+      "publisher": "cisco-mibs-sdwan",
+      "vars": {
+        "release": "26.1"
+      }
+    },
+    "src/vendor/cisco/CISCO-SDWAN-SECURITY-MIB": {
+      "divergence": {
+        "note": "held at our copy: the publisher's text parses but does not compile -- controlAffinityConfigAffcTenantCount has no parent. Present in every release from 17.15 to 26.1, and not resolved by adding the two sibling modules 26.1 ships that we do not carry (CISCO-SDWAN-OPER-APP-MIB, CISCO-SDWAN-PROBE-MIB).",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-sdwan",
+      "vars": {
+        "release": "26.1"
+      }
+    },
     "src/vendor/cisco/CISCO-SECURE-SHELL-CAPABILITY": {
       "publisher": "cisco-mibs-v2"
     },
@@ -2915,8 +2918,8 @@
     },
     "src/vendor/cisco/CISCO-SIP-UA-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text parses but does not compile: the DEFVAL for cSipCfgPeerPrivacy names a bit 's' that its BITS does not define.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -3045,8 +3048,8 @@
     },
     "src/vendor/cisco/CISCO-ST-TC": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text does not parse: a DESCRIPTION string is closed early at line 365, leaving fiftyG/sixtyFourG outside it. Bad grammar near LOWERCASE_IDENTIFIER 'fiftyG'.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -3311,8 +3314,306 @@
     "src/vendor/cisco/CISCO-UDP-STD-CAPABILITY": {
       "publisher": "cisco-mibs-v2"
     },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-AAA-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-ADAPTOR-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-BIOS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-BMC-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CALLHOME-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CAPABILITY-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CHANGE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CIMCVMEDIA-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-COMM-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: nine objects (cucsCommCimxmlAdminState and others) have no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-COMPUTE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONFIG-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONFORM-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONTROLLER-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DCX-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DHCP-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DIAG-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DOMAIN-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DPSEC-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DUPE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EPQOS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-ETHER-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EVENT-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EXTMGMT-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EXTPOL-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: an object it defines has no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EXTVMM-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FABRIC-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: cucsFabricComputePhEpSlotId has no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FAULT-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FC-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FCPOOL-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FEATURE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FIRMWARE-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: an object it defines has no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FSM-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-GMETA-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not parse: bad grammar near MAX-ACCESS at line 138.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-GRAPHICS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IDENT-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: an object it defines has no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IMGPROV-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IMGSEC-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-INITIATOR-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IP-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IPPOOL-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-ISCSI-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LICENSE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LLDP-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSBOOT-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSMAINT-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: an object it defines has no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MACPOOL-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MAPPINGS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MEMORY-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MGMT-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: an object it defines has no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
     "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MIB": {
       "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MO-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MOREF-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-NETWORK-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: an object it defines has no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-NFS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-NOTIFS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-NWCTRL-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-OBSERVE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-ORG-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-OS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-PCI-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-PKI-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-POLICY-MIB": {
+      "divergence": {
+        "note": "publisher's 2018 text does not compile: an object it defines has no parent. Nine of the ten UCS modules held here fail this way, all in Cisco's own text.",
+        "recorded": "2026-09-08"
+      },
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-PORT-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-POWER-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-PROC-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-PROCESSOR-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-QOSCLASS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-QUERYRESULT-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-SECURITY-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-SES-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-SOL-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-STATS-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-STORAGE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-SYSFILE-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-TC-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-TOP-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-TRIG-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-UUIDPOOL-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-VERSION-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-VM-MIB": {
+      "publisher": "cisco-mibs-ucs"
+    },
+    "src/vendor/cisco/CISCO-UNIFIED-COMPUTING-VNIC-MIB": {
+      "publisher": "cisco-mibs-ucs"
     },
     "src/vendor/cisco/CISCO-UNITY-EXPRESS-MIB": {
       "publisher": "cisco-mibs-v2"
@@ -3914,12 +4215,6 @@
     "src/vendor/cisco/ONS15501-MIB": {
       "publisher": "cisco-mibs-v2"
     },
-    "src/vendor/cisco/PCUBE-SE-MIB": {
-      "publisher": "cisco-mibs-v2"
-    },
-    "src/vendor/cisco/PCUBE-SMI": {
-      "publisher": "cisco-mibs-v2"
-    },
     "src/vendor/cisco/RPHY-NDF-NDR-MIB": {
       "publisher": "cisco-mibs-v2"
     },
@@ -3932,11 +4227,13 @@
         "remote": "BROCADE-REG-MIB"
       }
     },
+    "src/vendor/ironport/ASYNCOS-MAIL-MIB": {
+      "publisher": "cisco-mibs-v2-txt"
+    },
+    "src/vendor/ironport/IRONPORT-SMI": {
+      "publisher": "cisco-mibs-v2-txt"
+    },
     "src/vendor/netsnmp/LM-SENSORS-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "net-snmp"
     },
     "src/vendor/netsnmp/NET-SNMP-AGENT-MIB": {
@@ -4007,6 +4304,12 @@
       },
       "publisher": "net-snmp"
     },
+    "src/vendor/pcube/PCUBE-SE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/pcube/PCUBE-SMI": {
+      "publisher": "cisco-mibs-v2"
+    },
     "src/vendor/synology/SYNOLOGY-DISK-MIB": {
       "divergence": {
         "note": "not yet reviewed",
@@ -4040,6 +4343,20 @@
     }
   },
   "publishers": {
+    "cisco-mibs-sdwan": {
+      "homepage": "https://github.com/cisco/cisco-mibs",
+      "kind": "file",
+      "name": "Cisco Systems",
+      "note": "The SD-WAN modules, which Cisco partitions by device release under sdwan/device/ rather than serving at one unversioned path. There is no default-branch equivalent to track, so the release is carried per module in `vars` and bumping it is a visible manifest edit rather than silent drift. Pinned to 26.1, the newest published. No release builds all six: 26.1 fixed the CISCO-SDWAN-BFD-MIB parse error that 17.15 and 17.18 both carry, but its CISCO-SDWAN-OPER-SYSTEM-MIB imports CISCO-SDWAN-MODELS-MIB, which appears nowhere in the repository. 26.1 is the release that leaves the fewest modules held, and the two it does are ones we already carry working copies of.",
+      "url": "https://raw.githubusercontent.com/cisco/cisco-mibs/main/sdwan/device/{release}/{module}.my"
+    },
+    "cisco-mibs-ucs": {
+      "homepage": "https://github.com/cisco/cisco-mibs",
+      "kind": "file",
+      "name": "Cisco Systems",
+      "note": "The Unified Computing System modules, which Cisco keeps in ucs-mibs/ rather than v2/ in the same repository. Same repository and the same reason for tracking the default branch as cisco-mibs-v2; a separate publisher only because the path differs.",
+      "url": "https://raw.githubusercontent.com/cisco/cisco-mibs/main/ucs-mibs/{module}.my"
+    },
     "cisco-mibs-v1": {
       "homepage": "https://github.com/cisco/cisco-mibs",
       "kind": "file",
@@ -4053,6 +4370,13 @@
       "name": "Cisco Systems",
       "note": "Cisco publishes its MIBs as a git repository rather than a release artefact, so a module is fetchable at a stable path and its history is public. Pinned to the default branch on purpose: a tag would make staleness undetectable, which is the thing this manifest exists to prevent.",
       "url": "https://raw.githubusercontent.com/cisco/cisco-mibs/main/v2/{module}.my"
+    },
+    "cisco-mibs-v2-txt": {
+      "homepage": "https://github.com/cisco/cisco-mibs",
+      "kind": "file",
+      "name": "Cisco Systems",
+      "note": "The handful of modules Cisco serves from v2/ with a .txt extension rather than .my -- the acquired IronPort/AsyncOS line. Same directory and the same default-branch tracking as cisco-mibs-v2; a separate publisher only because the URL template carries one extension.",
+      "url": "https://raw.githubusercontent.com/cisco/cisco-mibs/main/v2/{module}.txt"
     },
     "net-snmp": {
       "homepage": "https://github.com/net-snmp/net-snmp",

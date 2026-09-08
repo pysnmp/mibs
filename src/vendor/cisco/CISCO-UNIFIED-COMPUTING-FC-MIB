@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- FC management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -68,11 +68,12 @@ IMPORTS
     CucsNetworkTransport,
     CucsPortEncap,
     CucsPortMode,
-    CucsPortSpeed
+    CucsPortSpeed,
+    CucsPortapiPeerCapability
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsFcObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -1321,7 +1322,9 @@ CucsFcPIoEntry ::= SEQUENCE {
     cucsFcPIoMaxSpeed                                                CucsPortSpeed,
     cucsFcPIoIsPortChannelMember                                     TruthValue,
     cucsFcPIoAggrPortId                                              Gauge32,
-    cucsFcPIoPeerAggrPortId                                          Gauge32
+    cucsFcPIoPeerAggrPortId                                          Gauge32,
+    cucsFcPIoIsBreakoutXcvr                                          TruthValue,
+    cucsFcPIoPortCapability                                          CucsPortapiPeerCapability
 }
 
 cucsFcPIoInstanceId OBJECT-TYPE
@@ -1739,6 +1742,22 @@ cucsFcPIoPeerAggrPortId OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS fc:PIo:peerAggrPortId managed object property"
     ::= { cucsFcPIoEntry 52 }
+
+cucsFcPIoIsBreakoutXcvr OBJECT-TYPE
+    SYNTAX       TruthValue
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS fc:PIo:isBreakoutXcvr managed object property"
+    ::= { cucsFcPIoEntry 53 }
+
+cucsFcPIoPortCapability OBJECT-TYPE
+    SYNTAX       CucsPortapiPeerCapability
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS fc:PIo:portCapability managed object property"
+    ::= { cucsFcPIoEntry 54 }
 
 cucsFcPIoFsmTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsFcPIoFsmEntry

@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- DIAG management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -48,20 +48,20 @@ IMPORTS
     CucsManagedObjectDn
         FROM CISCO-UNIFIED-COMPUTING-MIB
     CucsDiagAdminState,
-    CucsDiagBladeTestType,
+    CucsDiagCpuFilter,
     CucsDiagFailureAction,
-    CucsDiagNetworkTestType,
-    CucsDiagSrvCtrlType,
+    CucsDiagMemChunkSize,
+    CucsDiagPattern,
     CucsDiagStatus,
     CucsDiagStatusIssues,
     CucsDiagSuccessAction,
-    CucsDiagTestOrder,
+    CucsDiagTestType,
     CucsNetworkSwitchId,
     CucsPolicyPolicyOwner
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsDiagObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -79,162 +79,189 @@ cucsDiagObjects MODULE-IDENTITY
         DIAG management information model package"
     ::= { ciscoUnifiedComputingMIBObjects 12 }
 
-cucsDiagBladeTestTable OBJECT-TYPE
-    SYNTAX           SEQUENCE OF CucsDiagBladeTestEntry
+cucsDiagLogEpTable OBJECT-TYPE
+    SYNTAX           SEQUENCE OF CucsDiagLogEpEntry
     MAX-ACCESS       not-accessible
     STATUS           current
     DESCRIPTION
-        "Cisco UCS diag:BladeTest managed object table"
-    ::= { cucsDiagObjects 1 }
+        "Cisco UCS diag:LogEp managed object table"
+    ::= { cucsDiagObjects 7 }
 
-cucsDiagBladeTestEntry OBJECT-TYPE
-    SYNTAX           CucsDiagBladeTestEntry
+cucsDiagLogEpEntry OBJECT-TYPE
+    SYNTAX           CucsDiagLogEpEntry
     MAX-ACCESS       not-accessible
     STATUS           current
     DESCRIPTION
-        "Entry for the cucsDiagBladeTestTable table."
-    INDEX { cucsDiagBladeTestInstanceId }
-    ::= { cucsDiagBladeTestTable 1 }
+        "Entry for the cucsDiagLogEpTable table."
+    INDEX { cucsDiagLogEpInstanceId }
+    ::= { cucsDiagLogEpTable 1 }
 
-CucsDiagBladeTestEntry ::= SEQUENCE {
-    cucsDiagBladeTestInstanceId                                      CucsManagedObjectId,
-    cucsDiagBladeTestDn                                              CucsManagedObjectDn,
-    cucsDiagBladeTestRn                                              SnmpAdminString,
-    cucsDiagBladeTestLength                                          Gauge32,
-    cucsDiagBladeTestOrder                                           CucsDiagTestOrder,
-    cucsDiagBladeTestType                                            CucsDiagBladeTestType
+CucsDiagLogEpEntry ::= SEQUENCE {
+    cucsDiagLogEpInstanceId                                          CucsManagedObjectId,
+    cucsDiagLogEpDn                                                  CucsManagedObjectDn,
+    cucsDiagLogEpRn                                                  SnmpAdminString,
+    cucsDiagLogEpLogDn                                               SnmpAdminString,
+    cucsDiagLogEpSwitchId                                            CucsNetworkSwitchId
 }
 
-cucsDiagBladeTestInstanceId OBJECT-TYPE
+cucsDiagLogEpInstanceId OBJECT-TYPE
     SYNTAX       CucsManagedObjectId
     MAX-ACCESS   not-accessible
     STATUS       current
     DESCRIPTION
         "Instance identifier of the managed object."
-    ::= { cucsDiagBladeTestEntry 1 }
+    ::= { cucsDiagLogEpEntry 1 }
 
-cucsDiagBladeTestDn OBJECT-TYPE
+cucsDiagLogEpDn OBJECT-TYPE
     SYNTAX       CucsManagedObjectDn
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-        "Cisco UCS diag:BladeTest:dn managed object property"
-    ::= { cucsDiagBladeTestEntry 2 }
+        "Cisco UCS diag:LogEp:dn managed object property"
+    ::= { cucsDiagLogEpEntry 2 }
 
-cucsDiagBladeTestRn OBJECT-TYPE
+cucsDiagLogEpRn OBJECT-TYPE
     SYNTAX       SnmpAdminString
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-        "Cisco UCS diag:BladeTest:rn managed object property"
-    ::= { cucsDiagBladeTestEntry 3 }
+        "Cisco UCS diag:LogEp:rn managed object property"
+    ::= { cucsDiagLogEpEntry 3 }
 
-cucsDiagBladeTestLength OBJECT-TYPE
-    SYNTAX       Gauge32
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:BladeTest:length managed object property"
-    ::= { cucsDiagBladeTestEntry 4 }
-
-cucsDiagBladeTestOrder OBJECT-TYPE
-    SYNTAX       CucsDiagTestOrder
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:BladeTest:order managed object property"
-    ::= { cucsDiagBladeTestEntry 5 }
-
-cucsDiagBladeTestType OBJECT-TYPE
-    SYNTAX       CucsDiagBladeTestType
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:BladeTest:type managed object property"
-    ::= { cucsDiagBladeTestEntry 6 }
-
-cucsDiagNetworkTestTable OBJECT-TYPE
-    SYNTAX           SEQUENCE OF CucsDiagNetworkTestEntry
-    MAX-ACCESS       not-accessible
-    STATUS           current
-    DESCRIPTION
-        "Cisco UCS diag:NetworkTest managed object table"
-    ::= { cucsDiagObjects 2 }
-
-cucsDiagNetworkTestEntry OBJECT-TYPE
-    SYNTAX           CucsDiagNetworkTestEntry
-    MAX-ACCESS       not-accessible
-    STATUS           current
-    DESCRIPTION
-        "Entry for the cucsDiagNetworkTestTable table."
-    INDEX { cucsDiagNetworkTestInstanceId }
-    ::= { cucsDiagNetworkTestTable 1 }
-
-CucsDiagNetworkTestEntry ::= SEQUENCE {
-    cucsDiagNetworkTestInstanceId                                    CucsManagedObjectId,
-    cucsDiagNetworkTestDn                                            CucsManagedObjectDn,
-    cucsDiagNetworkTestRn                                            SnmpAdminString,
-    cucsDiagNetworkTestLength                                        Gauge32,
-    cucsDiagNetworkTestOrder                                         CucsDiagTestOrder,
-    cucsDiagNetworkTestSwitchId                                      CucsNetworkSwitchId,
-    cucsDiagNetworkTestType                                          CucsDiagNetworkTestType
-}
-
-cucsDiagNetworkTestInstanceId OBJECT-TYPE
-    SYNTAX       CucsManagedObjectId
-    MAX-ACCESS   not-accessible
-    STATUS       current
-    DESCRIPTION
-        "Instance identifier of the managed object."
-    ::= { cucsDiagNetworkTestEntry 1 }
-
-cucsDiagNetworkTestDn OBJECT-TYPE
-    SYNTAX       CucsManagedObjectDn
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:NetworkTest:dn managed object property"
-    ::= { cucsDiagNetworkTestEntry 2 }
-
-cucsDiagNetworkTestRn OBJECT-TYPE
+cucsDiagLogEpLogDn OBJECT-TYPE
     SYNTAX       SnmpAdminString
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-        "Cisco UCS diag:NetworkTest:rn managed object property"
-    ::= { cucsDiagNetworkTestEntry 3 }
+        "Cisco UCS diag:LogEp:logDn managed object property"
+    ::= { cucsDiagLogEpEntry 4 }
 
-cucsDiagNetworkTestLength OBJECT-TYPE
-    SYNTAX       Gauge32
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:NetworkTest:length managed object property"
-    ::= { cucsDiagNetworkTestEntry 4 }
-
-cucsDiagNetworkTestOrder OBJECT-TYPE
-    SYNTAX       CucsDiagTestOrder
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:NetworkTest:order managed object property"
-    ::= { cucsDiagNetworkTestEntry 5 }
-
-cucsDiagNetworkTestSwitchId OBJECT-TYPE
+cucsDiagLogEpSwitchId OBJECT-TYPE
     SYNTAX       CucsNetworkSwitchId
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-        "Cisco UCS diag:NetworkTest:switchId managed object property"
-    ::= { cucsDiagNetworkTestEntry 6 }
+        "Cisco UCS diag:LogEp:switchId managed object property"
+    ::= { cucsDiagLogEpEntry 5 }
 
-cucsDiagNetworkTestType OBJECT-TYPE
-    SYNTAX       CucsDiagNetworkTestType
+cucsDiagMemoryTestTable OBJECT-TYPE
+    SYNTAX           SEQUENCE OF CucsDiagMemoryTestEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest managed object table"
+    ::= { cucsDiagObjects 8 }
+
+cucsDiagMemoryTestEntry OBJECT-TYPE
+    SYNTAX           CucsDiagMemoryTestEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Entry for the cucsDiagMemoryTestTable table."
+    INDEX { cucsDiagMemoryTestInstanceId }
+    ::= { cucsDiagMemoryTestTable 1 }
+
+CucsDiagMemoryTestEntry ::= SEQUENCE {
+    cucsDiagMemoryTestInstanceId                                     CucsManagedObjectId,
+    cucsDiagMemoryTestDn                                             CucsManagedObjectDn,
+    cucsDiagMemoryTestRn                                             SnmpAdminString,
+    cucsDiagMemoryTestCpuFilter                                      CucsDiagCpuFilter,
+    cucsDiagMemoryTestId                                             Gauge32,
+    cucsDiagMemoryTestLoopCount                                      Gauge32,
+    cucsDiagMemoryTestMemChunkSize                                   CucsDiagMemChunkSize,
+    cucsDiagMemoryTestMemSize                                        Gauge32,
+    cucsDiagMemoryTestOrder                                          Gauge32,
+    cucsDiagMemoryTestPattern                                        CucsDiagPattern,
+    cucsDiagMemoryTestType                                           CucsDiagTestType
+}
+
+cucsDiagMemoryTestInstanceId OBJECT-TYPE
+    SYNTAX       CucsManagedObjectId
+    MAX-ACCESS   not-accessible
+    STATUS       current
+    DESCRIPTION
+        "Instance identifier of the managed object."
+    ::= { cucsDiagMemoryTestEntry 1 }
+
+cucsDiagMemoryTestDn OBJECT-TYPE
+    SYNTAX       CucsManagedObjectDn
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-        "Cisco UCS diag:NetworkTest:type managed object property"
-    ::= { cucsDiagNetworkTestEntry 7 }
+        "Cisco UCS diag:MemoryTest:dn managed object property"
+    ::= { cucsDiagMemoryTestEntry 2 }
+
+cucsDiagMemoryTestRn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:rn managed object property"
+    ::= { cucsDiagMemoryTestEntry 3 }
+
+cucsDiagMemoryTestCpuFilter OBJECT-TYPE
+    SYNTAX       CucsDiagCpuFilter
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:cpuFilter managed object property"
+    ::= { cucsDiagMemoryTestEntry 4 }
+
+cucsDiagMemoryTestId OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:id managed object property"
+    ::= { cucsDiagMemoryTestEntry 5 }
+
+cucsDiagMemoryTestLoopCount OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:loopCount managed object property"
+    ::= { cucsDiagMemoryTestEntry 6 }
+
+cucsDiagMemoryTestMemChunkSize OBJECT-TYPE
+    SYNTAX       CucsDiagMemChunkSize
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:memChunkSize managed object property"
+    ::= { cucsDiagMemoryTestEntry 7 }
+
+cucsDiagMemoryTestMemSize OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:memSize managed object property"
+    ::= { cucsDiagMemoryTestEntry 8 }
+
+cucsDiagMemoryTestOrder OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:order managed object property"
+    ::= { cucsDiagMemoryTestEntry 9 }
+
+cucsDiagMemoryTestPattern OBJECT-TYPE
+    SYNTAX       CucsDiagPattern
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:pattern managed object property"
+    ::= { cucsDiagMemoryTestEntry 10 }
+
+cucsDiagMemoryTestType OBJECT-TYPE
+    SYNTAX       CucsDiagTestType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:MemoryTest:type managed object property"
+    ::= { cucsDiagMemoryTestEntry 11 }
 
 cucsDiagRsltTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsDiagRsltEntry
@@ -262,7 +289,11 @@ CucsDiagRsltEntry ::= SEQUENCE {
     cucsDiagRsltId                                                   Gauge32,
     cucsDiagRsltResult                                               Gauge32,
     cucsDiagRsltRsltStatus                                           CucsDiagStatus,
-    cucsDiagRsltStartTs                                              DateAndTime
+    cucsDiagRsltStartTs                                              DateAndTime,
+    cucsDiagRsltEstProgWeight                                        Gauge32,
+    cucsDiagRsltProgress                                             Gauge32,
+    cucsDiagRsltTestDn                                               SnmpAdminString,
+    cucsDiagRsltTestType                                             CucsDiagTestType
 }
 
 cucsDiagRsltInstanceId OBJECT-TYPE
@@ -336,6 +367,38 @@ cucsDiagRsltStartTs OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS diag:Rslt:startTs managed object property"
     ::= { cucsDiagRsltEntry 9 }
+
+cucsDiagRsltEstProgWeight OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:Rslt:estProgWeight managed object property"
+    ::= { cucsDiagRsltEntry 10 }
+
+cucsDiagRsltProgress OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:Rslt:progress managed object property"
+    ::= { cucsDiagRsltEntry 11 }
+
+cucsDiagRsltTestDn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:Rslt:testDn managed object property"
+    ::= { cucsDiagRsltEntry 12 }
+
+cucsDiagRsltTestType OBJECT-TYPE
+    SYNTAX       CucsDiagTestType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:Rslt:testType managed object property"
+    ::= { cucsDiagRsltEntry 13 }
 
 cucsDiagRunPolicyTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsDiagRunPolicyEntry
@@ -629,17 +692,15 @@ CucsDiagSrvCtrlEntry ::= SEQUENCE {
     cucsDiagSrvCtrlDn                                                CucsManagedObjectDn,
     cucsDiagSrvCtrlRn                                                SnmpAdminString,
     cucsDiagSrvCtrlAdminState                                        CucsDiagAdminState,
-    cucsDiagSrvCtrlImgLoc                                            SnmpAdminString,
-    cucsDiagSrvCtrlImgName                                           SnmpAdminString,
     cucsDiagSrvCtrlOperQualifier                                     CucsDiagStatusIssues,
     cucsDiagSrvCtrlOperState                                         CucsDiagStatus,
     cucsDiagSrvCtrlRunPolicyName                                     SnmpAdminString,
-    cucsDiagSrvCtrlType                                              CucsDiagSrvCtrlType,
     cucsDiagSrvCtrlEndTs                                             DateAndTime,
     cucsDiagSrvCtrlEndTsM                                            Unsigned64,
     cucsDiagSrvCtrlErrorDescr                                        SnmpAdminString,
     cucsDiagSrvCtrlStartTs                                           DateAndTime,
-    cucsDiagSrvCtrlStartTsM                                          Unsigned64
+    cucsDiagSrvCtrlStartTsM                                          Unsigned64,
+    cucsDiagSrvCtrlOverallProgress                                   Gauge32
 }
 
 cucsDiagSrvCtrlInstanceId OBJECT-TYPE
@@ -674,22 +735,6 @@ cucsDiagSrvCtrlAdminState OBJECT-TYPE
         "Cisco UCS diag:SrvCtrl:adminState managed object property"
     ::= { cucsDiagSrvCtrlEntry 4 }
 
-cucsDiagSrvCtrlImgLoc OBJECT-TYPE
-    SYNTAX       SnmpAdminString
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:SrvCtrl:imgLoc managed object property"
-    ::= { cucsDiagSrvCtrlEntry 5 }
-
-cucsDiagSrvCtrlImgName OBJECT-TYPE
-    SYNTAX       SnmpAdminString
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:SrvCtrl:imgName managed object property"
-    ::= { cucsDiagSrvCtrlEntry 6 }
-
 cucsDiagSrvCtrlOperQualifier OBJECT-TYPE
     SYNTAX       CucsDiagStatusIssues
     MAX-ACCESS   read-only
@@ -713,14 +758,6 @@ cucsDiagSrvCtrlRunPolicyName OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS diag:SrvCtrl:runPolicyName managed object property"
     ::= { cucsDiagSrvCtrlEntry 9 }
-
-cucsDiagSrvCtrlType OBJECT-TYPE
-    SYNTAX       CucsDiagSrvCtrlType
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS diag:SrvCtrl:type managed object property"
-    ::= { cucsDiagSrvCtrlEntry 10 }
 
 cucsDiagSrvCtrlEndTs OBJECT-TYPE
     SYNTAX       DateAndTime
@@ -761,5 +798,13 @@ cucsDiagSrvCtrlStartTsM OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS diag:SrvCtrl:startTsM managed object property"
     ::= { cucsDiagSrvCtrlEntry 15 }
+
+cucsDiagSrvCtrlOverallProgress OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS diag:SrvCtrl:overallProgress managed object property"
+    ::= { cucsDiagSrvCtrlEntry 16 }
 
 END

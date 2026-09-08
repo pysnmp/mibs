@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- GRAPHICS management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -51,11 +51,12 @@ IMPORTS
     CucsEquipmentPowerState,
     CucsEquipmentPresence,
     CucsEquipmentSensorThresholdStatus,
-    CucsFsmLifecycle
+    CucsFsmLifecycle,
+    CucsGraphicsGpuMode
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsGraphicsObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -119,7 +120,8 @@ CucsGraphicsCardEntry ::= SEQUENCE {
     cucsGraphicsCardStepping                                         SnmpAdminString,
     cucsGraphicsCardExpanderSlot                                     SnmpAdminString,
     cucsGraphicsCardFirmwareVersion                                  SnmpAdminString,
-    cucsGraphicsCardPciAddrList                                      SnmpAdminString
+    cucsGraphicsCardPciAddrList                                      SnmpAdminString,
+    cucsGraphicsCardMode                                             CucsGraphicsGpuMode
 }
 
 cucsGraphicsCardInstanceId OBJECT-TYPE
@@ -354,6 +356,14 @@ cucsGraphicsCardPciAddrList OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS graphics:Card:pciAddrList managed object property"
     ::= { cucsGraphicsCardEntry 29 }
+
+cucsGraphicsCardMode OBJECT-TYPE
+    SYNTAX       CucsGraphicsGpuMode
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS graphics:Card:mode managed object property"
+    ::= { cucsGraphicsCardEntry 30 }
 
 cucsGraphicsControllerTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsGraphicsControllerEntry

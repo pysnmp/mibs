@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- ETHER management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -102,6 +102,7 @@ IMPORTS
     CucsEtherSwitchIntFIoType,
     CucsEtherTxStatsHistThresholded,
     CucsEtherTxStatsThresholded,
+    CucsEtherUserRecoveryOperation,
     CucsFabricAdminState,
     CucsFabricMembershipStatus,
     CucsFsmCompletion,
@@ -118,11 +119,12 @@ IMPORTS
     CucsNetworkTransport,
     CucsPortEncap,
     CucsPortEthSpeed,
-    CucsPortMode
+    CucsPortMode,
+    CucsPortapiPeerCapability
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsEtherObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -3924,7 +3926,9 @@ CucsEtherPIoEntry ::= SEQUENCE {
     cucsEtherPIoIsPortChannelMember                                  TruthValue,
     cucsEtherPIoAggrPortId                                           Gauge32,
     cucsEtherPIoPeerAggrPortId                                       Gauge32,
-    cucsEtherPIoNonCR4                                               TruthValue
+    cucsEtherPIoNonCR4                                               TruthValue,
+    cucsEtherPIoIsBreakoutXcvr                                       TruthValue,
+    cucsEtherPIoPortCapability                                       CucsPortapiPeerCapability
 }
 
 cucsEtherPIoInstanceId OBJECT-TYPE
@@ -4342,6 +4346,22 @@ cucsEtherPIoNonCR4 OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS ether:PIo:nonCR4 managed object property"
     ::= { cucsEtherPIoEntry 52 }
+
+cucsEtherPIoIsBreakoutXcvr OBJECT-TYPE
+    SYNTAX       TruthValue
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ether:PIo:isBreakoutXcvr managed object property"
+    ::= { cucsEtherPIoEntry 53 }
+
+cucsEtherPIoPortCapability OBJECT-TYPE
+    SYNTAX       CucsPortapiPeerCapability
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ether:PIo:portCapability managed object property"
+    ::= { cucsEtherPIoEntry 54 }
 
 cucsEtherPIoEndPointTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsEtherPIoEndPointEntry
@@ -5141,7 +5161,8 @@ CucsEtherPortChanIdElemEntry ::= SEQUENCE {
     cucsEtherPortChanIdElemRn                                        SnmpAdminString,
     cucsEtherPortChanIdElemId                                        Gauge32,
     cucsEtherPortChanIdElemAssignedToDn                              SnmpAdminString,
-    cucsEtherPortChanIdElemPrevAssignedToDn                          SnmpAdminString
+    cucsEtherPortChanIdElemPrevAssignedToDn                          SnmpAdminString,
+    cucsEtherPortChanIdElemReserved                                  TruthValue
 }
 
 cucsEtherPortChanIdElemInstanceId OBJECT-TYPE
@@ -5193,6 +5214,14 @@ cucsEtherPortChanIdElemPrevAssignedToDn OBJECT-TYPE
         "Cisco UCS ether:PortChanIdElem:prevAssignedToDn
         managed object property"
     ::= { cucsEtherPortChanIdElemEntry 6 }
+
+cucsEtherPortChanIdElemReserved OBJECT-TYPE
+    SYNTAX       TruthValue
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ether:PortChanIdElem:reserved managed object property"
+    ::= { cucsEtherPortChanIdElemEntry 7 }
 
 cucsEtherPortChanIdUniverseTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsEtherPortChanIdUniverseEntry
@@ -6083,7 +6112,8 @@ CucsEtherServerIntFIoEntry ::= SEQUENCE {
     cucsEtherServerIntFIoAggrPortId                                  Gauge32,
     cucsEtherServerIntFIoPeerAggrPortId                              Gauge32,
     cucsEtherServerIntFIoMacAddr                                     MacAddress,
-    cucsEtherServerIntFIoOperBorderAggrPortId                        Gauge32
+    cucsEtherServerIntFIoOperBorderAggrPortId                        Gauge32,
+    cucsEtherServerIntFIoUserRecoveryOperation                       CucsEtherUserRecoveryOperation
 }
 
 cucsEtherServerIntFIoInstanceId OBJECT-TYPE
@@ -6494,6 +6524,15 @@ cucsEtherServerIntFIoOperBorderAggrPortId OBJECT-TYPE
         "Cisco UCS ether:ServerIntFIo:operBorderAggrPortId
         managed object property"
     ::= { cucsEtherServerIntFIoEntry 50 }
+
+cucsEtherServerIntFIoUserRecoveryOperation OBJECT-TYPE
+    SYNTAX       CucsEtherUserRecoveryOperation
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ether:ServerIntFIo:userRecoveryOperation
+        managed object property"
+    ::= { cucsEtherServerIntFIoEntry 51 }
 
 cucsEtherServerIntFIoFsmTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsEtherServerIntFIoFsmEntry

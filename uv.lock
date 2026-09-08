@@ -157,29 +157,32 @@ wheels = [
 ]
 
 [[package]]
-name = "pyasn1"
-version = "0.6.4"
+name = "pycryptodomex"
+version = "3.23.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a4/9a/23310166d960def5897e91fe20e5b724601b02a22e84ba1f94232c0b7f67/pyasn1-0.6.4.tar.gz", hash = "sha256:9c447d8431c947fe4c8febc4ed9e760bc29011a5b01e5c74b67025bd9fb8ce81", size = 151262, upload-time = "2026-07-09T01:12:33.988Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c9/85/e24bf90972a30b0fcd16c73009add1d7d7cd9140c2498a68252028899e41/pycryptodomex-3.23.0.tar.gz", hash = "sha256:71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da", size = 4922157, upload-time = "2025-05-17T17:23:41.434Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9a/3b/6163796d69c3977d1e4287bea4a6979161cbbdd170ebb430511e8e1999ce/pyasn1-0.6.4-py3-none-any.whl", hash = "sha256:deda9277cfd454080ec40b207fb6df82206a3a2688735233cdcd8d3d565f088b", size = 84410, upload-time = "2026-07-09T01:12:32.92Z" },
-]
-
-[[package]]
-name = "pysnmp"
-version = "7.1.29"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pyasn1" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/41/29/57f468577d8362986719590a9fbfde4056e4934cf6d711f9a8bac8a60250/pysnmp-7.1.29.tar.gz", hash = "sha256:d0da6726c4d35b1e57027c98e2065928656b0cc5d3ce5a60b3535e1825cc60ee", size = 268583, upload-time = "2026-08-21T03:57:23.32Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a5/75/ee4c64b903786caa9294382bae895ccddb0b05c6f89ea0c8d21bce6dd9b1/pysnmp-7.1.29-py3-none-any.whl", hash = "sha256:6d08124574c474853870f20d728b54335b42fb1e68068bbb486ec077b3d052cf", size = 355548, upload-time = "2026-08-21T03:57:21.091Z" },
+    { url = "https://files.pythonhosted.org/packages/dd/9c/1a8f35daa39784ed8adf93a694e7e5dc15c23c741bbda06e1d45f8979e9e/pycryptodomex-3.23.0-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:06698f957fe1ab229a99ba2defeeae1c09af185baa909a31a5d1f9d42b1aaed6", size = 2499240, upload-time = "2025-05-17T17:22:46.953Z" },
+    { url = "https://files.pythonhosted.org/packages/7a/62/f5221a191a97157d240cf6643747558759126c76ee92f29a3f4aee3197a5/pycryptodomex-3.23.0-cp37-abi3-macosx_10_9_x86_64.whl", hash = "sha256:b2c2537863eccef2d41061e82a881dcabb04944c5c06c5aa7110b577cc487545", size = 1644042, upload-time = "2025-05-17T17:22:49.098Z" },
+    { url = "https://files.pythonhosted.org/packages/8c/fd/5a054543c8988d4ed7b612721d7e78a4b9bf36bc3c5ad45ef45c22d0060e/pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:43c446e2ba8df8889e0e16f02211c25b4934898384c1ec1ec04d7889c0333587", size = 2186227, upload-time = "2025-05-17T17:22:51.139Z" },
+    { url = "https://files.pythonhosted.org/packages/c8/a9/8862616a85cf450d2822dbd4fff1fcaba90877907a6ff5bc2672cafe42f8/pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f489c4765093fb60e2edafdf223397bc716491b2b69fe74367b70d6999257a5c", size = 2272578, upload-time = "2025-05-17T17:22:53.676Z" },
+    { url = "https://files.pythonhosted.org/packages/46/9f/bda9c49a7c1842820de674ab36c79f4fbeeee03f8ff0e4f3546c3889076b/pycryptodomex-3.23.0-cp37-abi3-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:bdc69d0d3d989a1029df0eed67cc5e8e5d968f3724f4519bd03e0ec68df7543c", size = 2312166, upload-time = "2025-05-17T17:22:56.585Z" },
+    { url = "https://files.pythonhosted.org/packages/03/cc/870b9bf8ca92866ca0186534801cf8d20554ad2a76ca959538041b7a7cf4/pycryptodomex-3.23.0-cp37-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:6bbcb1dd0f646484939e142462d9e532482bc74475cecf9c4903d4e1cd21f003", size = 2185467, upload-time = "2025-05-17T17:22:59.237Z" },
+    { url = "https://files.pythonhosted.org/packages/96/e3/ce9348236d8e669fea5dd82a90e86be48b9c341210f44e25443162aba187/pycryptodomex-3.23.0-cp37-abi3-musllinux_1_2_i686.whl", hash = "sha256:8a4fcd42ccb04c31268d1efeecfccfd1249612b4de6374205376b8f280321744", size = 2346104, upload-time = "2025-05-17T17:23:02.112Z" },
+    { url = "https://files.pythonhosted.org/packages/a5/e9/e869bcee87beb89040263c416a8a50204f7f7a83ac11897646c9e71e0daf/pycryptodomex-3.23.0-cp37-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:55ccbe27f049743a4caf4f4221b166560d3438d0b1e5ab929e07ae1702a4d6fd", size = 2271038, upload-time = "2025-05-17T17:23:04.872Z" },
+    { url = "https://files.pythonhosted.org/packages/8d/67/09ee8500dd22614af5fbaa51a4aee6e342b5fa8aecf0a6cb9cbf52fa6d45/pycryptodomex-3.23.0-cp37-abi3-win32.whl", hash = "sha256:189afbc87f0b9f158386bf051f720e20fa6145975f1e76369303d0f31d1a8d7c", size = 1771969, upload-time = "2025-05-17T17:23:07.115Z" },
+    { url = "https://files.pythonhosted.org/packages/69/96/11f36f71a865dd6df03716d33bd07a67e9d20f6b8d39820470b766af323c/pycryptodomex-3.23.0-cp37-abi3-win_amd64.whl", hash = "sha256:52e5ca58c3a0b0bd5e100a9fbc8015059b05cffc6c66ce9d98b4b45e023443b9", size = 1803124, upload-time = "2025-05-17T17:23:09.267Z" },
+    { url = "https://files.pythonhosted.org/packages/f9/93/45c1cdcbeb182ccd2e144c693eaa097763b08b38cded279f0053ed53c553/pycryptodomex-3.23.0-cp37-abi3-win_arm64.whl", hash = "sha256:02d87b80778c171445d67e23d1caef279bf4b25c3597050ccd2e13970b57fd51", size = 1707161, upload-time = "2025-05-17T17:23:11.414Z" },
+    { url = "https://files.pythonhosted.org/packages/f3/b8/3e76d948c3c4ac71335bbe75dac53e154b40b0f8f1f022dfa295257a0c96/pycryptodomex-3.23.0-pp310-pypy310_pp73-macosx_10_15_x86_64.whl", hash = "sha256:ebfff755c360d674306e5891c564a274a47953562b42fb74a5c25b8fc1fb1cb5", size = 1627695, upload-time = "2025-05-17T17:23:17.38Z" },
+    { url = "https://files.pythonhosted.org/packages/6a/cf/80f4297a4820dfdfd1c88cf6c4666a200f204b3488103d027b5edd9176ec/pycryptodomex-3.23.0-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:eca54f4bb349d45afc17e3011ed4264ef1cc9e266699874cdd1349c504e64798", size = 1675772, upload-time = "2025-05-17T17:23:19.202Z" },
+    { url = "https://files.pythonhosted.org/packages/d1/42/1e969ee0ad19fe3134b0e1b856c39bd0b70d47a4d0e81c2a8b05727394c9/pycryptodomex-3.23.0-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4f2596e643d4365e14d0879dc5aafe6355616c61c2176009270f3048f6d9a61f", size = 1668083, upload-time = "2025-05-17T17:23:21.867Z" },
+    { url = "https://files.pythonhosted.org/packages/6e/c3/1de4f7631fea8a992a44ba632aa40e0008764c0fb9bf2854b0acf78c2cf2/pycryptodomex-3.23.0-pp310-pypy310_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:fdfac7cda115bca3a5abb2f9e43bc2fb66c2b65ab074913643803ca7083a79ea", size = 1706056, upload-time = "2025-05-17T17:23:24.031Z" },
+    { url = "https://files.pythonhosted.org/packages/f2/5f/af7da8e6f1e42b52f44a24d08b8e4c726207434e2593732d39e7af5e7256/pycryptodomex-3.23.0-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:14c37aaece158d0ace436f76a7bb19093db3b4deade9797abfc39ec6cd6cc2fe", size = 1806478, upload-time = "2025-05-17T17:23:26.066Z" },
 ]
 
 [[package]]
 name = "pysnmp-mibs"
-version = "1.23.1"
+version = "1.24.0"
 source = { virtual = "." }
 dependencies = [
     { name = "pysnmp-pysmi" },
@@ -189,7 +192,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "pre-commit" },
-    { name = "pysnmp" },
+    { name = "pysnmplib" },
 ]
 
 [package.metadata]
@@ -201,7 +204,16 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "pre-commit", specifier = ">=4.6.2,<5" },
-    { name = "pysnmp", specifier = ">=7,<8" },
+    { name = "pysnmplib", specifier = ">=6.0.0rc10,<7" },
+]
+
+[[package]]
+name = "pysnmp-pyasn1"
+version = "2.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e0/f8/9d17dff241c023116ab48bfa1e7180a9e9a3dbc8a63f3721d3b97ddb2d7e/pysnmp_pyasn1-2.0.1.tar.gz", hash = "sha256:776e624e83b6d8bdb30a0d03379b346bcfebbb752f6f02ad05287888c876483f", size = 229839, upload-time = "2026-09-06T02:48:23.616Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d3/5b/56bf01541234545eff651c273f4ef7909e6be45a6b51ba1b2be0dec13631/pysnmp_pyasn1-2.0.1-py3-none-any.whl", hash = "sha256:9cf4b0db4ac03b7394f46f389cfb7d8947c9a0757e881d6a45e7eb2cbd6cd600", size = 108633, upload-time = "2026-09-06T02:48:22.162Z" },
 ]
 
 [[package]]
@@ -215,6 +227,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/67/1e/cebff8ac5240feb3cedcb28fd333497c1ee3b28362c2bb88dae26ec84eb9/pysnmp_pysmi-3.0.0rc8.tar.gz", hash = "sha256:a3912c2c8b9060edb2796832fa1f000904d77978ddccdf8a01a50f934e4ebf55", size = 4353614, upload-time = "2026-09-08T19:35:03.849Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b4/df/0abcb5d939a4d5e855288418c6aa99f447a212d6a0e50dbc0ae86fcc6189/pysnmp_pysmi-3.0.0rc8-py3-none-any.whl", hash = "sha256:41326fe44bacb508f247775c7d7055f06ffb6cd9cb2d8b845617c349df2eaf26", size = 3127660, upload-time = "2026-09-08T19:35:01.718Z" },
+]
+
+[[package]]
+name = "pysnmplib"
+version = "6.0.0rc10"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pycryptodomex" },
+    { name = "pysnmp-pyasn1" },
+    { name = "pysnmp-pysmi" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9f/3d/09e4c5fb14af8197ecedf9d0acd49e290cfb9acd1c0075ba8c27b32e8bd7/pysnmplib-6.0.0rc10.tar.gz", hash = "sha256:692daea78935096aa0b0279fb97b1c39472ea95df1439bb91c36626b595fc695", size = 472525, upload-time = "2026-09-08T16:36:53.837Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fc/83/c8de26d44d756b332b2cadbec7a6d1bda38a7742491f753b381fefc4e8e9/pysnmplib-6.0.0rc10-py3-none-any.whl", hash = "sha256:a47dde0282d6d06da7798a71ef725e883c4617b012774177a031e441c66239a1", size = 239387, upload-time = "2026-09-08T16:36:52.419Z" },
 ]
 
 [[package]]
