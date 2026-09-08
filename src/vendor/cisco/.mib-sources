@@ -1,0 +1,5 @@
+# PCUBE-SMI and PCUBE-SE-MIB, for CISCO-SCAS-BB-MIB. Cisco's Service
+# Control Application for Broadband is the P-Cube line it acquired in
+# 2004: the module is Cisco-branded and registers on P-Cube's 5655, so
+# it stays here and reaches into that namespace for its anchor.
+src/vendor/pcube

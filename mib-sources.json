@@ -1,5 +1,8 @@
 {
   "modules": {
+    "src/vendor/aironet/AWC-VLAN-CFG-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
     "src/vendor/cisco/ACTONA-ACTASTOR-MIB": {
       "publisher": "cisco-mibs-v2"
     },
@@ -108,13 +111,7 @@
     "src/vendor/cisco/ALTIGA-VERSION-STATS-MIB": {
       "publisher": "cisco-mibs-v2"
     },
-    "src/vendor/cisco/ASYNCOS-MAIL-MIB": {
-      "publisher": "cisco-mibs-v2-txt"
-    },
     "src/vendor/cisco/ATM-RMON-MIB": {
-      "publisher": "cisco-mibs-v2"
-    },
-    "src/vendor/cisco/AWC-VLAN-CFG-MIB": {
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/BASIS-GENERIC-MIB": {
@@ -4145,9 +4142,6 @@
     "src/vendor/cisco/GENERICOBJECT-MIB": {
       "publisher": "cisco-mibs-v2"
     },
-    "src/vendor/cisco/IRONPORT-SMI": {
-      "publisher": "cisco-mibs-v2-txt"
-    },
     "src/vendor/cisco/ISIS-CAPABILTY-MIB": {
       "publisher": "cisco-mibs-v2"
     },
@@ -4221,12 +4215,6 @@
     "src/vendor/cisco/ONS15501-MIB": {
       "publisher": "cisco-mibs-v2"
     },
-    "src/vendor/cisco/PCUBE-SE-MIB": {
-      "publisher": "cisco-mibs-v2"
-    },
-    "src/vendor/cisco/PCUBE-SMI": {
-      "publisher": "cisco-mibs-v2"
-    },
     "src/vendor/cisco/RPHY-NDF-NDR-MIB": {
       "publisher": "cisco-mibs-v2"
     },
@@ -4238,6 +4226,12 @@
       "vars": {
         "remote": "BROCADE-REG-MIB"
       }
+    },
+    "src/vendor/ironport/ASYNCOS-MAIL-MIB": {
+      "publisher": "cisco-mibs-v2-txt"
+    },
+    "src/vendor/ironport/IRONPORT-SMI": {
+      "publisher": "cisco-mibs-v2-txt"
     },
     "src/vendor/netsnmp/LM-SENSORS-MIB": {
       "publisher": "net-snmp"
@@ -4309,6 +4303,12 @@
         "recorded": "2026-09-07"
       },
       "publisher": "net-snmp"
+    },
+    "src/vendor/pcube/PCUBE-SE-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
+    "src/vendor/pcube/PCUBE-SMI": {
+      "publisher": "cisco-mibs-v2"
     },
     "src/vendor/synology/SYNOLOGY-DISK-MIB": {
       "divergence": {
