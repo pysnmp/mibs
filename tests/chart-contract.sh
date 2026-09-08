@@ -76,6 +76,40 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+# The init container compiles with the same pysmi the corpus was built with
+# ---------------------------------------------------------------------------
+#
+# A user's MIBs are compiled at start-up and served beside the published
+# corpus, so the compiler behind the tools image and the compiler behind the
+# corpus have to be one version. uv.lock is that version -- `make corpus` runs
+# through uv -- and the Dockerfile has to name it rather than a range that
+# resolves to whatever is newest on the day the image is built.
+
+echo "the tools image"
+
+LOCKED_PYSMI="$(
+  awk '/^name = "pysnmp-pysmi"$/ { found = 1; next }
+       found && /^version = / { gsub(/^version = "|"$/, ""); print; exit }' uv.lock
+)"
+PINNED_PYSMI="$(
+  sed -n 's/^ARG PYSMI_VERSION="\(.*\)"$/\1/p' docker/tools.Dockerfile
+)"
+
+if [ -z "$LOCKED_PYSMI" ]; then
+  fail "uv.lock names no pysnmp-pysmi version"
+elif [ "$PINNED_PYSMI" = "$LOCKED_PYSMI" ]; then
+  pass "the tools image installs pysmi $PINNED_PYSMI, the version uv.lock resolves"
+else
+  fail "the tools image installs pysmi '$PINNED_PYSMI', but uv.lock resolves $LOCKED_PYSMI"
+fi
+
+if grep -q 'pysnmp-pysmi==\${PYSMI_VERSION}' docker/tools.Dockerfile; then
+  pass "it is installed as an exact version"
+else
+  fail "docker/tools.Dockerfile no longer installs an exact pysmi version"
+fi
+
+# ---------------------------------------------------------------------------
 # The renders are a function of the chart, not of when they were rendered
 # ---------------------------------------------------------------------------
 #
