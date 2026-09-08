@@ -31,14 +31,6 @@ cd "$(dirname "$0")/.."
 
 CORPUS="${1:-output}"
 CHART="charts/mibserver"
-NGINX_IMAGE="$(
-  python3 -c '
-import sys, yaml
-values = yaml.safe_load(open(sys.argv[1]))
-image = values["image"]
-print(image["repository"] + ":" + image["tag"])
-' "$CHART/values.yaml"
-)"
 
 FAILURES=0
 
@@ -71,15 +63,34 @@ trap cleanup EXIT
 # The config under test is the one the chart renders, not a copy of it
 # ---------------------------------------------------------------------------
 
-echo "== rendering nginx.conf from $CHART"
-helm template default "$CHART" --namespace default \
-  --show-only templates/configmap.yaml >"$WORK/configmap.yaml"
+echo "== rendering nginx.conf and the serving image from $CHART"
 
-python3 -c '
-import sys, yaml
-doc = yaml.safe_load(open(sys.argv[1]))
-sys.stdout.write(doc["data"]["nginx.conf"])
-' "$WORK/configmap.yaml" >"$WORK/nginx.conf"
+# Read out of the rendered manifests rather than out of values.yaml, and
+# without a YAML parser: this runs on a runner whose python is whatever the
+# image ships, and the only tools it should need are the ones that deploy the
+# chart. The image is taken from the deployment because that is what a pod
+# pulls -- values.yaml is where it comes from, not what it resolves to.
+NGINX_IMAGE="$(
+  helm template default "$CHART" --namespace default \
+    --show-only templates/deployment.yaml \
+    | sed -n 's/^ *image: "\(nginx[^"]*\)"$/\1/p' | head -1
+)"
+
+if [ -z "$NGINX_IMAGE" ]; then
+  echo "FAIL: the rendered deployment names no nginx image" >&2
+  exit 1
+fi
+
+# The ConfigMap holds one key, as a block scalar indented four spaces. Print
+# what follows "nginx.conf: |" until the indentation stops, and undo it.
+helm template default "$CHART" --namespace default \
+  --show-only templates/configmap.yaml \
+  | awk '
+      /^  nginx\.conf: \|/ { inside = 1; next }
+      inside && /^    / { sub(/^    /, ""); print; next }
+      inside && /^$/ { print ""; next }
+      inside { exit }
+    ' >"$WORK/nginx.conf"
 
 grep -q "listen       8000;" "$WORK/nginx.conf" || {
   echo "FAIL: rendered config has no MIB listener" >&2
