@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "namespaces": [
+    {
+      "name": "standard",
+      "source": "package:pysmi.mibs.asn1",
+      "tier": "standard"
+    },
+    {
+      "include": "src/vendor/*",
+      "tier": "vendor"
+    }
+  ]
+}

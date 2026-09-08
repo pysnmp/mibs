@@ -110,19 +110,15 @@ jobs:
           version: "0.12.9"
           python-version: "3.11"
           enable-cache: true
-      - name: Cache pysnmp
-        id: cache-pysnmp
-        uses: actions/cache@v6
-        with:
-          path: .pycache/
-          key: ${{ runner.os }}-pysnmp
       - run: uv sync --frozen
-      #Build and index
-      - run: mkdir -p output/asn1
-      - run: make index
-        env:
-          MIBDUMP: ${{ github.workspace }}/.venv/bin/mibdump
-      # Runs after 'make index' so it checks the built index.csv and
+      # One driver invocation per corpus. Both come from the same source set
+      # and differ only in whether the standard namespace is published; see
+      # corpus.json and corpus-compact.json.
+      - name: Build the published corpus
+        run: make corpus
+      - name: Build the compact corpus
+        run: make corpus-compact
+      # Runs after the build so it checks the produced index.csv and
       # index-v2.csv as well as the checked-in frozen snapshot. Gates before
       # the image build, which is the expensive part.
       - name: OID index contract
@@ -131,9 +127,14 @@ jobs:
         run: ./tests/artifact-contract.sh
       - name: Runtime-compile contract
         run: uv run python ./tests/runtime-compile-contract.py
+      - name: Corpus build report
+        run: cat output/report.json
       - uses: actions/upload-artifact@v7
         with:
-          path: log/
+          name: corpus-reports
+          path: |
+            output/report.json
+            output-compact/report.json
       - name: Carry forward legacy chart index
         if: github.ref == 'refs/heads/main'
         run: |
@@ -154,17 +155,14 @@ jobs:
           image: tonistiigi/binfmt:qemu-v9.2.2
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
-      - name: Build image for smoke test
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          load: true
-          platforms: linux/amd64
-          tags: mibserver:smoke
-      - name: Report image size
-        run: docker image ls mibserver:smoke
-      - name: Smoke test image
-        run: ./tests/smoke-test.sh mibserver:smoke
+      # The serving path, over real nginx and the config the chart renders.
+      # There is no image of ours on that path to smoke-test any more; what is
+      # ours is the nginx.conf, so that is what runs here. Needs helm for the
+      # render.
+      - name: Set up Helm
+        uses: azure/setup-helm@v5
+      - name: Serving contract
+        run: ./tests/serving-contract.sh
       - name: Login to GitHub Packages Docker Registry
         uses: docker/login-action@v4.6.0
         with:
@@ -175,7 +173,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v6
         with:
-          images: ghcr.io/pysnmp/mibs/container
+          images: ghcr.io/pysnmp/mibs/corpus
           tags: |
             type=semver,pattern=v{{major}}.{{minor}}
             type=semver,pattern=v{{major}}
@@ -187,15 +185,80 @@ jobs:
             type=ref,event=pr
             type=sha
             type=sha,format=long
-      - name: Build and push action
+      # FROM scratch and a COPY, so there is nothing architecture-specific in
+      # it -- but it is mounted into pods on both, and a manifest naming both
+      # is what lets one tag serve them.
+      - name: Build and push the corpus image
         id: docker_action_build
         uses: docker/build-push-action@v7
         with:
           context: .
+          file: docker/corpus.Dockerfile
+          build-args: |
+            CORPUS=output
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
+          cache-to: type=inline
+      - name: Docker meta (compact corpus)
+        id: docker_meta_compact
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/pysnmp/mibs/corpus-compact
+          tags: |
+            type=semver,pattern=v{{major}}.{{minor}}
+            type=semver,pattern=v{{major}}
+            type=semver,pattern=v{{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=semver,pattern={{version}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+            type=sha,format=long
+      # The same corpus without the modules a runtime that has pysmi already
+      # holds. Not served over HTTP and not in the mibserver chart: it is for
+      # mounting, and it is published as an image for exactly that.
+      - name: Build and push the compact corpus image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/corpus.Dockerfile
+          build-args: |
+            CORPUS=output-compact
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.docker_meta_compact.outputs.tags }}
+          labels: ${{ steps.docker_meta_compact.outputs.labels }}
+          cache-to: type=inline
+      - name: Docker meta (tools)
+        id: docker_meta_tools
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/pysnmp/mibs/tools
+          tags: |
+            type=semver,pattern=v{{major}}.{{minor}}
+            type=semver,pattern=v{{major}}
+            type=semver,pattern=v{{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=semver,pattern={{version}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+            type=sha,format=long
+      # pysmi on an upstream Python base, for the chart's local-MIB init
+      # container. The only image this project publishes that runs anything.
+      - name: Build and push the tools image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/tools.Dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.docker_meta_tools.outputs.tags }}
+          labels: ${{ steps.docker_meta_tools.outputs.labels }}
           cache-to: type=inline
       - uses: actions/setup-node@v7
         with:

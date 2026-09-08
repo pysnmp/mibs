@@ -55,11 +55,14 @@ pass() {
 
 echo "== asn1: source filenames are bare module names"
 
-# The two .mib-sources control files are build input, not MIBs; the Makefile
-# drops them with grep -v '^\.' when it composes the published tree.
-# sort -u, not sort: 58 basenames occur in more than one source directory, and
-# `comm` pairs duplicate lines -- so a non-unique list would report every extra
-# occurrence as unpublished. What is published is one file per name.
+# Dotfiles are dropped: nothing here is one today -- the six .mib-sources
+# control files went with the pipeline that read them, since the driver makes
+# every namespace a source for the whole build and there is no longer anything
+# for a vendor directory to declare -- but the published tree is composed by
+# module name and a dotfile is not one.
+# sort -u, not sort: a basename can occur in more than one source directory,
+# and `comm` pairs duplicate lines -- so a non-unique list would report every
+# extra occurrence as unpublished. What is published is one file per name.
 SRC_NAMES="$(mktemp)"
 find src -type f -exec basename {} \; | grep -v '^\.' | sort -u >"$SRC_NAMES"
 

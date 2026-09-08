@@ -1,2 +1,0 @@
-# UCD-SNMP-MIB, net-snmp's, which pysmi does not bundle.
-src/vendor/netsnmp
