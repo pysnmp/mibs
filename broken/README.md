@@ -25,6 +25,18 @@ Please replace the module rather than editing it to compile. A descriptor
 renamed to get past the parser changes the OID a name resolves to, and that
 is a worse answer than no answer.
 
+## Restoration notes
+
+Things a replacement has to settle, found while quarantining these.
+
+`DASAN-EPON-MIB` and `DASAN-GEPON-MIB` both declare `dasanPonMIB
+MODULE-IDENTITY ::= { dasanMgmt 11 }`, with the same `LAST-UPDATED` and
+different children under it — `{ dasanPonMIB 2 }` in one, `{ dasanPonMIB 1 }`
+in the other. Two modules cannot both own that identity, so these are
+conflicting registrations rather than two copies of one module. Whoever
+restores them has to say which module owns `dasanMgmt 11`; restoring both as
+they stand puts the conflict back.
+
 ## Why each one is here
 
 Measured with pysmi 3.0.0-rc.1+ (`pysnmp/pysmi@next`), each namespace resolving
