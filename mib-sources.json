@@ -10,10 +10,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/AIRESPACE-WIRELESS-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/ALTIGA-ADDRESS-STATS-MIB": {
@@ -161,10 +157,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-AAA-SERVER-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-AAA-SESSION-MIB": {
@@ -199,10 +191,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-ALARM-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-ALPS-MIB": {
@@ -360,10 +348,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-BGP4-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-BITS-CLOCK-CAPABILITY": {
@@ -793,10 +777,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-DNS-SERVER-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-DOCS-EXT-MIB": {
@@ -1149,8 +1129,8 @@
     },
     "src/vendor/cisco/CISCO-FC-FE-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text does not parse: a second DESCRIPTION string at line 101 has no REVISION of its own. Bad grammar near QUOTED_STRING.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -1569,10 +1549,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-IF-EXTENSION-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-IF-LINK-CONFIG-MIB": {
@@ -2028,8 +2004,8 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CALIB-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher re-registered the module from 1.3.6.1.4.1.9.7.502 to .1165. Held: index-frozen.csv promises the old arc and the refresh adds no pollable objects.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2046,10 +2022,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-TS-MIB": {
@@ -2060,8 +2032,8 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-DOT11-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text parses but does not compile: cld11axTargetWakeupTimeBroadcastEntry has no parent table.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2110,8 +2082,8 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-MFP-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher re-registered the module from 1.3.6.1.4.1.9.7.504 to .1173. Held: index-frozen.csv promises the old arc and the refresh adds no pollable objects.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2142,22 +2114,22 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-QOS-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher re-registered the module from 1.3.6.1.4.1.9.7.505 to .1158. Held: index-frozen.csv promises the old arc and the refresh adds no pollable objects.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-RF-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher re-registered the module from 1.3.6.1.4.1.9.7.23999 to .1155. Held: index-frozen.csv promises the old arc and the refresh adds no pollable objects.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-RF-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text does not parse: a stray '.' follows a closing quote at line 199.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2165,10 +2137,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-RRM-MIB": {
@@ -2185,8 +2153,8 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-TC-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text does not parse: the file carries two END tokens. Bad grammar near END at line 868.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -2210,16 +2178,12 @@
     },
     "src/vendor/cisco/CISCO-LWAPP-WLAN-POLICY-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text parses but does not compile: DEFVAL 'notconfigured' for cLWlanAAAPolicyCustomString1 is an unquoted bareword for an OCTET STRING.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-WLAN-SECURITY-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-MAC-AUTH-BYPASS-CAPABILITY": {
@@ -2497,10 +2461,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-OPTICAL-OTS-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-OPTICAL-PATCH-MIB": {
@@ -2755,10 +2715,6 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-RF-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-RF-SUPPLEMENTAL-MIB": {
@@ -2918,8 +2874,8 @@
     },
     "src/vendor/cisco/CISCO-SIP-UA-MIB": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text parses but does not compile: the DEFVAL for cSipCfgPeerPrivacy names a bit 's' that its BITS does not define.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -3048,8 +3004,8 @@
     },
     "src/vendor/cisco/CISCO-ST-TC": {
       "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
+        "note": "publisher's current text does not parse: a DESCRIPTION string is closed early at line 365, leaving fiftyG/sixtyFourG outside it. Bad grammar near LOWERCASE_IDENTIFIER 'fiftyG'.",
+        "recorded": "2026-09-08"
       },
       "publisher": "cisco-mibs-v2"
     },
@@ -3936,10 +3892,6 @@
       }
     },
     "src/vendor/netsnmp/LM-SENSORS-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "net-snmp"
     },
     "src/vendor/netsnmp/NET-SNMP-AGENT-MIB": {
