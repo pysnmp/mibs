@@ -82,6 +82,26 @@ done
 find "$STAGE" -type f -exec sed -i.bak "s/$APPVERSION/CURRENT-VERSION/g" {} +
 find "$STAGE" -type f -name '*.bak' -delete
 
+# Drop trailing blank lines and end every file with exactly one newline.
+# Without this the committed renders are a function of whichever helm the
+# renderer happened to have: across helm 3.16 and helm 4.2 -- which is what
+# azure/setup-helm installs today -- the entire tree is identical except that
+# helm 4 leaves a trailing whitespace-only line behind. Blank means blank or
+# whitespace-only, because that line is eight spaces rather than nothing.
+#
+# Trailing lines only. Trailing spaces *within* the manifests are left alone,
+# because they are part of what the chart emits and normalising them would
+# hide a template change.
+#
+# Deliberately the only normalisation, and why the helm version is not pinned:
+# anything else that differs between helm versions is a real change to the
+# manifests and should fail the check rather than be smoothed over.
+find "$STAGE" -type f | while IFS= read -r file; do
+  sed -e :a -e '/^[[:space:]]*$/{$d;N;ba' -e '}' "$file" >"$file.tmp"
+  printf '%s\n' "$(cat "$file.tmp")" >"$file"
+  rm -f "$file.tmp"
+done
+
 replace() {
   local dest="$1"
   rm -rf "${dest:?}"
