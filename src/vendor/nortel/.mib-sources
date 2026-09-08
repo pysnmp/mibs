@@ -1,6 +1,0 @@
-# IPSEC-ISAKMP-IKE-DOI-TC. WatchGuard's copy is a fork of
-# draft-ietf-ipsec-doi-tc-mib-02 re-rooted onto their own enterprise arc;
-# only the textual conventions are imported here, and those are identical.
-# pysnmp/pysmi#217 bundles the draft's own text, so this declaration becomes
-# redundant -- not wrong -- once a release carrying it is pinned.
-src/vendor/watchguard

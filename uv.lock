@@ -194,7 +194,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "pysnmp-pysmi", specifier = ">=3.0.0rc2,<4" },
+    { name = "pysnmp-pysmi", specifier = ">=3.0.0rc3,<4" },
     { name = "pyyaml", specifier = "!=6.0.0" },
 ]
 
@@ -206,15 +206,15 @@ dev = [
 
 [[package]]
 name = "pysnmp-pysmi"
-version = "3.0.0rc2"
+version = "3.0.0rc3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ply" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/0f/47/4230e74108d6ee38d03f97edbcfd006f23476794ad9383f2dc9384a18551/pysnmp_pysmi-3.0.0rc2.tar.gz", hash = "sha256:2a4caab981b807c4406ad4eed138a3786d3a582771fd050e6693fe76678ae837", size = 4269021, upload-time = "2026-09-08T03:01:36.908Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8b/e5/db7438609e810cda6bbedc8bfd99aa681c1a921bebf50167fbd4c06f3172/pysnmp_pysmi-3.0.0rc3.tar.gz", hash = "sha256:a098f4fec5f3f79181b91e1d9d72171ed80c3ea6571e7f3b10b54df2bb523b32", size = 4282976, upload-time = "2026-09-08T05:54:39.838Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9d/47/8665a171ab4d77bdddafa34c151608c195b135ef089590ef9f199a8b66bf/pysnmp_pysmi-3.0.0rc2-py3-none-any.whl", hash = "sha256:b38fc417aa90828c5f48a817e8fd0e376794c26a8312e06c851ee0e4dfe187cb", size = 6173531, upload-time = "2026-09-08T03:01:35.104Z" },
+    { url = "https://files.pythonhosted.org/packages/b9/12/8c316ca4e0ee8b576072690eb81d3960dfd13e185cf3b3886bd2e902c081/pysnmp_pysmi-3.0.0rc3-py3-none-any.whl", hash = "sha256:7eb55640470523a28e94ad9ff64b3fd1ff79bde7e8d737daefa7aa025b26faf2", size = 6184723, upload-time = "2026-09-08T05:54:37.617Z" },
 ]
 
 [[package]]
