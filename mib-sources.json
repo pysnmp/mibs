@@ -2180,6 +2180,9 @@
     "src/vendor/cisco/CISCO-LWAPP-SI-MIB": {
       "publisher": "cisco-mibs-v2"
     },
+    "src/vendor/cisco/CISCO-LWAPP-SYS-MIB": {
+      "publisher": "cisco-mibs-v2"
+    },
     "src/vendor/cisco/CISCO-LWAPP-TC-MIB": {
       "divergence": {
         "note": "not yet reviewed",
