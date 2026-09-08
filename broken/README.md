@@ -3,10 +3,15 @@
 The modules under `broken/` do not compile. They were moved out of `src/` so
 that `src/` means one thing: every module in it builds.
 
-There are 211 of them, across 56 vendor namespaces. None is named by a
-row in the published `index.csv`, so nothing that resolves a MIB through the
-index loses an answer by their being here — they were already unbuildable, the
-build simply carried their ASN.1 alongside output it could not produce.
+There are 231 of them, across 58 vendor namespaces.
+
+Nothing resolves an OID to one of these today. `output/index.csv` is generated
+on each build from the JSON the compiler produces, and pysmi writes no output
+for a module it rejects — so a row naming one of these modules stops being
+emitted whether or not the file moves. `index-frozen.csv`, the checked-in
+compatibility snapshot, names none of them either. Their ASN.1 was published
+only because `scripts/vendorsingle.sh` copies source text regardless of
+whether the module compiled.
 
 ## Bring one back
 
@@ -28,7 +33,7 @@ its own directory first and the rest of the corpus after it — the same order
 
 - **138 root defects** — the module's own text is rejected.
 - **72 consequential** — rejected while compiling a defective module it imports.
-- **1 dependent** — compiles, but imports a module in this list.
+- **21 dependent** — compiles, but imports a module in this list.
 
 A consequential or dependent entry usually returns to `src/` on its own once
 the module it imports is replaced.
@@ -93,6 +98,12 @@ the module it imports is replaced.
 | --- | --- |
 | `HH3C-ACFP-MIB` | unknown type "(('Integer32', ''), ValueRanges(kind='range', bounds=((0, 2147483647),)))" for defval "hh3cAcfpServerMaxLi |
 
+### cxr-networks
+
+| module | reason |
+| --- | --- |
+| `CXR-TS-MIB` | imports a module in this list |
+
 ### cyberark
 
 | module | reason |
@@ -106,8 +117,12 @@ the module it imports is replaced.
 | `DASAN-AUTORESET-MIB` | needs `DASAN-SWITCH-MIB` (also here), which does not compile |
 | `DASAN-BRIDGE-MIB` | needs `DASAN-SWITCH-MIB` (also here), which does not compile |
 | `DASAN-DHCP-R-MIB` | needs `DASAN-ROUTER-MIB` (also here), which does not compile |
+| `DASAN-EPON-MIB` | imports a module in this list |
+| `DASAN-GEPON-MIB` | imports a module in this list |
 | `DASAN-GIGABIT-OPTIC-TRANSCEIVER-MIB` | needs `DASAN-SWITCH-MIB` (also here), which does not compile |
 | `DASAN-MCAST-MIB` | needs `DASAN-SWITCH-MIB` (also here), which does not compile |
+| `DASAN-NOTIFICATION` | imports a module in this list |
+| `DASAN-NOTIFICATION-V1` | imports a module in this list |
 | `DASAN-QOS-MIB` | needs `DASAN-SWITCH-MIB` (also here), which does not compile |
 | `DASAN-ROUTER-MIB` | Duplicate symbol found: dsRouterPortCRCcnt |
 | `DASAN-SNMP-MIB` | needs `DASAN-SWITCH-MIB` (also here), which does not compile |
@@ -141,6 +156,14 @@ the module it imports is replaced.
 | module | reason |
 | --- | --- |
 | `IDKT-F2-MIB` | Bad grammar near token type UPPERCASE_IDENTIFIER, value F2FWDMacAddress |
+
+### dpstelecom
+
+| module | reason |
+| --- | --- |
+| `DPS-MIB-V38` | imports a module in this list |
+| `DPS-MIB-V38-V2` | imports a module in this list |
+| `DPS-TEXT-RTU-MIB` | imports a module in this list |
 
 ### dragonwave
 
@@ -176,7 +199,13 @@ the module it imports is replaced.
 
 | module | reason |
 | --- | --- |
+| `WRI-CPU-MIB` | imports a module in this list |
+| `WRI-DEVICE-MIB` | imports a module in this list |
+| `WRI-MEMORY-MIB` | imports a module in this list |
+| `WRI-POWER-MIB` | imports a module in this list |
 | `WRI-SMI` | Duplicate module identity |
+| `WRI-TEMPERATURE-MIB` | imports a module in this list |
+| `WRI-VOLTAGE-MIB` | imports a module in this list |
 
 ### fs
 
@@ -227,6 +256,7 @@ the module it imports is replaced.
 | `HP-OV-TOPO-DB` | Bad grammar near token type SIZE, value SIZE |
 | `HP-SWITCH-TRAP-MIB` | no symbol "hpSwitchJ9573" in module "HP-ICF-OID" |
 | `HPN-ICF-ACFP-MIB` | unknown type "(('Integer32', ''), ValueRanges(kind='range', bounds=((0, 2147483647),)))" for defval "hpnicfAcfpServerMax |
+| `HPN-ICF-EOC-COMMON-MIB` | imports a module in this list |
 | `HPN-ICF-HPEOC-MIB` | Bad grammar near token type LOWERCASE_IDENTIFIER, value hpnicfHPEOCTemplateGlobalEntry |
 | `HPN-ICF-RPR-MIB` | Unknown parents for symbols: hpnicfRprTrapIpAddress |
 | `HPNSADIMM-MIB` | Unknown parents for symbols: hpnsaDIMMHPLocalEntry |
@@ -236,9 +266,12 @@ the module it imports is replaced.
 | module | reason |
 | --- | --- |
 | `GPFS-MIB` | Duplicate symbol found: gpfsDiskName |
+| `IBM-CPS-MIB` | imports a module in this list |
 | `IBM-ELAN-MIB` | Unknown parents for symbols: atmDevLineSpeed, idleVccTime, lecsMaxVccs |
 | `IBM-LAN-EMULATION-EXTENSION-MIB` | Unknown parents for symbols: ibmVlanConfAgingTimer |
 | `IBM-LES-LECS-MIB` | Unknown parents for symbols: lesLecsAtmDevLineSpeed |
+| `IBM-NetFinity-Text-Alert-MIB` | imports a module in this list |
+| `IBM-TS3500-MIBv1` | imports a module in this list |
 | `IBMIROCAUTH-MIB` | no symbol "IpAddress" in module "SNMPv2-SMI-v1" |
 | `IMM-MIB` | Duplicate symbol found: ctrlName |
 
@@ -381,6 +414,7 @@ the module it imports is replaced.
 | module | reason |
 | --- | --- |
 | `RAISECOM-COMMON-MANAGEMENT-MIB` | Bad grammar near token type {, value { |
+| `RAISECOM-OPTICAL-TRANSCEIVER-MIB` | imports a module in this list |
 | `RAISECOM-PON-DEVICE-MIB` | Bad grammar near token type LOWERCASE_IDENTIFIER, value raisecomSubFanEntry |
 
 ### redlion
@@ -462,6 +496,7 @@ the module it imports is replaced.
 | `UBIQUOSS-EPON-PON-PROFILE-GROUP-MIB` | Bad grammar near token type }, value } |
 | `UBIQUOSS-EPON-SERVICE-POLICY-GROUP-MIB` | Bad grammar near token type }, value } |
 | `UBIQUOSS-EPON-SOFTWARE-MANAGEMENT-GROUP-MIB` | Bad grammar near token type }, value } |
+| `UBIQUOSS-STP-MIB` | imports a module in this list |
 | `UBIQUOSS-SWITCH-INTERFACE-MIB` | Bad grammar near token type {, value { |
 | `UBQS-ACCESS-LIST-MIB` | Bad grammar near token type (, value ( |
 | `UBQS-ARP-MIB` | Illegal character '/', 1936 characters left unparsed |
