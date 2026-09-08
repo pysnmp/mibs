@@ -79,8 +79,14 @@ jobs:
 
   build:
     name: Build Release
+    # chart gates this: on main, build deploys gh-pages, pushes the container
+    # image and runs semantic release, and update-semver hangs off it in turn.
+    # Without the dependency a failed chart contract would let all of that
+    # publish anyway, which would make the check advisory rather than a gate
+    # (pysnmp/mibs#372).
     needs:
       - pre-commit
+      - chart
     runs-on: ubuntu-latest
     permissions:
       contents: write
