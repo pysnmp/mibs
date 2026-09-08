@@ -1,0 +1,103 @@
+{{- /*
+nginx.conf, rendered rather than baked into an image.
+
+This file is why the chart no longer needs an image of its own. Everything the
+old Dockerfile and entrypoint existed to do -- put a config in place, decide
+whether to listen on IPv6, lay the corpus down under the document root -- is
+either rendered here from values or mounted as a volume, so the container that
+serves the corpus can be nginx from upstream, unmodified.
+
+The IPv6 listeners were written at container start by mibserver-entrypoint.sh
+into files nginx.conf included, because a baked-in config cannot know what it
+was deployed with. Helm does know, at render time, so the directives are simply
+here or not.
+
+Indented four spaces, as the block scalar in configmap.yaml needs it, so that
+what this template returns is what the ConfigMap holds and what the pod mounts.
+That is the point of it being a template of its own: the deployment annotates
+the pods with a checksum of it, and a checksum has to be over the config alone.
+Hashing the rendered ConfigMap instead -- the usual idiom -- hashes its labels
+too, and those carry the chart version, so every release rolled every pod
+whether or not this file had changed.
+*/}}
+{{- define "mibserver.nginxConf" }}
+    worker_processes  auto;
+
+    error_log  /var/log/nginx/error.log notice;
+    pid        /tmp/nginx.pid;
+
+    events {
+        worker_connections  1024;
+    }
+
+    http {
+        proxy_temp_path /tmp/proxy_temp;
+        client_body_temp_path /tmp/client_temp;
+        fastcgi_temp_path /tmp/fastcgi_temp;
+        uwsgi_temp_path /tmp/uwsgi_temp;
+        scgi_temp_path /tmp/scgi_temp;
+
+        include       /etc/nginx/mime.types;
+        default_type  application/octet-stream;
+
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for"';
+
+        access_log  /var/log/nginx/access.log  main;
+
+        sendfile        on;
+        tcp_nopush     on;
+
+        keepalive_timeout  65;
+
+        gzip  on;
+
+        server {
+            listen       8000;
+            {{- if .Values.ipv6Enabled }}
+            listen       [::]:8000 ipv6only=on;
+            {{- end }}
+            root {{ include "mibserver.corpusRoot" . }};
+
+            # The merged OID index, when there is one. A user's MIBs are
+            # indexed at start-up into the overlay together with the published
+            # rows, so this file answers for both trees; without local MIBs the
+            # overlay is empty and the corpus's own index is served.
+            location = /index.csv {
+                root {{ include "mibserver.overlayRoot" . }};
+                try_files /index.csv @corpus;
+            }
+
+            # Everything else: the corpus first, then whatever was compiled at
+            # start-up. That order is what keeps a user's copy of a module from
+            # silently replacing the published one -- the corpus is what this
+            # deployment promises, and the overlay adds to it.
+            location / {
+                expires 10m;
+                try_files $uri @overlay;
+            }
+
+            location @overlay {
+                root {{ include "mibserver.overlayRoot" . }};
+                expires 10m;
+            }
+
+            location @corpus {
+                root {{ include "mibserver.corpusRoot" . }};
+                expires 10m;
+            }
+        }
+
+        server {
+            listen       8080;
+            {{- if .Values.ipv6Enabled }}
+            listen       [::]:8080 ipv6only=on;
+            {{- end }}
+            root /dev/null;
+            location / {
+                stub_status;
+            }
+        }
+    }
+{{- end }}

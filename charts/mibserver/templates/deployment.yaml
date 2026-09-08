@@ -18,8 +18,12 @@ spec:
     metadata:
       annotations:
         # The config is mounted by subPath, which does not update in place, so
-        # a changed nginx.conf has to roll the pods to take effect.
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        # a changed nginx.conf has to roll the pods to take effect. Over the
+        # config alone, not over the rendered ConfigMap: that object's labels
+        # carry the chart version, so hashing it rolled every pod on every
+        # release and made the rendered manifests a function of the version
+        # they were rendered at.
+        checksum/config: {{ include "mibserver.nginxConf" . | sha256sum }}
       {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}

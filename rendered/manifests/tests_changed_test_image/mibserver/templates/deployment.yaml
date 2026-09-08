@@ -22,8 +22,12 @@ spec:
     metadata:
       annotations:
         # The config is mounted by subPath, which does not update in place, so
-        # a changed nginx.conf has to roll the pods to take effect.
-        checksum/config: bf5ae411ff454ed69c69e2ae87426560f2076e7ca18ce3773710a64d077ea613
+        # a changed nginx.conf has to roll the pods to take effect. Over the
+        # config alone, not over the rendered ConfigMap: that object's labels
+        # carry the chart version, so hashing it rolled every pod on every
+        # release and made the rendered manifests a function of the version
+        # they were rendered at.
+        checksum/config: c3b53d5b2a3fe8a1ad370776536fc892bb4d0938300eef9c5eb2d2755f677c2a
       labels:
         app.kubernetes.io/name: mibserver
         app.kubernetes.io/instance: default

@@ -32,6 +32,13 @@ cd "$(dirname "$0")/.."
 CORPUS="${1:-output}"
 CHART="charts/mibserver"
 
+# The chart's kubeVersion is >=1.33, and `helm template` without a cluster
+# checks it against the helm binary's built-in default -- which helm 4 sets to
+# v1.20.0, refusing to render this chart at all. So every render here names a
+# version instead of taking whichever one the installed helm assumes. No
+# template reads .Capabilities, so this only satisfies the constraint.
+KUBE_VERSION="1.33.0"
+
 FAILURES=0
 
 fail() {
@@ -71,7 +78,7 @@ echo "== rendering nginx.conf and the serving image from $CHART"
 # chart. The image is taken from the deployment because that is what a pod
 # pulls -- values.yaml is where it comes from, not what it resolves to.
 NGINX_IMAGE="$(
-  helm template default "$CHART" --namespace default \
+  helm template default "$CHART" --namespace default --kube-version "$KUBE_VERSION" \
     --show-only templates/deployment.yaml \
     | sed -n 's/^ *image: "\(nginx[^"]*\)"$/\1/p' | head -1
 )"
@@ -83,7 +90,7 @@ fi
 
 # The ConfigMap holds one key, as a block scalar indented four spaces. Print
 # what follows "nginx.conf: |" until the indentation stops, and undo it.
-helm template default "$CHART" --namespace default \
+helm template default "$CHART" --namespace default --kube-version "$KUBE_VERSION" \
   --show-only templates/configmap.yaml \
   | awk '
       /^  nginx\.conf: \|/ { inside = 1; next }
@@ -113,7 +120,7 @@ COLLIDING_MODULE="$(head -1 "$CORPUS/index.csv" | cut -d, -f1)"
 } >"$WORK/overlay/index-v2.csv"
 
 MERGE="$(
-  helm template default "$CHART" --namespace default \
+  helm template default "$CHART" --namespace default --kube-version "$KUBE_VERSION" \
     --values rendered/values_existing_pvc.yaml \
     --show-only templates/deployment.yaml \
     | sed -n 's/^ *\(awk -F,.*\)$/\1/p' | head -1

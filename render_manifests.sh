@@ -27,6 +27,13 @@ CHART="charts/mibserver"
 # renders depend on how the command was invoked.
 RELEASE="default"
 
+# The chart's kubeVersion is >=1.33, and `helm template` without a cluster
+# checks it against the helm binary's built-in default -- which helm 4 sets to
+# v1.20.0, refusing to render this chart at all. So every render here names a
+# version instead of taking whichever one the installed helm assumes. No
+# template reads .Capabilities, so this only satisfies the constraint.
+KUBE_VERSION="1.33.0"
+
 mode="write"
 out=""
 case "${1:-}" in
@@ -61,6 +68,7 @@ render() {
   local name="$1"
   shift
   helm template "$RELEASE" "$CHART" --namespace default \
+    --kube-version "$KUBE_VERSION" \
     --output-dir "$STAGE/$name" "$@" >/dev/null
   # helm creates this for subchart output; nothing here has subcharts, and an
   # empty directory git cannot track would read as a diff under --check.

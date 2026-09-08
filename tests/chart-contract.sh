@@ -50,6 +50,13 @@ if ! command -v helm >/dev/null 2>&1; then
 fi
 
 CHART="charts/mibserver"
+
+# The chart's kubeVersion is >=1.33, and `helm template` without a cluster
+# checks it against the helm binary's built-in default -- which helm 4 sets to
+# v1.20.0, refusing to render this chart at all. So every render here names a
+# version instead of taking whichever one the installed helm assumes. No
+# template reads .Capabilities, so this only satisfies the constraint.
+KUBE_VERSION="1.33.0"
 MANIFESTS="$(mktemp -d)"
 trap 'rm -rf "$MANIFESTS"' EXIT
 
@@ -69,6 +76,61 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+# The renders are a function of the chart, not of when they were rendered
+# ---------------------------------------------------------------------------
+#
+# The drift check above is only usable if a render is reproducible. It was not:
+# checksum/config hashed the rendered ConfigMap, whose labels carry the chart
+# version, so every release changed a manifest no one had edited -- and since
+# CI renders the pull request merged into main, the check began failing on
+# every open branch the moment a release landed. The version is substituted out
+# of the rendered text; it has to be out of the hash as well.
+
+echo "renders do not depend on the chart version"
+
+BUMPED="$(mktemp -d)"
+BUMP_CHART="$BUMPED/chart"
+trap 'rm -rf "$MANIFESTS" "$BUMPED"' EXIT
+
+cp -R "$CHART" "$BUMP_CHART"
+sed -i.bak -e 's/^version: .*/version: 99.99.99/' \
+  -e 's/^appVersion: .*/appVersion: "99.99.99"/' "$BUMP_CHART/Chart.yaml"
+rm -f "$BUMP_CHART/Chart.yaml.bak"
+
+BUMPED_SUM="$(
+  helm template default "$BUMP_CHART" --namespace default --kube-version "$KUBE_VERSION" \
+    --show-only templates/deployment.yaml \
+    | sed -n 's/^ *checksum\/config: \(.*\)$/\1/p' | head -1
+)"
+CURRENT_SUM="$(
+  sed -n 's/^ *checksum\/config: \(.*\)$/\1/p' "$(
+    echo "$MANIFESTS/default/mibserver/templates/deployment.yaml"
+  )" | head -1
+)"
+
+if [ -z "$CURRENT_SUM" ]; then
+  fail "the deployment carries no checksum/config annotation"
+elif [ "$BUMPED_SUM" = "$CURRENT_SUM" ]; then
+  pass "checksum/config survives a release bump"
+else
+  fail "checksum/config changed on a release bump alone: $CURRENT_SUM -> $BUMPED_SUM"
+fi
+
+# ...and still does what it is there for: a changed nginx.conf must roll the
+# pods, so a values change that reaches the config has to reach the hash.
+IPV6_SUM="$(
+  helm template default "$CHART" --namespace default --kube-version "$KUBE_VERSION" \
+    --set ipv6Enabled=true --show-only templates/deployment.yaml \
+    | sed -n 's/^ *checksum\/config: \(.*\)$/\1/p' | head -1
+)"
+
+if [ -n "$IPV6_SUM" ] && [ "$IPV6_SUM" != "$CURRENT_SUM" ]; then
+  pass "checksum/config still changes when the config does"
+else
+  fail "checksum/config did not change when ipv6Enabled added listeners"
+fi
+
+# ---------------------------------------------------------------------------
 # Nothing this project builds runs on the serving path
 # ---------------------------------------------------------------------------
 #
@@ -83,7 +145,7 @@ echo "the serving container"
 # image.tag: "", which rendered "nginxinc/nginx-unprivileged:" -- a reference
 # no runtime can pull.
 EMPTY_TAG="$(
-  helm template default "$CHART" --namespace default --set image.tag="" \
+  helm template default "$CHART" --namespace default --kube-version "$KUBE_VERSION" --set image.tag="" \
     --show-only templates/deployment.yaml \
     | sed -n 's/^ *image: "\(nginx[^"]*\)"$/\1/p' | head -1
 )"
