@@ -1,9 +1,12 @@
 # Quarantined MIBs
 
-The modules under `broken/` do not compile. They were moved out of `src/` so
-that `src/` means one thing: every module in it builds.
+The modules under `broken/` are not in the distribution. Almost all of them
+are here because they do not compile, and they were moved out of `src/` so
+that `src/` means one thing: every module in it builds. A few compile and are
+here for a different reason, described under
+[Not defective, but not usable here either](#not-defective-but-not-usable-here-either).
 
-There are 231 of them, across 58 vendor namespaces.
+There are 309 of them, across 60 vendor namespaces.
 
 Nothing resolves an OID to one of these today. `output/index.csv` is generated
 on each build from the JSON the compiler produces, and pysmi writes no output
@@ -24,6 +27,35 @@ test: if it compiles, it belongs in `src/`.
 Please replace the module rather than editing it to compile. A descriptor
 renamed to get past the parser changes the OID a name resolves to, and that
 is a worse answer than no answer.
+
+## Not defective, but not usable here either
+
+Two things under `broken/` compile perfectly well. They are here because what
+they say cannot be served from a flat distribution alongside what else is
+here, which is a different problem from a module the compiler refuses.
+
+`vendor/alcatel-aos6` is Alcatel-Lucent Enterprise's AOS 6 line — OmniSwitch
+6600, 6800, 6850, 6450, 7000, 8000, 9000 — on `1.3.6.1.4.1.6486.800`. AOS 7,
+in `src/vendor/alcatel-aos7`, carries **56 of the same module names** on
+`.801`: not later revisions of the same modules, different registrations
+reusing the names. A distribution keyed by bare module name can serve one of
+each, so it serves AOS 7's, whose text is current to 2024-07-15 against AOS
+6's 2019-10-07. Twenty modules only AOS 6 had go with it; nothing else in the
+corpus imported any of them.
+
+`vendor/extreme/BROCADE-MAPS-MIB` imports `swVfId` from `SYSTEM-MIB`. Its own
+revision history records why: *"modified SW-MIB from IMPORTS to SYSTEM-MIB"*,
+dated 2015-01-13. Brocade moved that import to a `SYSTEM-MIB` of their own,
+and that module is not in this corpus. The only `SYSTEM-MIB` here is
+`src/vendor/nokia/SYSTEM-MIB`, which registers under enterprise 637 (Alcatel),
+carries no MODULE-IDENTITY, and defines four symbols, none of them `swVfId`.
+
+It compiled against that copy regardless, because `swVfId` is used only in an
+OBJECTS clause and nothing checked that the provider defines it, so the
+published module bound a varbind no module defines. `src/vendor/extreme/SW-MIB`
+is here and does define `swVfId`, but editing the import back would be
+rewriting what Brocade published. Brocade's `SYSTEM-MIB` is what brings this
+module back.
 
 ## Restoration notes
 

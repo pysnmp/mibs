@@ -1,0 +1,5 @@
+# MPLS-LDP-MIB, the pre-RFC 3815 module Cisco published.
+src/vendor/cisco
+# TIMETRA-SAP/SDP/SERV/TC/VRTR/CHASSIS/FILTER/GLOBAL/PORT/QOS-MIB, Nokia's
+# SR OS modules, carried here because the two lines share an OEM lineage.
+src/vendor/nokia

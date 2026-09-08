@@ -1,0 +1,7 @@
+# MPLS-LDP-MIB, the pre-RFC 3815 module Cisco published, for
+# ALCATEL-IND1-TIMETRA-LDP-MIB.
+src/vendor/cisco
+# TIMETRA-TC-MIB's TmnxOperState, for ALCATEL-STATIC-FRR-MIB. AOS 7 and
+# Nokia's SR OS share a lineage; this module registers on Alcatel's 6486
+# under .801 but reaches into Nokia's 6527 for one textual convention.
+src/vendor/nokia
