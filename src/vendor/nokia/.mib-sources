@@ -1,7 +1,0 @@
-# ALCATEL-IND1-BASE, for ALCATEL-STATIC-FRR-MIB's softentIND1MplsFrr.
-# AOS 7 and not AOS 6: both carry that name, on 1.3.6.1.4.1.6486.801 and
-# .800 respectively, and the newest MODULE-IDENTITY revision decides which
-# one the distribution publishes -- AOS 7's, at 2024-07-15 against
-# 2019-10-07. Building against the other would leave this module's OIDs
-# disagreeing with the ALCATEL-IND1-BASE the site actually serves.
-src/vendor/alcatel-aos7
