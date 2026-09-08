@@ -13,7 +13,16 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp>=7,<8",
+    # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp,
+    # which publishes as pysnmplib -- not against lextudio/pysnmp, which
+    # publishes as pysnmp and is what this pinned before. The two are
+    # different distributions from different repositories, so the old pin
+    # meant no release of pysnmp/pysnmp could ever be observed here. See
+    # #381. The floor names an rc on purpose, for the reason pysnmp's own
+    # pyproject.toml gives: dependabot offers a prerelease only when the
+    # requirement string already names one, so this tracks the rc stream
+    # this repository is released alongside.
+    "pysnmplib>=6.0.0rc10,<7",
 ]
 
 [tool.uv]

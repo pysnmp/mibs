@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- CAPABILITY management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -68,7 +68,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsCapabilityObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -690,7 +690,8 @@ CucsCapabilityFeatureLimitsEntry ::= SEQUENCE {
     cucsCapabilityFeatureLimitsFeatureStatus                         CucsCapabilityFeatureStatus,
     cucsCapabilityFeatureLimitsLimit                                 Gauge32,
     cucsCapabilityFeatureLimitsName                                  SnmpAdminString,
-    cucsCapabilityFeatureLimitsPlatform                              CucsCapabilityPlatform
+    cucsCapabilityFeatureLimitsPlatform                              CucsCapabilityPlatform,
+    cucsCapabilityFeatureLimitsMinUCSMVersion                        SnmpAdminString
 }
 
 cucsCapabilityFeatureLimitsInstanceId OBJECT-TYPE
@@ -758,6 +759,15 @@ cucsCapabilityFeatureLimitsPlatform OBJECT-TYPE
         "Cisco UCS capability:FeatureLimits:platform managed
         object property"
     ::= { cucsCapabilityFeatureLimitsEntry 8 }
+
+cucsCapabilityFeatureLimitsMinUCSMVersion OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS capability:FeatureLimits:minUCSMVersion
+        managed object property"
+    ::= { cucsCapabilityFeatureLimitsEntry 9 }
 
 cucsCapabilityMgmtExtensionTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsCapabilityMgmtExtensionEntry

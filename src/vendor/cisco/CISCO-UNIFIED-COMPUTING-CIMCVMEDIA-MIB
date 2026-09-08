@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- CIMCVMEDIA management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -58,7 +58,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsCimcvmediaObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -113,7 +113,8 @@ CucsCimcvmediaActualMountEntryEntry ::= SEQUENCE {
     cucsCimcvmediaActualMountEntryUserId                             SnmpAdminString,
     cucsCimcvmediaActualMountEntryVirtualDiskId                      Gauge32,
     cucsCimcvmediaActualMountEntryAuthOption                         CucsCimcvmediaAuthProtocol,
-    cucsCimcvmediaActualMountEntryImageNameVariable                  CucsCimcvmediaImageNameVariable
+    cucsCimcvmediaActualMountEntryImageNameVariable                  CucsCimcvmediaImageNameVariable,
+    cucsCimcvmediaActualMountEntryRemapOnEject                       TruthValue
 }
 
 cucsCimcvmediaActualMountEntryInstanceId OBJECT-TYPE
@@ -293,6 +294,15 @@ cucsCimcvmediaActualMountEntryImageNameVariable OBJECT-TYPE
         managed object property"
     ::= { cucsCimcvmediaActualMountEntryEntry 20 }
 
+cucsCimcvmediaActualMountEntryRemapOnEject OBJECT-TYPE
+    SYNTAX       TruthValue
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS cimcvmedia:ActualMountEntry:remapOnEject
+        managed object property"
+    ::= { cucsCimcvmediaActualMountEntryEntry 21 }
+
 cucsCimcvmediaActualMountListTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsCimcvmediaActualMountListEntry
     MAX-ACCESS       not-accessible
@@ -375,7 +385,8 @@ CucsCimcvmediaConfigMountEntryEntry ::= SEQUENCE {
     cucsCimcvmediaConfigMountEntryRemotePort                         Gauge32,
     cucsCimcvmediaConfigMountEntryUserId                             SnmpAdminString,
     cucsCimcvmediaConfigMountEntryAuthOption                         CucsCimcvmediaAuthProtocol,
-    cucsCimcvmediaConfigMountEntryImageNameVariable                  CucsCimcvmediaImageNameVariable
+    cucsCimcvmediaConfigMountEntryImageNameVariable                  CucsCimcvmediaImageNameVariable,
+    cucsCimcvmediaConfigMountEntryRemapOnEject                       TruthValue
 }
 
 cucsCimcvmediaConfigMountEntryInstanceId OBJECT-TYPE
@@ -536,6 +547,15 @@ cucsCimcvmediaConfigMountEntryImageNameVariable OBJECT-TYPE
         "Cisco UCS cimcvmedia:ConfigMountEntry:imageNameVariable
         managed object property"
     ::= { cucsCimcvmediaConfigMountEntryEntry 18 }
+
+cucsCimcvmediaConfigMountEntryRemapOnEject OBJECT-TYPE
+    SYNTAX       TruthValue
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS cimcvmedia:ConfigMountEntry:remapOnEject
+        managed object property"
+    ::= { cucsCimcvmediaConfigMountEntryEntry 19 }
 
 cucsCimcvmediaExtMgmtRuleEntryTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsCimcvmediaExtMgmtRuleEntryEntry

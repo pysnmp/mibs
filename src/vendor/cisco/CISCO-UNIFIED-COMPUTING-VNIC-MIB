@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- VNIC management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -98,6 +98,7 @@ IMPORTS
     CucsVnicProfileSetFsmCurrentFsm,
     CucsVnicProfileSetFsmStageName,
     CucsVnicProfileSetFsmTaskItem,
+    CucsVnicRedundancyPairType,
     CucsVnicSanConnTemplTarget,
     CucsVnicScsiType,
     CucsVnicTemplateTarget,
@@ -111,7 +112,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsVnicObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -1396,7 +1397,9 @@ CucsVnicEtherEntry ::= SEQUENCE {
     cucsVnicEtherAdminCdnName                                        SnmpAdminString,
     cucsVnicEtherOperCdnName                                         SnmpAdminString,
     cucsVnicEtherCdnSource                                           CucsVnicCdnSource,
-    cucsVnicEtherCdnPropInSync                                       TruthValue
+    cucsVnicEtherCdnPropInSync                                       TruthValue,
+    cucsVnicEtherRedundancyPairType                                  CucsVnicRedundancyPairType,
+    cucsVnicEtherRedundancyPeer                                      SnmpAdminString
 }
 
 cucsVnicEtherInstanceId OBJECT-TYPE
@@ -1762,6 +1765,22 @@ cucsVnicEtherCdnPropInSync OBJECT-TYPE
         "Cisco UCS vnic:Ether:cdnPropInSync managed object property"
     ::= { cucsVnicEtherEntry 46 }
 
+cucsVnicEtherRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:Ether:redundancyPairType managed object property"
+    ::= { cucsVnicEtherEntry 47 }
+
+cucsVnicEtherRedundancyPeer OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:Ether:redundancyPeer managed object property"
+    ::= { cucsVnicEtherEntry 48 }
+
 cucsVnicEtherIfTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicEtherIfEntry
     MAX-ACCESS       not-accessible
@@ -2021,7 +2040,9 @@ CucsVnicFcEntry ::= SEQUENCE {
     cucsVnicFcAdminCdnName                                           SnmpAdminString,
     cucsVnicFcOperCdnName                                            SnmpAdminString,
     cucsVnicFcCdnSource                                              CucsVnicCdnSource,
-    cucsVnicFcCdnPropInSync                                          TruthValue
+    cucsVnicFcCdnPropInSync                                          TruthValue,
+    cucsVnicFcRedundancyPairType                                     CucsVnicRedundancyPairType,
+    cucsVnicFcRedundancyPeer                                         SnmpAdminString
 }
 
 cucsVnicFcInstanceId OBJECT-TYPE
@@ -2352,6 +2373,22 @@ cucsVnicFcCdnPropInSync OBJECT-TYPE
         "Cisco UCS vnic:Fc:cdnPropInSync managed object property"
     ::= { cucsVnicFcEntry 42 }
 
+cucsVnicFcRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:Fc:redundancyPairType managed object property"
+    ::= { cucsVnicFcEntry 43 }
+
+cucsVnicFcRedundancyPeer OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:Fc:redundancyPeer managed object property"
+    ::= { cucsVnicFcEntry 44 }
+
 cucsVnicFcGroupDefTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicFcGroupDefEntry
     MAX-ACCESS       not-accessible
@@ -2566,7 +2603,8 @@ CucsVnicFcGroupTemplEntry ::= SEQUENCE {
     cucsVnicFcGroupTemplQosPolicyName                                SnmpAdminString,
     cucsVnicFcGroupTemplStatsPolicyName                              SnmpAdminString,
     cucsVnicFcGroupTemplStorageConnPolicyName                        SnmpAdminString,
-    cucsVnicFcGroupTemplTemplType                                    CucsVnicTemplateType
+    cucsVnicFcGroupTemplTemplType                                    CucsVnicTemplateType,
+    cucsVnicFcGroupTemplRedundancyPairType                           CucsVnicRedundancyPairType
 }
 
 cucsVnicFcGroupTemplInstanceId OBJECT-TYPE
@@ -2720,6 +2758,15 @@ cucsVnicFcGroupTemplTemplType OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS vnic:FcGroupTempl:templType managed object property"
     ::= { cucsVnicFcGroupTemplEntry 18 }
+
+cucsVnicFcGroupTemplRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:FcGroupTempl:redundancyPairType
+        managed object property"
+    ::= { cucsVnicFcGroupTemplEntry 19 }
 
 cucsVnicFcIfTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicFcIfEntry
@@ -4154,7 +4201,9 @@ CucsVnicIScsiEntry ::= SEQUENCE {
     cucsVnicIScsiAdminCdnName                                        SnmpAdminString,
     cucsVnicIScsiOperCdnName                                         SnmpAdminString,
     cucsVnicIScsiCdnSource                                           CucsVnicCdnSource,
-    cucsVnicIScsiCdnPropInSync                                       TruthValue
+    cucsVnicIScsiCdnPropInSync                                       TruthValue,
+    cucsVnicIScsiRedundancyPairType                                  CucsVnicRedundancyPairType,
+    cucsVnicIScsiRedundancyPeer                                      SnmpAdminString
 }
 
 cucsVnicIScsiInstanceId OBJECT-TYPE
@@ -4518,6 +4567,22 @@ cucsVnicIScsiCdnPropInSync OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS vnic:IScsi:cdnPropInSync managed object property"
     ::= { cucsVnicIScsiEntry 50 }
+
+cucsVnicIScsiRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:IScsi:redundancyPairType managed object property"
+    ::= { cucsVnicIScsiEntry 51 }
+
+cucsVnicIScsiRedundancyPeer OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:IScsi:redundancyPeer managed object property"
+    ::= { cucsVnicIScsiEntry 52 }
 
 cucsVnicIScsiAutoTargetIfTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicIScsiAutoTargetIfEntry
@@ -5125,7 +5190,9 @@ CucsVnicIScsiLCPEntry ::= SEQUENCE {
     cucsVnicIScsiLCPAdminCdnName                                     SnmpAdminString,
     cucsVnicIScsiLCPOperCdnName                                      SnmpAdminString,
     cucsVnicIScsiLCPCdnSource                                        CucsVnicCdnSource,
-    cucsVnicIScsiLCPCdnPropInSync                                    TruthValue
+    cucsVnicIScsiLCPCdnPropInSync                                    TruthValue,
+    cucsVnicIScsiLCPRedundancyPairType                               CucsVnicRedundancyPairType,
+    cucsVnicIScsiLCPRedundancyPeer                                   SnmpAdminString
 }
 
 cucsVnicIScsiLCPInstanceId OBJECT-TYPE
@@ -5411,6 +5478,23 @@ cucsVnicIScsiLCPCdnPropInSync OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS vnic:IScsiLCP:cdnPropInSync managed object property"
     ::= { cucsVnicIScsiLCPEntry 36 }
+
+cucsVnicIScsiLCPRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:IScsiLCP:redundancyPairType managed
+        object property"
+    ::= { cucsVnicIScsiLCPEntry 37 }
+
+cucsVnicIScsiLCPRedundancyPeer OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:IScsiLCP:redundancyPeer managed object property"
+    ::= { cucsVnicIScsiLCPEntry 38 }
 
 cucsVnicIScsiNodeTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicIScsiNodeEntry
@@ -6524,7 +6608,9 @@ CucsVnicIpcEntry ::= SEQUENCE {
     cucsVnicIpcAdminCdnName                                          SnmpAdminString,
     cucsVnicIpcOperCdnName                                           SnmpAdminString,
     cucsVnicIpcCdnPropInSync                                         TruthValue,
-    cucsVnicIpcCdnSource                                             CucsVnicCdnSource
+    cucsVnicIpcCdnSource                                             CucsVnicCdnSource,
+    cucsVnicIpcRedundancyPairType                                    CucsVnicRedundancyPairType,
+    cucsVnicIpcRedundancyPeer                                        SnmpAdminString
 }
 
 cucsVnicIpcInstanceId OBJECT-TYPE
@@ -6847,6 +6933,22 @@ cucsVnicIpcCdnSource OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS vnic:Ipc:cdnSource managed object property"
     ::= { cucsVnicIpcEntry 41 }
+
+cucsVnicIpcRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:Ipc:redundancyPairType managed object property"
+    ::= { cucsVnicIpcEntry 42 }
+
+cucsVnicIpcRedundancyPeer OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:Ipc:redundancyPeer managed object property"
+    ::= { cucsVnicIpcEntry 43 }
 
 cucsVnicIpcIfTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicIpcIfEntry
@@ -7228,7 +7330,10 @@ CucsVnicLanConnTemplEntry ::= SEQUENCE {
     cucsVnicLanConnTemplPolicyLevel                                  Gauge32,
     cucsVnicLanConnTemplPolicyOwner                                  CucsPolicyPolicyOwner,
     cucsVnicLanConnTemplAdminCdnName                                 SnmpAdminString,
-    cucsVnicLanConnTemplCdnSource                                    CucsVnicCdnSource
+    cucsVnicLanConnTemplCdnSource                                    CucsVnicCdnSource,
+    cucsVnicLanConnTemplOperPeerRedundancyTemplName                  SnmpAdminString,
+    cucsVnicLanConnTemplPeerRedundancyTemplName                      SnmpAdminString,
+    cucsVnicLanConnTemplRedundancyPairType                           CucsVnicRedundancyPairType
 }
 
 cucsVnicLanConnTemplInstanceId OBJECT-TYPE
@@ -7423,6 +7528,33 @@ cucsVnicLanConnTemplCdnSource OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS vnic:LanConnTempl:cdnSource managed object property"
     ::= { cucsVnicLanConnTemplEntry 23 }
+
+cucsVnicLanConnTemplOperPeerRedundancyTemplName OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:LanConnTempl:operPeerRedundancyTemplName
+        managed object property"
+    ::= { cucsVnicLanConnTemplEntry 24 }
+
+cucsVnicLanConnTemplPeerRedundancyTemplName OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:LanConnTempl:peerRedundancyTemplName
+        managed object property"
+    ::= { cucsVnicLanConnTemplEntry 25 }
+
+cucsVnicLanConnTemplRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:LanConnTempl:redundancyPairType
+        managed object property"
+    ::= { cucsVnicLanConnTemplEntry 26 }
 
 cucsVnicLifVlanTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicLifVlanEntry
@@ -9163,7 +9295,10 @@ CucsVnicSanConnTemplEntry ::= SEQUENCE {
     cucsVnicSanConnTemplTarget                                       CucsVnicSanConnTemplTarget,
     cucsVnicSanConnTemplTemplType                                    CucsVnicTemplateType,
     cucsVnicSanConnTemplPolicyLevel                                  Gauge32,
-    cucsVnicSanConnTemplPolicyOwner                                  CucsPolicyPolicyOwner
+    cucsVnicSanConnTemplPolicyOwner                                  CucsPolicyPolicyOwner,
+    cucsVnicSanConnTemplOperPeerRedundancyTemplName                  SnmpAdminString,
+    cucsVnicSanConnTemplPeerRedundancyTemplName                      SnmpAdminString,
+    cucsVnicSanConnTemplRedundancyPairType                           CucsVnicRedundancyPairType
 }
 
 cucsVnicSanConnTemplInstanceId OBJECT-TYPE
@@ -9335,6 +9470,33 @@ cucsVnicSanConnTemplPolicyOwner OBJECT-TYPE
         "Cisco UCS vnic:SanConnTempl:policyOwner managed object property"
     ::= { cucsVnicSanConnTemplEntry 20 }
 
+cucsVnicSanConnTemplOperPeerRedundancyTemplName OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:SanConnTempl:operPeerRedundancyTemplName
+        managed object property"
+    ::= { cucsVnicSanConnTemplEntry 21 }
+
+cucsVnicSanConnTemplPeerRedundancyTemplName OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:SanConnTempl:peerRedundancyTemplName
+        managed object property"
+    ::= { cucsVnicSanConnTemplEntry 22 }
+
+cucsVnicSanConnTemplRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:SanConnTempl:redundancyPairType
+        managed object property"
+    ::= { cucsVnicSanConnTemplEntry 23 }
+
 cucsVnicScsiTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicScsiEntry
     MAX-ACCESS       not-accessible
@@ -9382,7 +9544,9 @@ CucsVnicScsiEntry ::= SEQUENCE {
     cucsVnicScsiAdminCdnName                                         SnmpAdminString,
     cucsVnicScsiOperCdnName                                          SnmpAdminString,
     cucsVnicScsiCdnPropInSync                                        TruthValue,
-    cucsVnicScsiCdnSource                                            CucsVnicCdnSource
+    cucsVnicScsiCdnSource                                            CucsVnicCdnSource,
+    cucsVnicScsiRedundancyPairType                                   CucsVnicRedundancyPairType,
+    cucsVnicScsiRedundancyPeer                                       SnmpAdminString
 }
 
 cucsVnicScsiInstanceId OBJECT-TYPE
@@ -9624,6 +9788,22 @@ cucsVnicScsiCdnSource OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS vnic:Scsi:cdnSource managed object property"
     ::= { cucsVnicScsiEntry 32 }
+
+cucsVnicScsiRedundancyPairType OBJECT-TYPE
+    SYNTAX       CucsVnicRedundancyPairType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:Scsi:redundancyPairType managed object property"
+    ::= { cucsVnicScsiEntry 33 }
+
+cucsVnicScsiRedundancyPeer OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS vnic:Scsi:redundancyPeer managed object property"
+    ::= { cucsVnicScsiEntry 34 }
 
 cucsVnicScsiIfTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsVnicScsiIfEntry

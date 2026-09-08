@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- CONFIG management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -49,6 +49,8 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-MIB
     CucsConfigImpactResponseState,
     CucsConfigSorterDirection,
+    CucsEquipmentChassisConfigIssues,
+    CucsEquipmentChassisProfileConfigState,
     CucsLsConfigIssues,
     CucsLsConfigState,
     CucsMoMoClassId,
@@ -57,7 +59,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsConfigObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -104,7 +106,11 @@ CucsConfigImpactEntry ::= SEQUENCE {
     cucsConfigImpactConfigState                                      CucsLsConfigState,
     cucsConfigImpactDeploymentMode                                   CucsTrigAckMode,
     cucsConfigImpactName                                             SnmpAdminString,
-    cucsConfigImpactRebootRequired                                   TruthValue
+    cucsConfigImpactRebootRequired                                   TruthValue,
+    cucsConfigImpactAffectedChassis                                  SnmpAdminString,
+    cucsConfigImpactChassisConfigIssues                              CucsEquipmentChassisConfigIssues,
+    cucsConfigImpactChassisConfigQualifier                           CucsEquipmentChassisConfigIssues,
+    cucsConfigImpactChassisConfigState                               CucsEquipmentChassisProfileConfigState
 }
 
 cucsConfigImpactInstanceId OBJECT-TYPE
@@ -203,6 +209,41 @@ cucsConfigImpactRebootRequired OBJECT-TYPE
         "Cisco UCS config:Impact:rebootRequired managed object property"
     ::= { cucsConfigImpactEntry 12 }
 
+cucsConfigImpactAffectedChassis OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS config:Impact:affectedChassis managed object property"
+    ::= { cucsConfigImpactEntry 13 }
+
+cucsConfigImpactChassisConfigIssues OBJECT-TYPE
+    SYNTAX       CucsEquipmentChassisConfigIssues
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS config:Impact:chassisConfigIssues managed
+        object property"
+    ::= { cucsConfigImpactEntry 14 }
+
+cucsConfigImpactChassisConfigQualifier OBJECT-TYPE
+    SYNTAX       CucsEquipmentChassisConfigIssues
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS config:Impact:chassisConfigQualifier
+        managed object property"
+    ::= { cucsConfigImpactEntry 15 }
+
+cucsConfigImpactChassisConfigState OBJECT-TYPE
+    SYNTAX       CucsEquipmentChassisProfileConfigState
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS config:Impact:chassisConfigState managed
+        object property"
+    ::= { cucsConfigImpactEntry 16 }
+
 cucsConfigManagedEpImpactResponseTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsConfigManagedEpImpactResponseEntry
     MAX-ACCESS       not-accessible
@@ -230,7 +271,8 @@ CucsConfigManagedEpImpactResponseEntry ::= SEQUENCE {
     cucsConfigManagedEpImpactResponseImpactAnalyzerId                DateAndTime,
     cucsConfigManagedEpImpactResponseRebootRequired                  TruthValue,
     cucsConfigManagedEpImpactResponseSourceConnectorId               Gauge32,
-    cucsConfigManagedEpImpactResponseState                           CucsConfigImpactResponseState
+    cucsConfigManagedEpImpactResponseState                           CucsConfigImpactResponseState,
+    cucsConfigManagedEpImpactResponseAffectedChassisCnt              Gauge32
 }
 
 cucsConfigManagedEpImpactResponseInstanceId OBJECT-TYPE
@@ -321,6 +363,15 @@ cucsConfigManagedEpImpactResponseState OBJECT-TYPE
         "Cisco UCS config:ManagedEpImpactResponse:state
         managed object property"
     ::= { cucsConfigManagedEpImpactResponseEntry 10 }
+
+cucsConfigManagedEpImpactResponseAffectedChassisCnt OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS config:ManagedEpImpactResponse:affectedChassisCnt
+        managed object property"
+    ::= { cucsConfigManagedEpImpactResponseEntry 12 }
 
 cucsConfigSorterTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsConfigSorterEntry
