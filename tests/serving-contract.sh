@@ -119,11 +119,16 @@ COLLIDING_MODULE="$(head -1 "$CORPUS/index.csv" | cut -d, -f1)"
   printf 'LOCAL-SQUATTER-MIB,%s\n' "$COLLIDING_OID"
 } >"$WORK/overlay/index-v2.csv"
 
+# The chart's own merge program, lifted out of the rendered init container and
+# run below over the fixtures. Not a copy of it: a copy passes whatever the
+# chart does, which is the one thing this has to catch. The rendered command
+# names container paths that do not exist here, so what is taken is the awk
+# program between the quotes and the files are supplied here.
 MERGE="$(
   helm template default "$CHART" --namespace default --kube-version "$KUBE_VERSION" \
     --values rendered/values_existing_pvc.yaml \
     --show-only templates/deployment.yaml \
-    | sed -n 's/^ *\(awk -F,.*\)$/\1/p' | head -1
+    | sed -n "s/^ *awk -F, '\(.*\)'.*$/\1/p" | head -1
 )"
 
 if [ -z "$MERGE" ]; then
@@ -131,7 +136,9 @@ if [ -z "$MERGE" ]; then
   exit 1
 fi
 
-awk -F, 'NR==FNR { published[$2]; print; next } !($2 in published)' \
+# $2 inside MERGE is awk's field, not a shell parameter -- the expansion of a
+# variable is not itself expanded again.
+awk -F, "$MERGE" \
   "$CORPUS/index.csv" "$WORK/overlay/index-v2.csv" >"$WORK/overlay/index.csv"
 chmod -R a+rX "$WORK"
 

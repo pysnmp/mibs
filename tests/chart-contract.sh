@@ -314,6 +314,23 @@ else
   fail "tests_null_persistence: pathToMibs produced no PersistentVolumeClaim"
 fi
 
+# The other half: keys present but empty. helm deletes a null key when it
+# merges, so dig's default covers that; an empty string survives the merge and
+# dig hands it straight back. That reached the manifest as `storage:` with
+# nothing after it, which the API rejects.
+assert_compiles_local_mibs tests_empty_persistence
+CLAIM="$MANIFESTS/tests_empty_persistence/mibserver/templates/pv-claim.yaml"
+
+if [ -f "$CLAIM" ] \
+  && grep -qE 'storageClassName: [^ ]' "$CLAIM" \
+  && grep -qE 'storage: [0-9]' "$CLAIM"; then
+  pass "tests_empty_persistence: an empty storageClass and size fall back to the defaults"
+else
+  fail "tests_empty_persistence: rendered an empty quantity or storage class: $(
+    grep -E 'storageClassName|storage:' "$CLAIM" 2>/dev/null | tr '\n' ' '
+  )"
+fi
+
 if grep -q 'name: compile-local-mibs' "$(deployment default)"; then
   fail "default: an init container runs where no MIBs were supplied"
 else

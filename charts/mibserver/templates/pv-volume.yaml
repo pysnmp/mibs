@@ -7,9 +7,13 @@ metadata:
     type: local
     {{- include "mibserver.labels" . | nindent 4 }}
 spec:
-  storageClassName: {{ dig "storageClass" "microk8s-hostpath" (.Values.localMibs.persistence | default dict) }}
+  # dig covers a persistence map that is absent or null; default covers a key
+  # that is present but empty. They are not the same case and both happen: an
+  # explicit `size: ""` survives helm's merge, where `size: null` deletes the
+  # key. dig alone would render an empty quantity here, which the API rejects.
+  storageClassName: {{ dig "storageClass" "microk8s-hostpath" (.Values.localMibs.persistence | default dict) | default "microk8s-hostpath" }}
   capacity:
-    storage: {{ dig "size" "3Gi" (.Values.localMibs.persistence | default dict) }}
+    storage: {{ dig "size" "3Gi" (.Values.localMibs.persistence | default dict) | default "3Gi" }}
   accessModes:
     - ReadWriteMany
   hostPath:
