@@ -15,7 +15,7 @@
 # precedence rules, as everything else in the tree they are served beside.
 FROM python:3.13-slim
 
-ARG PYSMI_VERSION=">=3.0.0rc7,<4"
+ARG PYSMI_VERSION=">=3.0.0rc8,<4"
 
 RUN pip install --no-cache-dir "pysnmp-pysmi${PYSMI_VERSION}" \
  && useradd --uid 10001 --create-home --shell /usr/sbin/nologin mibs
