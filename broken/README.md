@@ -43,12 +43,18 @@ each, so it serves AOS 7's, whose text is current to 2024-07-15 against AOS
 6's 2019-10-07. Twenty modules only AOS 6 had go with it; nothing else in the
 corpus imported any of them.
 
-`vendor/extreme/BROCADE-MAPS-MIB` imports `swVfId` from `SYSTEM-MIB`. The
-only `SYSTEM-MIB` here is Nokia's, which carries no MODULE-IDENTITY and does
-not define `swVfId`. It compiled against that copy — the module name resolved
-and the missing symbol did not stop it — so the published output referred to
-something no module defines. Brocade's own `SYSTEM-MIB`, from FabricOS, is
-what it wants and is not in this corpus. A copy of that would bring this
+`vendor/extreme/BROCADE-MAPS-MIB` imports `swVfId` from `SYSTEM-MIB`. Its own
+revision history records why: *"modified SW-MIB from IMPORTS to SYSTEM-MIB"*,
+dated 2015-01-13. Brocade moved that import to a `SYSTEM-MIB` of their own,
+and that module is not in this corpus. The only `SYSTEM-MIB` here is
+`src/vendor/nokia/SYSTEM-MIB`, which registers under enterprise 637 (Alcatel),
+carries no MODULE-IDENTITY, and defines four symbols, none of them `swVfId`.
+
+It compiled against that copy regardless, because `swVfId` is used only in an
+OBJECTS clause and nothing checked that the provider defines it, so the
+published module bound a varbind no module defines. `src/vendor/extreme/SW-MIB`
+is here and does define `swVfId`, but editing the import back would be
+rewriting what Brocade published. Brocade's `SYSTEM-MIB` is what brings this
 module back.
 
 ## Restoration notes
