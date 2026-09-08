@@ -116,8 +116,26 @@ echo "== every module named in the index is still carried somewhere"
 # COFFEE-POT-MIB joined them when src/standard was deleted: pysmi does not
 # bundle it and nothing imports it, so the snapshot's two rows for it now name
 # a module the site cannot serve.
-DEAD_MODULE_CEILING=61
-DEAD_ROW_CEILING=335
+#
+# The ceilings went 61/335 -> 224/1737 when pysmi 3.0.0rc5 held 275 of its 485
+# bundled modules in pysmi/mibs/future/ (pysnmp/pysmi#220). The wheel carries
+# 210, so 163 modules this repository used to publish by staging the bundle are
+# no longer staged, and the snapshot's rows for them name nothing carried.
+#
+# Those 163 were removed deliberately, upstream, as modules nothing imports --
+# not defective, and not rot appearing here. Nothing in src/ imports any of
+# them, so no module fails to compile; the effect is that the site no longer
+# answers for their OIDs.
+#
+# Every one of them is an IETF module, so src/ is not where they would come
+# back: src/vendor holds what a vendor publishes, and filing an RFC module
+# under the vendor that happened to ship a copy of it says something untrue
+# about who publishes it. The ceilings come back down by promoting the module
+# in pysmi -- `update_bundled_mibs.py --promote NAME`, which any use justifies
+# -- not by relaxing this check further, and not by adding the text here.
+# Anything above these numbers is unaccounted for and should fail.
+DEAD_MODULE_CEILING=224
+DEAD_ROW_CEILING=1737
 
 if BUNDLE="$(uv run python -c 'import importlib.util,pathlib;print(importlib.util.find_spec("pysmi.mibs.asn1").submodule_search_locations[0])' 2>/dev/null)" \
    && [ -d "$BUNDLE" ]; then

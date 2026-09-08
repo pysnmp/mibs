@@ -150,11 +150,18 @@ if [ -f output/standard.txt ]; then
   # exact pin would fail on every legitimate addition. What this catches is the
   # file collapsing to a handful of entries or to nothing, which is what a broken
   # find or a changed src/ layout would produce.
+  #
+  # The floor was 250 while pysmi bundled 485 modules. pysmi 3.0.0rc5 holds 275
+  # of them (pysnmp/pysmi#220) and the wheel carries 210, so this file -- built
+  # from the staged bundle alone, less the RFC* and SNMPv2* exclusions above --
+  # holds 186. The floor moves to 150 to sit below that with room for ordinary
+  # bundle churn, while still being far above the handful of entries a broken
+  # build produces.
   STDCOUNT="$(grep -c . output/standard.txt || true)"
-  if [ "$STDCOUNT" -ge 250 ]; then
-    pass "$STDCOUNT entries, above the floor of 250"
+  if [ "$STDCOUNT" -ge 150 ]; then
+    pass "$STDCOUNT entries, above the floor of 150"
   else
-    fail "standard.txt has $STDCOUNT entries, below the floor of 250 -- looks truncated"
+    fail "standard.txt has $STDCOUNT entries, below the floor of 150 -- looks truncated"
   fi
 elif [ -d output ]; then
   fail "output/standard.txt is missing, but output/ exists -- the build did not complete"
