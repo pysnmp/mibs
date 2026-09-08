@@ -52,6 +52,13 @@ whether or not this file had changed.
         keepalive_timeout  65;
 
         gzip  on;
+        # nginx compresses text/html and nothing else by default, and none of
+        # what this serves is text/html: .csv has no mime mapping at all so it
+        # falls to the default type, asn1/ modules are extensionless, and the
+        # compiled trees are json. Measured: index.csv left the server as 4.6 MB
+        # uncompressed. Every consumer fetches it at start-up.
+        gzip_types text/plain application/json application/octet-stream;
+        gzip_min_length 1024;
 
         server {
             listen       8000;

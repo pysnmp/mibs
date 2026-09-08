@@ -255,6 +255,14 @@ fi
 # own terms: both inputs produce a deployment that compiles the user's MIBs
 # from the storage they supplied.
 
+# Nothing in this pod talks to the Kubernetes API, so nothing should be handed
+# a credential for it.
+if grep -q 'automountServiceAccountToken: false' "$(deployment default)"; then
+  pass "the pod is not handed a ServiceAccount token"
+else
+  fail "the pod still automounts a ServiceAccount token"
+fi
+
 echo "local MIB storage"
 
 assert_read_only() {

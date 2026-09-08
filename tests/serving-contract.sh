@@ -117,6 +117,12 @@ COLLIDING_MODULE="$(head -1 "$CORPUS/index.csv" | cut -d, -f1)"
 {
   printf 'LOCAL-ONLY-MIB,1.3.6.1.4.1.99999.1\n'
   printf 'LOCAL-SQUATTER-MIB,%s\n' "$COLLIDING_OID"
+  # Two local modules claiming one OID the corpus has no answer for. mibcorpus
+  # cannot emit this -- its index is a ranked projection, one row per OID --
+  # but the merge runs over a file another project produces, so it is asserted
+  # here rather than assumed.
+  printf 'LOCAL-TWIN-A,1.3.6.1.4.1.99999.2\n'
+  printf 'LOCAL-TWIN-B,1.3.6.1.4.1.99999.2\n'
 } >"$WORK/overlay/index-v2.csv"
 
 # The chart's own merge program, lifted out of the rendered init container and
@@ -248,6 +254,37 @@ fi
 duplicates="$(cut -d, -f2 "$WORK/body" | sort | uniq -d | wc -l | tr -d ' ')"
 [ "$duplicates" = "0" ] || fail "$duplicates OIDs appear more than once in the merged index"
 [ "$duplicates" = "0" ] && pass "no OID appears twice in the merged index"
+
+# The corpus cannot arbitrate an OID it does not define, so the merge itself
+# has to: first local row wins, the second is dropped.
+twins="$(awk -F, '$2 == "1.3.6.1.4.1.99999.2"' "$WORK/body" | wc -l | tr -d ' ')"
+if [ "$twins" = "1" ]; then
+  pass "two local modules claiming one OID leave a single row"
+else
+  fail "two local modules claiming one OID left $twins rows"
+fi
+
+# ---------------------------------------------------------------------------
+# The corpus is compressed on the wire
+# ---------------------------------------------------------------------------
+#
+# nginx compresses text/html and nothing else by default, and none of what this
+# serves is text/html -- so every artifact went out uncompressed, index.csv
+# included, which is the largest thing any consumer fetches.
+
+echo "== the corpus is served compressed"
+for path in /index.csv /asn1/SNMPv2-MIB; do
+  encoding="$(
+    curl -sS -H 'Accept-Encoding: gzip' -o /dev/null -D- \
+      "http://127.0.0.1:18000$path" | tr -d '\r' \
+      | sed -n 's/^[Cc]ontent-[Ee]ncoding: //p'
+  )"
+  if [ "$encoding" = "gzip" ]; then
+    pass "$path is gzipped"
+  else
+    fail "$path went out as ${encoding:-identity}"
+  fi
+done
 
 echo "== overlay: the corpus wins for a module both hold"
 # The overlay is a fallback, not an override. A user copy of a published module

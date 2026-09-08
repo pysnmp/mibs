@@ -82,10 +82,24 @@ helm install mibserver oci://ghcr.io/pysnmp/charts/mibserver --version 1.17.0
 ### Kubernetes 1.33 or newer
 
 The chart mounts the corpus as an [image
-volume](https://kubernetes.io/docs/concepts/storage/volumes/#image), which is
-beta in Kubernetes 1.33 and needs a runtime that implements it (containerd
-2.0+, CRI-O 1.31+). The chart's `kubeVersion` refuses anything older rather
-than scheduling a pod whose document root never appears.
+volume](https://kubernetes.io/docs/concepts/storage/volumes/#image). The
+chart's `kubeVersion` refuses anything below 1.33, but **the version check is
+not sufficient on its own** — on 1.33 and 1.34 the feature ships beta and
+*disabled*:
+
+| Kubernetes | `ImageVolume` |
+|---|---|
+| 1.33, 1.34 | beta, **off by default** — enable the gate on the API server *and* the kubelet |
+| 1.35 | beta, on by default |
+| 1.36+ | stable |
+
+The runtime has to implement it too: containerd 2.1+ (2.0 has no support at
+all) and CRI-O 1.33+ for the beta surface — CRI-O 1.31 carries only the
+original alpha.
+
+Below 1.35 with the gate left at its default, `helm install` succeeds and the
+pod then fails to start, because a version constraint is all a chart can
+express. If that is your cluster, enable the gate before installing.
 
 What this buys: the container serving MIBs is `nginxinc/nginx-unprivileged`
 from upstream, unmodified. This project no longer publishes an nginx image, so

@@ -27,12 +27,16 @@ spec:
         # carry the chart version, so hashing it rolled every pod on every
         # release and made the rendered manifests a function of the version
         # they were rendered at.
-        checksum/config: c3b53d5b2a3fe8a1ad370776536fc892bb4d0938300eef9c5eb2d2755f677c2a
+        checksum/config: ec9d9d98b1ecaea03f6dc4b0d5e739c80b14ef2e2d59e4be0a0dff2ff853fb03
       labels:
         app.kubernetes.io/name: mibserver
         app.kubernetes.io/instance: default
     spec:
       serviceAccountName: default-mibserver
+      # Nothing here talks to the Kubernetes API. nginx serves files and the
+      # init container compiles them; neither needs a token, and a token that
+      # is mounted is a token a compromised container can spend.
+      automountServiceAccountToken: false
       securityContext:
         fsGroup: 10001
       initContainers:
@@ -60,11 +64,18 @@ spec:
             - /bin/sh
             - -c
             # The merge keeps every published row and adds a local one only
-            # for an OID the corpus does not already answer -- the same rule
-            # the overlay follows for the modules themselves. A union of whole
-            # rows, which is what this deployment used to do, leaves two rows
-            # for an OID both define, and a consumer parsing into a map takes
-            # whichever it reads last.
+            # for an OID nothing has answered yet -- the same rule the overlay
+            # follows for the modules themselves. A union of whole rows, which
+            # is what this deployment used to do, leaves two rows for an OID
+            # both define, and a consumer parsing into a map takes whichever it
+            # reads last.
+            #
+            # "nothing has answered yet" rather than "the corpus does not
+            # answer": a local row is recorded as it is accepted, so two local
+            # modules claiming one OID cannot both survive either. mibcorpus
+            # already emits one row per OID -- its index is a ranked projection
+            # -- but that invariant lives in pysmi, and this merge should not
+            # depend on one it cannot see.
             - |
               set -eu
               mibcorpus --quiet \
@@ -72,7 +83,7 @@ spec:
                 --namespace=vendor:local:/local-mibs \
                 --output-directory=/usr/share/nginx/overlay \
                 --emit=asn1 --emit=json --emit=index-v2 --emit=report
-              awk -F, 'NR==FNR { published[$2]; print; next } !($2 in published)' \
+              awk -F, 'NR==FNR { seen[$2]; print; next } !($2 in seen) { seen[$2]; print }' \
                 /usr/share/nginx/html/index.csv \
                 /usr/share/nginx/overlay/index-v2.csv \
                 >/usr/share/nginx/overlay/index.csv

@@ -35,6 +35,10 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "mibserver.serviceAccountName" . }}
+      # Nothing here talks to the Kubernetes API. nginx serves files and the
+      # init container compiles them; neither needs a token, and a token that
+      # is mounted is a token a compromised container can spend.
+      automountServiceAccountToken: false
       securityContext:
         fsGroup: 10001
       {{- if $localMibs }}
@@ -63,11 +67,18 @@ spec:
             - /bin/sh
             - -c
             # The merge keeps every published row and adds a local one only
-            # for an OID the corpus does not already answer -- the same rule
-            # the overlay follows for the modules themselves. A union of whole
-            # rows, which is what this deployment used to do, leaves two rows
-            # for an OID both define, and a consumer parsing into a map takes
-            # whichever it reads last.
+            # for an OID nothing has answered yet -- the same rule the overlay
+            # follows for the modules themselves. A union of whole rows, which
+            # is what this deployment used to do, leaves two rows for an OID
+            # both define, and a consumer parsing into a map takes whichever it
+            # reads last.
+            #
+            # "nothing has answered yet" rather than "the corpus does not
+            # answer": a local row is recorded as it is accepted, so two local
+            # modules claiming one OID cannot both survive either. mibcorpus
+            # already emits one row per OID -- its index is a ranked projection
+            # -- but that invariant lives in pysmi, and this merge should not
+            # depend on one it cannot see.
             - |
               set -eu
               mibcorpus --quiet \
@@ -75,7 +86,7 @@ spec:
                 --namespace=vendor:local:/local-mibs \
                 --output-directory={{ include "mibserver.overlayRoot" . }} \
                 --emit=asn1 --emit=json --emit=index-v2 --emit=report
-              awk -F, 'NR==FNR { published[$2]; print; next } !($2 in published)' \
+              awk -F, 'NR==FNR { seen[$2]; print; next } !($2 in seen) { seen[$2]; print }' \
                 {{ include "mibserver.corpusRoot" . }}/index.csv \
                 {{ include "mibserver.overlayRoot" . }}/index-v2.csv \
                 >{{ include "mibserver.overlayRoot" . }}/index.csv
