@@ -10,6 +10,10 @@ description: A Helm chart for serving mib files
 # a dependency of application charts to inject those utilities and functions into the rendering
 # pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
+# Image volumes are beta in 1.33 and enabled by default there. The corpus is
+# mounted as one, so an older cluster would schedule a pod whose document root
+# never appears -- better refused by helm than debugged in a running cluster.
+kubeVersion: ">=1.33.0-0"
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)

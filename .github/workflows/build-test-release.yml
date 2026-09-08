@@ -161,8 +161,18 @@ jobs:
       # render.
       - name: Set up Helm
         uses: azure/setup-helm@v5
+      # Extracted rather than served from output/ directly: the image states
+      # its own file modes, and those are what a pod mounts. A corpus that
+      # serves fine on the runner and 403s from the image is exactly the
+      # failure this catches.
+      - name: Extract the corpus image
+        run: |
+          mkdir -m 0755 -p /tmp/corpus-image
+          docker buildx build -f docker/corpus.Dockerfile \
+            --build-arg CORPUS=output \
+            -o type=local,dest=/tmp/corpus-image .
       - name: Serving contract
-        run: ./tests/serving-contract.sh
+        run: ./tests/serving-contract.sh /tmp/corpus-image
       - name: Login to GitHub Packages Docker Registry
         uses: docker/login-action@v4.6.0
         with:

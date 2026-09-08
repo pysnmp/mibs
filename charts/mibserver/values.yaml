@@ -6,11 +6,39 @@ replicaCount: 1
 # Enable IPv6 listeners for the MIB and status endpoints while retaining IPv4.
 ipv6Enabled: false
 
+# The serving container: nginx from upstream, unmodified. This project no
+# longer publishes an image derived from it, so the tag is pinned here rather
+# than defaulting to the chart's appVersion -- appVersion describes the corpus,
+# and says nothing about which nginx is current.
 image:
-  repository: ghcr.io/pysnmp/mibs/container
+  repository: nginxinc/nginx-unprivileged
+  pullPolicy: IfNotPresent
+  tag: "1.29.1-bookworm"
+
+# The corpus, mounted read-only as an OCI image volume. Requires Kubernetes
+# 1.33 or newer and a container runtime that implements image volumes
+# (containerd 2.0+, CRI-O 1.31+); the chart's kubeVersion enforces the first
+# half of that.
+corpus:
+  repository: ghcr.io/pysnmp/mibs/corpus
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
+
+# pysmi, run as an init container to compile user-supplied MIBs. Pulled only
+# when localMibs is configured; a deployment serving the published corpus alone
+# never fetches it.
+tools:
+  repository: ghcr.io/pysnmp/mibs/tools
+  pullPolicy: IfNotPresent
+  tag: ""
+  resources:
+    limits:
+      cpu: "2"
+      memory: 1Gi
+    requests:
+      cpu: 100m
+      memory: 256Mi
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious

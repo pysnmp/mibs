@@ -68,3 +68,28 @@ Create mibserver.podAntiAffinity
 {{- "soft" }}
 {{- end }}
 {{- end }}
+
+{{/*
+Where the corpus image is mounted, and where anything compiled at start-up
+lands. Named rather than repeated so nginx.conf, the volume mounts and the
+init container cannot drift apart.
+*/}}
+{{- define "mibserver.corpusRoot" -}}
+/usr/share/nginx/html
+{{- end }}
+
+{{- define "mibserver.overlayRoot" -}}
+/usr/share/nginx/overlay
+{{- end }}
+
+{{/*
+Whether the deployment carries user-supplied MIB sources, from either input:
+a host path the chart turns into a PersistentVolume, or a claim the user
+already has. Both have to count -- deriving it from pathToMibs alone is what
+left an existingClaim user unable to serve their MIBs (pysnmp/mibs#208).
+*/}}
+{{- define "mibserver.localMibs" -}}
+{{- if or .Values.localMibs.pathToMibs (ne .Values.localMibs.persistence.existingClaim "") -}}
+true
+{{- end -}}
+{{- end }}

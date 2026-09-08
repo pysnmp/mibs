@@ -1,9 +1,7 @@
+# The corpus images are FROM scratch and copy one directory; the tools image
+# copies nothing at all. Everything else in the tree is build input that has
+# already been consumed by `make corpus`, so keeping it out of the context is
+# what makes the build a copy rather than a build.
 *
-!index.py
-!local_mibs.sh
-!mibserver-entrypoint.sh
-!nginx.conf
 !output
-!pyproject.toml
-!scripts
-!uv.lock
+!output-compact

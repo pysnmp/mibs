@@ -1,5 +1,5 @@
+{{- $localMibs := include "mibserver.localMibs" . }}
 {{- $createPV := and .Values.localMibs.pathToMibs (eq .Values.localMibs.persistence.existingClaim "") }}
-{{- $enablePV := or $createPV (ne .Values.localMibs.persistence.existingClaim "") }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,6 +17,10 @@ spec:
       {{- include "mibserver.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      annotations:
+        # The config is mounted by subPath, which does not update in place, so
+        # a changed nginx.conf has to roll the pods to take effect.
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -30,27 +34,82 @@ spec:
       serviceAccountName: {{ include "mibserver.serviceAccountName" . }}
       securityContext:
         fsGroup: 10001
+      {{- if $localMibs }}
+      initContainers:
+        # The only thing in this deployment that runs code of ours, and the
+        # only thing that has to: a user's MIB sources arrive as files and
+        # something has to compile them before they can be served or indexed.
+        #
+        # It is the same driver CI builds the published corpus with, so a
+        # user's MIBs are resolved against the published tree by the same
+        # rules as everything already in it -- and it writes into an emptyDir,
+        # so the serving container's root filesystem stays read-only.
+        - name: compile-local-mibs
+          image: "{{ .Values.tools.repository }}:{{ .Values.tools.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.tools.pullPolicy }}
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
+          command:
+            - /bin/sh
+            - -c
+            # The index merge is a union of the published rows and the
+            # locally-compiled ones, which is what this deployment has always
+            # served: a consumer that had an answer for an OID keeps it, and
+            # an OID only the local MIBs define gains one.
+            - |
+              set -eu
+              mibcorpus --quiet \
+                --resolve-namespace=standard:corpus:{{ include "mibserver.corpusRoot" . }}/asn1 \
+                --namespace=vendor:local:/local-mibs \
+                --output-directory={{ include "mibserver.overlayRoot" . }} \
+                --emit=asn1 --emit=json --emit=index-v2 --emit=report
+              sort -u \
+                {{ include "mibserver.overlayRoot" . }}/index-v2.csv \
+                {{ include "mibserver.corpusRoot" . }}/index.csv \
+                >{{ include "mibserver.overlayRoot" . }}/index.csv
+          resources:
+            {{- toYaml .Values.tools.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: {{ include "mibserver.corpusRoot" . }}
+              name: corpus
+              readOnly: true
+            - mountPath: {{ include "mibserver.overlayRoot" . }}
+              name: overlay
+            - mountPath: /local-mibs
+              name: task-pv-storage
+              readOnly: true
+            - mountPath: /tmp
+              name: tmp
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             capabilities:
               drop:
                 - ALL
-            {{- if $enablePV }}
-            readOnlyRootFilesystem: false
-            {{- else }}
+            # Always. Nothing writes to the root filesystem any more: the
+            # config is a ConfigMap, the corpus is a read-only image volume,
+            # and anything compiled at start-up went into the overlay before
+            # this container started.
             readOnlyRootFilesystem: true
-            {{- end }}
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: NGINX_ENTRYPOINT_QUIET_LOGS
-              value: "1"
-            - name: MIBSERVER_IPV6_ENABLED
-              value: {{ .Values.ipv6Enabled | default false | quote }}
+          # Straight to nginx, past the base image's entrypoint scripts: the
+          # config is complete as rendered and there is nothing to template or
+          # substitute at start-up.
+          command:
+            - nginx
+            - -g
+            - daemon off;
           ports:
             - name: http
               containerPort: 8000
@@ -67,10 +126,16 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
-          {{- if $enablePV }}
-            - mountPath: "/app/new_mibs/src/vendor"
-              name: task-pv-storage
-          {{- end }}
+            - mountPath: /etc/nginx/nginx.conf
+              name: config
+              subPath: nginx.conf
+              readOnly: true
+            - mountPath: {{ include "mibserver.corpusRoot" . }}
+              name: corpus
+              readOnly: true
+            - mountPath: {{ include "mibserver.overlayRoot" . }}
+              name: overlay
+              readOnly: true
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -101,8 +166,21 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
-          # Debug helper output
-      {{- if $enablePV }}
+        - name: config
+          configMap:
+            name: {{ include "mibserver.fullname" . }}
+        # The corpus, as an OCI image mounted read-only. Kubernetes 1.33 or
+        # newer, and a runtime that implements image volumes -- see the chart's
+        # kubeVersion. This is what replaced baking the corpus into an nginx
+        # image of our own: the bytes are the same, they arrive as a volume,
+        # and the image serving them is upstream's.
+        - name: corpus
+          image:
+            reference: "{{ .Values.corpus.repository }}:{{ .Values.corpus.tag | default .Chart.AppVersion }}"
+            pullPolicy: {{ .Values.corpus.pullPolicy }}
+        - name: overlay
+          emptyDir: {}
+      {{- if $localMibs }}
         - name: task-pv-storage
           persistentVolumeClaim:
           {{- if .Values.localMibs.persistence.existingClaim }}
