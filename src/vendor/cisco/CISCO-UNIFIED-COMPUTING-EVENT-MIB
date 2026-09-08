@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- EVENT management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -59,7 +59,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsEventObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -556,8 +556,8 @@ CucsEventRecordEntry ::= SEQUENCE {
     cucsEventRecordCode                                              CucsConditionCode,
     cucsEventRecordCreated                                           DateAndTime,
     cucsEventRecordDescr                                             SnmpAdminString,
-    cucsEventRecordId                                                Gauge32,
-    cucsEventRecordInd                                               CucsConditionActionIndicator,
+    cucsEventRecordId                                                Unsigned64,
+    cucsEventRecordInd                                               Gauge32,
     cucsEventRecordSeverity                                          CucsConditionSeverity,
     cucsEventRecordTrig                                              Gauge32,
     cucsEventRecordTxId                                              Unsigned64,
@@ -638,7 +638,7 @@ cucsEventRecordDescr OBJECT-TYPE
     ::= { cucsEventRecordEntry 9 }
 
 cucsEventRecordId OBJECT-TYPE
-    SYNTAX       Gauge32
+    SYNTAX       Unsigned64
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
@@ -646,7 +646,7 @@ cucsEventRecordId OBJECT-TYPE
     ::= { cucsEventRecordEntry 10 }
 
 cucsEventRecordInd OBJECT-TYPE
-    SYNTAX       CucsConditionActionIndicator
+    SYNTAX       Gauge32
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION

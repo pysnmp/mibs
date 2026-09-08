@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- SYSDEBUG management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -67,6 +67,7 @@ IMPORTS
     CucsSysdebugCoreFsmCurrentFsm,
     CucsSysdebugCoreFsmStageName,
     CucsSysdebugCoreFsmTaskItem,
+    CucsSysdebugDiagLogOperState,
     CucsSysdebugEpLogAdminState,
     CucsSysdebugEpLogBackupAction,
     CucsSysdebugEpLogCapacity,
@@ -98,7 +99,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsSysdebugObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -895,7 +896,8 @@ CucsSysdebugCoreEntry ::= SEQUENCE {
     cucsSysdebugCoreFsmStamp                                         DateAndTime,
     cucsSysdebugCoreFsmStatus                                        SnmpAdminString,
     cucsSysdebugCoreFsmTry                                           Gauge32,
-    cucsSysdebugCoreOperState                                        CucsSysdebugCoreFileOperState
+    cucsSysdebugCoreOperState                                        CucsSysdebugCoreFileOperState,
+    cucsSysdebugCoreChecksum                                         SnmpAdminString
 }
 
 cucsSysdebugCoreInstanceId OBJECT-TYPE
@@ -1066,6 +1068,14 @@ cucsSysdebugCoreOperState OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS sysdebug:Core:operState managed object property"
     ::= { cucsSysdebugCoreEntry 21 }
+
+cucsSysdebugCoreChecksum OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:Core:checksum managed object property"
+    ::= { cucsSysdebugCoreEntry 22 }
 
 cucsSysdebugCoreFileRepositoryTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsSysdebugCoreFileRepositoryEntry
@@ -1420,6 +1430,195 @@ cucsSysdebugCoreFsmTaskSeqId OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS sysdebug:CoreFsmTask:seqId managed object property"
     ::= { cucsSysdebugCoreFsmTaskEntry 7 }
+
+cucsSysdebugDiagnosticLogTable OBJECT-TYPE
+    SYNTAX           SEQUENCE OF CucsSysdebugDiagnosticLogEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog managed object table"
+    ::= { cucsSysdebugObjects 39 }
+
+cucsSysdebugDiagnosticLogEntry OBJECT-TYPE
+    SYNTAX           CucsSysdebugDiagnosticLogEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Entry for the cucsSysdebugDiagnosticLogTable table."
+    INDEX { cucsSysdebugDiagnosticLogInstanceId }
+    ::= { cucsSysdebugDiagnosticLogTable 1 }
+
+CucsSysdebugDiagnosticLogEntry ::= SEQUENCE {
+    cucsSysdebugDiagnosticLogInstanceId                              CucsManagedObjectId,
+    cucsSysdebugDiagnosticLogDn                                      CucsManagedObjectDn,
+    cucsSysdebugDiagnosticLogRn                                      SnmpAdminString,
+    cucsSysdebugDiagnosticLogChecksum                                SnmpAdminString,
+    cucsSysdebugDiagnosticLogDescr                                   SnmpAdminString,
+    cucsSysdebugDiagnosticLogIp                                      InetAddressIPv4,
+    cucsSysdebugDiagnosticLogName                                    SnmpAdminString,
+    cucsSysdebugDiagnosticLogOperState                               CucsSysdebugDiagLogOperState,
+    cucsSysdebugDiagnosticLogSize                                    Gauge32,
+    cucsSysdebugDiagnosticLogSwitchId                                CucsNetworkSwitchId,
+    cucsSysdebugDiagnosticLogTftpUri                                 SnmpAdminString,
+    cucsSysdebugDiagnosticLogTs                                      DateAndTime,
+    cucsSysdebugDiagnosticLogUri                                     SnmpAdminString
+}
+
+cucsSysdebugDiagnosticLogInstanceId OBJECT-TYPE
+    SYNTAX       CucsManagedObjectId
+    MAX-ACCESS   not-accessible
+    STATUS       current
+    DESCRIPTION
+        "Instance identifier of the managed object."
+    ::= { cucsSysdebugDiagnosticLogEntry 1 }
+
+cucsSysdebugDiagnosticLogDn OBJECT-TYPE
+    SYNTAX       CucsManagedObjectDn
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:dn managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 2 }
+
+cucsSysdebugDiagnosticLogRn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:rn managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 3 }
+
+cucsSysdebugDiagnosticLogChecksum OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:checksum managed
+        object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 4 }
+
+cucsSysdebugDiagnosticLogDescr OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:descr managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 5 }
+
+cucsSysdebugDiagnosticLogIp OBJECT-TYPE
+    SYNTAX       InetAddressIPv4
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:ip managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 6 }
+
+cucsSysdebugDiagnosticLogName OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:name managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 7 }
+
+cucsSysdebugDiagnosticLogOperState OBJECT-TYPE
+    SYNTAX       CucsSysdebugDiagLogOperState
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:operState managed
+        object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 8 }
+
+cucsSysdebugDiagnosticLogSize OBJECT-TYPE
+    SYNTAX       Gauge32
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:size managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 9 }
+
+cucsSysdebugDiagnosticLogSwitchId OBJECT-TYPE
+    SYNTAX       CucsNetworkSwitchId
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:switchId managed
+        object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 10 }
+
+cucsSysdebugDiagnosticLogTftpUri OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:tftpUri managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 11 }
+
+cucsSysdebugDiagnosticLogTs OBJECT-TYPE
+    SYNTAX       DateAndTime
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:ts managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 12 }
+
+cucsSysdebugDiagnosticLogUri OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLog:uri managed object property"
+    ::= { cucsSysdebugDiagnosticLogEntry 13 }
+
+cucsSysdebugDiagnosticLogRepositoryTable OBJECT-TYPE
+    SYNTAX           SEQUENCE OF CucsSysdebugDiagnosticLogRepositoryEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLogRepository managed object table"
+    ::= { cucsSysdebugObjects 40 }
+
+cucsSysdebugDiagnosticLogRepositoryEntry OBJECT-TYPE
+    SYNTAX           CucsSysdebugDiagnosticLogRepositoryEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Entry for the cucsSysdebugDiagnosticLogRepositoryTable table."
+    INDEX { cucsSysdebugDiagnosticLogRepositoryInstanceId }
+    ::= { cucsSysdebugDiagnosticLogRepositoryTable 1 }
+
+CucsSysdebugDiagnosticLogRepositoryEntry ::= SEQUENCE {
+    cucsSysdebugDiagnosticLogRepositoryInstanceId                    CucsManagedObjectId,
+    cucsSysdebugDiagnosticLogRepositoryDn                            CucsManagedObjectDn,
+    cucsSysdebugDiagnosticLogRepositoryRn                            SnmpAdminString
+}
+
+cucsSysdebugDiagnosticLogRepositoryInstanceId OBJECT-TYPE
+    SYNTAX       CucsManagedObjectId
+    MAX-ACCESS   not-accessible
+    STATUS       current
+    DESCRIPTION
+        "Instance identifier of the managed object."
+    ::= { cucsSysdebugDiagnosticLogRepositoryEntry 1 }
+
+cucsSysdebugDiagnosticLogRepositoryDn OBJECT-TYPE
+    SYNTAX       CucsManagedObjectDn
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLogRepository:dn
+        managed object property"
+    ::= { cucsSysdebugDiagnosticLogRepositoryEntry 2 }
+
+cucsSysdebugDiagnosticLogRepositoryRn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:DiagnosticLogRepository:rn
+        managed object property"
+    ::= { cucsSysdebugDiagnosticLogRepositoryEntry 3 }
 
 cucsSysdebugEpTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsSysdebugEpEntry
@@ -3897,7 +4096,8 @@ CucsSysdebugTechSupportEntry ::= SEQUENCE {
     cucsSysdebugTechSupportSwitchId                                  CucsNetworkSwitchId,
     cucsSysdebugTechSupportTs                                        DateAndTime,
     cucsSysdebugTechSupportUri                                       SnmpAdminString,
-    cucsSysdebugTechSupportCreationTS                                Unsigned64
+    cucsSysdebugTechSupportCreationTS                                Unsigned64,
+    cucsSysdebugTechSupportChecksum                                  SnmpAdminString
 }
 
 cucsSysdebugTechSupportInstanceId OBJECT-TYPE
@@ -4081,6 +4281,14 @@ cucsSysdebugTechSupportCreationTS OBJECT-TYPE
         "Cisco UCS sysdebug:TechSupport:creationTS managed
         object property"
     ::= { cucsSysdebugTechSupportEntry 22 }
+
+cucsSysdebugTechSupportChecksum OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysdebug:TechSupport:checksum managed object property"
+    ::= { cucsSysdebugTechSupportEntry 23 }
 
 cucsSysdebugTechSupportCmdOptTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsSysdebugTechSupportCmdOptEntry

@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- DOMAIN management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -52,7 +52,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsDomainObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -69,6 +69,221 @@ cucsDomainObjects MODULE-IDENTITY
         "MIB representation of the Cisco Unified Computing System
         DOMAIN management information model package"
     ::= { ciscoUnifiedComputingMIBObjects 74 }
+
+cucsDomainChassisFeatureTable OBJECT-TYPE
+    SYNTAX           SEQUENCE OF CucsDomainChassisFeatureEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeature managed object table"
+    ::= { cucsDomainObjects 18 }
+
+cucsDomainChassisFeatureEntry OBJECT-TYPE
+    SYNTAX           CucsDomainChassisFeatureEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Entry for the cucsDomainChassisFeatureTable table."
+    INDEX { cucsDomainChassisFeatureInstanceId }
+    ::= { cucsDomainChassisFeatureTable 1 }
+
+CucsDomainChassisFeatureEntry ::= SEQUENCE {
+    cucsDomainChassisFeatureInstanceId                               CucsManagedObjectId,
+    cucsDomainChassisFeatureDn                                       CucsManagedObjectDn,
+    cucsDomainChassisFeatureRn                                       SnmpAdminString,
+    cucsDomainChassisFeatureFltAggr                                  Unsigned64,
+    cucsDomainChassisFeatureFunctionalState                          CucsDomainFunctionalState,
+    cucsDomainChassisFeatureName                                     SnmpAdminString,
+    cucsDomainChassisFeatureType                                     CucsDomainFeatureType
+}
+
+cucsDomainChassisFeatureInstanceId OBJECT-TYPE
+    SYNTAX       CucsManagedObjectId
+    MAX-ACCESS   not-accessible
+    STATUS       current
+    DESCRIPTION
+        "Instance identifier of the managed object."
+    ::= { cucsDomainChassisFeatureEntry 1 }
+
+cucsDomainChassisFeatureDn OBJECT-TYPE
+    SYNTAX       CucsManagedObjectDn
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeature:dn managed object property"
+    ::= { cucsDomainChassisFeatureEntry 2 }
+
+cucsDomainChassisFeatureRn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeature:rn managed object property"
+    ::= { cucsDomainChassisFeatureEntry 3 }
+
+cucsDomainChassisFeatureFltAggr OBJECT-TYPE
+    SYNTAX       Unsigned64
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeature:fltAggr managed object property"
+    ::= { cucsDomainChassisFeatureEntry 4 }
+
+cucsDomainChassisFeatureFunctionalState OBJECT-TYPE
+    SYNTAX       CucsDomainFunctionalState
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeature:functionalState
+        managed object property"
+    ::= { cucsDomainChassisFeatureEntry 5 }
+
+cucsDomainChassisFeatureName OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeature:name managed object property"
+    ::= { cucsDomainChassisFeatureEntry 6 }
+
+cucsDomainChassisFeatureType OBJECT-TYPE
+    SYNTAX       CucsDomainFeatureType
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeature:type managed object property"
+    ::= { cucsDomainChassisFeatureEntry 7 }
+
+cucsDomainChassisFeatureContTable OBJECT-TYPE
+    SYNTAX           SEQUENCE OF CucsDomainChassisFeatureContEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeatureCont managed object table"
+    ::= { cucsDomainObjects 19 }
+
+cucsDomainChassisFeatureContEntry OBJECT-TYPE
+    SYNTAX           CucsDomainChassisFeatureContEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Entry for the cucsDomainChassisFeatureContTable table."
+    INDEX { cucsDomainChassisFeatureContInstanceId }
+    ::= { cucsDomainChassisFeatureContTable 1 }
+
+CucsDomainChassisFeatureContEntry ::= SEQUENCE {
+    cucsDomainChassisFeatureContInstanceId                           CucsManagedObjectId,
+    cucsDomainChassisFeatureContDn                                   CucsManagedObjectDn,
+    cucsDomainChassisFeatureContRn                                   SnmpAdminString,
+    cucsDomainChassisFeatureContFltAggr                              Unsigned64
+}
+
+cucsDomainChassisFeatureContInstanceId OBJECT-TYPE
+    SYNTAX       CucsManagedObjectId
+    MAX-ACCESS   not-accessible
+    STATUS       current
+    DESCRIPTION
+        "Instance identifier of the managed object."
+    ::= { cucsDomainChassisFeatureContEntry 1 }
+
+cucsDomainChassisFeatureContDn OBJECT-TYPE
+    SYNTAX       CucsManagedObjectDn
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeatureCont:dn managed object property"
+    ::= { cucsDomainChassisFeatureContEntry 2 }
+
+cucsDomainChassisFeatureContRn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeatureCont:rn managed object property"
+    ::= { cucsDomainChassisFeatureContEntry 3 }
+
+cucsDomainChassisFeatureContFltAggr OBJECT-TYPE
+    SYNTAX       Unsigned64
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisFeatureCont:fltAggr managed
+        object property"
+    ::= { cucsDomainChassisFeatureContEntry 4 }
+
+cucsDomainChassisParamTable OBJECT-TYPE
+    SYNTAX           SEQUENCE OF CucsDomainChassisParamEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisParam managed object table"
+    ::= { cucsDomainObjects 20 }
+
+cucsDomainChassisParamEntry OBJECT-TYPE
+    SYNTAX           CucsDomainChassisParamEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Entry for the cucsDomainChassisParamTable table."
+    INDEX { cucsDomainChassisParamInstanceId }
+    ::= { cucsDomainChassisParamTable 1 }
+
+CucsDomainChassisParamEntry ::= SEQUENCE {
+    cucsDomainChassisParamInstanceId                                 CucsManagedObjectId,
+    cucsDomainChassisParamDn                                         CucsManagedObjectDn,
+    cucsDomainChassisParamRn                                         SnmpAdminString,
+    cucsDomainChassisParamFltAggr                                    Unsigned64,
+    cucsDomainChassisParamName                                       SnmpAdminString,
+    cucsDomainChassisParamValue                                      SnmpAdminString
+}
+
+cucsDomainChassisParamInstanceId OBJECT-TYPE
+    SYNTAX       CucsManagedObjectId
+    MAX-ACCESS   not-accessible
+    STATUS       current
+    DESCRIPTION
+        "Instance identifier of the managed object."
+    ::= { cucsDomainChassisParamEntry 1 }
+
+cucsDomainChassisParamDn OBJECT-TYPE
+    SYNTAX       CucsManagedObjectDn
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisParam:dn managed object property"
+    ::= { cucsDomainChassisParamEntry 2 }
+
+cucsDomainChassisParamRn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisParam:rn managed object property"
+    ::= { cucsDomainChassisParamEntry 3 }
+
+cucsDomainChassisParamFltAggr OBJECT-TYPE
+    SYNTAX       Unsigned64
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisParam:fltAggr managed object property"
+    ::= { cucsDomainChassisParamEntry 4 }
+
+cucsDomainChassisParamName OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisParam:name managed object property"
+    ::= { cucsDomainChassisParamEntry 5 }
+
+cucsDomainChassisParamValue OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS domain:ChassisParam:value managed object property"
+    ::= { cucsDomainChassisParamEntry 6 }
 
 cucsDomainEnvironmentFeatureTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsDomainEnvironmentFeatureEntry

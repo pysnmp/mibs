@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- AAA management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -97,7 +97,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsAaaObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -2837,6 +2837,107 @@ cucsAaaLdapProviderVendor OBJECT-TYPE
         "Cisco UCS aaa:LdapProvider:vendor managed object property"
     ::= { cucsAaaLdapProviderEntry 19 }
 
+cucsAaaLocalMgmtCmdLogTable OBJECT-TYPE
+    SYNTAX           SEQUENCE OF CucsAaaLocalMgmtCmdLogEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog managed object table"
+    ::= { cucsAaaObjects 60 }
+
+cucsAaaLocalMgmtCmdLogEntry OBJECT-TYPE
+    SYNTAX           CucsAaaLocalMgmtCmdLogEntry
+    MAX-ACCESS       not-accessible
+    STATUS           current
+    DESCRIPTION
+        "Entry for the cucsAaaLocalMgmtCmdLogTable table."
+    INDEX { cucsAaaLocalMgmtCmdLogInstanceId }
+    ::= { cucsAaaLocalMgmtCmdLogTable 1 }
+
+CucsAaaLocalMgmtCmdLogEntry ::= SEQUENCE {
+    cucsAaaLocalMgmtCmdLogInstanceId                                 CucsManagedObjectId,
+    cucsAaaLocalMgmtCmdLogDn                                         CucsManagedObjectDn,
+    cucsAaaLocalMgmtCmdLogRn                                         SnmpAdminString,
+    cucsAaaLocalMgmtCmdLogCmdline                                    SnmpAdminString,
+    cucsAaaLocalMgmtCmdLogDate                                       DateAndTime,
+    cucsAaaLocalMgmtCmdLogHost                                       SnmpAdminString,
+    cucsAaaLocalMgmtCmdLogSwitchId                                   CucsNetworkSwitchId,
+    cucsAaaLocalMgmtCmdLogTerm                                       SnmpAdminString,
+    cucsAaaLocalMgmtCmdLogUser                                       SnmpAdminString
+}
+
+cucsAaaLocalMgmtCmdLogInstanceId OBJECT-TYPE
+    SYNTAX       CucsManagedObjectId
+    MAX-ACCESS   not-accessible
+    STATUS       current
+    DESCRIPTION
+        "Instance identifier of the managed object."
+    ::= { cucsAaaLocalMgmtCmdLogEntry 1 }
+
+cucsAaaLocalMgmtCmdLogDn OBJECT-TYPE
+    SYNTAX       CucsManagedObjectDn
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog:dn managed object property"
+    ::= { cucsAaaLocalMgmtCmdLogEntry 2 }
+
+cucsAaaLocalMgmtCmdLogRn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog:rn managed object property"
+    ::= { cucsAaaLocalMgmtCmdLogEntry 3 }
+
+cucsAaaLocalMgmtCmdLogCmdline OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog:cmdline managed object property"
+    ::= { cucsAaaLocalMgmtCmdLogEntry 4 }
+
+cucsAaaLocalMgmtCmdLogDate OBJECT-TYPE
+    SYNTAX       DateAndTime
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog:date managed object property"
+    ::= { cucsAaaLocalMgmtCmdLogEntry 5 }
+
+cucsAaaLocalMgmtCmdLogHost OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog:host managed object property"
+    ::= { cucsAaaLocalMgmtCmdLogEntry 6 }
+
+cucsAaaLocalMgmtCmdLogSwitchId OBJECT-TYPE
+    SYNTAX       CucsNetworkSwitchId
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog:switchId managed object property"
+    ::= { cucsAaaLocalMgmtCmdLogEntry 7 }
+
+cucsAaaLocalMgmtCmdLogTerm OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog:term managed object property"
+    ::= { cucsAaaLocalMgmtCmdLogEntry 8 }
+
+cucsAaaLocalMgmtCmdLogUser OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS aaa:LocalMgmtCmdLog:user managed object property"
+    ::= { cucsAaaLocalMgmtCmdLogEntry 9 }
+
 cucsAaaLocaleTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsAaaLocaleEntry
     MAX-ACCESS       not-accessible
@@ -3048,8 +3149,8 @@ CucsAaaModLREntry ::= SEQUENCE {
     cucsAaaModLRCode                                                 CucsConditionCode,
     cucsAaaModLRCreated                                              DateAndTime,
     cucsAaaModLRDescr                                                SnmpAdminString,
-    cucsAaaModLRId                                                   Gauge32,
-    cucsAaaModLRInd                                                  CucsConditionActionIndicator,
+    cucsAaaModLRId                                                   Unsigned64,
+    cucsAaaModLRInd                                                  Gauge32,
     cucsAaaModLRSeverity                                             CucsConditionSeverity,
     cucsAaaModLRTrig                                                 Gauge32,
     cucsAaaModLRTxId                                                 Unsigned64,
@@ -3130,7 +3231,7 @@ cucsAaaModLRDescr OBJECT-TYPE
     ::= { cucsAaaModLREntry 9 }
 
 cucsAaaModLRId OBJECT-TYPE
-    SYNTAX       Gauge32
+    SYNTAX       Unsigned64
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
@@ -3138,7 +3239,7 @@ cucsAaaModLRId OBJECT-TYPE
     ::= { cucsAaaModLREntry 10 }
 
 cucsAaaModLRInd OBJECT-TYPE
-    SYNTAX       CucsConditionActionIndicator
+    SYNTAX       Gauge32
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
@@ -5117,8 +5218,8 @@ CucsAaaSessionLREntry ::= SEQUENCE {
     cucsAaaSessionLRCode                                             CucsConditionCode,
     cucsAaaSessionLRCreated                                          DateAndTime,
     cucsAaaSessionLRDescr                                            SnmpAdminString,
-    cucsAaaSessionLRId                                               Gauge32,
-    cucsAaaSessionLRInd                                              CucsConditionActionIndicator,
+    cucsAaaSessionLRId                                               Unsigned64,
+    cucsAaaSessionLRInd                                              Gauge32,
     cucsAaaSessionLRSeverity                                         CucsConditionSeverity,
     cucsAaaSessionLRTrig                                             Gauge32,
     cucsAaaSessionLRTxId                                             Unsigned64,
@@ -5199,7 +5300,7 @@ cucsAaaSessionLRDescr OBJECT-TYPE
     ::= { cucsAaaSessionLREntry 9 }
 
 cucsAaaSessionLRId OBJECT-TYPE
-    SYNTAX       Gauge32
+    SYNTAX       Unsigned64
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
@@ -5207,7 +5308,7 @@ cucsAaaSessionLRId OBJECT-TYPE
     ::= { cucsAaaSessionLREntry 10 }
 
 cucsAaaSessionLRInd OBJECT-TYPE
-    SYNTAX       CucsConditionActionIndicator
+    SYNTAX       Gauge32
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION

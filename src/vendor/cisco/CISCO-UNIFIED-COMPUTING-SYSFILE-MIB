@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- SYSFILE management information model package
 -- 
--- Created January 2016 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -59,7 +59,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsSysfileObjects MODULE-IDENTITY
-    LAST-UPDATED    "201601180000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -105,7 +105,8 @@ CucsSysfileDigestEntry ::= SEQUENCE {
     cucsSysfileDigestSource                                          SnmpAdminString,
     cucsSysfileDigestSwitchId                                        CucsNetworkSwitchId,
     cucsSysfileDigestTs                                              DateAndTime,
-    cucsSysfileDigestUri                                             SnmpAdminString
+    cucsSysfileDigestUri                                             SnmpAdminString,
+    cucsSysfileDigestChecksum                                        SnmpAdminString
 }
 
 cucsSysfileDigestInstanceId OBJECT-TYPE
@@ -195,6 +196,14 @@ cucsSysfileDigestUri OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS sysfile:Digest:uri managed object property"
     ::= { cucsSysfileDigestEntry 11 }
+
+cucsSysfileDigestChecksum OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS sysfile:Digest:checksum managed object property"
+    ::= { cucsSysfileDigestEntry 12 }
 
 cucsSysfileMutationTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsSysfileMutationEntry

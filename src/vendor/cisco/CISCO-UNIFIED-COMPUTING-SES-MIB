@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- SES management information model package
 -- 
--- Created June 2015 by Charles Bullis
+-- Created July 2018 by Charles Bullis
 -- 
--- Copyright (c) 2005-2015 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -47,11 +47,12 @@ IMPORTS
     CucsManagedObjectId,
     CucsManagedObjectDn
         FROM CISCO-UNIFIED-COMPUTING-MIB
-    CucsFsmLifecycle
+    CucsFsmLifecycle,
+    CucsSesScsiDriveStatus
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsSesObjects MODULE-IDENTITY
-    LAST-UPDATED    "201506290000Z"
+    LAST-UPDATED    "201807260000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -92,7 +93,15 @@ CucsSesDiskSlotEpEntry ::= SEQUENCE {
     cucsSesDiskSlotEpRn                                              SnmpAdminString,
     cucsSesDiskSlotEpEncId                                           Gauge32,
     cucsSesDiskSlotEpId                                              Gauge32,
-    cucsSesDiskSlotEpSlotDn                                          SnmpAdminString
+    cucsSesDiskSlotEpSlotDn                                          SnmpAdminString,
+    cucsSesDiskSlotEpDiskDn                                          SnmpAdminString,
+    cucsSesDiskSlotEpDiskPresent                                     TruthValue,
+    cucsSesDiskSlotEpLc                                              CucsFsmLifecycle,
+    cucsSesDiskSlotEpModel                                           SnmpAdminString,
+    cucsSesDiskSlotEpRevision                                        SnmpAdminString,
+    cucsSesDiskSlotEpScsiDiskState                                   CucsSesScsiDriveStatus,
+    cucsSesDiskSlotEpSerial                                          SnmpAdminString,
+    cucsSesDiskSlotEpVendor                                          SnmpAdminString
 }
 
 cucsSesDiskSlotEpInstanceId OBJECT-TYPE
@@ -142,6 +151,70 @@ cucsSesDiskSlotEpSlotDn OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS ses:DiskSlotEp:slotDn managed object property"
     ::= { cucsSesDiskSlotEpEntry 6 }
+
+cucsSesDiskSlotEpDiskDn OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ses:DiskSlotEp:diskDn managed object property"
+    ::= { cucsSesDiskSlotEpEntry 7 }
+
+cucsSesDiskSlotEpDiskPresent OBJECT-TYPE
+    SYNTAX       TruthValue
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ses:DiskSlotEp:diskPresent managed object property"
+    ::= { cucsSesDiskSlotEpEntry 8 }
+
+cucsSesDiskSlotEpLc OBJECT-TYPE
+    SYNTAX       CucsFsmLifecycle
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ses:DiskSlotEp:lc managed object property"
+    ::= { cucsSesDiskSlotEpEntry 9 }
+
+cucsSesDiskSlotEpModel OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ses:DiskSlotEp:model managed object property"
+    ::= { cucsSesDiskSlotEpEntry 10 }
+
+cucsSesDiskSlotEpRevision OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ses:DiskSlotEp:revision managed object property"
+    ::= { cucsSesDiskSlotEpEntry 11 }
+
+cucsSesDiskSlotEpScsiDiskState OBJECT-TYPE
+    SYNTAX       CucsSesScsiDriveStatus
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ses:DiskSlotEp:scsiDiskState managed object property"
+    ::= { cucsSesDiskSlotEpEntry 12 }
+
+cucsSesDiskSlotEpSerial OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ses:DiskSlotEp:serial managed object property"
+    ::= { cucsSesDiskSlotEpEntry 13 }
+
+cucsSesDiskSlotEpVendor OBJECT-TYPE
+    SYNTAX       SnmpAdminString
+    MAX-ACCESS   read-only
+    STATUS       current
+    DESCRIPTION
+        "Cisco UCS ses:DiskSlotEp:vendor managed object property"
+    ::= { cucsSesDiskSlotEpEntry 14 }
 
 cucsSesEnclosureTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsSesEnclosureEntry
