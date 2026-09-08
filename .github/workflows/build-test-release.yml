@@ -173,7 +173,10 @@ jobs:
             -o type=local,dest=/tmp/corpus-image .
       - name: Serving contract
         run: ./tests/serving-contract.sh /tmp/corpus-image
+      # Only a branch that publishes needs credentials. A pull request builds
+      # the images to prove the Dockerfiles still work and pushes nothing.
       - name: Login to GitHub Packages Docker Registry
+        if: github.ref == 'refs/heads/main'
         uses: docker/login-action@v4.6.0
         with:
           registry: ghcr.io
@@ -206,7 +209,7 @@ jobs:
           file: docker/corpus.Dockerfile
           build-args: |
             CORPUS=output
-          push: true
+          push: ${{ github.ref == 'refs/heads/main' }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
@@ -237,7 +240,7 @@ jobs:
           file: docker/corpus.Dockerfile
           build-args: |
             CORPUS=output-compact
-          push: true
+          push: ${{ github.ref == 'refs/heads/main' }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta_compact.outputs.tags }}
           labels: ${{ steps.docker_meta_compact.outputs.labels }}
@@ -265,7 +268,7 @@ jobs:
         with:
           context: .
           file: docker/tools.Dockerfile
-          push: true
+          push: ${{ github.ref == 'refs/heads/main' }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta_tools.outputs.tags }}
           labels: ${{ steps.docker_meta_tools.outputs.labels }}
