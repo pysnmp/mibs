@@ -3926,6 +3926,12 @@
     "src/vendor/cisco/RTM-MIB": {
       "publisher": "cisco-mibs-v2"
     },
+    "src/vendor/extreme/Brocade-REG-MIB": {
+      "publisher": "taishin-vendor-mibs",
+      "vars": {
+        "remote": "BROCADE-REG-MIB"
+      }
+    },
     "src/vendor/netsnmp/LM-SENSORS-MIB": {
       "divergence": {
         "note": "not yet reviewed",
@@ -4062,6 +4068,13 @@
       "name": "Synology",
       "note": "Synology ships every DSM MIB in one archive, revised in place. The archive holds several modules this repository has never carried.",
       "url": "https://global.download.synology.com/download/Document/Software/DeveloperGuide/Firmware/DSM/All/enu/Synology_MIB_File.zip"
+    },
+    "taishin-vendor-mibs": {
+      "homepage": "https://github.com/taishin/vendor_mibs",
+      "kind": "file",
+      "name": "taishin/vendor_mibs (third-party collection)",
+      "note": "Not Brocade. A third-party collection, recorded because it is where this copy came from and that is worth more than nothing -- but --check against it detects the collection moving, not the vendor. Brocade's IP networking passed to Extreme Networks and its SAN business to Broadcom; neither serves this module at a stable public URL that has been found. Replace this entry if one is.",
+      "url": "https://raw.githubusercontent.com/taishin/vendor_mibs/master/{remote}.mib"
     },
     "ubiquiti-airos": {
       "homepage": "https://help.ui.com/",
