@@ -78,6 +78,12 @@
         "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}",
         },
     ],
-    ["@semantic-release/github", { "assets": ["NOTICE"] }],
+    ["@semantic-release/github", { "assets": [
+        "NOTICE",
+        { "path": "dist/mibs-asn1.zip", "label": "MIB sources (ASN.1)" },
+        { "path": "dist/mibs-json.zip", "label": "Compiled to JSON" },
+        { "path": "dist/mibs-index.zip", "label": "OID indexes and standard.txt" },
+        { "path": "dist/mibs-compact.zip", "label": "Compact corpus (ASN.1 + index, no standard tree)" },
+      ] }],
   ],
 }

@@ -129,6 +129,29 @@ jobs:
         run: uv run python ./tests/runtime-compile-contract.py
       - name: Corpus build report
         run: cat output/report.json
+      # One archive per format, for anyone who wants the corpus without
+      # fetching 5510 files over HTTP or pulling an image -- an air-gapped
+      # install, or a build that vendors it. Named after the tree they hold so
+      # a release page says what each one is. Only on a ref that publishes;
+      # semantic-release attaches them to the release it creates.
+      #
+      # Deliberately not gated on a publishing ref. A step that only ever runs
+      # at release time is a step nothing has proved, which is how the image
+      # push gate in this same job came to be wrong; a pull request builds the
+      # archives and throws them away, and that is what keeps the release path
+      # honest. semantic-release attaches them only where it runs anyway.
+      - name: Archive the corpus for the release
+        run: |
+          set -eu
+          mkdir -p dist
+          # -X drops the extra-attributes fields whose contents vary between
+          # runs, so an unchanged tree archives to unchanged bytes.
+          (cd output && zip -qrX ../dist/mibs-asn1.zip asn1)
+          (cd output && zip -qrX ../dist/mibs-json.zip json)
+          (cd output && zip -qrX ../dist/mibs-index.zip \
+            index.csv index-v2.csv standard.txt)
+          (cd output-compact && zip -qrX ../dist/mibs-compact.zip asn1 index-v2.csv)
+          ls -l dist
       - uses: actions/upload-artifact@v7
         with:
           name: corpus-reports

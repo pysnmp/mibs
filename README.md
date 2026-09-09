@@ -54,6 +54,66 @@ It is not served over HTTP; it is published as an image to mount:
 ghcr.io/pysnmp/mibs/corpus-compact:<version>
 ```
 
+## Three channels, three shapes
+
+What each channel carries follows from who consumes it, so they are not the
+same set:
+
+| | carries | for |
+|---|---|---|
+| **gh-pages** | `asn1/`, `json/`, `index.csv`, `index-v2.csv`, `standard.txt` | anyone resolving a MIB over HTTP |
+| **Release archives** | one zip per format | an offline or air-gapped install, or a build that vendors the corpus |
+| **`corpus` image** | what gh-pages serves | the `mibserver` chart, which mounts it and serves it — so it has to answer the same paths the site does |
+| **`corpus-compact` image** | `asn1/` and `index-v2.csv` | a pysnmp runtime — what it needs to poll and to translate a trap OID, and nothing more |
+
+The release archives are attached to each GitHub release:
+
+| asset | |
+|---|---|
+| `mibs-asn1.zip` | the MIB sources |
+| `mibs-json.zip` | the same modules as data |
+| `mibs-index.zip` | `index.csv`, `index-v2.csv`, `standard.txt` |
+| `mibs-compact.zip` | the compact corpus |
+
+The two images differ because they are consumed differently. `corpus-compact`
+is a dependency a runtime mounts, so it carries the two things a runtime reads:
+the ASN.1 it compiles, and the index that says which module answers for an OID.
+`json/` is data for other tooling and `standard.txt` is a compatibility surface
+of the published corpus; pysnmp reads neither.
+
+`corpus` is not a dependency — it is the document root the chart hands to nginx,
+so it mirrors the site. Trimming it would 404 endpoints the chart itself
+advertises: splunk-connect-for-snmp's deployment sets `MIB_STANDARD` to
+`standard.txt` on the service this chart provides.
+
+## What is published, and what is not
+
+| | |
+|---|---|
+| `asn1/<MODULE>` | the MIB source, under its bare module name |
+| `json/<MODULE>.json` | the same module as data — names, OIDs, syntax, access, status |
+| `index.csv` | OID to module, one row per OID; replays `index-frozen.csv` |
+| `index-v2.csv` | the same index without the frozen answers |
+| `standard.txt` | the standard module names |
+
+**No compiled pysnmp modules.** `notexts/` and `texts/` used to carry them and
+no longer exist. A pysnmp module is not data: it is Python that
+`MibBuilder.loadModule()` runs through `exec()`, written to be executed rather
+than imported — `mibBuilder` arrives as an injected global, which is why the
+first line of one calls a name it never defines. Serving that over HTTP hands
+every consumer a way to execute code fetched from this site, authenticated by
+nothing but TLS. Compromise the site or the transport and you have arbitrary
+code in every process that loads a MIB.
+
+Nothing needed them. pysnmp resolves MIBs from local directories by default and
+ships no remote source; splunk-connect-for-snmp binds `MIB_SOURCES` to
+`asn1/@mib@` and compiles with pysmi. **Pull the MIB and compile it** — that is
+the safe shape, and it is what consumers already do. Where a compiled form was
+wanted only to avoid running a compiler, `json/` carries the same facts in a
+format that is parsed rather than run.
+
+The two trees were about half the corpus: 603 MB of 1237 MB.
+
 ## Images
 
 | Image | What it is |

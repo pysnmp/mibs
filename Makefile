@@ -19,24 +19,47 @@ COMPACT_OUT ?= output-compact
 
 corpus:  ## Build the published corpus into output/
 	@# Everything the site serves, in one deterministic pass: the ASN.1 as
-	@# published, pysnmp modules with and without texts, jsondoc, both OID
-	@# indexes and the standard module list. index.csv replays
-	@# index-frozen.csv, so a consumer keying on the module an OID resolves
-	@# to keeps the answer it already has; corrections land in index-v2.csv.
+	@# published, jsondoc, both OID indexes and the standard module list.
+	@# index.csv replays index-frozen.csv, so a consumer keying on the module
+	@# an OID resolves to keeps the answer it already has; corrections land
+	@# in index-v2.csv.
+	@#
+	@# The artifacts are named rather than left to the default layout, and
+	@# what the naming leaves out is the point: notexts and texts are pysnmp
+	@# modules, and a pysnmp module is Python that MibBuilder exec()s -- so
+	@# publishing them over HTTP offers every consumer a way to run code
+	@# fetched from this site. Nothing needs them: pysnmp resolves from local
+	@# directories by default, splunk-connect-for-snmp binds asn1/@mib@ and
+	@# compiles with pysmi, and json carries the same facts as data. Pull the
+	@# MIB and compile it; that is the safe shape and it is what consumers
+	@# already do.
 	$(MIBCORPUS) --manifest=$(CORPUS_MANIFEST) \
 	  --output-directory=$(CORPUS_OUT) \
+	  --emit=asn1 --emit=json \
+	  --emit=index --emit=index-v2 --emit=standard --emit=report \
 	  --frozen-index=index-frozen.csv
 	touch $(CORPUS_OUT)/.nojekyll
 
 corpus-compact:  ## Build the compact corpus into output-compact/
-	@# For a runtime that already has the standard modules -- pysmi bundles
-	@# 210 and its wheel ships their compiled form -- so restating them costs
-	@# size and says nothing new. No standard.txt and no legacy index: both
-	@# are compatibility surfaces of the published corpus.
+	@# What a pysnmp runtime needs to poll and to translate a trap OID, and
+	@# nothing else: the ASN.1 to compile, and an OID index to decide which
+	@# module answers for an OID. This image is mounted by the runtime rather
+	@# than served to the world, so it carries a dependency rather than a
+	@# mirror.
+	@#
+	@# So no standard.txt and no legacy index.csv -- both are compatibility
+	@# surfaces of the published corpus, and a runtime with no legacy answers
+	@# to preserve wants index-v2. No json either: it is data for other
+	@# tooling, not something pysnmp reads. And no pysnmp modules, which is
+	@# the point -- they are Python that MibBuilder exec()s, and a runtime
+	@# that compiles what it pulls has no use for a tree of them.
+	@#
+	@# For a runtime that already has the standard modules: pysmi bundles 210
+	@# and its wheel ships their compiled form, so restating them costs size
+	@# and says nothing new.
 	$(MIBCORPUS) --manifest=$(COMPACT_MANIFEST) \
 	  --output-directory=$(COMPACT_OUT) \
-	  --emit=asn1 --emit=notexts --emit=texts --emit=json \
-	  --emit=index-v2 --emit=report
+	  --emit=asn1 --emit=index-v2 --emit=report
 
 render:  ## Re-render the chart into rendered/manifests
 	./render_manifests.sh

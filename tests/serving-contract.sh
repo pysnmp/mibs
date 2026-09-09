@@ -209,11 +209,41 @@ code="$(get /standard.txt)"
 [ "$code" = "200" ] && pass "standard.txt is served"
 
 echo "== the other published trees"
-for path in /json/IF-MIB.json /notexts/IF-MIB.py /texts/IF-MIB.py /index-v2.csv; do
+for path in /json/IF-MIB.json /index-v2.csv; do
   code="$(get "$path")"
   [ "$code" = "200" ] || fail "$path returned $code"
   [ "$code" = "200" ] && pass "$path is served"
 done
+
+# ---------------------------------------------------------------------------
+# Nothing executable is published
+# ---------------------------------------------------------------------------
+#
+# notexts/ and texts/ were pysnmp modules -- Python that MibBuilder exec()s,
+# with mibBuilder injected as a global rather than imported. Serving them over
+# HTTP hands every consumer a way to run code fetched from this site, on a
+# channel authenticated by nothing but TLS. They are not built any more, and
+# this asserts the tree stays that way: json carries the same facts as data,
+# and a consumer that wants a compiled module pulls the ASN.1 and compiles it.
+
+echo "== no executable module is served"
+for path in /notexts/IF-MIB.py /texts/IF-MIB.py; do
+  code="$(get "$path")"
+  if [ "$code" = "404" ]; then
+    pass "$path is not served"
+  else
+    fail "$path returned $code -- a pysnmp module is being published again"
+  fi
+done
+
+pyfiles="$(find "$CORPUS" -name '*.py' -type f | wc -l | tr -d ' ')"
+if [ "$pyfiles" = "0" ]; then
+  pass "the corpus holds no Python at all"
+else
+  fail "$pyfiles Python files are in the corpus: $(
+    find "$CORPUS" -name '*.py' -type f | head -3 | tr '\n' ' '
+  )"
+fi
 
 # ---------------------------------------------------------------------------
 # The overlay: what a user's own MIBs reach, and what they cannot take over
