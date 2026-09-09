@@ -20,30 +20,52 @@ spec:
       app.kubernetes.io/instance: default
   template:
     metadata:
+      annotations:
+        # The config is mounted by subPath, which does not update in place, so
+        # a changed nginx.conf has to roll the pods to take effect. Over the
+        # config alone, not over the rendered ConfigMap: that object's labels
+        # carry the chart version, so hashing it rolled every pod on every
+        # release and made the rendered manifests a function of the version
+        # they were rendered at.
+        checksum/config: 6e26f1e38df12b9dbdefb37dc92bda9419c0076fdfe5ed08c6013b6643d87946
       labels:
         app.kubernetes.io/name: mibserver
         app.kubernetes.io/instance: default
     spec:
       serviceAccountName: default-mibserver
+      # Nothing here talks to the Kubernetes API. nginx serves files and the
+      # init container compiles them; neither needs a token, and a token that
+      # is mounted is a token a compromised container can spend.
+      automountServiceAccountToken: false
       securityContext:
         fsGroup: 10001
       containers:
         - name: mibserver
           securityContext:
+            allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
+            # Always. Nothing writes to the root filesystem any more: the
+            # config is a ConfigMap, the corpus is a read-only image volume,
+            # and anything compiled at start-up went into the overlay before
+            # this container started.
             readOnlyRootFilesystem: true
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001
-          image: "ghcr.io/pysnmp/mibs/container:CURRENT-VERSION"
+          # The default repeats values.yaml's pin, for an upgrade carrying a
+          # values file from before this chart stopped defaulting the tag to
+          # appVersion: an empty tag there would otherwise render "nginx:".
+          image: "nginxinc/nginx-unprivileged:1.29.1-bookworm"
           imagePullPolicy: IfNotPresent
-          env:
-            - name: NGINX_ENTRYPOINT_QUIET_LOGS
-              value: "1"
-            - name: MIBSERVER_IPV6_ENABLED
-              value: "false"
+          # Straight to nginx, past the base image's entrypoint scripts: the
+          # config is complete as rendered and there is nothing to template or
+          # substitute at start-up.
+          command:
+            - nginx
+            - -g
+            - daemon off;
           ports:
             - name: http
               containerPort: 8000
@@ -65,6 +87,16 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
+            - mountPath: /etc/nginx/nginx.conf
+              name: config
+              subPath: nginx.conf
+              readOnly: true
+            - mountPath: /usr/share/nginx/html
+              name: corpus
+              readOnly: true
+            - mountPath: /usr/share/nginx/overlay
+              name: overlay
+              readOnly: true
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -78,4 +110,17 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
-          # Debug helper output
+        - name: config
+          configMap:
+            name: default-mibserver
+        # The corpus, as an OCI image mounted read-only. Kubernetes 1.33 or
+        # newer, and a runtime that implements image volumes -- see the chart's
+        # kubeVersion. This is what replaced baking the corpus into an nginx
+        # image of our own: the bytes are the same, they arrive as a volume,
+        # and the image serving them is upstream's.
+        - name: corpus
+          image:
+            reference: "ghcr.io/pysnmp/mibs/corpus:CURRENT-VERSION"
+            pullPolicy: IfNotPresent
+        - name: overlay
+          emptyDir: {}

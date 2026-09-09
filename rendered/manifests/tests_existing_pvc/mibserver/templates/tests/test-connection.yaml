@@ -21,6 +21,7 @@ spec:
       command: ['wget']
       args: ['default-mibserver:80/index.csv', '-O', '/dev/null']
       securityContext:
+        allowPrivilegeEscalation: false
         capabilities:
           drop:
           - ALL

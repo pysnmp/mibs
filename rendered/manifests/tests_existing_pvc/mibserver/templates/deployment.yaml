@@ -20,30 +20,118 @@ spec:
       app.kubernetes.io/instance: default
   template:
     metadata:
+      annotations:
+        # The config is mounted by subPath, which does not update in place, so
+        # a changed nginx.conf has to roll the pods to take effect. Over the
+        # config alone, not over the rendered ConfigMap: that object's labels
+        # carry the chart version, so hashing it rolled every pod on every
+        # release and made the rendered manifests a function of the version
+        # they were rendered at.
+        checksum/config: 6e26f1e38df12b9dbdefb37dc92bda9419c0076fdfe5ed08c6013b6643d87946
       labels:
         app.kubernetes.io/name: mibserver
         app.kubernetes.io/instance: default
     spec:
       serviceAccountName: default-mibserver
+      # Nothing here talks to the Kubernetes API. nginx serves files and the
+      # init container compiles them; neither needs a token, and a token that
+      # is mounted is a token a compromised container can spend.
+      automountServiceAccountToken: false
       securityContext:
         fsGroup: 10001
-      containers:
-        - name: mibserver
+      initContainers:
+        # The only thing in this deployment that runs code of ours, and the
+        # only thing that has to: a user's MIB sources arrive as files and
+        # something has to compile them before they can be served or indexed.
+        #
+        # It is the same driver CI builds the published corpus with, so a
+        # user's MIBs are resolved against the published tree by the same
+        # rules as everything already in it -- and it writes into an emptyDir,
+        # so the serving container's root filesystem stays read-only.
+        - name: compile-local-mibs
+          image: "ghcr.io/pysnmp/mibs/tools:CURRENT-VERSION"
+          imagePullPolicy: IfNotPresent
           securityContext:
+            allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
-            readOnlyRootFilesystem: false
+            readOnlyRootFilesystem: true
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001
-          image: "ghcr.io/pysnmp/mibs/container:CURRENT-VERSION"
+          command:
+            - /bin/sh
+            - -c
+            # The merge keeps every published row and adds a local one only
+            # for an OID nothing has answered yet -- the same rule the overlay
+            # follows for the modules themselves. A union of whole rows, which
+            # is what this deployment used to do, leaves two rows for an OID
+            # both define, and a consumer parsing into a map takes whichever it
+            # reads last.
+            #
+            # "nothing has answered yet" rather than "the corpus does not
+            # answer": a local row is recorded as it is accepted, so two local
+            # modules claiming one OID cannot both survive either. mibcorpus
+            # already emits one row per OID -- its index is a ranked projection
+            # -- but that invariant lives in pysmi, and this merge should not
+            # depend on one it cannot see.
+            - |
+              set -eu
+              mibcorpus --quiet \
+                --resolve-namespace=standard:corpus:/usr/share/nginx/html/asn1 \
+                --namespace=vendor:local:/local-mibs \
+                --output-directory=/usr/share/nginx/overlay \
+                --emit=asn1 --emit=json --emit=index-v2 --emit=report
+              awk -F, 'NR==FNR { seen[$2]; print; next } !($2 in seen) { seen[$2]; print }' \
+                /usr/share/nginx/html/index.csv \
+                /usr/share/nginx/overlay/index-v2.csv \
+                >/usr/share/nginx/overlay/index.csv
+          resources:
+            limits:
+              cpu: "2"
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: corpus
+              readOnly: true
+            - mountPath: /usr/share/nginx/overlay
+              name: overlay
+            - mountPath: /local-mibs
+              name: task-pv-storage
+              readOnly: true
+            - mountPath: /tmp
+              name: tmp
+      containers:
+        - name: mibserver
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            # Always. Nothing writes to the root filesystem any more: the
+            # config is a ConfigMap, the corpus is a read-only image volume,
+            # and anything compiled at start-up went into the overlay before
+            # this container started.
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
+          # The default repeats values.yaml's pin, for an upgrade carrying a
+          # values file from before this chart stopped defaulting the tag to
+          # appVersion: an empty tag there would otherwise render "nginx:".
+          image: "nginxinc/nginx-unprivileged:1.29.1-bookworm"
           imagePullPolicy: IfNotPresent
-          env:
-            - name: NGINX_ENTRYPOINT_QUIET_LOGS
-              value: "1"
-            - name: MIBSERVER_IPV6_ENABLED
-              value: "false"
+          # Straight to nginx, past the base image's entrypoint scripts: the
+          # config is complete as rendered and there is nothing to template or
+          # substitute at start-up.
+          command:
+            - nginx
+            - -g
+            - daemon off;
           ports:
             - name: http
               containerPort: 8000
@@ -65,8 +153,16 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
-            - mountPath: "/app/new_mibs/src/vendor"
-              name: task-pv-storage
+            - mountPath: /etc/nginx/nginx.conf
+              name: config
+              subPath: nginx.conf
+              readOnly: true
+            - mountPath: /usr/share/nginx/html
+              name: corpus
+              readOnly: true
+            - mountPath: /usr/share/nginx/overlay
+              name: overlay
+              readOnly: true
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -80,7 +176,20 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
-          # Debug helper output
+        - name: config
+          configMap:
+            name: default-mibserver
+        # The corpus, as an OCI image mounted read-only. Kubernetes 1.33 or
+        # newer, and a runtime that implements image volumes -- see the chart's
+        # kubeVersion. This is what replaced baking the corpus into an nginx
+        # image of our own: the bytes are the same, they arrive as a volume,
+        # and the image serving them is upstream's.
+        - name: corpus
+          image:
+            reference: "ghcr.io/pysnmp/mibs/corpus:CURRENT-VERSION"
+            pullPolicy: IfNotPresent
+        - name: overlay
+          emptyDir: {}
         - name: task-pv-storage
           persistentVolumeClaim:
             claimName: "mibs-hostpath-pvc"

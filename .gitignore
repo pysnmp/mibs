@@ -128,10 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 output
+output-compact
 .DS_Store
-list.tmp
-log/*
-.pycache/**
 .DS_Store
 .idea
 .vscode

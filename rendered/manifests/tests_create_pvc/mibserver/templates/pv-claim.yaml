@@ -11,6 +11,10 @@ metadata:
     app.kubernetes.io/version: "CURRENT-VERSION"
     app.kubernetes.io/managed-by: Helm
 spec:
+  # dig covers a persistence map that is absent or null; default covers a key
+  # that is present but empty. They are not the same case and both happen: an
+  # explicit `size: ""` survives helm's merge, where `size: null` deletes the
+  # key. dig alone would render an empty quantity here, which the API rejects.
   storageClassName: microk8s-hostpath
   accessModes:
     - ReadWriteMany

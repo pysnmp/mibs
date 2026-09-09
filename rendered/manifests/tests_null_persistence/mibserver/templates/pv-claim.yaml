@@ -1,19 +1,23 @@
-{{- if and .Values.localMibs.pathToMibs (not (include "mibserver.existingClaim" .)) }}
+---
+# Source: mibserver/templates/pv-claim.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "mibserver.fullname" . }}
+  name: default-mibserver
   labels:
-    {{- include "mibserver.labels" . | nindent 4 }}
+    helm.sh/chart: mibserver-CURRENT-VERSION
+    app.kubernetes.io/name: mibserver
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/version: "CURRENT-VERSION"
+    app.kubernetes.io/managed-by: Helm
 spec:
   # dig covers a persistence map that is absent or null; default covers a key
   # that is present but empty. They are not the same case and both happen: an
   # explicit `size: ""` survives helm's merge, where `size: null` deletes the
   # key. dig alone would render an empty quantity here, which the API rejects.
-  storageClassName: {{ dig "storageClass" "microk8s-hostpath" (.Values.localMibs.persistence | default dict) | default "microk8s-hostpath" }}
+  storageClassName: microk8s-hostpath
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: {{ dig "size" "3Gi" (.Values.localMibs.persistence | default dict) | default "3Gi" }}
-{{- end }}
+      storage: 3Gi

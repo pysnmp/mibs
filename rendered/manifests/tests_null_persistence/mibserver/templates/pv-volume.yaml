@@ -18,8 +18,8 @@ spec:
   # key. dig alone would render an empty quantity here, which the API rejects.
   storageClassName: microk8s-hostpath
   capacity:
-    storage: 1Gi
+    storage: 3Gi
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /home/mibs
+    path: /var/lib/mibs

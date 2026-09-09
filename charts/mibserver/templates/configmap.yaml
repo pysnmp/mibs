@@ -1,0 +1,14 @@
+{{- /*
+The config the serving container runs, mounted by subPath. The config itself
+is templates/_nginx.tpl; this is only the object that carries it.
+*/}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mibserver.fullname" . }}
+  labels:
+    {{- include "mibserver.labels" . | nindent 4 }}
+data:
+{{- /* The newline that opens the block scalar is the template's own, so what
+follows is indented exactly as _nginx.tpl writes it. */}}
+  nginx.conf: |{{ include "mibserver.nginxConf" . }}

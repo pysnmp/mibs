@@ -1,0 +1,11 @@
+# The other half of values_null_persistence: keys that are present but empty.
+# helm deletes a null key when it merges, so `size: null` falls back to the
+# chart default -- but `size: ""` survives, and dig hands back the empty value
+# it found. That rendered `storage:` with nothing after it, which the API
+# rejects as a resource quantity.
+localMibs:
+  pathToMibs: /var/lib/mibs
+  persistence:
+    existingClaim: ""
+    storageClass: ""
+    size: ""
