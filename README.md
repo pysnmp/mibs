@@ -30,11 +30,18 @@ Adding a MIB is a file drop under `src/vendor/<vendor>/` and a CI run.
 ```
 make corpus           # the published corpus, into output/
 make corpus-compact   # the same corpus without the standard modules
+make corpus-db        # the corpus database, into output-db/
 ```
 
-Both are one `mibcorpus` invocation over a manifest. Two runs over the same
+Each is one `mibcorpus` invocation over a manifest. Two runs over the same
 sources produce the same bytes, with no network access; `output/report.json`
 records what was built, what failed to compile, and how long it took.
+
+> `make corpus-db` needs a pysmi with `--emit=core-db`, which is newer than
+> the 3.0.0 this repository pins. The target, its contract test and the
+> documentation below land ahead of that release; the CI job that publishes
+> `core.db` and the dependency floor that makes it buildable follow when pysmi
+> ships it. A CI step that cannot pass yet is not a step, so there is not one.
 
 ## The two corpora
 
@@ -54,6 +61,44 @@ It is not served over HTTP; it is published as an image to mount:
 ghcr.io/pysnmp/mibs/corpus-compact:<version>
 ```
 
+## The corpus database
+
+`core.db` is the same source set a third way: the SMI model as data, one row
+per node, keyed for lookup by OID and by name and ordered so a GETNEXT walk is
+a range query. pysnmp reads it with stdlib `sqlite3` and no pysmi import; the
+file format is specified in pysmi's `corpus-schema` document.
+
+It exists because of two questions `index-v2.csv` cannot answer. The index is
+`MODULE,OID` and carries a module's *anchors*, so it says which module to load
+and nothing else — a leaf like `ifDescr` is not in it at all, and getting from
+an OID to a name, a syntax and an access level still means compiling the
+module's ASN.1 or parsing its whole JSON document. And an anchor index has no
+per-node ordering, so a walk cannot be served from one. Both are one indexed
+row here.
+
+Measured on the corpus this repository builds:
+
+| | |
+|---|---|
+| modules | 5,510 |
+| nodes | 767,870 |
+| distinct type specifications | 47,226 |
+| indexed OIDs | 98,867 |
+| size | 256 MB, 36 MB gzipped |
+| build | one `mibcorpus` invocation, ~5 minutes |
+
+**Built from `corpus.json`, not the compact manifest.** The compact corpus
+leaves the standard modules out because a runtime that has pysmi already holds
+them as Python — but a database is consulted *by OID*, and one missing
+`1.3.6.1.2.1` cannot resolve `ifDescr` for anybody. There is one corpus; vendor
+is a column in it rather than a partition of it.
+
+**No prose.** No DESCRIPTION, no REFERENCE. They are about a third of a
+generated module's bytes, pysnmp discards them under the default
+`loadTexts=False`, and `json/` already serves the one consumer that wants them
+— a MIB browser. A second database for prose would be the largest thing this
+repository publishes and would duplicate a channel that already works.
+
 ## Three channels, three shapes
 
 What each channel carries follows from who consumes it, so they are not the
@@ -61,7 +106,7 @@ same set:
 
 | | carries | for |
 |---|---|---|
-| **gh-pages** | `asn1/`, `json/`, `index.csv`, `index-v2.csv`, `standard.txt` | anyone resolving a MIB over HTTP |
+| **gh-pages** | `asn1/`, `json/`, `index.csv` (deprecated), `index-v2.csv`, `standard.txt` | anyone resolving a MIB over HTTP |
 | **Release archives** | one zip per format | an offline or air-gapped install, or a build that vendors the corpus |
 | **`corpus` image** | what gh-pages serves | the `mibserver` chart, which mounts it and serves it — so it has to answer the same paths the site does |
 | **`corpus-compact` image** | `asn1/` and `index-v2.csv` | a pysnmp runtime — what it needs to poll and to translate a trap OID, and nothing more |
@@ -74,6 +119,7 @@ The release archives are attached to each GitHub release:
 | `mibs-json.zip` | the same modules as data |
 | `mibs-index.zip` | `index.csv`, `index-v2.csv`, `standard.txt` |
 | `mibs-compact.zip` | the compact corpus |
+| `mibs-core-db.zip` | the corpus database — from the pysmi release that carries `--emit=core-db` |
 
 The two images differ because they are consumed differently. `corpus-compact`
 is a dependency a runtime mounts, so it carries the two things a runtime reads:
@@ -92,9 +138,37 @@ advertises: splunk-connect-for-snmp's deployment sets `MIB_STANDARD` to
 |---|---|
 | `asn1/<MODULE>` | the MIB source, under its bare module name |
 | `json/<MODULE>.json` | the same module as data — names, OIDs, syntax, access, status |
-| `index.csv` | OID to module, one row per OID; replays `index-frozen.csv` |
+| `index.csv` | **deprecated** — OID to module, one row per OID; replays `index-frozen.csv` |
 | `index-v2.csv` | the same index without the frozen answers |
 | `standard.txt` | the standard module names |
+
+### `index.csv` is deprecated
+
+It keeps being published and keeps replaying `index-frozen.csv`, so nothing
+that reads it breaks today. What has changed is that it has a successor and no
+longer has a reason to grow one.
+
+`index.csv` exists to preserve answers it has already given, including the ones
+now known to be wrong — that is what makes it a freeze rather than a stale
+copy. Corrections have always landed in `index-v2.csv`. So the file is, by
+construction, the one artifact here that is allowed to be incorrect, and it is
+the one a consumer keying on it is most likely to be reading.
+
+It has exactly one known consumer, splunk-connect-for-snmp, which parses it
+into a `mib_map` and walks an arriving OID's tail against it, longest prefix
+first, to decide which module to load and compile. Every part of that is now
+better served by `core.db`:
+
+| what sc4snmp does with `index.csv` | with `core.db` |
+|---|---|
+| parse the CSV into a dict at startup | open the file; no parse, no resident copy |
+| chop the OID against `mib_map` | `find_module()`, one indexed query per arc |
+| compile the named module's ASN.1 on the trap path | read the node's row |
+| — | `next_node()`, which the index cannot answer at all |
+
+Migration is pysnmp/mibs#366 and the retirement window is pysnmp/mibs#325;
+neither file goes away before that has shipped and been taken up. New
+consumers should read `core.db`, or `index-v2.csv` if they want a text file.
 
 **No compiled pysnmp modules.** `notexts/` and `texts/` used to carry them and
 no longer exist. A pysnmp module is not data: it is Python that
@@ -120,6 +194,7 @@ The two trees were about half the corpus: 603 MB of 1237 MB.
 |---|---|
 | `ghcr.io/pysnmp/mibs/corpus` | the published corpus, `FROM scratch` — no base, no shell, nothing to patch |
 | `ghcr.io/pysnmp/mibs/corpus-compact` | the compact corpus, likewise |
+| `ghcr.io/pysnmp/mibs/corpus-db` | `core.db` alone, likewise — what a pysnmp runtime mounts. Published from the pysmi release that carries `--emit=core-db` |
 | `ghcr.io/pysnmp/mibs/tools` | pysmi on an upstream Python base, for the chart's local-MIB init container |
 
 The corpus images hold the build output and nothing else, so they are mounted
