@@ -15,6 +15,11 @@ CORPUS_OUT ?= output
 COMPACT_MANIFEST ?= corpus-compact.json
 COMPACT_OUT ?= output-compact
 
+# The OID index is a projection of the jsondoc tree, so the compact build has
+# to produce jsondoc even though the compact corpus does not carry it. --emit
+# takes a path, so it is written here, outside the corpus, and removed.
+COMPACT_SCRATCH ?= build/compact-jsondoc
+
 .PHONY: all corpus corpus-compact render help
 
 corpus:  ## Build the published corpus into output/
@@ -57,9 +62,12 @@ corpus-compact:  ## Build the compact corpus into output-compact/
 	@# For a runtime that already has the standard modules: pysmi bundles 210
 	@# and its wheel ships their compiled form, so restating them costs size
 	@# and says nothing new.
+	rm -rf $(COMPACT_SCRATCH)
 	$(MIBCORPUS) --manifest=$(COMPACT_MANIFEST) \
 	  --output-directory=$(COMPACT_OUT) \
-	  --emit=asn1 --emit=index-v2 --emit=report
+	  --emit=asn1 --emit=json:$(COMPACT_SCRATCH) \
+	  --emit=index-v2 --emit=report
+	rm -rf $(COMPACT_SCRATCH)
 
 render:  ## Re-render the chart into rendered/manifests
 	./render_manifests.sh
