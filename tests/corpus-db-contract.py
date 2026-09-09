@@ -1,11 +1,22 @@
 #!/usr/bin/env python3
-"""What ``core.db`` must be true of before it is published.
+"""What *this repository's* ``core.db`` must be true of before it is published.
 
-The corpus database is read by pysnmp with stdlib ``sqlite3`` and no pysmi
-import, out of a file mounted read-only from an image volume. Everything
-checked here is something that, if it slipped, would surface as a pod that
-will not start or a trap that will not resolve -- not as a build that went
-red.
+Most of what a corpus database has to satisfy is not this repository's to
+assert. Whether the header identifies a corpus, whether every table and index
+the schema names is there, whether ``oid_key`` orders the whole file the way
+the arcs do, whether a node references a type row that exists -- those are
+properties of the *format*, and the format belongs to pysmi. Asserting them
+here put a requirement about pysmi's output in a repository that only consumes
+it, where it could drift from the specification it was transcribed from and
+keep passing.
+
+pysmi owns them now, as :py:func:`pysmi.corpus.db.validate`, which this calls.
+A build that fails it prints what pysmi found and stops.
+
+What is left is what only this repository can know: that the database it just
+built is the one it meant to build. The selection is right, the build options
+were what they should be, and the artifact about to be published is a single
+readable file rather than the wreckage of a half-finished run.
 
 The checks are Python rather than shell, unlike this directory's other
 contracts, for one reason: ``sqlite3`` the module is guaranteed wherever this
@@ -20,20 +31,17 @@ import os
 import sqlite3
 import sys
 
-#: SQLite's ``application_id`` for a corpus -- ``PSMI`` as big-endian ASCII.
-APPLICATION_ID = 0x50534D49
-
-#: The corpus schema this repository publishes.
-SCHEMA_VERSION = 1
+from pysmi.corpus.db import validate
 
 #: Floors, not counts. The corpus grows every time anyone adds a MIB, so a
 #: test pinning its size fails on the next contribution; what these catch is a
 #: build that produced an empty or half-written database and published it.
 FLOORS = {"module": 4000, "node": 100000, "oid_index": 50000, "type": 10000}
 
-#: Modules whose absence would be silent. The database builds, opens and then
-#: cannot resolve ``ifDescr`` for anybody -- which is the one way this corpus
-#: differs from the compact one, and the one way to get that wrong.
+#: Modules whose absence would be silent. The database builds, opens, passes
+#: every structural check pysmi makes -- and then cannot resolve ``ifDescr``
+#: for anybody, because this build was pointed at the compact manifest instead
+#: of the full one. That is the mistake this file exists to catch.
 REQUIRED_MODULES = ("SNMPv2-MIB", "SNMPv2-TC", "SNMPv2-SMI", "IF-MIB")
 
 failures: "list[str]" = []
@@ -58,7 +66,8 @@ def main(directory):
 
     # One file. A -wal or -journal beside it is something the image would not
     # carry and immutable=1 refuses to replay, so the corpus would open and
-    # then answer nothing.
+    # then answer nothing. pysmi asserts its writer leaves none; this asserts
+    # nothing else in this directory did, which pysmi cannot see.
     for suffix in ("-wal", "-journal", "-shm"):
         check(
             not os.path.exists(path + suffix),
@@ -71,6 +80,13 @@ def main(directory):
     # every module in the served corpus stored 0600 (pysnmp/mibs#365).
     mode = os.stat(path).st_mode & 0o777
     check(mode & 0o044, f"core.db is mode {mode:o}; only its owner can read it")
+
+    # Everything about the format, in one call. open_db inside it refuses a
+    # file that is not a corpus or is a schema version pysmi does not
+    # implement, so a wrong header arrives here as a PySmiError rather than as
+    # a check of ours.
+    for problem in validate(path):
+        check(False, problem)
 
     # Opened the way a consumer opens it, so a file that only works when
     # writable fails here rather than in a pod.
@@ -94,41 +110,15 @@ def main(directory):
 
 
 def run(db):
-    """Every check that needs the database open."""
+    """What this build meant to produce, as opposed to what a corpus must be."""
     one = lambda sql, *args: db.execute(sql, args).fetchone()
-
-    # The header a reader gates on before it trusts a single table.
-    check(
-        one("PRAGMA application_id")[0] == APPLICATION_ID,
-        f"application_id is {one('PRAGMA application_id')[0]:#x}, not PSMI",
-    )
-    check(
-        one("PRAGMA user_version")[0] == SCHEMA_VERSION,
-        f"schema version is {one('PRAGMA user_version')[0]}, not {SCHEMA_VERSION}",
-    )
 
     meta = dict(db.execute("SELECT key, value FROM meta"))
 
-    check(
-        meta.get("schema_version") == str(SCHEMA_VERSION),
-        f"meta.schema_version is {meta.get('schema_version')!r}",
-    )
-
-    # No prose, and the corpus says so. A reader asked for texts has to be able
-    # to refuse rather than silently hand back modules carrying none.
+    # No prose, and the corpus says so. That is this build's choice -- the
+    # target passes no texts -- and a reader asked for texts has to be able to
+    # refuse rather than silently hand back modules carrying none.
     check(meta.get("texts") == "0", f"meta.texts is {meta.get('texts')!r}")
-
-    # Every table and index the schema specifies. A missing one is a reader
-    # that raises on its first query rather than at open.
-    present = {
-        (row[0], row[1]) for row in db.execute("SELECT type, name FROM sqlite_master")
-    }
-
-    for table in ("meta", "module", "type", "node", "symbol", "import", "oid_index"):
-        check(("table", table) in present, f"table {table} is missing")
-
-    for index in ("node_by_module", "node_by_name"):
-        check(("index", index) in present, f"index {index} is missing")
 
     counts = {
         table: one(f"SELECT count(*) FROM {table}")[0]  # noqa: S608
@@ -169,100 +159,6 @@ def run(db):
     # Longest-prefix resolution: the anchor an instance OID chops back to.
     row = one("SELECT module FROM oid_index WHERE oid = ?", "1.3.6.1.2.1.2")
     check(row and row[0] == "IF-MIB", f"1.3.6.1.2.1.2 is owned by {row and row[0]!r}")
-
-    check_ordering(db)
-    check_referential(db)
-
-    # Integrity last: it reads the whole file, so everything cheaper has had
-    # its say by the time this runs.
-    integrity = one("PRAGMA integrity_check")[0]
-    check(integrity == "ok", f"integrity_check: {integrity}")
-
-
-def check_ordering(db):
-    """That ``oid_key`` orders bytewise the way OIDs order numerically.
-
-    Nothing about a mis-ordered key raises. A walk simply visits nodes in an
-    order that is not OID order, which reads as a MIB defect rather than as an
-    encoding defect, so it is worth a direct check on real data.
-    """
-    start = db.execute(
-        "SELECT oid_key FROM node WHERE oid = ? LIMIT 1", ("1.3.6.1.2.1.2.2.1.1",)
-    ).fetchone()
-
-    if not check(start, "IF-MIB::ifIndex is not in the corpus"):
-        return
-
-    walk = [
-        row[0]
-        for row in db.execute(
-            "SELECT DISTINCT oid FROM node WHERE oid_key > ? ORDER BY oid_key LIMIT 2",
-            (start[0],),
-        )
-    ]
-
-    check(
-        walk == ["1.3.6.1.2.1.2.2.1.2", "1.3.6.1.2.1.2.2.1.3"],
-        f"GETNEXT from ifIndex gave {walk}",
-    )
-
-    # The whole corpus, in the order the key imposes, must be the order the
-    # arcs impose. This is the check that catches string comparison (1.3.10
-    # below 1.3.9) and single-byte arcs (256 lost), on every OID rather than
-    # on a chosen few.
-    previous = None
-    misordered = 0
-
-    for (oid,) in db.execute("SELECT DISTINCT oid FROM node ORDER BY oid_key"):
-        arcs = tuple(int(x) for x in oid.split("."))
-
-        if previous is not None and arcs < previous:
-            misordered += 1
-
-        previous = arcs
-
-    check(misordered == 0, f"{misordered} nodes are out of OID order by oid_key")
-
-
-def check_referential(db):
-    """That nothing points at a row that is not there.
-
-    A node naming a module the corpus lacks is an OID that resolves to
-    something a consumer then cannot load -- which is how the published index
-    came to name modules the site answers 404 for.
-    """
-    for table in ("node", "oid_index"):
-        orphans = db.execute(
-            f"SELECT count(*) FROM {table} "  # noqa: S608
-            "WHERE module NOT IN (SELECT name FROM module)"
-        ).fetchone()[0]
-        check(orphans == 0, f"{orphans} {table} rows name a module the corpus lacks")
-
-    dangling = db.execute(
-        "SELECT count(*) FROM node WHERE syntax IS NOT NULL "
-        "AND syntax NOT IN (SELECT id FROM type)"
-    ).fetchone()[0]
-    check(dangling == 0, f"{dangling} nodes reference a missing type row")
-
-    # Scalars and columns carry a syntax. Anything else is a node a runtime
-    # cannot render a value for, and a reader must refuse rather than guess.
-    untyped = db.execute(
-        "SELECT count(*) FROM node "
-        "WHERE nodetype IN ('scalar', 'column') AND syntax IS NULL"
-    ).fetchone()[0]
-    check(untyped == 0, f"{untyped} scalars or columns have no syntax")
-
-    # The hash is what says two corpora agree on a module; a NULL one silently
-    # means "cannot tell".
-    unhashed = db.execute(
-        "SELECT count(*) FROM module WHERE content_hash IS NULL OR content_hash = ''"
-    ).fetchone()[0]
-    check(unhashed == 0, f"{unhashed} modules carry no content hash")
-
-    bad = db.execute(
-        "SELECT count(*) FROM module WHERE tier NOT IN ('standard', 'draft', 'vendor')"
-    ).fetchone()[0]
-    check(bad == 0, f"{bad} modules carry a tier outside the vocabulary")
 
 
 if __name__ == "__main__":
