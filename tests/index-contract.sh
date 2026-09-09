@@ -80,14 +80,17 @@ echo "== answers: the OIDs sc4snmp preloads"
 # index.csv is a compatibility freeze, so a changed answer here is a downstream
 # behaviour change and must be a deliberate act.
 #
-# 1.3.6.1.6.3.1 was one such deliberate act. It is corrected in the snapshot
-# rather than left to index-v2.csv, because the freeze exists to stop answers a
-# consumer depends on from moving, and nothing depended on that OID resolving to
-# a Nortel switch MIB -- it was alphabetical order, preserved by accident.
+# Four were wrong. Two are corrected in the snapshot rather than left to
+# index-v2.csv, because the freeze exists to stop answers a consumer depends on
+# from moving, and nobody depended on the system group resolving to a German
+# power-meter MIB or on 1.3.6.1.6.3.1 resolving to a Nortel switch MIB. Those
+# were alphabetical order, preserved by accident.
 #
-# Three are still wrong and stay wrong while the freeze stands. They are the
-# concrete argument for moving consumers to the ranked index -- see
-# pysnmp/mibs#366. RFC-correct answers in the third column.
+# The two IPV6-* rows stay as they are, and are inert: neither module is carried
+# any more, so the replay drops the row and built index.csv answers TCP-MIB and
+# UDP-MIB from the ranked index. They are pinned to record what the snapshot
+# still names, not to claim the site serves them -- the check_v1 block below
+# asserts what a caller actually gets.
 #
 #   oid                 frozen answer          rfc-correct
 check_answer() {
@@ -101,11 +104,11 @@ check_answer() {
   fi
 }
 
-check_answer 1.3.6.1.2.1.1  JANITZA-MIB-UMG96  "WRONG, rfc says SNMPv2-MIB -- frozen"
+check_answer 1.3.6.1.2.1.1  SNMPv2-MIB         "corrected in the snapshot"
 check_answer 1.3.6.1.2.1.2  IF-MIB
 check_answer 1.3.6.1.2.1.4  IP-MIB
-check_answer 1.3.6.1.2.1.6  IPV6-TCP-MIB       "WRONG, rfc says TCP-MIB -- frozen"
-check_answer 1.3.6.1.2.1.7  IPV6-UDP-MIB       "WRONG, rfc says UDP-MIB -- frozen"
+check_answer 1.3.6.1.2.1.6  IPV6-TCP-MIB       "inert -- absent, index.csv answers TCP-MIB"
+check_answer 1.3.6.1.2.1.7  IPV6-UDP-MIB       "inert -- absent, index.csv answers UDP-MIB"
 check_answer 1.3.6.1.2.1.25 HOST-RESOURCES-MIB
 check_answer 1.3.6.1.6.3.1  SNMPv2-MIB         "corrected in the snapshot"
 
@@ -223,6 +226,10 @@ if [ -d output ]; then
     check_v1 1.3.6.1.2.1.3  RFC1213-MIB  "at -- SMIv2 dropped it"
     check_v1 1.3.6.1.2.1.8  RFC1213-MIB  "egp -- SMIv2 dropped it"
     check_v1 1.3.6.1.6.3.1  SNMPv2-MIB
+    check_v1 1.3.6.1.2.1.1  SNMPv2-MIB   system
+    check_v1 1.3.6.1.2.1.11 SNMPv2-MIB   snmp
+    check_v1 1.3.6.1.2.1.6  TCP-MIB      "tcp -- IPV6-TCP-MIB is no longer carried"
+    check_v1 1.3.6.1.2.1.7  UDP-MIB      "udp -- IPV6-UDP-MIB is no longer carried"
   fi
 
   if [ -f output/index-v2.csv ]; then
