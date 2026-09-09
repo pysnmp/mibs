@@ -231,6 +231,11 @@ jobs:
       # FROM scratch and a COPY, so there is nothing architecture-specific in
       # it -- but it is mounted into pods on both, and a manifest naming both
       # is what lets one tag serve them.
+      #
+      # No cache-to. This build wrote an inline cache that nothing ever read:
+      # inline cache is only reachable through a cache-from naming the pushed
+      # image, and no build in this workflow set one. The tools image below is
+      # the one build whose layer is worth keeping, and it says so there.
       - name: Build and push the corpus image
         id: docker_action_build
         uses: docker/build-push-action@v7
@@ -243,7 +248,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          cache-to: type=inline
       - name: Docker meta (compact corpus)
         id: docker_meta_compact
         uses: docker/metadata-action@v6
@@ -274,7 +278,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta_compact.outputs.tags }}
           labels: ${{ steps.docker_meta_compact.outputs.labels }}
-          cache-to: type=inline
       - name: Docker meta (tools)
         id: docker_meta_tools
         uses: docker/metadata-action@v6
@@ -292,17 +295,36 @@ jobs:
             type=sha
             type=sha,format=long
       # pysmi on an upstream Python base, for the chart's local-MIB init
-      # container. The only image this project publishes that runs anything.
+      # container. The only image this project publishes that runs anything,
+      # and so the only one with a layer worth caching.
       - name: Build and push the tools image
         uses: docker/build-push-action@v7
         with:
-          context: .
+          # docker/, not the repository root. This Dockerfile copies nothing,
+          # but a root context hands the builder whatever .dockerignore lets
+          # through -- which here is output/ and output-compact/, near a
+          # gigabyte of corpus streamed into a build that does not read a byte
+          # of it. The two Dockerfiles are the whole of what it needs.
+          context: docker
           file: docker/tools.Dockerfile
           push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta_tools.outputs.tags }}
           labels: ${{ steps.docker_meta_tools.outputs.labels }}
-          cache-to: type=inline
+          # The whole of this image is one pip install, run twice: once native
+          # and once for arm64 under emulation, which is where its minutes go.
+          # Nothing in that layer comes from this repository -- it is the base
+          # image digest and PYSMI_VERSION -- so a run that changes neither can
+          # restore it whole instead of re-resolving and re-installing pysmi
+          # under qemu.
+          #
+          # Deliberately not extended to the corpus images. Those are FROM
+          # scratch with one COPY of a tree that `make corpus` rewrites on
+          # every run, so their only layer misses by construction; caching it
+          # would push hundreds of megabytes into the repository's 10 GB cache
+          # each build to buy a hit that cannot happen.
+          cache-from: type=gha,scope=tools
+          cache-to: type=gha,mode=max,scope=tools
       - uses: actions/setup-node@v7
         with:
           node-version: "20"
