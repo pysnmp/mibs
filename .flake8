@@ -1,9 +1,0 @@
-[flake8]
-# black is the formatter here (see .pre-commit-config.yaml) and reflows to
-# 88 columns. flake8's own default is 79, so the two hooks disagree the
-# moment anyone writes a line between the two -- these settings are the
-# usual way of letting the formatter win.
-max-line-length = 88
-# E203 and W503 are the two rules black deliberately breaks: it puts a
-# space before a slice colon, and it breaks before a binary operator.
-extend-ignore = E203, W503

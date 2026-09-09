@@ -32,7 +32,7 @@ from typing import Any
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from mib_sources import (  # noqa: E402
+from mib_sources import (
     PATCHES,
     ROOT,
     SRC,
@@ -455,7 +455,7 @@ def explain(manifest: dict[str, Any], paths: list[str]) -> int:
 
         sys.stdout.write(f"\n{path}\n")
         sys.stdout.write(
-            f"  ours {revision_of(local)}, " f"published {revision_of(upstream)}\n"
+            f"  ours {revision_of(local)}, published {revision_of(upstream)}\n"
         )
 
         if local == upstream:

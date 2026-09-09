@@ -95,15 +95,10 @@ DEFAULT_STANDARD_MIBS = [
 ]
 
 
-def is_mib_resolved(id):  # noqa: A002 -- verbatim; see the marker above
-    if (
-        id.startswith("RFC1213-MIB::")
-        or id.startswith("SNMPv2-SMI::enterprises.")
-        or id.startswith("SNMPv2-SMI::mib-2")
-    ):
-        return False
-    else:
-        return True
+def is_mib_resolved(id):
+    return not id.startswith(
+        ("RFC1213-MIB::", "SNMPv2-SMI::enterprises.", "SNMPv2-SMI::mib-2")
+    )
 
 
 def is_mib_known(oid, mib_map):
@@ -372,10 +367,7 @@ def main():
             builder.loadModules(module)
         except Exception as exc:  # noqa: BLE001
             if marker in str(exc):
-                ok(
-                    f"{oid} -> {module} still fails on {marker} "
-                    f"(see KNOWN_FAILURES)"
-                )
+                ok(f"{oid} -> {module} still fails on {marker} (see KNOWN_FAILURES)")
             else:
                 fail(
                     f"{oid} -> {module} fails, but on '{exc}' rather "

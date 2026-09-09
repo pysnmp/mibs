@@ -28,11 +28,81 @@ dev = [
 [tool.uv]
 package = false
 
-[tool.isort]
-# black and isort disagree about how to wrap a long import unless isort is
-# told to defer to it. Without this the two pre-commit hooks rewrite the
-# same lines back and forth.
-profile = "black"
+# The tooling pyasn1, pysmi and pysnmp share, so a contributor moving between
+# the four repositories meets the same lint and the same formatter. This
+# repository ran black, isort and flake8 instead, which is three tools to
+# ruff's one and a different set of answers about the same code.
+#
+# D1 is deliberately not selected. The siblings are libraries whose public
+# surface is documented; the Python here is five build and contract scripts
+# whose module docstrings carry the reasoning and whose functions are local
+# helpers.
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "S",      # flake8-bandit (security)
+    "SIM",    # flake8-simplify
+    "BLE",    # flake8-blind-except
+    "G",      # flake8-logging-format (keep logging interpolation lazy)
+    "LOG",    # flake8-logging (logger misuse)
+    "FLY",    # flynt (static str.join -> f-string)
+    "C4",     # flake8-comprehensions
+    "RSE",    # flake8-raise
+    "RUF",    # ruff-specific rules
+    "PL",     # pylint
+    "TRY",    # tryceratops
+]
+ignore = [
+    # Shared with pyasn1, pysmi and pysnmp.
+    "E501",     # line-too-long -- ruff format decides where lines break
+    "E721",     # type-comparison
+    "E731",     # lambda-assignment
+    "E741",     # ambiguous-variable-name -- SMI/ASN.1 naming conventions
+    "E712",     # true-false-comparison
+    "E402",     # module-import-not-at-top
+    "B011",     # assert-false -- used in tests
+    "B007",     # unused-loop-control-variable
+    "B905",     # zip-without-explicit-strict
+    "B028",     # no-explicit-stacklevel
+    "SIM108",   # if-else-block-instead-of-if-exp -- readability preference
+    "SIM102",   # collapsible-if -- readability preference
+    "SIM105",   # suppressible-exception
+    "SIM101",   # duplicate-isinstance-call
+    "SIM110",   # reimplemented-builtin
+    "PLR0911",  # too-many-return-statements
+    "PLR0912",  # too-many-branches
+    "PLR0913",  # too-many-arguments
+    "PLR0915",  # too-many-statements
+    "PLR0917",  # too-many-positional-arguments
+    "PLR2004",  # magic-value-comparison -- SMI and ASN.1 constants
+    "PLC0415",  # import-outside-top-level
+    "PLW2901",  # redefined-loop-name
+    "PLW0603",  # global-statement
+    "RUF005",   # collection-literal-concatenation -- style preference
+    "RUF012",   # mutable-class-default
+    "RUF021",   # parenthesize-chained-operators
+    "RUF059",   # unused-unpacked-variable -- matches B007 above
+    "TRY003",   # raise-vanilla-args -- message text is part of the contract
+
+    # Specific to what this repository is: build scripts that shell out to a
+    # MIB compiler and read MIBs from paths a manifest supplies.
+    "S603",     # subprocess-without-shell-equals-true
+    "S607",     # start-process-with-partial-path
+]
+
+[tool.ruff.lint.per-file-ignores]
+# The contract scripts exit non-zero on failure rather than raising, and they
+# are run as programs, not imported.
+"tests/*" = ["T201"]
 
 [tool.mypy]
 python_version = "3.11"
