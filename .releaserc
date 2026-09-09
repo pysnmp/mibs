@@ -84,6 +84,7 @@
         { "path": "dist/mibs-json.zip", "label": "Compiled to JSON" },
         { "path": "dist/mibs-index.zip", "label": "OID indexes and standard.txt" },
         { "path": "dist/mibs-compact.zip", "label": "Compact corpus (ASN.1 + index, no standard tree)" },
+        { "path": "dist/mibs-core-db.zip", "label": "Corpus database (core.db)" },
       ] }],
   ],
 }

@@ -20,7 +20,12 @@ COMPACT_OUT ?= output-compact
 # takes a path, so it is written here, outside the corpus, and removed.
 COMPACT_SCRATCH ?= build/compact-jsondoc
 
-.PHONY: all corpus corpus-compact render help
+# The corpus database, which is neither of the two corpora above: it is the
+# same source set again, laid out for lookup instead of for serving.
+DB_OUT ?= output-db
+DB_SCRATCH ?= build/db-jsondoc
+
+.PHONY: all corpus corpus-compact corpus-db render help
 
 corpus:  ## Build the published corpus into output/
 	@# Everything the site serves, in one deterministic pass: the ASN.1 as
@@ -68,6 +73,36 @@ corpus-compact:  ## Build the compact corpus into output-compact/
 	  --emit=asn1 --emit=json:$(COMPACT_SCRATCH) \
 	  --emit=index-v2 --emit=report
 	rm -rf $(COMPACT_SCRATCH)
+
+corpus-db:  ## Build the corpus database into output-db/
+	@# core.db: every node the corpus defines, keyed for lookup by OID and by
+	@# name and ordered so a GETNEXT walk is a range query. pysnmp reads it
+	@# with stdlib sqlite3 and no pysmi import; the format is specified in
+	@# pysmi's corpus-schema document.
+	@#
+	@# Built from corpus.json, the *full* source set, not from the compact
+	@# manifest. The compact corpus leaves the standard modules out because a
+	@# runtime that has pysmi already holds them as Python -- but a corpus is
+	@# consulted by OID, and an OID index missing 1.3.6.1.2.1 cannot resolve
+	@# ifDescr for anyone. There is one corpus; vendor is a column in it, not
+	@# a partition of it.
+	@#
+	@# No texts. DESCRIPTION and REFERENCE are about a third of a module's
+	@# bytes, pysnmp discards them under the default loadTexts=False, and the
+	@# published json/ tree already serves the one consumer that wants them --
+	@# a MIB browser. A second database for prose would be the largest thing
+	@# this repository publishes and would duplicate a channel that works.
+	@#
+	@# The database is a projection of the jsondoc tree, exactly as the two
+	@# indexes are, so the build has to emit json. It goes to a scratch path
+	@# outside the corpus and is removed: what this target publishes is one
+	@# file.
+	rm -rf $(DB_SCRATCH)
+	$(MIBCORPUS) --manifest=$(CORPUS_MANIFEST) \
+	  --output-directory=$(DB_OUT) \
+	  --emit=core-db --emit=json:$(DB_SCRATCH) \
+	  --emit=report
+	rm -rf $(DB_SCRATCH)
 
 render:  ## Re-render the chart into rendered/manifests
 	./render_manifests.sh

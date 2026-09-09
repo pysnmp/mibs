@@ -356,6 +356,104 @@ jobs:
           tags: ${{ steps.docker_meta_compact.outputs.tags }}
           labels: ${{ steps.docker_meta_compact.outputs.labels }}
 
+  corpus-db:
+    name: Corpus database
+    needs:
+      - pre-commit
+      - chart
+    runs-on: ubuntu-latest
+    permissions:
+      # Reads the tree; writes only to the package registry.
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.12.9"
+          python-version: "3.11"
+          enable-cache: true
+      - run: uv sync --frozen
+      # A third projection of the same sources, in a job of its own for the
+      # reason the compact corpus has one: it is a second full pass over 5510
+      # modules and there is no result to share between them.
+      - name: Build the corpus database
+        run: make corpus-db
+      # Before the archive, so a database that would not answer never becomes a
+      # release asset. Python rather than shell because sqlite3 the module
+      # ships wherever this build runs and sqlite3 the command-line tool is a
+      # separate package.
+      - name: Corpus database contract
+        run: uv run python ./tests/corpus-db-contract.py
+      - name: Corpus database build report
+        run: cat output-db/report.json
+      # Ungated for the reason the other archives are; see that step in the
+      # published-corpus job.
+      - name: Archive the corpus database for the release
+        run: |
+          set -eu
+          mkdir -p dist
+          (cd output-db && zip -qrX ../dist/mibs-core-db.zip core.db)
+          ls -l dist
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-archives-core-db
+          path: dist
+          compression-level: 0
+          retention-days: 1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: corpus-db-report
+          path: output-db/report.json
+      # The same scratch image the two corpus trees get, holding one file. A
+      # pysnmp runtime does not serve core.db over HTTP, it opens it -- and
+      # Kubernetes 1.33 mounts an OCI image as a read-only volume, which is
+      # exactly the immutable=1 file the reader wants and the migration path
+      # off index.csv for a deployment that already mounts a corpus image.
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+        with:
+          image: tonistiigi/binfmt:qemu-v9.2.2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Login to GitHub Packages Docker Registry
+        if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
+        uses: docker/login-action@v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Docker meta (corpus database)
+        id: docker_meta_db
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/pysnmp/mibs/corpus-db
+          tags: |
+            type=semver,pattern=v{{major}}.{{minor}}
+            type=semver,pattern=v{{major}}
+            type=semver,pattern=v{{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=semver,pattern={{version}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+            type=sha,format=long
+      - name: Build and push the corpus database image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/corpus.Dockerfile
+          build-args: |
+            CORPUS=output-db
+          push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.docker_meta_db.outputs.tags }}
+          labels: ${{ steps.docker_meta_db.outputs.labels }}
+
   # pysmi on an upstream Python base, for the chart's local-MIB init container.
   # The only image this project publishes that runs anything, and the only one
   # that needs no corpus to build -- which is why it used to be the last thing
@@ -441,6 +539,7 @@ jobs:
     needs:
       - corpus
       - corpus-compact
+      - corpus-db
       - tools
     runs-on: ubuntu-latest
     permissions:
