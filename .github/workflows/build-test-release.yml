@@ -77,18 +77,25 @@ jobs:
         uses: azure/setup-helm@v5
       - run: ./tests/chart-contract.sh
 
-  build:
-    name: Build Release
-    # chart gates this: on main, build deploys gh-pages, pushes the container
-    # image and runs semantic release, and update-semver hangs off it in turn.
-    # Without the dependency a failed chart contract would let all of that
-    # publish anyway, which would make the check advisory rather than a gate
-    # (pysnmp/mibs#372).
+  # What used to be one "Build Release" job is four: three independent builds
+  # and the release that needs all of them. The old job ran two full driver
+  # invocations back to back and then an emulated pip install that had waited
+  # behind both, for no reason other than that they shared a checkout. Run
+  # side by side, the release starts when the slowest of the three finishes
+  # instead of when their sum does.
+  #
+  # pre-commit and chart gate all three, for the reason the single job gave:
+  # on main these deploy gh-pages, push images and lead to semantic release,
+  # so a failed chart contract that let them publish anyway would make the
+  # check advisory rather than a gate (pysnmp/mibs#372).
+  corpus:
+    name: Published corpus
     needs:
       - pre-commit
       - chart
     runs-on: ubuntu-latest
     permissions:
+      # contents: write for the gh-pages push, packages: write for ghcr.
       contents: write
       packages: write
       pages: write
@@ -96,13 +103,15 @@ jobs:
       # Only main deploys to gh-pages, so only main needs the shared lock.
       # develop/tag/PR runs get their own group or they evict main while it is
       # queued (GitHub keeps at most one pending run per group).
+      #
+      # This job alone carries it. A group shared with the sibling builds would
+      # queue them behind this one and undo the split; gh-pages is the only
+      # thing here two runs can race over, and it is deployed from here.
       group: ${{ github.ref == 'refs/heads/main' && 'gh-pages' || format('ci-{0}', github.ref) }}
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v7
         with:
-          #Very Important semantic-release won't trigger a tagged
-          #build if this is not set false
           persist-credentials: false
       - name: Install uv
         uses: astral-sh/setup-uv@v10.0.1
@@ -111,13 +120,12 @@ jobs:
           python-version: "3.11"
           enable-cache: true
       - run: uv sync --frozen
-      # One driver invocation per corpus. Both come from the same source set
-      # and differ only in whether the standard namespace is published; see
-      # corpus.json and corpus-compact.json.
+      # One driver invocation. The compact corpus is a second one, in a job of
+      # its own; both come from the same source set and differ only in whether
+      # the standard namespace is published. See corpus.json and
+      # corpus-compact.json.
       - name: Build the published corpus
         run: make corpus
-      - name: Build the compact corpus
-        run: make corpus-compact
       # Runs after the build so it checks the produced index.csv and
       # index-v2.csv as well as the checked-in frozen snapshot. Gates before
       # the image build, which is the expensive part.
@@ -132,14 +140,15 @@ jobs:
       # One archive per format, for anyone who wants the corpus without
       # fetching 5510 files over HTTP or pulling an image -- an air-gapped
       # install, or a build that vendors it. Named after the tree they hold so
-      # a release page says what each one is. Only on a ref that publishes;
-      # semantic-release attaches them to the release it creates.
+      # a release page says what each one is. semantic-release attaches them to
+      # the release it creates; the compact archive is built beside the compact
+      # corpus and meets these again in the release job.
       #
       # Deliberately not gated on a publishing ref. A step that only ever runs
       # at release time is a step nothing has proved, which is how the image
-      # push gate in this same job came to be wrong; a pull request builds the
-      # archives and throws them away, and that is what keeps the release path
-      # honest. semantic-release attaches them only where it runs anyway.
+      # push gate in this same workflow came to be wrong; a pull request builds
+      # the archives and throws them away, and that is what keeps the release
+      # path honest. semantic-release attaches them only where it runs anyway.
       - name: Archive the corpus for the release
         run: |
           set -eu
@@ -150,14 +159,21 @@ jobs:
           (cd output && zip -qrX ../dist/mibs-json.zip json)
           (cd output && zip -qrX ../dist/mibs-index.zip \
             index.csv index-v2.csv standard.txt)
-          (cd output-compact && zip -qrX ../dist/mibs-compact.zip asn1 index-v2.csv)
           ls -l dist
+      # The release runs in a container of its own now, so the archives have to
+      # travel to it. The name matches the pattern that job globs for; nothing
+      # else downloads them, and a day is longer than they are wanted for.
+      # compression-level 0 because these are already zips.
       - uses: actions/upload-artifact@v7
         with:
-          name: corpus-reports
-          path: |
-            output/report.json
-            output-compact/report.json
+          name: release-archives-corpus
+          path: dist
+          compression-level: 0
+          retention-days: 1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: corpus-report
+          path: output/report.json
       - name: Carry forward legacy chart index
         if: github.ref == 'refs/heads/main'
         run: |
@@ -231,6 +247,11 @@ jobs:
       # FROM scratch and a COPY, so there is nothing architecture-specific in
       # it -- but it is mounted into pods on both, and a manifest naming both
       # is what lets one tag serve them.
+      #
+      # No cache-to. This build wrote an inline cache that nothing ever read:
+      # inline cache is only reachable through a cache-from naming the pushed
+      # image, and no build in this workflow set one. The tools image is the
+      # one build whose layer is worth keeping, and it says so there.
       - name: Build and push the corpus image
         id: docker_action_build
         uses: docker/build-push-action@v7
@@ -243,7 +264,70 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          cache-to: type=inline
+
+  # The same corpus without the modules a runtime that has pysmi already holds.
+  # Not served over HTTP and not in the mibserver chart: it is for mounting,
+  # and it is published as an image for exactly that.
+  #
+  # Its own job because it is its own driver invocation over the same sources.
+  # Nothing it produces is read by the published corpus and nothing the
+  # published corpus produces is read by it, so the only thing sequencing them
+  # bought was a longer wall clock.
+  corpus-compact:
+    name: Compact corpus
+    needs:
+      - pre-commit
+      - chart
+    runs-on: ubuntu-latest
+    permissions:
+      # Reads the tree; writes only to the package registry.
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.12.9"
+          python-version: "3.11"
+          enable-cache: true
+      - run: uv sync --frozen
+      - name: Build the compact corpus
+        run: make corpus-compact
+      - name: Compact corpus build report
+        run: cat output-compact/report.json
+      # Ungated for the reason the published archives are; see that step.
+      - name: Archive the compact corpus for the release
+        run: |
+          set -eu
+          mkdir -p dist
+          (cd output-compact && zip -qrX ../dist/mibs-compact.zip asn1 index-v2.csv)
+          ls -l dist
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-archives-compact
+          path: dist
+          compression-level: 0
+          retention-days: 1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: corpus-compact-report
+          path: output-compact/report.json
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+        with:
+          image: tonistiigi/binfmt:qemu-v9.2.2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Login to GitHub Packages Docker Registry
+        if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
+        uses: docker/login-action@v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker meta (compact corpus)
         id: docker_meta_compact
         uses: docker/metadata-action@v6
@@ -260,9 +344,6 @@ jobs:
             type=ref,event=pr
             type=sha
             type=sha,format=long
-      # The same corpus without the modules a runtime that has pysmi already
-      # holds. Not served over HTTP and not in the mibserver chart: it is for
-      # mounting, and it is published as an image for exactly that.
       - name: Build and push the compact corpus image
         uses: docker/build-push-action@v7
         with:
@@ -274,7 +355,37 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta_compact.outputs.tags }}
           labels: ${{ steps.docker_meta_compact.outputs.labels }}
-          cache-to: type=inline
+
+  # pysmi on an upstream Python base, for the chart's local-MIB init container.
+  # The only image this project publishes that runs anything, and the only one
+  # that needs no corpus to build -- which is why it used to be the last thing
+  # in a job that had spent twenty minutes building two.
+  tools:
+    name: Tools image
+    needs:
+      - pre-commit
+      - chart
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+        with:
+          image: tonistiigi/binfmt:qemu-v9.2.2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Login to GitHub Packages Docker Registry
+        if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
+        uses: docker/login-action@v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker meta (tools)
         id: docker_meta_tools
         uses: docker/metadata-action@v6
@@ -291,18 +402,65 @@ jobs:
             type=ref,event=pr
             type=sha
             type=sha,format=long
-      # pysmi on an upstream Python base, for the chart's local-MIB init
-      # container. The only image this project publishes that runs anything.
       - name: Build and push the tools image
         uses: docker/build-push-action@v7
         with:
-          context: .
+          # docker/, not the repository root. This Dockerfile copies nothing,
+          # but a root context hands the builder whatever .dockerignore lets
+          # through -- which here is output/ and output-compact/, near a
+          # gigabyte of corpus streamed into a build that does not read a byte
+          # of it. The two Dockerfiles are the whole of what it needs.
+          context: docker
           file: docker/tools.Dockerfile
           push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta_tools.outputs.tags }}
           labels: ${{ steps.docker_meta_tools.outputs.labels }}
-          cache-to: type=inline
+          # The whole of this image is one pip install, run twice: once native
+          # and once for arm64 under emulation, which is where its minutes go.
+          # Nothing in that layer comes from this repository -- it is the base
+          # image digest and PYSMI_VERSION -- so a run that changes neither can
+          # restore it whole instead of re-resolving and re-installing pysmi
+          # under qemu.
+          #
+          # Deliberately not extended to the corpus images. Those are FROM
+          # scratch with one COPY of a tree that `make corpus` rewrites on
+          # every run, so their only layer misses by construction; caching it
+          # would push hundreds of megabytes into the repository's 10 GB cache
+          # each build to buy a hit that cannot happen.
+          cache-from: type=gha,scope=tools
+          cache-to: type=gha,mode=max,scope=tools
+
+  release:
+    name: Release
+    # Everything a release names has to exist before it names it. The chart's
+    # appVersion points at the images, and the assets are the archives, so a
+    # release that ran beside the builds could tag a commit whose images had
+    # not been pushed and whose archives did not exist. The single job kept
+    # that order by putting these steps last; this keeps it with needs.
+    needs:
+      - corpus
+      - corpus-compact
+      - tools
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          #Very Important semantic-release won't trigger a tagged
+          #build if this is not set false
+          persist-credentials: false
+      # dist/ was built two jobs ago, in two of them. merge-multiple puts both
+      # uploads back into one directory, which is the shape .releaserc names
+      # its assets in.
+      - name: Collect the release archives
+        uses: actions/download-artifact@v7
+        with:
+          pattern: release-archives-*
+          merge-multiple: true
+          path: dist
+      - run: ls -l dist
       - uses: actions/setup-node@v7
         with:
           node-version: "20"
@@ -319,7 +477,7 @@ jobs:
   update-semver:
     name: Move Respository semver tags
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: build
+    needs: release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
