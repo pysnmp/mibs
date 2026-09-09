@@ -5,3 +5,7 @@
 *
 !output
 !output-compact
+# core.db's directory, for the corpus-db image. An allowlist entry is exact:
+# "!output" does not readmit "output-db", so a tree left out here reaches the
+# COPY as nothing at all rather than as an error.
+!output-db

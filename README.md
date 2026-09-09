@@ -37,12 +37,6 @@ Each is one `mibcorpus` invocation over a manifest. Two runs over the same
 sources produce the same bytes, with no network access; `output/report.json`
 records what was built, what failed to compile, and how long it took.
 
-> `make corpus-db` needs a pysmi with `--emit=core-db`, which is newer than
-> the 3.0.0 this repository pins. The target, its contract test and the
-> documentation below land ahead of that release; the CI job that publishes
-> `core.db` and the dependency floor that makes it buildable follow when pysmi
-> ships it. A CI step that cannot pass yet is not a step, so there is not one.
-
 ## The two corpora
 
 **The published corpus** carries the standard modules, because its consumers
@@ -119,7 +113,7 @@ The release archives are attached to each GitHub release:
 | `mibs-json.zip` | the same modules as data |
 | `mibs-index.zip` | `index.csv`, `index-v2.csv`, `standard.txt` |
 | `mibs-compact.zip` | the compact corpus |
-| `mibs-core-db.zip` | the corpus database — from the pysmi release that carries `--emit=core-db` |
+| `mibs-core-db.zip` | the corpus database |
 
 The two images differ because they are consumed differently. `corpus-compact`
 is a dependency a runtime mounts, so it carries the two things a runtime reads:
@@ -194,7 +188,7 @@ The two trees were about half the corpus: 603 MB of 1237 MB.
 |---|---|
 | `ghcr.io/pysnmp/mibs/corpus` | the published corpus, `FROM scratch` — no base, no shell, nothing to patch |
 | `ghcr.io/pysnmp/mibs/corpus-compact` | the compact corpus, likewise |
-| `ghcr.io/pysnmp/mibs/corpus-db` | `core.db` alone, likewise — what a pysnmp runtime mounts. Published from the pysmi release that carries `--emit=core-db` |
+| `ghcr.io/pysnmp/mibs/corpus-db` | `core.db` alone, likewise — what a pysnmp runtime mounts |
 | `ghcr.io/pysnmp/mibs/tools` | pysmi on an upstream Python base, for the chart's local-MIB init container |
 
 The corpus images hold the build output and nothing else, so they are mounted
