@@ -27,7 +27,7 @@ spec:
         # carry the chart version, so hashing it rolled every pod on every
         # release and made the rendered manifests a function of the version
         # they were rendered at.
-        checksum/config: ec9d9d98b1ecaea03f6dc4b0d5e739c80b14ef2e2d59e4be0a0dff2ff853fb03
+        checksum/config: 6e26f1e38df12b9dbdefb37dc92bda9419c0076fdfe5ed08c6013b6643d87946
       labels:
         app.kubernetes.io/name: mibserver
         app.kubernetes.io/instance: default

@@ -59,6 +59,10 @@ whether or not this file had changed.
         # uncompressed. Every consumer fetches it at start-up.
         gzip_types text/plain application/json application/octet-stream;
         gzip_min_length 1024;
+        # Vary: Accept-Encoding on anything compressed. Without it a cache in
+        # front of this can hand a gzipped body to a client that never asked
+        # for one.
+        gzip_vary on;
 
         server {
             listen       8000;

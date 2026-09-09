@@ -76,6 +76,41 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+# The Kubernetes floor holds even when helm is not checking it
+# ---------------------------------------------------------------------------
+#
+# helm checks Chart.yaml's kubeVersion against the chart it was told to
+# install, not against a dependency's metadata -- so a parent chart with no
+# constraint of its own renders this one anywhere, and that is exactly how
+# splunk-connect-for-snmp installs it. The template guards it too. Asserted
+# here on both sides: a version below the floor is refused, and the shapes real
+# distributions report are not.
+
+echo "the Kubernetes floor"
+
+guard() {
+  helm template default "$CHART" --namespace default --kube-version "$1" \
+    >/dev/null 2>&1 && echo rendered || echo refused
+}
+
+if [ "$(guard 1.32.0)" = "refused" ]; then
+  pass "1.32.0 is refused"
+else
+  fail "1.32.0 rendered, and the image volume it emits needs 1.33"
+fi
+
+# The other half, and the more dangerous one: a guard that rejects a cluster
+# that would have worked is worse than no guard. Managed distributions do not
+# report a bare semver.
+for version in 1.33.0 1.34.1 1.35.0 1.33.0-eks-ba74326 1.33.0-gke.1234 1.33.2-rancher1; do
+  if [ "$(guard "$version")" = "rendered" ]; then
+    pass "$version renders"
+  else
+    fail "$version was refused, but it is at or above the floor"
+  fi
+done
+
+# ---------------------------------------------------------------------------
 # The init container compiles with the same pysmi the corpus was built with
 # ---------------------------------------------------------------------------
 #
@@ -84,6 +119,17 @@ fi
 # corpus have to be one version. uv.lock is that version -- `make corpus` runs
 # through uv -- and the Dockerfile has to name it rather than a range that
 # resolves to whatever is newest on the day the image is built.
+
+# Nothing this serves is text/html, which is all nginx compresses by default.
+CONF="$(helm template default "$CHART" --namespace default --kube-version "$KUBE_VERSION" \
+  --show-only templates/configmap.yaml)"
+for directive in "gzip_types" "gzip_min_length" "gzip_vary on;"; do
+  if printf '%s' "$CONF" | grep -q "$directive"; then
+    pass "nginx.conf sets $directive"
+  else
+    fail "nginx.conf lost $directive; the corpus goes out uncompressed"
+  fi
+done
 
 echo "the tools image"
 
