@@ -60,7 +60,8 @@ import time
 import urllib.error
 import urllib.request
 import zipfile
-from typing import Any, Iterable, Iterator
+from collections.abc import Iterable, Iterator
+from typing import Any
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -118,21 +119,25 @@ def download(url: str) -> bytes:
             with urllib.request.urlopen(url, timeout=TIMEOUT) as response:  # noqa: S310
                 data: bytes = response.read()
                 declared = response.headers.get("Content-Length")
-
-            # A body that ends early arrives as a short read, not as an
-            # error. Left alone it becomes text that differs from the
-            # module we have -- which this tool would report as the
-            # vendor having revised it. Drift has to mean drift.
-            if declared is not None and len(data) != int(declared):
-                raise OSError(f"truncated: {len(data)} bytes of {declared}")
-
-            return data
         except urllib.error.HTTPError as exc:
             if exc.code < 500:
                 raise Unreachable(f"{url}: HTTP {exc.code}") from exc
             last = exc
         except Exception as exc:  # noqa: BLE001
             last = exc
+        else:
+            # A body that ends early arrives as a short read, not as an
+            # error. Left alone it becomes text that differs from the
+            # module we have -- which this tool would report as the
+            # vendor having revised it. Drift has to mean drift.
+            #
+            # Recorded as the last failure rather than raised to be caught
+            # by this same try: a short read retries like any other, and
+            # routing it through the handler above only obscured that.
+            if declared is not None and len(data) != int(declared):
+                last = OSError(f"truncated: {len(data)} bytes of {declared}")
+            else:
+                return data
 
         if attempt + 1 < ATTEMPTS:
             time.sleep(BACKOFF * (attempt + 1))

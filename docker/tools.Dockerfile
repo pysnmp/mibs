@@ -20,7 +20,7 @@ FROM python:3.13-slim
 # the two have to be the same compiler: a range lets an image built next month
 # put a different pysmi behind the same chart version. tests/chart-contract.sh
 # fails if this drifts from the lockfile.
-ARG PYSMI_VERSION="3.0.0rc8"
+ARG PYSMI_VERSION="3.1.0rc1"
 
 RUN pip install --no-cache-dir "pysnmp-pysmi==${PYSMI_VERSION}" \
  && useradd --uid 10001 --create-home --shell /usr/sbin/nologin mibs

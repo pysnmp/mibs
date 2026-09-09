@@ -95,7 +95,7 @@ def main(directory):
 
 def run(db):
     """Every check that needs the database open."""
-    one = lambda sql, *args: db.execute(sql, args).fetchone()  # noqa: E731
+    one = lambda sql, *args: db.execute(sql, args).fetchone()
 
     # The header a reader gates on before it trusts a single table.
     check(
@@ -121,8 +121,7 @@ def run(db):
     # Every table and index the schema specifies. A missing one is a reader
     # that raises on its first query rather than at open.
     present = {
-        (row[0], row[1])
-        for row in db.execute("SELECT type, name FROM sqlite_master")
+        (row[0], row[1]) for row in db.execute("SELECT type, name FROM sqlite_master")
     }
 
     for table in ("meta", "module", "type", "node", "symbol", "import", "oid_index"):
@@ -261,8 +260,7 @@ def check_referential(db):
     check(unhashed == 0, f"{unhashed} modules carry no content hash")
 
     bad = db.execute(
-        "SELECT count(*) FROM module "
-        "WHERE tier NOT IN ('standard', 'draft', 'vendor')"
+        "SELECT count(*) FROM module WHERE tier NOT IN ('standard', 'draft', 'vendor')"
     ).fetchone()[0]
     check(bad == 0, f"{bad} modules carry a tier outside the vocabulary")
 

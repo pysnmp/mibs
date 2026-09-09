@@ -37,8 +37,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "scripts"))
 
-import mib_sources  # noqa: E402
-import update_vendor_mibs  # noqa: E402
+import mib_sources
+import update_vendor_mibs
 
 FAILURES: list[str] = []
 
