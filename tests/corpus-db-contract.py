@@ -32,6 +32,7 @@ import sqlite3
 import sys
 
 from pysmi.corpus.db import validate
+from pysmi.error import PySmiError
 
 #: Floors, not counts. The corpus grows every time anyone adds a MIB, so a
 #: test pinning its size fails on the next contribution; what these catch is a
@@ -83,20 +84,31 @@ def main(directory):
 
     # Everything about the format, in one call. open_db inside it refuses a
     # file that is not a corpus or is a schema version pysmi does not
-    # implement, so a wrong header arrives here as a PySmiError rather than as
-    # a check of ours.
-    for problem in validate(path):
-        check(False, problem)
-
-    # Opened the way a consumer opens it, so a file that only works when
-    # writable fails here rather than in a pod.
-    db = sqlite3.connect(f"file:{os.path.abspath(path)}?immutable=1", uri=True)
-
+    # implement, so a wrong header arrives as a PySmiError rather than as a
+    # check of ours -- but it arrives as a *finding*, not as a traceback. Let
+    # it escape and the run ends here, and the sidecar and mode failures
+    # already recorded never print, which is the one thing this file promises
+    # not to do.
     try:
-        run(db)
+        for problem in validate(path):
+            check(False, problem)
 
-    finally:
-        db.close()
+    except PySmiError as exc:
+        check(False, f"pysmi refuses {path}: {exc}")
+
+    else:
+        # Opened the way a consumer opens it, so a file that only works when
+        # writable fails here rather than in a pod. Only reached when pysmi
+        # agrees this is a corpus: every query below names a table that a file
+        # which is not one does not have, so running them anyway would raise
+        # out of the same summary a moment later.
+        db = sqlite3.connect(f"file:{os.path.abspath(path)}?immutable=1", uri=True)
+
+        try:
+            run(db)
+
+        finally:
+            db.close()
 
     if failures:
         print(f"\ncorpus-db-contract: {len(failures)} failure(s)")
