@@ -84,7 +84,11 @@ corpus-compact:  ## Build the compact corpus into output-compact/
 	  --output-directory=$(COMPACT_OUT) \
 	  --emit=asn1 --emit=json:$(COMPACT_SCRATCH) \
 	  --emit=index-v2 --emit=report
-	rm -rf $(COMPACT_SCRATCH)
+	@# The jsondoc is scratch because the compact corpus does not carry it --
+	@# but it is also the only rendering of how these modules *compiled*, and
+	@# tests/corpus-agreement.py compares that against the published corpus.
+	@# CI sets KEEP_COMPACT_JSONDOC to fingerprint it before it goes.
+	$(if $(KEEP_COMPACT_JSONDOC),,rm -rf $(COMPACT_SCRATCH))
 
 corpus-db:  ## Build the corpus database into output-db/
 	@# core.db: every node the corpus defines, keyed for lookup by OID and by
