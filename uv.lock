@@ -1,6 +1,10 @@
 version = 1
 revision = 3
 requires-python = ">=3.10, <3.12"
+conflicts = [[
+    { package = "pysnmp-mibs", group = "consumer" },
+    { package = "pysnmp-mibs", group = "dev" },
+]]
 
 [[package]]
 name = "certifi"
@@ -185,26 +189,26 @@ name = "pysnmp-mibs"
 version = "2.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "pysnmp-pysmi" },
     { name = "pyyaml" },
 ]
 
 [package.dev-dependencies]
+consumer = [
+    { name = "pysnmplib" },
+]
 dev = [
     { name = "pre-commit" },
-    { name = "pysnmplib" },
+    { name = "pysnmp-pysmi", version = "4.0.0rc4", source = { registry = "https://pypi.org/simple" } },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "pysnmp-pysmi", specifier = ">=3.1.0rc2,<4" },
-    { name = "pyyaml", specifier = "!=6.0.0" },
-]
+requires-dist = [{ name = "pyyaml", specifier = "!=6.0.0" }]
 
 [package.metadata.requires-dev]
+consumer = [{ name = "pysnmplib", specifier = ">=6.0.0rc10,<7" }]
 dev = [
     { name = "pre-commit", specifier = ">=4.6.2,<5" },
-    { name = "pysnmplib", specifier = ">=6.0.0rc10,<7" },
+    { name = "pysnmp-pysmi", specifier = ">=4.0.0rc4,<5" },
 ]
 
 [[package]]
@@ -230,13 +234,26 @@ wheels = [
 ]
 
 [[package]]
+name = "pysnmp-pysmi"
+version = "4.0.0rc4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "ply" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/22/ed/eb92b83b9eec935114a74384966176a3c869ffd43521d121dbabc62041f7/pysnmp_pysmi-4.0.0rc4.tar.gz", hash = "sha256:b0707feae5e5ab006c49534e2db18a5e41ed575b9eb4996b4ac039f32afd94db", size = 4421105, upload-time = "2026-09-10T17:12:00.279Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/25/f0/faf10f904311657859e922f0fd48836199f5b86a0440e1964dd62f294bb9/pysnmp_pysmi-4.0.0rc4-py3-none-any.whl", hash = "sha256:5121944976b8a46e3e531e9c0d2fd01e18945c3447794af1b9e870dd992d1879", size = 3157796, upload-time = "2026-09-10T17:11:58.449Z" },
+]
+
+[[package]]
 name = "pysnmplib"
 version = "6.0.0rc10"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pycryptodomex" },
     { name = "pysnmp-pyasn1" },
-    { name = "pysnmp-pysmi" },
+    { name = "pysnmp-pysmi", version = "3.1.0rc2", source = { registry = "https://pypi.org/simple" } },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/9f/3d/09e4c5fb14af8197ecedf9d0acd49e290cfb9acd1c0075ba8c27b32e8bd7/pysnmplib-6.0.0rc10.tar.gz", hash = "sha256:692daea78935096aa0b0279fb97b1c39472ea95df1439bb91c36626b595fc695", size = 472525, upload-time = "2026-09-08T16:36:53.837Z" }
 wheels = [
