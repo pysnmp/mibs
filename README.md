@@ -136,6 +136,11 @@ advertises: splunk-connect-for-snmp's deployment sets `MIB_STANDARD` to
 | `index-v2.csv` | the same index without the frozen answers |
 | `standard.txt` | the standard module names |
 
+Some modules the site used to serve are no longer carried anywhere, so
+`asn1/NAME` and `json/NAME.json` return 404 for them while `index.csv` still
+names them. [`docs/absent-modules.md`](docs/absent-modules.md) lists all 194,
+grouped by why each went and what it would take to bring it back.
+
 ### `index.csv` is deprecated
 
 It keeps being published and keeps replaying `index-frozen.csv`, so nothing
