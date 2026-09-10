@@ -16,7 +16,7 @@ dependencies = [
 # that is the coupling this split exists to remove.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi>=4.0.0rc4,<5",
+    "pysnmp-pysmi>=4.0.0,<5",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
