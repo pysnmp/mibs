@@ -191,6 +191,15 @@ jobs:
           uv sync --frozen --only-group consumer
           uv run --no-sync python ./tests/runtime-compile-contract.py
           uv sync --frozen
+      - name: Fingerprint the published corpus
+        run: |
+          uv run python tests/corpus-agreement.py fingerprint \
+            output/json output/index-v2.csv corpus-fingerprint.json
+      - uses: actions/upload-artifact@v7
+        with:
+          name: corpus-fingerprint-published
+          path: corpus-fingerprint.json
+          retention-days: 1
       - name: Corpus build report
         run: cat output/report.json
       # One archive per format, for anyone who wants the corpus without
@@ -352,6 +361,21 @@ jobs:
       - run: uv sync --frozen
       - name: Build the compact corpus
         run: make corpus-compact
+        env:
+          # Keeps the scratch jsondoc so the next step can fingerprint how
+          # these modules compiled; corpus-agreement compares that against the
+          # published corpus.
+          KEEP_COMPACT_JSONDOC: "1"
+      - name: Fingerprint the compact corpus
+        run: |
+          uv run python tests/corpus-agreement.py fingerprint \
+            build/compact-jsondoc output-compact/index-v2.csv compact-fingerprint.json
+          rm -rf build/compact-jsondoc
+      - uses: actions/upload-artifact@v7
+        with:
+          name: corpus-fingerprint-compact
+          path: compact-fingerprint.json
+          retention-days: 1
       - name: Compact corpus build report
         run: cat output-compact/report.json
       # Ungated for the reason the published archives are; see that step.
@@ -511,6 +535,33 @@ jobs:
           tags: ${{ steps.docker_meta_db.outputs.tags }}
           labels: ${{ steps.docker_meta_db.outputs.labels }}
 
+  # The one check neither corpus job can run alone: whether the two builds
+  # agree. It needs both trees, and each job has only its own -- so each
+  # uploads a fingerprint, a hash per module plus its index rows, and this
+  # compares them. Cheap: two small artifacts and no third build.
+  corpus-agreement:
+    name: Corpus agreement
+    needs:
+      - corpus
+      - corpus-compact
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v6
+        with:
+          name: corpus-fingerprint-published
+      - uses: actions/download-artifact@v6
+        with:
+          name: corpus-fingerprint-compact
+      - name: The compact corpus is a subset of the published one
+        run: |
+          python3 tests/corpus-agreement.py compare \
+            corpus-fingerprint.json compact-fingerprint.json
+
   # pysmi on an upstream Python base, for the chart's local-MIB init container.
   # The only image this project publishes that runs anything, and the only one
   # that needs no corpus to build -- which is why it used to be the last thing
@@ -596,6 +647,7 @@ jobs:
     needs:
       - corpus
       - corpus-compact
+      - corpus-agreement
       - corpus-db
       - tools
     runs-on: ubuntu-latest
