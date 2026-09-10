@@ -135,3 +135,7 @@ output-db
 .idea
 .vscode
 .cursor
+# Build detritus from the shell pipeline #365 phase 1 deleted.
+log/
+.pycache/
+list.tmp
