@@ -132,6 +132,15 @@ def run(db):
     # refuse rather than silently hand back modules carrying none.
     check(meta.get("texts") == "0", f"meta.texts is {meta.get('texts')!r}")
 
+    # Who built it and which build. pysmi stamps neither on its own -- it
+    # records what it is passed and invents nothing, because a version taken
+    # from a clock would make two builds of one source tree differ. So an
+    # unstamped database is this repository's target having dropped the
+    # arguments, and it is indistinguishable from a stamped one until someone
+    # holding two corpora needs to tell them apart.
+    check(meta.get("corpus_id"), "meta.corpus_id is unset")
+    check(meta.get("corpus_version"), "meta.corpus_version is unset")
+
     counts = {
         table: one(f"SELECT count(*) FROM {table}")[0]  # noqa: S608
         for table in ("module", "node", "type", "symbol", "import", "oid_index")
@@ -141,6 +150,26 @@ def run(db):
         "   {module} modules, {node} nodes, {type} types, "
         "{oid_index} indexed OIDs".format(**counts)
     )
+    print(
+        f"   {meta.get('corpus_id', '<unset>')} "
+        f"version {meta.get('corpus_version', '<unset>')}"
+    )
+
+    # Vendor is a column, not a partition (#363): one corpus, and which tier a
+    # module came from is a fact recorded about it. A build whose manifest lost
+    # the vendor namespaces still passes every count floor above, because the
+    # standard modules alone clear them.
+    tiers = dict(db.execute("SELECT tier, count(*) FROM module GROUP BY tier"))
+    print("   tiers: " + ", ".join(f"{t}={n}" for t, n in sorted(tiers.items())))
+    check(
+        tiers.get("vendor", 0) > 0, "no vendor-tier modules; is this the full manifest?"
+    )
+    check(tiers.get("standard", 0) > 0, "no standard-tier modules")
+
+    # Every module carries the hash of the model it was built from, which is
+    # what makes two corpora comparable without diffing them.
+    unhashed = one("SELECT count(*) FROM module WHERE content_hash = ''")[0]
+    check(not unhashed, f"{unhashed} modules have no content hash")
 
     for table, floor in FLOORS.items():
         check(

@@ -25,6 +25,14 @@ COMPACT_SCRATCH ?= build/compact-jsondoc
 DB_OUT ?= output-db
 DB_SCRATCH ?= build/db-jsondoc
 
+# What the database says it is. Neither is invented at build time: a version
+# read from a clock or a checkout would make two builds of one source tree
+# differ, and core.db is written to be reproducible. The version is the one
+# semantic-release stamps into pyproject.toml, so the database and the release
+# it ships in carry the same number.
+CORPUS_ID ?= pysnmp/mibs
+CORPUS_VERSION ?= $(shell sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)
+
 .PHONY: all corpus corpus-compact corpus-db render help
 
 corpus:  ## Build the published corpus into output/
@@ -98,10 +106,12 @@ corpus-db:  ## Build the corpus database into output-db/
 	@# outside the corpus and is removed: what this target publishes is one
 	@# file.
 	rm -rf $(DB_SCRATCH)
+	@test -n "$(CORPUS_VERSION)" || { echo "no version in pyproject.toml"; exit 1; }
 	$(MIBCORPUS) --manifest=$(CORPUS_MANIFEST) \
 	  --output-directory=$(DB_OUT) \
 	  --emit=core-db --emit=json:$(DB_SCRATCH) \
-	  --emit=report
+	  --emit=report \
+	  --corpus-id=$(CORPUS_ID) --corpus-version=$(CORPUS_VERSION)
 	rm -rf $(DB_SCRATCH)
 
 render:  ## Re-render the chart into rendered/manifests
