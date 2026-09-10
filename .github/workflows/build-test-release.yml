@@ -24,6 +24,55 @@ jobs:
           python-version: "3.11"
       - uses: pre-commit/action@v3.0.1
 
+  # The version core.db is stamped with, resolved before anything is built.
+  #
+  # semantic-release bumps pyproject.toml in the Release job, which runs after
+  # the builds -- so a database stamped from the working tree carries the
+  # *previous* release's number. v2.1.0 shipped a core.db saying 2.0.2. A
+  # dry run answers the same question semantic-release will answer later,
+  # early enough for the artifacts to agree with the release that carries them.
+  #
+  # A push that publishes nothing (a chore, or a pull request) has no next
+  # version, and there the working tree's number is the right answer: the
+  # database is a build of that tree and no release will claim otherwise.
+  version:
+    name: Next version
+    runs-on: ubuntu-latest
+    outputs:
+      corpus-version: ${{ steps.resolve.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "20"
+      - name: Ask semantic-release what the next version is
+        id: semrel
+        uses: cycjimmy/semantic-release-action@v6.0.0
+        with:
+          semantic_version: 24
+          dry_run: true
+          extra_plugins: |
+            @semantic-release/exec
+            @semantic-release/git
+            @google/semantic-release-replace-plugin@1.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Resolve
+        id: resolve
+        run: |
+          set -eu
+          next='${{ steps.semrel.outputs.new_release_version }}'
+          if [ -n "$next" ]; then
+            echo "version=$next" >> "$GITHUB_OUTPUT"
+          else
+            tree=$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)
+            echo "version=$tree" >> "$GITHUB_OUTPUT"
+          fi
+      - run: echo "corpus_version=${{ steps.resolve.outputs.version }}"
+
   mib-sources:
     name: MIB source manifest
     permissions:
@@ -361,6 +410,7 @@ jobs:
     needs:
       - pre-commit
       - chart
+      - version
     runs-on: ubuntu-latest
     permissions:
       # Reads the tree; writes only to the package registry.
@@ -381,7 +431,7 @@ jobs:
       # reason the compact corpus has one: it is a second full pass over 5510
       # modules and there is no result to share between them.
       - name: Build the corpus database
-        run: make corpus-db
+        run: make corpus-db CORPUS_VERSION='${{ needs.version.outputs.corpus-version }}'
       # Before the archive, so a database that would not answer never becomes a
       # release asset. Python rather than shell because sqlite3 the module
       # ships wherever this build runs and sqlite3 the command-line tool is a

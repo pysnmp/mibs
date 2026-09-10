@@ -27,9 +27,13 @@ DB_SCRATCH ?= build/db-jsondoc
 
 # What the database says it is. Neither is invented at build time: a version
 # read from a clock or a checkout would make two builds of one source tree
-# differ, and core.db is written to be reproducible. The version is the one
-# semantic-release stamps into pyproject.toml, so the database and the release
-# it ships in carry the same number.
+# differ, and core.db is written to be reproducible.
+#
+# The default is the working tree's version, which is right for a local build.
+# CI overrides it with the version semantic-release is about to publish --
+# because semantic-release bumps pyproject.toml *after* the artifacts are
+# built, so a database stamped from the tree names the previous release. That
+# is how v2.1.0 shipped a core.db saying 2.0.2.
 CORPUS_ID ?= pysnmp/mibs
 CORPUS_VERSION ?= $(shell sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)
 
@@ -106,7 +110,7 @@ corpus-db:  ## Build the corpus database into output-db/
 	@# outside the corpus and is removed: what this target publishes is one
 	@# file.
 	rm -rf $(DB_SCRATCH)
-	@test -n "$(CORPUS_VERSION)" || { echo "no version in pyproject.toml"; exit 1; }
+	@test -n "$(CORPUS_VERSION)" || { echo "CORPUS_VERSION is empty"; exit 1; }
 	$(MIBCORPUS) --manifest=$(CORPUS_MANIFEST) \
 	  --output-directory=$(DB_OUT) \
 	  --emit=core-db --emit=json:$(DB_SCRATCH) \
