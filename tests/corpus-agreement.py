@@ -19,6 +19,21 @@ byte, and compare the OID index rows they each claim. Names are not enough --
 two builds agreeing on *which* modules exist while disagreeing on what is *in*
 them is exactly the failure this is for.
 
+The index comparison allows one difference, because the selection creates it by
+design: an arc whose published winner is a standard module falls to a vendor
+module in the compact corpus, which does not publish the standard one. Those are
+counted and reported, not failed. Everything else -- a winner the published
+corpus never compiled, or two modules that are both published in both corpora
+resolving differently -- is a genuine divergence.
+
+One limit worth stating, since a test that overstates itself is worse than one
+that does less. On a ceded arc this cannot tell *which* vendor module ought to
+win: the fingerprint carries one winner per OID, not the set of claimants, so
+any substitute the published corpus compiled at all is accepted. What bounds
+that is the ceiling below -- the category may not grow unnoticed. Checking the
+substitute itself would mean fingerprinting every claimant of every arc, which
+is a much larger artifact for a case that today covers 58 arcs out of 97,032.
+
 Run in two steps, because the two corpora are built by separate CI jobs and
 neither has the other's tree:
 
@@ -41,6 +56,18 @@ import sys
 # corpus carries, so ordinary content churn never trips it, and a build that
 # collapsed to a handful of modules cannot pass by being empty.
 SHARED_MODULE_FLOOR = 4000
+
+# Arcs the compact corpus is expected to resolve differently, because the module
+# that wins them in the published corpus is a standard one it does not publish.
+# There were 58 at the time of writing, all under 1.2.840.10006.300.43, where
+# quanta's LAG-MIB takes over from IEEE8023-LAG-MIB. The exemption is what keeps
+# that from failing the build; the ceiling is what keeps the exemption from
+# quietly growing into a licence for the two corpora to diverge wherever they
+# like. A vendor module that starts shadowing a standard arc trips this, and
+# should: it means something in the compact corpus now answers differently from
+# what this repository publishes, and someone should decide whether that is
+# intended before it ships.
+CEDED_ARC_CEILING = 80
 
 
 def fingerprint(json_dir: str, index_path: str, out_path: str) -> int:
@@ -105,12 +132,26 @@ def compare(full_path: str, compact_path: str) -> int:
             + (", ..." if len(mismatched) > 10 else "")
         )
 
+    # An OID both indexes carry can legitimately name a different module in
+    # each. Where the published corpus' winner is a standard module, the compact
+    # corpus does not publish it, so the arc falls to whichever vendor module
+    # also claims it -- IEEE8023-LAG-MIB gives way to quanta's LAG-MIB at
+    # 1.2.840.10006.300.43, for instance. That is the selection working. What
+    # would not be is a compact winner the published corpus never compiled at
+    # all, or a disagreement where both claimants *are* published in both: those
+    # mean the two builds resolved the same corpus differently.
     full_index = full["index"]
     compact_index = compact["index"]
     shared_oids = set(full_index) & set(compact_index)
-    disagreed = sorted(
-        oid for oid in shared_oids if full_index[oid] != compact_index[oid]
-    )
+    disagreed, ceded = [], 0
+    for oid in sorted(shared_oids):
+        full_winner, compact_winner = full_index[oid], compact_index[oid]
+        if full_winner == compact_winner:
+            continue
+        if full_winner not in compact_modules and compact_winner in full_modules:
+            ceded += 1
+            continue
+        disagreed.append(oid)
     if disagreed:
         detail = ", ".join(
             f"{oid} ({full_index[oid]} vs {compact_index[oid]})"
@@ -121,6 +162,14 @@ def compare(full_path: str, compact_path: str) -> int:
             f"module: {detail}" + (", ..." if len(disagreed) > 5 else "")
         )
 
+    if ceded > CEDED_ARC_CEILING:
+        failures.append(
+            f"{ceded} arc(s) ceded to a vendor claimant, above the ceiling of "
+            f"{CEDED_ARC_CEILING} -- the compact corpus is answering differently "
+            "from the published one on more arcs than it used to; confirm the "
+            "new ones are intended and raise the ceiling, or stop shadowing them"
+        )
+
     if failures:
         print("corpus agreement: FAIL")
         for line in failures:
@@ -129,7 +178,8 @@ def compare(full_path: str, compact_path: str) -> int:
 
     print(
         f"corpus agreement: OK -- {len(shared)} shared module(s) identical, "
-        f"{len(shared_oids)} shared OID(s) agree "
+        f"{len(shared_oids) - ceded} shared OID(s) agree, {ceded} ceded to a "
+        "vendor claimant where the compact corpus does not publish the winner "
         f"(published {len(full_modules)}, compact {len(compact_modules)})"
     )
     return 0
