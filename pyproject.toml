@@ -6,27 +6,47 @@ authors = [{ name = "rfaircloth-splunk", email = "rfaircloth@splunk.com" }]
 license = "BSD-2-Clause"
 requires-python = ">=3.10,<3.12"
 dependencies = [
-    "pysnmp-pysmi>=3.1.0rc2,<4",
     "pyyaml!=6.0.0",
 ]
 
 [dependency-groups]
+# The build environment: what turns src/ into the published corpus. pysmi is
+# here rather than in [project.dependencies] because a main dependency is
+# present in every fork of the lock, including the consumer one below, and
+# that is the coupling this split exists to remove.
 dev = [
     "pre-commit>=4.6.2,<5",
-    # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp,
-    # which publishes as pysnmplib -- not against lextudio/pysnmp, which
-    # publishes as pysnmp and is what this pinned before. The two are
-    # different distributions from different repositories, so the old pin
-    # meant no release of pysnmp/pysnmp could ever be observed here. See
-    # #381. The floor names an rc on purpose, for the reason pysnmp's own
-    # pyproject.toml gives: dependabot offers a prerelease only when the
-    # requirement string already names one, so this tracks the rc stream
-    # this repository is released alongside.
+    "pysnmp-pysmi>=4.0.0rc4,<5",
+]
+
+# tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
+# publishes as pysnmplib -- not against lextudio/pysnmp, which publishes as
+# pysnmp and is what this pinned before. The two are different distributions
+# from different repositories, so the old pin meant no release of pysnmp/pysnmp
+# could ever be observed here. See #381. The floor names an rc on purpose, for
+# the reason pysnmp's own pyproject.toml gives: dependabot offers a prerelease
+# only when the requirement string already names one, so this tracks the rc
+# stream this repository is released alongside.
+#
+# In a group of its own, and declared to conflict with the build environment,
+# because the two want different pysmi versions and both are right to. The
+# corpus is built with the pysmi this repository pins; the contract runs the
+# corpus the way a consumer does, against the pysmi pysnmp itself depends on.
+# Holding them in one environment made pysnmp's ceiling our floor, so a pysmi
+# release could not be adopted here until pysnmp had adopted it too -- a
+# coupling that does not exist in fact, since nothing pysnmp ships reads this
+# repository at build time.
+consumer = [
     "pysnmplib>=6.0.0rc10,<7",
 ]
 
 [tool.uv]
 package = false
+
+# uv resolves a conflicting pair into separate forks of the lock rather than
+# failing, which is what lets one lockfile hold both a build environment on
+# pysmi 4 and a consumer environment on whatever pysnmp pins.
+conflicts = [[{ group = "dev" }, { group = "consumer" }]]
 
 # The tooling pyasn1, pysmi and pysnmp share, so a contributor moving between
 # the four repositories meets the same lint and the same formatter. This

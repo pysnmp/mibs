@@ -133,8 +133,15 @@ jobs:
         run: ./tests/index-contract.sh
       - name: Published artifact contract
         run: ./tests/artifact-contract.sh
+      # In the consumer group's environment, not the build one. The two hold
+      # different pysmi versions on purpose: the corpus above was built with
+      # the pysmi this repository pins, and this checks it against the pysmi
+      # pysnmp itself depends on, which is the one a consumer actually has.
       - name: Runtime-compile contract
-        run: uv run python ./tests/runtime-compile-contract.py
+        run: |
+          uv sync --frozen --only-group consumer
+          uv run --no-sync python ./tests/runtime-compile-contract.py
+          uv sync --frozen
       - name: Corpus build report
         run: cat output/report.json
       # One archive per format, for anyone who wants the corpus without
