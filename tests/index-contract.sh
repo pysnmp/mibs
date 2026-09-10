@@ -130,26 +130,40 @@ echo "== every module named in the index is still carried somewhere"
 # 210, so 163 modules this repository used to publish by staging the bundle are
 # no longer staged, and the snapshot's rows for them name nothing carried.
 #
-# Those 163 were removed deliberately, upstream, as modules nothing imports --
-# not defective, and not rot appearing here. Nothing in src/ imports any of
-# them, so no module fails to compile; the effect is that the site no longer
-# answers for their OIDs.
+# Those were removed deliberately, upstream, as modules nothing imports -- not
+# defective, and not rot appearing here. Nothing in src/ imports any of them,
+# so no module fails to compile; the effect is that the site no longer answers
+# for their OIDs.
 #
-# Every one of them is an IETF module, so src/ is not where they would come
-# back: src/vendor holds what a vendor publishes, and filing an RFC module
-# under the vendor that happened to ship a copy of it says something untrue
-# about who publishes it. The ceilings come back down by promoting the module
-# in pysmi -- `update_bundled_mibs.py --promote NAME`, which any use justifies
-# -- not by relaxing this check further, and not by adding the text here.
+# docs/absent-modules.md lists every one of them, grouped by why it went, and
+# is the place to look when someone asks where a module went. Two thirds are
+# held in pysmi/mibs/future/ and come back with `update_bundled_mibs.py
+# --promote NAME`; 65 of those are consortium modules -- IEEE 802.1, CableLabs,
+# ATM Forum, DMTF, MEF, SCTE -- which could equally come back to
+# src/standard/<body>/, the layout #338 established for exactly them. Only the
+# 98 RFC modules have nowhere here to go: src/vendor holds what a vendor
+# publishes, and filing an RFC module under the vendor that happened to ship a
+# copy of it says something untrue about who publishes it. The remaining 31
+# were deleted here on purpose and should not come back at all.
+#
+# Do not relax this check to make room, and do not add the text back to src/.
 # Anything above these numbers is unaccounted for and should fail.
-DEAD_MODULE_CEILING=224
-DEAD_ROW_CEILING=1737
+DEAD_MODULE_CEILING=194
+DEAD_ROW_CEILING=1625
 
 if BUNDLE="$(uv run python -c 'import importlib.util,pathlib;print(importlib.util.find_spec("pysmi.mibs.asn1").submodule_search_locations[0])' 2>/dev/null)" \
    && [ -d "$BUNDLE" ]; then
   CARRIED="$(mktemp)"
   DEAD_LIST="$(mktemp)"
-  { find src -type f -exec basename {} \; ; find "$BUNDLE" -maxdepth 1 -type f ! -name '__*' -exec basename {} \; ; } | sort -u >"$CARRIED"
+  # A file may declare more than one module, and the index is keyed by module
+  # name, not by file name: src/vendor/extreme/EXTREME-BASE-MIB declares 30,
+  # every one of which compiles and serves. Comparing basenames alone called
+  # all 30 dead. So take both the file name and each `NAME DEFINITIONS ::=
+  # BEGIN` the file declares.
+  { find src -type f -exec basename {} \; ; find "$BUNDLE" -maxdepth 1 -type f ! -name '__*' -exec basename {} \; ; \
+    find src "$BUNDLE" -type f ! -name '__*' -exec \
+      env LC_ALL=C sed -n 's/^[[:space:]]*\([A-Za-z0-9][A-Za-z0-9_-]*\)[[:space:]][[:space:]]*DEFINITIONS[[:space:]]*::=[[:space:]]*BEGIN.*/\1/p' {} + ; \
+  } | sort -u >"$CARRIED"
   # comm pairs duplicate lines, so the dead *module* set is computed from the
   # unique names and the dead *row* count is then counted back over the index.
   cut -d, -f1 "$FROZEN" | sort -u | comm -23 - "$CARRIED" >"$DEAD_LIST"
