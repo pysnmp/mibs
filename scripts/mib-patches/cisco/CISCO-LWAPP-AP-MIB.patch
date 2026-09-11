@@ -1,3 +1,11 @@
+Defect: SMI-MISSING-IMPORT https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-missing-import
+
+The module uses CLDot11Band as the SYNTAX of an object without naming it
+in IMPORTS. CISCO-LWAPP-TC-MIB defines the textual convention and the
+clause already imports six other symbols from it.
+
+The repair adds CLDot11Band to that existing FROM group.
+
 --- a/CISCO-LWAPP-AP-MIB
 +++ b/CISCO-LWAPP-AP-MIB
 @@ -46,7 +46,8 @@

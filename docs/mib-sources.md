@@ -27,6 +27,38 @@ Once that holds, "has the vendor revised this?" becomes a question a
 machine can ask, and [the monthly workflow](https://github.com/pysnmp/mibs/blob/main/.github/workflows/mib-freshness.yml)
 asks it.
 
+## Why each patch exists
+
+A diff says what was changed and never why. That matters the month a
+publisher moves under a patch and it stops applying, because somebody then
+has to decide whether the vendor fixed the defect — in which case the patch
+should go — or changed something unrelated, in which case it should be
+re-cut. That decision needs the original defect written down.
+
+So every patch opens with the defect it repairs, in
+[pysmi's header format](https://pysnmp.github.io/pysmi/stable/mib-defects.html):
+
+```
+Defect: SMI-UNPUBLISHED-MODULE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-unpublished-module
+
+The module imports igmpInterfaceEntry FROM IGMP-MIB. No publisher ships
+a module by that name: RFC 2933 publishes the IGMP MIB as IGMP-STD-MIB.
+
+--- a/CISCO-IPMCAST-MIB
++++ b/CISCO-IPMCAST-MIB
+@@ ...
+```
+
+The identifier links to pysmi's catalogue, which says what the defect is and
+which rule it breaks, so the note here only has to say what is particular to
+this module. Everything above the first diff line is header: it is not applied
+to anything, and `--adopt` carries it over when it re-cuts the diff, so a
+regenerated patch does not lose its reason.
+
+Where the archaeology does not resolve, the honest note is that it does not.
+"Cause not recovered; the diff is what makes it compile" is worth more to the
+next reader than an invented reason.
+
 ## What this does not recover
 
 Two things, and neither is a gap to be closed later.

@@ -1,3 +1,15 @@
+Defect: SMI-UNEXPORTED-IMPORT https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-unexported-import
+
+The module imports Unsigned32 FROM CISCO-TC, which does not export it.
+CISCO-TC's own revision history records adding an Unsigned32 textual
+convention in 1996 and removing it again in 2004 -- the removal correct,
+since RFC 2578 had made Unsigned32 a base type of SNMPv2-SMI in between.
+This module was never revised to follow, so the import names an export
+that was real when it was written.
+
+The repair takes Unsigned32 from SNMPv2-SMI, which the clause already
+imports from, and drops the CISCO-TC line.
+
 --- a/CISCO-ENTITY-ALARM-MIB
 +++ b/CISCO-ENTITY-ALARM-MIB
 @@ -13,7 +13,8 @@

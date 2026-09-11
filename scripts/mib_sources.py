@@ -63,6 +63,10 @@ import zipfile
 from collections.abc import Iterable, Iterator
 from typing import Any
 
+# The patch header format is pysmi's, defined once and read by both: it
+# parses these files for its own bundled MIBs, and mibpatch writes them.
+from pysmi.patches import split_patch
+
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 MANIFEST = ROOT / "mib-sources.json"
@@ -452,15 +456,21 @@ HUNK = re.compile(r"^@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@")
 def apply_patch(text: bytes, patch: str, label: str) -> bytes:
     """Apply a unified diff, refusing anything whose context has moved.
 
-    Deliberately strict and dependency-free, the way pysmi applies the
-    patches for its bundled MIBs. A patch that no longer matches the text
-    it was cut against means the publisher has revised the module under
-    it -- which is the whole thing the monthly sweep exists to notice, so
-    fuzzing past it would defeat the point.
+    Deliberately strict, the way pysmi applies the patches for its bundled
+    MIBs. A patch that no longer matches the text it was cut against means
+    the publisher has revised the module under it -- which is the whole
+    thing the monthly sweep exists to notice, so fuzzing past it would
+    defeat the point.
+
+    Anything above the diff is the patch's header, which says why the
+    repair exists (pysnmp/mibs#408) and is not applied to anything.
+    :py:func:`pysmi.patches.split_patch` decides where it ends, rather than
+    a second idea of the format here -- pysmi reads these same files.
 
     Raises:
         ValueError: the patch does not apply to *text*.
     """
+    patch = split_patch(patch)[1]
     lines = text.decode("utf-8", "replace").split("\n")
     out: list[str] = []
     cursor = 0

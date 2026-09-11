@@ -49,6 +49,7 @@ from mib_sources import (
     save_manifest,
     wanted_text,
 )
+from pysmi.patches import format_header, split_patch
 
 #: How many publisher requests are in flight at once. Cisco alone accounts
 #: for over a thousand modules in a sweep; serialising them would take the
@@ -565,6 +566,15 @@ def adopt(manifest: dict[str, Any], paths: list[str]) -> int:
 
         target = PATCHES / relative
         target.parent.mkdir(parents=True, exist_ok=True)
+
+        # A regenerated diff is still a repair of the same defect, and the
+        # header saying which one was written by hand (pysnmp/mibs#408).
+        # Rewriting the file without it would silently throw that away, and
+        # the next reader would have the diff and a blank again.
+        if target.exists():
+            kept = split_patch(target.read_text())[0]
+            patch = format_header(kept.defects, kept.body) + patch
+
         target.write_text(patch)
 
         entry["patch"] = relative
