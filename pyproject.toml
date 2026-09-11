@@ -16,7 +16,7 @@ dependencies = [
 # that is the coupling this split exists to remove.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi>=4.1.0rc2,<5",
+    "pysnmp-pysmi>=4.1.0,<5",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
@@ -43,9 +43,11 @@ consumer = [
 [tool.uv]
 package = false
 
-# The pysmi floor names an rc, so every resolve has to be willing to take one.
-# Without this, a bare `uv run` re-resolves away from the locked prerelease and
-# the corpus is built by a different compiler than the lockfile records.
+# The consumer floor names an rc, so every resolve has to be willing to take
+# one. Without this, a bare `uv run` re-resolves away from the locked
+# prerelease and the contract runs against a different pysnmp than the
+# lockfile records. The build environment no longer needs it -- pysmi is on a
+# release floor -- but the lock is resolved as a whole, so it stays.
 prerelease = "allow"
 
 # uv resolves a conflicting pair into separate forks of the lock rather than
