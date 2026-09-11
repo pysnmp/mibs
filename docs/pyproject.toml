@@ -1,0 +1,27 @@
+# The documentation build, deliberately separate from the repository root.
+#
+# The root project pins `requires-python = ">=3.10,<3.12"` because that is the
+# interpreter the corpus is built and fingerprinted on, and the corpus has to
+# be reproducible byte for byte. Current Sphinx needs 3.12 or newer. Holding
+# both in one environment would mean either an old Sphinx or a new interpreter
+# under the corpus build, and the second of those changes published bytes.
+#
+# So the documentation gets its own project and its own lock. Nothing here is
+# imported by anything the corpus build runs, and nothing the corpus build
+# pins constrains what a documentation tool may use.
+[project]
+name = "pysnmp-mibs-docs"
+version = "0"
+description = "The documentation build for the pysnmp MIB distribution"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "sphinx >=9.1.0,<10.0.0",
+    "myst-parser >=5.1.0,<6.0.0",
+    "furo >=2025.12.19",
+]
+
+[tool.uv]
+package = false
