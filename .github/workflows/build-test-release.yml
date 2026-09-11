@@ -102,6 +102,12 @@ jobs:
         # drift on the publisher's bytes rather than on the verdict.
         run: uv run python tests/test_mib_sources.py
       - run: uv run python scripts/update_vendor_mibs.py --validate
+      - name: Check the registry snapshots against the committed index
+        # Offline: the committed arc list against index-frozen.csv, and
+        # the committed PEN snapshot against that arc list. Catches a
+        # snapshot nobody re-reduced after the corpus gained an arc,
+        # without waiting for the five-minute corpus build to say so.
+        run: uv run python scripts/update_registries.py --validate
 
   chart:
     name: Chart contract
@@ -174,11 +180,17 @@ jobs:
       # the standard namespace is published. See corpus.json and
       # corpus-compact.json.
       - name: Build the published corpus
+        # The registries are read from the checkout, never fetched: a build
+        # with the network unplugged has to produce the same corpus as one
+        # without, and the enterprise registry changes daily. Kept in step
+        # with the Makefile's own corpus target. See docs/registries.md.
         run: |
           uv run mibcorpus \
             --manifest=corpus.json \
             --output-directory=output \
-            --frozen-index=index-frozen.csv
+            --frozen-index=index-frozen.csv \
+            --oid-registry=registries/smi-numbers.xml \
+            --oid-registry=registries/pen-snapshot.csv
           touch output/.nojekyll
       # Runs after the build so it checks the produced index.csv and
       # index-v2.csv as well as the checked-in frozen snapshot. Gates before

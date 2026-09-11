@@ -9,6 +9,13 @@ MIBCORPUS ?= $(PY) mibcorpus
 CORPUS_ID ?= pysnmp/mibs
 CORPUS_VERSION ?= $(shell sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)
 
+# The IANA registries the arc names come from, committed rather than fetched:
+# a build with the network unplugged has to produce the same corpus as one
+# without, and the enterprise registry changes daily. See
+# scripts/update_registries.py and docs/registries.md.
+OID_REGISTRIES ?= --oid-registry=registries/smi-numbers.xml \
+	  --oid-registry=registries/pen-snapshot.csv
+
 .PHONY: corpus corpus-compact corpus-db render help
 
 corpus:  ## Build the published corpus into output/
@@ -18,7 +25,8 @@ corpus:  ## Build the published corpus into output/
 	@# failure index-frozen.csv is kept to prevent.
 	$(MIBCORPUS) --manifest=corpus.json \
 	  --output-directory=output \
-	  --frozen-index=index-frozen.csv
+	  --frozen-index=index-frozen.csv \
+	  $(OID_REGISTRIES)
 	touch output/.nojekyll
 
 corpus-compact:  ## Build the compact corpus into output-compact/

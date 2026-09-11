@@ -2,7 +2,9 @@ name: MIB freshness
 
 # Re-fetches every MIB that mib-sources.json names a publisher for and
 # reports anything whose checked-in bytes are no longer that publisher's
-# text with our patch applied.
+# text with our patch applied. Since pysnmp/mibs#407 it does the same for
+# the two IANA registry snapshots the corpus names its OID arcs from,
+# which have a publisher and a baseline in exactly the same sense.
 #
 # This repository spent years with no way to ask that question. MIBs
 # arrived in bulk from the snmplabs and librenms collections, were
@@ -37,6 +39,9 @@ on:
       - "scripts/mib_sources.py"
       - "scripts/update_vendor_mibs.py"
       - "scripts/mib-patches/**"
+      - "scripts/update_registries.py"
+      - "registries/**"
+      - "index-frozen.csv"
       - ".github/workflows/mib-freshness.yml"
 
 permissions:
@@ -72,3 +77,17 @@ jobs:
         # single stale MIB does not hide the size of the gap.
         if: always()
         run: uv run python scripts/update_vendor_mibs.py --report
+      - name: Check the registry snapshots against the committed index
+        # Offline and cheap. A snapshot that no longer covers the arcs
+        # this corpus publishes under is a gap somebody has to close,
+        # and unlike an IANA revision it is entirely ours.
+        if: always()
+        run: uv run python scripts/update_registries.py --validate
+      - name: Compare the registry snapshots against IANA
+        # The registries are the other thing here with a publisher and a
+        # baseline, so they belong in the same monthly sweep as the MIBs.
+        # The enterprise registry changes daily, so this will usually say
+        # something -- what it is saying is "the reduced snapshot is a
+        # month behind", which is the state this file exists to surface.
+        if: always()
+        run: uv run python scripts/update_registries.py --check
