@@ -2,7 +2,7 @@
 name = "pysnmp-mibs"
 version = "2.2.0"
 description = ""
-authors = [{ name = "rfaircloth-splunk", email = "rfaircloth@splunk.com" }]
+authors = [{ name = "Ryan Faircloth", email = "actual@rfaircloth.com" }]
 license = "BSD-2-Clause"
 requires-python = ">=3.10,<3.12"
 dependencies = [

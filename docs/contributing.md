@@ -4,7 +4,7 @@ Missing modules and corrections go to
 {repo}`mibs` as pull requests. Adding a MIB is
 a file drop under `src/vendor/<vendor>/` and a CI run — there is no registration
 step and no index to edit, because
-[`mibcorpus`](https://pysnmp.github.io/pysmi/mibcorpus.html) derives both from
+[`mibcorpus`](https://pysnmp.github.io/pysmi/stable/mibcorpus.html) derives both from
 the sources.
 
 Say where the module came from. `mib-sources.json` records the provenance of

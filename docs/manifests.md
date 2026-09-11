@@ -12,7 +12,7 @@ Each is one `mibcorpus` invocation over a manifest. Two runs over the same
 sources produce the same bytes, with no network access; `output/report.json`
 records what was built, what failed to compile, and how long it took.
 
-`mibcorpus` is [pysmi's corpus driver](https://pysnmp.github.io/pysmi/mibcorpus.html).
+`mibcorpus` is [pysmi's corpus driver](https://pysnmp.github.io/pysmi/stable/mibcorpus.html).
 Nothing in this repository compiles a MIB.
 
 ## The manifest format
