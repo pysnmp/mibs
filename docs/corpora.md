@@ -37,7 +37,7 @@ and fails if they compiled differently.
 per node, keyed for lookup by OID and by name and ordered so a GETNEXT walk is
 a range query. pysnmp reads it with stdlib `sqlite3` and no pysmi import; the
 file format is specified in pysmi's
-[corpus schema](https://pysnmp.github.io/pysmi/corpus-schema.html).
+[corpus schema](https://pysnmp.github.io/pysmi/stable/corpus-schema.html).
 
 It exists because of two questions `index-v2.csv` cannot answer. The index is
 `MODULE,OID` and carries a module's *anchors*, so it says which module to load

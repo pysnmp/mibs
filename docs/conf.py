@@ -1,9 +1,11 @@
 """Sphinx configuration for the pysnmp MIB distribution documentation.
 
-This builds https://pysnmp.github.io/mibs/docs/, which is published onto the
-same gh-pages tree as the corpus it describes -- so the documentation for a
-channel and the channel itself are deployed by the same run and cannot drift
-apart by a release.
+This builds https://pysnmp.github.io/mibs/, which is published onto the same
+gh-pages tree as the corpus it describes -- so the documentation for a channel
+and the channel itself are deployed by the same run and cannot drift apart by a
+release. It lands at the site root, which until now answered 404: every path
+the corpus serves is a directory or a CSV, and none of them collide with a
+Sphinx page.
 
 The source directory is ``docs/`` rather than ``docs/source/`` because two of
 these pages predate the site and are linked by path from the README and from
