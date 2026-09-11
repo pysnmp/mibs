@@ -286,7 +286,7 @@ consumer = [
 ]
 dev = [
     { name = "pre-commit" },
-    { name = "pysnmp-pysmi", version = "4.1.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "pysnmp-pysmi", version = "5.0.0rc1", source = { registry = "https://pypi.org/simple" } },
 ]
 
 [package.metadata]
@@ -296,7 +296,7 @@ requires-dist = [{ name = "pyyaml", specifier = "!=6.0.0" }]
 consumer = [{ name = "pysnmplib", specifier = ">=6.0.0rc10,<7" }]
 dev = [
     { name = "pre-commit", specifier = ">=4.6.2,<5" },
-    { name = "pysnmp-pysmi", specifier = ">=4.1.0,<5" },
+    { name = "pysnmp-pysmi", specifier = ">=5.0.0rc1,<6" },
 ]
 
 [[package]]
@@ -323,15 +323,15 @@ wheels = [
 
 [[package]]
 name = "pysnmp-pysmi"
-version = "4.1.0"
+version = "5.0.0rc1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ply" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a2/ec/eacb265cf586ede8a6a7ad9719eb0eeded33f15947a1d887d82842f61e84/pysnmp_pysmi-4.1.0.tar.gz", hash = "sha256:6d8162712e33059fe4d2b08ebfdad39aa197717c29666b07323bf079002dc811", size = 4451811, upload-time = "2026-09-11T16:04:14.892Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/75/d0/25a180b76c577feb3d685881d15a506b4252e8c352256705b426ebd8e6a1/pysnmp_pysmi-5.0.0rc1.tar.gz", hash = "sha256:2c981bba14259ae19586b6fbb27d2135d0a211a52e3429e7aa25ee08856acec1", size = 4521544, upload-time = "2026-09-11T21:55:21.985Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e7/47/05176a6416c2cd7adf26d1a70792d1084b7440cd5b1024e3a227ae652f5d/pysnmp_pysmi-4.1.0-py3-none-any.whl", hash = "sha256:92d5a3c3223aefdd0fe1ba900763132daf8f3e89bb0a761ec2e2731b1db3b0b4", size = 3174226, upload-time = "2026-09-11T16:04:13.171Z" },
+    { url = "https://files.pythonhosted.org/packages/c2/d7/67b817525db9840fcbee4dab04ea5e52d03b8ad25fd73f7237b2e1cb7068/pysnmp_pysmi-5.0.0rc1-py3-none-any.whl", hash = "sha256:fca9fb4b80719491f0cffb60032f85488840b59b04804808ae10bbeb03ae9893", size = 3216384, upload-time = "2026-09-11T21:55:20.25Z" },
 ]
 
 [[package]]
