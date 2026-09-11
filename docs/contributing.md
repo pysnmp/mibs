@@ -40,10 +40,15 @@ locally:
 
 | | |
 |---|---|
-| `tests/corpus-agreement.py` | every module the published and compact builds share is byte-identical |
 | `tests/index-contract.sh` | the published indexes answer for what the corpus carries |
+| `tests/artifact-contract.sh` | the published names are what `asn1/@mib@` can fetch |
+| `tests/chart-contract.sh` | the chart renders what `charts/mibserver/rendered/` records |
 | `tests/serving-contract.sh` | the corpus image answers the paths the site does |
 | `tests/runtime-compile-contract.py` | a released pysnmp compiles what this build publishes |
+
+That the compact corpus is a byte-identical subset of the published one is
+checked upstream, in pysmi's `tests/test_corpus_publish_invariance.py`, because
+`publish: false` is pysmi's feature — see [The corpora](corpora.md).
 
 The lint and format the four sibling repositories share applies here too:
 

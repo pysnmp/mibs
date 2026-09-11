@@ -118,7 +118,7 @@ echo "== every module named in the index is still carried somewhere"
 # harmless in the published output -- but they are rot, and the count should
 # not grow.
 #
-# "Carried" means src/ or pysmi's bundled ASN.1, since 'make bundled-asn1'
+# "Carried" means src/ or pysmi's bundled ASN.1, since the standard namespace in corpus.json
 # stages the bundle into the published tree alongside src/.
 #
 # COFFEE-POT-MIB joined them when src/standard was deleted: pysmi does not
@@ -183,7 +183,7 @@ else
 fi
 
 if [ -d output ]; then
-  # The workflow creates output/asn1 before 'make index', so output/ existing
+  # The workflow creates output/asn1 during the corpus build, so output/ existing
   # says nothing about whether the index was built. Skipping on a missing
   # index.csv would let an incomplete generation pass this script silently,
   # which is the one thing a contract test must not do. Once output/ exists,
@@ -286,7 +286,7 @@ if [ -d output ]; then
   fi
 else
   echo "== output/ absent, skipping the built-index checks"
-  echo "     run 'make index' first to include them"
+  echo "     run 'mibcorpus --manifest=corpus.json --output-directory=output' first"
 fi
 
 echo

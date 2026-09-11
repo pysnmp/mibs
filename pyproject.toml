@@ -4,7 +4,7 @@ version = "2.2.0"
 description = ""
 authors = [{ name = "rfaircloth-splunk", email = "rfaircloth@splunk.com" }]
 license = "BSD-2-Clause"
-requires-python = ">=3.10,<3.12"
+requires-python = ">=3.10,<3.15"
 dependencies = [
     "pyyaml!=6.0.0",
 ]
@@ -16,7 +16,7 @@ dependencies = [
 # that is the coupling this split exists to remove.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi>=4.0.0,<5",
+    "pysnmp-pysmi>=4.1.0rc2,<5",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
@@ -42,6 +42,11 @@ consumer = [
 
 [tool.uv]
 package = false
+
+# The pysmi floor names an rc, so every resolve has to be willing to take one.
+# Without this, a bare `uv run` re-resolves away from the locked prerelease and
+# the corpus is built by a different compiler than the lockfile records.
+prerelease = "allow"
 
 # uv resolves a conflicting pair into separate forks of the lock rather than
 # failing, which is what lets one lockfile hold both a build environment on

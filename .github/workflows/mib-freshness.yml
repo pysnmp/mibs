@@ -56,7 +56,7 @@ jobs:
       - uses: astral-sh/setup-uv@v10.0.1
         with:
           version: "0.12.9"
-          python-version: "3.11"
+          python-version: "3.14"
           enable-cache: true
       - name: Check the manifest against the tree
         # Offline, and the cheapest thing that can be wrong: a patch

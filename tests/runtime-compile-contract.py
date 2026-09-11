@@ -241,7 +241,9 @@ def main():
             )
             return 1
         print("== output/asn1 absent, skipping the runtime-compile checks")
-        print("     run 'make index' first to include them")
+        print(
+            "     run 'mibcorpus --manifest=corpus.json --output-directory=output' first"
+        )
         print()
         print("PASS")
         return 0

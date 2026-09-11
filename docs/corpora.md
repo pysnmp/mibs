@@ -27,9 +27,13 @@ ghcr.io/pysnmp/mibs/corpus-compact:<version>
 `publish: false` is the only difference between the two manifests in this
 repository. `corpus.json` and `corpus-compact.json` are otherwise identical,
 which is what makes the compact corpus a subset of the published one rather
-than a second rendering of it. `tests/corpus-agreement.py` is what holds that
-claim to account: it compares every module the two builds share, byte for byte,
-and fails if they compiled differently.
+than a second rendering of it. pysmi holds that claim to account, in
+`tests/test_corpus_publish_invariance.py`: it builds one source set twice, with
+the standard namespace published and unpublished, and asserts every shared
+module has the same `content_hash` in both. The check belongs there because
+`publish: false` is pysmi's feature, and a hermetic test on every pysmi commit
+catches a regression earlier than a fingerprint comparison on this repository's
+release schedule did.
 
 ## The corpus database
 
@@ -58,7 +62,8 @@ Measured on the corpus this repository builds:
 | size | 256 MB, 36 MB gzipped |
 | build | one `mibcorpus` invocation, ~5 minutes |
 
-**Built from `corpus.json`, not the compact manifest.** The compact corpus
+**Built from `corpus-db.json`, whose source set is `corpus.json`'s — not the
+compact manifest.** The two differ only in what they emit. The compact corpus
 leaves the standard modules out because a runtime that has pysmi already holds
 them as Python — but a database is consulted *by OID*, and one missing
 `1.3.6.1.2.1` cannot resolve `ifDescr` for anybody. There is one corpus; vendor

@@ -28,8 +28,9 @@ had drifted from it (pysnmp/mibs#365).
 | | |
 |---|---|
 | `src/vendor/*` | the MIB sources, one directory per vendor |
-| `corpus.json` | the source set the published corpus is built from |
+| `corpus.json` | the source set the published corpus is built from, and what it emits |
 | `corpus-compact.json` | the same source set, without the standard modules |
+| `corpus-db.json` | the same source set again, emitting only `core.db` |
 | `index-frozen.csv` | the OID index snapshot `index.csv` replays |
 | `charts/mibserver` | the Helm chart |
 | `docker/` | the images: the corpus, and pysmi for the chart's init container |

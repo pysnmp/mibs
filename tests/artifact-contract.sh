@@ -170,7 +170,7 @@ elif [ -d output ]; then
   fail "output/standard.txt is missing, but output/ exists -- the build did not complete"
 else
   echo "== output/ absent, skipping the standard.txt checks"
-  echo "     run 'make index' first to include them"
+  echo "     run 'mibcorpus --manifest=corpus.json --output-directory=output' first"
 fi
 
 if [ -d output/asn1 ]; then
