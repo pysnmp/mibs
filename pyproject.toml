@@ -1,6 +1,6 @@
 [project]
 name = "pysnmp-mibs"
-version = "2.4.0"
+version = "2.5.0"
 description = ""
 authors = [{ name = "Ryan Faircloth", email = "actual@rfaircloth.com" }]
 license = "BSD-2-Clause"
