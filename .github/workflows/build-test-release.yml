@@ -239,6 +239,28 @@ jobs:
         with:
           name: corpus-report
           path: output/report.json
+      # The documentation for what this repository publishes, deployed onto the
+      # same tree as the thing it documents so the two cannot drift apart by a
+      # release. It lands at the root, which until now answered 404: every
+      # path the corpus serves is a directory or a CSV, and none of them
+      # collide with a Sphinx page.
+      #
+      # Its own uv project, on its own interpreter. The corpus build is pinned
+      # to 3.11 because its output is fingerprinted byte for byte, and current
+      # Sphinx needs 3.12 or newer; docs/pyproject.toml says more.
+      #
+      # Built on every ref, not just main. A pull request that breaks the docs
+      # build should fail on the pull request.
+      - name: Build the documentation
+        run: >
+          uv run --directory docs --locked --group dev --python 3.14
+          sphinx-build -n -W --keep-going -b html
+          -d "${RUNNER_TEMP}/doctrees" . "${RUNNER_TEMP}/docs-html"
+      - name: Place the documentation at the site root
+        run: |
+          cp -r "${RUNNER_TEMP}/docs-html/." output/
+          test -f output/index.html
+          test -f output/asn1/IF-MIB
       - name: Carry forward legacy chart index
         if: github.ref == 'refs/heads/main'
         run: |

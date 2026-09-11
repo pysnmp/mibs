@@ -24,7 +24,7 @@ and re-applied to a newer revision. A module with a publisher and no
 patch must match that publisher byte for byte.
 
 Once that holds, "has the vendor revised this?" becomes a question a
-machine can ask, and [the monthly workflow](../.github/workflows/mib-freshness.yml)
+machine can ask, and [the monthly workflow](https://github.com/pysnmp/mibs/blob/main/.github/workflows/mib-freshness.yml)
 asks it.
 
 ## What this does not recover
