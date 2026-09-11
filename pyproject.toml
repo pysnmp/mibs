@@ -14,9 +14,15 @@ dependencies = [
 # here rather than in [project.dependencies] because a main dependency is
 # present in every fork of the lock, including the consumer one below, and
 # that is the coupling this split exists to remove.
+#
+# The floor names an rc for the same reason the consumer floor below does:
+# dependabot offers a prerelease only when the requirement string already
+# names one. pysmi 5 is the corpus feature line -- core.db schema 2, the
+# registry parsers, the arc index -- and this repository is what exercises it,
+# so it tracks the rc stream rather than waiting for the GA.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi>=4.1.0,<5",
+    "pysnmp-pysmi>=5.0.0rc1,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
@@ -43,16 +49,15 @@ consumer = [
 [tool.uv]
 package = false
 
-# The consumer floor names an rc, so every resolve has to be willing to take
-# one. Without this, a bare `uv run` re-resolves away from the locked
-# prerelease and the contract runs against a different pysnmp than the
-# lockfile records. The build environment no longer needs it -- pysmi is on a
-# release floor -- but the lock is resolved as a whole, so it stays.
+# Both floors name an rc, so every resolve has to be willing to take one.
+# Without this, a bare `uv run` re-resolves away from the locked prereleases
+# and the build runs against a different pysmi, and the contract against a
+# different pysnmp, than the lockfile records.
 prerelease = "allow"
 
 # uv resolves a conflicting pair into separate forks of the lock rather than
 # failing, which is what lets one lockfile hold both a build environment on
-# pysmi 4 and a consumer environment on whatever pysnmp pins.
+# pysmi 5 and a consumer environment on whatever pysnmp pins.
 conflicts = [[{ group = "dev" }, { group = "consumer" }]]
 
 # The tooling pyasn1, pysmi and pysnmp share, so a contributor moving between
