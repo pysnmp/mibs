@@ -1,0 +1,953 @@
+ACOS-CGNV6-DDOS-PROTECTION-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		cgnv6DdosProtectionModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "cgnv6DdosProtectionModule OID for ACOS"
+				::=  {  acosSchema 411 }
+
+ddosProtection		 OBJECT IDENTIFIER ::= { cgnv6DdosProtectionModule 1}
+
+ddosProtectionStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DdosProtectionStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Configure CGNV6 DDoS Protection from object 'cgnv6.ddos-protection'"
+	::= {ddosProtection 1}
+
+ddosProtectionStatsEntry OBJECT-TYPE
+	SYNTAX DdosProtectionStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ddosProtectionStats stats entry"
+	INDEX {
+		ddosProtectionStatsSlotId
+	}
+	::= { ddosProtectionStatsTable 1 }
+
+DdosProtectionStatsEntry ::=
+	SEQUENCE {
+		ddosProtectionStatsSlotId Integer32,
+		ddosProtectionStatsL3EntryAdded	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryDeleted	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryAddedToBgp	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryRemovedFromBgp	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryAddedToHw	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryRemovedFromHw	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryTooMany	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryMatchDrop	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryMatchDropHw	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryDropMaxHwExceeded	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryAdded	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryDeleted	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryAddedToHw	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryRemovedFromHw	 CounterBasedGauge64,
+		ddosProtectionStatsL4HwOutOfEntries	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryMatchDrop	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryMatchDropHw	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryDropMaxHwExceeded	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryListAlloc	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryListFree	 CounterBasedGauge64,
+		ddosProtectionStatsL4EntryListAllocFailure	 CounterBasedGauge64,
+		ddosProtectionStatsIpNodeAlloc	 CounterBasedGauge64,
+		ddosProtectionStatsIpNodeFree	 CounterBasedGauge64,
+		ddosProtectionStatsIpNodeAllocFailure	 CounterBasedGauge64,
+		ddosProtectionStatsIpPortBlockAlloc	 CounterBasedGauge64,
+		ddosProtectionStatsIpPortBlockFree	 CounterBasedGauge64,
+		ddosProtectionStatsIpPortBlockAllocFailure	 CounterBasedGauge64,
+		ddosProtectionStatsIpOtherBlockAlloc	 CounterBasedGauge64,
+		ddosProtectionStatsIpOtherBlockFree	 CounterBasedGauge64,
+		ddosProtectionStatsIpOtherBlockAllocFailure	 CounterBasedGauge64,
+		ddosProtectionStatsEntryAddedShadow	 CounterBasedGauge64,
+		ddosProtectionStatsEntryInvalidated	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryAddToBgpFailure	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryRemoveFromBgpFailure	 CounterBasedGauge64,
+		ddosProtectionStatsL3EntryAddToHwFailure	 CounterBasedGauge64,
+		ddosProtectionStatsSynCookieSynAckSent	 CounterBasedGauge64,
+		ddosProtectionStatsSynCookieVerificationPassed	 CounterBasedGauge64,
+		ddosProtectionStatsSynCookieVerificationFailed	 CounterBasedGauge64,
+		ddosProtectionStatsSynCookieConnSetupFailed	 CounterBasedGauge64
+	}
+
+ddosProtectionStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ddosProtectionStatsEntry 1 }
+
+ddosProtectionStatsL3EntryAdded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_added"
+	::= { ddosProtectionStatsEntry 2 }
+
+ddosProtectionStatsL3EntryDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_deleted"
+	::= { ddosProtectionStatsEntry 3 }
+
+ddosProtectionStatsL3EntryAddedToBgp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_added_to_bgp"
+	::= { ddosProtectionStatsEntry 4 }
+
+ddosProtectionStatsL3EntryRemovedFromBgp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_removed_from_bgp"
+	::= { ddosProtectionStatsEntry 5 }
+
+ddosProtectionStatsL3EntryAddedToHw OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_added_to_hw"
+	::= { ddosProtectionStatsEntry 6 }
+
+ddosProtectionStatsL3EntryRemovedFromHw OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_removed_from_hw"
+	::= { ddosProtectionStatsEntry 7 }
+
+ddosProtectionStatsL3EntryTooMany OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_too_many"
+	::= { ddosProtectionStatsEntry 8 }
+
+ddosProtectionStatsL3EntryMatchDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_match_drop"
+	::= { ddosProtectionStatsEntry 9 }
+
+ddosProtectionStatsL3EntryMatchDropHw OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_match_drop_hw"
+	::= { ddosProtectionStatsEntry 10 }
+
+ddosProtectionStatsL3EntryDropMaxHwExceeded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_drop_max_hw_exceeded"
+	::= { ddosProtectionStatsEntry 11 }
+
+ddosProtectionStatsL4EntryAdded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_added"
+	::= { ddosProtectionStatsEntry 12 }
+
+ddosProtectionStatsL4EntryDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_deleted"
+	::= { ddosProtectionStatsEntry 13 }
+
+ddosProtectionStatsL4EntryAddedToHw OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_added_to_hw"
+	::= { ddosProtectionStatsEntry 14 }
+
+ddosProtectionStatsL4EntryRemovedFromHw OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_removed_from_hw"
+	::= { ddosProtectionStatsEntry 15 }
+
+ddosProtectionStatsL4HwOutOfEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_hw_out_of_entries"
+	::= { ddosProtectionStatsEntry 16 }
+
+ddosProtectionStatsL4EntryMatchDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_match_drop"
+	::= { ddosProtectionStatsEntry 17 }
+
+ddosProtectionStatsL4EntryMatchDropHw OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_match_drop_hw"
+	::= { ddosProtectionStatsEntry 18 }
+
+ddosProtectionStatsL4EntryDropMaxHwExceeded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_drop_max_hw_exceeded"
+	::= { ddosProtectionStatsEntry 19 }
+
+ddosProtectionStatsL4EntryListAlloc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_list_alloc"
+	::= { ddosProtectionStatsEntry 20 }
+
+ddosProtectionStatsL4EntryListFree OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_list_free"
+	::= { ddosProtectionStatsEntry 21 }
+
+ddosProtectionStatsL4EntryListAllocFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_entry_list_alloc_failure"
+	::= { ddosProtectionStatsEntry 22 }
+
+ddosProtectionStatsIpNodeAlloc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_node_alloc"
+	::= { ddosProtectionStatsEntry 23 }
+
+ddosProtectionStatsIpNodeFree OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_node_free"
+	::= { ddosProtectionStatsEntry 24 }
+
+ddosProtectionStatsIpNodeAllocFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_node_alloc_failure"
+	::= { ddosProtectionStatsEntry 25 }
+
+ddosProtectionStatsIpPortBlockAlloc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_port_block_alloc"
+	::= { ddosProtectionStatsEntry 26 }
+
+ddosProtectionStatsIpPortBlockFree OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_port_block_free"
+	::= { ddosProtectionStatsEntry 27 }
+
+ddosProtectionStatsIpPortBlockAllocFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_port_block_alloc_failure"
+	::= { ddosProtectionStatsEntry 28 }
+
+ddosProtectionStatsIpOtherBlockAlloc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_other_block_alloc"
+	::= { ddosProtectionStatsEntry 29 }
+
+ddosProtectionStatsIpOtherBlockFree OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_other_block_free"
+	::= { ddosProtectionStatsEntry 30 }
+
+ddosProtectionStatsIpOtherBlockAllocFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_other_block_alloc_failure"
+	::= { ddosProtectionStatsEntry 31 }
+
+ddosProtectionStatsEntryAddedShadow OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "entry_added_shadow"
+	::= { ddosProtectionStatsEntry 32 }
+
+ddosProtectionStatsEntryInvalidated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "entry_invalidated"
+	::= { ddosProtectionStatsEntry 33 }
+
+ddosProtectionStatsL3EntryAddToBgpFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_add_to_bgp_failure"
+	::= { ddosProtectionStatsEntry 34 }
+
+ddosProtectionStatsL3EntryRemoveFromBgpFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_remove_from_bgp_failure"
+	::= { ddosProtectionStatsEntry 35 }
+
+ddosProtectionStatsL3EntryAddToHwFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_entry_add_to_hw_failure"
+	::= { ddosProtectionStatsEntry 36 }
+
+ddosProtectionStatsSynCookieSynAckSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syn_cookie_syn_ack_sent"
+	::= { ddosProtectionStatsEntry 37 }
+
+ddosProtectionStatsSynCookieVerificationPassed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syn_cookie_verification_passed"
+	::= { ddosProtectionStatsEntry 38 }
+
+ddosProtectionStatsSynCookieVerificationFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syn_cookie_verification_failed"
+	::= { ddosProtectionStatsEntry 39 }
+
+ddosProtectionStatsSynCookieConnSetupFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syn_cookie_conn_setup_failed"
+	::= { ddosProtectionStatsEntry 40 }
+
+l4Entries		 OBJECT IDENTIFIER ::= { ddosProtection 2}
+
+l4EntriesOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF L4EntriesOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'cgnv6.ddos-protection.l4-entries'"
+	::= {l4Entries 2}
+
+l4EntriesOperEntry OBJECT-TYPE
+	SYNTAX L4EntriesOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The l4EntriesOper entry"
+	INDEX {
+		l4EntriesOperSlotId
+	}
+	::= { l4EntriesOperTable 1 }
+
+L4EntriesOperEntry ::=
+	SEQUENCE {
+		l4EntriesOperSlotId Integer32,
+		l4EntriesOperTotalEntries	 Integer32,
+		l4EntriesOperAll	 DisplayString,
+		l4EntriesOperNatPool	 DisplayString,
+		l4EntriesOperV4Netmask	 DisplayString,
+		l4EntriesOperNotInHardware	 DisplayString
+	}
+
+l4EntriesOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { l4EntriesOperEntry 1 }
+
+l4EntriesOperTotalEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-entries"
+	::= { l4EntriesOperEntry 2 }
+
+l4EntriesOperAll OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "all"
+	::= { l4EntriesOperEntry 3 }
+
+l4EntriesOperNatPool OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat-pool"
+	::= { l4EntriesOperEntry 4 }
+
+l4EntriesOperV4Netmask OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v4-netmask"
+	::= { l4EntriesOperEntry 5 }
+
+l4EntriesOperNotInHardware OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "not-in-hardware"
+	::= { l4EntriesOperEntry 6 }
+
+l4EntriesOperDdosL4EntriesListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF L4EntriesOperDdosL4EntriesListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'cgnv6.ddos-protection.l4-entries'"
+	::= {l4Entries 3}
+
+l4EntriesOperDdosL4EntriesListEntry OBJECT-TYPE
+	SYNTAX L4EntriesOperDdosL4EntriesListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The l4EntriesOperDdosL4EntriesList entry:ddos-l4-entries-list"
+	INDEX {
+		l4EntriesOperDdosL4EntriesListSlotId,
+		l4EntriesOperDdosL4EntriesListDdosL4EntriesListListId
+	}
+	::= { l4EntriesOperDdosL4EntriesListTable 1}
+
+L4EntriesOperDdosL4EntriesListEntry ::=
+	SEQUENCE {
+		l4EntriesOperDdosL4EntriesListSlotId Integer32,
+		l4EntriesOperDdosL4EntriesListDdosL4EntriesListListId Integer32,
+		l4EntriesOperDdosL4EntriesListV4Address	DisplayString,
+		l4EntriesOperDdosL4EntriesListL4Protocol	DisplayString,
+		l4EntriesOperDdosL4EntriesListPort	Integer32,
+		l4EntriesOperDdosL4EntriesListInHardware	Integer32,
+		l4EntriesOperDdosL4EntriesListHardwareIndex	Integer32,
+		l4EntriesOperDdosL4EntriesListPps	Integer32,
+		l4EntriesOperDdosL4EntriesListExpiration	Integer32,
+		l4EntriesOperDdosL4EntriesListIsDeleted	Integer32
+	}
+
+l4EntriesOperDdosL4EntriesListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { l4EntriesOperDdosL4EntriesListEntry 1}
+
+l4EntriesOperDdosL4EntriesListDdosL4EntriesListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { l4EntriesOperDdosL4EntriesListEntry 2}
+
+l4EntriesOperDdosL4EntriesListV4Address OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"v4-address"
+	::= { l4EntriesOperDdosL4EntriesListEntry 3}
+
+l4EntriesOperDdosL4EntriesListL4Protocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l4-protocol"
+	::= { l4EntriesOperDdosL4EntriesListEntry 4}
+
+l4EntriesOperDdosL4EntriesListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port"
+	::= { l4EntriesOperDdosL4EntriesListEntry 5}
+
+l4EntriesOperDdosL4EntriesListInHardware OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"in-hardware"
+	::= { l4EntriesOperDdosL4EntriesListEntry 6}
+
+l4EntriesOperDdosL4EntriesListHardwareIndex OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hardware-index"
+	::= { l4EntriesOperDdosL4EntriesListEntry 7}
+
+l4EntriesOperDdosL4EntriesListPps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pps"
+	::= { l4EntriesOperDdosL4EntriesListEntry 8}
+
+l4EntriesOperDdosL4EntriesListExpiration OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"expiration"
+	::= { l4EntriesOperDdosL4EntriesListEntry 9}
+
+l4EntriesOperDdosL4EntriesListIsDeleted OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"is-deleted"
+	::= { l4EntriesOperDdosL4EntriesListEntry 10}
+
+ipEntries		 OBJECT IDENTIFIER ::= { ddosProtection 3}
+
+ipEntriesOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF IpEntriesOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'cgnv6.ddos-protection.ip-entries'"
+	::= {ipEntries 2}
+
+ipEntriesOperEntry OBJECT-TYPE
+	SYNTAX IpEntriesOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ipEntriesOper entry"
+	INDEX {
+		ipEntriesOperSlotId
+	}
+	::= { ipEntriesOperTable 1 }
+
+IpEntriesOperEntry ::=
+	SEQUENCE {
+		ipEntriesOperSlotId Integer32,
+		ipEntriesOperTotalEntries	 Integer32,
+		ipEntriesOperAll	 DisplayString,
+		ipEntriesOperNatPool	 DisplayString,
+		ipEntriesOperV4Netmask	 DisplayString
+	}
+
+ipEntriesOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ipEntriesOperEntry 1 }
+
+ipEntriesOperTotalEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-entries"
+	::= { ipEntriesOperEntry 2 }
+
+ipEntriesOperAll OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "all"
+	::= { ipEntriesOperEntry 3 }
+
+ipEntriesOperNatPool OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat-pool"
+	::= { ipEntriesOperEntry 4 }
+
+ipEntriesOperV4Netmask OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v4-netmask"
+	::= { ipEntriesOperEntry 5 }
+
+ipEntriesOperDdosIpEntriesListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF IpEntriesOperDdosIpEntriesListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'cgnv6.ddos-protection.ip-entries'"
+	::= {ipEntries 3}
+
+ipEntriesOperDdosIpEntriesListEntry OBJECT-TYPE
+	SYNTAX IpEntriesOperDdosIpEntriesListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ipEntriesOperDdosIpEntriesList entry:ddos-ip-entries-list"
+	INDEX {
+		ipEntriesOperDdosIpEntriesListSlotId,
+		ipEntriesOperDdosIpEntriesListDdosIpEntriesListListId
+	}
+	::= { ipEntriesOperDdosIpEntriesListTable 1}
+
+IpEntriesOperDdosIpEntriesListEntry ::=
+	SEQUENCE {
+		ipEntriesOperDdosIpEntriesListSlotId Integer32,
+		ipEntriesOperDdosIpEntriesListDdosIpEntriesListListId Integer32,
+		ipEntriesOperDdosIpEntriesListV4Address	DisplayString,
+		ipEntriesOperDdosIpEntriesListExpiration	Integer32,
+		ipEntriesOperDdosIpEntriesListHints	DisplayString,
+		ipEntriesOperDdosIpEntriesListL4EntriesCount	Integer32,
+		ipEntriesOperDdosIpEntriesListSwReceivePps	Integer32,
+		ipEntriesOperDdosIpEntriesListSwL4DropPps	Integer32,
+		ipEntriesOperDdosIpEntriesListHwL4DropPps	Integer32,
+		ipEntriesOperDdosIpEntriesListSwL3DropPps	Integer32,
+		ipEntriesOperDdosIpEntriesListHwL3DropPps	Integer32,
+		ipEntriesOperDdosIpEntriesListTotalPps	Integer32,
+		ipEntriesOperDdosIpEntriesListInBlacklist	Integer32,
+		ipEntriesOperDdosIpEntriesListInHardware	Integer32,
+		ipEntriesOperDdosIpEntriesListHardwareIndex	Integer32
+	}
+
+ipEntriesOperDdosIpEntriesListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipEntriesOperDdosIpEntriesListEntry 1}
+
+ipEntriesOperDdosIpEntriesListDdosIpEntriesListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipEntriesOperDdosIpEntriesListEntry 2}
+
+ipEntriesOperDdosIpEntriesListV4Address OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"v4-address"
+	::= { ipEntriesOperDdosIpEntriesListEntry 3}
+
+ipEntriesOperDdosIpEntriesListExpiration OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"expiration"
+	::= { ipEntriesOperDdosIpEntriesListEntry 4}
+
+ipEntriesOperDdosIpEntriesListHints OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hints"
+	::= { ipEntriesOperDdosIpEntriesListEntry 5}
+
+ipEntriesOperDdosIpEntriesListL4EntriesCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l4-entries-count"
+	::= { ipEntriesOperDdosIpEntriesListEntry 6}
+
+ipEntriesOperDdosIpEntriesListSwReceivePps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"sw-receive-pps"
+	::= { ipEntriesOperDdosIpEntriesListEntry 7}
+
+ipEntriesOperDdosIpEntriesListSwL4DropPps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"sw-l4-drop-pps"
+	::= { ipEntriesOperDdosIpEntriesListEntry 8}
+
+ipEntriesOperDdosIpEntriesListHwL4DropPps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hw-l4-drop-pps"
+	::= { ipEntriesOperDdosIpEntriesListEntry 9}
+
+ipEntriesOperDdosIpEntriesListSwL3DropPps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"sw-l3-drop-pps"
+	::= { ipEntriesOperDdosIpEntriesListEntry 10}
+
+ipEntriesOperDdosIpEntriesListHwL3DropPps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hw-l3-drop-pps"
+	::= { ipEntriesOperDdosIpEntriesListEntry 11}
+
+ipEntriesOperDdosIpEntriesListTotalPps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"total-pps"
+	::= { ipEntriesOperDdosIpEntriesListEntry 12}
+
+ipEntriesOperDdosIpEntriesListInBlacklist OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"in-blacklist"
+	::= { ipEntriesOperDdosIpEntriesListEntry 13}
+
+ipEntriesOperDdosIpEntriesListInHardware OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"in-hardware"
+	::= { ipEntriesOperDdosIpEntriesListEntry 14}
+
+ipEntriesOperDdosIpEntriesListHardwareIndex OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hardware-index"
+	::= { ipEntriesOperDdosIpEntriesListEntry 15}
+
+disableNatIpByBgp		 OBJECT IDENTIFIER ::= { ddosProtection 4}
+
+disableNatIpByBgpOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DisableNatIpByBgpOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'cgnv6.ddos-protection.disable-nat-ip-by-bgp'"
+	::= {disableNatIpByBgp 2}
+
+disableNatIpByBgpOperEntry OBJECT-TYPE
+	SYNTAX DisableNatIpByBgpOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The disableNatIpByBgpOper entry"
+	INDEX {
+		disableNatIpByBgpOperSlotId
+	}
+	::= { disableNatIpByBgpOperTable 1 }
+
+DisableNatIpByBgpOperEntry ::=
+	SEQUENCE {
+		disableNatIpByBgpOperSlotId Integer32,
+		disableNatIpByBgpOperTotalEntries	 Integer32,
+		disableNatIpByBgpOperAll	 DisplayString,
+		disableNatIpByBgpOperV4Address	 DisplayString
+	}
+
+disableNatIpByBgpOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { disableNatIpByBgpOperEntry 1 }
+
+disableNatIpByBgpOperTotalEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-entries"
+	::= { disableNatIpByBgpOperEntry 2 }
+
+disableNatIpByBgpOperAll OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "all"
+	::= { disableNatIpByBgpOperEntry 3 }
+
+disableNatIpByBgpOperV4Address OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v4-address"
+	::= { disableNatIpByBgpOperEntry 4 }
+
+disableNatIpByBgpOperDdosDisabledByBgpEntriesListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DisableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'cgnv6.ddos-protection.disable-nat-ip-by-bgp'"
+	::= {disableNatIpByBgp 3}
+
+disableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry OBJECT-TYPE
+	SYNTAX DisableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The disableNatIpByBgpOperDdosDisabledByBgpEntriesList entry:ddos-disabled-by-bgp-entries-list"
+	INDEX {
+		disableNatIpByBgpOperDdosDisabledByBgpEntriesListSlotId,
+		disableNatIpByBgpOperDdosDisabledByBgpEntriesListDdosDisabledByBgpEntriesListListId
+	}
+	::= { disableNatIpByBgpOperDdosDisabledByBgpEntriesListTable 1}
+
+DisableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry ::=
+	SEQUENCE {
+		disableNatIpByBgpOperDdosDisabledByBgpEntriesListSlotId Integer32,
+		disableNatIpByBgpOperDdosDisabledByBgpEntriesListDdosDisabledByBgpEntriesListListId Integer32,
+		disableNatIpByBgpOperDdosDisabledByBgpEntriesListV4Address	DisplayString,
+		disableNatIpByBgpOperDdosDisabledByBgpEntriesListNatPoolName	DisplayString
+	}
+
+disableNatIpByBgpOperDdosDisabledByBgpEntriesListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { disableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry 1}
+
+disableNatIpByBgpOperDdosDisabledByBgpEntriesListDdosDisabledByBgpEntriesListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { disableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry 2}
+
+disableNatIpByBgpOperDdosDisabledByBgpEntriesListV4Address OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"v4-address"
+	::= { disableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry 3}
+
+disableNatIpByBgpOperDdosDisabledByBgpEntriesListNatPoolName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"nat-pool-name"
+	::= { disableNatIpByBgpOperDdosDisabledByBgpEntriesListEntry 4}
+
+END
+

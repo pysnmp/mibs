@@ -1,0 +1,221 @@
+-----------------------------------------------------------------------------
+--  File         : gbnL3Ospf-Mib.mi2
+--  Description  : ADMIN  Enterprise MIB 
+--  Version      : 0.03
+--  Date         : May 03, 2002     
+--
+--  Copyright (c) 2002-2005 admin Systems, Inc.  All Rights Reserved.
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
+    GBNL3Ospf-MIB DEFINITIONS ::= BEGIN
+
+    IMPORTS
+        MODULE-IDENTITY, OBJECT-TYPE,
+        Integer32, Counter64                    FROM SNMPv2-SMI
+        
+        DisplayString, TruthValue,MacAddress,RowStatus    FROM SNMPv2-TC  
+              
+        MODULE-COMPLIANCE, OBJECT-GROUP         FROM SNMPv2-CONF
+        
+        gbnL3                                   FROM ADMIN-MASTER-MIB
+        
+        mib-2                                   FROM RFC1213-MIB;
+    
+        
+    gbnL3OspfMib MODULE-IDENTITY
+        LAST-UPDATED    "0308180001Z"  -- Autumn 18,2003  
+        ORGANIZATION    "admin Systems, Inc."
+        CONTACT-INFO    "admin Systems, Inc.
+                         E-mail: support@admin.com.cn"
+
+        DESCRIPTION     "GBN Enterprise MIB definition."
+
+        REVISION        "0308180001Z"  -- Autumn 18,2003
+        DESCRIPTION     "Initial MIB creation."
+
+        ::= { gbnL3 3 }
+
+Metric ::= TEXTUAL-CONVENTION
+    STATUS      current
+    DESCRIPTION
+       "The OSPF Internal Metric."
+    SYNTAX      Integer32 (0..'FFFFFF'h)
+
+   gbnL3OspfGroup               OBJECT IDENTIFIER ::= { gbnL3OspfMib 1 }   
+    
+   
+    ospfRedistriDefaultMetric OBJECT-TYPE
+        SYNTAX   Metric
+        MAX-ACCESS   read-write
+        STATUS   current
+        DESCRIPTION
+           "OSPF."
+       REFERENCE
+          "OSPF Version 2, C.1 Global parameters" 
+       DEFVAL { 1 }         
+      ::= { gbnL3OspfGroup 1 }      
+      
+    ospfRedistriDefaultType OBJECT-TYPE
+       SYNTAX   INTEGER    {
+                    type1 (1),
+                    type2 (2)
+                  }
+        MAX-ACCESS   read-write
+        STATUS   current
+        DESCRIPTION
+           "OSPF."
+       REFERENCE
+          "OSPF Version 2, C.1 Global parameters"  
+       DEFVAL { type2 }         
+      ::= { gbnL3OspfGroup 2 }
+
+    ospfRedistriDefaultTag OBJECT-TYPE
+        SYNTAX   Integer32
+        MAX-ACCESS   read-write
+        STATUS   current
+        DESCRIPTION
+           "."
+       DEFVAL { 1 }        
+      ::= { gbnL3OspfGroup 3 }
+
+
+   ospfRedistriDefaultInterval OBJECT-TYPE
+        SYNTAX   Integer32
+        MAX-ACCESS   read-write
+        STATUS   current
+        DESCRIPTION
+           "OSPFS."
+       REFERENCE
+          "OSPF Version 2, C.1 Global parameters" 
+       DEFVAL { 1 }          
+      ::= { gbnL3OspfGroup 4 }    
+      
+    ospfRedistriDefaultLimit OBJECT-TYPE
+        SYNTAX   Integer32
+        MAX-ACCESS   read-write
+        STATUS   current
+        DESCRIPTION
+           "OSPF."
+       REFERENCE
+          "OSPF Version 2, C.1 Global parameters"
+       DEFVAL { 1000 }
+      ::= { gbnL3OspfGroup 5 }
+
+    ospfMibBinding OBJECT-TYPE
+        SYNTAX   Integer32(0..10)
+        MAX-ACCESS   read-write
+        STATUS   current
+        DESCRIPTION
+           "Bind OSPF MIBs to OSPF process. OSPF MIBs access the binging process only."
+       DEFVAL { 0 }
+      ::= { gbnL3OspfGroup 6 }
+      
+      
+--  OSPF redistribute Variables
+
+--      These parameters apply globally to the Router's
+--      OSPF Process when OSPF redistribute routes of other protocal.  
+
+    ospfRedistributeTable OBJECT-TYPE
+        SYNTAX   SEQUENCE OF OspfRedistributeEntry
+        MAX-ACCESS   not-accessible
+        STATUS   current
+        DESCRIPTION
+           "Information describing the configured  parame-
+           ters  of redistribute."
+       ::= { gbnL3OspfMib 2 }
+
+    ospfRedistributeEntry OBJECT-TYPE
+        SYNTAX   OspfRedistributeEntry
+        MAX-ACCESS   not-accessible
+        STATUS   current
+        DESCRIPTION
+           "Information describing the configured  parame-
+           ters  of redistribute."
+       INDEX { ospfRedistributeProtocal }
+       ::= { ospfRedistributeTable 1 }
+
+    OspfRedistributeEntry ::=
+	    SEQUENCE {
+	        ospfRedistributeProtocal
+	            Integer32,
+	        ospfRedistributeMetric
+	            Metric,
+	        ospfRedistributeType
+	            INTEGER,
+	        ospfRedistributeTag
+	            Integer32,
+	        ospfRedistributeStatus
+	            RowStatus, 
+	        ospfRedistributeAlways
+	            TruthValue
+	              }
+
+    ospfRedistributeProtocal OBJECT-TYPE
+       SYNTAX   Integer32
+         MAX-ACCESS   read-only
+        STATUS   current
+        DESCRIPTION
+           "OSPF."
+       REFERENCE
+          "OSPF Version 2, C.1 Global parameters"
+      ::= { ospfRedistributeEntry 1 }
+
+    ospfRedistributeMetric OBJECT-TYPE
+        SYNTAX   Metric
+        MAX-ACCESS   read-write
+        STATUS   current
+        DESCRIPTION
+           "OSPF
+           :RIPRIPmetric100
+           RIP10OSPF
+           110."
+       ::= { ospfRedistributeEntry 2 }
+
+    ospfRedistributeType OBJECT-TYPE
+      SYNTAX   INTEGER    {
+                    type1 (1),
+                    type2 (2)
+                  }
+        MAX-ACCESS   read-write
+        STATUS   current
+        DESCRIPTION
+           "OSPFtype1type2
+           IGPRIPIGRPSTATIC
+            = ASBR+ASBR
+           BGP
+           OSPFASBR
+           ASBR
+           = ASBR
+           ASBR."
+       ::= { ospfRedistributeEntry 3 }
+
+    ospfRedistributeTag OBJECT-TYPE
+        SYNTAX   Integer32
+        MAX-ACCESS   read-write
+        STATUS   current 
+        DESCRIPTION
+        "tag"
+        ::= { ospfRedistributeEntry 4 }
+        
+    ospfRedistributeStatus OBJECT-TYPE
+        SYNTAX   RowStatus
+        MAX-ACCESS   read-write
+        STATUS   current 
+        DESCRIPTION
+        "This object indicates the status of this entry."
+        ::= { ospfRedistributeEntry 5 }  
+        
+     ospfRedistributeAlways OBJECT-TYPE
+        SYNTAX   TruthValue
+        MAX-ACCESS   read-write
+        STATUS   current 
+        DESCRIPTION
+        "always
+        ase lsa
+        ase lsa
+        ."
+        ::= { ospfRedistributeEntry 6 } 
+
+END

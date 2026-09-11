@@ -1,0 +1,144 @@
+GARDEROS-PRODUCT-MIB DEFINITIONS ::= BEGIN
+
+
+IMPORTS
+    garderos
+        FROM GARDEROS-SMI-MIB
+    MODULE-COMPLIANCE, OBJECT-GROUP
+        FROM SNMPv2-CONF
+    MODULE-IDENTITY, OBJECT-IDENTITY, OBJECT-TYPE
+        FROM SNMPv2-SMI
+    DisplayString
+        FROM SNMPv2-TC;
+
+
+--===========================================--
+--===========================================--
+--             MODULE-IDENTITY                
+--===========================================--
+--===========================================--
+
+product MODULE-IDENTITY
+        LAST-UPDATED "201703061359Z"
+        ORGANIZATION "Garderos GmbH"
+        CONTACT-INFO
+                "info@garderos.com"
+        DESCRIPTION
+                "The MIB Module for Garderos Product Information"
+        REVISION "201703061359Z"
+        DESCRIPTION
+                "Product"
+        ::= { garderos 1 }               -- 1.3.6.1.4.1.16108.1
+
+-- Product MIB
+productMIB OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Product MIB"
+        ::= { product 1 }                -- 1.3.6.1.4.1.16108.1.1
+
+-- Conformance
+productConformance OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Conformance"
+        ::= { productMIB 2 }             -- 1.3.6.1.4.1.16108.1.1.2
+
+productGroups OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Groups"
+        ::= { productConformance 1 }     -- 1.3.6.1.4.1.16108.1.1.2.1
+
+productCompliances OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Compliance"
+        ::= { productConformance 2 }     -- 1.3.6.1.4.1.16108.1.1.2.2
+
+
+--===========================================--
+--===========================================--
+--              Compliance group             --
+--===========================================--
+--===========================================--
+
+productModuleCompliance MODULE-COMPLIANCE
+        STATUS  current
+        DESCRIPTION
+                "The compliance statement for entities which
+                 implement the product MIB."
+
+        MODULE GARDEROS-PRODUCT-MIB
+        MANDATORY-GROUPS { productInformationGroup }
+        ::= { productCompliances 1 }     -- 1.3.6.1.4.1.16108.1.1.2.2.1
+
+
+--===========================================--
+--===========================================--
+--             Identifiers                   --
+--===========================================--
+--===========================================--
+
+-- Group all entry elements (must be referenced) {
+productInformationGroup OBJECT-GROUP
+        OBJECTS {
+                productType
+                }
+        STATUS  current
+        DESCRIPTION
+                "Group of product MIB objects"
+        ::= { productGroups 2 }          -- 1.3.6.1.4.1.16108.1.1.2.1.2
+
+-- productCasingType
+productCasingType OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Environmental protection"
+        ::= { product 17 }            -- 1.3.6.1.4.1.16108.1.17
+
+-- productCasing
+productCasing OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Type of casing"
+        ::= { productCasingType 33 }  -- 1.3.6.1.4.1.16108.1.17.33
+
+-- productMainboard
+productMainboard OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Mainboard type"
+        ::= { productCasing 31 }    -- 1.3.6.1.4.1.16108.1.17.33.31
+
+-- productInterfaces
+productInterfaces OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "WAN interface type"
+        ::= { productMainboard 36 }  -- 1.3.6.1.4.1.16108.1.17.33.31.36
+
+-- productSubType
+productSubType OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Sub type"
+        ::= { productInterfaces 255 } -- 1.3.6.1.4.1.16108.1.17.33.31.36.255
+
+-- productGeneral             1.3.6.1.4.1.16108.1.17.33.31.36.255.1
+productGeneral OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Product general group"
+        ::= { productSubType 1 }
+
+-- productType
+productType OBJECT-TYPE
+        SYNTAX     DisplayString
+        MAX-ACCESS read-only
+        STATUS     current
+        DESCRIPTION
+                "Garderos product type"
+        ::= { productGeneral 1 }         -- 1.3.6.1.4.1.16108.1.17.33.31.36.255.1.1
+
+END

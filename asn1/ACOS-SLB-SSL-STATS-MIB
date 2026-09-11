@@ -1,0 +1,794 @@
+ACOS-SLB-SSL-STATS-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		slbSslStatsModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "slbSslStatsModule OID for ACOS"
+				::=  {  acosSchema 303 }
+
+sslStats		 OBJECT IDENTIFIER ::= { slbSslStatsModule 1}
+
+sslStatsOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SslStatsOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "SSL Statistics from object 'slb.ssl-stats'"
+	::= {sslStats 2}
+
+sslStatsOperEntry OBJECT-TYPE
+	SYNTAX SslStatsOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The sslStatsOper entry"
+	INDEX {
+		sslStatsOperSlotId
+	}
+	::= { sslStatsOperTable 1 }
+
+SslStatsOperEntry ::=
+	SEQUENCE {
+		sslStatsOperSlotId Integer32,
+		sslStatsOperSslModuleType	 DisplayString,
+		sslStatsOperConfigModuleType	 DisplayString,
+		sslStatsOperThalesHsmStatus	 DisplayString,
+		sslStatsOperSslModulesCount	 Integer32,
+		sslStatsOperCurrentClientsideConnections	 Integer32,
+		sslStatsOperTotalClientsideConnections	 Integer32,
+		sslStatsOperCurrentServersideConnections	 Integer32,
+		sslStatsOperTotalServersideConnections	 Integer32,
+		sslStatsOperNonSslBypassConnections	 Integer32,
+		sslStatsOperTotalReuseClientSsl	 Integer32,
+		sslStatsOperTotalReuseServerSsl	 Integer32,
+		sslStatsOperTotalReuseSessionTicketClientSsl	 Integer32,
+		sslStatsOperTotalReuseSessionTicketServerSsl	 Integer32,
+		sslStatsOperTotalClientsideEarlyDataConnections	 Integer32,
+		sslStatsOperTotalServersideEarlyDataConnections	 Integer32,
+		sslStatsOperTotalClientsideFailedEarlyDataConnections	 Integer32,
+		sslStatsOperTotalServersideFailedEarlyDataConnections	 Integer32,
+		sslStatsOperFailedHandshakes	 Integer32,
+		sslStatsOperFailedCrypto	 Integer32,
+		sslStatsOperSslMemoryUsage	 Integer32,
+		sslStatsOperServerCertErrors	 Integer32,
+		sslStatsOperClientCertAuthFail	 Integer32,
+		sslStatsOperCaVerificationFailures	 Integer32,
+		sslStatsOperHwContextTotal	 Integer32,
+		sslStatsOperHwContextUsage	 Integer32,
+		sslStatsOperHwContextAllocFail	 Integer32,
+		sslStatsOperHwRingFull	 Integer32,
+		sslStatsOperRecordTooBig	 Integer32,
+		sslStatsOperClientsslContextMallocFail	 Integer32,
+		sslStatsOperMaxSslContexts	 Integer32,
+		sslStatsOperCurrSslContexts	 Integer32,
+		sslStatsOperStaticSslContexts	 Integer32,
+		sslStatsOperDynamicSslContexts	 Integer32,
+		sslStatsOperBypassFailsafeSessions	 Integer32,
+		sslStatsOperBypassUsenameSessions	 Integer32,
+		sslStatsOperBypassAdGroupSessions	 Integer32,
+		sslStatsOperBypassSniSessions	 Integer32,
+		sslStatsOperBypassCertSubjectSessions	 Integer32,
+		sslStatsOperBypassCertIssuerSessions	 Integer32,
+		sslStatsOperBypassCertSanSessions	 Integer32,
+		sslStatsOperBypassNoSniSessions	 Integer32,
+		sslStatsOperResetNoSniSessions	 Integer32,
+		sslStatsOperBypassEsniSessions	 Integer32,
+		sslStatsOperDropEsniSessions	 Integer32,
+		sslStatsOperBypassClientAuthSessions	 Integer32,
+		sslStatsOperSslHandshakeFailure	 Integer32,
+		sslStatsOperCryptioOperations	 Integer32,
+		sslStatsOperTcpFailures	 Integer32,
+		sslStatsOperCertificateVerificationFailures	 Integer32,
+		sslStatsOperCertificateSigningFailures	 Integer32,
+		sslStatsOperInvalidOcspStaplingResponse	 Integer32,
+		sslStatsOperRevokedOcspResponse	 Integer32,
+		sslStatsOperUnsupportedSslVersion	 Integer32,
+		sslStatsOperClientSslFatalAlert	 Integer32,
+		sslStatsOperClientSslFinReset	 Integer32,
+		sslStatsOperSslSessionFinReset	 Integer32,
+		sslStatsOperServerSslFatalAlert	 Integer32,
+		sslStatsOperServerSslFinReset	 Integer32,
+		sslStatsOperClientSslInternalError	 Integer32,
+		sslStatsOperClientSslUnknownError	 Integer32,
+		sslStatsOperServerSslInternalError	 Integer32,
+		sslStatsOperServerSslUnknownError	 Integer32,
+		sslStatsOperFpFailHandshake	 Integer32,
+		sslStatsOperFpFailTcpError	 Integer32,
+		sslStatsOperFpFailVerifyCert	 Integer32,
+		sslStatsOperFpFailAflex	 Integer32,
+		sslStatsOperUtilEnableStatus	 DisplayString
+	}
+
+sslStatsOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { sslStatsOperEntry 1 }
+
+sslStatsOperSslModuleType OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ssl-module-type"
+	::= { sslStatsOperEntry 2 }
+
+sslStatsOperConfigModuleType OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "config-module-type"
+	::= { sslStatsOperEntry 3 }
+
+sslStatsOperThalesHsmStatus OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "thales-hsm-status"
+	::= { sslStatsOperEntry 4 }
+
+sslStatsOperSslModulesCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ssl-modules-count"
+	::= { sslStatsOperEntry 5 }
+
+sslStatsOperCurrentClientsideConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "current-clientside-connections"
+	::= { sslStatsOperEntry 6 }
+
+sslStatsOperTotalClientsideConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-clientside-connections"
+	::= { sslStatsOperEntry 7 }
+
+sslStatsOperCurrentServersideConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "current-serverside-connections"
+	::= { sslStatsOperEntry 8 }
+
+sslStatsOperTotalServersideConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-serverside-connections"
+	::= { sslStatsOperEntry 9 }
+
+sslStatsOperNonSslBypassConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "non-ssl-bypass-connections"
+	::= { sslStatsOperEntry 10 }
+
+sslStatsOperTotalReuseClientSsl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-reuse-client-ssl"
+	::= { sslStatsOperEntry 11 }
+
+sslStatsOperTotalReuseServerSsl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-reuse-server-ssl"
+	::= { sslStatsOperEntry 12 }
+
+sslStatsOperTotalReuseSessionTicketClientSsl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-reuse-session-ticket-client-ssl"
+	::= { sslStatsOperEntry 13 }
+
+sslStatsOperTotalReuseSessionTicketServerSsl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-reuse-session-ticket-server-ssl"
+	::= { sslStatsOperEntry 14 }
+
+sslStatsOperTotalClientsideEarlyDataConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-clientside-early-data-connections"
+	::= { sslStatsOperEntry 15 }
+
+sslStatsOperTotalServersideEarlyDataConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-serverside-early-data-connections"
+	::= { sslStatsOperEntry 16 }
+
+sslStatsOperTotalClientsideFailedEarlyDataConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-clientside-failed-early-data-connections"
+	::= { sslStatsOperEntry 17 }
+
+sslStatsOperTotalServersideFailedEarlyDataConnections OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-serverside-failed-early-data-connections"
+	::= { sslStatsOperEntry 18 }
+
+sslStatsOperFailedHandshakes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "failed-handshakes"
+	::= { sslStatsOperEntry 19 }
+
+sslStatsOperFailedCrypto OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "failed-crypto"
+	::= { sslStatsOperEntry 20 }
+
+sslStatsOperSslMemoryUsage OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ssl-memory-usage"
+	::= { sslStatsOperEntry 21 }
+
+sslStatsOperServerCertErrors OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server-cert-errors"
+	::= { sslStatsOperEntry 22 }
+
+sslStatsOperClientCertAuthFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client-cert-auth-fail"
+	::= { sslStatsOperEntry 23 }
+
+sslStatsOperCaVerificationFailures OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ca-verification-failures"
+	::= { sslStatsOperEntry 24 }
+
+sslStatsOperHwContextTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hw-context-total"
+	::= { sslStatsOperEntry 25 }
+
+sslStatsOperHwContextUsage OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hw-context-usage"
+	::= { sslStatsOperEntry 26 }
+
+sslStatsOperHwContextAllocFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hw-context-alloc-fail"
+	::= { sslStatsOperEntry 27 }
+
+sslStatsOperHwRingFull OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hw-ring-full"
+	::= { sslStatsOperEntry 28 }
+
+sslStatsOperRecordTooBig OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "record-too-big"
+	::= { sslStatsOperEntry 29 }
+
+sslStatsOperClientsslContextMallocFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "clientssl-context-malloc-fail"
+	::= { sslStatsOperEntry 30 }
+
+sslStatsOperMaxSslContexts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "max-ssl-contexts"
+	::= { sslStatsOperEntry 31 }
+
+sslStatsOperCurrSslContexts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr-ssl-contexts"
+	::= { sslStatsOperEntry 32 }
+
+sslStatsOperStaticSslContexts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "static-ssl-contexts"
+	::= { sslStatsOperEntry 33 }
+
+sslStatsOperDynamicSslContexts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dynamic-ssl-contexts"
+	::= { sslStatsOperEntry 34 }
+
+sslStatsOperBypassFailsafeSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-failsafe-sessions"
+	::= { sslStatsOperEntry 35 }
+
+sslStatsOperBypassUsenameSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-usename-sessions"
+	::= { sslStatsOperEntry 36 }
+
+sslStatsOperBypassAdGroupSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-ad-group-sessions"
+	::= { sslStatsOperEntry 37 }
+
+sslStatsOperBypassSniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-sni-sessions"
+	::= { sslStatsOperEntry 38 }
+
+sslStatsOperBypassCertSubjectSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-cert-subject-sessions"
+	::= { sslStatsOperEntry 39 }
+
+sslStatsOperBypassCertIssuerSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-cert-issuer-sessions"
+	::= { sslStatsOperEntry 40 }
+
+sslStatsOperBypassCertSanSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-cert-san-sessions"
+	::= { sslStatsOperEntry 41 }
+
+sslStatsOperBypassNoSniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-no-sni-sessions"
+	::= { sslStatsOperEntry 42 }
+
+sslStatsOperResetNoSniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "reset-no-sni-sessions"
+	::= { sslStatsOperEntry 43 }
+
+sslStatsOperBypassEsniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-esni-sessions"
+	::= { sslStatsOperEntry 44 }
+
+sslStatsOperDropEsniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "drop-esni-sessions"
+	::= { sslStatsOperEntry 45 }
+
+sslStatsOperBypassClientAuthSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-client-auth-sessions"
+	::= { sslStatsOperEntry 46 }
+
+sslStatsOperSslHandshakeFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ssl-handshake-failure"
+	::= { sslStatsOperEntry 47 }
+
+sslStatsOperCryptioOperations OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cryptio-operations"
+	::= { sslStatsOperEntry 48 }
+
+sslStatsOperTcpFailures OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-failures"
+	::= { sslStatsOperEntry 49 }
+
+sslStatsOperCertificateVerificationFailures OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "certificate-verification-failures"
+	::= { sslStatsOperEntry 50 }
+
+sslStatsOperCertificateSigningFailures OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "certificate-signing-failures"
+	::= { sslStatsOperEntry 51 }
+
+sslStatsOperInvalidOcspStaplingResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "invalid-ocsp-stapling-response"
+	::= { sslStatsOperEntry 52 }
+
+sslStatsOperRevokedOcspResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "revoked-ocsp-response"
+	::= { sslStatsOperEntry 53 }
+
+sslStatsOperUnsupportedSslVersion OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "unsupported-ssl-version"
+	::= { sslStatsOperEntry 54 }
+
+sslStatsOperClientSslFatalAlert OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client-ssl-fatal-alert"
+	::= { sslStatsOperEntry 55 }
+
+sslStatsOperClientSslFinReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client-ssl-fin-reset"
+	::= { sslStatsOperEntry 56 }
+
+sslStatsOperSslSessionFinReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ssl-session-fin-reset"
+	::= { sslStatsOperEntry 57 }
+
+sslStatsOperServerSslFatalAlert OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server-ssl-fatal-alert"
+	::= { sslStatsOperEntry 58 }
+
+sslStatsOperServerSslFinReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server-ssl-fin-reset"
+	::= { sslStatsOperEntry 59 }
+
+sslStatsOperClientSslInternalError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client-ssl-internal-error"
+	::= { sslStatsOperEntry 60 }
+
+sslStatsOperClientSslUnknownError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client-ssl-unknown-error"
+	::= { sslStatsOperEntry 61 }
+
+sslStatsOperServerSslInternalError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server-ssl-internal-error"
+	::= { sslStatsOperEntry 62 }
+
+sslStatsOperServerSslUnknownError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server-ssl-unknown-error"
+	::= { sslStatsOperEntry 63 }
+
+sslStatsOperFpFailHandshake OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fp-fail-handshake"
+	::= { sslStatsOperEntry 64 }
+
+sslStatsOperFpFailTcpError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fp-fail-tcp-error"
+	::= { sslStatsOperEntry 65 }
+
+sslStatsOperFpFailVerifyCert OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fp-fail-verify-cert"
+	::= { sslStatsOperEntry 66 }
+
+sslStatsOperFpFailAflex OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fp-fail-aflex"
+	::= { sslStatsOperEntry 67 }
+
+sslStatsOperUtilEnableStatus OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "util-enable-status"
+	::= { sslStatsOperEntry 68 }
+
+sslStatsOperSslModuleStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SslStatsOperSslModuleStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "SSL Statistics from object 'slb.ssl-stats'"
+	::= {sslStats 3}
+
+sslStatsOperSslModuleStatsEntry OBJECT-TYPE
+	SYNTAX SslStatsOperSslModuleStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The sslStatsOperSslModuleStats entry:ssl-module-stats"
+	INDEX {
+		sslStatsOperSslModuleStatsSlotId,
+		sslStatsOperSslModuleStatsSslModuleStatsListId
+	}
+	::= { sslStatsOperSslModuleStatsTable 1}
+
+SslStatsOperSslModuleStatsEntry ::=
+	SEQUENCE {
+		sslStatsOperSslModuleStatsSlotId Integer32,
+		sslStatsOperSslModuleStatsSslModuleStatsListId Integer32,
+		sslStatsOperSslModuleStatsSslModulesIndex	Integer32,
+		sslStatsOperSslModuleStatsTotalEnabledCryptoEngines	Integer32,
+		sslStatsOperSslModuleStatsTotalAvailableCryptoEngines	Integer32,
+		sslStatsOperSslModuleStatsRequestsHandled	Integer32,
+		sslStatsOperSslModuleStatsUtilPercentage	Integer32,
+		sslStatsOperSslModuleStats1secRate	Integer32,
+		sslStatsOperSslModuleStats5secRate	Integer32,
+		sslStatsOperSslModuleStats10secRate	Integer32,
+		sslStatsOperSslModuleStats30secRate	Integer32,
+		sslStatsOperSslModuleStats60secRate	Integer32
+	}
+
+sslStatsOperSslModuleStatsSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { sslStatsOperSslModuleStatsEntry 1}
+
+sslStatsOperSslModuleStatsSslModuleStatsListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { sslStatsOperSslModuleStatsEntry 2}
+
+sslStatsOperSslModuleStatsSslModulesIndex OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ssl-modules-index"
+	::= { sslStatsOperSslModuleStatsEntry 3}
+
+sslStatsOperSslModuleStatsTotalEnabledCryptoEngines OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"total-enabled-crypto-engines"
+	::= { sslStatsOperSslModuleStatsEntry 4}
+
+sslStatsOperSslModuleStatsTotalAvailableCryptoEngines OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"total-available-crypto-engines"
+	::= { sslStatsOperSslModuleStatsEntry 5}
+
+sslStatsOperSslModuleStatsRequestsHandled OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"requests-handled"
+	::= { sslStatsOperSslModuleStatsEntry 6}
+
+sslStatsOperSslModuleStatsUtilPercentage OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"util-percentage"
+	::= { sslStatsOperSslModuleStatsEntry 7}
+
+sslStatsOperSslModuleStats1secRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"1sec-rate"
+	::= { sslStatsOperSslModuleStatsEntry 8}
+
+sslStatsOperSslModuleStats5secRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"5sec-rate"
+	::= { sslStatsOperSslModuleStatsEntry 9}
+
+sslStatsOperSslModuleStats10secRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"10sec-rate"
+	::= { sslStatsOperSslModuleStatsEntry 10}
+
+sslStatsOperSslModuleStats30secRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"30sec-rate"
+	::= { sslStatsOperSslModuleStatsEntry 11}
+
+sslStatsOperSslModuleStats60secRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"60sec-rate"
+	::= { sslStatsOperSslModuleStatsEntry 12}
+
+END
+

@@ -1,0 +1,3835 @@
+--------------------------------------------------------------------------------
+--  Avocent ACS8000 TRAP MIB
+--  Copyright 2024 Vertiv Co
+--  Revision: 2.28.5
+--  Last Modified: October 2024
+--------------------------------------------------------------------------------
+
+ACS-TRAP-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+  enterprises, Integer32, MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE
+    FROM SNMPv2-SMI
+  OBJECT-GROUP, NOTIFICATION-GROUP FROM SNMPv2-CONF;
+
+--------------------------------------------------------------------------------
+-- Object Groupings
+-- Enterpriseoid 10418
+-- Familyoid 26
+-- TrapOid 0
+-- Productoid 1
+-- Managementoid 2
+-- TrapObjectoid 6
+--------------------------------------------------------------------------------
+
+acs    MODULE-IDENTITY
+        LAST-UPDATED    "202410010000Z"
+        ORGANIZATION    "Vertiv Co"
+        CONTACT-INFO    "e-mail : support.avocent@vertivco.com"
+        DESCRIPTION
+        "This module defines the TRAP MIB extensions to
+         acs products."
+        REVISION        "202410010000Z"
+        DESCRIPTION     "Added traps for port auto discovery."
+        REVISION        "202405010000Z"
+        DESCRIPTION     "Added traps for power device inlet changes."
+        REVISION        "202309060000Z"
+        DESCRIPTION     "Added traps for modem status, power device inlet alarm."
+        REVISION        "202106240000Z"
+        DESCRIPTION     "Updated to support SNMPv2/v3 traps."
+        REVISION        "201708150000Z"
+        DESCRIPTION     "Initial version"
+::= { avocent 26 }
+
+avocent                 OBJECT IDENTIFIER ::= { enterprises 10418 }
+
+acsTrap                 OBJECT IDENTIFIER ::= { acs 0 }
+acsProducts             OBJECT IDENTIFIER ::= { acs 1 }
+acsManagement           OBJECT IDENTIFIER ::= { acs 2 }
+acsTrapObject           OBJECT IDENTIFIER ::= { acsManagement 6 }
+acsconformance          OBJECT IDENTIFIER ::= { acs 15 }
+acsObjectGroups         OBJECT IDENTIFIER ::= { acsconformance 1 }
+
+acsTrapObjectsGroup     OBJECT-GROUP
+                        OBJECTS { acsTrapObjectUserName,
+                            acsTrapObjectDaemonName,
+                            acsTrapObjectTargetUserName,
+                            acsTrapObjectFileName,
+                            acsTrapFirmwareVersion,
+                            acsTrapNewFirmwareVersion,
+                            acsTrapFirmwareUpgradeResult,
+                            acsTrapObjectAlertIndex,
+                            acsTrapObjectAlertMessage,
+                            acsTrapObjectAlertString,
+                            acsTrapObjectSessionType,
+                            acsTrapObjectSerialPortName,
+                            acsTrapObjectSerialPortNumber,
+                            acsTrapObjectSerialSessionType,
+                            acsTrapObjectDataBufferSize,
+                            acsTrapObjectPduId,
+                            acsTrapObjectPduNumber,
+                            acsTrapObjectPduSocket,
+                            acsTrapObjectPduVendor,
+                            acsTrapObjectPduIdOld,
+                            acsTrapObjectPduCurrentValue,
+                            acsTrapObjectSocketNumber,
+                            acsTrapObjectSocketName,
+                            acsTrapObjectSocketOldName,
+                            acsTrapObjectSerialSessionNumbers,
+                            acsTrapObjectCertExpirationTime,
+                            acsTrapObjectCertificateFileName,
+                            acsTrapObjectConnectionName,
+                            acsTrapObjectConnectionReason,
+                            acsTrapObjectPduElementName,
+                            acsTrapObjectPduElementType,
+                            acsTrapObjectUpsId,
+                            acsTrapObjectUpsVendor,
+                            acsTrapObjectUpsIdOld,
+                            acsTrapObjectUpsBatteryTimeRemaining,
+                            acsTrapObjectUpsOutletGroupNumber,
+                            acsTrapObjectUpsOutletGroupName,
+                            acsTrapObjectTemperatureMaximumValue,
+                            acsTrapObjectTemperatureMaxThreshold,
+                            acsTrapObjectTemperatureMinimumValue,
+                            acsTrapObjectTemperatureMinThreshold,
+                            acsTrapObjectTemperatureCurrent,
+                            acsTrapObjectPowerSupplyNumber,
+                            acsTrapObjectPowerSupplyOldState,
+                            acsTrapObjectPowerSupplyNewState,
+                            acsTrapObjectPlugDeviceName,
+                            acsTrapObjectPlugDeviceType,
+                            acsTrapObjectPlugDeviceInfo,
+                            acsTrapObjectPduFuseStatus,
+                            acsTrapObjectServiceName,
+                            acsTrapObjectMd5Tag,
+                            acsTrapObjectNetworkPrimary,
+                            acsTrapObjectNetworkSecondary,
+                            acsTrapObjectApplianceSensorType,
+                            acsTrapObjectApplianceSensorName,
+                            acsTrapObjectApplianceSensorValue,
+                            acsTrapObjectTemperatureMaximumCpuValue,
+                            acsTrapObjectTemperatureMaxCpuThreshold,
+                            acsTrapObjectTemperatureMinimumCpuValue,
+                            acsTrapObjectTemperatureMinCpuThreshold,
+                            acsTrapObjectTemperatureCpuCurrent,
+                            acsTrapObjectCallerIdNumber,
+                            acsTrapObjectCallerIdName,
+                            acsTrapObjectModemDeviceName,
+                            acsTrapObjectModemNetworkConnection,
+                            acsTrapObjectModemRegistrationFailReason,
+                            acsTrapObjectTaskName,
+                            acsTrapObjectTaskResult,
+                            acsTrapObjectModemStatus,
+                            acsTrapObjectPduNewElementName
+                }
+                STATUS  current
+                DESCRIPTION
+                    "A collection of trap data objects."
+                ::= { acsObjectGroups 1 }
+
+acsTrapsGroup   NOTIFICATION-GROUP
+                NOTIFICATIONS { avctAcsRebootStartedTrap,
+                                avctAcsDaemonStarted,
+                                avctAcsDaemonStopped,
+                                avctAcsSessionTerminatedTrap,
+                                avctAcsConfigurationStoredTrap,
+                                avctAcsConfigurationRestoredTrap,
+                                avctAcsLocalUserAddedTrap,
+                                avctAcsLocalUserDeletedTrap,
+                                avctAcsLocalUserModifiedTrap,
+                                avctAcsFirmwareUpgradeStarted,
+                                avctAcsFirmwareUpgradeResultsTrap,
+                                avctAcsApplianceAlertTrap,
+                                avctAcsApplianceStartedTrap,
+                                avctAcsApplianceFIPStestFail,
+                                avctAcsFIPSmode,
+                                avctAcsnoFIPSmode,
+                                avctAcsconfigMd5Gen,
+                                avctAcsFailOver,
+                                avctAcsFailOverRestore,
+                                avctAcsSessionTimeoutTrap,
+                                avctAcsIpsecCertificateExpired,
+                                avctAcsIpsecConnectionEstablished,
+                                avctAcsIpsecConnectionFailed,
+                                avctAcsIpsecConnectionTerminated,
+                                avctAcsUserLoginTrap,
+                                avctAcsUserLogoutTrap,
+                                avctAcsAuthenticationFailureTrap,
+                                avctAcsPortAuthenticationFailureTrap,
+                                avctAcsPortPowerOnDetectTrap,
+                                avctAcsPortPowerOffDetectTrap,
+                                avctAcsModemRegistrationTrap,
+                                avctAcsModemRegistrationFailedTrap,
+                                avctAcsModemConnectionEstablishedTrap,
+                                avctAcsModemConnectionTerminatedTrap,
+                                avctAcsModemConnectionFailedTrap,
+                                avctAcsScheduledTaskStart,
+                                avctAcsScheduledTaskComplete,
+                                avctAcsScheduledTaskFailed,
+                                avctAcsSerialSessionStartedTrap,
+                                avctAcsSerialSessionStoppedTrap,
+                                avctAcsPortAlertTrap,
+                                avctAcsDataBufferNFSFailure,
+                                avctAcsDataBufferNFSRecovery,
+                                avctAcsDataBufferFullThresholdLowTrap,
+                                avctAcsDataBufferFullThresholdMedTrap,
+                                avctAcsDataBufferFullLostDataTrap,
+                                avctAcsPduOnlineTrap,
+                                avctAcsPduOfflineTrap,
+                                avctAcsPduIdChangedTrap,
+                                avctAcsPduMaxLoadHighTrap,
+                                avctAcsPduMinLoadLowTrap,
+                                avctAcsPduFirmwareUpgradeStarted,
+                                avctAcsPduFirmwareUpgradeResultsTrap,
+                                avctAcsPduHwOcpTripped,
+                                avctAcsPduHwOcpReset,
+                                avctAcsPduMaxLoadBackTrap,
+                                avctAcsPduWarnLoadTrap,
+                                avctAcsPduLowLoadLowTrap,
+                                avctAcsPduBlownFuseTrap,
+                                avctAcsPduInletAlarmTrap,
+                                avctAcsPduInletRestoredTrap,
+                                avctAcsRtsSourceTransferTrap,
+                                avctAcsOutletNameChangedTrap,
+                                avctAcsOutletCmdOnTrap,
+                                avctAcsOutletStatusOnTrap,
+                                avctAcsOutletCmdOffTrap,
+                                avctAcsOutletStatusOffTrap,
+                                avctAcsOutletCmdCycleTrap,
+                                avctAcsOutletCycleFinishedTrap,
+                                avctAcsOutletOnSenseFailTrap,
+                                avctAcsOutletOffSenseFailTrap,
+                                avctAcsUpsOnlineTrap,
+                                avctAcsUpsOfflineTrap,
+                                avctAcsUpsIdChangedTrap,
+                                avctAcsUpsOutputOffTrap,
+                                avctAcsUpsBatteryDischargingTrap,
+                                avctAcsUpsBatteryLowTrap,
+                                avctAcsUpsSystemInputPowerProblemTrap,
+                                avctAcsUpsReplaceBatteryTrap,
+                                avctAcsUpsBatteryTestFailedTrap,
+                                avctAcsUpsShutdownPendingTrap,
+                                avctAcsUpsBatteryUndervoltageTrap,
+                                avctAcsUpsBatteryOvervoltageTrap,
+                                avctAcsUpsSystemInputPowerRestoredTrap,
+                                avctAcsUpsOutputProblemTrap,
+                                avctAcsUpsHardwareFailureTrap,
+                                avctAcsUpsOutputOnBypassTrap,
+                                avctAcsUpsOutputNormalTrap,
+                                avctAcsUpsOutletGroupCmdOnTrap,
+                                avctAcsUpsOutletGroupStatusOnTrap,
+                                avctAcsUpsOutletGroupCmdOffTrap,
+                                avctAcsUpsOutletGroupStatusOffTrap,
+                                avctAcsUpsOutletGroupCmdCycleTrap,
+                                avctAcsUpsOutletGroupCycleFinishedTrap,
+                                avctAcsApplianceSensorThresholdNormalTrap,
+                                avctAcsApplianceSensorThresholdHighCriticalTrap,
+                                avctAcsApplianceSensorThresholdHighWarningTrap,
+                                avctAcsApplianceSensorThresholdLowWarningTrap,
+                                avctAcsApplianceSensorThresholdLowCriticalTrap,
+                                avctAcsApplianceSensorDigitalAlarmTrap,
+                                avctAcsDialInCallAnswered,
+                                avctAcsDialInCallBlocked,
+                                avctAcsDialInLineVoltageDroppedTrap,
+                                avctAcsDialInLineVoltageRestoredTrap,
+                                avctAcsTemperatureExceededMaxTrap,
+                                avctAcsTemperatureReachedMaxTrap,
+                                avctAcsTemperatureExceededMinTrap,
+                                avctAcsTemperatureReachedMinTrap,
+                                avctAcsPowerSupplyTrap,
+                                avctAcsPlugDeviceInsertTrap,
+                                avctAcsPlugDeviceEjectTrap,
+                                avctAcsSensorThresholdNormalTrap,
+                                avctAcsSensorThresholdHighCriticalTrap,
+                                avctAcsSensorThresholdHighWarningTrap,
+                                avctAcsSensorThresholdLowWarningTrap,
+                                avctAcsSensorThresholdLowCriticalTrap,
+                                avctAcsSensorThresholdDigitalSensorAlarmTrap,
+                                avctAcsCpuTemperatureExceededMaxTrap,
+                                avctAcsCpuTemperatureReachedMaxTrap,
+                                avctAcsCpuTemperatureExceededMinTrap,
+                                avctAcsCpuTemperatureReachedMinTrap,
+                                avctAcsTestTrap
+                            }
+                STATUS  current
+                DESCRIPTION
+                    "A collection of traps."
+                ::= { acsObjectGroups 2 }
+
+-------------------------------------------------------------------------------
+-- ACS Trap Objects
+-------------------------------------------------------------------------------
+acsTrapObjectUserName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify the name of the user
+     for which the trap condition occurred."
+::= { acsTrapObject 1 }
+
+acsTrapObjectDaemonName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to indicate the Daemon name
+     that has started/stopped."
+    --% AVAILABILITY public
+::= { acsTrapObject 2 }
+
+acsTrapObjectTargetUserName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify the name of the user
+     for which the trap condition occurred."
+::= { acsTrapObject 3 }
+
+acsTrapObjectFileName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify the name of the file
+     that was used."
+::= { acsTrapObject 4 }
+
+acsTrapFirmwareVersion OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify current Firmware version."
+    --% AVAILABILITY public
+::= { acsTrapObject 5 }
+
+acsTrapNewFirmwareVersion OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify new Firmware version."
+    --% AVAILABILITY public
+::= { acsTrapObject 6 }
+
+acsTrapFirmwareUpgradeResult OBJECT-TYPE
+    SYNTAX INTEGER  {
+               imageUpgradeSuccess(1),
+               imageUpgradeInternalError(2)
+           }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the firmware upgrade result."
+    --% AVAILABILITY public
+::= { acsTrapObject 7 }
+
+acsTrapObjectAlertIndex OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the alert string
+     that matched in the alert message."
+    --% AVAILABILITY public
+::= { acsTrapObject 8 }
+
+acsTrapObjectAlertMessage OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify the line text where
+     the alert string was detected."
+::= { acsTrapObject 9 }
+
+acsTrapObjectAlertString OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the alert string
+     that matched in the alert message."
+    --% AVAILABILITY public
+::= { acsTrapObject 10 }
+
+
+acsTrapObjectSessionType OBJECT-TYPE
+    SYNTAX INTEGER {
+                    ssh(0),
+                    telnet(1),
+                    console(2),
+                    login(3),
+                    http(4),
+                    https(5),
+                    dsview(6),
+                    raw(7),
+                    modem(8)
+                    }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify type of Session
+     for access to appliance."
+     --% AVAILABILITY public
+::= { acsTrapObject 11 }
+
+acsTrapObjectSerialPortName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the target Device by
+     name - alias of the serial port."
+     --% AVAILABILITY public
+::= { acsTrapObject 12 }
+
+acsTrapObjectSerialPortNumber OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify which serial port number
+     the trap condition occurred."
+     --% AVAILABILITY public
+::= { acsTrapObject 13 }
+
+acsTrapObjectSerialSessionType OBJECT-TYPE
+    SYNTAX INTEGER {
+                    cas-ssh(1),
+                    cas-telnet(2),
+                    cas-console(3),
+                    cas-raw(4),
+                    dial-in(5)
+                   }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify type of Serial Session."
+    --% AVAILABILITY public
+::= { acsTrapObject 14 }
+
+acsTrapObjectDataBufferSize OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify current size of
+     global buffer."
+    --% AVAILABILITY public
+::= { acsTrapObject 15 }
+
+acsTrapObjectPduId OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the ID of the PDU
+     where the trap occurred."
+    --% AVAILABILITY public
+::= { acsTrapObject 16 }
+
+acsTrapObjectPduNumber OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify the index of the PDU the trap
+     condition occurred on."
+::= { acsTrapObject 17 }
+
+acsTrapObjectPduSocket OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+  --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify number of outlets of the PDU."
+::= { acsTrapObject 18 }
+
+acsTrapObjectPduVendor OBJECT-TYPE
+    SYNTAX INTEGER {
+                cyclades(1),
+                spc(2),
+                serverTech(3),
+                vertiv(4),
+                raritan(5),
+                apc(6),
+                eaton(7),
+                servertechpro2(8),
+                geist(9),
+                net-servertech(10),
+                net-vertiv(11),
+                net-avocent(12),
+                net-eaton(13),
+                net-raritan(14),
+                net-apc(15),
+                net-apc-rpdu(16),
+                net-servertech-pro2(17),
+                net-geist(18)
+           }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the vendor of the IPDU
+     where the trap occurred."
+  --% AVAILABILITY public
+::= { acsTrapObject 19 }
+
+acsTrapObjectPduIdOld OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the old ID of the PDU
+     where the trap occurred."
+    --% AVAILABILITY public
+::= { acsTrapObject 20 }
+
+-- this may now be redundant - objects 40 and 41 replacing it.
+acsTrapObjectPduCurrentValue OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to detected current value of the PDU."
+    --% AVAILABILITY public
+::= { acsTrapObject 22 }
+
+acsTrapObjectSocketNumber OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify outlet number the trap
+     condition occurred on."
+  --% AVAILABILITY public
+::= { acsTrapObject 23 }
+
+acsTrapObjectSocketName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify outlet name stored in the PM."
+  --% AVAILABILITY public
+::= { acsTrapObject 24 }
+
+acsTrapObjectSocketOldName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the old outlet
+     name stored in the PM."
+  --% AVAILABILITY public
+::= { acsTrapObject 25 }
+
+acsTrapObjectSerialSessionNumbers OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the number of sessions openned
+     in the serial port."
+  --% AVAILABILITY public
+::= { acsTrapObject 26 }
+
+acsTrapObjectCertExpirationTime OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the certificate expiration time."
+  --% AVAILABILITY public
+::= { acsTrapObject 28 }
+
+acsTrapObjectCertificateFileName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify a certificate file name."
+  --% AVAILABILITY public
+::= { acsTrapObject 29 }
+
+acsTrapObjectConnectionName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the IPsec connection name."
+  --% AVAILABILITY public
+::= { acsTrapObject 30 }
+
+acsTrapObjectConnectionReason OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the IPsec failure reason."
+  --% AVAILABILITY public
+::= { acsTrapObject 31 }
+
+acsTrapObjectPduElementName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the Element of the PDU
+     where the trap occurred."
+    --% AVAILABILITY public
+::= { acsTrapObject 40 }
+
+acsTrapObjectPduElementType OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the Element Type of the PDU
+     where the trap occurred."
+    --% AVAILABILITY public
+::= { acsTrapObject 41 }
+
+acsTrapObjectUpsId OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the ID of the UPS
+     where the trap occurred."
+    --% AVAILABILITY public
+::= { acsTrapObject 42 }
+
+acsTrapObjectUpsVendor OBJECT-TYPE
+    SYNTAX INTEGER {
+                liebert-gxt4(1),
+                net-liebert(2),
+                liebert-gxt5(3)
+           }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the vendor of the UPS
+     where the trap occurred."
+  --% AVAILABILITY public
+::= { acsTrapObject 43 }
+
+acsTrapObjectUpsIdOld OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the old ID of the UPS
+     where the trap occurred."
+    --% AVAILABILITY public
+::= { acsTrapObject 44 }
+
+acsTrapObjectUpsBatteryTimeRemaining OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the estimated number
+    of minutes of battery time remaining."
+    --% AVAILABILITY public
+::= { acsTrapObject 45 }
+
+acsTrapObjectUpsOutletGroupNumber OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the UPS outlet group number the trap
+     condition occurred on."
+  --% AVAILABILITY public
+::= { acsTrapObject 46 }
+
+acsTrapObjectUpsOutletGroupName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the UPS outlet group name."
+  --% AVAILABILITY public
+::= { acsTrapObject 47 }
+
+-- ACS8000 Object Types
+acsTrapObjectTemperatureMaximumValue OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the maximum temperature
+     value configured in the appliance."
+    --% AVAILABILITY public
+::= { acsTrapObject 100 }
+
+acsTrapObjectTemperatureMaxThreshold OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the max temperature threshold
+     configured in the appliance."
+    --% AVAILABILITY public
+::= { acsTrapObject 101 }
+
+acsTrapObjectTemperatureMinimumValue OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the minimum temperature
+     value configured in the appliance."
+    --% AVAILABILITY public
+::= { acsTrapObject 102 }
+
+acsTrapObjectTemperatureMinThreshold OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the min temperature threshold
+     configured in the appliance."
+    --% AVAILABILITY public
+::= { acsTrapObject 103 }
+
+acsTrapObjectTemperatureCurrent OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the current temperature."
+    --% AVAILABILITY public
+::= { acsTrapObject 104 }
+
+acsTrapObjectPowerSupplyNumber OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify the appliance power supply
+     for which the trap condition occurred."
+::= { acsTrapObject 105 }
+
+acsTrapObjectPowerSupplyOldState OBJECT-TYPE
+    SYNTAX INTEGER {
+             powerSupplyOn(1),
+             powerSupplyOff(2)
+           }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify the old state of
+     the power supply."
+::= { acsTrapObject 106 }
+
+acsTrapObjectPowerSupplyNewState OBJECT-TYPE
+    SYNTAX INTEGER {
+             powerSupplyOn(1),
+             powerSupplyOff(2)
+           }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to identify the new state of
+     the power supply."
+::= { acsTrapObject 107 }
+
+acsTrapObjectPlugDeviceName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the device name used
+     by the plugged device."
+    --% AVAILABILITY public
+::= { acsTrapObject 108 }
+
+acsTrapObjectPlugDeviceType OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the type of the plugged device."
+    --% AVAILABILITY public
+::= { acsTrapObject 109 }
+
+acsTrapObjectPlugDeviceInfo OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the info about plugged device."
+    --% AVAILABILITY public
+::= { acsTrapObject 110 }
+
+acsTrapObjectPduFuseStatus OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap for blown fuse detection in the PDU."
+    --% AVAILABILITY public
+::= { acsTrapObject 112 }
+
+acsTrapObjectServiceName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to indicate the Service name
+     that is in FIPS or non-FIPS mode."
+    --% AVAILABILITY public
+::= { acsTrapObject 113 }
+
+acsTrapObjectMd5Tag OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to indicate that a new configuration
+     Md5 was generated."
+    --% AVAILABILITY public
+::= { acsTrapObject 114 }
+
+acsTrapObjectNetworkPrimary OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to indicate the Primary Interface."
+    --% AVAILABILITY public
+::= { acsTrapObject 115 }
+
+acsTrapObjectNetworkSecondary OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to indicate the Secondary Interface."
+    --% AVAILABILITY public
+::= { acsTrapObject 116 }
+
+acsTrapObjectApplianceSensorType OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to indicate the sensor type."
+::= { acsTrapObject 117 }
+
+acsTrapObjectApplianceSensorName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to indicate the sensor name."
+::= { acsTrapObject 118 }
+
+acsTrapObjectApplianceSensorValue OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    --% AVAILABILITY public
+    DESCRIPTION
+    "This object is sent in a trap to indicate the present sensor
+     value."
+::= { acsTrapObject 119 }
+
+acsTrapObjectTemperatureMaximumCpuValue OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the maximum CPU temperature
+     value configured in the appliance."
+    --% AVAILABILITY public
+::= { acsTrapObject 120 }
+
+acsTrapObjectTemperatureMaxCpuThreshold OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the max CPU temperature threshold
+     configured in the appliance."
+    --% AVAILABILITY public
+::= { acsTrapObject 121 }
+
+acsTrapObjectTemperatureMinimumCpuValue OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the minimum CPU temperature
+     value configured in the appliance."
+    --% AVAILABILITY public
+::= { acsTrapObject 122 }
+
+acsTrapObjectTemperatureMinCpuThreshold OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the min CPU temperature threshold
+     configured in the appliance."
+    --% AVAILABILITY public
+::= { acsTrapObject 123 }
+
+acsTrapObjectTemperatureCpuCurrent OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the current CPU temperature."
+    --% AVAILABILITY public
+::= { acsTrapObject 124 }
+
+acsTrapObjectCallerIdNumber OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the incoming Caller ID telephone number."
+    --% AVAILABILITY public
+::= { acsTrapObject 125 }
+
+acsTrapObjectCallerIdName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the incoming caller ID name."
+    --% AVAILABILITY public
+::= { acsTrapObject 126 }
+
+acsTrapObjectModemDeviceName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the device name used
+     by the modem."
+    --% AVAILABILITY public
+::= { acsTrapObject 127 }
+
+acsTrapObjectModemNetworkConnection OBJECT-TYPE
+    SYNTAX INTEGER {
+                registeredHomeNetwork(1),
+                registeredRoamingNetwork(2)
+           }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the type of network the
+     cellular modem is connected to."
+  --% AVAILABILITY public
+::= { acsTrapObject 128 }
+
+acsTrapObjectModemRegistrationFailReason OBJECT-TYPE
+    SYNTAX INTEGER {
+                notRegistered(0),
+                searching(2),
+                registrationDenied(3),
+                unknown(4),
+                waitingForPIN(6)
+           }
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the reason for the
+    modem connection failure."
+  --% AVAILABILITY public
+::= { acsTrapObject 129 }
+
+acsTrapObjectTaskName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the scheduled task name."
+    --% AVAILABILITY public
+::= { acsTrapObject 130 }
+
+acsTrapObjectTaskResult OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the scheduled task result."
+    --% AVAILABILITY public
+::= { acsTrapObject 131 }
+
+acsTrapObjectModemStatus OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the status of the modem."
+    --% AVAILABILITY public
+::= { acsTrapObject 132 }
+
+acsTrapObjectPduNewElementName OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS accessible-for-notify
+    STATUS current
+    DESCRIPTION
+    "This object is sent in a trap to identify the new element name of the PDU
+     where the trap occurred."
+    --% AVAILABILITY public
+::= { acsTrapObject 133 }
+
+--
+-- The Enterprise ID corresponds to the same OID as acs in the ACS-MIB.
+--
+
+--------------------------------------------------------------------------------
+-- Enterprise Traps
+--------------------------------------------------------------------------------
+-- Appliance Management Traps
+avctAcsRebootStartedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName
+                }
+    STATUS current
+    DESCRIPTION
+    "ACS8000 is in process of rebooting.
+     The name of the user who issued the command is contained
+     in acsTrapObjectUserName."
+    --#SUMMARY     "The appliance is rebooting. Command issued by user: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Rebooting"
+    --SHORT     "appliance rebooting"
+    --EVENT evt_reboot
+    --% TrapTypeEnum=15
+::= { acsTrap 1 }
+
+avctAcsDaemonStarted NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectDaemonName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when daemon in the appliance started.
+     The daemon name is contained in acsTrapObjectDaemonName.
+     The name of the user who start the daemon is contained in acsTrapObjectUserName.
+    "
+    --#SUMMARY     "A daemon started. User: %s. Daemon name: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Daemon Started"
+    --SHORT     "appliance daemon started"
+    --EVENT evt_daemon_start
+    --% TrapTypeEnum=9
+::= { acsTrap 2 }
+
+avctAcsDaemonStopped NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectDaemonName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when daemon in the appliance stopped.
+     The daemon name is contained in acsTrapObjectDaemonName.
+     The name of the user who stop the daemon is contained in acsTrapObjectUserName.
+    "
+    --#SUMMARY     "A daemon stopped. User: %s. Daemon name: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Daemon Stopped"
+    --SHORT     "appliance daemon stopped"
+    --EVENT evt_daemon_stop
+    --% TrapTypeEnum=9
+::= { acsTrap 3 }
+
+avctAcsSessionTerminatedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectUserName,
+                 acsTrapObjectTargetUserName
+               }
+    STATUS current
+    DESCRIPTION
+   "This trap is generated when one previous session is
+    terminated by another user.
+    The name of the user who terminated the session is contained in acsTrapObjectUserName.
+    The name of the user who was terminated from the session is contained
+    in acsTrapObjectTargetUserName."
+   --#SUMMARY     "Session terminated. Command issued by user: %s. Terminated user: %s."
+   --#ARGUMENTS   { 0, 1 }
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Status Events"
+   --NAME       "Appliance Session Terminated"
+   --SHORT      "appliance session terminated"
+   --EVENT evt_session_term
+   --% TrapTypeEnum=9
+::= { acsTrap 4 }
+
+avctAcsConfigurationStoredTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectUserName,
+                 acsTrapObjectFileName
+               }
+    STATUS current
+    DESCRIPTION
+   "This trap is generated when 'store backup configuration' command is successful.
+    acsTrapObjectUserName is name of the user who executed the command.
+    acsTrapObjectFileName is name of the file where the configuration was stored."
+   --#SUMMARY     "Backup configuration was stored. User: %s. Filename: %s."
+   --#ARGUMENTS   {0, 1}
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Configuration Events"
+   --NAME       "Appliance Backup Configuration Stored"
+   --SHORT      "appliance backup configuration stored"
+   --EVENT evt_config_store
+   --% TrapTypeEnum=9
+::= { acsTrap 5 }
+
+avctAcsConfigurationRestoredTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectUserName,
+                 acsTrapObjectFileName
+               }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when 'restore backup configuration' command is successful.
+    acsTrapObjectUserName is name of the user who executed the command.
+    acsTrapObjectFileName is name of the file used to restored the configuration."
+   --#SUMMARY     "Backup configuration was restored. User: %s. Filename: %s."
+   --#ARGUMENTS   {0, 1}
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Configuration Events"
+   --NAME       "Appliance Backup Configuration Restored"
+   --SHORT      "appliance backup configuration restored"
+   --EVENT evt_config_restore
+   --% TrapTypeEnum=9
+::= { acsTrap 6 }
+
+avctAcsExportFileTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectUserName,
+                 acsTrapObjectFileName
+               }
+    STATUS current
+    DESCRIPTION
+   "This trap is generated when 'export file' command is successful.
+    acsTrapObjectUserName is name of the user who executed the command.
+    acsTrapObjectFileName is name of the file exported."
+   --#SUMMARY     "File was exported. User: %s. Filename: %s."
+   --#ARGUMENTS   {0, 1}
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Configuration Events"
+   --NAME       "Appliance File Exported"
+   --SHORT      "appliance file exported"
+   --EVENT evt_export_file
+   --% TrapTypeEnum=9
+::= { acsTrap 7 }
+
+avctAcsLocalUserAddedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                acsTrapObjectUserName,
+                acsTrapObjectTargetUserName
+               }
+    STATUS current
+    DESCRIPTION
+   "A new user has been added to the local user database.
+    The name of the user who added the new user is contained in acsTrapObjectUserName.
+    The name of the new user is contained in acsTrapObjectTargetUserName."
+   --#SUMMARY     "A user was added to the local user database. Command issued by user: %s. New user: %s."
+   --#ARGUMENTS   { 0, 1}
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Configuration Events"
+   --NAME       "Appliance User Added to Local User Database"
+   --SHORT      "appliance user added to local user database"
+   --EVENT evt_user_add
+   --% TrapTypeEnum=9
+::= { acsTrap 8 }
+
+avctAcsLocalUserDeletedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                acsTrapObjectUserName,
+                acsTrapObjectTargetUserName
+               }
+    STATUS current
+    DESCRIPTION
+
+    "A user has been deleted from the local user database.
+    The name of the user who deleted the user is contained in acsTrapObjectUserName.
+    The name of the user who was deleted is contained in acsTrapObjectTargetUserName."
+   --#SUMMARY     "A user was deleted from the local user database. Command issued by user: %s. Deleted user: %s."
+   --#ARGUMENTS   {0,1}
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Configuration Events"
+   --NAME       "Appliance User Deleted from Local User Database"
+   --SHORT      "appliance user deleted from local user database"
+   --EVENT evt_user_del
+   --% TrapTypeEnum=9
+::= { acsTrap 9 }
+
+avctAcsLocalUserModifiedTrap NOTIFICATION-TYPE
+   OBJECTS   {
+                acsTrapObjectUserName,
+                acsTrapObjectTargetUserName
+               }
+   STATUS current
+    DESCRIPTION
+   "A user has been modified in the local user database.
+    The name of the user who modified the data is contained in acsTrapObjectUserName.
+    The name of the user who was modified is contained in acsTrapObjectTargetUserName."
+   --#SUMMARY     "A user was modified in the local user database. Command issued by user: %s. Modified user: %s."
+   --#ARGUMENTS   {0,1}
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Configuration Events"
+   --NAME       "Appliance User Modified in Local User Database"
+   --SHORT      "appliance user modified in local user database"
+   --EVENT evt_user_mod
+   --% TrapTypeEnum=9
+::= { acsTrap 10 }
+
+avctAcsFirmwareUpgradeStarted NOTIFICATION-TYPE
+   OBJECTS   {
+                acsTrapObjectUserName,
+                acsTrapFirmwareVersion,
+                acsTrapNewFirmwareVersion
+               }
+   STATUS current
+    DESCRIPTION
+
+   "The appliance has started an upgrade of a software image.
+    The name of the user who initiate the process is contained
+    in acsTrapObjectUserName.
+    The current firmware version is contained in acsTrapFirmwareVersion.
+    The new firmware version is contained in acsTrapNewFirmwareVersion."
+   --#SUMMARY     "Image upgrade started. User: %s. Current version: %s. New version: %s."
+   --#ARGUMENTS   { 0, 1, 2}
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Status Events"
+   --NAME       "Appliance Image Upgrade Started"
+   --SHORT      "appliance image upgrade started"
+   --EVENT evt_imgup_start
+   --% TrapTypeEnum=9
+::= { acsTrap 11 }
+
+avctAcsFirmwareUpgradeResultsTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapFirmwareUpgradeResult ,
+                 acsTrapNewFirmwareVersion
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when Firmware upgraded is done to indicate the result.
+     The new FW version is contained in acsTrapNewFirmwareVersion.
+     The result of the process is contained in acsTrapFirmwareUpgradeResult."
+    --#SUMMARY     "Image upgrade result. Result: %d. New firmware version: %s."
+    --#ARGUMENTS   {0,1}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Image Upgrade Result"
+    --SHORT     "appliance image upgrade result"
+    --EVENT evt_imgup_result
+    --% TrapTypeEnum=9
+::= { acsTrap 12 }
+
+avctAcsApplianceAlertTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectUserName,
+                 acsTrapObjectAlertIndex,
+                 acsTrapObjectAlertString,
+                 acsTrapObjectAlertMessage
+                }
+    STATUS current
+    DESCRIPTION
+    "An appliance alert was detected on a ssh or telnet session.
+     The name of user who was logged into the appliance when
+     trap occurred is contained in acsTrapObjectUserName.
+     The index of the appliance alert that was detected in the message is
+     contained in acsTrapObjectAlertIndex.
+     The appliance alert that was detected is contained in acsTrapObjectAlertString.
+     The line text where the appliance alert was detected is contained
+     in acsTrapObjectAlertMessage."
+    --#SUMMARY     "An appliance alert was detected. User: %s. Alert index: %d. Alert string: %s. Line text: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance Alert Detected"
+    --SHORT     "appliance alert detected"
+    --EVENT evt_alert_detect
+    --% TrapTypeEnum=9
+::= { acsTrap 13 }
+
+avctAcsApplianceStartedTrap NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the appliance is started."
+    --#SUMMARY     "The appliance has started."
+    --#SEVERITY    ALERT
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance Started"
+    --SHORT     "appliance started"
+    --EVENT evt_app_start
+    --% TrapTypeEnum=9
+::= { acsTrap 14 }
+
+avctAcsApplianceFIPStestFail NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when FIPS self test failed."
+    --#SUMMARY     "FIPS compatible OpenSSl selftest failed."
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance FIPS compatible OpenSSL selftest failed"
+    --SHORT     "appliance FIPS compatible OpenSSL selftest failed"
+    --EVENT evt_fips_failed
+    --% TrapTypeEnum=9
+::= { acsTrap 16 }
+
+avctAcsFIPSmode NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectServiceName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated if FIPS module is enabled and service is in FIPS mode.
+     The service name is contained in acsTrapObjectServiceName.
+    "
+    --#SUMMARY     "Service is in FIPS mode of operation. Service name: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Service in FIPS mode"
+    --SHORT     "appliance service in FIPS mode"
+    --EVENT evt_daemon_fips
+    --% TrapTypeEnum=9
+::= { acsTrap 17 }
+
+avctAcsnoFIPSmode NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectServiceName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated if FIPS module is enabled and service is in non-FIPS mode.
+     The service name is contained in acsTrapObjectServiceName.
+    "
+    --#SUMMARY     "Service is in non-FIPS mode of operation. Service name: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Service in non-FIPS mode"
+    --SHORT     "appliance Service in non-FIPS mode"
+    --EVENT evt_daemon_nonfips
+    --% TrapTypeEnum=9
+::= { acsTrap 18 }
+
+avctAcsconfigMd5Gen NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectMd5Tag
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when a NEW config Md5 is generated.
+     The service name is contained in acsTrapObjectServiceName.
+    "
+    --#SUMMARY     "A new Configuration MD5 Tag was detected on the appliance. New MD5 Tag: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance New Configuration MD5 Tag Detected"
+    --SHORT     "appliance new configuration md5 tag detected"
+    --EVENT evt_configmd5_gen
+    --% TrapTypeEnum=9
+::= { acsTrap 19 }
+
+avctAcsFailOver NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectNetworkSecondary
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when a Network Primary Failover event has occurred.
+     The secondary is contained in acsTrapObjectNetworkSecondary.
+    "
+    --#SUMMARY     "Network Primary Failover has occurred. Failover Interface: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Network Primary Failover has occurred"
+    --SHORT     "appliance network primary failover has occurred"
+    --EVENT evt_failover
+    --% TrapTypeEnum=9
+::= { acsTrap 20 }
+
+avctAcsFailOverRestore NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectNetworkPrimary
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when a Network Primary Failover has been restored.
+     The primary is contained in acsTrapObjectNetworkPrimary.
+    "
+    --#SUMMARY     "Network Primary Failover has been restored. Restored Primary: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Network Primary Failover has been restored"
+    --SHORT     "appliance network primary failover has been restored"
+    --EVENT evt_failover_restore
+    --% TrapTypeEnum=9
+::= { acsTrap 21 }
+
+avctAcsSessionTimeoutTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTargetUserName
+               }
+    STATUS current
+    DESCRIPTION
+   "This trap is generated when a session is terminated due to the
+    session idle timeout.
+    The name of the user who was terminated from the session is contained
+    in acsTrapObjectTargetUserName."
+   --#SUMMARY     "Session terminated due to idle timeout. Terminated user: %s."
+   --#ARGUMENTS   { 0 }
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Status Events"
+   --NAME       "Appliance Session Timeout"
+   --SHORT      "appliance session timeout"
+   --EVENT evt_session_timeout
+   --% TrapTypeEnum=9
+::= { acsTrap 22 }
+
+-- IPSec/VPN Traps - start # 24
+avctAcsIpsecCertificateExpired NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectCertificateFileName,
+                  acsTrapObjectCertExpirationTime
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when an IPsec Certificate expires or is nearing expiration.
+     The certificate file name is contained in acsTrapObjectCertificateFileName.
+     The expiration time is contained in acsTrapObjectCertExpirationTime.
+    "
+    --#SUMMARY     "IPsec certificate expiration warning. Certificate File Name: %s Expiration time: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance IPsec certificate expiration"
+    --SHORT     "Appliance IPsec certificate expiration"
+    --EVENT evt_ipsec_cert_expire
+    --% TrapTypeEnum=9
+::= { acsTrap 24 }
+
+avctAcsIpsecConnectionEstablished NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectConnectionName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when an IPsec connection is established.
+     The name of the connection is contained in acsTrapObjectConnectionName.
+    "
+    --#SUMMARY     "IPsec connection %s established."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance IPsec connection established"
+    --SHORT     "Appliance IPsec connection established"
+    --EVENT evt_ipsec_conn_established
+    --% TrapTypeEnum=9
+::= { acsTrap 25 }
+
+avctAcsIpsecConnectionFailed NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectConnectionName,
+                  acsTrapObjectConnectionReason
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when an IPsec connection fails.
+     The name of the connection is contained in acsTrapObjectConnectionName.
+     The reason for failure is contained in acsTrapObjectConnectionReason.
+    "
+    --#SUMMARY     "IPsec connection %s failed. Error: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance IPsec connection failed"
+    --SHORT     "Appliance IPsec connection failed"
+    --EVENT evt_ipsec_conn_failed
+    --% TrapTypeEnum=9
+::= { acsTrap 26 }
+
+avctAcsIpsecConnectionTerminated NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectConnectionName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when an IPsec connection is terminated.
+     The name of the connection is contained in acsTrapObjectConnectionName.
+    "
+    --#SUMMARY     "IPsec connection %s terminated."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance IPsec connection terminated"
+    --SHORT     "Appliance IPsec connection terminated"
+    --EVENT evt_ipsec_conn_terminated
+    --% TrapTypeEnum=9
+::= { acsTrap 27 }
+
+-- AAA Traps - start # 50
+avctAcsUserLoginTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSessionType
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when user logged into the appliance.
+     The name of the user who logged in is contained in
+     acsTrapObjectUserName and the method used to log into appliance
+     is contained in acsTrapObjectSessionType."
+    --#SUMMARY     "A user logged into the appliance. User: %s. Session type: %d."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance User Logged In"
+    --SHORT     "appliance user logged in"
+    --EVENT evt_usr_login
+    --% TrapTypeEnum=15
+::= { acsTrap 50 }
+
+avctAcsUserLogoutTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSessionType
+                }
+    STATUS current
+    DESCRIPTION
+    "A user logged out of the appliance.
+     The name of the user who logged in is contained in
+     acsTrapObjectUserName and the method used to log into appliance
+     is contained in acsTrapObjectSessionType."
+    --#SUMMARY     "A user logged out of the appliance. User: %s. Session type: %d."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance User Logged Out"
+    --SHORT     "appliance user logged out"
+    --EVENT evt_usr_logout
+    --% TrapTypeEnum=15
+::= { acsTrap 51 }
+
+avctAcsAuthenticationFailureTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSessionType
+                }
+    STATUS current
+    DESCRIPTION
+    "A user failed to authenticate with the appliance.
+     The name of the user who failed to authenticate is contained in acsTrapObjectUserName
+     and the method used to log into appliance is contained in acsTrapObjectSessionType."
+    --#SUMMARY     "User authentication failed. User: %s. Session type: %d."
+    --#ARGUMENTS   {0, 1}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance Authentication Failure"
+    --SHORT     "appliance authentication failure"
+    --EVENT evt_authe_fail
+    --% TrapTypeEnum=15
+::= { acsTrap 52 }
+
+avctAcsPortAuthenticationFailureTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectUserName,
+                 acsTrapObjectSerialPortName,
+                 acsTrapObjectSerialPortNumber,
+                 acsTrapObjectSerialSessionType
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a serial session authentication fails.
+     The name of the user who failed to authenticate is contained in acsTrapObjectUserName.
+     The serial port number on the appliance is contained in acsTrapObjectSerialPortNumber.
+     The serial port name on the appliance is contained in acsTrapObjectSerialPortName
+     The type of protocol configured on this port is contained in acsTrapObjectSerialSessionType."
+    --#SUMMARY     "Serial session authentication failed. User: %s. Port name: %s. Port number: %d. Session type: %d."
+    --#ARGUMENTS   { 0, 1, 2, 3 }
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance Serial Session Authentication Failed"
+    --SHORT     "appliance serial session authentication failed"
+    --EVENT evt_serauthe_fail
+    --% TrapTypeEnum=6
+::= { acsTrap 53 }
+
+--
+-- Serial Port Traps - start # 100
+--
+avctAcsPortPowerOnDetectTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortName,
+                  acsTrapObjectSerialPortNumber
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance has detected that the power on/off control signal
+     (RS232C - DCD signal) is high on a serial port indicating that the
+     server attached to the port is powered on.
+     This trap is sent on initialization if the condition is detected.
+     Subsequent traps occur only if there is a transition of the DCD
+     signal from low to high.
+     The affected serial port number is contained in acsTrapObjectSerialPortNumber.
+     The affected serial port name is contained in acsTrapObjectSerialPortName."
+    --#SUMMARY     "Power on detected on a serial port. Port name: %s. Port number: %d."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Serial Port Power Detected On"
+    --SHORT     "appliance serial port power detected on"
+    --EVENT evt_serpow_on
+    --% TrapTypeEnum=22
+::= { acsTrap 100 }
+
+avctAcsPortPowerOffDetectTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortName,
+                  acsTrapObjectSerialPortNumber
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance has detected that the power on/off control signal
+     (RS232C - DCD signal) is low on a serial port indicating that the
+     server attached to the port is powered off.
+     This trap is sent on initialization if the condition is detected.
+     Subsequent traps occur only if there is a transition of the DCD
+     signal from high to low.
+     The affected serial port number is contained in acsTrapObjectSerialPortNumber.
+     The affected serial port name is contained in acsTrapObjectSerialPortName."
+    --#SUMMARY     "Power off detected on a serial port. Port name: %s. Port number: %d."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Serial Port Power Detected Off"
+    --SHORT     "appliance serial port power detected off"
+    --EVENT evt_serpow_off
+    --% TrapTypeEnum=23
+::= { acsTrap 101 }
+
+avctAcsPortAutoDiscoverSuccess NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectSerialPortName
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance has used auto discovery to discover a name for the
+     target device attached to the serial port.
+     The affected serial port number is contained in acsTrapObjectSerialPortNumber.
+     The new and old serial port names are contained in acsTrapObjectSerialPortName."
+    --#SUMMARY     "Serial port name discovery succeeded. Port name: %s. Port number: %d. Old name: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Serial Port Name Discovery Succeeded"
+    --SHORT     "appliance serial port name discovery succeeded"
+    --EVENT evt_serdisc_success
+    --% TrapTypeEnum=23
+::= { acsTrap 102 }
+
+avctAcsPortAutoDiscoverFailure NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectSerialPortName
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance auto discovery of the name of the target device
+     attached to the serial port has failed.
+     The affected serial port number is contained in acsTrapObjectSerialPortNumber.
+     The old serial port name remains and is contained in acsTrapObjectSerialPortName."
+    --#SUMMARY     "Serial port name discovery failed. Port number: %d. Name remains: %s."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Serial Port Name Discovery Failed"
+    --SHORT     "appliance serial port name discovery failed"
+    --EVENT evt_serdisc_failure
+    --% TrapTypeEnum=23
+::= { acsTrap 103 }
+
+
+--
+-- Modem traps - start #120
+--
+
+avctAcsModemRegistrationTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectModemDeviceName,
+                  acsTrapObjectModemNetworkConnection
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when the modem has registered with the network.
+     The device name of the modem is contained in acsTrapObjectModemDeviceName.
+     The network connection type (home network vs roaming) is contained in acsTrapObjectModemNetworkConnection."
+    --#SUMMARY     "Modem has been registered with the network. Device: %s. Network Connection: %d."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Modem Registered"
+    --SHORT     "appliance modem registered"
+    --EVENT evt_modem_registered
+    --% TrapTypeEnum=9
+::= { acsTrap 120 }
+
+avctAcsModemRegistrationFailedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectModemDeviceName,
+                  acsTrapObjectModemRegistrationFailReason
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when the modem registration has failed.
+     The device name of the modem is contained in acsTrapObjectModemDeviceName
+     The failure reason is contained in acsTrapObjectModemRegistrationFailReason."
+    --#SUMMARY     "Modem registration has failed. Device: %s. Reason: %d"
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Modem Registration Failed"
+    --SHORT     "appliance modem registration failed"
+    --EVENT evt_modem_register_fail
+    --% TrapTypeEnum=9
+::= { acsTrap 121 }
+
+avctAcsModemConnectionEstablishedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectModemDeviceName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a modem connection has been established.
+     The device name of the modem is contained in acsTrapObjectModemDeviceName."
+    --#SUMMARY     "Modem connection has been established. Device: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Modem Connection Established"
+    --SHORT     "appliance modem connection established"
+    --EVENT evt_modem_connection_established
+    --% TrapTypeEnum=9
+::= { acsTrap 122 }
+
+avctAcsModemConnectionTerminatedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectModemDeviceName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a modem connection has been terminated.
+     The device name of the modem is contained in acsTrapObjectModemDeviceName."
+    --#SUMMARY     "Modem connection has been terminated. Device: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Modem Connection Terminated"
+    --SHORT     "appliance modem connection terminated"
+    --EVENT evt_modem_connection_terminated
+    --% TrapTypeEnum=9
+::= { acsTrap 123 }
+
+avctAcsModemConnectionFailedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectModemDeviceName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a modem connection has failed.
+     The device name of the modem is contained in acsTrapObjectModemDeviceName."
+    --#SUMMARY     "Modem connection has failed. Device: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Modem Connection Failed"
+    --SHORT     "appliance modem connection failed"
+    --EVENT evt_modem_connection_failed
+    --% TrapTypeEnum=9
+::= { acsTrap 124 }
+
+avctAcsModemStatusTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectModemDeviceName,
+                  acsTrapObjectModemStatus
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a modem is enabled or disabled.
+     The device name of the modem is contained in acsTrapObjectModemDeviceName.
+     The new status of the modem is contained in acsTrapObjectModemStatus."
+    --#SUMMARY     "Modem status has changed. Device: %s. New status: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Modem Status"
+    --SHORT     "appliance modem Status"
+    --EVENT evt_modem_status
+    --% TrapTypeEnum=9
+::= { acsTrap 125 }
+
+avctAcsScheduledTaskStart NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectTaskName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a scheduled task completes.
+     The name of the task is contained in acsTrapObjectTaskName."
+    --#SUMMARY     "A scheduled task was started. Task name: %s."
+    --#ARGUMENTS   { 0 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Scheduled Task Started"
+    --SHORT     "scheduled task started"
+    --EVENT evt_scheduled_task_started
+    --% TrapTypeEnum=9
+::= { acsTrap 140 }
+
+avctAcsScheduledTaskComplete NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectTaskName,
+                  acsTrapObjectTaskResult
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a scheduled task completes.
+     The name of the task is contained in acsTrapObjectTaskName.
+     The result of the task is contained in acsTrapObjectTaskResult."
+    --#SUMMARY     "A scheduled task completed. Task name: %s. Result: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Scheduled Task Completed"
+    --SHORT     "scheduled task completed"
+    --EVENT evt_scheduled_task_completed
+    --% TrapTypeEnum=9
+::= { acsTrap 141 }
+
+avctAcsScheduledTaskFailed NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectTaskName,
+                  acsTrapObjectTaskResult
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a scheduled task fails.
+     The name of the task is contained in acsTrapObjectTaskName.
+     The result of the task is contained in acsTrapObjectTaskResult."
+    --#SUMMARY     "A scheduled task failed. Task name: %s. Result: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Scheduled Task Failed"
+    --SHORT     "scheduled task failed"
+    --EVENT evt_scheduled_task_failed
+    --% TrapTypeEnum=9
+::= { acsTrap 142 }
+
+--
+-- CAS session Traps
+-- start # 150
+avctAcsSerialSessionStartedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSerialPortName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectSerialSessionType,
+                  acsTrapObjectSerialSessionNumbers
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a serial session has started on particular port.
+     The name of the user who is connected to the session is contained in acsTrapObjectUserName.
+     The serial port number on the appliance is contained in acsTrapObjectSerialPortNumber.
+     The serial port name on the appliance is contained in acsTrapObjectSerialPortName
+     The type of protocol running on this serial port is contained in acsTrapObjectSerialSessionType.
+     The numbe of sessions openned in this port is contained in acsTrapObjecSerialSessionNumbers. "
+    --#SUMMARY     "Serial session started. User: %s. Port name: %s. Port number: %d. Session type: %d. Number of sessions: %d."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Serial Session Started"
+    --SHORT     "appliance serial session started"
+    --EVENT evt_sersess_start
+    --% TrapTypeEnum=9
+::= { acsTrap 150 }
+
+avctAcsSerialSessionStoppedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectUserName,
+                 acsTrapObjectSerialPortName,
+                 acsTrapObjectSerialPortNumber,
+                 acsTrapObjectSerialSessionType,
+                 acsTrapObjectSerialSessionNumbers
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is sent when a serial session has stopped.
+     The user who was connected to the session is contained in acsTrapObjectUserName.
+     The serial port number on the appliance is contained in acsTrapObjectSerialPortNumber.
+     The serial port name on the appliance is contained in acsTrapObjectSerialPortName
+     The type of protocol running on this port is contained in acsTrapObjectSerialSessionType.
+     The number of serial sessions openned in this port is contained in acsTrapObjectSessionNumbers."
+    --#SUMMARY     "Serial session stopped. User: %s. Port name: %s. Port number: %d. Session type: %d. Number of sessions: %d."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4 }
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Serial Session Stopped"
+    --SHORT     "appliance serial session stopped"
+    --EVENT evt_sersess_stop
+    --% TrapTypeEnum=9
+::= { acsTrap 151 }
+
+avctAcsPortAlertTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectAlertIndex,
+                  acsTrapObjectAlertString,
+                  acsTrapObjectAlertMessage
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance detected a port alert on a serial port.
+     The serial port number where the port alert was detected on is contained in acsTrapObjectSerialPortNumber.
+     The serial port name where the port alert was detected on is contained in acsTrapObjectSerialPortName.
+     The index of the port alert that was detected is contained in acsTrapObjectAlertIndex.
+     The port alert that was detected is contained in acsTrapObjectAlertString.
+     The line text where the port alert was detected is contained in acsTrapObjectAlertMessage."
+    --#SUMMARY     "A port alert was detected on a serial port. Port name: %s. Port number: %d. Port alert index: %d. Port alert string: %s. Line text: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance Port Alert Detected On Serial Port"
+    --SHORT     "appliance port alert detected on serial port"
+    --EVENT evt_serport_alrt
+    --% TrapTypeEnum=19
+::= { acsTrap 152 }
+
+avctAcsDataBufferNFSFailure NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the appliance is sending data buffering data to a NFS server
+     and the write operation fails."
+    --#SUMMARY     "NFS Failure.Data Buffering could not be written to NFS server."
+    --#SEVERITY    ALERT
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance NFS Failure"
+    --SHORT     "appliance NFS failure"
+    --EVENT evt_nfs_failure
+    --% TrapTypeEnum=9
+::= { acsTrap 153 }
+
+avctAcsDataBufferNFSRecovery NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the NFS server is back online after a failure in a
+     Data Buffering write operation."
+    --#SUMMARY     "NFS Recovery.Server is back online after a failure."
+    --#SEVERITY    ALERT
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance NFS Recovery"
+    --SHORT     "appliance NFS recovery"
+    --EVENT evt_nfs_recovery
+    --% TrapTypeEnum=9
+::= { acsTrap 154 }
+
+--
+-- DSView Integration traps
+-- start # 200
+avctAcsDataBufferFullThresholdLowTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectDataBufferSize
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the appliance is managed by DSView and
+     global data buffer has reached configured Low level Threshold.
+     acsTrapObjectDataBufferSize is current size of the buffer."
+    --#SUMMARY     "Data Buffering for DSView data log is getting full (low threshold). Buffer size: %d."
+    --#ARGUMENTS   {0}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance DSView Data Log Buffer Full First Warning"
+    --SHORT     "appliance DSView data log buffer full first warning"
+    --EVENT evt_dsview_loglow
+    --% TrapTypeEnum=9
+::= { acsTrap 200 }
+
+avctAcsDataBufferFullThresholdMedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectDataBufferSize
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the appliance is managed by DSView and
+     global data buffer has reached configured Med level Threshold.
+     acsTrapObjectDataBufferSize is current size of the buffer."
+    --#SUMMARY     "Data Buffering for DSView data log is almost full (medium threshold). Buffer size: %d."
+    --#ARGUMENTS   {0}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance DSView Data Log Buffer Full Second Warning"
+    --SHORT     "appliance DSView data log buffer full second warning"
+    --EVENT evt_dsview_logmed
+    --% TrapTypeEnum=9
+::= { acsTrap 201 }
+
+avctAcsDataBufferFullLostDataTrap NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the appliance is managed by DSView and
+     global data buffer has exceeded beyond the size of buffer and data lost has occurred."
+    --#SUMMARY     "Data Buffering for DSView data log had data loss because buffer full."
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance DSView Log Data loss"
+    --SHORT     "appliance DSView log data loss"
+    --EVENT evt_dsview_loss
+    --% TrapTypeEnum=9
+::= { acsTrap 202 }
+
+--------------------------------------------------------------------------------
+-- Power Management
+--------------------------------------------------------------------------------
+--
+-- PDU Traps
+-- start # 300
+avctAcsPduOnlineTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduSocket,
+                  acsTrapObjectPduVendor
+                }
+    STATUS current
+    DESCRIPTION
+    "A power device unit(PDU) attached to the appliance is online.
+     The port number on the appliance that the power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The power device number in the chain is contained in acsTrapObjectPduNumber.
+     The power device ID is contained in acsTrapObjectPduId.
+     The number of outlets of the power device is contained in acsTrapObjectPduSocket.
+     The vendor of the power device is contained in acsTrapObjectPduVendor"
+    --#SUMMARY     "A power device is online. Serial port number: %d. PDU number: %d. PDU ID: %s. Number of sockets: %d. Vendor: %d."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Online"
+    --SHORT     "appliance power device online"
+    --EVENT evt_powdev_on
+    --% TrapTypeEnum=9
+::= { acsTrap 300 }
+
+avctAcsPduOfflineTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduSocket,
+                  acsTrapObjectPduVendor
+                }
+    STATUS current
+    DESCRIPTION
+    "A power device attached to the appliance is offline.
+     The port number on the appliance that the power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The power device number in the chain is contained in acsTrapObjectPduNumber.
+     The power device ID is contained in acsTrapObjectPduId.
+     The number of outlets of the power device is contained in acsTrapObjectPduSocket.
+     The vendor of the power device is contained in acsTrapObjectPduVendor."
+    --#SUMMARY     "A power device is offline. Serial port number: %d. PDU number: %d. PDU ID: %s. Number of sockets: %d. Vendor: %d."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance Power Device Offline"
+    --SHORT     "appliance power device offline"
+    --EVENT evt_powdev_off
+    --% TrapTypeEnum=9
+::= { acsTrap 301 }
+
+avctAcsPduIdChangedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduIdOld,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduVendor
+                }
+    STATUS current
+    DESCRIPTION
+    "The ID of the PDU was changed.
+     The port number on the appliance that the power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The power device number in the chain is contained in acsTrapObjectPduNumber.
+     The old power device ID is contained in acsTrapObjectPduIdOld.
+     The new power device ID is contained in acsTrapObjectPduId.
+     The vendor of the power device is contained in acsTrapObjectPduVendor."
+    --#SUMMARY  "Power device ID was changed. Serial port number: %d. PDU number: %d. PDU old ID: %s. PDU new ID: %s. Vendor: %d."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device ID Changed"
+    --SHORT     "appliance power device id changed"
+    --EVENT evt_powid_chng
+    --% TrapTypeEnum=9
+::= { acsTrap 302 }
+
+avctAcsPduMaxLoadHighTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                 }
+    STATUS current
+    DESCRIPTION
+    "The current on a power device attached to the appliance is above its high critical threshold.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the problem is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the problem is contained in the acsTrapObjectPduId.
+     The Type of the PDU Element that detected the problem is contained in the acsTrapObjectPduElementType.
+     The Name of the Pdu Element that detected the problem is contained in the acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "Appliance power device current is above its high critical threshold. Serial port number: %d. PDU number: %d. PDU ID: %s. Elem Type: %s. Elem Name: %s. Current detected: %s amps."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Current Above High Critical Threshold"
+    --SHORT     "appliance power device current above high critical threshold"
+    --EVENT evt_pow_maxload
+    --% TrapTypeEnum=9
+::= { acsTrap 303 }
+
+avctAcsPduMinLoadLowTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "The current on a power device attached to the appliance is below its low critical threshold.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the problem is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the problem is contained in the acsTrapObjectPduId.
+     The Type of the PDU Element that detected the problem is contained in the acsTrapObjectPduElementType.
+     The Name of the Pdu Element that detected the problem is contained in the acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "Appliance power device current is below its low critical threshold. Serial port number: %d. PDU number: %d. PDU ID: %s. Elem Type: %s. Elem Name: %s. Current detected: %s amps."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Current Below Low Critical Threshold"
+    --SHORT     "appliance power device current below low critical threshold"
+    --EVENT evt_pow_minload
+    --% TrapTypeEnum=9
+::= { acsTrap 304 }
+
+avctAcsPduFirmwareUpgradeStarted NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapFirmwareVersion,
+                  acsTrapNewFirmwareVersion
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance has started an upgrade of the PM software.
+     The name of the user who initiate the process is contained in acsTrapObjectUserName.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the problem is contained in the acsTrapObjectPduNumber.
+     The current firmware version is contained in acsTrapFirmwareVersion.
+     The new firmware version is contained in acsTrapNewFirmwareVersion."
+    --#SUMMARY     "PDU image upgrade started. User: %s. Serial port number: %d. PDU number: %d. Current version: %s. New version: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance PDU Image Upgrade Started"
+    --SHORT     "appliance pdu image upgrade started"
+    --EVENT evt_pdup_start
+    --% TrapTypeEnum=9
+::= { acsTrap 307 }
+
+avctAcsPduFirmwareUpgradeResultsTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapFirmwareUpgradeResult,
+                  acsTrapNewFirmwareVersion
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when Firmware upgraded is done to indicate the result.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that gone beneath the minimum threshold is contained in the acsTrapObjectPduNumber.
+     The new FW version is contained in acsTrapNewFirmwareVersion.
+     The result of the process is contained in acsTrapFirmwareUpgradeResult."
+    --#SUMMARY     "PDU image upgrade result. Serial port number:%d. PDU number: %d. Result: %d. New firmware version: %s."
+    --#ARGUMENTS   {0, 1, 2, 3}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance PDU Image Upgrade Result"
+    --SHORT     "appliance pdu image upgrade result"
+    --EVENT evt_pdup_rslt
+    --% TrapTypeEnum=9
+::= { acsTrap 308 }
+
+avctAcsPduHwOcpTripped NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the HW overcurrent protection mechanism is tripped.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The number of the PDU that was tripped is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that was tripped is contained in the acsTrapObjectPduId.
+     The Type of the PDU Element that detected the event is contained in the acsTrapObjectPduElementType.
+     The Name of the Pdu Element that detected the event is contained in the acsTrapObjectPduElementName."
+    --#SUMMARY     "HW overcurrent protection was tripped. Serial port number:%d. PDU number: %d. PDU ID: %s. Elem Type: %s. Elem Name: %s."
+    --#ARGUMENTS   {0, 1, 2, 3, 4}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance PDU HW Overcurrent Protection tripped"
+    --SHORT     "appliance pdu hwocp tripped"
+    --EVENT evt_hwocp_tripped
+    --% TrapTypeEnum=9
+::= { acsTrap 309 }
+
+avctAcsPduHwOcpReset NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName
+                }
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the HW overcurrent protection mechanism is reset.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The number of the PDU whose HW OCP was reset is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU ID whose HW OCP was reset is contained in the acsTrapObjectPduId.
+     The Type of the PDU Element that detected the event is contained in the acsTrapObjectPduElementType.
+     The Name of the Pdu Element that detected the event is contained in the acsTrapObjectPduElementName."
+    --#SUMMARY     "HW overcurrent protection was reset. Serial port number:%d. PDU number: %d. PDU ID: %s. Elem Type: %s. Elem Name: %s."
+    --#ARGUMENTS   {0, 1, 2, 3, 4}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance PDU HW Overcurrent Protection reset"
+    --SHORT     "appliance pdu hwocp reset"
+    --EVENT evt_hwocp_reset
+    --% TrapTypeEnum=9
+::= { acsTrap 310 }
+
+avctAcsPduMaxLoadBackTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "The current on a power device attached to the appliance is back to normal.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the event is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the event is contained in the acsTrapObjectPduId.
+     The Type of the PDU Element that detected the event is contained in the acsTrapObjectPduElementType.
+     The Name of the Pdu Element that detected the event is contained in the acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "Appliance power device normal current restored. Serial port number: %d. PDU number: %d. PDU ID: %s. Elem Type: %s. Elem Name: %s. Current detected: %s amps."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Normal Current Restored"
+    --SHORT     "appliance power device normal current restored"
+    --EVENT evt_pow_normload
+    --% TrapTypeEnum=9
+::= { acsTrap 311 }
+
+avctAcsPduWarnLoadTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "The current on a power device attached to the appliance is above its high warning threshold.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the problem is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the problem is contained in the acsTrapObjectPduId.
+     The Type of the PDU Element that detected the problem is contained in the acsTrapObjectPduElementType.
+     The Name of the Pdu Element that detected the problem is contained in the acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "Appliance power device current is above its high warning threshold. Serial port number: %d. PDU number: %d. PDU ID: %s. Elem Type: %s. Elem Name: %s. Current detected: %s amps."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Current Above High Warning Threshold"
+    --SHORT     "appliance power device current above high warning threshold"
+    --EVENT evt_pow_warnload
+    --% TrapTypeEnum=9
+::= { acsTrap 312 }
+
+avctAcsPduLowLoadLowTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "The current on a power device attached to the appliance is below its low warning threshold.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the problem is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the problem is contained in the acsTrapObjectPduId.
+     The Type of the PDU Element that detected the problem is contained in the acsTrapObjectPduElementType.
+     The Name of the Pdu Element that detected the problem is contained in the acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "Appliance power device current is below its low warning threshold. Serial port number: %d. PDU number: %d. PDU ID: %s. Elem Type: %s. Elem Name: %s. Current detected: %s amps."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Current Below Low Warning Threshold"
+    --SHORT     "appliance power device current below low warning threshold"
+    --EVENT evt_pow_lowload
+    --% TrapTypeEnum=9
+::= { acsTrap 313 }
+
+avctAcsPduBlownFuseTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduFuseStatus
+                }
+    STATUS current
+    DESCRIPTION
+    "Blown fuse detection in one circuit of the PDU.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the problem is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the problem is contained in the acsTrapObjectPduId.
+     The Type of the PDU Element that detected the problem is contained in the acsTrapObjectPduElementType.
+     The Name of the Pdu Element that detected the problem is contained in the acsTrapObjectPduElementName.
+     The status detected when this trap was originated is contained in acsTrapObjectPduFuseStatus."
+    --#SUMMARY     "Fuse status change. Serial port number: %d. PDU number: %d. PDU ID: %s. Elem Type: %s. Elem Name: %s. Fuse status: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Blown Fuse Detection"
+    --SHORT     "appliance power device blown fuse detection"
+    --EVENT evt_blown_fuse
+    --% TrapTypeEnum=9
+::= { acsTrap 314 }
+
+avctAcsPduInletAlarmTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementName
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance detected an alarm on a power device inlet.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the event is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the event is contained in the acsTrapObjectPduId.
+     The Name of the PDU Element that is experiencing the problem is contained in the acsTrapObjectPduElementName."
+    --#SUMMARY     "Appliance power device inlet alarm has been detected. Serial port number: %d. PDU number: %d. PDU ID: %s. Elem Name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Inlet Alarm"
+    --SHORT     "appliance power device inlet alarm"
+    --EVENT evt_pow_inlet_alarm
+    --% TrapTypeEnum=9
+::= { acsTrap 315 }
+
+avctAcsPduInletRestoredTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementName
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance detected that a power device inlet has been restored to normal operation.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the event is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the event is contained in the acsTrapObjectPduId.
+     The Name of the PDU Element to which normal operation has been restored is contained in the acsTrapObjectPduElementName."
+    --#SUMMARY     "Appliance power device inlet restored to normal operation has been detected. Serial port number: %d. PDU number: %d. PDU ID: %s. Elem Name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Inlet Restored"
+    --SHORT     "appliance power device inlet restored"
+    --EVENT evt_pow_inlet_restored
+    --% TrapTypeEnum=9
+::= { acsTrap 316 }
+
+avctAcsRtsSourceTransferTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduNewElementName
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance detected that the active power source has changed on the Rack Transfer switch.
+     The port number on the appliance that the power device is attached to is contained in the acsTrapObjectSerialPortNumber.
+     The PDU# that detected the event is contained in the acsTrapObjectPduNumber.
+     The ID of the PDU that detected the event is contained in the acsTrapObjectPduId.
+     The Name of the power source (inlet) which was previously active is contained in the acsTrapObjectPduElementName.
+     The Name of the power source (inlet) which is currently active is contained in the acsTrapObjectPduNewElementName."
+    --#SUMMARY     "Appliance rack transfer switch active power source (inlet) has changed. Serial port number: %d. PDU number: %d. PDU ID: %s. Previous active inlet name: %s. New active inlet name: %s"
+    --#ARGUMENTS   { 0, 1, 2, 3, 4 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Rack Transfer Switch Source Transfer"
+    --SHORT     "appliance rack transfer switch Source transfer"
+    --EVENT evt_pow_rts_transfer
+    --% TrapTypeEnum=9
+::= { acsTrap 317 }
+
+--
+--
+-- Outlet traps
+-- start # 350
+avctAcsOutletNameChangedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketOldName,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "The name of socket was changed.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the power device is contained in the acsTrapObjectPduNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that has changed the name is contained in acsTrapObjectSocketNumber.
+     The old socket name is contained in acsTrapObjectSocketOldName.
+     The socket name that has changed to the on state is contained in acsTrapObjectSocketName."
+    --#SUMMARY  "Power device socket name was changed. Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Old socket name: %s. New socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Socket Name Changed"
+    --SHORT     "appliance power device socket name changed"
+    --EVENT evt_pdsock_chng
+    --% TrapTypeEnum=9
+::= { acsTrap 350 }
+
+avctAcsOutletCmdOnTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet on a chain of power device has been issued the on command.
+     The name of the user who issued the on command is contained in acsTrapObjectUserName.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The power device number in the chain is contained in acsTrapObjectPduNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that was issued the on command is contained in acsTrapObjectSocketNumber.
+     The socket name that was issued the on command is contained in acsTrapObjectSocketName."
+    --#SUMMARY  "The on command was issued to a power device socket. Command issued by user: %s. Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Socket On Command"
+    --SHORT     "appliance power device socket on command"
+    --EVENT evt_pdsock_oncmd
+    --% TrapTypeEnum=9
+::= { acsTrap 351 }
+
+avctAcsOutletStatusOnTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet on a chain of power device has changed to the on state.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that has changed to the on state is contained acsTrapObjectSocketNumber.
+     The number of the power device is contained in the acsTrapObjectPduNumber.
+     The socket name that has changed to the on state is contained in acsTrapObjectSocketName."
+    --#SUMMARY  "Power device socket state changed to on. Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Socket State On"
+    --SHORT     "appliance power device socket state on"
+    --EVENT evt_pdsock_onst
+    --% TrapTypeEnum=9
+::= { acsTrap 352 }
+
+avctAcsOutletCmdOffTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet on a chain of power device has been issued the off command.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The power device number in the chain is contained in acsTrapObjectPduNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that was issued the off command is contained in acsTrapObjectSocketNumber.
+     The socket name that was issued the off command is contained in acsTrapObjectSocketName.
+     The name of the user who issued the off command is contained in acsTrapObjectUserName."
+    --#SUMMARY     "The off command was issued to a power device socket. Command issued by user: %s. Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Socket Off Command"
+    --SHORT     "appliance power device socket off command"
+    --EVENT evt_pdsock_offcmd
+    --% TrapTypeEnum=9
+::= { acsTrap 353 }
+
+avctAcsOutletStatusOffTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet on a chain of power device has changed to the off state.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the power device is contained in the acsTrapObjectPduNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that has changed to the off state is contained in acsTrapObjectSocketNumber.
+     The socket name that has changed to the off state is contained in acsTrapObjectSocketName."
+    --#SUMMARY  "Power device socket state changed to off. Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Socket State Off"
+    --SHORT     "appliance power device socket state off"
+    --EVENT evt_pdsock_offst
+    --% TrapTypeEnum=9
+::= { acsTrap 354 }
+
+avctAcsOutletCmdCycleTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet on a chain of power device has been issued the cycle command.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The power device number in the chain is contained in acsTrapObjectPduNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that was issued the cycle command is contained in acsTrapObjectSocketNumber.
+     The socket name that was issued the cycle command is contained in acsTrapObjectSocketName.
+     The name of the user who issued the cycle command is contained in acsTrapObjectUserName."
+    --#SUMMARY     "The cycle command was issued to a power device socket. Command issued by user: %s. Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Socket Cycle Command"
+    --SHORT     "appliance power device socket cycle command"
+    --EVENT evt_pdsock_cycmd
+    --% TrapTypeEnum=9
+::= { acsTrap 355 }
+
+avctAcsOutletCycleFinishedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet on a chain of power device has completed the cycle command.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The power device number in the chain is contained in acsTrapObjectPduNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that was issued the cycle command is contained in acsTrapObjectSocketNumber.
+     The socket name that was issued the cycle command is contained in acsTrapObjectSocketName."
+    --#SUMMARY     "The cycle command has completed to a power device socket.  Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Socket Cycle Command Completed"
+    --SHORT     "appliance power device socket cycle command completed"
+    --EVENT evt_pdsock_cycom
+    --% TrapTypeEnum=9
+::= { acsTrap 356 }
+
+avctAcsOutletOnSenseFailTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "A power device attached to the appliance has detected an on sense failure for a socket.
+     An on sense failure occurs when a socket should be in the on state but is actually in the off state.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the power device is contained in the acsTrapObjectPduNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that has changed to the on state is contained in acsTrapObjectSocketNumber.
+     The socket name that has changed to the on state is contained in acsTrapObjectSocketName."
+    --#SUMMARY  "Power device socket on sense failure. Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device On Sense Failure"
+    --SHORT     "appliance power device on sense failure"
+    --EVENT evt_pd_onfail
+    --% TrapTypeEnum=9
+::= { acsTrap 357 }
+
+avctAcsOutletOffSenseFailTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectSocketNumber,
+                  acsTrapObjectSocketName
+                }
+    STATUS current
+    DESCRIPTION
+    "A power device attached to the appliance has detected an off sense failure for a socket.
+     An off sense failure occurs when a socket should be in the off state but is actually in the on state.
+     The port number on the appliance that the chain of power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the power device is contained in the acsTrapObjectPduNumber.
+     The ID of the power device is contained in acsTrapObjectPduId.
+     The socket number that has changed to the on state is contained in acsTrapObjectSocketNumber.
+     The socket name that has changed to the on state is contained in acsTrapObjectSocketName."
+    --#SUMMARY  "Power device socket off sense failure. Serial port number: %d. PDU number: %d. PDU ID: %s. Socket number: %d. Socket name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Off Sense Failure"
+    --SHORT     "appliance power device off sense failure"
+    --EVENT evt_pd_offail
+    --% TrapTypeEnum=9
+::= { acsTrap 358 }
+
+--
+--
+-- UPS traps
+-- start # 370
+avctAcsUpsOnlineTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsVendor
+                }
+    STATUS current
+    DESCRIPTION
+    "An uninterruptible power system unit (UPS) attached to the appliance is online.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The UPS device ID is contained in acsTrapObjectUpsId.
+     The vendor of the UPS device is contained in acsTrapObjectUpsVendor"
+    --#SUMMARY     "A UPS device is online. Serial port number: %d. UPS ID: %s. Vendor: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Online"
+    --SHORT     "appliance UPS device online"
+    --EVENT evt_upsdev_on
+    --% TrapTypeEnum=9
+::= { acsTrap 370 }
+
+avctAcsUpsOfflineTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsVendor
+                }
+    STATUS current
+    DESCRIPTION
+    "A UPS attached to the appliance is offline.
+     The port number on the appliance that the power device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The UPS device ID is contained in acsTrapObjectUpsId.
+     The vendor of the power device is contained in acsTrapObjectUpsVendor."
+    --#SUMMARY     "A UPS device is offline. Serial port number: %d. UPS ID: %s. Vendor: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance UPS Device Offline"
+    --SHORT     "appliance UPS device offline"
+    --EVENT evt_upsdev_off
+    --% TrapTypeEnum=9
+::= { acsTrap 371 }
+
+avctAcsUpsIdChangedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsIdOld,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsVendor
+                }
+    STATUS current
+    DESCRIPTION
+    "The ID of the UPS was changed.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The old UPS device ID is contained in acsTrapObjectUpsIdOld.
+     The new UPS device ID is contained in acsTrapObjectUpsId.
+     The vendor of the UPS device is contained in acsTrapObjectUpsVendor."
+    --#SUMMARY  "UPS device ID was changed. Serial port number: %d. UPS old ID: %s. UPS new ID: %s. Vendor: %d."
+    --#ARGUMENTS   { 0, 1, 2, 3}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device ID Changed"
+    --SHORT     "appliance UPS device id changed"
+    --EVENT evt_upsid_chng
+    --% TrapTypeEnum=9
+::= { acsTrap 372 }
+
+avctAcsUpsOutputOffTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "The system output of the UPS has changed to the off state.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS system output state changed to off. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device System Output Off"
+    --SHORT     "appliance UPS device system output off"
+    --EVENT evt_upsoutput_offst
+    --% TrapTypeEnum=9
+::= { acsTrap 373 }
+
+avctAcsUpsBatteryDischargingTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsBatteryTimeRemaining
+                }
+    STATUS current
+    DESCRIPTION
+    "The UPS battery charge state has changed to discharging.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId.
+     The estimated number of minutes of battery time is contained in acsTrapObjectUpsBatteryTimeRemaining."
+    --#SUMMARY  "UPS battery charge state changed to discharging. Serial port number: %d. UPS ID: %s. Battery time remaining: %d minutes."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Battery Discharging"
+    --SHORT     "appliance UPS device battery discharging"
+    --EVENT evt_upsbattery_discharging
+    --% TrapTypeEnum=9
+::= { acsTrap 374 }
+
+avctAcsUpsBatteryLowTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsBatteryTimeRemaining
+                }
+    STATUS current
+    DESCRIPTION
+    "The calculated battery time on the UPS battery has reached the low battery threshold.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId.
+     The estimated of minutes of battery time remaining is contained in acsTrapObjectUpsBatteryTimeRemaining."
+    --#SUMMARY  "UPS battery time has reached the low battery threshold. Serial port number: %d. UPS ID: %s. Battery time remaining: %d minutes."
+    --#ARGUMENTS   { 0, 1, 2 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance UPS Device Battery Low"
+    --SHORT     "appliance UPS device battery low"
+    --EVENT evt_upsbattery_low
+    --% TrapTypeEnum=9
+::= { acsTrap 375 }
+
+avctAcsUpsSystemInputPowerProblemTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "The UPS power input is not qualified to provide power to the system.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS power input is not qualified to provide power to the system. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance UPS Device System Input Power Problem"
+    --SHORT     "appliance UPS device system input power problem"
+    --EVENT evt_upsinput_problem
+    --% TrapTypeEnum=9
+::= { acsTrap 376 }
+
+avctAcsUpsReplaceBatteryTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "The UPS battery is due for replacement.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS battery is due for replacement. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance UPS Device Replace Battery"
+    --SHORT     "appliance UPS device replace battery"
+    --EVENT evt_upsreplace_battery
+    --% TrapTypeEnum=9
+::= { acsTrap 377 }
+
+avctAcsUpsBatteryTestFailedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "The UPS battery test has failed.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS battery test has failed. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance UPS Device Battery Test Failed"
+    --SHORT     "appliance UPS device battery test failed"
+    --EVENT evt_upsbattery_testfail
+    --% TrapTypeEnum=9
+::= { acsTrap 378 }
+
+avctAcsUpsShutdownPendingTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "UPS Shutdown is pending.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS shutdown is pending. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance UPS Device Shutdown Pending"
+    --SHORT     "appliance UPS device shutdown pending"
+    --EVENT evt_upsshutdown_pending
+    --% TrapTypeEnum=9
+::= { acsTrap 379 }
+
+avctAcsUpsBatteryUndervoltageTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "UPS battery voltage is too low.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS battery voltage is too low. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Battery Voltage Low"
+    --SHORT     "appliance UPS battery voltage low"
+    --EVENT evt_upsbattery_undervoltage
+    --% TrapTypeEnum=9
+::= { acsTrap 380 }
+
+avctAcsUpsBatteryOvervoltageTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "UPS battery voltage has exceeded the limit.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS battery voltage has exceeded the limit. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Battery Voltage Exceeded"
+    --SHORT     "appliance UPS battery voltage exceeded"
+    --EVENT evt_upsbattery_overvoltage
+    --% TrapTypeEnum=9
+::= { acsTrap 381 }
+
+avctAcsUpsSystemInputPowerRestoredTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "UPS system input power has been restored.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS system input power has been restored. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Input Power Restored"
+    --SHORT     "appliance UPS input power restored"
+    --EVENT evt_upsinputpower_restored
+    --% TrapTypeEnum=9
+::= { acsTrap 382 }
+
+avctAcsUpsOutputProblemTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "There is a problem with the UPS output: there is an Output Overvoltage, Undervoltage or Overload condition.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS power output problem: overvoltage, undervoltage or overload condition. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance UPS Device Output Problem"
+    --SHORT     "appliance UPS device output problem"
+    --EVENT evt_upsoutput_problem
+    --% TrapTypeEnum=9
+::= { acsTrap 383 }
+
+avctAcsUpsHardwareFailureTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "There is a hardware failure on the UPS. Possible failures include system fan failure, charger failure,
+     inverter failure, rectifier failure, parallel comm warning, loss of redundancy,
+     emergency power off - latched, input wiring fault, DC to DC converter fault.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS hardware failure. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1 }
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Error Events"
+    --NAME      "Appliance UPS Device Hardware Failure"
+    --SHORT     "appliance UPS device hardware failure"
+    --EVENT evt_upshardware_failure
+    --% TrapTypeEnum=9
+::= { acsTrap 384 }
+
+avctAcsUpsOutputOnBypassTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "The output power of the UPS is being supplied by the bypass.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS output power on bypass. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Output On Bypass"
+    --SHORT     "appliance UPS device output on bypass"
+    --EVENT evt_upsoutput_onbypass
+    --% TrapTypeEnum=9
+::= { acsTrap 385 }
+
+avctAcsUpsOutputNormalTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId
+                }
+    STATUS current
+    DESCRIPTION
+    "The system output of the UPS has returned to the normal state.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId."
+    --#SUMMARY  "UPS system output state changed to normal. Serial port number: %d. UPS ID: %s."
+    --#ARGUMENTS   { 0, 1}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Output Normal"
+    --SHORT     "appliance UPS device output normal"
+    --EVENT evt_upsoutput_normal
+    --% TrapTypeEnum=9
+::= { acsTrap 386 }
+
+avctAcsUpsOutletGroupCmdOnTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsOutletGroupNumber,
+                  acsTrapObjectUpsOutletGroupName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet group on a UPS device has been issued the on command.
+     The name of the user who issued the on command is contained in acsTrapObjectUserName.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId.
+     The outlet group number that was issued the on command is contained in acsTrapObjectUpsOutletGroupNumber.
+     The outlet group name that was issued the on command is contained in acsTrapObjectUpsOutletGroupName."
+    --#SUMMARY  "The on command was issued to a UPS device outlet group. Command issued by user: %s. Serial port number: %d. UPS ID: %s. Outlet group number: %d. Outlet group name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Outlet Group On Command"
+    --SHORT     "appliance UPS device outlet group on command"
+    --EVENT evt_upsoutletgroup_oncmd
+    --% TrapTypeEnum=9
+::= { acsTrap 387 }
+
+avctAcsUpsOutletGroupStatusOnTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsOutletGroupNumber,
+                  acsTrapObjectUpsOutletGroupName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet group on a UPS device has changed to the on state.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId.
+     The outlet group number that has changed to the on state is contained acsTrapObjectUpsOutletGroupNumber.
+     The outlet group name that has changed to the on state is contained in acsTrapObjectUpsOutletGroupName."
+    --#SUMMARY  "UPS device outlet group state changed to on. Serial port number: %d. UPS ID: %s. Outlet group number: %d. Outlet group name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Outlet Group State On"
+    --SHORT     "appliance UPS device outlet group state on"
+    --EVENT evt_upsoutletgroup_onst
+    --% TrapTypeEnum=9
+::= { acsTrap 388 }
+
+avctAcsUpsOutletGroupCmdOffTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsOutletGroupNumber,
+                  acsTrapObjectUpsOutletGroupName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet group on a UPS device has been issued the off command.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId.
+     The outlet group number that was issued the off command is contained in acsTrapObjectUpsOutletGroupNumber.
+     The outlet group name that was issued the off command is contained in acsTrapObjectUpsOutletGroupName.
+     The name of the user who issued the off command is contained in acsTrapObjectUserName."
+    --#SUMMARY     "The off command was issued to a UPS device outlet group. Command issued by user: %s. Serial port number: %d. UPS ID: %s. Outlet group number: %d. Outlet group name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Outlet Group Off Command"
+    --SHORT     "appliance UPS device outlet group off command"
+    --EVENT evt_upsoutletgroup_offcmd
+    --% TrapTypeEnum=9
+::= { acsTrap 389 }
+
+avctAcsUpsOutletGroupStatusOffTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsOutletGroupNumber,
+                  acsTrapObjectUpsOutletGroupName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet group on a UPS device has changed to the off state.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId.
+     The outlet group number that has changed to the off state is contained in acsTrapObjectUpsOutletGroupNumber.
+     The outlet group name that has changed to the off state is contained in acsTrapObjectUpsOutletGroupName."
+    --#SUMMARY  "UPS device outlet group state changed to off. Serial port number: %d. UPS ID: %s. Outlet group number: %d. Outlet group name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Device Outlet Group State Off"
+    --SHORT     "appliance power device outlet group state off"
+    --EVENT evt_upsoutletgroup_offst
+    --% TrapTypeEnum=9
+::= { acsTrap 390 }
+
+avctAcsUpsOutletGroupCmdCycleTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectUserName,
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsOutletGroupNumber,
+                  acsTrapObjectUpsOutletGroupName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet group on a UPS device has been issued the cycle command.
+     The port number on the appliance that the UPS is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId.
+     The outlet group number that was issued the cycle command is contained in acsTrapObjectUpsOutletGroupNumber.
+     The outlet group name that was issued the cycle command is contained in acsTrapObjectUpsOutletGroupName.
+     The name of the user who issued the cycle command is contained in acsTrapObjectUserName."
+    --#SUMMARY     "The cycle command was issued to a UPS device outlet group. Command issued by user: %s. Serial port number: %d. UPS ID: %s. Outlet group number: %d. Outlet group name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Outlet Group Cycle Command"
+    --SHORT     "appliance UPS device outlet group cycle command"
+    --EVENT evt_upsoutletgroup_cycmd
+    --% TrapTypeEnum=9
+::= { acsTrap 391 }
+
+avctAcsUpsOutletGroupCycleFinishedTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectUpsId,
+                  acsTrapObjectUpsOutletGroupNumber,
+                  acsTrapObjectUpsOutletGroupName
+                }
+    STATUS current
+    DESCRIPTION
+    "An outlet group on a UPS device has completed the cycle command.
+     The port number on the appliance that the UPS device is attached to is contained in acsTrapObjectSerialPortNumber.
+     The ID of the UPS device is contained in acsTrapObjectUpsId.
+     The outlet group number that was issued the cycle command is contained in acsTrapObjectUpsOutletGroupNumber.
+     The outlet group name that was issued the cycle command is contained in acsTrapObjectUpsOutletGroupName."
+    --#SUMMARY     "The cycle command has completed to a UPS device outlet group.  Serial port number: %d. UPS ID: %s. Outlet group number: %d. Outlet group name: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3}
+    --#SEVERITY    MINOR
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance UPS Device Outlet Group Cycle Command Completed"
+    --SHORT     "appliance UPS device outlet group cycle command completed"
+    --EVENT evt_upsoutletgroup_cycom
+    --% TrapTypeEnum=9
+::= { acsTrap 392 }
+
+--
+-- ACS8000 Appliance Specifics TRAPS
+--
+
+avctAcsApplianceSensorThresholdNormalTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectApplianceSensorType,
+                 acsTrapObjectApplianceSensorName,
+                 acsTrapObjectApplianceSensorValue
+               }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance cleared its alarm.
+     The sensor type is contained in acsTrapObjectApplianceSensorType.
+     The sensor name is contained in acsTrapObjectApplianceSensorName.
+     The present sensor value is contained in acsTrapObjectApplianceSensorValue."
+    --#SUMMARY     "Sensor alarm was cleared. Type: %s Name: %s Value: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Sensor alarm was cleared"
+    --SHORT     "appliance sensor alarm was cleared"
+    --EVENT evt_app_sensor_alarm_normal
+    --% TrapTypeEnum=9
+::= { acsTrap 400 }
+
+avctAcsApplianceSensorThresholdHighCriticalTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectApplianceSensorType,
+                 acsTrapObjectApplianceSensorName,
+                 acsTrapObjectApplianceSensorValue
+               }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance has breached its high critical threshold.
+     The sensor type is contained in acsTrapObjectApplianceSensorType.
+     The sensor name is contained in acsTrapObjectApplianceSensorName.
+     The present sensor value is contained in acsTrapObjectApplianceSensorValue."
+    --#SUMMARY     "Appliance Sensor High Critical. Type: %s Name: %s Value: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Sensor High Critical"
+    --SHORT     "appliance sensor high critical"
+    --EVENT evt_app_sensor_alarm_high_crit
+    --% TrapTypeEnum=9
+::= { acsTrap 401 }
+
+avctAcsApplianceSensorThresholdHighWarningTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectApplianceSensorType,
+                 acsTrapObjectApplianceSensorName,
+                 acsTrapObjectApplianceSensorValue
+               }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance has breached its high warning threshold.
+     The sensor type is contained in acsTrapObjectApplianceSensorType.
+     The sensor name is contained in acsTrapObjectApplianceSensorName.
+     The present sensor value is contained in acsTrapObjectApplianceSensorValue."
+    --#SUMMARY     "Appliance Sensor High Warning. Type: %s Name: %s Value: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Sensor High Warning"
+    --SHORT     "appliance sensor high warning"
+    --EVENT evt_app_sensor_alarm_high_warn
+    --% TrapTypeEnum=9
+::= { acsTrap 402 }
+
+avctAcsApplianceSensorThresholdLowWarningTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectApplianceSensorType,
+                 acsTrapObjectApplianceSensorName,
+                 acsTrapObjectApplianceSensorValue
+               }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance has breached is low warning threshold.
+     The sensor type is contained in acsTrap_ObjectApplianceSensorType.
+     The sensor name is contained in acsTrap_ObjectApplianceSensorName.
+     The present sensor value is contained in acsTrapObjectApplianceSensorValue."
+    --#SUMMARY     "Appliance Sensor Low Warning. Type: %s Name: %s Value: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Sensor Low Warning"
+    --SHORT     "appliance sensor low warning"
+    --EVENT evt_app_sensor_alarm_low_warn
+    --% TrapTypeEnum=9
+::= { acsTrap 403 }
+
+avctAcsApplianceSensorThresholdLowCriticalTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectApplianceSensorType,
+                 acsTrapObjectApplianceSensorName,
+                 acsTrapObjectApplianceSensorValue
+               }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance has breached the low critical threshold.
+     The sensor type is contained in acsTrapObjectApplianceSensorType.
+     The sensor name is contained in acsTrapObjectApplianceSensorName.
+     The present sensor value is contained in acsTrapObjectApplianceSensorValue."
+    --#SUMMARY     "Appliance Sensor low Critical. Type: %s Name: %s Value: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Sensor Low Critical"
+    --SHORT     "appliance sensor low critical"
+    --EVENT evt_app_sensor_alarm_low_crit
+    --% TrapTypeEnum=9
+::= { acsTrap 404 }
+
+avctAcsApplianceSensorDigitalAlarmTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectApplianceSensorType,
+                 acsTrapObjectApplianceSensorName,
+                 acsTrapObjectApplianceSensorValue
+               }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance is in its alarm state.
+     The sensor type is contained in acsTrapObjectApplianceSensorType.
+     The sensor name is contained in acsTrapObjectApplianceSensorName.
+     The present sensor value is contained in acsTrapObjectApplianceSensorValue."
+    --#SUMMARY     "Appliance Digital Sensor Alarm Triggered. Type: %s Name: %s Value: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    INFORMATIONAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Digital Sensor Alarm"
+    --SHORT     "appliance digital sensor alarm"
+    --EVENT evt_app_sensor_alarm_digital
+    --% TrapTypeEnum=9
+::= { acsTrap 405 }
+
+avctAcsDialInCallAnswered NOTIFICATION-TYPE
+    OBJECTS   {
+                acsTrapObjectCallerIdNumber,
+                acsTrapObjectCallerIdName
+               }
+   STATUS current
+    DESCRIPTION
+   "The appliance has answered a dial-in call.
+    The incoming caller ID phone number is contained in acsTrapObjectCallerIdNumber.
+    The incoming caller ID name is contained in acsTrapObjectCallerIdName."
+   --#SUMMARY     "Dial-In call answered. Incoming phone number: %s. Incoming name: %s."
+   --#ARGUMENTS   { 0, 1 }
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Status Events"
+   --NAME       "Appliance Dial-In Call Answered"
+   --SHORT      "appliance dial-in call answered"
+   --EVENT evt_dialin_call_answered
+   --% TrapTypeEnum=9
+::= { acsTrap 450 }
+
+avctAcsDialInCallBlocked NOTIFICATION-TYPE
+    OBJECTS   {
+                acsTrapObjectCallerIdNumber,
+                acsTrapObjectCallerIdName
+               }
+    STATUS current
+    DESCRIPTION
+   "The appliance has blocked a dial-in call.
+    The incoming caller ID phone number is contained in acsTrapObjectCallerIdNumber.
+    The incoming caller ID name is contained in acsTrapObjectCallerIdName."
+   --#SUMMARY     "Dial-In call blocked. Incoming phone number: %s. Incoming name: %s."
+   --#ARGUMENTS   { 0, 1 }
+   --#SEVERITY    INFORMATIONAL
+   --#CATEGORY    "Status Events"
+   --NAME       "Appliance Dial-In Call Blocked"
+   --SHORT      "appliance dial-in call blocked"
+   --EVENT evt_dialin_call_blocked
+   --% TrapTypeEnum=9
+::= { acsTrap 451 }
+
+avctAcsDialInLineVoltageDroppedTrap NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the dial-in modem line voltage has dropped."
+    --#SUMMARY     "Dial-In modem line voltage dropped."
+    --#SEVERITY    ALERT
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Dial-In Line Voltage Dropped"
+    --SHORT     "appliance dial-in line voltage dropped"
+    --EVENT evt_dialin_voltage_dropped
+    --% TrapTypeEnum=9
+::= { acsTrap 452 }
+
+avctAcsDialInLineVoltageRestoredTrap NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION
+    "This trap is generated when the dial-in modem line voltage has been restored."
+    --#SUMMARY     "Dial-In modem line voltage restored."
+    --#SEVERITY    ALERT
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Dial-In Line Voltage Restored"
+    --SHORT     "appliance dial-in line voltage restored"
+    --EVENT evt_dialin_voltage_restored
+    --% TrapTypeEnum=9
+::= { acsTrap 453 }
+
+-- 500
+avctAcsTemperatureExceededMaxTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTemperatureMaximumValue,
+                 acsTrapObjectTemperatureMaxThreshold,
+                 acsTrapObjectTemperatureCurrent
+               }
+    STATUS current
+    DESCRIPTION
+    "The appliance temperature has exceeded the maximum threshold configured.
+     The maximum temperature configured is contained in acsTrapObjectTemperatureMaximumValue.
+     The threshold configured is contained in the acsTrapObjectTemperatureMaxThreshold.
+     The current temperature is contained in acsTrapObjectTemperatureCurrent."
+    --#SUMMARY     "Appliance temperature exceeded the maximum threshold. Maximum value: %d. Threshold: %d. Current: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Temperature Max Threshold Exceeded"
+    --SHORT     "appliance temperature max threshold exceeded"
+    --EVENT evt_temp_maxexd
+    --% TrapTypeEnum=9
+::= { acsTrap 500 }
+
+avctAcsTemperatureReachedMaxTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTemperatureMaximumValue,
+                 acsTrapObjectTemperatureMaxThreshold,
+                 acsTrapObjectTemperatureCurrent
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance temperature has gone beneath the maximum threshold configured.
+     The maximum temperature configured is contained in acsTrapObjectTemperatureMaximumValue
+     The threshold confiugred is contained in acsTrapObjectTemperatureMaxThreshold.
+     The current temperature is contained in acsTrapObjectTemperatureCurrent."
+    --#SUMMARY     "Appliance temperature reached the maximum threshold. Maximum value: %d. Threshold: %d. Current: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Temperature Max Threshold Reached"
+    --SHORT     "appliance temperature max threshold reached"
+    --EVENT evt_temp_maxrch
+    --% TrapTypeEnum=9
+::= { acsTrap 501 }
+
+avctAcsTemperatureExceededMinTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTemperatureMinimumValue,
+                 acsTrapObjectTemperatureMinThreshold,
+                 acsTrapObjectTemperatureCurrent
+               }
+    STATUS current
+    DESCRIPTION
+    "The appliance temperature has exceeded the minimum threshold configured.
+     The minimum temperature configured is contained in acsTrapObjectTemperatureMinimumValue.
+     The threshold configured is contained in the acsTrapObjectTemperatureMinThreshold.
+     The current temperature is contained in acsTrapObjectTemperatureCurrent."
+    --#SUMMARY     "Appliance temperature exceeded the minimum threshold. Minimum value: %d. Threshold: %d. Current: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Temperature Min Threshold Exceeded"
+    --SHORT     "appliance temperature min threshold exceeded"
+    --EVENT evt_temp_minexd
+    --% TrapTypeEnum=9
+::= { acsTrap 502 }
+
+avctAcsTemperatureReachedMinTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTemperatureMinimumValue,
+                 acsTrapObjectTemperatureMinThreshold,
+                 acsTrapObjectTemperatureCurrent
+                }
+    STATUS current
+    DESCRIPTION
+    "The appliance temperature has gone beneath the minimum threshold configured.
+     The minimum temperature configured is contained in acsTrapObjectTemperatureMinimumValue
+     The threshold confiugred is contained in acsTrapObjectTemperatureMinThreshold.
+     The current temperature is contained in acsTrapObjectTemperatureCurrent."
+    --#SUMMARY     "Appliance temperature reached the minimum threshold. Minimum value: %d. Threshold:%d. Current: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Temperature Min Threshold Reached"
+    --SHORT     "appliance temperature min threshold reached"
+    --EVENT evt_temp_minrch
+    --% TrapTypeEnum=9
+::= { acsTrap 503 }
+
+avctAcsPowerSupplyTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectPowerSupplyNumber,
+                 acsTrapObjectPowerSupplyOldState,
+                 acsTrapObjectPowerSupplyNewState
+               }
+    STATUS current
+    DESCRIPTION
+    "The state of the appliance power supply has changed.
+     The number of power supply is contained in acsTrapObjectPowerSupplyNumber.
+     The old state of the power supply is contained in acsTrapObjectSupplyOldState.
+     The new state of the power supply is contained in acsTrapObjectSupplyNewState."
+    --#SUMMARY     "State of the power supply has been changed. Power supply number: %d. Old state: %d. New state: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Power Supply State Changed"
+    --SHORT     "appliance power supply state changed"
+    --EVENT evt_pow_stch
+    --% TrapTypeEnum=9
+::= { acsTrap 504 }
+
+avctAcsPlugDeviceInsertTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectPlugDeviceName,
+                 acsTrapObjectPlugDeviceType,
+                 acsTrapObjectPlugDeviceInfo
+               }
+    STATUS current
+    DESCRIPTION
+    "A plugged device has been inserted in the appliance.
+     The device name used by plugged device is contained in acsTrapObjectPlugDeviceName.
+     The type of the plugged device is contained in acsTrapObjectPlugDeviceType.
+     The info about the plugged device is contained in acsTrapObjectPlugDeviceInfo."
+    --#SUMMARY     "A pluggable device has been inserted in the appliance. Device name: %s. Device type: %s. Device info: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Has A Pluggable Device Inserted"
+    --SHORT     "appliance has a pluggable device inserted"
+    --EVENT evt_plgd_ins
+    --% TrapTypeEnum=9
+::= { acsTrap 505 }
+
+avctAcsPlugDeviceEjectTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectPlugDeviceName,
+                 acsTrapObjectPlugDeviceType,
+                 acsTrapObjectPlugDeviceInfo
+               }
+    STATUS current
+    DESCRIPTION
+    "A plugged device has been ejected from the appliance.
+     The device name used by plugged device is contained in acsTrapObjectPlugDeviceName.
+     The type of the plugged device is contained in acsTrapObjectPlugDeviceType.
+     The info about the plugged device is contained in acsTrapObjectPlugDeviceInfo."
+    --#SUMMARY     "A pluggable device has been ejected from the appliance. Device name: %s. Device type: %s. Device info: %s."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Appliance Has A Pluggable Device Ejected"
+    --SHORT     "appliance has a pluggable device ejected"
+    --EVENT evt_plgd_ej
+    --% TrapTypeEnum=9
+::= { acsTrap 506 }
+
+avctAcsSensorThresholdNormalTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance cleared its alarm.
+     The port number of the appliance where the sensor is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the PDU where the sensor is attached is contained in acsTrapObjectPduNumber.
+     The ID of the PDU where the sensor is attached is contained in acsTrapObjectPduId.
+     The Type of the sensor is contained in acsTrapObjectPduElementType.
+     The Name of the sensor is contained in acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "PDU sensor alarm was cleared. Serial port number: %d. PDU number: %d. PDU ID: %s. Sensor Type: %s. Sensor Name: %s. Current value: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "PDU Sensor Alarm Cleared"
+    --SHORT     "PDU sensor alarm cleared"
+    --EVENT evt_sensor_alarm_normal
+    --% TrapTypeEnum=9
+::= { acsTrap 507 }
+
+avctAcsSensorThresholdHighCriticalTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance is above its high critical threshold.
+     The port number of the appliance where the sensor is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the PDU where the sensor is attached is contained in acsTrapObjectPduNumber.
+     The ID of the PDU where the sensor is attached is contained in acsTrapObjectPduId.
+     The Type of the sensor is contained in acsTrapObjectPduElementType.
+     The Name of the sensor is contained in acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "PDU sensor is above its high critical threshold. Serial port number: %d. PDU number: %d. PDU ID: %s. Sensor Type: %s. Sensor Name: %s. Current value: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "PDU Sensor Alarm High Critical"
+    --SHORT     "PDU sensor alarm high critical"
+    --EVENT evt_sensor_alarm_high_crit
+    --% TrapTypeEnum=9
+::= { acsTrap 508 }
+
+avctAcsSensorThresholdHighWarningTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance is above its high warning threshold.
+     The port number of the appliance where the sensor is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the PDU where the sensor is attached is contained in acsTrapObjectPduNumber.
+     The ID of the PDU where the sensor is attached is contained in acsTrapObjectPduId.
+     The Type of the sensor is contained in acsTrapObjectPduElementType.
+     The Name of the sensor is contained in acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "PDU sensor is above its high warning threshold. Serial port number: %d. PDU number: %d. PDU ID: %s. Sensor Type: %s. Sensor Name: %s. Current value: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "PDU Sensor Alarm High Warning"
+    --SHORT     "PDU sensor alarm high warning"
+    --EVENT evt_sensor_alarm_high_warn
+    --% TrapTypeEnum=9
+::= { acsTrap 509 }
+
+avctAcsSensorThresholdLowWarningTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance is below its low warning threshold.
+     The port number of the appliance where the sensor is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the PDU where the sensor is attached is contained in acsTrapObjectPduNumber.
+     The ID of the PDU where the sensor is attached is contained in acsTrapObjectPduId.
+     The Type of the sensor is contained in acsTrapObjectPduElementType.
+     The Name of the sensor is contained in acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "PDU sensor is below its low warning threshold. Serial port number: %d. PDU number: %d. PDU ID: %s. Sensor Type: %s. Sensor Name: %s. Current value: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "PDU Sensor Alarm Low Warning"
+    --SHORT     "PDU sensor alarm low warning"
+    --EVENT evt_sensor_alarm_low_warn
+    --% TrapTypeEnum=9
+::= { acsTrap 510 }
+
+avctAcsSensorThresholdLowCriticalTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "A sensor attached to the appliance is below its low critical threshold.
+     The port number of the appliance where the sensor is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the PDU where the sensor is attached is contained in acsTrapObjectPduNumber.
+     The ID of the PDU where the sensor is attached is contained in acsTrapObjectPduId.
+     The Type of the sensor is contained in acsTrapObjectPduElementType.
+     The Name of the sensor is contained in acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "PDU sensor is below its low critical threshold. Serial port number: %d. PDU number: %d. PDU ID: %s. Sensor Type: %s. Sensor Name: %s. Current value: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "PDU Sensor Alarm Low Critical"
+    --SHORT     "PDU sensor alarm low critical"
+    --EVENT evt_sensor_alarm_low_crit
+    --% TrapTypeEnum=9
+::= { acsTrap 511 }
+
+avctAcsSensorThresholdDigitalSensorAlarmTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                  acsTrapObjectSerialPortNumber,
+                  acsTrapObjectPduNumber,
+                  acsTrapObjectPduId,
+                  acsTrapObjectPduElementType,
+                  acsTrapObjectPduElementName,
+                  acsTrapObjectPduCurrentValue
+                }
+    STATUS current
+    DESCRIPTION
+    "A digital sensor attached to the appliance is in its alarm state.
+     The port number of the appliance where the sensor is attached to is contained in acsTrapObjectSerialPortNumber.
+     The number of the PDU where the sensor is attached is contained in acsTrapObjectPduNumber.
+     The ID of the PDU where the sensor is attached is contained in acsTrapObjectPduId.
+     The Type of the sensor is contained in acsTrapObjectPduElementType.
+     The Name of the sensor is contained in acsTrapObjectPduElementName.
+     The current value detected when this trap was originated is contained in acsTrapObjectPduCurrentValue."
+    --#SUMMARY     "PDU digital sensor changed to alarm state. Serial port number: %d. PDU number: %d. PDU ID: %s. Sensor Type: %s. Sensor Name: %s. Current value: %s."
+    --#ARGUMENTS   { 0, 1, 2, 3, 4, 5}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "PDU Digital Sensor Alarm"
+    --SHORT     "PDU digital sensor alarm"
+    --EVENT evt_digital_sensor_alarm
+    --% TrapTypeEnum=9
+::= { acsTrap 512 }
+
+avctAcsCpuTemperatureExceededMaxTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTemperatureMaximumCpuValue,
+                 acsTrapObjectTemperatureMaxCpuThreshold,
+                 acsTrapObjectTemperatureCpuCurrent
+               }
+    STATUS current
+    DESCRIPTION
+    "The CPU temperature has exceeded the maximum threshold configured.
+     The maximum temperature configured is contained in acsTrapObjectTemperatureMaximumCpuValue.
+     The threshold configured is contained in the acsTrapObjectTemperatureMaxCpuThreshold.
+     The current CPU temperature is contained in acsTrapObjectTemperatureCpuCurrent."
+    --#SUMMARY     "Appliance CPU temperature exceeded the maximum threshold. Maximum value: %d. Threshold: %d. Current: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "CPU Temperature Max Threshold Exceeded"
+    --SHORT     "cpu temperature max threshold exceeded"
+    --EVENT evt_cpu_temp_maxexd
+    --% TrapTypeEnum=9
+::= { acsTrap 513 }
+
+avctAcsCpuTemperatureReachedMaxTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTemperatureMaximumCpuValue,
+                 acsTrapObjectTemperatureMaxCpuThreshold,
+                 acsTrapObjectTemperatureCpuCurrent
+                }
+    STATUS current
+    DESCRIPTION
+    "The CPU temperature has gone beneath the maximum threshold configured.
+     The maximum temperature configured is contained in acsTrapObjectTemperatureMaximumCpuValue
+     The threshold confiugred is contained in acsTrapObjectTemperatureMaxCpuThreshold.
+     The CPU temperature is contained in acsTrapObjectTemperatureCpuCurrent."
+    --#SUMMARY     "CPU temperature reached the maximum threshold. Maximum value: %d. Threshold: %d. Current: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "CPU Temperature Max Threshold Reached"
+    --SHORT     "cpu temperature max threshold reached"
+    --EVENT evt_cpu_temp_maxrch
+    --% TrapTypeEnum=9
+::= { acsTrap 514 }
+
+avctAcsCpuTemperatureExceededMinTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTemperatureMinimumCpuValue,
+                 acsTrapObjectTemperatureMinCpuThreshold,
+                 acsTrapObjectTemperatureCpuCurrent
+               }
+    STATUS current
+    DESCRIPTION
+    "The CPU temperature has exceeded the minimum threshold configured.
+     The minimum temperature configured is contained in acsTrapObjectTemperatureMinimumCpuValue.
+     The threshold configured is contained in the acsTrapObjectTemperatureMinCpuThreshold.
+     The cpu temperature is contained in acsTrapObjectTemperatureCpuCurrent."
+    --#SUMMARY     "CPU temperature exceeded the minimum threshold. Minimum value: %d. Threshold: %d. Current: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "CPU Temperature Min Threshold Exceeded"
+    --SHORT     "cpu temperature min threshold exceeded"
+    --EVENT evt_cpu_temp_minexd
+    --% TrapTypeEnum=9
+::= { acsTrap 515 }
+
+avctAcsCpuTemperatureReachedMinTrap NOTIFICATION-TYPE
+    OBJECTS   {
+                 acsTrapObjectTemperatureMinimumCpuValue,
+                 acsTrapObjectTemperatureMinCpuThreshold,
+                 acsTrapObjectTemperatureCpuCurrent
+                }
+    STATUS current
+    DESCRIPTION
+    "The CPU temperature has gone beneath the minimum threshold configured.
+     The minimum temperature configured is contained in acsTrapObjectTemperatureMinimumCpuValue
+     The threshold confiugred is contained in acsTrapObjectTemperatureMinCpuThreshold.
+     The cpu temperature is contained in acsTrapObjectTemperatureCpuCurrent."
+    --#SUMMARY     "CPU temperature reached the minimum threshold. Minimum value: %d. Threshold:%d. Current: %d."
+    --#ARGUMENTS   { 0, 1, 2}
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "CPU Temperature Min Threshold Reached"
+    --SHORT     "cpu temperature min threshold reached"
+    --EVENT evt_cpu_temp_minrch
+    --% TrapTypeEnum=9
+::= { acsTrap 516 }
+
+avctAcsTestTrap NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION
+    "Used to test SNMP Trap functionality."
+    --#SUMMARY     "Test."
+    --#SEVERITY    NON-CRITICAL
+    --#CATEGORY    "Status Events"
+    --NAME      "Test"
+    --SHORT     "test"
+    --EVENT evt_event_test
+    --% TrapTypeEnum=9
+::= { acsTrap 517 }
+
+END

@@ -1,0 +1,682 @@
+
+--------------------------------------------------------------------------------
+--ACMEPACKET-DIAMETER-AUTHENTICATION-MIB:  Acme Packet Diameter  MIB file
+--
+--Jan 2017
+--
+--Copyright (c) by Oracle Communications
+--All rights reserved.
+--------------------------------------------------------------------------------
+--This MIB provides a means to gather information about the
+--Acme Management Interface running at the Net-Net MSG
+--
+
+AP-DIAMETERAUTH-MIB DEFINITIONS ::= BEGIN
+
+    IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE, 
+    Integer32, IpAddress, Unsigned32, Counter32 
+        FROM SNMPv2-SMI
+    OBJECT-GROUP, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+    DisplayString, TruthValue
+  	FROM SNMPv2-TC
+    ApTransportType
+		    FROM ACMEPACKET-TC
+    acmepacketMgmt
+        FROM ACMEPACKET-SMI
+    InetAddress, InetAddressType, InetPortNumber             
+        FROM INET-ADDRESS-MIB;
+
+    apDiameterAuthServerModule MODULE-IDENTITY
+        LAST-UPDATED	"201702090000Z"
+        ORGANIZATION 	"Oracle Communications"
+        CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+        DESCRIPTION     "The Net-Net Diameter Authentication MIB for Oracle Communications Acme Packet MSG"
+	REVISION "201701190000Z" 			
+        DESCRIPTION
+	        "Updated Organization and Contact info."
+	REVISION "201702090000Z" 			
+        DESCRIPTION
+	        "Included mib objects related to traps."
+
+        ::= { acmepacketMgmt 20 }
+
+    apDiamAuthServerMIBObjects OBJECT IDENTIFIER ::= { apDiameterAuthServerModule 1 }
+
+apDiamAuthStatsTable OBJECT-TYPE
+        SYNTAX          	SEQUENCE OF ApDiamAuthStatsEntry
+        MAX-ACCESS      	not-accessible
+        STATUS         	 	current
+        DESCRIPTION	    
+	    "The table of authentication statistics per diameter authentication server."
+        ::= { apDiamAuthServerMIBObjects 1 }
+
+apDiamAuthStatsEntry  OBJECT-TYPE
+        SYNTAX          	ApDiamAuthStatsEntry
+        MAX-ACCESS      	not-accessible
+        STATUS          	current
+        DESCRIPTION
+	    "A table entry designed to hold authentication statistics per server."        
+	INDEX { apDiamAuthInterfaceType, apDiamAuthServerAddress }
+        ::= { apDiamAuthStatsTable 1 }
+
+ApDiamAuthStatsEntry ::=
+        SEQUENCE {
+	        apDiamAuthInterfaceType		        InetAddressType,
+		apDiamAuthServerAddress			InetAddress,		
+		apDiamAuthCapExchReqSent		Counter32,
+		apDiamAuthCapExchReqTimedout		Counter32,
+		apDiamAuthCapExchAnsRcvd		Counter32,
+		apDiamAuthCapExchReqRcvd		Counter32,
+		apDiamAuthCapExchAnsSent		Counter32,
+		apDiamAuthDWDReqSent			Counter32,
+		apDiamAuthDWDReqTimedout		Counter32,
+		apDiamAuthDWDAnsRcvd			Counter32,
+		apDiamAuthDWDReqRcvd			Counter32,
+		apDiamAuthDWDAnsSent			Counter32,
+		apDiamAuthDisconPeerReqSent		Counter32,
+		apDiamAuthDisconPeerReqTimedout		Counter32,
+		apDiamAuthDisconPeerAnsRcvd		Counter32,
+		apDiamAuthDisconPeerReqRcvd		Counter32,
+		apDiamAuthDisconPeerAnsSent		Counter32,
+		apDiamAuthSessTermReqSent		Counter32,
+		apDiamAuthSessTermReqTimedout		Counter32,
+		apDiamAuthSessTermAnsRcvd		Counter32,
+		apDiamAuthAbortSessReqRcvd		Counter32,
+		apDiamAuthAbortSessAnsSent		Counter32,
+		apDiamAuthEapReqSent			Counter32,
+		apDiamAuthEapReqTimedout		Counter32,
+		apDiamAuthEapAnsRcvd			Counter32,
+		apDiamAuthEapAccepts			Counter32,
+		apDiamAuthEapRejects			Counter32,
+		apDiamAuthActiveSessions		Unsigned32,
+		apDiamAuthServerStatus			INTEGER
+		}
+
+apDiamAuthInterfaceType OBJECT-TYPE
+        SYNTAX		InetAddressType
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "IPAddress type of the diameter authentication server"
+        ::= { apDiamAuthStatsEntry 1 }
+
+apDiamAuthServerAddress OBJECT-TYPE
+        SYNTAX		InetAddress
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+		"IPAddress of the diameter authentication server"
+        ::= { apDiamAuthStatsEntry 2 }
+   
+
+apDiamAuthCapExchReqSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter capability exchange messages sent."
+        ::= { apDiamAuthStatsEntry 3}
+
+apDiamAuthCapExchReqTimedout OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter capability exchange request messages timedout."
+        ::= { apDiamAuthStatsEntry 4 }
+
+
+apDiamAuthCapExchAnsRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter capability exchange answer messages received."
+        ::= { apDiamAuthStatsEntry 5 }
+
+apDiamAuthCapExchReqRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter capability exchange request messages received."
+        ::= { apDiamAuthStatsEntry 6 }
+
+apDiamAuthCapExchAnsSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter capability exchange answer messages sent."
+        ::= { apDiamAuthStatsEntry 7 }
+
+apDiamAuthDWDReqSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter device watch dog request messages sent."
+        ::= { apDiamAuthStatsEntry 8 }
+
+apDiamAuthDWDReqTimedout OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter device watch dog request messages timedout."
+        ::= { apDiamAuthStatsEntry 9 }
+
+apDiamAuthDWDAnsRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter device watch dog answer messages received."
+        ::= { apDiamAuthStatsEntry 10 }
+
+apDiamAuthDWDReqRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter device watch dog request messages received."
+        ::= { apDiamAuthStatsEntry 11 }
+
+apDiamAuthDWDAnsSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter device watch dog answer messages sent."
+        ::= { apDiamAuthStatsEntry 12 }
+
+apDiamAuthDisconPeerReqSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter disconnect-peer request messages sent."
+        ::= { apDiamAuthStatsEntry 13 }
+
+apDiamAuthDisconPeerReqTimedout OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter disconnect-peer request messages timedout."
+        ::= { apDiamAuthStatsEntry 14 }
+
+apDiamAuthDisconPeerAnsRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter disconnect-peer answer messages received."
+        ::= { apDiamAuthStatsEntry 15 }
+
+apDiamAuthDisconPeerReqRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter disconnect-peer request messages received."
+        ::= { apDiamAuthStatsEntry 16 }
+
+apDiamAuthDisconPeerAnsSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter disconnect-peer answer messages sent."
+        ::= { apDiamAuthStatsEntry 17 }
+
+apDiamAuthSessTermReqSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter session termination request messages sent."
+        ::= { apDiamAuthStatsEntry 18 }
+
+apDiamAuthSessTermReqTimedout OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter session termination request messages timedout."
+        ::= { apDiamAuthStatsEntry 19 }
+
+apDiamAuthSessTermAnsRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter session termination answer messages received."
+        ::= { apDiamAuthStatsEntry 20 }
+
+apDiamAuthAbortSessReqRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter abort session request messages received."
+        ::= { apDiamAuthStatsEntry 21 }
+
+apDiamAuthAbortSessAnsSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter abort session answer messages sent."
+        ::= { apDiamAuthStatsEntry 22 }
+
+
+apDiamAuthEapReqSent OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter eap request messages sent."
+        ::= { apDiamAuthStatsEntry 23 }
+
+apDiamAuthEapReqTimedout OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter eap request messages timedout."
+        ::= { apDiamAuthStatsEntry 24 }
+
+apDiamAuthEapAnsRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter eap answer messages received."
+        ::= { apDiamAuthStatsEntry 25 }
+
+apDiamAuthEapAccepts OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of  eap accept messages recived."
+        ::= { apDiamAuthStatsEntry 26 }
+
+apDiamAuthEapRejects OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of eap reject messages received."
+        ::= { apDiamAuthStatsEntry 27 }
+
+apDiamAuthActiveSessions OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+		"The number of active sessions on this server"
+        ::= { apDiamAuthStatsEntry 28 }
+
+apDiamAuthServerStatus  OBJECT-TYPE
+	SYNTAX     	INTEGER {
+				  initial(0),
+				  tcpConInProgress(1),
+				  tcpConnComplete(2),
+				  capexInProgress(3),
+                                  inService(4),
+				  outOfService(5)      
+                                }    
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+		"The current state of the the diameter authentication server"
+        ::= { apDiamAuthStatsEntry 29 }
+
+
+
+apDiamAuthErrorStatsTable OBJECT-TYPE
+        SYNTAX          	SEQUENCE OF ApDiamAuthErrorStatsEntry
+        MAX-ACCESS      	not-accessible
+        STATUS         	 	current
+        DESCRIPTION	    
+	    "The table of diameter authentication error statistics per diameter authentication server."
+        ::= { apDiamAuthServerMIBObjects 2 }
+
+apDiamAuthErrorStatsEntry  OBJECT-TYPE
+        SYNTAX          	ApDiamAuthErrorStatsEntry
+        MAX-ACCESS      	not-accessible
+        STATUS          	current
+        DESCRIPTION
+	    "A table entry designed to hold error authentication statistics per server."        
+        AUGMENTS	{ apDiamAuthStatsEntry }
+        ::= { apDiamAuthErrorStatsTable 1 }
+
+ApDiamAuthErrorStatsEntry ::=
+        SEQUENCE {
+                apDiamAuthUnknownVersionRcvd		Counter32,
+		apDiamAuthUnknownExchRcvd		Counter32,
+		apDiamAuthNoCommonAppRcvd		Counter32,
+		apDiamAuthAppUnsuppRcvd			Counter32,
+		apDiamAuthCommandUnsuppRcvd		Counter32,
+		apDiamAuthUnkownPeerRcvd		Counter32,
+		apDiamAuthUnkownSessIdRcvd		Counter32,
+		apDiamAuthUnableToComplyRcvd		Counter32,
+		apDiamAuthAvpsUnsupportedRcvd		Counter32,
+		apDiamAuthMissingAvpRcvd		Counter32,
+		apDiamAuthUnknownUsersRcvd		Counter32,
+		apDiamAuthAuthorizationRejectedRcvd	Counter32,
+		apDiamAuthRoamingNotAllowedRcvd		Counter32,
+		apDiamAuthNoNon3gppSubscriptionRcvd	Counter32,
+		apDiamAuthNoApnSubscriptionRcvd		Counter32,   
+		apDiamAuthRatTypeNotAllowedRcvd		Counter32   
+                 }
+
+apDiamAuthUnknownVersionRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter unknown version messages received."
+        ::= { apDiamAuthErrorStatsEntry 1}
+
+apDiamAuthUnknownExchRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter unknown exchange messages received."
+        ::= { apDiamAuthErrorStatsEntry 2}
+
+apDiamAuthNoCommonAppRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter No common application messages received."
+        ::= { apDiamAuthErrorStatsEntry 3}
+
+apDiamAuthAppUnsuppRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter application unsupported messages received."
+        ::= { apDiamAuthErrorStatsEntry 4}
+
+apDiamAuthCommandUnsuppRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter command unsupported messages received."
+        ::= { apDiamAuthErrorStatsEntry 5}
+
+apDiamAuthUnkownPeerRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter unknown peer messages received."
+        ::= { apDiamAuthErrorStatsEntry 6}
+
+apDiamAuthUnkownSessIdRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter unknown session-id messages received."
+        ::= { apDiamAuthErrorStatsEntry 7}
+
+apDiamAuthUnableToComplyRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter unable to comply  messages received."
+        ::= { apDiamAuthErrorStatsEntry 8}
+
+apDiamAuthAvpsUnsupportedRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter unsupported AVP's messages received."
+        ::= { apDiamAuthErrorStatsEntry 9}
+
+apDiamAuthMissingAvpRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter missing AVP's messages received."
+        ::= { apDiamAuthErrorStatsEntry 10}
+
+apDiamAuthUnknownUsersRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter unknown users messages received."
+        ::= { apDiamAuthErrorStatsEntry 11}
+
+apDiamAuthAuthorizationRejectedRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter authorization rejected messages received."
+        ::= { apDiamAuthErrorStatsEntry 12}
+
+apDiamAuthRoamingNotAllowedRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter roaming not allowed rejected messages received."
+        ::= { apDiamAuthErrorStatsEntry 13}
+
+apDiamAuthNoNon3gppSubscriptionRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter roaming no non 3gpp subcription rejected messages received."
+        ::= { apDiamAuthErrorStatsEntry 14}
+
+apDiamAuthNoApnSubscriptionRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter no apn subcription rejected messages received."
+        ::= { apDiamAuthErrorStatsEntry 15}
+
+apDiamAuthRatTypeNotAllowedRcvd OBJECT-TYPE
+        SYNTAX		Counter32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "The count of diameter rat type not allowed rejected messages received."
+        ::= { apDiamAuthErrorStatsEntry 16}
+
+
+
+apDiamAuthNotificationObjects OBJECT IDENTIFIER ::= { apDiameterAuthServerModule 3 }
+apDiamAuthNotifObjects OBJECT IDENTIFIER ::= { apDiamAuthNotificationObjects 1 }
+apDiamAuthNotifPrefix  OBJECT IDENTIFIER ::= { apDiamAuthNotificationObjects 2 }
+apDiamAuthNotifications  OBJECT IDENTIFIER ::= { apDiamAuthNotifPrefix 0 }
+
+apDiamAuthServerType   OBJECT-TYPE
+        SYNTAX		InetAddressType 
+        MAX-ACCESS	accessible-for-notify
+        STATUS		current
+        DESCRIPTION
+		"Address type of diameter authentication server."
+        ::= { apDiamAuthNotifObjects 1 }
+
+apDiamAuthServerAddr   OBJECT-TYPE
+        SYNTAX		InetAddress 
+        MAX-ACCESS	accessible-for-notify
+        STATUS		current
+        DESCRIPTION
+		"Address of diameter authentication server."
+        ::= { apDiamAuthNotifObjects 2 }
+
+
+apDiamAuthOriginHostType   OBJECT-TYPE
+        SYNTAX		InetAddressType
+        MAX-ACCESS	accessible-for-notify
+        STATUS		current
+        DESCRIPTION
+		"Address type of origin host(MSG)."
+        ::= { apDiamAuthNotifObjects 3 }
+
+apDiamAuthOriginHostAddr OBJECT-TYPE
+        SYNTAX		InetAddress
+        MAX-ACCESS	accessible-for-notify
+        STATUS		current
+        DESCRIPTION
+		"Address of the origin host(MSG)"
+        ::= { apDiamAuthNotifObjects 4}
+
+apDiamAuthServerPort OBJECT-TYPE
+	SYNTAX		InetPortNumber
+	MAX-ACCESS	accessible-for-notify
+	STATUS		current
+	DESCRIPTION	"The authentication port of the diameter authentication sever"
+
+	::= { apDiamAuthNotifObjects 5 }
+
+apDiamAuthOriginRealm OBJECT-TYPE
+        SYNTAX          DisplayString (SIZE (1..255)) 
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION
+                "The realm of the origin host."
+        ::= { apDiamAuthNotifObjects 6 }
+
+apDiamAuthSrvrEstTrap       NOTIFICATION-TYPE
+        OBJECTS         { 
+                          apDiamAuthServerType,
+                          apDiamAuthServerAddr,
+                          apDiamAuthOriginHostType,
+                          apDiamAuthOriginHostAddr,
+                          apDiamAuthServerPort,
+                          apDiamAuthOriginRealm
+                        }
+        STATUS          current
+        DESCRIPTION
+            " The trap will be generated when the connection gets established successfully with diameter authentication server"
+        ::= { apDiamAuthNotifications 1 }
+
+
+apDiamAuthSrvrDownTrap       NOTIFICATION-TYPE
+        OBJECTS         { 
+                          apDiamAuthServerType,
+                          apDiamAuthServerAddr,
+                          apDiamAuthOriginHostType,
+                          apDiamAuthOriginHostAddr,
+                          apDiamAuthServerPort,
+                          apDiamAuthOriginRealm
+                        }
+        STATUS          current
+        DESCRIPTION
+            " The trap will be generated when the diameter authentication server goes down"
+        ::= { apDiamAuthNotifications 2 }
+
+
+----------------------------------------------------
+--
+-- apDiameterAuthObjectGroups
+--
+----------------------------------------------------
+
+apDiamAuthServerConformance OBJECT IDENTIFIER ::= { apDiameterAuthServerModule 2 }
+apDiamAuthObjectGroups   OBJECT IDENTIFIER ::= { apDiamAuthServerConformance 1 }
+apDiamAuthStatsGroup OBJECT-GROUP
+    OBJECTS {	
+		apDiamAuthCapExchReqSent,
+		apDiamAuthCapExchReqTimedout,
+		apDiamAuthCapExchAnsRcvd,
+		apDiamAuthCapExchReqRcvd,
+		apDiamAuthCapExchAnsSent,
+		apDiamAuthDWDReqSent,
+		apDiamAuthDWDReqTimedout,
+		apDiamAuthDWDAnsRcvd,
+		apDiamAuthDWDReqRcvd,
+		apDiamAuthDWDAnsSent,
+		apDiamAuthDisconPeerReqSent,
+		apDiamAuthDisconPeerReqTimedout,
+		apDiamAuthDisconPeerAnsRcvd,
+		apDiamAuthDisconPeerReqRcvd,
+		apDiamAuthDisconPeerAnsSent,
+		apDiamAuthSessTermReqSent,
+		apDiamAuthSessTermReqTimedout,
+		apDiamAuthSessTermAnsRcvd,
+		apDiamAuthAbortSessReqRcvd,
+		apDiamAuthAbortSessAnsSent,
+		apDiamAuthEapReqSent,
+		apDiamAuthEapReqTimedout,
+		apDiamAuthEapAnsRcvd,
+		apDiamAuthEapAccepts,
+		apDiamAuthEapRejects,
+		apDiamAuthServerStatus,
+		apDiamAuthActiveSessions		
+	     }
+      STATUS		current
+      DESCRIPTION
+	  "A collection of authentication statistics for diameter authentication server."
+      ::= {  apDiamAuthObjectGroups 1 }
+
+apDiamAuthErrorStatsGroup OBJECT-GROUP
+    OBJECTS {	
+                apDiamAuthUnknownVersionRcvd,
+		apDiamAuthUnknownExchRcvd,
+		apDiamAuthNoCommonAppRcvd,
+		apDiamAuthAppUnsuppRcvd,
+		apDiamAuthCommandUnsuppRcvd,
+		apDiamAuthUnkownPeerRcvd,
+		apDiamAuthUnkownSessIdRcvd,
+		apDiamAuthUnableToComplyRcvd,
+		apDiamAuthAvpsUnsupportedRcvd,
+		apDiamAuthMissingAvpRcvd,
+		apDiamAuthUnknownUsersRcvd,
+		apDiamAuthAuthorizationRejectedRcvd,
+		apDiamAuthRoamingNotAllowedRcvd,
+		apDiamAuthNoNon3gppSubscriptionRcvd,
+		apDiamAuthNoApnSubscriptionRcvd,   
+		apDiamAuthRatTypeNotAllowedRcvd		   
+	     }
+      STATUS		current
+      DESCRIPTION
+	  "A collection of authentication statistics for diameter authentication server."
+      ::= {  apDiamAuthObjectGroups 2 }
+
+apDiamAuthNotificationGroup OBJECT-GROUP
+    OBJECTS {	
+                          apDiamAuthServerType,
+                          apDiamAuthServerAddr,
+                          apDiamAuthOriginHostType,
+                          apDiamAuthOriginHostAddr,
+                          apDiamAuthServerPort,
+                          apDiamAuthOriginRealm
+ 	    }
+      STATUS		current
+      DESCRIPTION
+	  "A collection of notification objects for diameter authentication server."
+      ::= {  apDiamAuthObjectGroups 3 }
+END
+
+

@@ -1,0 +1,182 @@
+ACOS-NGWAF-STATUS-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		ngWafStatusModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "ngWafStatusModule OID for ACOS"
+				::=  {  acosSchema 386 }
+
+status		 OBJECT IDENTIFIER ::= { ngWafStatusModule 1}
+
+statusOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF StatusOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "NGWAF status from object 'ng-waf.status'"
+	::= {status 2}
+
+statusOperEntry OBJECT-TYPE
+	SYNTAX StatusOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The statusOper entry"
+	INDEX {
+		statusOperSlotId
+	}
+	::= { statusOperTable 1 }
+
+StatusOperEntry ::=
+	SEQUENCE {
+		statusOperSlotId Integer32,
+		statusOperNgwafVersion	 DisplayString
+	}
+
+statusOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { statusOperEntry 1 }
+
+statusOperNgwafVersion OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ngwaf-version"
+	::= { statusOperEntry 2 }
+
+statusOperPartitionListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF StatusOperPartitionListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "NGWAF status from object 'ng-waf.status'"
+	::= {status 3}
+
+statusOperPartitionListEntry OBJECT-TYPE
+	SYNTAX StatusOperPartitionListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The statusOperPartitionList entry:partition-list"
+	INDEX {
+		statusOperPartitionListSlotId,
+		statusOperPartitionListPartitionListListId
+	}
+	::= { statusOperPartitionListTable 1}
+
+StatusOperPartitionListEntry ::=
+	SEQUENCE {
+		statusOperPartitionListSlotId Integer32,
+		statusOperPartitionListPartitionListListId Integer32,
+		statusOperPartitionListPartitionName	DisplayString,
+		statusOperPartitionListStatus	DisplayString,
+		statusOperPartitionListAgentName	DisplayString,
+		statusOperPartitionListAccessKeyId	DisplayString,
+		statusOperPartitionListSecretAccessKey	DisplayString,
+		statusOperPartitionListCpu	DisplayString,
+		statusOperPartitionListCacheEntries	Integer32,
+		statusOperPartitionListTrackedCustomSignal	Integer32
+	}
+
+statusOperPartitionListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { statusOperPartitionListEntry 1}
+
+statusOperPartitionListPartitionListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { statusOperPartitionListEntry 2}
+
+statusOperPartitionListPartitionName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"partition-name"
+	::= { statusOperPartitionListEntry 3}
+
+statusOperPartitionListStatus OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status"
+	::= { statusOperPartitionListEntry 4}
+
+statusOperPartitionListAgentName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"agent-name"
+	::= { statusOperPartitionListEntry 5}
+
+statusOperPartitionListAccessKeyId OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"access-key-id"
+	::= { statusOperPartitionListEntry 6}
+
+statusOperPartitionListSecretAccessKey OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"secret-access-key"
+	::= { statusOperPartitionListEntry 7}
+
+statusOperPartitionListCpu OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cpu"
+	::= { statusOperPartitionListEntry 10}
+
+statusOperPartitionListCacheEntries OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cache-entries"
+	::= { statusOperPartitionListEntry 8}
+
+statusOperPartitionListTrackedCustomSignal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tracked-custom-signal"
+	::= { statusOperPartitionListEntry 9}
+
+END
+

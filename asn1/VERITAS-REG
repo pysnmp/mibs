@@ -1,0 +1,61 @@
+-- ***************************************************************************
+--  Copyright  1993 - 2001 VERITAS Software Corporation. All Rights Reserved 
+--  
+--	The right to change this MIB without notification is retained.
+--
+--	VERITAS Software Corporation
+--	mailstop
+--	350 Ellis Street
+--	P.O. Box 7011
+--	Mountain View CA 94043-2237
+-- ***************************************************************************
+
+VERITAS-REG DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-IDENTITY, enterprises
+        FROM SNMPv2-SMI;
+        
+veritasGlobalRegModule MODULE-IDENTITY
+	LAST-UPDATED		"0109050445Z"
+	ORGANIZATION		"VERITAS Software Corporation"
+	CONTACT-INFO		"VERITAS Software Corporation
+						 mailstop
+						 350 Ellis Street
+						 P.O. Box 7011
+					 	 Mountain View CA 94043-2237
+					 	 Tel: +1 650 318 4464
+					 	 Email: support@veritas.com"
+	DESCRIPTION			"The global registration of the basic hierarchy of the 
+						 VERITAS Software enterprise MIB tree."
+	REVISION			"0109050445Z"
+	DESCRIPTION			"The initial revision of this module."
+	REVISION			"0110222230Z"
+	DESCRIPTION			"Corrected comments."
+
+::= { enterprises 1302 5 1 }
+
+
+veritas		OBJECT-IDENTITY
+	STATUS		current
+	DESCRIPTION	"The root of the OID sub-tree assigned to VERITAS Software
+				 by the Internet Assigned Numbers Authority (IANA)"
+::= { enterprises 1302 }
+
+products	OBJECT-IDENTITY
+	STATUS		current
+	DESCRIPTION	"Sub-tree for product object and event definitions"
+::= { veritas 3 }
+
+veritasModules	OBJECT-IDENTITY
+	STATUS		current
+	DESCRIPTION	"Sub-tree for module registrations"
+::= { veritas 5 }
+
+
+
+END
+
+--
+--   End VERITAS-REG
+--

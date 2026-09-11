@@ -1,0 +1,2116 @@
+
+-- Thales eSecurity, Inc.
+-- Version: 1.3
+-- Date:    December 25, 2021
+-- Changes:
+
+THALES-ESECURITY-PAYSHIELD-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	NOTIFICATION-TYPE, OBJECT-TYPE, MODULE-IDENTITY,
+	enterprises, IpAddress, Integer32, Gauge32
+		FROM SNMPv2-SMI
+	MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+	MacAddress, DisplayString, DateAndTime, TruthValue
+		FROM SNMPv2-TC;
+
+payShieldMIB MODULE-IDENTITY
+
+	LAST-UPDATED "202112250810Z"
+	ORGANIZATION 
+		"Thales eSecurity"
+	CONTACT-INFO 
+		"954 888 6200"
+	DESCRIPTION 
+		"Added new objects payShieldLogsErrorlogMaxLength, payShieldLogsAuditlogMaxLength, payshieldHostConnectionEthernetLoadCount, 		 
+		 payShieldSettingsHashSecuritySetting, payShieldSettingsHashGeneralSetting, payShieldSettingsHashConfigureCommand,         
+		 payShieldSettingsHashAuditSetting and payShieldSettingsHashLMK."
+	
+	REVISION "202112250810Z"		
+	DESCRIPTION 
+		"Added new objects payShieldVersionSoftwareFirmwareVersion and payShieldVersionSoftwareDeploymentVersion. 
+		 Deprecated payShieldVersionSoftwareBuildNumber."
+
+	REVISION "201902260810Z"
+	DESCRIPTION 
+		"Provides information for following components for Thales eSecurity's payShield devices (10K or later):
+		  Enabled host commands, Fraud, Health, Host connection, Licensing, LMK, Logs, Management, 
+		  PCI Security Settings, Printer, State, Utilization, Version, Auxiliary Ethernet."
+
+	REVISION "201902260810Z"
+	DESCRIPTION
+		"Deprecated payShieldVersionSoftwareHSMCoreAPIVersion and payShieldRestartAlarm.
+		Updated description of payShieldUtilHostCmdVolume."
+
+	REVISION "201811120810Z"
+	DESCRIPTION
+		"Initial revision"
+	
+    ::= { raProductMibs 10000 }
+
+
+-- This MIB describes the structure of Thales eSecurity's Management
+-- Information Base. The variables are structured based on the RFC
+-- for the Structure of Management Information (SMI), RFC1155, and
+-- the format of the definitions is as per RFC1212, the Concise MIB
+-- Definitions RFC
+-- The object identifiers below have been assigned by the Thales eSecurity
+-- Management Group. All new Thales eSecurity MIB's should be inserted into this
+-- MIB.
+
+thalesEsecurity       OBJECT IDENTIFIER ::= { enterprises 4096 }
+thalesEsecurityDevs   OBJECT IDENTIFIER ::= { thalesEsecurity 1 }
+payshield             OBJECT IDENTIFIER ::= { thalesEsecurityDevs 10000 }
+thalesEsecurityMibs   OBJECT IDENTIFIER ::= { thalesEsecurity 2 }
+raProductMibs         OBJECT IDENTIFIER ::= { thalesEsecurityMibs 2 }
+
+-- Utilization statistics provide information on the device's current host command
+-- processing load.
+
+payShieldUtil                OBJECT IDENTIFIER ::= { payShieldMIB 1 }
+
+-- State information for the payShield device.
+
+payShieldState               OBJECT IDENTIFIER ::= { payShieldMIB 2 }
+payShieldStateTamper            OBJECT IDENTIFIER ::= { payShieldState 2 }
+payShieldStateFan               OBJECT IDENTIFIER ::= { payShieldState 3 }
+payShieldStatePSU               OBJECT IDENTIFIER ::= { payShieldState 4 }
+
+-- LMK information for the payShield device.
+
+payShieldLmk                 OBJECT IDENTIFIER ::= { payShieldMIB 3 }
+
+-- Communication ports information for the payShield device.
+
+payShieldComms               OBJECT IDENTIFIER ::= { payShieldMIB 4 }
+payShieldCommsMgmt              OBJECT IDENTIFIER ::= { payShieldComms 1 }
+payShieldCommsHost              OBJECT IDENTIFIER ::= { payShieldComms 2 }
+payShieldCommsHostPort          OBJECT IDENTIFIER ::= { payShieldCommsHost 4 }
+
+-- System information for the payShield device.
+
+payShieldSystem              OBJECT IDENTIFIER ::= { payShieldMIB 5 }
+
+-- Provides information on whether or not the Fraud Detection limits have been exceeded.
+
+payShieldFraud               OBJECT IDENTIFIER ::= { payShieldMIB 6 }
+
+-- Contains information to identify the software running on the payShield.
+
+payShieldVersion             OBJECT IDENTIFIER ::= { payShieldMIB 7 }
+
+-- Provides information pertaining to the licensing of the payShield.
+
+payShieldLicensing           OBJECT IDENTIFIER ::= { payShieldMIB 8 }
+
+-- Provides the number of and list of host commands that are enabled on this payShield.
+
+payShieldEnabledHostCommands OBJECT IDENTIFIER ::= { payShieldMIB 9 }
+
+-- Info on the system logs.
+
+payShieldLogs                OBJECT IDENTIFIER ::= { payShieldMIB 10 }
+
+-- Info on the Error log
+
+payShieldLogsErrorlog           OBJECT IDENTIFIER ::= { payShieldLogs 1 }
+
+-- Info about the system audit log.
+
+payShieldLogsAuditlog           OBJECT IDENTIFIER ::= { payShieldLogs 2 }
+
+-- Data pertaining to the diagnostic self tests and the HealthCheckCounts.
+
+payShieldHealth              OBJECT IDENTIFIER ::= { payShieldMIB 11 }
+
+-- Provides the number of diagnostic tests last performed and the results of each test.
+
+payShieldHealthDiagSelfTest     OBJECT IDENTIFIER ::= { payShieldHealth 1 }
+
+-- Health check counts for the payShield. These cover reboots, tampers and suspicious
+-- pin verification failure patterns
+
+payShieldHealthCheckCounts      OBJECT IDENTIFIER ::= { payShieldHealth 2 }
+
+-- Contains information about the configuration of Host interfaces. For enabled interfaces
+-- details about the  physical and protocol  configuration are provided.
+
+payShieldHostConnection      OBJECT IDENTIFIER ::= { payShieldMIB 12 }
+
+-- Settings and states of the Host ethernet interfaces.
+-- Only available when payShieldHostConnectionEthernetEnabled is TRUE.
+
+payShieldHostConnectionEthernet OBJECT IDENTIFIER ::= { payShieldHostConnection 3 }
+
+payShieldHostConnectionFICON    OBJECT IDENTIFIER ::= { payShieldHostConnection 4 }
+
+-- The detailed configuration info of the management ethernet interface.
+
+payShieldManagement          OBJECT IDENTIFIER ::= { payShieldMIB 13 }
+
+-- Configuration information about the management ethernet interface. 
+
+payShieldManagementEthernet     OBJECT IDENTIFIER ::= { payShieldManagement 1 }
+
+-- Data concerning the printer configuration of the unit. This includes the universally
+-- used settings for all printers and the printer report on the actual printer hooked up.
+-- This is the identical report the console QP command and the payShield Manager give.
+
+payShieldPrinter             OBJECT IDENTIFIER ::= { payShieldMIB 14 }
+
+-- payShield settings.
+
+payShieldSettings            OBJECT IDENTIFIER ::= { payShieldMIB 15 }
+
+-- Configuration information about the auxiliary ethernet interface. 
+
+payShieldAuxiliaryEthernet     OBJECT IDENTIFIER ::= { payShieldMIB 16 }
+
+-- Notifications 
+
+notifications            OBJECT IDENTIFIER ::= { thalesEsecurity 999 }
+payShieldNotifications   OBJECT IDENTIFIER ::= { notifications 2 }
+
+payShieldAlarmObjects        OBJECT IDENTIFIER ::= { payShieldNotifications 1 }
+payShieldTraps               OBJECT IDENTIFIER ::= { payShieldNotifications 2 }
+
+-- Information pertaining to the operation of the payShield fans.
+
+payShieldAlarmFans           OBJECT IDENTIFIER ::= { payShieldAlarmObjects 1 }
+
+-- Information on the status of the payShield power supply units
+
+payShieldAlarmPSU            OBJECT IDENTIFIER ::= { payShieldAlarmObjects 2 }
+
+-- Information on the packets with bad port received on the payShield host ports
+
+payShieldAlarmBadPortData    OBJECT IDENTIFIER ::= { payShieldAlarmObjects 3 }
+
+-- Information on error log
+
+payShieldAlarmErrorLog       OBJECT IDENTIFIER ::= { payShieldAlarmObjects 4 }
+
+-- Information on the status of the payShield battery
+
+payShieldAlarmBattery        OBJECT IDENTIFIER ::= { payShieldAlarmObjects 5 }
+
+-- Information on diagnostic failures
+
+payShieldAlarmDiagnostic     OBJECT IDENTIFIER ::= { payShieldAlarmObjects 6 }
+
+-- Information on fraud attempts
+
+payShieldAlarmFraud          OBJECT IDENTIFIER ::= { payShieldAlarmObjects 7 }
+
+-- Information on SW/Settings erase
+
+payShieldAlarmErase          OBJECT IDENTIFIER ::= { payShieldAlarmObjects 8 }
+
+-- Information on modified settings
+
+payShieldAlarmSettingsModified  OBJECT IDENTIFIER ::= { payShieldAlarmObjects 9 }
+
+-- Information on the new payShield state
+
+payShieldAlarmStateChange    OBJECT IDENTIFIER ::= { payShieldAlarmObjects 10 }
+
+-- Information on tamper
+
+payShieldAlarmTamper         OBJECT IDENTIFIER ::= { payShieldAlarmObjects 11 }
+
+
+payShieldUtilLoad  OBJECT-TYPE
+	SYNTAX     Gauge32 (0..100)
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Displays the instantaneous load for all host commands processed 
+		by the payShield in the previous time period. The load is 
+		represented as a percentage of the total [licensed] processing 
+		capacity of the device."
+	::= { payShieldUtil 1 }
+
+-- The octet string is formatted as follows (where CC is command code, e.g. A0):
+-- 
+-- <measurement period in seconds>,<num commands in report><LINE FEED>
+-- "CC",<total number commands>;"CC",<total number commands>; ... etc...
+
+payShieldUtilHostCmdVolume  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE(0..484))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Displays the measurement period in seconds and the number of commands
+		in the report followed by a list of all host commands and the number
+		of times each of those host commands that have been processed within
+		the previous measurement period. Note that if a large variety of commands
+		are processed, then this list may be incomplete and will contain the
+		commands that consumed the highest proportion of the device's capacity."
+	::= { payShieldUtil 2 }
+
+payShieldUtilEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"True if Utilization turned on"
+	::= { payShieldUtil 3 }
+
+payShieldStateDevice  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateUnavailable (1),
+		stateOnline (2),
+		stateOffline (3),
+		stateSecure (4)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the current state of the payShield."
+	::= { payShieldState 1 }
+
+payShieldStateTamperState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateUnknown (1),
+		stateOK (2),
+		stateTampered (3)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates whether the device is currently in a tamper state."
+	::= { payShieldStateTamper 1 }
+
+payShieldStateTamperDate  OBJECT-TYPE
+	SYNTAX     DateAndTime
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The Date and Time that the last tamper event occurred. A NULL value
+		indicates that the unit has not registered any tamper events."
+	::= { payShieldStateTamper 2 }
+	
+payShieldStateTamperCause  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		causeUnavailable (1),
+		causeTemperatureOutOfRange (2),
+		causeBatteryLow (3),
+		causeEraseButtonPressed (4),
+		causeSensorProcessorWatchdog (5),
+		causeSensorProcessorRestart (6),
+		causeVoltageOutOfRange (7),
+		causeMotionDetected (8),
+		causeCaseTampered (9),
+		causePowerLoss (10)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The cause of the last tamper event"
+	::= { payShieldStateTamper 3 }
+
+payShieldStateFanTable  OBJECT-TYPE
+	SYNTAX SEQUENCE OF PayShieldStateFanEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"A table that returns the status of fans."
+	::= { payShieldStateFan 1 }
+
+payShieldStateFanEntry  OBJECT-TYPE
+	SYNTAX 	PayShieldStateFanEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"Row in the fan status table"
+	INDEX { payShieldStateFanIndex }
+	::= { payShieldStateFanTable 1 }
+
+PayShieldStateFanEntry ::= SEQUENCE {
+	payShieldStateFanIndex
+		Integer32,
+	payShieldStateFanSerialNum
+		DisplayString,
+	payShieldStateFanState
+		INTEGER
+}
+
+payShieldStateFanIndex  OBJECT-TYPE
+	SYNTAX     Integer32 (1..2)
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"The index into the fan status table"
+	::= { payShieldStateFanEntry 1 }
+
+payShieldStateFanSerialNum  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Displays the serial number of this fan unit."
+	::= { payShieldStateFanEntry 2 }
+
+payShieldStateFanState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateOK (1),
+		stateFailure (2),
+		stateNotDetected (3)		
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the current state of this fan."
+	::= { payShieldStateFanEntry 3 }
+
+payShieldStatePSUTable  OBJECT-TYPE
+	SYNTAX SEQUENCE OF PayShieldStatePSUEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"A table that returns the status of power supply units."
+	::= { payShieldStatePSU 1 }
+	
+payShieldStatePSUEntry  OBJECT-TYPE
+	SYNTAX 	PayShieldStatePSUEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"Row in the PSU status table"
+	INDEX { payShieldStatePSUIndex }
+	::= { payShieldStatePSUTable 1 }
+
+PayShieldStatePSUEntry ::= SEQUENCE {
+	payShieldStatePSUIndex
+		Integer32,
+	payShieldStatePSUSerialNum
+		DisplayString,
+	payShieldStatePSUState
+		INTEGER
+}
+
+payShieldStatePSUIndex  OBJECT-TYPE
+	SYNTAX     Integer32 (1..2)
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"The index into the PSU status table"
+	::= { payShieldStatePSUEntry 1 }
+
+payShieldStatePSUSerialNum  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Displays the serial number of this power supply unit."
+	::= { payShieldStatePSUEntry 2 }
+	
+payShieldStatePSUState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateOK (1),
+		stateFailure (2),
+		stateNotDetected (3)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the current state of this power supply unit."
+	::= { payShieldStatePSUEntry 3 }
+
+payShieldStateBattery  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateOK (1),
+		stateWarning (2),
+		stateFailure (3)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the current state of the battery."
+	::= { payShieldState 5 }
+	
+payShieldLmkNumLoaded  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of LMKs currently loaded into the device."
+	::= { payShieldLmk 1 }
+
+payShieldLmkNumTestLmksLoaded  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the number of 'test' LMKs loaded (as opposed to production). 
+		When the payShield is operating in a live environment, no test 
+		LMKs should be loaded and this field should be returned as 0."
+	::= { payShieldLmk 2 }
+
+payShieldLmkNumOldLmksLoaded  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the number of old LMKs currently loaded in the payShield. 
+		Old LMKs should be stored in the device only as long as they are needed for 
+		translation purposes. Once all LMK-protected data has been placed under the 
+		control of the new LMK set, then the old LMK set should be deleted."
+	::= { payShieldLmk 3 }
+
+payShieldLmkStatusTable  OBJECT-TYPE
+	SYNTAX SEQUENCE OF PayShieldLmkStatusEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"A table that returns the status of all possible LMK sets."
+	::= { payShieldLmk 4 }
+
+payShieldLmkStatusEntry  OBJECT-TYPE
+	SYNTAX 	PayShieldLmkStatusEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"Row in the LMK Status table"
+	INDEX { payShieldLmkStatusIndex }
+	::= { payShieldLmkStatusTable 1 }
+
+PayShieldLmkStatusEntry ::= SEQUENCE {
+	payShieldLmkStatusIndex
+		Integer32,
+	payShieldLmkStatusLoaded
+		TruthValue,
+	payShieldLmkStatusAuth
+		TruthValue,
+	payShieldLmkStatusNumAuthActivities
+		Integer32,
+	payShieldLmkStatusScheme
+		INTEGER,
+	payShieldLmkStatusAlgorithm
+		INTEGER,
+	payShieldLmkStatusLiveTest
+		INTEGER,
+	payShieldLmkStatusComments
+		OCTET STRING,
+	payShieldLmkStatusCheckDigits
+		DisplayString
+}
+
+payShieldLmkStatusIndex  OBJECT-TYPE
+	SYNTAX     Integer32 (1..20)
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"The index into the LMK Status table"
+	::= { payShieldLmkStatusEntry 1 }
+
+payShieldLmkStatusLoaded  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates whether or not an LMK set is currently loaded at this index 
+		in the table. Returns TRUE if loaded, else FALSE."
+	::= { payShieldLmkStatusEntry 2 }
+
+payShieldLmkStatusAuth  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Authorized state of this LMK set. A value of TRUE indicates that the 
+		LMK is in an authorized state; FALSE indicates that it is not authorized."
+	::= { payShieldLmkStatusEntry 3 }
+
+payShieldLmkStatusNumAuthActivities  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the number of authorized activities if the payShield 
+		is set to Multi-Auth mode. If not in multi-auth mode, returns 0."
+	::= { payShieldLmkStatusEntry 4 }
+
+payShieldLmkStatusScheme  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		lmkSchemeUnknown (1),
+		lmkSchemeVariant (2),
+		lmkSchemeKeyblock (3),
+		lmkSchemeAES (4)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the scheme of the loaded LMK set (variant, keyblock, or AES)."
+	::= { payShieldLmkStatusEntry 5 }
+
+payShieldLmkStatusAlgorithm  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		lmkAlgorithmUnknown (1),
+		lmkAlgorithm3DES2Key (2),
+		lmkAlgorithm3DES3Key (3),
+		lmkAlgorithmAES256 (4)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the algorithm used by the LMK set for encryption."
+	::= { payShieldLmkStatusEntry 6 }
+
+payShieldLmkStatusLiveTest  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		lmkStatusUnknown (1),
+		lmkStatusLive (2),
+		lmkStatusTest (3)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the status of the currently loaded LMK set. 
+		This will be either 'Live' or 'Test'. Note that test LMKs should not 
+		be loaded into a payShield operating in a live customer environment."
+	::= { payShieldLmkStatusEntry 7 }
+
+payShieldLmkStatusComments  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE(0..41))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Textual description of the LMK set loaded. A string of length 0 
+		indicates that no description is stored."
+	::= { payShieldLmkStatusEntry 8 }
+
+payShieldLmkStatusCheckDigits  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the check digits for an LMK."
+	::= { payShieldLmkStatusEntry 9 }
+	
+payShieldCommsMgmtConsoleState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		consoleUp (1),
+		consoleDown (2),
+		consoleDisabledByGui (3),
+		consoleUnavailable (4)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates whether the process to service Console Management requests 
+		is currently running. payShieldCommsMgmtConsoleStateUp (1) indicates that 
+		it is; all the other states indicate that the console is currently inactive."
+	::= { payShieldCommsMgmt 1 }
+
+payShieldCommsMgmtGuiState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		guiUp (1),
+		guiDown (2),
+		guiUnavailable (3)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates whether the process to service GUI requests is currently running. 
+		payShieldCommsMgmtGuiStateUp (1) indicates that it is; all the other states 
+		indicate that the GUI is currently inactive."
+	::= { payShieldCommsMgmt 2 }
+
+payShieldCommsHostTCPServer  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		serverUp (1),
+		serverDown (2),
+		serverNotEnabled (3)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates whether the process to service host commands is currently 
+		running over the Ethernet host port using the TCP protocol. 
+		payShieldCommsHostTCPServerUp (1) indicates that it is; 
+		all the other states indicate that TCP is currently inactive."
+	::= { payShieldCommsHost 1 }
+
+payShieldCommsHostUDPServer  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		serverUp (1),
+		serverDown (2),
+		serverNotEnabled (3)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates whether the process to service host commands is currently 
+		running over the Ethernet host port using the UDP protocol. 
+		payShieldCommsHostUDPServerUp (1) indicates that it is; all the other 
+		states indicate that UDP is currently inactive."
+	::= { payShieldCommsHost 2 }
+
+payShieldCommsHostFICONServer  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		serverUp (1),
+		serverDown (2),
+		serverNotEnabled (3)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates whether the process to service host commands is currently 
+		running over the FICON host port. payShieldCommsHostFICONServerUp (1) 
+		indicates that it is; all the other states indicate that FICON is 
+		currently inactive. "
+	::= { payShieldCommsHost 3 }
+
+payShieldCommsHostPortEthernet1  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		portUp (1),
+		portDown (2),
+		portUnavailable (3),
+		portNotConfigured (4)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates if the first host ethernet port is up and running."
+	::= { payShieldCommsHostPort 1 }
+
+payShieldCommsHostPortEthernet2  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		portUp (1),
+		portDown (2),
+		portUnavailable (3),
+		portNotConfigured (4)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates if the second host ethernet port is up and running."
+	::= { payShieldCommsHostPort 2 }
+
+payShieldCommsHostPortFICON  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		portUp (1),
+		portDown (2),
+		portUnavailable (3),
+		portNotConfigured (4)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Indicates if the FICON port (if present) is up and running."
+	::= { payShieldCommsHostPort 3 }
+
+payShieldSystemDateAndTime  OBJECT-TYPE
+	SYNTAX     DateAndTime
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The date and time as reported by the system's Real Time Clock."
+	::= { payShieldSystem 1 }
+
+payShieldSystemSerialNum  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE(0..32))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Displays the serial number of the payShield system."
+	::= { payShieldSystem 2 }
+
+payShieldSystemModel  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Displays the model/series information of the payShield system."
+	::= { payShieldSystem 3 }
+	
+payShieldFraudPinVerifyLimitsExceeded  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Returns TRUE if fraud detection is turned on, and either the 
+		allowable PIN verifications/minute, or PIN verifications/hour, have been exceeded."
+	::= { payShieldFraud 1 }
+
+payShieldFraudPinAttackLimitsExceeded  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Returns TRUE if fraud detection is turned on, AND the total number 
+		of PIN attacks have exceeded the allowed count."
+	::= { payShieldFraud 2 }
+
+payShieldVersionSoftwareBaseRelease  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Base release of the software running on the payShield."
+	::= { payShieldVersion 1 }
+
+payShieldVersionSoftwareRevision  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Revision of the software running on the payShield."
+	::= { payShieldVersion 2 }
+
+payShieldVersionSoftwareBuildNumber  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     deprecated
+	DESCRIPTION 
+		"***************** THIS OBJECT IS DEPRECATED *****************
+
+		Build number of the software running on the payShield."
+	::= { payShieldVersion 3 }
+
+payShieldVersionSoftwareHSMCoreAPIVersion  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     deprecated
+	DESCRIPTION 
+		"***************** THIS OBJECT IS DEPRECATED *****************
+
+		 HSM core API version of the software running on the payShield."
+	::= { payShieldVersion 4 }
+
+payShieldVersionSoftwareCPLDVersion  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Version of CPLD running on the payShield."
+	::= { payShieldVersion 5 }
+
+payShieldVersionSoftwareSPVersion  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Version of Sensor Processor software running on the payShield."
+	::= { payShieldVersion 6 }
+
+payShieldVersionSoftwareSPBootVersion  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Version of Sensor Processor boot on the payShield."
+	::= { payShieldVersion 7 }
+	
+payShieldVersionSoftwareBootstrapVersion  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Version of bootstrap on the payShield."
+	::= { payShieldVersion 8 }
+	
+payShieldVersionSoftwareFirmwareVersion  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Semantic version of firmware on the payShield."
+	::= { payShieldVersion 9 }
+	
+payShieldVersionSoftwareDeploymentVersion  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Semantic deployment version of firmware on the payShield."
+	::= { payShieldVersion 10 }
+	
+payShieldLicensingPerformanceModel  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The maximum calls per second this payShield unit is licensed for."
+	::= { payShieldLicensing 1 }
+
+payShieldLicensingPackage  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE(0..2048))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The license package loaded on this payShield unit."
+	::= { payShieldLicensing 2 }
+	
+payShieldLicensingOptionalLicenseCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of optional licenses this payShield unit has installed."
+	::= { payShieldLicensing 3 }
+
+payShieldLicensingOptionalLicensesList  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE(0..2048))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The optional licenses this payShield unit is licensed for separated by ';'."
+	::= { payShieldLicensing 4 }
+
+payShieldLicensingCryptoAlgorithmCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of Cryptographic Algorithms enabled by the payShield's licensing."
+	::= { payShieldLicensing 5 }
+
+payShieldLicensingCryptoAlgorithmList  OBJECT-TYPE
+	SYNTAX     OCTET STRING
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"List of licensed Cryptographic Algorithms. These will be descriptive strings 
+		for each algorithm terminated by a semi-colon ';'. 
+		The number of licensed algorithms in the list will be 
+		equal to payShieldLicensingCryptoAlgorithmCount."
+	::= { payShieldLicensing 6 }
+
+payShieldEnabledHostCommandsCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of host commands enabled on this payShield."
+	::= { payShieldEnabledHostCommands 1 }
+
+payShieldEnabledHostCommandsList  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE(0..2048))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Entire list of enabled host commands separated by a semi-colon ';'."
+	::= { payShieldEnabledHostCommands 2 }
+
+payShieldLogsErrorlogTotalCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Total number of entries in the error log."
+	::= { payShieldLogsErrorlog 1 }
+
+payShieldLogsErrorlogMaxLength  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Maximum number of entries in the error log."
+	::= { payShieldLogsErrorlog 2 }
+
+payShieldLogsAuditlogTotalCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Total number of entries in the audit log."
+	::= { payShieldLogsAuditlog 1 }
+
+payShieldLogsAuditlogMaxLength  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Maximum number of entries in the audit log."
+	::= { payShieldLogsAuditlog 2 }
+
+payShieldHealthDiagSelfTestTimeOfDay  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of minutes after midnight the diagnostic tests begins at."
+	::= { payShieldHealthDiagSelfTest 1 }
+
+payShieldHealthDiagSelfTestOK  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"True unless one or more of the tests in the last self test failed."
+	::= { payShieldHealthDiagSelfTest 2 }
+
+payShieldHealthDiagSelfTestCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of self tests run last test cycle on this payShield."
+	::= { payShieldHealthDiagSelfTest 3 }
+
+payShieldHealthDiagSelfTestList  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE(0..2048))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The complete results of the last run self test. 
+		Syntax of string Testname:testresult; 
+		Test/results pairs are separated by a colon  ':' 
+		They are delimited by a semi-colon ; .
+		Results are the string 'passed' or 'failed'.
+		The number of self tests in the list will be 
+		equal to payShieldHealthDiagSelfTestCount."
+	::= { payShieldHealthDiagSelfTest 4 }
+
+payShieldHealthHealthCheckEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether the payShield is presently collecting health check data."
+	::= { payShieldHealthCheckCounts 1 }
+
+payShieldHealthCheckCountsStartTime  OBJECT-TYPE
+	SYNTAX     DateAndTime
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Date/Time of last health stats reset."
+	::= { payShieldHealthCheckCounts 2 }
+
+payShieldHealthCheckCountsEndTime  OBJECT-TYPE
+	SYNTAX     DateAndTime
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Date/time of when stats collecting was last disabled.
+		If health stats are not disabled, the Date/Time when this field was read."
+	::= { payShieldHealthCheckCounts 3 }
+
+payShieldHealthCheckCountsRebootCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Number of times the payShield rebooted since the last reset of health counters."
+	::= { payShieldHealthCheckCounts 4 }
+
+payShieldHealthCheckCountsTamperCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of tampers detected since the last reset of health counters."
+	::= { payShieldHealthCheckCounts 5 }
+
+payShieldHealthCheckCountsPinFailuresMinuteLimit  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of minutes in which the maximum pin verify failures was exceeded 
+		since the last reset of health counters."
+	::= { payShieldHealthCheckCounts 6 }
+
+payShieldHealthCheckCountsPinFailuresHourLimit  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of hours in which the maximum allowable pin failures per hour was 
+		exceeded since the last reset of health counters."
+	::= { payShieldHealthCheckCounts 7 }
+
+payShieldHealthCheckCountsPinAttackLimitExceeded  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of times the pin attack limit was exceeded since the last reset of 
+		health counters."
+	::= { payShieldHealthCheckCounts 8 }
+
+payShieldHostConnectionEthernetEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether the payShield is configured to provide ethernet host interfaces."
+	::= { payShieldHostConnection 1 }
+
+payShieldHostConnectionFICONEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether or not the payShield is configured to provide a FICON host interface."
+	::= { payShieldHostConnection 2 }
+   	
+payShieldHostConnectionEthernetIfCount  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The number of physical ethernet interfaces enabled to process host commands.
+		 This will be 1 or 2."
+	::= { payShieldHostConnectionEthernet 1 }
+
+payShieldHostConnectionEthernetSSLEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"If true TLS/SSL has been enabled."
+	::= { payShieldHostConnectionEthernet 2 }
+
+payShieldHostConnectionEthernetACLsEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether Access Control Lists are enabled."
+	::= { payShieldHostConnectionEthernet 3 }
+
+payShieldHostConnectionEthernetUDPEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether UDP is enabled."
+	::= { payShieldHostConnectionEthernet 4 }
+
+payShieldHostConnectionEthernetTCPEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether TCP is enabled."
+	::= { payShieldHostConnectionEthernet 5 }
+
+payShieldHostConnectionEthernetMaxTCPConnections  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The maximum number of TCP sessions allowed per interface.
+		(0-64)"
+	::= { payShieldHostConnectionEthernet 6 }
+
+payShieldHostConnectionEthernetTCPKeepalive  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"TCP keep alive timeout in minutes.
+		(0-120)"
+	::= { payShieldHostConnectionEthernet 7 }
+
+payShieldHostConnectionEthernetWellKnownPortTCP  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The well known TCP port.
+		(0-65535)"
+	::= { payShieldHostConnectionEthernet 8 }
+
+payShieldHostConnectionEthernetWellKnownPortTLS  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The well known TLS port.
+		(0-65535)"
+	::= { payShieldHostConnectionEthernet 9 }
+
+payShieldHostConnectionEthernetTable  OBJECT-TYPE
+	SYNTAX SEQUENCE OF PayShieldHostConnectionEthernetEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"The interface specific ethernet configuration/status information.
+		For interfaces that are disabled or fields that are not relevant,
+		all values will be set to a NULL value."
+	::= { payShieldHostConnectionEthernet 10 }
+
+payShieldHostConnectionEthernetEntry  OBJECT-TYPE
+	SYNTAX 	PayShieldHostConnectionEthernetEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"An entry containing information applicable to the host ethernet connection"
+	INDEX { payShieldHostConnectionEthernetIndex }
+	::= { payShieldHostConnectionEthernetTable 1 }
+
+PayShieldHostConnectionEthernetEntry ::= SEQUENCE {
+	payShieldHostConnectionEthernetIndex
+		Integer32,
+	payShieldHostConnectionEthernetConfigured
+		TruthValue,
+	payShieldHostConnectionEthernetInterfaceNumber
+		Integer32,
+	payShieldHostConnectionEthernetConfigMethod
+		INTEGER,
+	payShieldHostConnectionEthernetHostName
+		DisplayString,
+	payShieldHostConnectionEthernetIpAddress
+		IpAddress,
+	payShieldHostConnectionEthernetSubnetMask
+		IpAddress,
+	payShieldHostConnectionEthernetGateway
+		IpAddress,
+	payShieldHostConnectionEthernetMacAddress
+		MacAddress,
+	payShieldHostConnectionEthernetPortSpeed
+		DisplayString,
+	payShieldHostConnectionNumberOfConnectionsUsed
+		Integer32,
+	payShieldHostConnectionEthernetLoadCount
+		DisplayString
+}
+
+payShieldHostConnectionEthernetIndex  OBJECT-TYPE
+	SYNTAX     Integer32 (1..2)
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION 
+		"A unique value (> 0) for each host ethernet connection interface"
+	::= { payShieldHostConnectionEthernetEntry 1 }
+
+payShieldHostConnectionEthernetConfigured  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Tells whether a row of the table is configured. For a 1 interface system it is possible 
+		that the configured  interface could be either the first or second one."
+	::= { payShieldHostConnectionEthernetEntry 2 }
+
+payShieldHostConnectionEthernetInterfaceNumber  OBJECT-TYPE
+	SYNTAX     Integer32 (1..2)
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"This binds a row to a physical host ethernet interface.
+		1 corresponds to Ethernet interface HostPortEthernet1
+		2 corresponds to Ethernet interface HostPortEthernet2"
+	::= { payShieldHostConnectionEthernetEntry 3 }
+
+payShieldHostConnectionEthernetConfigMethod  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		ipMethodUnknown (0),
+		ipMethodStatic (1),
+		ipMethodDHCP (2)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"DHCP and static IP configuration are the possibilities. When statically configured, 
+		the addresses reported are from the payShield's configuration for this interface. 
+		When DHCP, the addresses obtained via DHCP are reported."
+	::= { payShieldHostConnectionEthernetEntry 4 }
+
+payShieldHostConnectionEthernetHostName  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Network Name is present for a DHCP configured port only.
+		If the ethernet port is configured statically set to 'NotApplicable'.
+		If the ethernet port is not configured set to 'Interface not enabled'."
+	::= { payShieldHostConnectionEthernetEntry 5 }
+
+payShieldHostConnectionEthernetIpAddress  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"IP address for this interface.
+		If this interface is not enabled returns 0.0.0.0"
+	::= { payShieldHostConnectionEthernetEntry 6 }
+
+payShieldHostConnectionEthernetSubnetMask  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Subnet mask for this interface.
+		If this interface is not enabled returns 0.0.0.0"
+	::= { payShieldHostConnectionEthernetEntry 7 }
+
+payShieldHostConnectionEthernetGateway  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Gateway IP address used by this interface.
+		If this interface is not enabled returns 0.0.0.0"
+	::= { payShieldHostConnectionEthernetEntry 8 }
+
+payShieldHostConnectionEthernetMacAddress  OBJECT-TYPE
+	SYNTAX     MacAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"MAC address for this ethernet interface.
+		If this interface is not enabled returns 00:00:00:00:00:00"
+	::= { payShieldHostConnectionEthernetEntry 9 }
+
+payShieldHostConnectionEthernetPortSpeed  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Describes the speed/duplex this port is configured at.
+		If the port is configured for 'ethernet autoselect' returns:
+		    'ethernet autoselect(speed/duplex )'
+		If the ethernet interface is not configured returns:
+		    'Interface not enabled'"
+	::= { payShieldHostConnectionEthernetEntry 10 }
+
+payShieldHostConnectionNumberOfConnectionsUsed  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The Number of TCP connections in use for this physical interface.
+		range (0-payShieldHostConnectionMaxTCPConnections)"
+	::= { payShieldHostConnectionEthernetEntry 11 }
+
+payShieldHostConnectionEthernetLoadCount  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The Load Count for the host machines"
+	::= { payShieldHostConnectionEthernetEntry 12 }
+
+payShieldHostConnectionFICONControlUnitImage  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"This is the control unit address defined in the mainframe I/O definition
+		(CUADD on CNTLUNIT statement). 
+		(0-255)"
+	::= { payShieldHostConnectionFICON 1 }
+
+payShieldHostConnectionFICONControlUnitAddress  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The starting unit address for this control unit. 
+		16 devices are enumerated from this point (UNITADD on CNTLUNIT statement).
+		(0-255)"
+	::= { payShieldHostConnectionFICON 2 }
+
+payShieldHostConnectionFICONMIH  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"This specifies the missing interrupt handler value to be used in the read device
+		characteristics CCW for the mainframe. It is in minutes.
+		If set to 0, the mainframe setting is used
+		(0-60)"
+	::= { payShieldHostConnectionFICON 3 }
+
+payShieldManagementEthernetEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether management ethernet interface is enabled."
+	::= { payShieldManagementEthernet 1 }
+
+payShieldManagementEthernetConfigMethod  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		ipMethodUnknown (0),
+		ipMethodStatic (1),
+		ipMethodDHCP (2)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The method the management ethernet interface uses to obtain its ethernet address.
+		Static - uses local stored information
+		DHCP - obtains settings from the network"
+	::= { payShieldManagementEthernet 2 }
+
+payShieldManagementEthernetNetworkName  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The name the payShield assigns to this interface if in DHCP mode.
+		If the ethernet port is configured statically, set to 'DoesNotApply'."
+	::= { payShieldManagementEthernet 3 }
+
+payShieldManagementEthernetIpAddress  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The management ethernet interface's IP address.
+		If payShieldManagementEthernetConfigMethod is set to DHCP, it will be set by the network. 
+		If payShieldManagementEthernetConfigMethod is set to static, it will be set to the payShield's
+		configured value.
+		A value of 0.0.0.0 means it is not successfully fetched."
+	::= { payShieldManagementEthernet 4 }
+
+payShieldManagementEthernetSubnetMask  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The management ethernet interface's IP subnet mask.
+		If payShieldManagementEthernetConfigMethod is set to DHCP, it will be set by the network.
+		If payShieldManagementEthernetConfigMethod is set to static, it will be set to the payShield's
+		configured value.
+		A value of 0.0.0.0 means it was not successfully fetched."
+	::= { payShieldManagementEthernet 5 }
+
+payShieldManagementEthernetGateway  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The management ethernet interface's IP gateway address.
+		If payShieldManagementEthernetConfigMethod is set to DHCP, it will be set by the network.
+		If payShieldManagementEthernetConfigMethod is set to Static it will be set to the payShield's
+		configured value.
+		A value of 0.0.0.0 means it was not successfully fetched."
+	::= { payShieldManagementEthernet 6 }
+
+payShieldManagementEthernetMacAddress  OBJECT-TYPE
+	SYNTAX     MacAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The management ethernet interface's MAC address. 
+		Will be set to 00:00:00:00:00:00 if not successfully fetched."
+	::= { payShieldManagementEthernet 7 }
+
+payShieldManagementEthernetPortSpeed  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"String that describes the speed configured and the actual connection properties.
+		Form is config (actual)
+		       eg :  ethernet autoselect (100baseTX full-duplex)"
+	::= { payShieldManagementEthernet 8 }
+
+payShieldPrinterLFCRReversed  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether LF and CR are reversed."
+	::= { payShieldPrinter 1 }
+
+payShieldPrinterTimeout  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Printer timeout value in milliseconds.
+		(1000, 86400000)"
+	::= { payShieldPrinter 2 }
+
+payShieldPrinterDelay  OBJECT-TYPE
+	SYNTAX     Integer32
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Printer delay in milliseconds
+		(0-7200000)"
+	::= { payShieldPrinter 3 }
+
+payShieldPrinterReport  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE(0..2000))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The report of the dynamic state of printers in the system as produced for QP and the 
+		payShield Manager. It will consist of printable characters."
+	::= { payShieldPrinter 4 }
+
+payShieldSettingsPCICompliant  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"True if all security settings are PCI compliant."
+	::= { payShieldSettings 1 }
+
+payShieldSettingsHashSecuritySetting  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Hash value for security settings."
+	::= { payShieldSettings 2 }
+	
+payShieldSettingsHashGeneralSetting  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Hash value for general settings."
+	::= { payShieldSettings 3 }
+
+payShieldSettingsHashConfigureCommand  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Hash value for configure command."
+	::= { payShieldSettings 4 }
+
+payShieldSettingsHashAuditSetting  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Hash value for audit settings."
+	::= { payShieldSettings 5 }
+
+payShieldSettingsHashLMK  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Hash value for LMK."
+	::= { payShieldSettings 6 }
+
+payShieldAuxiliaryEthernetEnabled  OBJECT-TYPE
+	SYNTAX     TruthValue
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"Whether auxiliary ethernet interface is enabled."
+	::= { payShieldAuxiliaryEthernet 1 }
+
+payShieldAuxiliaryEthernetConfigMethod  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		ipMethodUnknown (0),
+		ipMethodStatic (1),
+		ipMethodDHCP (2)
+	}
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The method the auxiliary ethernet interface uses to obtain its ethernet address.
+		Static - uses local stored information
+		DHCP - obtains settings from the network"
+	::= { payShieldAuxiliaryEthernet 2 }
+
+payShieldAuxiliaryEthernetNetworkName  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The name the payShield assigns to this interface if in DHCP mode.
+		If the ethernet port is configured statically, set to 'DoesNotApply'."
+	::= { payShieldAuxiliaryEthernet 3 }
+
+payShieldAuxiliaryEthernetIpAddress  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The auxiliary ethernet interface's IP address.
+		If payShieldAuxiliaryEthernetConfigMethod is set to DHCP, it will be set by the network. 
+		If payShieldAuxiliaryEthernetConfigMethod is set to static, it will be set to the payShield's
+		configured value.
+		A value of 0.0.0.0 means it is not successfully fetched."
+	::= { payShieldAuxiliaryEthernet 4 }
+
+payShieldAuxiliaryEthernetSubnetMask  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The auxiliary ethernet interface's IP subnet mask.
+		If payShieldAuxiliaryEthernetConfigMethod is set to DHCP, it will be set by the network.
+		If payShieldAuxiliaryEthernetConfigMethod is set to static, it will be set to the payShield's
+		configured value.
+		A value of 0.0.0.0 means it was not successfully fetched."
+	::= { payShieldAuxiliaryEthernet 5 }
+
+payShieldAuxiliaryEthernetGateway  OBJECT-TYPE
+	SYNTAX     IpAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The auxiliary ethernet interface's IP gateway address.
+		If payShieldManagementEthernetConfigMethod is set to DHCP, it will be set by the network.
+		If payShieldManagementEthernetConfigMethod is set to static, it will be set to the payShield's
+		configured value.
+		A value of 0.0.0.0 means it was not successfully fetched."
+	::= { payShieldAuxiliaryEthernet 6 }
+
+payShieldAuxiliaryEthernetMacAddress  OBJECT-TYPE
+	SYNTAX     MacAddress
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"The auxiliary ethernet interface's MAC address. 
+		Will be set to 00:00:00:00:00:00 if not successfully fetched."
+	::= { payShieldAuxiliaryEthernet 7 }
+
+payShieldAuxiliaryEthernetPortSpeed  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION 
+		"String that describes the speed configured and the actual connection properties.
+		Form is config (actual)
+		       eg: ethernet autoselect (100baseTX full-duplex)"
+	::= { payShieldAuxiliaryEthernet 8 }
+	
+payShieldFanNumber  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		fan1 (1),
+		fan2 (2)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Identifies fan1 or fan2."
+	::= { payShieldAlarmFans 1 }
+
+payShieldFanState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateOK (1),
+		stateFailure (2),
+		stateNotDetected (3)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Provides the state of the fan."
+	::= { payShieldAlarmFans 2 }
+
+payShieldPSUNumber  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		psu1 (1),
+		psu2 (2)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Identifies the power supply unit 1 or 2."
+	::= { payShieldAlarmPSU 1 }
+	
+payShieldPSUState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateOK (1),
+		stateFailure (2),
+		stateNotDetected (3)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Provides the state of the PSU."
+	::= { payShieldAlarmPSU 2 }
+
+payShieldBadDataPhysicalPort  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		portHost1 (1),
+		portHost2 (2),
+		portFICON (3)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"The physical port the bad data was detected on."
+	::= { payShieldAlarmBadPortData 1 }
+
+payShieldBadDataProtocol  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		protocolTCP (1),
+		protocolUDP (2),
+		protocolFICON (3)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"The method that bad data detected was transmitted."
+	::= { payShieldAlarmBadPortData 2 }
+
+-- Text of last error sent to Error Log
+
+payShieldErrorLogData  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"A textual error log entry as stored in the system."
+	::= { payShieldAlarmErrorLog 1 }
+
+payShieldBatteryState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateOK (1),
+		stateWarning (2),
+		stateFailure (3)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"State of the battery."
+	::= { payShieldAlarmBattery 1 }
+
+payShieldDiagnosticID  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		diagDES (1),
+		diagAES (2),
+		diagECDSA (3),		
+		diagHMAC (4),
+		diagMD5 (5),
+		diagSHA (6),
+		diagRSA (7),
+		diagRNG (8),
+		diagRTC (9),
+		diagMemory (10),
+		diagPower (11),
+		diagBattery (12),
+		diagFans (13),
+		diagTemperature (14),
+		diagVoltage (15),
+		diagUDP (16),
+		diagTCP (17),
+		diagFICON (18)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Diagnostic identifier as a code."
+	::= { payShieldAlarmDiagnostic 1 }
+
+payShieldDiagnosticString  OBJECT-TYPE
+	SYNTAX     DisplayString
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Diagnostic identifier as a string."
+	::= { payShieldAlarmDiagnostic 2 }
+
+payShieldFraudType  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		fraudExceededFailuresPerMinute (1),
+		fraudExceededFailuresPerHour (2),
+		fraudExceededAttackLimit (3)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Indicates what sort of fraud event took place."
+	::= { payShieldAlarmFraud 1 }
+
+payShieldAlarmEraseTimeandDate  OBJECT-TYPE
+	SYNTAX     DateAndTime (SIZE(8))
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Indicates the time and date when the erase button was pressed."
+	::= { payShieldAlarmErase 1 }
+
+payShieldModifiedSetting  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		settingSecurity (1),
+		settingPCI (2),
+		settingAuditedItems (3),
+		settingEnabledPinblocks (4)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Collection of settings whose modifications will trigger a notification."
+	::= { payShieldAlarmSettingsModified 1 }
+
+payShieldDeviceState  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		stateUnavailable (1),
+		stateOnline (2),
+		stateOffline (3),
+		stateSecure (4)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"Provides the new state of the payShield."
+	::= { payShieldAlarmStateChange 1 }
+
+payShieldTamperCause  OBJECT-TYPE
+	SYNTAX     INTEGER {
+		causeUnavailable (1),
+		causeTemperatureOutOfRange (2),
+		causeBatteryLow (3),
+		causeEraseButtonPressed (4),
+		causeSensorProcessorWatchdog (5),
+		causeSensorProcessorRestart (6),
+		causeVoltageOutOfRange (7),
+		causeMotionDetected (8),
+		causeCaseTampered (9),
+		causePowerLoss (10)
+	}
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"The cause of the tamper event."
+	::= { payShieldAlarmTamper 1 }
+
+payShieldTamperDate  OBJECT-TYPE
+	SYNTAX     DateAndTime
+	MAX-ACCESS accessible-for-notify
+	STATUS     current
+	DESCRIPTION 
+		"The Date and Time that the tamper event occurred."
+	::= { payShieldAlarmTamper 2 }
+
+payShieldPowerOnAlarm  NOTIFICATION-TYPE
+	STATUS     current
+	DESCRIPTION 
+		"SNMP Trap indicating the unit has been powered up."
+	::= { payShieldTraps 1 }
+
+payShieldRestartAlarm  NOTIFICATION-TYPE
+	STATUS     deprecated
+	DESCRIPTION 
+		"************ THIS NOTIFICATION IS DEPRECATED *************
+
+		SNMP trap generated when the reset button has been pressed."
+	::= { payShieldTraps 2 }
+
+payShieldEraseAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldAlarmEraseTimeandDate }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap indicating that the Erase button was pressed."
+	::= { payShieldTraps 3 }
+
+payShieldNewLicenseAlarm  NOTIFICATION-TYPE
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap indicating the installation of a new license."
+	::= { payShieldTraps 4 }
+
+payShieldNewSoftwareAlarm  NOTIFICATION-TYPE
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap indicating that new software has been installed."
+	::= { payShieldTraps 5 }
+
+payShieldPSUAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldPSUNumber,
+	    payShieldPSUState }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap indicating a change in the state of a Power supply unit."
+	::= { payShieldTraps 6 }
+
+payShieldBatteryAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldBatteryState }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap indicating a change in the state of the Battery."
+	::= { payShieldTraps 7 }
+
+payShieldFanAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldFanNumber, 
+		payShieldFanState }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap notifying a change in the state of a Fan unit."
+	::= { payShieldTraps 8 }
+
+payShieldTamperAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldTamperCause,
+		payShieldTamperDate }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap indicating a tamper has been detected. Detected tamper is reported."
+	::= { payShieldTraps 9 }
+
+payShieldHostPortBadDataAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldBadDataPhysicalPort, 
+		payShieldBadDataProtocol }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap indicating that protocol breaking data has arrived on a port.
+		 Indicates which physical interface it arrived on and what protocol was being used."
+	::= { payShieldTraps 10 }
+
+payShieldFraudAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldFraudType }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap that indicates a fraud limit was exceeded."
+	::= { payShieldTraps 11 }
+
+payShieldDiagnosticTestFailureAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldDiagnosticID, 
+		payShieldDiagnosticString }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap indicating that a diagnostic test has failed. Indicates which test failed."
+	::= { payShieldTraps 12 }
+
+payShieldErrorlogAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldErrorLogData }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap that indicates an error log entry has been filled. Contains the entry."
+	::= { payShieldTraps 13 }
+
+payShieldSettingsModifiedAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldModifiedSetting }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap that indicates a setting of the payShield has been modified.
+		It includes a payShieldModifiedSetting object which identifies the setting that was changed."
+	::= { payShieldTraps 14 }
+
+payShieldDeviceStateAlarm  NOTIFICATION-TYPE
+	OBJECTS { payShieldDeviceState }
+	STATUS     current
+	DESCRIPTION 
+		"SNMP trap that indicates a change in payShield device state.
+		It includes a payShieldDeviceState object which provides the new state of the payShield."
+	::= { payShieldTraps 15 }
+
+-- Conformance information
+
+payShieldMIBConformance    OBJECT IDENTIFIER ::= { payShieldMIB 100 }
+
+payShieldMIBCompliances    OBJECT IDENTIFIER ::= { payShieldMIBConformance 1 }
+
+payShieldMIBGroups         OBJECT IDENTIFIER ::= { payShieldMIBConformance 2 }
+
+-- Compliance statements
+
+payShieldMIBCompliance MODULE-COMPLIANCE
+    STATUS  deprecated
+    DESCRIPTION
+            "******** THIS COMPLIANCE IS DEPRECATED *********
+
+            The compliance statement for SNMP entities which
+            implement the payShield MIB.
+
+            This compliance is deprecated and replaced by
+            payShieldMIBCompliance2."
+    MODULE  -- this module
+        MANDATORY-GROUPS { payShieldDeprecatedObjectGroup,
+                           payShieldDeprecatedNotificationGroup }
+
+    ::= { payShieldMIBCompliances 1 }
+
+payShieldMIBCompliance2 MODULE-COMPLIANCE
+    STATUS  current
+    DESCRIPTION
+            "The compliance statement for SNMP entities which
+            implement the payShield MIB."
+    MODULE  -- this module
+        MANDATORY-GROUPS { payShieldObjectGroup,
+                           payShieldAlarmObjectGroup,
+                           payShieldNotificationGroup }
+
+    ::= { payShieldMIBCompliances 2 }
+
+payShieldObjectGroup OBJECT-GROUP
+   OBJECTS {
+			 payShieldUtilLoad,
+			 payShieldUtilHostCmdVolume,
+			 payShieldUtilEnabled,
+			 payShieldStateDevice,
+			 payShieldStateTamperState,
+			 payShieldStateTamperDate,
+			 payShieldStateTamperCause,
+			 payShieldStateFanSerialNum,
+			 payShieldStateFanState,
+			 payShieldStatePSUSerialNum,
+			 payShieldStatePSUState,
+			 payShieldStateBattery,
+			 payShieldLmkNumLoaded,
+			 payShieldLmkNumTestLmksLoaded,
+			 payShieldLmkNumOldLmksLoaded,
+			 payShieldLmkStatusLoaded,
+			 payShieldLmkStatusAuth,
+			 payShieldLmkStatusNumAuthActivities,
+			 payShieldLmkStatusScheme,
+			 payShieldLmkStatusAlgorithm,
+			 payShieldLmkStatusLiveTest,
+			 payShieldLmkStatusComments,
+			 payShieldLmkStatusCheckDigits,
+			 payShieldCommsMgmtConsoleState,
+			 payShieldCommsMgmtGuiState,
+			 payShieldCommsHostTCPServer,
+			 payShieldCommsHostUDPServer,
+			 payShieldCommsHostFICONServer,
+			 payShieldCommsHostPortEthernet1,
+			 payShieldCommsHostPortEthernet2,
+			 payShieldCommsHostPortFICON,
+			 payShieldSystemDateAndTime,
+			 payShieldSystemSerialNum,
+			 payShieldSystemModel,
+			 payShieldFraudPinVerifyLimitsExceeded,
+			 payShieldFraudPinAttackLimitsExceeded,
+			 payShieldVersionSoftwareBaseRelease,
+			 payShieldVersionSoftwareRevision,
+			 payShieldVersionSoftwareBuildNumber,
+			 payShieldVersionSoftwareCPLDVersion,
+			 payShieldVersionSoftwareSPVersion,
+			 payShieldVersionSoftwareSPBootVersion,
+			 payShieldVersionSoftwareBootstrapVersion,
+			 payShieldLicensingPerformanceModel,
+			 payShieldLicensingPackage,
+			 payShieldLicensingOptionalLicenseCount,
+			 payShieldLicensingOptionalLicensesList,
+			 payShieldLicensingCryptoAlgorithmCount,
+			 payShieldLicensingCryptoAlgorithmList,
+			 payShieldEnabledHostCommandsCount,
+			 payShieldEnabledHostCommandsList,
+			 payShieldLogsErrorlogTotalCount,
+			 payShieldLogsErrorlogMaxLength,
+			 payShieldLogsAuditlogTotalCount,
+			 payShieldLogsAuditlogMaxLength,
+			 payShieldHealthDiagSelfTestTimeOfDay,
+			 payShieldHealthDiagSelfTestOK,
+			 payShieldHealthDiagSelfTestCount,
+			 payShieldHealthDiagSelfTestList,
+			 payShieldHealthHealthCheckEnabled,
+			 payShieldHealthCheckCountsStartTime,
+			 payShieldHealthCheckCountsEndTime,
+			 payShieldHealthCheckCountsRebootCount,
+			 payShieldHealthCheckCountsTamperCount,
+			 payShieldHealthCheckCountsPinFailuresMinuteLimit,
+			 payShieldHealthCheckCountsPinFailuresHourLimit,
+			 payShieldHealthCheckCountsPinAttackLimitExceeded,
+			 payShieldHostConnectionEthernetEnabled,
+			 payShieldHostConnectionFICONEnabled,
+			 payShieldHostConnectionEthernetIfCount,
+			 payShieldHostConnectionEthernetSSLEnabled,
+			 payShieldHostConnectionEthernetACLsEnabled,
+			 payShieldHostConnectionEthernetUDPEnabled,
+			 payShieldHostConnectionEthernetTCPEnabled,
+			 payShieldHostConnectionEthernetMaxTCPConnections,
+			 payShieldHostConnectionEthernetTCPKeepalive,
+			 payShieldHostConnectionEthernetWellKnownPortTCP,
+			 payShieldHostConnectionEthernetWellKnownPortTLS,
+			 payShieldHostConnectionEthernetConfigured,
+			 payShieldHostConnectionEthernetInterfaceNumber,
+			 payShieldHostConnectionEthernetConfigMethod,
+			 payShieldHostConnectionEthernetHostName,
+			 payShieldHostConnectionEthernetIpAddress,
+			 payShieldHostConnectionEthernetSubnetMask,
+			 payShieldHostConnectionEthernetGateway,
+			 payShieldHostConnectionEthernetMacAddress,
+			 payShieldHostConnectionEthernetPortSpeed,
+			 payShieldHostConnectionNumberOfConnectionsUsed,
+			 payShieldHostConnectionEthernetLoadCount,
+			 payShieldHostConnectionFICONControlUnitImage,
+			 payShieldHostConnectionFICONControlUnitAddress,
+			 payShieldHostConnectionFICONMIH,
+			 payShieldManagementEthernetEnabled,
+			 payShieldManagementEthernetConfigMethod,
+			 payShieldManagementEthernetNetworkName,
+			 payShieldManagementEthernetIpAddress,
+			 payShieldManagementEthernetSubnetMask,
+			 payShieldManagementEthernetGateway,
+			 payShieldManagementEthernetMacAddress,
+			 payShieldManagementEthernetPortSpeed,
+			 payShieldPrinterLFCRReversed,
+			 payShieldPrinterTimeout,
+			 payShieldPrinterDelay,
+			 payShieldPrinterReport,
+			 payShieldSettingsPCICompliant,
+			 payShieldSettingsHashSecuritySetting,
+			 payShieldSettingsHashGeneralSetting,
+			 payShieldSettingsHashConfigureCommand,
+			 payShieldSettingsHashAuditSetting,
+			 payShieldSettingsHashLMK,
+			 payShieldAuxiliaryEthernetEnabled,
+			 payShieldAuxiliaryEthernetConfigMethod,
+			 payShieldAuxiliaryEthernetNetworkName,
+			 payShieldAuxiliaryEthernetIpAddress,
+			 payShieldAuxiliaryEthernetSubnetMask,
+			 payShieldAuxiliaryEthernetGateway,
+			 payShieldAuxiliaryEthernetMacAddress,
+			 payShieldAuxiliaryEthernetPortSpeed
+           }
+   STATUS  current
+   DESCRIPTION
+       "Group of all payShield MIB objects."
+   ::= { payShieldMIBGroups 1 }
+
+payShieldDeprecatedObjectGroup OBJECT-GROUP
+   OBJECTS {
+			 payShieldVersionSoftwareHSMCoreAPIVersion
+           }
+   STATUS  deprecated
+   DESCRIPTION
+       "Group of deprecated payShield MIB objects."
+   ::= { payShieldMIBGroups 2 }
+
+payShieldAlarmObjectGroup OBJECT-GROUP
+   OBJECTS {
+			 payShieldFanNumber,
+			 payShieldFanState,
+			 payShieldPSUNumber,
+			 payShieldPSUState,
+			 payShieldBadDataPhysicalPort,
+			 payShieldBadDataProtocol,
+			 payShieldErrorLogData,
+			 payShieldBatteryState,
+			 payShieldDiagnosticID,
+			 payShieldDiagnosticString,
+			 payShieldFraudType,
+			 payShieldAlarmEraseTimeandDate,
+			 payShieldModifiedSetting,
+			 payShieldDeviceState,
+			 payShieldTamperCause,
+			 payShieldTamperDate
+           }
+   STATUS  current
+   DESCRIPTION
+       "Group of objects used in payShield notifications."
+   ::= { payShieldMIBGroups 3 }
+
+payShieldNotificationGroup  NOTIFICATION-GROUP
+    NOTIFICATIONS { 
+	               payShieldPowerOnAlarm,
+	               payShieldEraseAlarm,
+	               payShieldNewLicenseAlarm,
+	               payShieldNewSoftwareAlarm,
+	               payShieldPSUAlarm,
+	               payShieldBatteryAlarm,
+	               payShieldFanAlarm,
+	               payShieldTamperAlarm,
+	               payShieldHostPortBadDataAlarm,
+	               payShieldFraudAlarm,
+	               payShieldDiagnosticTestFailureAlarm,
+	               payShieldErrorlogAlarm,
+	               payShieldSettingsModifiedAlarm,
+	               payShieldDeviceStateAlarm
+				  }
+    STATUS  current
+    DESCRIPTION
+            "Group of payShield notifications."
+    ::= { payShieldMIBGroups 4 }
+
+payShieldDeprecatedNotificationGroup  NOTIFICATION-GROUP
+    NOTIFICATIONS {
+	               payShieldRestartAlarm
+                  }
+    STATUS  deprecated
+    DESCRIPTION
+            "Group of deprecated payShield notifications."
+    ::= { payShieldMIBGroups 5 }
+
+END

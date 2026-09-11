@@ -1,0 +1,194 @@
+ACOS-CGNV6-DNS64-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		cgnv6Dns64Module MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "cgnv6Dns64Module OID for ACOS"
+				::=  {  acosSchema 420 }
+
+dns64		 OBJECT IDENTIFIER ::= { cgnv6Dns64Module 1}
+
+dns64StatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF Dns64StatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "DNS64 Statistics from object 'cgnv6.dns64'"
+	::= {dns64 1}
+
+dns64StatsEntry OBJECT-TYPE
+	SYNTAX Dns64StatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dns64Stats stats entry"
+	INDEX {
+		dns64StatsSlotId
+	}
+	::= { dns64StatsTable 1 }
+
+Dns64StatsEntry ::=
+	SEQUENCE {
+		dns64StatsSlotId Integer32,
+		dns64StatsQuery	 CounterBasedGauge64,
+		dns64StatsQueryBadPkt	 CounterBasedGauge64,
+		dns64StatsQueryChg	 CounterBasedGauge64,
+		dns64StatsQueryParallel	 CounterBasedGauge64,
+		dns64StatsQueryPassive	 CounterBasedGauge64,
+		dns64StatsResp	 CounterBasedGauge64,
+		dns64StatsRespBadPkt	 CounterBasedGauge64,
+		dns64StatsRespBadQr	 CounterBasedGauge64,
+		dns64StatsRespChg	 CounterBasedGauge64,
+		dns64StatsRespErr	 CounterBasedGauge64,
+		dns64StatsRespEmpty	 CounterBasedGauge64,
+		dns64StatsRespLocal	 CounterBasedGauge64,
+		dns64StatsAdjust	 CounterBasedGauge64,
+		dns64StatsCache	 CounterBasedGauge64,
+		dns64StatsDrop	 CounterBasedGauge64
+	}
+
+dns64StatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dns64StatsEntry 1 }
+
+dns64StatsQuery OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query"
+	::= { dns64StatsEntry 2 }
+
+dns64StatsQueryBadPkt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query-bad-pkt"
+	::= { dns64StatsEntry 3 }
+
+dns64StatsQueryChg OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query-chg"
+	::= { dns64StatsEntry 4 }
+
+dns64StatsQueryParallel OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query-parallel"
+	::= { dns64StatsEntry 5 }
+
+dns64StatsQueryPassive OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "query-passive"
+	::= { dns64StatsEntry 6 }
+
+dns64StatsResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp"
+	::= { dns64StatsEntry 7 }
+
+dns64StatsRespBadPkt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-bad-pkt"
+	::= { dns64StatsEntry 8 }
+
+dns64StatsRespBadQr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-bad-qr"
+	::= { dns64StatsEntry 9 }
+
+dns64StatsRespChg OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-chg"
+	::= { dns64StatsEntry 10 }
+
+dns64StatsRespErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-err"
+	::= { dns64StatsEntry 11 }
+
+dns64StatsRespEmpty OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-empty"
+	::= { dns64StatsEntry 12 }
+
+dns64StatsRespLocal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-local"
+	::= { dns64StatsEntry 13 }
+
+dns64StatsAdjust OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "adjust"
+	::= { dns64StatsEntry 14 }
+
+dns64StatsCache OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cache"
+	::= { dns64StatsEntry 15 }
+
+dns64StatsDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "drop"
+	::= { dns64StatsEntry 16 }
+
+END
+

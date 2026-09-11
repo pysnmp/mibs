@@ -1,0 +1,2520 @@
+ACOS-GSLB-SITE-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		gslbSiteModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "gslbSiteModule OID for ACOS"
+				::=  {  acosSchema 426 }
+
+site		 OBJECT IDENTIFIER ::= { gslbSiteModule 1}
+
+siteStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SiteStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify a GSLB site from object 'gslb.site'"
+	::= {site 1}
+
+siteStatsEntry OBJECT-TYPE
+	SYNTAX SiteStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The siteStats stats entry"
+	INDEX {
+		siteStatsSlotId,
+		siteStatsSiteName
+	}
+	::= { siteStatsTable 1 }
+
+SiteStatsEntry ::=
+	SEQUENCE {
+		siteStatsSlotId Integer32,
+		siteStatsSiteName DisplayString,
+		siteStatsHits	 CounterBasedGauge64
+	}
+
+siteStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { siteStatsEntry 1 }
+
+siteStatsSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { siteStatsEntry 2 }
+
+siteStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { siteStatsEntry 3 }
+
+siteOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SiteOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a GSLB site from object 'gslb.site'"
+	::= {site 2}
+
+siteOperEntry OBJECT-TYPE
+	SYNTAX SiteOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The siteOper entry"
+	INDEX {
+		siteOperSlotId,
+		siteOperSiteName
+	}
+	::= { siteOperTable 1 }
+
+SiteOperEntry ::=
+	SEQUENCE {
+		siteOperSlotId Integer32,
+		siteOperSiteName DisplayString,
+		siteOperGslbSite	 DisplayString,
+		siteOperState	 DisplayString,
+		siteOperTotalVipCurrConn	 Integer32
+	}
+
+siteOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { siteOperEntry 1 }
+
+siteOperSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { siteOperEntry 2 }
+
+siteOperGslbSite OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gslb-site"
+	::= { siteOperEntry 3 }
+
+siteOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { siteOperEntry 4 }
+
+siteOperTotalVipCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-vip-curr-conn"
+	::= { siteOperEntry 5 }
+
+siteOperTypeLastTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SiteOperTypeLastEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a GSLB site from object 'gslb.site'"
+	::= {site 3}
+
+siteOperTypeLastEntry OBJECT-TYPE
+	SYNTAX SiteOperTypeLastEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The siteOperTypeLast entry:type-last"
+	INDEX {
+		siteOperTypeLastSlotId,
+		siteOperTypeLastSiteName,
+		siteOperTypeLastTypeLastListId
+	}
+	::= { siteOperTypeLastTable 1}
+
+SiteOperTypeLastEntry ::=
+	SEQUENCE {
+		siteOperTypeLastSlotId Integer32,
+		siteOperTypeLastSiteName DisplayString,
+		siteOperTypeLastTypeLastListId Integer32,
+		siteOperTypeLastType	DisplayString,
+		siteOperTypeLastLast	DisplayString
+	}
+
+siteOperTypeLastSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { siteOperTypeLastEntry 1}
+
+siteOperTypeLastSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { siteOperTypeLastEntry 2}
+
+siteOperTypeLastTypeLastListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { siteOperTypeLastEntry 3}
+
+siteOperTypeLastType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"type"
+	::= { siteOperTypeLastEntry 4}
+
+siteOperTypeLastLast OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"last"
+	::= { siteOperTypeLastEntry 5}
+
+siteOperClientLdnsListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SiteOperClientLdnsListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a GSLB site from object 'gslb.site'"
+	::= {site 4}
+
+siteOperClientLdnsListEntry OBJECT-TYPE
+	SYNTAX SiteOperClientLdnsListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The siteOperClientLdnsList entry:client-ldns-list"
+	INDEX {
+		siteOperClientLdnsListSlotId,
+		siteOperClientLdnsListSiteName,
+		siteOperClientLdnsListClientLdnsListListId
+	}
+	::= { siteOperClientLdnsListTable 1}
+
+SiteOperClientLdnsListEntry ::=
+	SEQUENCE {
+		siteOperClientLdnsListSlotId Integer32,
+		siteOperClientLdnsListSiteName DisplayString,
+		siteOperClientLdnsListClientLdnsListListId Integer32,
+		siteOperClientLdnsListClientIp	DisplayString,
+		siteOperClientLdnsListAge	Integer32,
+		siteOperClientLdnsListType	DisplayString,
+		siteOperClientLdnsListRdtSample1	Integer32,
+		siteOperClientLdnsListRdtSample2	Integer32,
+		siteOperClientLdnsListRdtSample3	Integer32,
+		siteOperClientLdnsListRdtSample4	Integer32,
+		siteOperClientLdnsListRdtSample5	Integer32,
+		siteOperClientLdnsListRdtSample6	Integer32,
+		siteOperClientLdnsListRdtSample7	Integer32,
+		siteOperClientLdnsListRdtSample8	Integer32
+	}
+
+siteOperClientLdnsListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { siteOperClientLdnsListEntry 1}
+
+siteOperClientLdnsListSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { siteOperClientLdnsListEntry 2}
+
+siteOperClientLdnsListClientLdnsListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { siteOperClientLdnsListEntry 3}
+
+siteOperClientLdnsListClientIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client-ip"
+	::= { siteOperClientLdnsListEntry 4}
+
+siteOperClientLdnsListAge OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"age"
+	::= { siteOperClientLdnsListEntry 5}
+
+siteOperClientLdnsListType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"type"
+	::= { siteOperClientLdnsListEntry 6}
+
+siteOperClientLdnsListRdtSample1 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample1"
+	::= { siteOperClientLdnsListEntry 7}
+
+siteOperClientLdnsListRdtSample2 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample2"
+	::= { siteOperClientLdnsListEntry 8}
+
+siteOperClientLdnsListRdtSample3 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample3"
+	::= { siteOperClientLdnsListEntry 9}
+
+siteOperClientLdnsListRdtSample4 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample4"
+	::= { siteOperClientLdnsListEntry 10}
+
+siteOperClientLdnsListRdtSample5 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample5"
+	::= { siteOperClientLdnsListEntry 11}
+
+siteOperClientLdnsListRdtSample6 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample6"
+	::= { siteOperClientLdnsListEntry 12}
+
+siteOperClientLdnsListRdtSample7 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample7"
+	::= { siteOperClientLdnsListEntry 13}
+
+siteOperClientLdnsListRdtSample8 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample8"
+	::= { siteOperClientLdnsListEntry 14}
+
+ipServer		 OBJECT IDENTIFIER ::= { site 5}
+
+ipServerStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF IpServerStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify a real server for the GSLB site from object 'gslb.site.ip-server'"
+	::= {ipServer 1}
+
+ipServerStatsEntry OBJECT-TYPE
+	SYNTAX IpServerStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ipServerStats stats entry"
+	INDEX {
+		ipServerStatsSlotId,
+		ipServerStatsSiteName,
+		ipServerStatsIpServerName
+	}
+	::= { ipServerStatsTable 1 }
+
+IpServerStatsEntry ::=
+	SEQUENCE {
+		ipServerStatsSlotId Integer32,
+		ipServerStatsSiteName DisplayString,
+		ipServerStatsIpServerName DisplayString,
+		ipServerStatsHits	 CounterBasedGauge64,
+		ipServerStatsRecent	 CounterBasedGauge64
+	}
+
+ipServerStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ipServerStatsEntry 1 }
+
+ipServerStatsSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { ipServerStatsEntry 2 }
+
+ipServerStatsIpServerName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip-server-name"
+	::= { ipServerStatsEntry 3 }
+
+ipServerStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { ipServerStatsEntry 4 }
+
+ipServerStatsRecent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "recent"
+	::= { ipServerStatsEntry 5 }
+
+ipServerOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF IpServerOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a real server for the GSLB site from object 'gslb.site.ip-server'"
+	::= {ipServer 2}
+
+ipServerOperEntry OBJECT-TYPE
+	SYNTAX IpServerOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ipServerOper entry"
+	INDEX {
+		ipServerOperSlotId,
+		ipServerOperSiteName,
+		ipServerOperIpServerName
+	}
+	::= { ipServerOperTable 1 }
+
+IpServerOperEntry ::=
+	SEQUENCE {
+		ipServerOperSlotId Integer32,
+		ipServerOperSiteName DisplayString,
+		ipServerOperIpServerName DisplayString,
+		ipServerOperIpServer	 DisplayString,
+		ipServerOperIpAddress	 DisplayString,
+		ipServerOperDesc	 DisplayString,
+		ipServerOperState	 DisplayString,
+		ipServerOperServiceIp	 DisplayString,
+		ipServerOperPortCount	 Integer32,
+		ipServerOperVirtualServer	 Integer32,
+		ipServerOperDisabled	 Integer32,
+		ipServerOperGslbProtocol	 Integer32,
+		ipServerOperLocalProtocol	 Integer32,
+		ipServerOperManuallyHealthCheck	 Integer32,
+		ipServerOperUseGslbState	 Integer32,
+		ipServerOperDynamic	 Integer32,
+		ipServerOperHits	 Integer32,
+		ipServerOperRecent	 Integer32
+	}
+
+ipServerOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ipServerOperEntry 1 }
+
+ipServerOperSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { ipServerOperEntry 2 }
+
+ipServerOperIpServerName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip-server-name"
+	::= { ipServerOperEntry 3 }
+
+ipServerOperIpServer OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip-server"
+	::= { ipServerOperEntry 4 }
+
+ipServerOperIpAddress OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip-address"
+	::= { ipServerOperEntry 5 }
+
+ipServerOperDesc OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "desc"
+	::= { ipServerOperEntry 6 }
+
+ipServerOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { ipServerOperEntry 7 }
+
+ipServerOperServiceIp OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-ip"
+	::= { ipServerOperEntry 8 }
+
+ipServerOperPortCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-count"
+	::= { ipServerOperEntry 9 }
+
+ipServerOperVirtualServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "virtual-server"
+	::= { ipServerOperEntry 10 }
+
+ipServerOperDisabled OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "disabled"
+	::= { ipServerOperEntry 11 }
+
+ipServerOperGslbProtocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gslb-protocol"
+	::= { ipServerOperEntry 12 }
+
+ipServerOperLocalProtocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "local-protocol"
+	::= { ipServerOperEntry 13 }
+
+ipServerOperManuallyHealthCheck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "manually-health-check"
+	::= { ipServerOperEntry 14 }
+
+ipServerOperUseGslbState OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "use_gslb_state"
+	::= { ipServerOperEntry 15 }
+
+ipServerOperDynamic OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dynamic"
+	::= { ipServerOperEntry 16 }
+
+ipServerOperHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { ipServerOperEntry 17 }
+
+ipServerOperRecent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "recent"
+	::= { ipServerOperEntry 18 }
+
+ipServerOperDrsListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF IpServerOperDrsListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a real server for the GSLB site from object 'gslb.site.ip-server'"
+	::= {ipServer 3}
+
+ipServerOperDrsListEntry OBJECT-TYPE
+	SYNTAX IpServerOperDrsListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ipServerOperDrsList entry:drs-list"
+	INDEX {
+		ipServerOperDrsListSlotId,
+		ipServerOperDrsListSiteName,
+		ipServerOperDrsListIpServerName,
+		ipServerOperDrsListDrsListListId
+	}
+	::= { ipServerOperDrsListTable 1}
+
+IpServerOperDrsListEntry ::=
+	SEQUENCE {
+		ipServerOperDrsListSlotId Integer32,
+		ipServerOperDrsListSiteName DisplayString,
+		ipServerOperDrsListIpServerName DisplayString,
+		ipServerOperDrsListDrsListListId Integer32,
+		ipServerOperDrsListDrsName	DisplayString,
+		ipServerOperDrsListDrsIpAddress	DisplayString,
+		ipServerOperDrsListDrsFqdnName	DisplayString,
+		ipServerOperDrsListDrsState	DisplayString,
+		ipServerOperDrsListDrsServiceIp	DisplayString,
+		ipServerOperDrsListDrsPortCount	Integer32,
+		ipServerOperDrsListDrsVirtualServer	Integer32,
+		ipServerOperDrsListDrsDisabled	Integer32,
+		ipServerOperDrsListDrsGslbProtocol	Integer32,
+		ipServerOperDrsListDrsLocalProtocol	Integer32,
+		ipServerOperDrsListDrsManuallyHealthCheck	Integer32,
+		ipServerOperDrsListDrsUseGslbState	Integer32,
+		ipServerOperDrsListDrsDynamic	Integer32,
+		ipServerOperDrsListDrsHits	Integer32,
+		ipServerOperDrsListDrsRecent	Integer32
+	}
+
+ipServerOperDrsListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipServerOperDrsListEntry 1}
+
+ipServerOperDrsListSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { ipServerOperDrsListEntry 2}
+
+ipServerOperDrsListIpServerName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip-server-name"
+	::= { ipServerOperDrsListEntry 3}
+
+ipServerOperDrsListDrsListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipServerOperDrsListEntry 4}
+
+ipServerOperDrsListDrsName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-name"
+	::= { ipServerOperDrsListEntry 5}
+
+ipServerOperDrsListDrsIpAddress OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-ip-address"
+	::= { ipServerOperDrsListEntry 6}
+
+ipServerOperDrsListDrsFqdnName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-fqdn-name"
+	::= { ipServerOperDrsListEntry 7}
+
+ipServerOperDrsListDrsState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-state"
+	::= { ipServerOperDrsListEntry 8}
+
+ipServerOperDrsListDrsServiceIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-service-ip"
+	::= { ipServerOperDrsListEntry 9}
+
+ipServerOperDrsListDrsPortCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-port-count"
+	::= { ipServerOperDrsListEntry 10}
+
+ipServerOperDrsListDrsVirtualServer OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-virtual-server"
+	::= { ipServerOperDrsListEntry 11}
+
+ipServerOperDrsListDrsDisabled OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-disabled"
+	::= { ipServerOperDrsListEntry 12}
+
+ipServerOperDrsListDrsGslbProtocol OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-gslb-protocol"
+	::= { ipServerOperDrsListEntry 13}
+
+ipServerOperDrsListDrsLocalProtocol OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-local-protocol"
+	::= { ipServerOperDrsListEntry 14}
+
+ipServerOperDrsListDrsManuallyHealthCheck OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-manually-health-check"
+	::= { ipServerOperDrsListEntry 15}
+
+ipServerOperDrsListDrsUseGslbState OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-use_gslb_state"
+	::= { ipServerOperDrsListEntry 16}
+
+ipServerOperDrsListDrsDynamic OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-dynamic"
+	::= { ipServerOperDrsListEntry 17}
+
+ipServerOperDrsListDrsHits OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-hits"
+	::= { ipServerOperDrsListEntry 18}
+
+ipServerOperDrsListDrsRecent OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-recent"
+	::= { ipServerOperDrsListEntry 19}
+
+ipServerOperDrsListDrsPortTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF IpServerOperDrsListDrsPortEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a real server for the GSLB site from object 'gslb.site.ip-server'"
+	::= {ipServer 4}
+
+ipServerOperDrsListDrsPortEntry OBJECT-TYPE
+	SYNTAX IpServerOperDrsListDrsPortEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ipServerOperDrsListDrsPort entry:drs-port"
+	INDEX {
+		ipServerOperDrsListDrsPortSlotId,
+		ipServerOperDrsListDrsPortSiteName,
+		ipServerOperDrsListDrsPortIpServerName,
+		ipServerOperDrsListDrsPortDrsListListId,
+		ipServerOperDrsListDrsPortDrsPortListId
+	}
+	::= { ipServerOperDrsListDrsPortTable 1}
+
+IpServerOperDrsListDrsPortEntry ::=
+	SEQUENCE {
+		ipServerOperDrsListDrsPortSlotId Integer32,
+		ipServerOperDrsListDrsPortSiteName DisplayString,
+		ipServerOperDrsListDrsPortIpServerName DisplayString,
+		ipServerOperDrsListDrsPortDrsListListId Integer32,
+		ipServerOperDrsListDrsPortDrsPortListId Integer32,
+		ipServerOperDrsListDrsPortVport	Integer32,
+		ipServerOperDrsListDrsPortVportProtocol	DisplayString,
+		ipServerOperDrsListDrsPortVportState	DisplayString,
+		ipServerOperDrsListDrsPortServiceName	DisplayString
+	}
+
+ipServerOperDrsListDrsPortSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipServerOperDrsListDrsPortEntry 1}
+
+ipServerOperDrsListDrsPortSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { ipServerOperDrsListDrsPortEntry 2}
+
+ipServerOperDrsListDrsPortIpServerName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip-server-name"
+	::= { ipServerOperDrsListDrsPortEntry 3}
+
+ipServerOperDrsListDrsPortDrsListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipServerOperDrsListDrsPortEntry 4}
+
+ipServerOperDrsListDrsPortDrsPortListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipServerOperDrsListDrsPortEntry 5}
+
+ipServerOperDrsListDrsPortVport OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vport"
+	::= { ipServerOperDrsListDrsPortEntry 6}
+
+ipServerOperDrsListDrsPortVportProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vport-protocol"
+	::= { ipServerOperDrsListDrsPortEntry 7}
+
+ipServerOperDrsListDrsPortVportState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vport-state"
+	::= { ipServerOperDrsListDrsPortEntry 8}
+
+ipServerOperDrsListDrsPortServiceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service-name"
+	::= { ipServerOperDrsListDrsPortEntry 9}
+
+ipServerOperIpServerPortTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF IpServerOperIpServerPortEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a real server for the GSLB site from object 'gslb.site.ip-server'"
+	::= {ipServer 5}
+
+ipServerOperIpServerPortEntry OBJECT-TYPE
+	SYNTAX IpServerOperIpServerPortEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ipServerOperIpServerPort entry:ip-server-port"
+	INDEX {
+		ipServerOperIpServerPortSlotId,
+		ipServerOperIpServerPortSiteName,
+		ipServerOperIpServerPortIpServerName,
+		ipServerOperIpServerPortIpServerPortListId
+	}
+	::= { ipServerOperIpServerPortTable 1}
+
+IpServerOperIpServerPortEntry ::=
+	SEQUENCE {
+		ipServerOperIpServerPortSlotId Integer32,
+		ipServerOperIpServerPortSiteName DisplayString,
+		ipServerOperIpServerPortIpServerName DisplayString,
+		ipServerOperIpServerPortIpServerPortListId Integer32,
+		ipServerOperIpServerPortVport	Integer32,
+		ipServerOperIpServerPortVportProtocol	DisplayString,
+		ipServerOperIpServerPortVportState	DisplayString,
+		ipServerOperIpServerPortServiceName	DisplayString
+	}
+
+ipServerOperIpServerPortSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipServerOperIpServerPortEntry 1}
+
+ipServerOperIpServerPortSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { ipServerOperIpServerPortEntry 2}
+
+ipServerOperIpServerPortIpServerName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip-server-name"
+	::= { ipServerOperIpServerPortEntry 3}
+
+ipServerOperIpServerPortIpServerPortListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ipServerOperIpServerPortEntry 4}
+
+ipServerOperIpServerPortVport OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vport"
+	::= { ipServerOperIpServerPortEntry 5}
+
+ipServerOperIpServerPortVportProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vport-protocol"
+	::= { ipServerOperIpServerPortEntry 6}
+
+ipServerOperIpServerPortVportState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vport-state"
+	::= { ipServerOperIpServerPortEntry 7}
+
+ipServerOperIpServerPortServiceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service-name"
+	::= { ipServerOperIpServerPortEntry 8}
+
+activeRdt		 OBJECT IDENTIFIER ::= { site 6}
+
+easyRdt		 OBJECT IDENTIFIER ::= { site 7}
+
+slbDev		 OBJECT IDENTIFIER ::= { site 8}
+
+slbDevOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SlbDevOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a SLB device for the GSLB site from object 'gslb.site.slb-dev'"
+	::= {slbDev 2}
+
+slbDevOperEntry OBJECT-TYPE
+	SYNTAX SlbDevOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The slbDevOper entry"
+	INDEX {
+		slbDevOperSlotId,
+		slbDevOperSiteName,
+		slbDevOperDeviceName
+	}
+	::= { slbDevOperTable 1 }
+
+SlbDevOperEntry ::=
+	SEQUENCE {
+		slbDevOperSlotId Integer32,
+		slbDevOperSiteName DisplayString,
+		slbDevOperDeviceName DisplayString,
+		slbDevOperDevName	 DisplayString,
+		slbDevOperDevIp	 DisplayString,
+		slbDevOperDevAttr	 DisplayString,
+		slbDevOperDevAdminPreference	 Integer32,
+		slbDevOperDevSessionNum	 Integer32,
+		slbDevOperDevSessionUtil	 Integer32,
+		slbDevOperDevGwState	 DisplayString,
+		slbDevOperDevIpCnt	 Integer32,
+		slbDevOperDevState	 DisplayString
+	}
+
+slbDevOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { slbDevOperEntry 1 }
+
+slbDevOperSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { slbDevOperEntry 2 }
+
+slbDevOperDeviceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "device-name"
+	::= { slbDevOperEntry 3 }
+
+slbDevOperDevName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_name"
+	::= { slbDevOperEntry 4 }
+
+slbDevOperDevIp OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_ip"
+	::= { slbDevOperEntry 5 }
+
+slbDevOperDevAttr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_attr"
+	::= { slbDevOperEntry 6 }
+
+slbDevOperDevAdminPreference OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_admin_preference"
+	::= { slbDevOperEntry 7 }
+
+slbDevOperDevSessionNum OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_session_num"
+	::= { slbDevOperEntry 8 }
+
+slbDevOperDevSessionUtil OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_session_util"
+	::= { slbDevOperEntry 9 }
+
+slbDevOperDevGwState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_gw_state"
+	::= { slbDevOperEntry 10 }
+
+slbDevOperDevIpCnt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_ip_cnt"
+	::= { slbDevOperEntry 11 }
+
+slbDevOperDevState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev-state"
+	::= { slbDevOperEntry 12 }
+
+slbDevOperClientLdnsListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SlbDevOperClientLdnsListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a SLB device for the GSLB site from object 'gslb.site.slb-dev'"
+	::= {slbDev 3}
+
+slbDevOperClientLdnsListEntry OBJECT-TYPE
+	SYNTAX SlbDevOperClientLdnsListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The slbDevOperClientLdnsList entry:client-ldns-list"
+	INDEX {
+		slbDevOperClientLdnsListSlotId,
+		slbDevOperClientLdnsListSiteName,
+		slbDevOperClientLdnsListDeviceName,
+		slbDevOperClientLdnsListClientLdnsListListId
+	}
+	::= { slbDevOperClientLdnsListTable 1}
+
+SlbDevOperClientLdnsListEntry ::=
+	SEQUENCE {
+		slbDevOperClientLdnsListSlotId Integer32,
+		slbDevOperClientLdnsListSiteName DisplayString,
+		slbDevOperClientLdnsListDeviceName DisplayString,
+		slbDevOperClientLdnsListClientLdnsListListId Integer32,
+		slbDevOperClientLdnsListClientIp	DisplayString,
+		slbDevOperClientLdnsListAge	Integer32,
+		slbDevOperClientLdnsListType	DisplayString,
+		slbDevOperClientLdnsListRdtSample1	Integer32,
+		slbDevOperClientLdnsListRdtSample2	Integer32,
+		slbDevOperClientLdnsListRdtSample3	Integer32,
+		slbDevOperClientLdnsListRdtSample4	Integer32,
+		slbDevOperClientLdnsListRdtSample5	Integer32,
+		slbDevOperClientLdnsListRdtSample6	Integer32,
+		slbDevOperClientLdnsListRdtSample7	Integer32,
+		slbDevOperClientLdnsListRdtSample8	Integer32
+	}
+
+slbDevOperClientLdnsListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slbDevOperClientLdnsListEntry 1}
+
+slbDevOperClientLdnsListSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { slbDevOperClientLdnsListEntry 2}
+
+slbDevOperClientLdnsListDeviceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"device-name"
+	::= { slbDevOperClientLdnsListEntry 3}
+
+slbDevOperClientLdnsListClientLdnsListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slbDevOperClientLdnsListEntry 4}
+
+slbDevOperClientLdnsListClientIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client-ip"
+	::= { slbDevOperClientLdnsListEntry 5}
+
+slbDevOperClientLdnsListAge OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"age"
+	::= { slbDevOperClientLdnsListEntry 6}
+
+slbDevOperClientLdnsListType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"type"
+	::= { slbDevOperClientLdnsListEntry 7}
+
+slbDevOperClientLdnsListRdtSample1 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample1"
+	::= { slbDevOperClientLdnsListEntry 8}
+
+slbDevOperClientLdnsListRdtSample2 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample2"
+	::= { slbDevOperClientLdnsListEntry 9}
+
+slbDevOperClientLdnsListRdtSample3 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample3"
+	::= { slbDevOperClientLdnsListEntry 10}
+
+slbDevOperClientLdnsListRdtSample4 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample4"
+	::= { slbDevOperClientLdnsListEntry 11}
+
+slbDevOperClientLdnsListRdtSample5 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample5"
+	::= { slbDevOperClientLdnsListEntry 12}
+
+slbDevOperClientLdnsListRdtSample6 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample6"
+	::= { slbDevOperClientLdnsListEntry 13}
+
+slbDevOperClientLdnsListRdtSample7 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample7"
+	::= { slbDevOperClientLdnsListEntry 14}
+
+slbDevOperClientLdnsListRdtSample8 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rdt-sample8"
+	::= { slbDevOperClientLdnsListEntry 15}
+
+vipServer		 OBJECT IDENTIFIER ::= { slbDev 4}
+
+vipServerV4		 OBJECT IDENTIFIER ::= { vipServer 2}
+
+vipServerV4StatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerV4StatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-v4'"
+	::= {vipServerV4 1}
+
+vipServerV4StatsEntry OBJECT-TYPE
+	SYNTAX VipServerV4StatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerV4Stats stats entry"
+	INDEX {
+		vipServerV4StatsSlotId,
+		vipServerV4StatsSiteName,
+		vipServerV4StatsDeviceName,
+		vipServerV4StatsIpv4
+	}
+	::= { vipServerV4StatsTable 1 }
+
+VipServerV4StatsEntry ::=
+	SEQUENCE {
+		vipServerV4StatsSlotId Integer32,
+		vipServerV4StatsSiteName DisplayString,
+		vipServerV4StatsDeviceName DisplayString,
+		vipServerV4StatsIpv4 DisplayString,
+		vipServerV4StatsDevVipHits	 CounterBasedGauge64,
+		vipServerV4StatsDevVipRecent	 CounterBasedGauge64
+	}
+
+vipServerV4StatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { vipServerV4StatsEntry 1 }
+
+vipServerV4StatsSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { vipServerV4StatsEntry 2 }
+
+vipServerV4StatsDeviceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "device-name"
+	::= { vipServerV4StatsEntry 3 }
+
+vipServerV4StatsIpv4 OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4"
+	::= { vipServerV4StatsEntry 4 }
+
+vipServerV4StatsDevVipHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_hits"
+	::= { vipServerV4StatsEntry 5 }
+
+vipServerV4StatsDevVipRecent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_recent"
+	::= { vipServerV4StatsEntry 6 }
+
+vipServerV4OperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerV4OperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-v4'"
+	::= {vipServerV4 2}
+
+vipServerV4OperEntry OBJECT-TYPE
+	SYNTAX VipServerV4OperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerV4Oper entry"
+	INDEX {
+		vipServerV4OperSlotId,
+		vipServerV4OperSiteName,
+		vipServerV4OperDeviceName,
+		vipServerV4OperIpv4
+	}
+	::= { vipServerV4OperTable 1 }
+
+VipServerV4OperEntry ::=
+	SEQUENCE {
+		vipServerV4OperSlotId Integer32,
+		vipServerV4OperSiteName DisplayString,
+		vipServerV4OperDeviceName DisplayString,
+		vipServerV4OperIpv4 DisplayString,
+		vipServerV4OperDevVipAddr	 DisplayString,
+		vipServerV4OperDevVipState	 DisplayString,
+		vipServerV4OperNodeName	 DisplayString,
+		vipServerV4OperServiceIp	 DisplayString,
+		vipServerV4OperPortCount	 Integer32,
+		vipServerV4OperVirtualServer	 Integer32,
+		vipServerV4OperDisabled	 Integer32,
+		vipServerV4OperGslbProtocol	 Integer32,
+		vipServerV4OperLocalProtocol	 Integer32,
+		vipServerV4OperManuallyHealthCheck	 Integer32,
+		vipServerV4OperUseGslbState	 Integer32,
+		vipServerV4OperDynamic	 Integer32,
+		vipServerV4OperShared	 Integer32,
+		vipServerV4OperHits	 Integer32,
+		vipServerV4OperRecent	 Integer32
+	}
+
+vipServerV4OperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { vipServerV4OperEntry 1 }
+
+vipServerV4OperSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { vipServerV4OperEntry 2 }
+
+vipServerV4OperDeviceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "device-name"
+	::= { vipServerV4OperEntry 3 }
+
+vipServerV4OperIpv4 OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4"
+	::= { vipServerV4OperEntry 4 }
+
+vipServerV4OperDevVipAddr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_addr"
+	::= { vipServerV4OperEntry 5 }
+
+vipServerV4OperDevVipState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_state"
+	::= { vipServerV4OperEntry 6 }
+
+vipServerV4OperNodeName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "node-name"
+	::= { vipServerV4OperEntry 7 }
+
+vipServerV4OperServiceIp OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-ip"
+	::= { vipServerV4OperEntry 8 }
+
+vipServerV4OperPortCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-count"
+	::= { vipServerV4OperEntry 9 }
+
+vipServerV4OperVirtualServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "virtual-server"
+	::= { vipServerV4OperEntry 10 }
+
+vipServerV4OperDisabled OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "disabled"
+	::= { vipServerV4OperEntry 11 }
+
+vipServerV4OperGslbProtocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gslb-protocol"
+	::= { vipServerV4OperEntry 12 }
+
+vipServerV4OperLocalProtocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "local-protocol"
+	::= { vipServerV4OperEntry 13 }
+
+vipServerV4OperManuallyHealthCheck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "manually-health-check"
+	::= { vipServerV4OperEntry 14 }
+
+vipServerV4OperUseGslbState OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "use_gslb_state"
+	::= { vipServerV4OperEntry 15 }
+
+vipServerV4OperDynamic OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dynamic"
+	::= { vipServerV4OperEntry 16 }
+
+vipServerV4OperShared OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "shared"
+	::= { vipServerV4OperEntry 17 }
+
+vipServerV4OperHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { vipServerV4OperEntry 18 }
+
+vipServerV4OperRecent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "recent"
+	::= { vipServerV4OperEntry 19 }
+
+vipServerV4OperDevVipPortListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerV4OperDevVipPortListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-v4'"
+	::= {vipServerV4 3}
+
+vipServerV4OperDevVipPortListEntry OBJECT-TYPE
+	SYNTAX VipServerV4OperDevVipPortListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerV4OperDevVipPortList entry:dev-vip-port-list"
+	INDEX {
+		vipServerV4OperDevVipPortListSlotId,
+		vipServerV4OperDevVipPortListSiteName,
+		vipServerV4OperDevVipPortListDeviceName,
+		vipServerV4OperDevVipPortListIpv4,
+		vipServerV4OperDevVipPortListDevVipPortListListId
+	}
+	::= { vipServerV4OperDevVipPortListTable 1}
+
+VipServerV4OperDevVipPortListEntry ::=
+	SEQUENCE {
+		vipServerV4OperDevVipPortListSlotId Integer32,
+		vipServerV4OperDevVipPortListSiteName DisplayString,
+		vipServerV4OperDevVipPortListDeviceName DisplayString,
+		vipServerV4OperDevVipPortListIpv4 DisplayString,
+		vipServerV4OperDevVipPortListDevVipPortListListId Integer32,
+		vipServerV4OperDevVipPortListDevVipPortNum	Integer32,
+		vipServerV4OperDevVipPortListDevVipPortState	DisplayString,
+		vipServerV4OperDevVipPortListDevVipPortDevCurrConn	Integer32,
+		vipServerV4OperDevVipPortListDevVipPortProtocol	DisplayString,
+		vipServerV4OperDevVipPortListDevVipPortServiceName	DisplayString
+	}
+
+vipServerV4OperDevVipPortListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { vipServerV4OperDevVipPortListEntry 1}
+
+vipServerV4OperDevVipPortListSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { vipServerV4OperDevVipPortListEntry 2}
+
+vipServerV4OperDevVipPortListDeviceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"device-name"
+	::= { vipServerV4OperDevVipPortListEntry 3}
+
+vipServerV4OperDevVipPortListIpv4 OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4"
+	::= { vipServerV4OperDevVipPortListEntry 4}
+
+vipServerV4OperDevVipPortListDevVipPortListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { vipServerV4OperDevVipPortListEntry 5}
+
+vipServerV4OperDevVipPortListDevVipPortNum OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-num"
+	::= { vipServerV4OperDevVipPortListEntry 6}
+
+vipServerV4OperDevVipPortListDevVipPortState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-state"
+	::= { vipServerV4OperDevVipPortListEntry 7}
+
+vipServerV4OperDevVipPortListDevVipPortDevCurrConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-dev-curr-conn"
+	::= { vipServerV4OperDevVipPortListEntry 8}
+
+vipServerV4OperDevVipPortListDevVipPortProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-protocol"
+	::= { vipServerV4OperDevVipPortListEntry 9}
+
+vipServerV4OperDevVipPortListDevVipPortServiceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-service-name"
+	::= { vipServerV4OperDevVipPortListEntry 10}
+
+vipServerV6		 OBJECT IDENTIFIER ::= { vipServer 3}
+
+vipServerV6StatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerV6StatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-v6'"
+	::= {vipServerV6 1}
+
+vipServerV6StatsEntry OBJECT-TYPE
+	SYNTAX VipServerV6StatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerV6Stats stats entry"
+	INDEX {
+		vipServerV6StatsSlotId,
+		vipServerV6StatsSiteName,
+		vipServerV6StatsDeviceName,
+		vipServerV6StatsIpv6
+	}
+	::= { vipServerV6StatsTable 1 }
+
+VipServerV6StatsEntry ::=
+	SEQUENCE {
+		vipServerV6StatsSlotId Integer32,
+		vipServerV6StatsSiteName DisplayString,
+		vipServerV6StatsDeviceName DisplayString,
+		vipServerV6StatsIpv6 DisplayString,
+		vipServerV6StatsDevVipHits	 CounterBasedGauge64,
+		vipServerV6StatsDevVipRecent	 CounterBasedGauge64
+	}
+
+vipServerV6StatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { vipServerV6StatsEntry 1 }
+
+vipServerV6StatsSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { vipServerV6StatsEntry 2 }
+
+vipServerV6StatsDeviceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "device-name"
+	::= { vipServerV6StatsEntry 3 }
+
+vipServerV6StatsIpv6 OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6"
+	::= { vipServerV6StatsEntry 4 }
+
+vipServerV6StatsDevVipHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_hits"
+	::= { vipServerV6StatsEntry 5 }
+
+vipServerV6StatsDevVipRecent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_recent"
+	::= { vipServerV6StatsEntry 6 }
+
+vipServerV6OperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerV6OperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-v6'"
+	::= {vipServerV6 2}
+
+vipServerV6OperEntry OBJECT-TYPE
+	SYNTAX VipServerV6OperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerV6Oper entry"
+	INDEX {
+		vipServerV6OperSlotId,
+		vipServerV6OperSiteName,
+		vipServerV6OperDeviceName,
+		vipServerV6OperIpv6
+	}
+	::= { vipServerV6OperTable 1 }
+
+VipServerV6OperEntry ::=
+	SEQUENCE {
+		vipServerV6OperSlotId Integer32,
+		vipServerV6OperSiteName DisplayString,
+		vipServerV6OperDeviceName DisplayString,
+		vipServerV6OperIpv6 DisplayString,
+		vipServerV6OperDevVipAddr	 DisplayString,
+		vipServerV6OperDevVipState	 DisplayString,
+		vipServerV6OperNodeName	 DisplayString,
+		vipServerV6OperServiceIp	 DisplayString,
+		vipServerV6OperPortCount	 Integer32,
+		vipServerV6OperVirtualServer	 Integer32,
+		vipServerV6OperDisabled	 Integer32,
+		vipServerV6OperGslbProtocol	 Integer32,
+		vipServerV6OperLocalProtocol	 Integer32,
+		vipServerV6OperManuallyHealthCheck	 Integer32,
+		vipServerV6OperUseGslbState	 Integer32,
+		vipServerV6OperDynamic	 Integer32,
+		vipServerV6OperShared	 Integer32,
+		vipServerV6OperHits	 Integer32,
+		vipServerV6OperRecent	 Integer32
+	}
+
+vipServerV6OperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { vipServerV6OperEntry 1 }
+
+vipServerV6OperSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { vipServerV6OperEntry 2 }
+
+vipServerV6OperDeviceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "device-name"
+	::= { vipServerV6OperEntry 3 }
+
+vipServerV6OperIpv6 OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6"
+	::= { vipServerV6OperEntry 4 }
+
+vipServerV6OperDevVipAddr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_addr"
+	::= { vipServerV6OperEntry 5 }
+
+vipServerV6OperDevVipState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_state"
+	::= { vipServerV6OperEntry 6 }
+
+vipServerV6OperNodeName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "node-name"
+	::= { vipServerV6OperEntry 7 }
+
+vipServerV6OperServiceIp OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-ip"
+	::= { vipServerV6OperEntry 8 }
+
+vipServerV6OperPortCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-count"
+	::= { vipServerV6OperEntry 9 }
+
+vipServerV6OperVirtualServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "virtual-server"
+	::= { vipServerV6OperEntry 10 }
+
+vipServerV6OperDisabled OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "disabled"
+	::= { vipServerV6OperEntry 11 }
+
+vipServerV6OperGslbProtocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gslb-protocol"
+	::= { vipServerV6OperEntry 12 }
+
+vipServerV6OperLocalProtocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "local-protocol"
+	::= { vipServerV6OperEntry 13 }
+
+vipServerV6OperManuallyHealthCheck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "manually-health-check"
+	::= { vipServerV6OperEntry 14 }
+
+vipServerV6OperUseGslbState OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "use_gslb_state"
+	::= { vipServerV6OperEntry 15 }
+
+vipServerV6OperDynamic OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dynamic"
+	::= { vipServerV6OperEntry 16 }
+
+vipServerV6OperShared OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "shared"
+	::= { vipServerV6OperEntry 17 }
+
+vipServerV6OperHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { vipServerV6OperEntry 18 }
+
+vipServerV6OperRecent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "recent"
+	::= { vipServerV6OperEntry 19 }
+
+vipServerV6OperDevVipPortListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerV6OperDevVipPortListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-v6'"
+	::= {vipServerV6 3}
+
+vipServerV6OperDevVipPortListEntry OBJECT-TYPE
+	SYNTAX VipServerV6OperDevVipPortListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerV6OperDevVipPortList entry:dev-vip-port-list"
+	INDEX {
+		vipServerV6OperDevVipPortListSlotId,
+		vipServerV6OperDevVipPortListSiteName,
+		vipServerV6OperDevVipPortListDeviceName,
+		vipServerV6OperDevVipPortListIpv6,
+		vipServerV6OperDevVipPortListDevVipPortListListId
+	}
+	::= { vipServerV6OperDevVipPortListTable 1}
+
+VipServerV6OperDevVipPortListEntry ::=
+	SEQUENCE {
+		vipServerV6OperDevVipPortListSlotId Integer32,
+		vipServerV6OperDevVipPortListSiteName DisplayString,
+		vipServerV6OperDevVipPortListDeviceName DisplayString,
+		vipServerV6OperDevVipPortListIpv6 DisplayString,
+		vipServerV6OperDevVipPortListDevVipPortListListId Integer32,
+		vipServerV6OperDevVipPortListDevVipPortNum	Integer32,
+		vipServerV6OperDevVipPortListDevVipPortState	DisplayString,
+		vipServerV6OperDevVipPortListDevVipPortDevCurrConn	Integer32,
+		vipServerV6OperDevVipPortListDevVipPortProtocol	DisplayString,
+		vipServerV6OperDevVipPortListDevVipPortServiceName	DisplayString
+	}
+
+vipServerV6OperDevVipPortListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { vipServerV6OperDevVipPortListEntry 1}
+
+vipServerV6OperDevVipPortListSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { vipServerV6OperDevVipPortListEntry 2}
+
+vipServerV6OperDevVipPortListDeviceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"device-name"
+	::= { vipServerV6OperDevVipPortListEntry 3}
+
+vipServerV6OperDevVipPortListIpv6 OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6"
+	::= { vipServerV6OperDevVipPortListEntry 4}
+
+vipServerV6OperDevVipPortListDevVipPortListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { vipServerV6OperDevVipPortListEntry 5}
+
+vipServerV6OperDevVipPortListDevVipPortNum OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-num"
+	::= { vipServerV6OperDevVipPortListEntry 6}
+
+vipServerV6OperDevVipPortListDevVipPortState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-state"
+	::= { vipServerV6OperDevVipPortListEntry 7}
+
+vipServerV6OperDevVipPortListDevVipPortDevCurrConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-dev-curr-conn"
+	::= { vipServerV6OperDevVipPortListEntry 8}
+
+vipServerV6OperDevVipPortListDevVipPortProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-protocol"
+	::= { vipServerV6OperDevVipPortListEntry 9}
+
+vipServerV6OperDevVipPortListDevVipPortServiceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-service-name"
+	::= { vipServerV6OperDevVipPortListEntry 10}
+
+vipServerName		 OBJECT IDENTIFIER ::= { vipServer 4}
+
+vipServerNameStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerNameStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-name'"
+	::= {vipServerName 1}
+
+vipServerNameStatsEntry OBJECT-TYPE
+	SYNTAX VipServerNameStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerNameStats stats entry"
+	INDEX {
+		vipServerNameStatsSlotId,
+		vipServerNameStatsSiteName,
+		vipServerNameStatsDeviceName,
+		vipServerNameStatsVipName
+	}
+	::= { vipServerNameStatsTable 1 }
+
+VipServerNameStatsEntry ::=
+	SEQUENCE {
+		vipServerNameStatsSlotId Integer32,
+		vipServerNameStatsSiteName DisplayString,
+		vipServerNameStatsDeviceName DisplayString,
+		vipServerNameStatsVipName DisplayString,
+		vipServerNameStatsDevVipHits	 CounterBasedGauge64,
+		vipServerNameStatsDevVipRecent	 CounterBasedGauge64
+	}
+
+vipServerNameStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { vipServerNameStatsEntry 1 }
+
+vipServerNameStatsSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { vipServerNameStatsEntry 2 }
+
+vipServerNameStatsDeviceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "device-name"
+	::= { vipServerNameStatsEntry 3 }
+
+vipServerNameStatsVipName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vip-name"
+	::= { vipServerNameStatsEntry 4 }
+
+vipServerNameStatsDevVipHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_hits"
+	::= { vipServerNameStatsEntry 5 }
+
+vipServerNameStatsDevVipRecent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_recent"
+	::= { vipServerNameStatsEntry 6 }
+
+vipServerNameOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerNameOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-name'"
+	::= {vipServerName 2}
+
+vipServerNameOperEntry OBJECT-TYPE
+	SYNTAX VipServerNameOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerNameOper entry"
+	INDEX {
+		vipServerNameOperSlotId,
+		vipServerNameOperSiteName,
+		vipServerNameOperDeviceName,
+		vipServerNameOperVipName
+	}
+	::= { vipServerNameOperTable 1 }
+
+VipServerNameOperEntry ::=
+	SEQUENCE {
+		vipServerNameOperSlotId Integer32,
+		vipServerNameOperSiteName DisplayString,
+		vipServerNameOperDeviceName DisplayString,
+		vipServerNameOperVipName DisplayString,
+		vipServerNameOperDevVipAddr	 DisplayString,
+		vipServerNameOperDevVipState	 DisplayString,
+		vipServerNameOperNodeName	 DisplayString,
+		vipServerNameOperServiceIp	 DisplayString,
+		vipServerNameOperPortCount	 Integer32,
+		vipServerNameOperVirtualServer	 Integer32,
+		vipServerNameOperDisabled	 Integer32,
+		vipServerNameOperGslbProtocol	 Integer32,
+		vipServerNameOperLocalProtocol	 Integer32,
+		vipServerNameOperManuallyHealthCheck	 Integer32,
+		vipServerNameOperUseGslbState	 Integer32,
+		vipServerNameOperDynamic	 Integer32,
+		vipServerNameOperShared	 Integer32,
+		vipServerNameOperHits	 Integer32,
+		vipServerNameOperRecent	 Integer32
+	}
+
+vipServerNameOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { vipServerNameOperEntry 1 }
+
+vipServerNameOperSiteName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "site-name"
+	::= { vipServerNameOperEntry 2 }
+
+vipServerNameOperDeviceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "device-name"
+	::= { vipServerNameOperEntry 3 }
+
+vipServerNameOperVipName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vip-name"
+	::= { vipServerNameOperEntry 4 }
+
+vipServerNameOperDevVipAddr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_addr"
+	::= { vipServerNameOperEntry 5 }
+
+vipServerNameOperDevVipState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dev_vip_state"
+	::= { vipServerNameOperEntry 6 }
+
+vipServerNameOperNodeName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "node-name"
+	::= { vipServerNameOperEntry 7 }
+
+vipServerNameOperServiceIp OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-ip"
+	::= { vipServerNameOperEntry 8 }
+
+vipServerNameOperPortCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-count"
+	::= { vipServerNameOperEntry 9 }
+
+vipServerNameOperVirtualServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "virtual-server"
+	::= { vipServerNameOperEntry 10 }
+
+vipServerNameOperDisabled OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "disabled"
+	::= { vipServerNameOperEntry 11 }
+
+vipServerNameOperGslbProtocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gslb-protocol"
+	::= { vipServerNameOperEntry 12 }
+
+vipServerNameOperLocalProtocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "local-protocol"
+	::= { vipServerNameOperEntry 13 }
+
+vipServerNameOperManuallyHealthCheck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "manually-health-check"
+	::= { vipServerNameOperEntry 14 }
+
+vipServerNameOperUseGslbState OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "use_gslb_state"
+	::= { vipServerNameOperEntry 15 }
+
+vipServerNameOperDynamic OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dynamic"
+	::= { vipServerNameOperEntry 16 }
+
+vipServerNameOperShared OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "shared"
+	::= { vipServerNameOperEntry 17 }
+
+vipServerNameOperHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { vipServerNameOperEntry 18 }
+
+vipServerNameOperRecent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "recent"
+	::= { vipServerNameOperEntry 19 }
+
+vipServerNameOperDevVipPortListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF VipServerNameOperDevVipPortListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify a VIP for the SLB device from object 'gslb.site.slb-dev.vip-server.vip-server-name'"
+	::= {vipServerName 3}
+
+vipServerNameOperDevVipPortListEntry OBJECT-TYPE
+	SYNTAX VipServerNameOperDevVipPortListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The vipServerNameOperDevVipPortList entry:dev-vip-port-list"
+	INDEX {
+		vipServerNameOperDevVipPortListSlotId,
+		vipServerNameOperDevVipPortListSiteName,
+		vipServerNameOperDevVipPortListDeviceName,
+		vipServerNameOperDevVipPortListVipName,
+		vipServerNameOperDevVipPortListDevVipPortListListId
+	}
+	::= { vipServerNameOperDevVipPortListTable 1}
+
+VipServerNameOperDevVipPortListEntry ::=
+	SEQUENCE {
+		vipServerNameOperDevVipPortListSlotId Integer32,
+		vipServerNameOperDevVipPortListSiteName DisplayString,
+		vipServerNameOperDevVipPortListDeviceName DisplayString,
+		vipServerNameOperDevVipPortListVipName DisplayString,
+		vipServerNameOperDevVipPortListDevVipPortListListId Integer32,
+		vipServerNameOperDevVipPortListDevVipPortNum	Integer32,
+		vipServerNameOperDevVipPortListDevVipPortState	DisplayString,
+		vipServerNameOperDevVipPortListDevVipPortDevCurrConn	Integer32,
+		vipServerNameOperDevVipPortListDevVipPortProtocol	DisplayString,
+		vipServerNameOperDevVipPortListDevVipPortServiceName	DisplayString
+	}
+
+vipServerNameOperDevVipPortListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { vipServerNameOperDevVipPortListEntry 1}
+
+vipServerNameOperDevVipPortListSiteName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"site-name"
+	::= { vipServerNameOperDevVipPortListEntry 2}
+
+vipServerNameOperDevVipPortListDeviceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"device-name"
+	::= { vipServerNameOperDevVipPortListEntry 3}
+
+vipServerNameOperDevVipPortListVipName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vip-name"
+	::= { vipServerNameOperDevVipPortListEntry 4}
+
+vipServerNameOperDevVipPortListDevVipPortListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { vipServerNameOperDevVipPortListEntry 5}
+
+vipServerNameOperDevVipPortListDevVipPortNum OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-num"
+	::= { vipServerNameOperDevVipPortListEntry 6}
+
+vipServerNameOperDevVipPortListDevVipPortState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-state"
+	::= { vipServerNameOperDevVipPortListEntry 7}
+
+vipServerNameOperDevVipPortListDevVipPortDevCurrConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-dev-curr-conn"
+	::= { vipServerNameOperDevVipPortListEntry 8}
+
+vipServerNameOperDevVipPortListDevVipPortProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-protocol"
+	::= { vipServerNameOperDevVipPortListEntry 9}
+
+vipServerNameOperDevVipPortListDevVipPortServiceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dev-vip-port-service-name"
+	::= { vipServerNameOperDevVipPortListEntry 10}
+
+END
+

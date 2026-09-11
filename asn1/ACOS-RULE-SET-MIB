@@ -1,0 +1,424 @@
+ACOS-RULE-SET-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		ruleSetModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "ruleSetModule OID for ACOS"
+				::=  {  acosSchema 470 }
+
+ruleSet		 OBJECT IDENTIFIER ::= { ruleSetModule 1}
+
+ruleSetStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RuleSetStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Configure Security policy Rule Set from object 'rule-set'"
+	::= {ruleSet 1}
+
+ruleSetStatsEntry OBJECT-TYPE
+	SYNTAX RuleSetStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ruleSetStats stats entry"
+	INDEX {
+		ruleSetStatsSlotId,
+		ruleSetStatsName
+	}
+	::= { ruleSetStatsTable 1 }
+
+RuleSetStatsEntry ::=
+	SEQUENCE {
+		ruleSetStatsSlotId Integer32,
+		ruleSetStatsName DisplayString,
+		ruleSetStatsUnmatchedDrops	 CounterBasedGauge64,
+		ruleSetStatsPermit	 CounterBasedGauge64,
+		ruleSetStatsDeny	 CounterBasedGauge64,
+		ruleSetStatsReset	 CounterBasedGauge64
+	}
+
+ruleSetStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ruleSetStatsEntry 1 }
+
+ruleSetStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { ruleSetStatsEntry 2 }
+
+ruleSetStatsUnmatchedDrops OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "unmatched-drops"
+	::= { ruleSetStatsEntry 3 }
+
+ruleSetStatsPermit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "permit"
+	::= { ruleSetStatsEntry 4 }
+
+ruleSetStatsDeny OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "deny"
+	::= { ruleSetStatsEntry 5 }
+
+ruleSetStatsReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "reset"
+	::= { ruleSetStatsEntry 6 }
+
+ruleSetOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RuleSetOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure Security policy Rule Set from object 'rule-set'"
+	::= {ruleSet 2}
+
+ruleSetOperEntry OBJECT-TYPE
+	SYNTAX RuleSetOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ruleSetOper entry"
+	INDEX {
+		ruleSetOperSlotId,
+		ruleSetOperName
+	}
+	::= { ruleSetOperTable 1 }
+
+RuleSetOperEntry ::=
+	SEQUENCE {
+		ruleSetOperSlotId Integer32,
+		ruleSetOperName DisplayString,
+		ruleSetOperPolicyStatus	 DisplayString,
+		ruleSetOperPolicyUnmatchedDrop	 Integer32,
+		ruleSetOperPolicyPermit	 Integer32,
+		ruleSetOperPolicyDeny	 Integer32,
+		ruleSetOperPolicyReset	 Integer32,
+		ruleSetOperPolicyRuleCount	 Integer32,
+		ruleSetOperTotalHit	 Integer32,
+		ruleSetOperTotalPermitBytes	 Integer32,
+		ruleSetOperTotalDenyBytes	 Integer32,
+		ruleSetOperTotalResetBytes	 Integer32,
+		ruleSetOperTotalBytes	 Integer32,
+		ruleSetOperTotalPermitPackets	 Integer32,
+		ruleSetOperTotalDenyPackets	 Integer32,
+		ruleSetOperTotalResetPackets	 Integer32,
+		ruleSetOperTotalPackets	 Integer32,
+		ruleSetOperTotalActiveTcp	 Integer32,
+		ruleSetOperTotalActiveUdp	 Integer32,
+		ruleSetOperTotalActiveIcmp	 Integer32,
+		ruleSetOperTotalActiveOthers	 Integer32,
+		ruleSetOperShowTotalStats	 DisplayString,
+		ruleSetOperTopnRules	 DisplayString
+	}
+
+ruleSetOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ruleSetOperEntry 1 }
+
+ruleSetOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { ruleSetOperEntry 2 }
+
+ruleSetOperPolicyStatus OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "policy-status"
+	::= { ruleSetOperEntry 3 }
+
+ruleSetOperPolicyUnmatchedDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "policy-unmatched-drop"
+	::= { ruleSetOperEntry 4 }
+
+ruleSetOperPolicyPermit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "policy-permit"
+	::= { ruleSetOperEntry 5 }
+
+ruleSetOperPolicyDeny OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "policy-deny"
+	::= { ruleSetOperEntry 6 }
+
+ruleSetOperPolicyReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "policy-reset"
+	::= { ruleSetOperEntry 7 }
+
+ruleSetOperPolicyRuleCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "policy-rule-count"
+	::= { ruleSetOperEntry 8 }
+
+ruleSetOperTotalHit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-hit"
+	::= { ruleSetOperEntry 9 }
+
+ruleSetOperTotalPermitBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-permit-bytes"
+	::= { ruleSetOperEntry 10 }
+
+ruleSetOperTotalDenyBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-deny-bytes"
+	::= { ruleSetOperEntry 11 }
+
+ruleSetOperTotalResetBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-reset-bytes"
+	::= { ruleSetOperEntry 12 }
+
+ruleSetOperTotalBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-bytes"
+	::= { ruleSetOperEntry 13 }
+
+ruleSetOperTotalPermitPackets OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-permit-packets"
+	::= { ruleSetOperEntry 14 }
+
+ruleSetOperTotalDenyPackets OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-deny-packets"
+	::= { ruleSetOperEntry 15 }
+
+ruleSetOperTotalResetPackets OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-reset-packets"
+	::= { ruleSetOperEntry 16 }
+
+ruleSetOperTotalPackets OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-packets"
+	::= { ruleSetOperEntry 17 }
+
+ruleSetOperTotalActiveTcp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-active-tcp"
+	::= { ruleSetOperEntry 18 }
+
+ruleSetOperTotalActiveUdp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-active-udp"
+	::= { ruleSetOperEntry 19 }
+
+ruleSetOperTotalActiveIcmp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-active-icmp"
+	::= { ruleSetOperEntry 20 }
+
+ruleSetOperTotalActiveOthers OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-active-others"
+	::= { ruleSetOperEntry 21 }
+
+ruleSetOperShowTotalStats OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "show-total-stats"
+	::= { ruleSetOperEntry 22 }
+
+ruleSetOperTopnRules OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "topn-rules"
+	::= { ruleSetOperEntry 23 }
+
+ruleSetOperRuleStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RuleSetOperRuleStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure Security policy Rule Set from object 'rule-set'"
+	::= {ruleSet 3}
+
+ruleSetOperRuleStatsEntry OBJECT-TYPE
+	SYNTAX RuleSetOperRuleStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ruleSetOperRuleStats entry:rule-stats"
+	INDEX {
+		ruleSetOperRuleStatsSlotId,
+		ruleSetOperRuleStatsName,
+		ruleSetOperRuleStatsRuleStatsListId
+	}
+	::= { ruleSetOperRuleStatsTable 1}
+
+RuleSetOperRuleStatsEntry ::=
+	SEQUENCE {
+		ruleSetOperRuleStatsSlotId Integer32,
+		ruleSetOperRuleStatsName DisplayString,
+		ruleSetOperRuleStatsRuleStatsListId Integer32,
+		ruleSetOperRuleStatsRuleName	DisplayString,
+		ruleSetOperRuleStatsRuleHitcount	Integer32,
+		ruleSetOperRuleStatsRuleAction	DisplayString,
+		ruleSetOperRuleStatsRuleStatus	DisplayString
+	}
+
+ruleSetOperRuleStatsSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ruleSetOperRuleStatsEntry 1}
+
+ruleSetOperRuleStatsName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { ruleSetOperRuleStatsEntry 2}
+
+ruleSetOperRuleStatsRuleStatsListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ruleSetOperRuleStatsEntry 3}
+
+ruleSetOperRuleStatsRuleName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rule-name"
+	::= { ruleSetOperRuleStatsEntry 4}
+
+ruleSetOperRuleStatsRuleHitcount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rule-hitcount"
+	::= { ruleSetOperRuleStatsEntry 5}
+
+ruleSetOperRuleStatsRuleAction OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rule-action"
+	::= { ruleSetOperRuleStatsEntry 6}
+
+ruleSetOperRuleStatsRuleStatus OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rule-status"
+	::= { ruleSetOperRuleStatsEntry 7}
+
+END
+

@@ -1,0 +1,521 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="search" title="Search" href="search.html"><link rel="next" title="The corpora" href="corpora.html"><link rel="prev" title="Using the distribution" href="using.html">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Channels - pysnmp MIB distribution</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">pysnmp MIB distribution</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/logo.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/logo.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">pysnmp MIB distribution</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using the distribution</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Channels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpora.html">The corpora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manifests.html">Manifests and the build</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chart.html">The mibserver chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing a module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="absent-modules.html">Modules the site used to serve and no longer does</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mib-sources.html">Where the MIBs in <code class="docutils literal notranslate"><span class="pre">src/</span></code> come from</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/blob/main/docs/channels.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/edit/main/docs/channels.md" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="channels">
+<h1>Channels<a class="headerlink" href="#channels" title="Link to this heading">¶</a></h1>
+<p>Three ways to get the same content, chosen by how you consume it rather than
+by what they carry.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>carries</p></th>
+<th class="head"><p>for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>The site</strong> (<code class="docutils literal notranslate"><span class="pre">pysnmp.github.io/mibs/</span></code>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">asn1/</span></code>, <code class="docutils literal notranslate"><span class="pre">json/</span></code>, <code class="docutils literal notranslate"><span class="pre">index.csv</span></code> (deprecated), <code class="docutils literal notranslate"><span class="pre">index-v2.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">standard.txt</span></code>, and this documentation</p></td>
+<td><p>anyone resolving a MIB over HTTPS</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Release archives</strong></p></td>
+<td><p>one zip per format</p></td>
+<td><p>an offline or air-gapped install, or a build that vendors the distribution</p></td>
+</tr>
+<tr class="row-even"><td><p><strong><code class="docutils literal notranslate"><span class="pre">corpus</span></code> image</strong></p></td>
+<td><p>what the site serves</p></td>
+<td><p>the <a class="reference internal" href="chart.html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">mibserver</span></code> chart</span></a>, which mounts it and serves it — so it has to answer the same paths the site does</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><code class="docutils literal notranslate"><span class="pre">corpus-compact</span></code> image</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">asn1/</span></code> and <code class="docutils literal notranslate"><span class="pre">index-v2.csv</span></code></p></td>
+<td><p>a pysnmp runtime — what it needs to poll and to translate a trap OID, and nothing more</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="live-over-https">
+<h2>Live over HTTPS<a class="headerlink" href="#live-over-https" title="Link to this heading">¶</a></h2>
+<p>One module per request, which is what pysmi fetches from by default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pysnmp</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">mibs</span><span class="o">/</span><span class="n">asn1</span><span class="o">/</span><span class="n">IF</span><span class="o">-</span><span class="n">MIB</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pysnmp</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">mibs</span><span class="o">/</span><span class="n">json</span><span class="o">/</span><span class="n">IF</span><span class="o">-</span><span class="n">MIB</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Nothing to install and nothing to keep current. It needs egress from wherever
+the compile happens, which is the reason the other two channels exist.</p>
+</section>
+<section id="installed-from-the-archive">
+<h2>Installed from the archive<a class="headerlink" href="#installed-from-the-archive" title="Link to this heading">¶</a></h2>
+<p>Every release attaches the same content as zips, for build systems and
+air-gapped sites that would rather fetch once than reach out per module:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>asset</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mibs-asn1.zip</span></code></p></td>
+<td><p>the MIB sources</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mibs-json.zip</span></code></p></td>
+<td><p>the same modules as data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mibs-index.zip</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">index.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">index-v2.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">standard.txt</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mibs-compact.zip</span></code></p></td>
+<td><p>the compact corpus</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mibs-core-db.zip</span></code></p></td>
+<td><p>the corpus database</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">mibs-asn1.zip</span></code> somewhere and name that directory as a pysmi source;
+nothing else changes.</p>
+</section>
+<section id="installed-as-an-oci-image">
+<h2>Installed as an OCI image<a class="headerlink" href="#installed-as-an-oci-image" title="Link to this heading">¶</a></h2>
+<p>To mount alongside a container that needs the modules without giving it egress:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>image</p></th>
+<th class="head"><p>what it is</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ghcr.io/pysnmp/mibs/corpus</span></code></p></td>
+<td><p>the published corpus, <code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">scratch</span></code> — no base, no shell, nothing to patch</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ghcr.io/pysnmp/mibs/corpus-compact</span></code></p></td>
+<td><p>the <a class="reference internal" href="corpora.html#the-compact-corpus"><span class="std std-ref">compact corpus</span></a>, likewise</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ghcr.io/pysnmp/mibs/corpus-db</span></code></p></td>
+<td><p><a class="reference internal" href="corpora.html#the-corpus-database"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">core.db</span></code></span></a> alone, likewise — what a pysnmp runtime mounts</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ghcr.io/pysnmp/mibs/tools</span></code></p></td>
+<td><p>pysmi on an upstream Python base, for the chart’s local-MIB init container</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The corpus images hold the build output and nothing else, so they are mounted
+rather than run. <code class="docutils literal notranslate"><span class="pre">ghcr.io/pysnmp/mibs/container</span></code> — nginx with the corpus baked
+into it — is no longer published; the chart deploys upstream nginx and mounts
+the corpus image instead.</p>
+<p>The two corpus images differ because they are consumed differently.
+<code class="docutils literal notranslate"><span class="pre">corpus-compact</span></code> is a dependency a runtime mounts, so it carries the two things
+a runtime reads: the ASN.1 it compiles, and the index that says which module
+answers for an OID. <code class="docutils literal notranslate"><span class="pre">json/</span></code> is data for other tooling and <code class="docutils literal notranslate"><span class="pre">standard.txt</span></code> is a
+compatibility surface of the published corpus; pysnmp reads neither.</p>
+<p><code class="docutils literal notranslate"><span class="pre">corpus</span></code> is not a dependency — it is the document root the chart hands to
+nginx, so it mirrors the site. Trimming it would 404 endpoints the chart itself
+advertises: splunk-connect-for-snmp’s deployment sets <code class="docutils literal notranslate"><span class="pre">MIB_STANDARD</span></code> to
+<code class="docutils literal notranslate"><span class="pre">standard.txt</span></code> on the service this chart provides.</p>
+</section>
+<section id="what-is-not-published">
+<h2>What is not published<a class="headerlink" href="#what-is-not-published" title="Link to this heading">¶</a></h2>
+<p><strong>No compiled pysnmp modules.</strong> <code class="docutils literal notranslate"><span class="pre">notexts/</span></code> and <code class="docutils literal notranslate"><span class="pre">texts/</span></code> used to carry them and
+no longer exist. A pysnmp module is not data: it is Python that
+<code class="docutils literal notranslate"><span class="pre">MibBuilder.loadModule()</span></code> runs through <code class="docutils literal notranslate"><span class="pre">exec()</span></code>, written to be executed rather
+than imported — <code class="docutils literal notranslate"><span class="pre">mibBuilder</span></code> arrives as an injected global, which is why the
+first line of one calls a name it never defines. Serving that over HTTP hands
+every consumer a way to execute code fetched from this site, authenticated by
+nothing but TLS. Compromise the site or the transport and you have arbitrary
+code in every process that loads a MIB.</p>
+<p>Nothing needed them. pysnmp resolves MIBs from local directories by default and
+ships no remote source; splunk-connect-for-snmp binds <code class="docutils literal notranslate"><span class="pre">MIB_SOURCES</span></code> to
+<code class="docutils literal notranslate"><span class="pre">asn1/&#64;mib&#64;</span></code> and compiles with pysmi. <strong>Pull the MIB and compile it</strong> — that is
+the safe shape, and it is what consumers already do. Where a compiled form was
+wanted only to avoid running a compiler, <code class="docutils literal notranslate"><span class="pre">json/</span></code> carries the same facts in a
+format that is parsed rather than run.</p>
+<p>The two trees were about half the corpus: 603 MB of 1237 MB.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The same reasoning applies to a MIB you supply yourself. A module compiled by
+pysmi becomes Python that pysnmp imports, so treat an ASN.1 MIB source the way
+you would treat any other code you are about to run, and compile from somewhere
+you trust.</p>
+</div>
+</section>
+<section id="the-indexes">
+<h2>The indexes<a class="headerlink" href="#the-indexes" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">index-v2.csv</span></code> maps OID to module, one row per OID. It carries a module’s
+<em>anchors</em>, so it says which module to load and nothing else.</p>
+<p><code class="docutils literal notranslate"><span class="pre">core.db</span></code> answers what an anchor index cannot — a leaf like <code class="docutils literal notranslate"><span class="pre">ifDescr</span></code>, a
+syntax, an access level, and the ordering a GETNEXT walk needs. See
+<a class="reference internal" href="corpora.html#the-corpus-database"><span class="std std-ref">the corpus database</span></a>.</p>
+<section id="index-csv-is-deprecated">
+<h3><code class="docutils literal notranslate"><span class="pre">index.csv</span></code> is deprecated<a class="headerlink" href="#index-csv-is-deprecated" title="Link to this heading">¶</a></h3>
+<p>It keeps being published and keeps replaying <code class="docutils literal notranslate"><span class="pre">index-frozen.csv</span></code>, so nothing
+that reads it breaks today. What has changed is that it has a successor and no
+longer has a reason to grow one.</p>
+<p><code class="docutils literal notranslate"><span class="pre">index.csv</span></code> exists to preserve answers it has already given, including the ones
+now known to be wrong — that is what makes it a freeze rather than a stale
+copy. Corrections have always landed in <code class="docutils literal notranslate"><span class="pre">index-v2.csv</span></code>. So the file is, by
+construction, the one artifact here that is allowed to be incorrect, and it is
+the one a consumer keying on it is most likely to be reading.</p>
+<p>It has exactly one known consumer, splunk-connect-for-snmp, which parses it
+into a <code class="docutils literal notranslate"><span class="pre">mib_map</span></code> and walks an arriving OID’s tail against it, longest prefix
+first, to decide which module to load and compile. Every part of that is now
+better served by <code class="docutils literal notranslate"><span class="pre">core.db</span></code>:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>what sc4snmp does with <code class="docutils literal notranslate"><span class="pre">index.csv</span></code></p></th>
+<th class="head"><p>with <code class="docutils literal notranslate"><span class="pre">core.db</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>parse the CSV into a dict at startup</p></td>
+<td><p>open the file; no parse, no resident copy</p></td>
+</tr>
+<tr class="row-odd"><td><p>chop the OID against <code class="docutils literal notranslate"><span class="pre">mib_map</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">find_module()</span></code>, one indexed query per arc</p></td>
+</tr>
+<tr class="row-even"><td><p>compile the named module’s ASN.1 on the trap path</p></td>
+<td><p>read the node’s row</p></td>
+</tr>
+<tr class="row-odd"><td><p>—</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">next_node()</span></code>, which the index cannot answer at all</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Migration is <a class="extlink-issue reference external" href="https://github.com/pysnmp/mibs/issues/366">#366</a> and the retirement window is <a class="extlink-issue reference external" href="https://github.com/pysnmp/mibs/issues/325">#325</a>; neither
+file goes away before that has shipped and been taken up. New consumers should
+read <code class="docutils literal notranslate"><span class="pre">core.db</span></code>, or <code class="docutils literal notranslate"><span class="pre">index-v2.csv</span></code> if they want a text file.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="corpora.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">The corpora</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="using.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Using the distribution</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2019-2026, the pysnmp maintainers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Channels</a><ul>
+<li><a class="reference internal" href="#live-over-https">Live over HTTPS</a></li>
+<li><a class="reference internal" href="#installed-from-the-archive">Installed from the archive</a></li>
+<li><a class="reference internal" href="#installed-as-an-oci-image">Installed as an OCI image</a></li>
+<li><a class="reference internal" href="#what-is-not-published">What is not published</a></li>
+<li><a class="reference internal" href="#the-indexes">The indexes</a><ul>
+<li><a class="reference internal" href="#index-csv-is-deprecated"><code class="docutils literal notranslate"><span class="pre">index.csv</span></code> is deprecated</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=7f41d439"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

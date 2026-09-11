@@ -1,0 +1,521 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="search" title="Search" href="search.html"><link rel="next" title="Where the MIBs in src/ come from" href="mib-sources.html"><link rel="prev" title="Contributing a module" href="contributing.html">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Modules the site used to serve and no longer does - pysnmp MIB distribution</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">pysnmp MIB distribution</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/logo.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/logo.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">pysnmp MIB distribution</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using the distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="channels.html">Channels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpora.html">The corpora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manifests.html">Manifests and the build</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chart.html">The mibserver chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing a module</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Modules the site used to serve and no longer does</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mib-sources.html">Where the MIBs in <code class="docutils literal notranslate"><span class="pre">src/</span></code> come from</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/blob/main/docs/absent-modules.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/edit/main/docs/absent-modules.md" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="modules-the-site-used-to-serve-and-no-longer-does">
+<h1>Modules the site used to serve and no longer does<a class="headerlink" href="#modules-the-site-used-to-serve-and-no-longer-does" title="Link to this heading">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">index-frozen.csv</span></code> is a snapshot of what <code class="docutils literal notranslate"><span class="pre">index.csv</span></code> answered before this
+repository began correcting it, and it is deliberately never rewritten: an OID
+that had an answer keeps that answer. That guarantee is about the <em>rows</em>, not
+about the modules they name. 194 of the modules named there are now carried
+nowhere — not in <code class="docutils literal notranslate"><span class="pre">src/</span></code>, not in pysmi’s bundle — so <code class="docutils literal notranslate"><span class="pre">asn1/NAME</span></code> and
+<code class="docutils literal notranslate"><span class="pre">json/NAME.json</span></code> return 404 for them, and 1,625 index rows point at something
+the site will not serve.</p>
+<p>Nothing fails to compile because of this. No module still in the corpus imports
+any of the 194. What is lost is the site answering for their OIDs, and most of
+these are leaf modules — the class that gets polled directly and imported by
+nothing, so “nothing imports it” is not evidence that nothing wanted it.</p>
+<p>This file is the record of which modules those are and why each one went. It is
+the answer to “the site used to have X”.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>modules named by <code class="docutils literal notranslate"><span class="pre">index-frozen.csv</span></code></p></td>
+<td><p>5,347</p></td>
+</tr>
+<tr class="row-odd"><td><p>carried nowhere</p></td>
+<td><p><strong>194</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>index rows naming them</p></td>
+<td><p><strong>1,625</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>surviving modules with a dangling import</p></td>
+<td><p><strong>0</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Three groups, and they need different things.</p>
+<section id="held-back-in-pysmi-65-consortium-modules">
+<h2>1. Held back in pysmi — 65 consortium modules<a class="headerlink" href="#held-back-in-pysmi-65-consortium-modules" title="Link to this heading">¶</a></h2>
+<p>These are published by a standards body or industry consortium, not by a vendor
+and not by the IETF. pysmi’s manifest carries all of them, but its wheel stages
+only part of the bundle; these sit in <code class="docutils literal notranslate"><span class="pre">pysmi/mibs/future/</span></code> and are not shipped.
+This repository deleted its own copies in #351, #375 and #384 on the grounds
+that the bundle supplied them, and then the bundle stopped.</p>
+<p>To bring one back, promote it in pysmi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">update_bundled_mibs</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">promote</span> <span class="n">NAME</span>
+</pre></div>
+</div>
+<p>Re-homing them here is the other option, and unlike the RFC group below it is a
+real one: <code class="docutils literal notranslate"><span class="pre">src/standard/&lt;body&gt;/</span></code> is the layout #338 established so that a
+consortium module could be filed under the consortium that publishes it. Each
+of these had a home there — <code class="docutils literal notranslate"><span class="pre">src/standard/cablelabs/DOCS-QOS3-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">src/standard/iee/IEEE8021-CFM-V2-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">src/standard/mef/MEF-UNI-EVC-MIB</span></code> —
+and the deletions are in git.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>publisher</p></th>
+<th class="head"><p>count</p></th>
+<th class="head"><p>modules</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IEEE 802.1</p></td>
+<td><p>26</p></td>
+<td><p>IEEE8021-CFM-V2-MIB, IEEE8021-CN-MIB, IEEE8021-DDCFM-MIB, IEEE8021-DEVID-MIB, IEEE8021-ECMP-MIB, IEEE8021-EVB-MIB, IEEE8021-FQTSS-MIB, IEEE8021-MIRP-MIB, IEEE8021-MSTP-MIB, IEEE8021-MVRPX-MIB, IEEE8021-PB-MIB, IEEE8021-PBB-MIB, IEEE8021-PBBTE-MIB, IEEE8021-PE-MIB, IEEE8021-PFC-MIB, IEEE8021-PSFP-MIB, IEEE8021-Preemption-MIB, IEEE8021-SPANNING-TREE-MIB, IEEE8021-SRP-MIB, IEEE8021-ST-MIB, IEEE8021-TPMR-MIB, IEEE8021-TSN-REMOTE-MANAGEMENT-MIB, LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB, LLDP-EXT-DOT1-MIB, LLDP-EXT-DOT3-MIB, LLDP-EXT-DOT3-V2-MIB</p></td>
+</tr>
+<tr class="row-odd"><td><p>CableLabs</p></td>
+<td><p>14</p></td>
+<td><p>DOCS-DIAG-MIB, DOCS-DRF-MIB, DOCS-IF-M-CMTS-MIB, DOCS-IFEXT2-MIB, DOCS-L2VPN-MIB, DOCS-LOADBAL3-MIB, DOCS-LOADBALANCING-MIB, DOCS-MCAST-AUTH-MIB, DOCS-MCAST-MIB, DOCS-QOS-MIB, DOCS-QOS3-MIB, DOCS-SEC-MIB, DOCS-SUBMGT3-MIB, DOCS-TEST-MIB</p></td>
+</tr>
+<tr class="row-even"><td><p>ATM Forum</p></td>
+<td><p>5</p></td>
+<td><p>ATM-DXI-MIB, ATM-FORUM-ADDR-REG, ATM-FORUM-ILMI40-MIB, ATM-FORUM-M4-MIB, ATM-SOFT-PVC-MIB</p></td>
+</tr>
+<tr class="row-odd"><td><p>DMTF</p></td>
+<td><p>5</p></td>
+<td><p>DMTF-DMI-MIB, DMTF-LAN-ADAPTER-MIB, DMTF-MOBILE-MIB, DMTF-MONITOR-MIB, DMTF-SERVICE-LAYER-MIB</p></td>
+</tr>
+<tr class="row-even"><td><p>IANA</p></td>
+<td><p>5</p></td>
+<td><p>IANA-CHARSET-MIB, IANA-LANGUAGE-MIB, IANA-PRINTER-MIB, IANAPowerStateSet-MIB, IANATn3270eTC-MIB</p></td>
+</tr>
+<tr class="row-odd"><td><p>MEF</p></td>
+<td><p>3</p></td>
+<td><p>MEF-SOAM-PM-MIB, MEF-SOAM-TC-MIB, MEF-UNI-EVC-MIB</p></td>
+</tr>
+<tr class="row-even"><td><p>SCTE</p></td>
+<td><p>3</p></td>
+<td><p>SCTE-HMS-HEADENDIDENT-TC-MIB, SCTE-HMS-MPEG-MIB, SCTE-HMS-QAM-MIB</p></td>
+</tr>
+<tr class="row-odd"><td><p>IEC</p></td>
+<td><p>1</p></td>
+<td><p>IEC-62439-3-MIB</p></td>
+</tr>
+<tr class="row-even"><td><p>IEEE 802.3</p></td>
+<td><p>1</p></td>
+<td><p>IEEE8023-DOT3-LLDP-EXT-V2-MIB</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROFIBUS</p></td>
+<td><p>1</p></td>
+<td><p>LLDP-EXT-PNO-MIB</p></td>
+</tr>
+<tr class="row-even"><td><p>unattributed</p></td>
+<td><p>1</p></td>
+<td><p>LLDP-EXT-DCBX-MIB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="held-back-in-pysmi-98-rfc-modules">
+<h2>2. Held back in pysmi — 98 RFC modules<a class="headerlink" href="#held-back-in-pysmi-98-rfc-modules" title="Link to this heading">¶</a></h2>
+<p>Same mechanism, different publisher. These are IETF modules, and <code class="docutils literal notranslate"><span class="pre">src/</span></code> is not
+where they would come back to: <code class="docutils literal notranslate"><span class="pre">src/vendor</span></code> holds what a vendor publishes, and
+filing an RFC module under the vendor that happened to ship a copy of it says
+something untrue about who publishes it. Promotion in pysmi is the route.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ADSL-LINE-EXT-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">ADSL2-LINE-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">ADSL2-LINE-TC-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">AGENTX-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">APPC-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">APPN-DLUR-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">APPN-TRAP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">APS-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">ARC-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ATM-ACCOUNTING-INFORMATION-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">ATM2-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">CHARACTER-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">CLNS-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">COPS-CLIENT-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">DECNET-PHIV-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">DISMAN-EXPRESSION-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DISMAN-NSLOOKUP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">DISMAN-SCHEDULE-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">DISMAN-TRACEROUTE-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DOCS-BPI-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DOCS-IETF-QOS-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">DOT12-IF-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">DOT12-RPTR-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">DS0-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DS0BUNDLE-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">EBN-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">ENERGY-OBJECT-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">ETHER-CHIPSET-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ETHER-WIS</span></code>, <code class="docutils literal notranslate"><span class="pre">FCIP-MGMT-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">FIBRE-CHANNEL-FE-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">FLOW-METER-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">FR-ATM-PVC-SERVICE-IWF-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">FR-MFR-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">GMPLS-LSR-STD-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">GMPLS-TE-STD-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">HC-ALARM-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">HOST-RESOURCES-TYPES</span></code>, <code class="docutils literal notranslate"><span class="pre">HPR-IP-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">IF-INVERTED-STACK-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">INTEGRATED-SERVICES-GUARANTEED-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">IPATM-IPMC-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">IPMCAST-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">IPOA-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">IPS-AUTH-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">ITU-ALARM-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Job-Monitoring-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">LANGTAG-TC-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">MIOX25-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">MPLS-ID-STD-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">MPLS-LDP-GENERIC-STD-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">MTA-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">Modem-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">NOTIFICATION-LOG-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">NTPv4-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">OPT-IF-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">OSPF-TRAP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">PARALLEL-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">PCE-PCEP-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PINT-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">PPP-BRIDGE-NCP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">PPP-IP-NCP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">PPP-LCP-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PPP-SEC-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">Printer-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">RADIUS-ACC-SERVER-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">RADIUS-AUTH-SERVER-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">RFC1285-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">RFC1414-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">RS-232-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">RSTP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">RTP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">SCSI-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">SCTP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">SIP-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">SLAPM-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SMUX-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">SNMP-TLS-TM-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">SNMP-TSM-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">SOURCE-ROUTING-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">T11-FC-FABRIC-CONFIG-SERVER-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">T11-FC-FABRIC-LOCK-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">T11-FC-FSPF-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">T11-FC-ROUTE-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">T11-FC-RSCN-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">T11-FC-SP-AUTHENTICATION-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">T11-FC-SP-POLICY-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">T11-FC-SP-SA-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">T11-FC-SP-TC-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">T11-FC-SP-ZONING-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">T11-FC-VIRTUAL-FABRIC-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">TN3270E-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">TN3270E-RT-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">TOKENRING-MIB</span></code>,
+<code class="docutils literal notranslate"><span class="pre">TOKENRING-STATION-SR-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">URI-TC-MIB</span></code>, <code class="docutils literal notranslate"><span class="pre">WWW-MIB</span></code></p>
+</section>
+<section id="deleted-here-on-purpose-31-modules">
+<h2>3. Deleted here on purpose — 31 modules<a class="headerlink" href="#deleted-here-on-purpose-31-modules" title="Link to this heading">¶</a></h2>
+<p>These are not an accident of packaging. Each was removed by a decision recorded
+in the PR named beside it, and none of them should come back.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>why</p></th>
+<th class="head"><p>modules</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Obsolete</strong> — publisher marked every object <code class="docutils literal notranslate"><span class="pre">STATUS</span> <span class="pre">obsolete</span></code> (#353)</p></td>
+<td><p>AC-PM-ATM-MIB, AcAtm, ARUBAWIRED-MCLAG-MIB, CISCO-GPRS-GTP-MIB, CTRON-SSR-L2-MIB, CTRON-SSR-L3-MIB, HP-ENTITY-MIB, Juniper-RADIUS-Disconnect-MIB, VMWARE-VCOPS-EVENT-MIB</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Superseded</strong> — pre-publication draft whose published successor is bundled, often under a different name (#358)</p></td>
+<td><p>ADSL-DMT-LINE-MIB, DOCS-BPI2-MIB, DOCS-CABLE-DEVICE-TRAP-MIB, DOCS-IF-EXT-MIB, DOCS-SUBMGT-MIB, INT-SERV-GUARANTEED-MIB, ISIS-D13-MIB, MPLS-TC-MIB, MSTP-MIB, RTCPXR-MIB, XGCP-MIB</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Superseded</strong> — multicast drafts, importers repointed to the RFC (#367)</p></td>
+<td><p>DVMRP-MIB, IGMP-MIB, IPMROUTE-MIB</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Never published</strong> — draft that never became a standard, squatting an assigned <code class="docutils literal notranslate"><span class="pre">mib-2</span></code> arc (#352, #359)</p></td>
+<td><p>INT-SERV-MIB, SYSLOG-MIB, T11-FC-SP-CERTS-MIB, T11-ZONE-SERVER-MIB</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Withdrawn</strong> — RFC 8096 withdrew the module (pysmi#176)</p></td>
+<td><p>IPV6-ICMP-MIB, IPV6-TCP-MIB, IPV6-UDP-MIB</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Not bundled, no importers</strong> (#375)</p></td>
+<td><p>COFFEE-POT-MIB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="a-module-can-be-carried-without-a-file-of-its-own">
+<h2>A module can be carried without a file of its own<a class="headerlink" href="#a-module-can-be-carried-without-a-file-of-its-own" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tests/index-contract.sh</span></code> counts these by comparing the names in the frozen
+index against what <code class="docutils literal notranslate"><span class="pre">src/</span></code> and the bundle carry. Until this was written it
+compared against <em>file basenames</em>, which is not the same question: a file may
+declare more than one module. <code class="docutils literal notranslate"><span class="pre">src/vendor/extreme/EXTREME-BASE-MIB</span></code> declares 30,
+and all 30 compile and serve — <code class="docutils literal notranslate"><span class="pre">asn1/EXTREME-VLAN-MIB</span></code> returns 200 — while the
+check counted every one of them as carried nowhere.</p>
+<p>That inflated the figure by 30 modules and 112 rows. The check now reads the
+<code class="docutils literal notranslate"><span class="pre">NAME</span> <span class="pre">DEFINITIONS</span> <span class="pre">::=</span> <span class="pre">BEGIN</span></code> line out of each file, so the number it pins is the
+number above.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="mib-sources.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Where the MIBs in <code class="docutils literal notranslate"><span class="pre">src/</span></code> come from</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="contributing.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Contributing a module</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2019-2026, the pysnmp maintainers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Modules the site used to serve and no longer does</a><ul>
+<li><a class="reference internal" href="#held-back-in-pysmi-65-consortium-modules">1. Held back in pysmi — 65 consortium modules</a></li>
+<li><a class="reference internal" href="#held-back-in-pysmi-98-rfc-modules">2. Held back in pysmi — 98 RFC modules</a></li>
+<li><a class="reference internal" href="#deleted-here-on-purpose-31-modules">3. Deleted here on purpose — 31 modules</a></li>
+<li><a class="reference internal" href="#a-module-can-be-carried-without-a-file-of-its-own">A module can be carried without a file of its own</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=7f41d439"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>
