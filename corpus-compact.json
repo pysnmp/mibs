@@ -1,5 +1,10 @@
 {
   "version": 1,
+  "emit": ["asn1", "index-v2", "report"],
+  "expect": {
+    "modules": { "min": 5000 },
+    "failures": { "max": 25 }
+  },
   "namespaces": [
     {
       "name": "standard",
