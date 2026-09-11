@@ -116,6 +116,58 @@ def test_patch_round_trip() -> None:
         check("refuses when context moved", "ValueError", "ValueError")
 
 
+def test_patch_header_is_not_applied() -> None:
+    """A patch's reason sits above its diff and changes no MIB text.
+
+    pysnmp/mibs#408: every patch now opens with the defect it repairs, and
+    the applier has to read past that rather than take the first character
+    of "Defect:" for a diff mark.
+    """
+    sys.stdout.write("\npatch headers\n")
+
+    ours = MODULE.replace(b"MODULE-IDENTITY FROM", b"MODULE-IDENTITY, Unsigned32 FROM")
+    diff = mib_sources.make_patch(MODULE, ours, "ACME-MIB")
+    header = (
+        "Defect: SMI-MISSING-IMPORT "
+        "https://pysnmp.github.io/pysmi/stable/mib-defects.html"
+        "#smi-missing-import\n\nThe module uses Unsigned32 without importing it.\n\n"
+    )
+
+    check(
+        "a headed patch applies",
+        mib_sources.apply_patch(MODULE, header + diff, "t"),
+        ours,
+    )
+    check(
+        "the header changes nothing",
+        mib_sources.apply_patch(MODULE, header + diff, "t"),
+        mib_sources.apply_patch(MODULE, diff, "t"),
+    )
+
+
+def test_shipped_patches_carry_a_reason() -> None:
+    """Every patch in the tree names the defect it repairs and still applies.
+
+    The reason is what decides whether a patch should still exist once a
+    publisher moves under it, so a patch without one is a diff and a blank.
+    """
+    sys.stdout.write("\nshipped patches\n")
+
+    from pysmi.patches import split_patch
+
+    found = sorted(mib_sources.PATCHES.rglob("*.patch"))
+    check("there are patches to check", bool(found), True)
+
+    for path in found:
+        header, diff = split_patch(path.read_text())
+        name = path.stem
+
+        check(f"{name} names a defect", bool(header.defects), True)
+        check(f"{name} links it", all(x.url for x in header.defects), True)
+        check(f"{name} says more than the identifier", bool(header.body), True)
+        check(f"{name} still has a diff", diff.startswith("--- "), True)
+
+
 def test_deletion_only_attribution() -> None:
     """Removing publisher text leaves nothing for git to attribute."""
     sys.stdout.write("\nchanged ranges\n")
@@ -296,6 +348,8 @@ def main() -> int:
     """Run every case and report."""
     test_module_recognition()
     test_patch_round_trip()
+    test_patch_header_is_not_applied()
+    test_shipped_patches_carry_a_reason()
     test_deletion_only_attribution()
     test_attribution_is_per_line()
     test_drift_is_confirmed_on_the_bytes()

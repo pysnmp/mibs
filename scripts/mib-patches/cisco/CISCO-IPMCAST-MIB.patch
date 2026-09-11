@@ -1,3 +1,11 @@
+Defect: SMI-UNPUBLISHED-MODULE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-unpublished-module
+
+The module imports igmpInterfaceEntry FROM IGMP-MIB. No publisher ships
+a module by that name: RFC 2933 publishes the IGMP MIB as IGMP-STD-MIB,
+which is what defines igmpInterfaceEntry and what this corpus carries.
+
+The repair is the published spelling.
+
 --- a/CISCO-IPMCAST-MIB
 +++ b/CISCO-IPMCAST-MIB
 @@ -9,7 +9,7 @@

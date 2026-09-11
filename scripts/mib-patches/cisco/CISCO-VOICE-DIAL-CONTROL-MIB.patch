@@ -1,3 +1,12 @@
+Defect: SMI-UNPUBLISHED-MODULE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-unpublished-module
+
+The module imports QosService FROM INT-SERV-MIB, the same unpublished
+name CISCO-VISM-TRAPS-MIB gives. RFC 2213 publishes the Integrated
+Services MIB as INTEGRATED-SERVICES-MIB, which is what defines the
+QosService textual convention.
+
+The repair is the published spelling.
+
 --- a/CISCO-VOICE-DIAL-CONTROL-MIB
 +++ b/CISCO-VOICE-DIAL-CONTROL-MIB
 @@ -38,7 +38,7 @@
