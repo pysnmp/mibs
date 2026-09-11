@@ -27,9 +27,10 @@ mibView = view.MibViewController(mibBuilder)
 would open. The source list is ordered and the first hit wins, so putting a
 local directory in front of it is how you override a module or work offline.
 
-The {docs}`pysnmp` covers what to do
-with a resolved name; [channels](channels.md) covers getting the modules
-somewhere other than over HTTPS.
+[Using the distribution](using.md) covers polling by name, translating a trap
+and overriding a module with a local copy; [channels](channels.md) covers
+getting the modules somewhere other than over HTTPS. The {docs}`pysnmp` covers
+what to do with a resolved name.
 
 ## What is published
 
@@ -87,6 +88,7 @@ underneath and pysnmp reaches them for you.
 :maxdepth: 2
 :hidden:
 
+using
 channels
 corpora
 manifests
