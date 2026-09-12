@@ -2,8 +2,14 @@
   "version": 1,
   "emit": [
     "asn1", "json", "index", "index-v2", "standard",
-    "entity", "report"
+    "entity", "site", "report"
   ],
+  "site": {
+    "name": "pysnmp MIB distribution",
+    "template": "theme/page.html",
+    "stylesheet": "theme/style.css",
+    "page-size": { "browse": 500, "entity": 200 }
+  },
   "expect": {
     "modules": { "min": 5000 },
     "failures": { "max": 25 },

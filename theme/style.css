@@ -1,0 +1,234 @@
+/*
+ * The generated site, wearing the documentation's clothes.
+ *
+ * The Sphinx pages and these sit on one gh-pages tree, so a reader moving
+ * from /using.html to /mib/IF-MIB/ should not notice a boundary. Every colour
+ * and font below is furo's own, copied from the theme's variables rather than
+ * approximated -- see docs/conf.py, which sets html_theme = "furo".
+ *
+ * Copied rather than imported. Linking furo.css would bind these pages to the
+ * class names and DOM shape furo's stylesheet expects, which this markup does
+ * not have, and to an asset path Sphinx fingerprints on every build. The
+ * tokens are stable; the stylesheet around them is not.
+ *
+ * pysnmp/mibs#406.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* furo, light */
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-stack--monospace: "SFMono-Regular", Menlo, Consolas, Monaco,
+    "Liberation Mono", "Lucida Console", monospace;
+
+  --ink: #000;
+  --ink-secondary: #5a5c63;
+  --ink-muted: #6b6f76;
+  --ground: #fff;
+  --raised: #f8f9fb;
+  --rule: #eeebee;
+  --hover: #efeff4;
+  --link: #2757dd;
+  --brand: #0a4bff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* furo, dark */
+    --ink: #cfd0d0;
+    --ink-secondary: #9ca0a5;
+    --ink-muted: #81868d;
+    --ground: #131416;
+    --raised: #1a1c1e;
+    --rule: #303335;
+    --hover: #1e2124;
+    --link: #5ca5ff;
+    --brand: #5ca5ff;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ink: #cfd0d0;
+  --ink-secondary: #9ca0a5;
+  --ink-muted: #81868d;
+  --ground: #131416;
+  --raised: #1a1c1e;
+  --rule: #303335;
+  --hover: #1e2124;
+  --link: #5ca5ff;
+  --brand: #5ca5ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-stack);
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+header.site {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: var(--raised);
+  border-bottom: 1px solid var(--rule);
+}
+
+header.site .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+header.site .logo { display: block; }
+
+nav.top { display: flex; gap: 1.25rem; font-size: 0.875rem; }
+nav.top a { color: var(--ink-secondary); text-decoration: none; }
+nav.top a:hover { color: var(--link); text-decoration: underline; }
+
+.crumbs { border-bottom: 1px solid var(--rule); }
+
+nav.breadcrumb {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0.4rem 1.5rem;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+}
+
+nav.breadcrumb a { color: var(--ink-muted); text-decoration: none; }
+nav.breadcrumb a:hover { color: var(--link); text-decoration: underline; }
+nav.breadcrumb a::after { content: " / "; color: var(--rule); }
+nav.breadcrumb a:last-child::after { content: ""; }
+
+main, footer.site { max-width: 62rem; margin: 0 auto; padding: 1.5rem; }
+
+footer.site {
+  border-top: 1px solid var(--rule);
+  color: var(--ink-muted);
+  font-size: 0.8125rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 1rem;
+  overflow-wrap: anywhere;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 2.25rem 0 0.6rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+code, .oid, pre { font-family: var(--font-stack--monospace); }
+
+code, .oid {
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
+
+code {
+  background: var(--raised);
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.25rem;
+}
+
+pre {
+  background: var(--raised);
+  border: 1px solid var(--rule);
+  border-radius: 0.2rem;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+dl.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1.5rem;
+  margin: 1rem 0 0;
+  padding: 1rem 1.25rem;
+  background: var(--raised);
+  border: 1px solid var(--rule);
+  border-radius: 0.3rem;
+}
+
+dl.facts dt { color: var(--ink-muted); font-size: 0.875rem; }
+dl.facts dd { margin: 0; overflow-wrap: anywhere; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.75rem 0;
+  font-size: 0.9375rem;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+th {
+  color: var(--ink-muted);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+tbody tr:hover { background: var(--hover); }
+
+.wide { overflow-x: auto; }
+
+ul.plain, ul.keys { list-style: none; padding: 0; margin: 0.5rem 0; }
+ul.plain { columns: 18rem auto; column-gap: 2rem; }
+ul.plain li { padding: 0.1rem 0; break-inside: avoid; }
+
+ul.keys { display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; margin-bottom: 1rem; }
+ul.keys li { font-size: 0.8125rem; }
+ul.keys .here { font-weight: 600; color: var(--ink); }
+
+nav.keys {
+  padding: 0.75rem 1rem;
+  background: var(--raised);
+  border: 1px solid var(--rule);
+  border-radius: 0.3rem;
+}
+
+section > :last-child { margin-bottom: 0; }
+.note { color: var(--ink-muted); font-size: 0.9375rem; }
+
+.defs td:first-child { white-space: nowrap; }
+.defs .desc { color: var(--ink-muted); font-size: 0.8125rem; white-space: normal; }
+
+:target { background: var(--hover); }
+
+@media (max-width: 40rem) {
+  header.site, main, footer.site, nav.breadcrumb { padding-left: 1rem; padding-right: 1rem; }
+  dl.facts { grid-template-columns: 1fr; gap: 0.1rem; }
+  dl.facts dt { margin-top: 0.6rem; }
+  ul.plain { columns: auto; }
+  h1 { font-size: 1.6rem; }
+}
