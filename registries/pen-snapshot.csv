@@ -1,0 +1,361 @@
+number,organization,contact,email
+1,NxNetworks,Michael Kellen,OID.Admin&NxNetworks.com
+2,IBM (https://w3.ibm.com/standards ),Glenn Daly,gdaly&us.ibm.com
+4,Unix,Keith Sklower,sklower&okeeffe.berkeley.edu
+6,TWG,John Lunny,jlunny&eco.twg.com
+9,ciscoSystems,Dave Jones,davej&cisco.com
+11,Hewlett-Packard,Harry Lynch,harry.lynch&hp.com
+16,Timeplex,Laura Bridge,laura&uunet.UU.NET
+23,Novell,Steve Bostock,steveb&novell.com
+32,Santa Cruz Operation,Keith Reynolds,keithr&SCO.COM
+43,3Com,Jeremy Siegel,jzs&NSD.3Com.COM
+45,SynOptics,Sharon Chisholm,schishol&nortelnetworks.com
+52,Enterasys Networks Inc.,Charles N. McTague,cmctague&enterasys.com
+63,"Apple Computer, Inc.",Gary LaVoy,ianaoid&apple.com
+89,RND,Rina Nethaniel,
+97,"Sigma Network Systems, Inc.",Ken Virgile,signet!ken&xylogics.COM
+99,SNMP Research,Jeffrey Case,case&SNMP.COM
+111,Oracle,John Priest,john.priest&oracle.com
+114,"Synernetics, Inc.",Jas Parmar,jas&synnet.com
+116,"Hitachi, Ltd.",Hirotaka Usuda,
+161,Motorola,Joe Schaeffer,internic&motorola.com
+164,Rad Data Communications Ltd.,Raphael Drai,raphael_d&rad.com
+170,BICC,David A. Brown,fzbicdb&uk.ac.ucl
+171,"D-Link Systems, Inc.",Henry P. Nagai,
+186,Toshiba Corporation,Mike Asagami,toshiba&mothra.nts.uci.edu
+193,Ericsson AB,David Partain,david.partain&ericsson.com
+207,"Allied Telesis, Inc.",Hermin Anggawijaya,hermin.anggawijaya&alliedtelesis.co.nz
+211,Fujitsu Limited,Kei Nakata,nakata.kei&fujitsu.com
+224,"LANOPTICS LTD., Israel",Israel Drori,raanan&techunix.technion.ac.il
+232,Compaq,,
+244,Lantronix,Greg Wheeler,gregw&lantronix.com
+248,Richard Hirschmann GmbH & Co.,Heinz Nisi,mia&intsun.rus.uni-stuttgart.de
+255,Compatible Systems Corp.,John Gawf,gawf&compatible.com
+259,ACCTON Technology,Shone Wu,shone_wu&accton.com
+266,Aginode Germany GmbH,Hubert Theissen,h.theissen&aginode.net
+272,BinTec Communications GmbH,Elisabeth Hertlein,lies&BinTec.DE
+318,American Power Conversion Corp.,Peter C. Yoest,apc!yoest&uunet.uu.net
+327,"Centrum Communications, Inc.",Vince Liu,
+334,Lotus Development Corp.,Bill,Flanagan bflanagan&lotus.com
+351,Stratacom,Clyde Iwamoto,cki&strata.com
+353,ATM Forum,Keith McCloghrie,KZM&HLS.COM
+368,Axis Communications AB,Martin Gren,martin&axis.se
+412,Distributed Management Task Force (DMTF),Raymond C. Williams,Raymond_Williams&tivoli.com
+429,UTStarcom Incorporated,Bill Vroman,bill.vroman&utstar.com
+476,Vertiv (formerly 'Emerson Computer Power'),Phil Ulrich,Phil.Ulrich&vertivco.com
+522,Telesystems SLW Inc.,Joe Magony,416-441-9966
+534,Eaton Corporation,Tom Brennan,ThomasJBrennan&eaton.com
+562,"Northern Telecom, Ltd.",Sharon Chisholm,schishol&notelnetworks.com
+601,Bancomm,Joe Fontes,jwf&bancomm.com
+629,NBASE Switch Communication,Sergiu Rotenstein,75250.1477&compuserve.com
+637,Nokia (formerly 'Alcatel-Lucent'),Mehrab Syed,Mehrab.Syed&nokia.com
+664,Adtran,Jeff Wells,205-971-8000
+674,Dell Inc.,David L. Douglas,david_l_douglas&dell.com
+694,SAP AG,Dr. Uwe Hommel,+49 62 27 34 0
+705,Merlin Gerin,Adam Stolinski,(714) 557-1637 x249
+789,Network Appliance Corporation,Brian Pawlowski,xdl-iana&netapp.com
+795,Adaptec Inc.,Tom Battle,tab&lwt.mtxinu.com
+850,Tripp Lite,Lawren Markle,72170.460&compuserve.com
+885,RELTEC Corporation,Hung Ma,mah&reu.relteccorp.com
+890,ZyXEL Communications Corp.,Harry Chou,howie&csie.nctu.edu.tw
+935,"Phoenixtec Power Co., Ltd.",An-Hsiang Tu,+8 862 646 3311
+994,"Dantel, Inc.",John Litster,(209) 292-1111
+1027,"Mitel, Corp.",Andy Brezinsky,andy.brezinsky&mitel.com
+1070,DMH Software,Yigal Hochberg,hochberg&dmhsoftware.com
+1139,EMC Corp,Rene Fontaine,rene.fontaine&emc.com
+1166,General Instrument,Fred Gotwald,fgotwald&gi.com
+1230,McAFee Associates Inc.,Perry Smith,pcs&cc.mcafee.com
+1271,Ciena Corporation,Wes Jones,wjones&ciena.com
+1302,VERITAS Software Corp.,Marcus Porterfield,marcus.porterfield&veritas.com
+1418,Dataprobe Inc.,David Weiss,dweiss&dataprobe.com
+1429,"Scientific-Atlanta, Inc.",Tamsen Pechman,Tamsen.Pechman&SciAtl.com
+1482,Synamedia,Nick Fielibert,nfielibert&synamedia.com
+1570,Telesend Inc.,Craig Sharper,csharper&telesend.com
+1588,"Brocade Communications Systems, Inc.",Scott Kipp,skipp&brocade.com
+1718,Server Technology Inc.,Brian P. Auclair,brian&servertech.com
+1732,Open Access Pty Ltd,Richard Colley,richardc&oa.com.au
+1751,Lucent Technologies,Richard Bantel,richard.bantel&lucent.com
+1768,Patton Electronics Company,William B. Clery III,benson&ari.net
+1869,"Optical Transmission Labs, Inc.",Niraj Gupta,niraj&syngroup.com
+1872,"Alteon Networks, Inc.",Sharon Chisholm,schishol&nortelnetworks.com
+1916,Extreme Networks,Gary W. Hanning,ghanning&extremenetworks.com
+1966,Perle Systems Limited,Moti Renkosinski,mrenkosinski&perle.com
+1991,"Brocade Communication Systems, Inc. (formerly 'Foundry Networks, Inc.')",Scott Kipp,skipp&brocade.com
+2007,"TELDAT, S.A.",Eduardo Robles Esteban,teldat&offcampus.es
+2011,"HUAWEI Technology Co.,Ltd",Zhao Lwu,zl&writeme.com
+2021,"U.C. Davis, ECE Dept. Tom",Arons,arons&ece.ucdavis.edu
+2185,NetPartner s.r.o.,Milan Soukup,mylan&login.cz
+2238,The FreeBSD Project,Poul-Henning Kamp,phk&FreeBSD.ORG
+2252,WheelGroup Corporation Jonathan,Beakley,beakley&wheelgroup.com
+2254,"Delta Electronics, Inc.",David Chen,dei-david-chen&delta.com.tw
+2272,Rapid City Communication,Sharon Chisholm,schishol&nortelnetworks.com
+2281,Giganet Ltd,Eitan Birati,eitan&giganet.co.il
+2352,"Ericsson, Inc. (formerly 'RedBack Networks')",Michael Thatcher,michael.thatcher&ericsson.com
+2356,LANCOM Systems,Udo Brocker,udo.brocker&lancom-systems.de
+2435,"Brother Industries, Ltd.",Takami Takeuchi,takami.takeuchi&brother.co.jp
+2440,Efficient IP,Jean Yves Bisiaux,jyb&efficientip.com
+2468,Ingrasys,Andy Chung,AndyChung&ingrasys.com
+2509,Aviat Networks,Martin Howard,Martin.Howard&Aviatnet.com
+2544,ADVA AG Optical Networking,Andreas Klar,aklar&advaoptical.com
+2566,ROHDE & SCHWARZ GmbH & Co.KG,Andreas Rau,hostmaster&rohde-schwarz.com
+2606,Rittal GmbH & Co. KG,Paul Heimann,info&rittal.de
+2620,Check Point Software Technologies Ltd,Gonen Fink,gonen&CheckPoint.com
+2634,"Western Telematic, Inc.",Anthony Barrera,anthonyb&wti.com
+2636,"Juniper Networks, Inc.",Jeff Cheng,jc&juniper.net
+2682,DPS Inc.,Marshall DenHarting,sales&dpstele.com
+2696,Digital Video Broadcasting (DVB),Peter MacAvock,MacAvock&dvb.org
+2699,Printer Working Group,Jeffrey Schnitzer,admin&pwg.org
+3052,Asentria Corporation,Paul Renton,pen&asentria.com
+3076,"Altiga Networks, Inc.",Todd Short,tshort&altiga.com
+3097,WatchGuard Technologies Inc.,Phillip Dillinger,phil&watchguard.com
+3183,Wired for Management,Ramin Neshati,ramin.neshati&intel.com
+3224,"NetScreen Technologies, Inc.",Jay Fu,jay&netscreen.com
+3320,Shanghai Baud Data Communication Development Corp.,Lin Bin,bdcom&public.sta.net.cn
+3373,SIAE Microelettronica S.p.A.,Andrea Pirotta,siaemi&siaemic.it
+3375,"F5 Labs, Inc.",Tom Kee Ryan Kearny,r.kearny&f5.com
+3417,CacheFlow Inc.,Gary Sager,gary.sager&cacheflow.com
+3495,National Laboratory for Applied Network Research,Duane Wessels,wessels&ircache.net
+3570,Tait International Limited,ICT Infrastructure,ict.infrastructure&taitcommunications.com
+3607,Cerent Corporation,Chris Eich,chris.eich&cerent.com
+3699,Network Technologies Inc,Carl Jagatich,intermux.lara&ntigo.com
+3709,Teracom Telematica Ltda.,Tassilo Luiz Kalberer Pires,tassilo&datacom-tel.com
+3711,SINETICA,David Hill,dkhill&dial.pipex.com
+3715,Teleste Corporation,Sami Halen,sami.halen&teleste.com
+3808,Cyber Power System Inc.,Barts Lin,global.service&cyberpower.com
+3833,Schneider Electric,Dennis Dube,dennis.dube&us.schneider-electric.com
+3845,Citrix Systems Inc.,Bill Powell,snmp&citrix.com
+3854,"KCP, Inc.",Brad Klein,brad&kcpinc.com
+3902,"Zhongxing Telecom Co.,ltd. (abbr. ZTE)",Zhang Jiaming,zhang.jiaming&mail.zte.com.cn
+3955,Linksys,Greg LaPolla,GLapolla&Linksys.com
+4096,Thales e-Security,Callum Paterson,callum.paterson&thales-esecurity.com
+4115,Arris Interactive LLC,Robert Wynn,robert.wynn&arris-i.com
+4130,Microwave Data Systems,Robert Broccolo,bbroccolo&mdsroc.com
+4329,Siemens AG,Mrs. Daniela Gajdosik,daniela.gajdosik&siemens.com
+4355,"RapidStream, Inc.",James Lin,james_lin&rapidstream.com
+4413,Broadcom Limited,Broadcom Assigned Numbers and Naming Authority,mibs.pdl&broadcom.com
+4458,Radwin Ltd.,Shumel Vagner,shmuel_v&rad.co.il
+4491,"Cable Television Laboratories, Inc.",Ben Hepworth,B.Hepworth&cablelabs.com
+4515,PacketLight Networks Ltd.,Omri Viner,Omri_Viner&packetlight.com
+4526,Netgear,Michael Shields,mshields&netgearinc.com
+4555,Socomec Sicon Ups,Pancheri Ivo,csu&sicon-ups.com
+4874,Juniper Networks/Unisphere,John Scano,jscano&juniper.net
+4881,"Ruijie Networks Co., Ltd. (formerly 'Start Network Technology Co., Ltd.')",Zhengrong Yu,yuzr&ruijie.com.cn
+4998,Cadant Inc.,Yung Nguyen,ynguyen&cadant.com
+5003,AudioCodes LTD,Oren Kudevitzki,orenku&audiocodes.com
+5040,Wiesemann & Theis GmbH,Klaus Immig,info&wut.de
+5491,UPS Manufacturing,Mr. Zampieri,e.pesente&riello-ups.com
+5528,NetBotz,John Fowler,john&netbotz.com
+5591,SCTE,standards staff,standards&scte.org
+5597,Meinberg,IANA Registry Administration,iana-admin&meinberg.de
+5624,Enterasys Networks,Charles N. McTague,cmctague&enterasys.com
+5651,"Maipu Electric Industrial Co., Ltd",Zheng Xue,maipu2&mail.sc.cninfo.net
+5655,P-Cube Ltd.,Rony Gotesdyner,ronyg&p-cube.com
+5875,China Advanced Info-Optical Network (CAINONET),Weisheng Hu,net863&moon.bjnet.edu.cn
+5951,Netscaler,Yogendra Singh,yogendra&netscaler.com
+6027,"Force10 Networks, Inc.",Raju Shah,raju&force10networks.com
+6050,GAMATRONIC ELECTRONIC INDUSTRIES LTD,Asher Avissar,aavissar&gamatronic.co.il
+6066,"Occam Networks, Inc.",Elie Azar,elie&occamnetworks.com
+6141,World Wide Packets,JJ DeBarros,jj.debarros&worldwidepackets.com
+6296,"DASAN Co.,LTD.",Wonhee Lee,whlee&da-san.com
+6302,Vertiv (formerly 'Emerson Energy Systems'),David Wilczewski,david.wilczewski&vertivco.com
+6321,Calix Networks,Abel Tong,abel.tong&calix-networks.com
+6368,Schmid Telecom AG,Gian Lucas Poltera,poltera&schmid-telecom.ch
+6431,"BroadSoft, Inc.",Ken McInerney,ken&broadsoft.com
+6486,Alcatel-Lucent Enterprise,Ravi Govil,ravi.govil&al-enterprise.com
+6527,Nokia (formerly 'Alcatel-Lucent'),Jason Sterne,Jason.Sterne&nokia.com
+6530,2N spol. s r.o.,Tomas Trefny,trefny&tel-2n.cz
+6574,Synology Inc.,Justin Deng,justind&synology.com
+6666,innovaphone GmbH,Martin Streller,mstreller&innovaphone.com
+6876,VMware Inc.,Michael MacFaden,mrm&vmware.com
+6889,Avaya Communication,Dan Romascanu,dromasca&avaya.com
+6894,DataDirect Networks,Al Saraie,asaraie&datadirectnet.com
+7185,Latitude Communications,Daniel X. Qu,daniel.qu&latitude.com
+7262,DragonWave,Rod McMullin,rmcmullin&dragonwaveinc.com
+7309,Argus Technologies,Doddy Wijanta,dwijanta&argus.ca
+7312,BARCO Control Rooms,Thomas Kappler,thomas.kappler&barco.com
+7342,Omnitron Systems Technology,Steve Mood,smood&omnitron-systems.com
+7428,PowerDsine,Avi Berger,avib&powerdsine.com
+7465,WISI,Dirk Froese,Dirk.Froese&WISI.de
+7501,HUBER+SUHNER BKtel GmbH (HFC),Juergen Anhorn,juergen.anhorn&hubersuhner.com
+7505,Calista Ltd.,Andy Pepperell,andy.pepperell&calista.com
+7564,"Clickarrray Networks, Inc.",Shiow-Jen Jin,sjj&clickarray.com
+7571,SAF tehnika,Dainis Strupis,Dainis.Strupis&safequipment.com
+7779,InfoBlox Inc.,Stuart Bailey,sbailey&infoblox.com
+7800,"Premier Network Co., Ltd",Kwanho Park,khpark&premiernet.co.kr
+8072,net-snmp,Wes Hardaker,hardaker&users.sourceforge.net
+8239,Peribit Networks,Thiagarajan Hariharan,hariharan&pobox.com
+8691,"Moxa Technologies Co., Ltd.",Cindy Hung,cindy_hung&moxa.com.tw
+8741,"SonicWALL, Inc.",Susan Yan,susany&sonicwall.com
+8744,Colubris Networks Inc.,Eric Perie,Eric.Perie&colubris.com
+8886,"Beijing Raisecom Scientific & Technology Development Co., Ltd.",Gao Lei,szf&bupt.edu.cn
+9070,Symmetricom,Dilip S. Dhanda,ddhanda&symmetricom.com
+9148,Acme Packet,Ephraim Dobbins,edobbins&acmepacket.com
+9303,Waystream AB (formerly 'PacketFront Network Products AB'),Fredrik Nyman,fredrik.nyman&waystream.com
+9557,Synso Inc.,Steve Tsai,steve&synso.com
+9694,Arbor Networks,SNMP Administration,snmp&arbor.net
+9839,CAREL,Sebastiano Fiorindo,sebastiano.fiorindo&carel.com
+9999,"Zerna, Koepper & Partner",Egbert Casper,cas&zkp.de
+10002,Frogfoot Networks,Johann L. Botha,joe&frogfoot.net
+10072,"GW Technologies Co., Ltd.",Zhong Zhen,zhong_zhen&yeah.net
+10106,"Albalá Ingenieros, S.A",Juan A. Zaratiegui,zara&albalaing.es
+10297,"Advantech Co., Ltd.",Guider Lee,guider.lee&advantech.com.tw
+10418,Avocent Corporation,Steven W. Clark,steven.clark&avocent.com
+10456,PLANET Technology Corp.,Alan Huang,alan&planet.com.tw
+10520,Marc Hirsch,Marc Hirsch,marc.hirsch&omnionpower.com
+10704,Barracuda Networks AG (previous was 'phion Information Technologies'),Martin Huter,mhuter&barracuda.com
+10876,Super Micro Computer Inc.,Roy Chen,royc&supermicro.com
+10923,Ericsson AB - Packet Core Networks,Göran Hall,Goran.Hall&ericsson.com
+11256,Stormshield (formerly 'NETASQ'),Boris MARECHAL,boris.marechal&stormshield.eu
+11369,LenovoEMC Ltd (formerly 'Iomega'),Shyam Sareen,shyam.sareen&lenovoemc.com
+11606,Pacific Broadbank Networks,Ger Vloothuis,ger&pbn.com.au
+11863,TP-Link Systems Inc.,admin,admin&tp-link.com
+12124,Isilon Ststems,David Dunham,dwdunham&isilon.com
+12140,"ALCOMA, Ltd",ing.Vaclav Vacek,vaclav.vacek&alcoma.cz
+12148,ELTEK Energy AS,Harald Johnsen,harald.johnsen&eltekenergy.com
+12196,one4net GmbH,Simon Roach,simon.roach&one4net.com
+12276,F5 Networks Inc,Ravi Natarajan,r.natarajan&f5.com
+12325,Fraunhofer FOKUS,Björn Riemer,iana-pen&fokus.fraunhofer.de
+12356,"Fortinet, Inc.",Michael Xie,mxie&fortinet.com
+12394,Alvarion Ltd.,Shai Yaniv,shai.yaniv&alvarion.com
+12532,"Neoteris, Inc.",Shyam Davuluru,questions&neoteris.com
+12740,EqualLogic,Irina Suconick,irina&equallogic.com
+12919,XAVi Technologies Corporation,Gavin Ko,gavin&xavi.com.tw
+13191,OneAccess,Pascal Kesteloot,pascal.kesteloot&oneaccess-net.com
+13315,BlueCat Networks,Richard Hyatt,rhyatt&bluecatnetworks.com
+13464,"GCOM Technologies Co.,Ltd. (formerly 'GREENNET TECHNOLOGY CO.,LTD.')",Deng Yu,dengyu&szgcom.com
+13742,"Raritan Computer, Inc.",Allen Yang,allen&raritan.com
+13827,EndRun Technologies LLC,Bruce M. Penrod,bmpenrod&endruntechnologies.com
+13858,Eltek Valere Inc. (formerly 'Valere Power Inc'),Bill Dempsey,bill.dempsey&eltekvalere.com
+14179,"Airespace, Inc (formerly 'Black Storm Networks')",Bhautik Doshi,bdoshi&airespace.com
+14373,MystroTV,IT Director,it&mystrotv.com
+14525,"Trapeze Networks, Inc",Lol Grant,lol&trpz.com
+14706,sFlow.org,Peter Phaal,peter.phaal&sflow.org
+14817,4RF,John Yaldwyn,jy&4rf.com
+14823,"Aruba, a Hewlett Packard Enterprise company",Aruba External Engineering Registrations,aruba-ext-eng-reg&hpe.com
+14832,ESO Consortium,Jeff Case,case&snmp.com
+14851,Storage Networking Industry Association,Arnold Jones,td&snia.org
+14941,Inflection Systems,Elizabeth Dougherty,edougherty&inflectionsystems.com
+14988,MikroTik,John Tully,tully&mikrotik.com
+15004,RuggedCom Inc.,Vesna Anusic,VesnaAnusic&ruggedcom.com
+15007,Metro Ethernet Forum,Dan Romascanu,dromasca&avaya.com
+15117,Protection One Inc.,Ned Fleming,Ned_Fleming&wr.com
+15397,Sandvine Corporation,Kenneth Johansson,snmp-support&sandvine.com
+15497,"IronPort Systems, Inc.",Charles Slater,cslater&ironport.com
+15597,Avamar,Viet LaMore,snmpoid&avamar.com
+15983,Meru Networks,Damien Toledo,dtoledo&merunetworks.com
+16108,Garderos GmbH,Hubert Euzenot,iana&garderos.com
+16174,Sensatronics LLC,Keith Wright,kwright&sensatronics.com
+17022,Avista Labs Inc.,Jeremy McClintock,jeremy.mcclintock&avistalabs.com
+17095,Microchip Technology Inc.,Nilesh Rajbharti,Nilesh.Rajbharti&microchip.com
+17163,"Riverbed Technology, Inc.",John Cho,john.cho&riverbed.com
+17471,"Actona Technologies, Inc",Daniel Kaminsky,daniel&actona.com
+17713,Cambium Networks Limited (formerly 'PipingHot Networks Limited'),Antony Holmes,antony.holmes&cambiumnetworks.com
+18248,PaPouch elektronika,Tomas Jantac,steiger&papouch.com
+18642,"C&C Power, Inc.",Chris Heinz,chris&ccpower.com
+19011,Jacarta Ltd.,Colin Mocock,colin&jacarta.co.uk
+19046,Lenovo Enterprise Business Group,Joe Bolan,jbolan&lenovo.com
+19536,Panduit Corp.,Steve Jacks,saj&panduit.com
+19746,"Data Domain, Inc",J. Kaminar,jkaminar&datadomain.com
+19831,rbb Rundfunk Berlin Brandenburg,Nick Zernecke,nick.zernecke&rbb-online.de
+20044,Ekinops SAS,Pascal Babin,pbabin&ekinops.fr
+20246,Delta Electronics (Switzerland) AG (formerly 'Delta Energy Systems (Sweden) AB'),Adrian Pluess,adrian.pluess&deltaww.com
+20301,IBM eServer X,Lynn Fore,sls&us.ibm.com
+20632,"Barracuda Networks, Inc.",Zachary Levow,zlevow&barracudanetworks.com
+20916,"AVTECH Software, Inc.",Richard Grundy,RickGrundy&AVTECH.com
+20992,"CradlePoint, Inc.",Patrick Sewall,psewall&cradlepoint.com
+21013,"Xirrus, Inc.",Dirk Gates,dirk.gates&xirrus.com
+21067,Elitecore Technologies Ltd.,Ajay Iyer,ajay&elitecore.com
+21239,"Vertiv (formerly 'Geist Manufacturing, Inc')",Brad Wilson or Jesse Preuss,bwilson&geistglobal.com
+21317,"ATEN INTERNATIONAL CO., LTD.",JasonPan,jasonpan&aten.com.tw
+21362,IFOTEC,C. SILLANS,csillans&ifotec.com
+21529,2wcom GmbH,Werner Drews,contact&2wcom.com
+21796,HW group s.r.o,Jan Rehak,Rehak&HW.cz
+22420,"accedian, Inc.",Dominique Bastien,dbastien&accedian.com
+22610,A10 Networks (previously 'Raksha Networks Inc.'),John Chiong,JChiong&a10networks.com
+22626,"COMET SYSTEM, s.r.o.",Jaroslav Dohnal,dohnal&cometsystem.cz
+22764,SPIDCOM Technologies SA,Etienne CHEVREAU,etienne.chevreau&spidcom.com
+23263,EXCELIANCE,Christophe Pouillet,cpouillet&exceliance.fr
+23695,PePLink Ltd.,Kenny Ng,kennyn&peplink.com
+23867,"Silver Peak Systems, Inc.",George Azzi,gazzi&silver-peak.com
+24681,"QNAP SYSTEMS, INC",Nike Chen,nikechen&qnap.com.tw
+24693,Firebrick Ltd.,Adrian Kennard,iana&firebrick.ltd.uk
+25049,Opengear Inc.,Peter Hunt,support&opengear.com
+25053,"Ruckus Wireless, Inc.",Michael Lin,mlin&ruckuswireless.com
+25461,PALO ALTO NETWORKS,Dr. Anupam Bharali,paniana&gmail.com
+25506,H3C,Xiaolan Wan,wxlan&h3c.com
+25651,Exalt Communications,Herman Lee,hlee&exaltcom.com
+25728,ZAO Light Communication,Shulman Ilya,ish&lightcom.ru
+25868,Last Mile Gear,Brian Magnuson,Support&cni.net
+26384,GANDI,Stéphane Enten,noc+iana&gandi.net
+26543,"Blade Network Technologies, Inc.",Cynthia Gabriel,cynthia.gabriel&bladenetwork.net
+26854,Cherokee International Corporation,Daniel Bogaerts,d.bogaerts&cherokee.be
+26866,Gigamon Systems LLC,Ted Ho,ted.ho&gigamon.com
+26928,"Aerohive Networks, Inc.",Gavin Zhu,gzhu&aerohive.com
+27304,DKT A/S,Nikolaj Hermann,nih&dkt.dk
+27338,ATEME,Vincent CLERC,v.clerc&ateme.fr
+27614,Ascom Sweden AB,Martin Kvarmo,martin.kvarmo&ascom.se
+27975,Centec Networks Inc.,Alexander Liu,xliu&centecnetworks.com
+27993,Vigintos Elektronika,Kestutis Banisauskas,kestas&vigintos.com
+28381,Red Lion Controls (N-Tron),Denis Aull,Engineering&RedLion.net
+28507,Gude Analog- und Digitalsysteme GmbH,Michael Gude,info&gudeads.com
+28557,Hillstone Networks Inc,Ning Mo,nmo&hillstonenet.com
+29003,Fibernet International,JOSE M. MARIN,fibernet&fibernet.es
+29865,Icotera A/S,Kim Esben Jørgensen,kej&icotera.com
+30005,"Raybit Systems korea, Inc",john choi,autochoi&raybitsystems.co.kr
+30065,"Arista Networks, Inc. (formerly 'Arastra, Inc.')",Bill Fenner,fenner&aristanetworks.com
+30155,OpenBSD Project,Reyk Floeter,reyk&openbsd.org
+30826,SmartOptics AS,Göran,goran.hillebrink&smartoptics.com
+31023,Veeam Software,IANA Administrator,IANA&veeam.com
+31034,Schleifenbauer Products BV,Alain Schuermans,alain&schleifenbauer.com
+31218,UCOPIA Communications,Julien Rotrou,jrotrou&ucopia.com
+31926,Siklu Communication LTD,Lior Mordechay,lior.m&siklu.com
+32015,"ExtraHop Networks, Inc.",Jesse Rothstein,hostmaster&extrahop.com
+32050,"PacketFlux Technologies, Inc.",Forrest W Christian,forrestc&packetflux.com
+32620,AnueSystems,Vivi Zhang,vzhang&anuesystems.com
+32761,Deliberant,Matt Hardy,mhardy&deliberant.com
+33234,Halon Security,Jonas Falck,jonas.falck&halonsecurity.com
+33283,AN-D.cz,Adam Nemcek,adam.nemcek&an-d.cz
+33555,RACOM s.r.o.,Ing. Marek Prasil,marek.prasil&racom.eu
+33826,"Lutong Network Technology Co., ltd",Ben Xu,benx&sjtu.org
+34278,Janitza electronics GmbH,Marec Andreessen,pen-contact&janitza.de
+34592,"Shenzhen C-Data Technology Co.,Ltd.",Alan Cui,yunliang_cui&cdatatec.com
+34774,"Huawei Symantec Technologies Co.,Ltd",xiaoyong xiong,xyxiong&huaweisymantec.com
+35098,PICA8 Inc.,Sharad Ahlawat,apple&pica8.com
+35265,"Eltex Enterprise, Ltd.",Ivan Yeryomin,ie&eltex.org
+35424,Viprinet GmbH,Simon Ley,ley&viprinet.com
+35847,Greenbone AG,Jan-Oliver Wagner,Jan-Oliver.Wagner&greenbone.net
+35873,JDS Uniphase Corporation,Judith Walker,Judith.Walker&jdsu.com
+37447,Nimble Storage,Hector Yuen,hector&nimblestorage.com
+37662,"Ablerex Electronic Co., Ltd.",Fred Hsu,fred&ablerex.com.tw
+38446,"Enlogic Systems, LLC",Joel Greene,joel.greene&enlogic.com
+39003,Sub10 Systems Ltd.,Mark Stevens,mark.stevens&sub10systems.com
+39145,Innovative Circuit Technology Ltd.,Natalia Bolster,technical.contact&ictcorporate.com
+39165,"Hikvision Digital Technology Co., Ltd.",Qi Liu,liuqi&hikvision.com
+39324,"OS NEXUS, Inc",Steven Umbehocker,steve&osnexus.com
+39406,"Benu Networks, Inc.",Michael Brown,mbrown&benunets.com
+40297,"Hytera Communications Co.,Ltd.",Yiyang Zhong,zhongyiyang&hytera.com
+40418,NAG LLC,Dmitry Samodelko,dmitry&nag.ru
+40482,Pure Storage,Scott Sewall,scott&purestorage.com
+40748,IONODES Inc.,Eric Tasso,etasso&ionodes.com
+40989,GLsun Science and Tech Co.Ltd,pujinhuang,Glsnmp&ymail.com
+41036,Corero Network Security,Scott Barvick,scott.barvick&corero.com
+41112,"Ubiquiti Networks, Inc.",Kestutis Barkauskas,keba&ubnt.com
+41809,Dismuntel S.A.L.,Josep Enric Rosell Carbonell,jerosell&dismuntel.com
+42229,Nokia (formerly 'Coriant R&D GmbH'),Sharfuddin Syed,sharfuddin.syed&nokia.com
+42610,Powertek Limited,salvador trullols rico,sales&powertekpdus.com
+43356,"Mimosa Networks, Inc",Alexander Gostrer,alex&mimosa.co
+43906,"Tegile Systems, Inc.",Pradipmaya Maharana,pradip&tegile.com
+45346,"Velocloud Networks, Inc.",Christopher Szeles,chris&velocloud.net
+45621,Tycon Systems Inc.,Scott Parsons,scottp&tyconsystems.com
+46242,Netonix,Eric Stern,eric&netonix.com
+46651,Dantherm Cooling A/S,Harikrishnan Chinnappan,hac&dantherm.com
+47196,Hewlett Packard Enterprise,Harry Lynch,harry.lynch&hpe.com
+47307,IgniteNet,Harold Bledsoe,hbledsoe&ignitenet.com
+47421,Cohesity Inc.,Roy Yang,roy&cohesity.com
+48328,Veritas Technologies LLC,Xiaowei Deng,clare.deng&veritas.com
+48690,Teltonika,Darius Jokšas,darius.joksas&teltonika.lt
+49136,ALGcom,Lissandro Gerhardt,lissandro&algcom.com.br
+49759,Jacques Technologies,Heena Kapadia,heena.kapadia&jacques.com.au
+50114,CloudGenix,Aaron Edwards,arin-poc&cloudgenix.com
+50536,iXsystems,Kris Moore,kris&ixsystems.com
+52248,Altergy Systems,Matthew Ellington,matthew.ellington&altergy.com

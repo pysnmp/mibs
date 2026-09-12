@@ -1,6 +1,9 @@
 {
   "version": 1,
-  "emit": ["asn1", "json", "index", "index-v2", "standard", "report"],
+  "emit": [
+    "asn1", "json", "index", "index-v2", "standard",
+    "entity", "report"
+  ],
   "expect": {
     "modules": { "min": 5000 },
     "failures": { "max": 25 },
