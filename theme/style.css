@@ -220,8 +220,32 @@ nav.keys {
 section > :last-child { margin-bottom: 0; }
 .note { color: var(--ink-muted); font-size: 0.9375rem; }
 
+/* The definition cells carry no wrapping element -- pysmi stopped emitting one
+   per cell, which was 61 bytes a row over 764,000 definitions -- so these
+   reach them by position. .defs.typed is the five-column shape, Name / OID /
+   Syntax / Access / Status; .defs on its own is the three-column one.
+
+   Deliberately without the chip background that `code` carries in prose: a
+   background on every name and syntax in a dense five-column table reads as
+   noise, and there is no inner element left to put it on that would not fill
+   the whole cell. */
+.defs td {
+  font-family: var(--font-stack--monospace);
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
 .defs td:first-child { white-space: nowrap; }
-.defs .desc { color: var(--ink-muted); font-size: 0.8125rem; white-space: normal; }
+.defs td:last-child, .defs.typed td:nth-child(4) {
+  font-family: inherit;
+  font-size: inherit;
+}
+.defs .desc {
+  font-family: inherit;
+  color: var(--ink-muted);
+  font-size: 0.8125rem;
+  white-space: normal;
+  overflow-wrap: normal;
+}
 
 :target { background: var(--hover); }
 
