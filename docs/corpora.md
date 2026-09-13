@@ -33,10 +33,13 @@ check.
 generator writes is a directory URL — `../../mib/IF-MIB/` — which a host has to
 resolve to that directory's `index.html`. Object storage does not: it serves
 the key it is given, so `/mib/IF-MIB/` is a 404 unless something on the serving
-path rewrites it, and on a free plan that something is metered. A static site
-host resolves it for nothing, but caps a free site at 20,000 files — and the
-browsable pages are 7,400 of them with 11,000 more files beside them, before
-the per-module downloads that are still to come.
+path rewrites it. Static assets resolve it natively and run no script to do so,
+which is the distinction that matters on a free plan: requests to a Worker's
+*script* are metered, at 100,000 a day with cache hits counted, and requests to
+its *assets* are not. What assets cost instead is a file count — 20,000 per
+version — and the browsable pages are 7,430 of them, with 11,025 more files
+beside them that never needed resolving at all, before the per-module downloads
+that are still to come.
 
 So the split follows the constraint rather than the content: **pages that need
 resolving go where resolving is free, and files addressed by exact name go
@@ -58,12 +61,18 @@ each of which turns on one step:
 
 | variable | what it names |
 |---|---|
-| `CLOUDFLARE_PAGES_PROJECT` | the Pages project `depot-site` is uploaded to |
+| `CLOUDFLARE_WORKER_NAME` | the Worker `depot-site` is uploaded to as static assets, configured in `wrangler.jsonc` |
 | `CLOUDFLARE_R2_BUCKET` | the R2 bucket `depot-data` is synced to |
 
-and three *secrets* they need to work: `CLOUDFLARE_API_TOKEN` (Pages: Edit),
-`CLOUDFLARE_ACCOUNT_ID`, and `R2_ACCESS_KEY_ID` with `R2_SECRET_ACCESS_KEY`
-for the S3-compatible endpoint.
+and four *secrets* they need to work: `CLOUDFLARE_API_TOKEN` (**Edit Cloudflare
+Workers**), `CLOUDFLARE_ACCOUNT_ID`, and `R2_ACCESS_KEY_ID` with
+`R2_SECRET_ACCESS_KEY` for the S3-compatible endpoint, which are an R2 API
+token's two halves rather than parts of the first one.
+
+Each hostname is attached once, by hand, and neither is named in this
+repository: `mibsdepot.com` to the Worker, and `data.mibsdepot.com` to the
+bucket. Nothing here claims a domain it does not own, so a fork that sets the
+variables publishes to its own.
 
 Unset, the deploy steps are skipped and everything before them still runs: a
 fork, and this repository before the Cloudflare side existed, builds all three

@@ -400,17 +400,20 @@ jobs:
           force_orphan: true
       # mibsdepot.com, in two halves, because the two have different problems.
       #
-      # The site goes to Cloudflare Pages, which resolves index.html for a
-      # directory URL the way GitHub Pages does. Every link the generator
-      # writes is a directory URL -- ../../mib/IF-MIB/ -- so a host that does
-      # not resolve them needs code on the serving path to do it, and on the
-      # free plan that code would be a Worker capped at 100,000 requests a
-      # day, cache hits included. Pages resolves them for nothing.
+      # The pages go to Workers static assets, which resolve a directory URL
+      # to that directory's index.html -- every link the generator writes is
+      # one, ../../mib/IF-MIB/ -- and which run no script to do it. That is
+      # the distinction that matters on a free plan: Cloudflare meters
+      # requests to a Worker script, not to its assets, so the site is not
+      # rate-limited, while a script in front of R2 rewriting the same paths
+      # would be, at 100,000 requests a day with cache hits counted. What it
+      # costs instead is a file count, 20,000 per version, and the pages are
+      # 7,430. See wrangler.jsonc.
       #
-      # The downloads go to R2, addressed by exact key, where there is nothing
-      # to resolve and no file-count ceiling: asn1/ and json/ are 11,000 files
-      # between them and the free Pages plan stops at 20,000 for the whole
-      # site. R2 includes 10 GB and charges no egress.
+      # The downloads go to R2, addressed by exact key: nothing to resolve, no
+      # file-count ceiling, 10 GB included and no egress charge. asn1/ and
+      # json/ are 11,025 files between them, which is most of a static-asset
+      # budget spent on files that never needed one.
       #
       # Gated on the configuration being present as well as on main, so a fork
       # -- and this repository until the Cloudflare side is wired up -- builds
@@ -421,16 +424,12 @@ jobs:
       - name: Deploy - mibsdepot.com site
         if: >-
           github.ref == 'refs/heads/main'
-          && vars.CLOUDFLARE_PAGES_PROJECT != ''
+          && vars.CLOUDFLARE_WORKER_NAME != ''
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: >-
-            pages deploy output/depot-site
-            --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }}
-            --branch=main
-            --commit-dirty=true
+          command: deploy --name=${{ vars.CLOUDFLARE_WORKER_NAME }}
       - name: Deploy - mibsdepot.com data
         if: >-
           github.ref == 'refs/heads/main'

@@ -45,12 +45,12 @@ destination and `mibcorpus` writes them from a single parse of the 5,510
 modules, so the three trees cannot disagree about what a module is — and CI
 asserts the two data trees are byte-identical rather than trusting that.
 
-The split exists because the browsable site is 7,400 files of HTML and the
-files beside it are another 11,000, and the host that resolves a directory URL
-to its `index.html` for nothing is limited to 20,000 files on the free plan.
-Pages that need resolving go where resolving is free; files addressed by exact
-name go where the count is not capped. See
-[the corpora](corpora.md#where-each-tree-goes).
+The split exists because the browsable site is 7,430 files of HTML and the
+files beside it are another 11,025, and the host that resolves a directory URL
+to its `index.html` without running any code of its own is limited to 20,000
+files on the free plan. So a page that needs resolving goes where resolving is
+free, and a file addressed by its exact name goes where the count is not
+capped. See [the corpora](corpora.md#where-each-tree-goes).
 
 ## Installed from the archive
 
