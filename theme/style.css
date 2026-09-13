@@ -229,22 +229,38 @@ section > :last-child { margin-bottom: 0; }
    background on every name and syntax in a dense five-column table reads as
    noise, and there is no inner element left to put it on that would not fill
    the whole cell. */
+/* break-word, not anywhere: `anywhere` lets the browser count a cell's
+   minimum width as one character, so once the descriptions arrived the prose
+   column took the table and the rest collapsed -- OIDs split mid-number,
+   "current" became "curren t". break-word breaks a token only when it truly
+   cannot fit, and leaves intrinsic widths alone. */
 .defs td {
   font-family: var(--font-stack--monospace);
   font-size: 0.8125rem;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 .defs td:first-child { white-space: nowrap; }
+
+/* Access and Status are words, not identifiers, and short enough to keep
+   whole: `overflow-wrap: anywhere` above was breaking "current" into "curren
+   t" and "not-accessible" into "not-accessib le" once the description column
+   started claiming the width. */
 .defs td:last-child, .defs.typed td:nth-child(4) {
-  font-family: inherit;
+  font-family: var(--font-stack);
   font-size: inherit;
+  white-space: nowrap;
 }
+
+/* The description is prose and has to look like prose. `inherit` here would
+   take the monospace from the cell above -- the parent is the td -- which is
+   what shipped 670,827 descriptions in a code font. */
 .defs .desc {
-  font-family: inherit;
+  font-family: var(--font-stack);
   color: var(--ink-muted);
   font-size: 0.8125rem;
   white-space: normal;
   overflow-wrap: normal;
+  margin-top: 0.15rem;
 }
 
 :target { background: var(--hover); }
@@ -255,4 +271,11 @@ section > :last-child { margin-bottom: 0; }
   dl.facts dt { margin-top: 0.6rem; }
   ul.plain { columns: auto; }
   h1 { font-size: 1.6rem; }
+
+  /* pysmi wraps Objects and Conformance in div.wide and leaves Textual
+     conventions, Notifications and Imports bare, so those push the document
+     past the viewport on a phone -- 418px against 400 on IF-MIB. Scrolling
+     the table itself needs no wrapper. Remove once the generator is
+     consistent; see pysnmp/pysmi. */
+  table { display: block; overflow-x: auto; }
 }
