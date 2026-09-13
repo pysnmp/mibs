@@ -100,6 +100,7 @@ channels
 corpora
 manifests
 chart
+deploying
 contributing
 absent-modules
 mib-sources
