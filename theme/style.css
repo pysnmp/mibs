@@ -271,11 +271,4 @@ section > :last-child { margin-bottom: 0; }
   dl.facts dt { margin-top: 0.6rem; }
   ul.plain { columns: auto; }
   h1 { font-size: 1.6rem; }
-
-  /* pysmi wraps Objects and Conformance in div.wide and leaves Textual
-     conventions, Notifications and Imports bare, so those push the document
-     past the viewport on a phone -- 418px against 400 on IF-MIB. Scrolling
-     the table itself needs no wrapper. Remove once the generator is
-     consistent; see pysnmp/pysmi. */
-  table { display: block; overflow-x: auto; }
 }
