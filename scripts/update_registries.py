@@ -293,7 +293,18 @@ def check() -> int:
     if reduced_pen(published) != PEN_SNAPSHOT.read_text(encoding="utf-8"):
         moved.append("pen-snapshot.csv")
 
-    if smi != SMI_SNAPSHOT.read_text(encoding="utf-8"):
+    # Both sides parsed, not the bytes. IANA stamps the file with the day it
+    # was generated -- <updated>2026-08-18</updated> at the top -- and carries
+    # 2,233 <xref> elements and 31 <note> blocks that name nothing. Comparing
+    # the text reports a revision every time any of that moves, and what this
+    # snapshot is here for is the arc-to-name mapping. A sweep that cries
+    # revision on a regenerated date teaches the reader to skip it.
+    #
+    # update() still writes what IANA published, so a real revision lands as a
+    # diff somebody can read.
+    if parse_smi_numbers(smi) != parse_smi_numbers(
+        SMI_SNAPSHOT.read_text(encoding="utf-8")
+    ):
         moved.append("smi-numbers.xml")
 
     if not moved:
