@@ -96,4 +96,5 @@ chart
 contributing
 absent-modules
 mib-sources
+registries
 ```
