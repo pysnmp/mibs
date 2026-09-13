@@ -17,6 +17,21 @@ this repository, and a fork never needs it at all.
 Where each piece goes and why, rather than how to create it, is in
 [the corpora](corpora.md#where-each-tree-goes).
 
+```{note}
+The site is served by what Cloudflare calls a *Worker*, and **there is no
+Worker code**. `wrangler.jsonc` declares a directory of static assets and
+nothing else — no script, no entrypoint, nothing of ours running per request.
+Cloudflare now hosts static files under the Workers name, which is why the
+dashboard, the token permission and the `wrangler deploy` command all say
+Worker for something that is a pile of HTML.
+
+The distinction is not cosmetic. Requests a Worker's *script* answers are
+metered — 100,000 a day on the free plan, cache hits counted — and requests
+its *assets* answer are free and unlimited. Serving these pages out of R2
+would have needed a script, to turn `/mib/IF-MIB/` into that directory's
+`index.html`; static assets do it without one.
+```
+
 ## Before you start
 
 - The domain on a Cloudflare account you administer. Everything below is free
