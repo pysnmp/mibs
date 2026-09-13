@@ -75,20 +75,29 @@ the token in the next step.
 
 ## 4. Create the Workers token
 
-Manage Account → **API Tokens** → **Create Token** → *Create Custom Token*.
+Manage Account → **API Tokens** → **Create Token** → use the **`Edit
+Cloudflare Workers`** template.
 
-Two permissions, both account-level:
+The template grants more than this deploy strictly uses — Workers KV Storage,
+Workers R2 Storage and Zone → Workers Routes, none of which apply here, since
+the Worker has no bindings and its hostname is attached by hand in step 8
+rather than declared as a route. Use it anyway. It is the set Cloudflare
+maintains for `wrangler deploy`, and a token narrower than what wrangler
+actually calls fails with
 
-| | |
-|---|---|
-| **Workers Scripts** | Edit |
-| **Account Settings** | Read |
+```
+✘ [ERROR] A request to the Cloudflare API
+  (/accounts/<id>/workers/services/<name>) failed.
+  Authentication error [code: 10000]
+```
 
-The `Edit Cloudflare Workers` template will also work and is fewer clicks, but
-it additionally grants Workers KV Storage, Workers R2 Storage and Zone →
-Workers Routes. This deploy uses none of them: the Worker has no bindings, and
-its hostname is attached by hand in step 8 rather than declared as a route in
-`wrangler.jsonc`. Two permissions is the whole of what it needs.
+which names no permission and takes a full build to reach.
+
+The account-level permissions it must have in any case are **Workers Scripts:
+Edit** and **Account Settings: Read**; wrangler also reads **User →
+Memberships → Read** when reporting who it is logged in as. If you build a
+custom token and hit the error above, the template is the answer rather than
+guessing at the next permission.
 
 ## 5. Find the account ID
 
@@ -207,6 +216,12 @@ Neither half is configured, which is correct before step 6 and on every fork.
 **The job is green but nothing appeared** — check the run's step list. A
 deploy that was skipped shows as skipped; if both ran and the site is still
 unreachable, it is step 2 or step 8 that is missing, not the build.
+
+**`Authentication error [code: 10000]` from the site deploy** — the Workers
+token does not carry what `wrangler deploy` calls. Recreate it from the `Edit
+Cloudflare Workers` template; see step 4. The failing request names the
+Worker, so a 10000 there is about the token rather than about the account id
+or the name.
 
 **`/mib/IF-MIB/` answers 404 but `/` is fine** — `html_handling` in
 `wrangler.jsonc` is not doing its job. It should be `auto-trailing-slash`,
