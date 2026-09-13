@@ -10,6 +10,66 @@ splunk-connect-for-snmp resolves `asn1/@mib@` against this site for every
 module it meets. This is what the site serves, what the release archives
 contain, and what the [`mibserver` chart](chart.md) mounts.
 
+## Where each tree goes
+
+The published corpus goes to three places, and `corpus.json` names them as
+three *publications* rather than as three builds:
+
+| publication | destination | carries |
+|---|---|---|
+| `github-pages` | [`pysnmp.github.io/mibs/`](https://pysnmp.github.io/mibs/) | `asn1/`, `json/`, both indexes, `standard.txt`, this documentation |
+| `depot-site` | [`mibsdepot.com`](https://mibsdepot.com) | the browsable pages — one per module, OID arc and registrant — and this documentation |
+| `depot-data` | [`data.mibsdepot.com`](https://data.mibsdepot.com) | `asn1/`, `json/`, both indexes, `standard.txt`, `search.db` |
+
+`mibcorpus` writes all three from one parse of the 5,510 modules. Parsing is
+about three quarters of a pass, so three publications cost roughly what one and
+a half builds would, and — the part that matters more — the three trees are
+projections of a single parse rather than three runs that have to be trusted to
+agree. CI asserts the two data trees are byte-identical anyway, artifact by
+artifact, because "they came from the same parse" is a claim and a `diff` is a
+check.
+
+**Why the pages and the files are on different hosts.** Every link the site
+generator writes is a directory URL — `../../mib/IF-MIB/` — which a host has to
+resolve to that directory's `index.html`. Object storage does not: it serves
+the key it is given, so `/mib/IF-MIB/` is a 404 unless something on the serving
+path rewrites it, and on a free plan that something is metered. A static site
+host resolves it for nothing, but caps a free site at 20,000 files — and the
+browsable pages are 7,400 of them with 11,000 more files beside them, before
+the per-module downloads that are still to come.
+
+So the split follows the constraint rather than the content: **pages that need
+resolving go where resolving is free, and files addressed by exact name go
+where the file count is not capped.** Nothing on a module page links into
+`asn1/` or `json/`, so the two halves can sit on different hostnames without a
+broken link between them.
+
+**Why `pysnmp.github.io/mibs/` stays.** pysnmp's own docstrings name
+`https://pysnmp.github.io/mibs/asn1/@mib@` as the remote MIB source to add, and
+splunk-connect-for-snmp binds `MIB_SOURCES` to the same path. Those are in
+released software. The distribution site keeps serving exactly what it serves
+today; the depot is an addition, not a move.
+
+### What the depot deploy needs
+
+The GitHub Pages half deploys from the repository's own token and needs no
+configuration. The depot half is switched on by two repository *variables*,
+each of which turns on one step:
+
+| variable | what it names |
+|---|---|
+| `CLOUDFLARE_PAGES_PROJECT` | the Pages project `depot-site` is uploaded to |
+| `CLOUDFLARE_R2_BUCKET` | the R2 bucket `depot-data` is synced to |
+
+and three *secrets* they need to work: `CLOUDFLARE_API_TOKEN` (Pages: Edit),
+`CLOUDFLARE_ACCOUNT_ID`, and `R2_ACCESS_KEY_ID` with `R2_SECRET_ACCESS_KEY`
+for the S3-compatible endpoint.
+
+Unset, the deploy steps are skipped and everything before them still runs: a
+fork, and this repository before the Cloudflare side existed, builds all three
+trees and holds them to the same contracts. That is deliberate — a publishing
+step nobody can exercise until release day is a step nobody has tested.
+
 ## The compact corpus
 
 The same source set with the standard namespace declared `"publish": false` —

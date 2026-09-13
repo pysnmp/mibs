@@ -66,6 +66,7 @@ nothing about our registries and the exit code should not claim otherwise.
 from __future__ import annotations
 
 import csv
+import os
 import pathlib
 import sys
 import urllib.error
@@ -85,7 +86,11 @@ FROZEN = ROOT / "index-frozen.csv"
 #: The ranked index a build writes -- the corpus's own live answer for which
 #: module owns which OID, and what ``entity.json`` and ``arcs.json`` are built
 #: from. Not committed; read when a build is on disk.
-RANKED = ROOT / "output" / "index-v2.csv"
+#:
+#: From the ``github-pages`` tree. corpus.json writes one tree per destination
+#: and the build asserts that the data trees agree, so any of them answers
+#: this; that one is the tree that has always been published.
+RANKED = ROOT / os.environ.get("CORPUS_TREE", "output/github-pages") / "index-v2.csv"
 
 #: The enterprise arcs this corpus publishes under, one number per line. The
 #: reduction's input, committed so that ``--check`` and ``--update`` are a pure

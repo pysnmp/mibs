@@ -1,13 +1,14 @@
 # Channels
 
-Three ways to get the same content, chosen by how you consume it rather than
-by what they carry.
+Ways to get the same content, chosen by how you consume it rather than by what
+they carry.
 
 | | carries | for |
 |---|---|---|
-| **The site** (`pysnmp.github.io/mibs/`) | `asn1/`, `json/`, `index.csv` (deprecated), `index-v2.csv`, `standard.txt`, and this documentation | anyone resolving a MIB over HTTPS |
+| **The distribution site** (`pysnmp.github.io/mibs/`) | `asn1/`, `json/`, `index.csv` (deprecated), `index-v2.csv`, `standard.txt`, and this documentation | anything resolving a MIB over HTTPS |
+| **MIBs Depot** (`mibsdepot.com`) | every module, OID and registrant as a page to read, plus the same files above | a person looking a MIB up, rather than a program fetching one |
 | **Release archives** | one zip per format | an offline or air-gapped install, or a build that vendors the distribution |
-| **`corpus` image** | what the site serves | the [`mibserver` chart](chart.md), which mounts it and serves it — so it has to answer the same paths the site does |
+| **`corpus` image** | what the distribution site serves | the [`mibserver` chart](chart.md), which mounts it and serves it — so it has to answer the same paths the site does |
 | **`corpus-compact` image** | `asn1/` and `index-v2.csv` | a pysnmp runtime — what it needs to poll and to translate a trap OID, and nothing more |
 
 ## Live over HTTPS
@@ -20,7 +21,36 @@ https://pysnmp.github.io/mibs/json/IF-MIB.json
 ```
 
 Nothing to install and nothing to keep current. It needs egress from wherever
-the compile happens, which is the reason the other two channels exist.
+the compile happens, which is the reason the other channels exist.
+
+**This URL does not move.** pysnmp's own documentation names
+`https://pysnmp.github.io/mibs/asn1/@mib@` as the remote source to add, and
+splunk-connect-for-snmp binds `MIB_SOURCES` to it; both are in released
+software that nobody is going to re-release to follow a redirect. The
+distribution site keeps serving exactly what it serves today.
+
+## The two sites
+
+They are the same corpus published twice, because they answer to different
+readers and hit different ceilings.
+
+| | |
+|---|---|
+| [`pysnmp.github.io/mibs/`](https://pysnmp.github.io/mibs/) | the files, and this documentation. What a program fetches. Unchanged. |
+| [`mibsdepot.com`](https://mibsdepot.com) | the same corpus to *read* — a page per module, per OID arc and per registrant, with the DESCRIPTION prose the files carry but no browser renders |
+| [`data.mibsdepot.com`](https://data.mibsdepot.com) | the depot's copy of the files, so a link on a depot page resolves without crossing back |
+
+One build writes all of it. `corpus.json` declares a publication per
+destination and `mibcorpus` writes them from a single parse of the 5,510
+modules, so the three trees cannot disagree about what a module is — and CI
+asserts the two data trees are byte-identical rather than trusting that.
+
+The split exists because the browsable site is 7,400 files of HTML and the
+files beside it are another 11,000, and the host that resolves a directory URL
+to its `index.html` for nothing is limited to 20,000 files on the free plan.
+Pages that need resolving go where resolving is free; files addressed by exact
+name go where the count is not capped. See
+[the corpora](corpora.md#where-each-tree-goes).
 
 ## Installed from the archive
 

@@ -8,6 +8,11 @@ organization publishes those modules.
 It is a distribution, though not one `pip` resolves. You can use it live over
 HTTPS or install it locally, and the content is the same either way.
 
+To read a MIB rather than resolve one, the same corpus is published as pages at
+[MIBs Depot](https://mibsdepot.com) — one per module, per OID arc and per
+registrant. Both sites come out of one build; see [the two
+sites](channels.md#the-two-sites).
+
 ## Resolving a MIB
 
 pysnmp applications point pysmi at the published tree:
@@ -43,10 +48,12 @@ what to do with a resolved name.
 | `standard.txt` | the standard module names |
 | `core.db` | the SMI model as a SQLite database; see [the corpus database](corpora.md#the-corpus-database) |
 
-There is no HTML index over `asn1/` or `json/`: the trees are generated and a
-listing of several thousand files would help nobody. What indexes the corpus is
-`index-v2.csv` and `core.db`, and both are published. Browse
-{repo}`mibs` to see what the sources are.
+There is no HTML index over `asn1/` or `json/` on this site: the trees are
+generated, and a listing of several thousand files would help nobody. What
+indexes the corpus for a program is `index-v2.csv` and `core.db`, and both are
+published; what indexes it for a reader is
+[MIBs Depot](https://mibsdepot.com), which renders a page per module and per
+OID arc from the same build. Browse {repo}`mibs` to see what the sources are.
 
 Some modules the site used to serve are no longer carried anywhere.
 [Absent modules](absent-modules.md) lists all 194, grouped by why each went and

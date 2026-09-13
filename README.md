@@ -7,14 +7,21 @@ arcs.
 
 **Documentation: <https://pysnmp.github.io/mibs/>**
 
-pysnmp applications resolve modules straight from the site:
+**Browse the MIBs: <https://mibsdepot.com>**
+
+pysnmp applications resolve modules straight from the distribution site:
 
 ```
 https://pysnmp.github.io/mibs/asn1/@mib@
 ```
 
-`@mib@` is pysmi's placeholder for the module name. The other two channels, and
-what each carries, are in
+`@mib@` is pysmi's placeholder for the module name. This URL does not move.
+
+To *read* a MIB rather than fetch one, [MIBs Depot](https://mibsdepot.com)
+publishes the same corpus as pages — one per module, per OID arc and per
+registrant, carrying the DESCRIPTION prose that is in the files but that no
+browser renders. Both sites come out of one build. The other channels, and what
+each carries, are in
 [Channels](https://pysnmp.github.io/mibs/channels.html).
 
 ## What is here

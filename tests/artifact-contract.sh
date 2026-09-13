@@ -16,14 +16,20 @@
 # file is rather than claiming a consumer depends on it.
 #
 # Runs without Docker and without a build. Checks needing built output are
-# skipped only when output/ is absent; see tests/index-contract.sh for why that
-# distinction matters.
+# skipped only when the tree is absent; see tests/index-contract.sh for why
+# that distinction matters.
 #
 # See pysnmp/mibs#362.
 
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+
+# Which published tree to check. corpus.json writes one tree per destination
+# and these artifacts are the same in each, so this checks one and the build
+# asserts separately that the copies agree. github-pages is the tree that has
+# always been published, so it is the default. See docs/corpora.md.
+TREE="${CORPUS_TREE:-output/github-pages}"
 
 FAILURES=0
 
@@ -51,7 +57,8 @@ pass() {
 # is the harder failure to notice.
 #
 # Asserted over src/, which is what determines the published names, so this runs
-# on a clean checkout. Re-asserted over output/asn1/ when a build is present.
+# on a clean checkout. Re-asserted over the tree's asn1/ when a build is
+# present.
 
 echo "== asn1: source filenames are bare module names"
 
@@ -114,23 +121,23 @@ trap 'rm -f "$SRC_NAMES"' EXIT
 # membership pin -- pinning a sampled set would assert the list is authoritative
 # for something, and it is not.
 
-if [ -f output/standard.txt ]; then
+if [ -f "$TREE"/standard.txt ]; then
   echo "== standard.txt: one bare module name per line"
 
-  BLANK="$(grep -c '^[[:space:]]*$' output/standard.txt || true)"
+  BLANK="$(grep -c '^[[:space:]]*$' "$TREE"/standard.txt || true)"
   [ "$BLANK" = "0" ] || fail "$BLANK blank lines in standard.txt"
   [ "$BLANK" = "0" ] && pass "no blank lines"
 
   # One field, so no consumer can mistake it for the CSV that sits beside it.
-  NOTBARE="$(grep -c '[,[:space:]]' output/standard.txt || true)"
+  NOTBARE="$(grep -c '[,[:space:]]' "$TREE"/standard.txt || true)"
   [ "$NOTBARE" = "0" ] || fail "$NOTBARE lines carry a comma or whitespace"
   [ "$NOTBARE" = "0" ] && pass "every line is a single bare token"
 
-  STDDOTTED="$(grep -c '\.' output/standard.txt || true)"
+  STDDOTTED="$(grep -c '\.' "$TREE"/standard.txt || true)"
   [ "$STDDOTTED" = "0" ] || fail "$STDDOTTED entries carry an extension"
   [ "$STDDOTTED" = "0" ] && pass "no entry carries an extension"
 
-  STDDUPES="$(sort output/standard.txt | uniq -d | grep -c . || true)"
+  STDDUPES="$(sort "$TREE"/standard.txt | uniq -d | grep -c . || true)"
   [ "$STDDUPES" = "0" ] || fail "$STDDUPES module names appear more than once"
   [ "$STDDUPES" = "0" ] && pass "no module name appears twice"
 
@@ -138,14 +145,14 @@ if [ -f output/standard.txt ]; then
   # Not a defect to fix here. Correcting the list would change what any future
   # reader loads, and there is no reader to benefit; #366 decides its fate.
   for excluded in SNMPv2-MIB SNMPv2-SMI SNMPv2-TC; do
-    if grep -qx "$excluded" output/standard.txt; then
+    if grep -qx "$excluded" "$TREE"/standard.txt; then
       fail "$excluded is present, but the build excludes every SNMPv2* module"
     else
       pass "$excluded absent (excluded by construction -- see the note above)"
     fi
   done
 
-  RFCENTRIES="$(grep -c '^RFC' output/standard.txt || true)"
+  RFCENTRIES="$(grep -c '^RFC' "$TREE"/standard.txt || true)"
   [ "$RFCENTRIES" = "0" ] || fail "$RFCENTRIES RFC* entries, which the build excludes"
   [ "$RFCENTRIES" = "0" ] && pass "no RFC* entries"
 
@@ -160,23 +167,23 @@ if [ -f output/standard.txt ]; then
   # holds 186. The floor moves to 150 to sit below that with room for ordinary
   # bundle churn, while still being far above the handful of entries a broken
   # build produces.
-  STDCOUNT="$(grep -c . output/standard.txt || true)"
+  STDCOUNT="$(grep -c . "$TREE"/standard.txt || true)"
   if [ "$STDCOUNT" -ge 150 ]; then
     pass "$STDCOUNT entries, above the floor of 150"
   else
     fail "standard.txt has $STDCOUNT entries, below the floor of 150 -- looks truncated"
   fi
-elif [ -d output ]; then
-  fail "output/standard.txt is missing, but output/ exists -- the build did not complete"
+elif [ -d "$TREE" ]; then
+  fail "${TREE}/standard.txt is missing, but ${TREE}/ exists -- the build did not complete"
 else
-  echo "== output/ absent, skipping the standard.txt checks"
+  echo "== ${TREE}/ absent, skipping the standard.txt checks"
   echo "     run 'mibcorpus --manifest=corpus.json --output-directory=output' first"
 fi
 
-if [ -d output/asn1 ]; then
+if [ -d "$TREE"/asn1 ]; then
   echo "== asn1: published filenames are bare module names"
   PUB="$(mktemp)"
-  find output/asn1 -maxdepth 1 -type f -exec basename {} \; | sort >"$PUB"
+  find "$TREE"/asn1 -maxdepth 1 -type f -exec basename {} \; | sort >"$PUB"
 
   PUBCOUNT="$(grep -c . "$PUB" || true)"
   PUBDOTTED="$(grep -c '\.' "$PUB" || true)"
@@ -192,7 +199,7 @@ if [ -d output/asn1 ]; then
   if [ "$PUBCOUNT" -ge 250 ]; then
     pass "$PUBCOUNT modules published, above the floor of 250"
   else
-    fail "output/asn1 holds $PUBCOUNT modules, below the floor of 250 -- looks truncated"
+    fail "${TREE}/asn1 holds $PUBCOUNT modules, below the floor of 250 -- looks truncated"
   fi
 
   # -------------------------------------------------------------------------
@@ -207,7 +214,7 @@ if [ -d output/asn1 ]; then
   # two of them carrying 30 rows in index-frozen.csv between them. Fixed in
   # pysnmp/mibs#371: scripts/vendorsingle.sh compiled with a recursive find but
   # published with `cp -f $1/*`, which is not recursive, so a nested vendor
-  # directory never reached output/asn1. The exception list this check carried
+  # directory never reached the published asn1/. The exception list it carried
   # is gone with them; the assertion is now absolute.
   echo "== asn1: every source module reaches the published tree"
   MISSING="$(mktemp)"
@@ -217,12 +224,12 @@ if [ -d output/asn1 ]; then
   if [ "$UNPUBLISHED" = "0" ]; then
     pass "every source module is published"
   else
-    fail "$UNPUBLISHED source modules are absent from output/asn1"
+    fail "$UNPUBLISHED source modules are absent from ${TREE}/asn1"
     head -10 "$MISSING" >&2
   fi
   rm -f "$MISSING" "$PUB"
-elif [ -d output ]; then
-  fail "output/asn1 is missing, but output/ exists -- the build did not complete"
+elif [ -d "$TREE" ]; then
+  fail "${TREE}/asn1 is missing, but ${TREE}/ exists -- the build did not complete"
 fi
 
 echo
