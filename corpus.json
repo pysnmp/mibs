@@ -2,7 +2,7 @@
   "version": 1,
   "emit": [
     "asn1", "json", "index", "index-v2", "standard",
-    "entity", "site", "report"
+    "entity", "search-db", "site", "report"
   ],
   "site": {
     "name": "pysnmp MIB distribution",

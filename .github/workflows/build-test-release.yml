@@ -269,6 +269,41 @@ jobs:
           cp -r "${RUNNER_TEMP}/docs-html/." output/
           test -f output/index.html
           test -f output/asn1/IF-MIB
+      # The same reasoning as the two assertions above, for what the site emit
+      # produces: a generator that wrote nothing still leaves a tree, and the
+      # deploy would publish the absence quietly. One page each, named, so the
+      # failure says which half went missing.
+      - name: Published site contract
+        run: |
+          set -eu
+          test -f output/browse/index.html
+          test -f output/mib/IF-MIB/index.html
+          test -f output/entity/index.html
+          test -f output/oid/index.html
+          test -s output/search.db
+          # A module page that carries no definitions is a page that compiled
+          # and said nothing; IF-MIB has ninety.
+          grep -q 'class="defs' output/mib/IF-MIB/index.html
+      # GitHub Pages refuses a published site over 1 GB. Discovering that at
+      # the deploy means the corpus silently stops updating, so the build fails
+      # here instead, with room left to decide what to do about it. Apparent
+      # bytes, which is what Pages counts and what `du --apparent-size`
+      # reports; the runner's block size is not the limit.
+      - name: Published tree fits the Pages budget
+        run: |
+          set -eu
+          # 966 MB. Pages says 1 GB without saying whether it counts 10^9 or
+          # 2^30, so this sits under the smaller reading with room to grow
+          # into rather than a cliff to discover.
+          limit=966000000
+          size="$(du -sb --apparent-size output | cut -f1)"
+          printf 'published tree: %s bytes (%.1f MB), limit %s\n' \
+            "$size" "$(echo "$size/1000000" | bc -l)" "$limit"
+          du -sb --apparent-size output/* | sort -rn | head -12
+          if [ "$size" -gt "$limit" ]; then
+            echo "::error::the published tree is over the budget; see pysnmp/mibs#405"
+            exit 1
+          fi
       - name: Carry forward legacy chart index
         if: github.ref == 'refs/heads/main'
         run: |
