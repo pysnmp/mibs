@@ -3,7 +3,7 @@
 
 ``tests/index-contract.sh`` and ``tests/artifact-contract.sh`` check the
 artifacts as files. This checks them as a working MIB source: a real
-``MibBuilder`` with a runtime compiler over ``output/asn1``, resolving varbinds
+``MibBuilder`` with a runtime compiler over the published ``asn1/``, resolving varbinds
 through the same three steps sc4snmp takes.
 
 sc4snmp's poll loop, from ``splunk_connect_for_snmp/snmp/manager.py``:
@@ -31,7 +31,7 @@ defaults to True, so pysmi's own bundled ASN.1 is registered as a priority
 source ahead of anything from ``sources=``. It carries ~300 standard
 modules. Every module in ``DEFAULT_STANDARD_MIBS`` is among them, so
 sc4snmp's startup preload is satisfied whether or not this repository
-publishes anything -- deleting all six from ``output/asn1`` changes nothing
+publishes anything -- deleting all six from the published ``asn1/`` changes nothing
 observable. What ``MIB_SOURCES`` uniquely supplies is vendor MIBs and the
 standard modules the bundle lacks.
 
@@ -61,7 +61,9 @@ import tempfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 os.chdir(ROOT)
 
-TREE = ROOT / "output" / "asn1"
+# One tree per destination now; this checks the one that has always been
+# published, and the build asserts separately that the copies agree.
+TREE = ROOT / os.environ.get("CORPUS_TREE", "output/github-pages") / "asn1"
 FROZEN = ROOT / "index-frozen.csv"
 
 FAILURES = 0
@@ -168,7 +170,7 @@ LAZY_LOADED = [
 #: that preserves nothing and that no consumer can depend on.
 KNOWN_FAILURES: list[tuple[str, str, str]] = []
 
-#: Modules output/asn1 must be able to supply without pysmi's bundle helping.
+#: Modules the published asn1/ must supply without pysmi's bundle helping.
 #: The preloaded six plus the lazy-load targets: everything this file asserts a
 #: resolution for.
 SELF_SUFFICIENT = DEFAULT_STANDARD_MIBS + [m for _, m, _ in LAZY_LOADED]
@@ -184,7 +186,7 @@ def load_index():
 
 
 def check_tree_is_self_sufficient():
-    """Compile from output/asn1 alone, with pysmi's bundle switched off.
+    """Compile from the published asn1/ alone, with pysmi's bundle switched off.
 
     This is the check that pins our artifact rather than pysmi's. With
     ``useBundledMibs=False`` a module the tree lacks reports ``missing``
@@ -199,7 +201,7 @@ def check_tree_is_self_sufficient():
     from pysmi.reader import getReadersFromUrls  # type: ignore
     from pysmi.writer import PyFileWriter  # type: ignore
 
-    print("== output/asn1 supplies these, with pysmi's bundle disabled")
+    print(f"== {TREE} supplies these, with pysmi's bundle disabled")
 
     compiler = MibCompiler(
         SmiV1CompatParser(),
@@ -218,7 +220,7 @@ def check_tree_is_self_sufficient():
         if status in ("compiled", "untouched", "unprocessed"):
             ok(f"{module} ({status})")
         else:
-            fail(f"{module} is '{status}' from output/asn1 alone")
+            fail(f"{module} is '{status}' from {TREE} alone")
 
     unsatisfied = {
         name: status
@@ -235,12 +237,9 @@ def check_tree_is_self_sufficient():
 def main():
     if not TREE.is_dir():
         if (ROOT / "output").is_dir():
-            fail(
-                "output/asn1 is missing, but output/ exists -- "
-                "the build did not complete"
-            )
+            fail(f"{TREE} is missing, but output/ exists -- the build did not complete")
             return 1
-        print("== output/asn1 absent, skipping the runtime-compile checks")
+        print(f"== {TREE} absent, skipping the runtime-compile checks")
         print(
             "     run 'mibcorpus --manifest=corpus.json --output-directory=output' first"
         )

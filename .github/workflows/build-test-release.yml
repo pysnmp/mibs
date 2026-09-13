@@ -102,6 +102,12 @@ jobs:
         # drift on the publisher's bytes rather than on the verdict.
         run: uv run python tests/test_mib_sources.py
       - run: uv run python scripts/update_vendor_mibs.py --validate
+      - name: Check the registry snapshots against the committed index
+        # Offline: the committed arc list against index-frozen.csv, and
+        # the committed PEN snapshot against that arc list. Catches a
+        # snapshot nobody re-reduced after the corpus gained an arc,
+        # without waiting for the five-minute corpus build to say so.
+        run: uv run python scripts/update_registries.py --validate
 
   chart:
     name: Chart contract
@@ -158,6 +164,14 @@ jobs:
       # thing here two runs can race over, and it is deployed from here.
       group: ${{ github.ref == 'refs/heads/main' && 'gh-pages' || format('ci-{0}', github.ref) }}
       cancel-in-progress: false
+    # Whether the depot can be published at all, derived from the credentials
+    # rather than from a separate switch to set. A secret cannot be read in a
+    # step's `if`, but it can be reduced to a boolean here and that can.
+    env:
+      HAS_CLOUDFLARE: ${{ secrets.CLOUDFLARE_API_TOKEN != ''
+        && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+      HAS_R2_KEYS: ${{ secrets.R2_ACCESS_KEY_ID != ''
+        && secrets.R2_SECRET_ACCESS_KEY != '' }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -169,17 +183,29 @@ jobs:
           python-version: "3.14"
           enable-cache: true
       - run: uv sync --frozen
-      # One driver invocation. The compact corpus is a second one, in a job of
-      # its own; both come from the same source set and differ only in whether
-      # the standard namespace is published. See corpus.json and
-      # corpus-compact.json.
+      # One driver invocation, three published trees. corpus.json declares a
+      # publication per destination -- github-pages, depot-site, depot-data --
+      # and the plan shares one parse of the corpus rather than paying for
+      # 5510 modules three times. The compact corpus is a second invocation,
+      # in a job of its own; both come from the same source set and differ
+      # only in whether the standard namespace is published. See corpus.json
+      # and corpus-compact.json.
       - name: Build the published corpus
+        # The registries are read from the checkout, never fetched: a build
+        # with the network unplugged has to produce the same corpus as one
+        # without, and the enterprise registry changes daily. Kept in step
+        # with the Makefile's own corpus target. See docs/registries.md.
         run: |
           uv run mibcorpus \
             --manifest=corpus.json \
             --output-directory=output \
-            --frozen-index=index-frozen.csv
-          touch output/.nojekyll
+            --frozen-index=index-frozen.csv \
+            --oid-registry=registries/smi-numbers.xml \
+            --oid-registry=registries/pen-snapshot.csv
+          # GitHub Pages serves output/github-pages and would otherwise hide
+          # every path beginning with an underscore, which is where furo puts
+          # its stylesheets. Neither depot tree goes through Jekyll.
+          touch output/github-pages/.nojekyll
       # Runs after the build so it checks the produced index.csv and
       # index-v2.csv as well as the checked-in frozen snapshot. Gates before
       # the image build, which is the expensive part.
@@ -196,8 +222,16 @@ jobs:
           uv sync --frozen --only-group consumer
           uv run --no-sync python ./tests/runtime-compile-contract.py
           uv sync --frozen
+      # One report per tree, because each is its own publication and carries
+      # its own counts. All three are printed: a tree that emitted nothing
+      # still leaves a report, and printing only one would hide it.
       - name: Corpus build report
-        run: cat output/report.json
+        run: |
+          set -eu
+          for tree in github-pages depot-site depot-data; do
+            echo "== $tree"
+            cat "output/$tree/report.json"
+          done
       # One archive per format, for anyone who wants the corpus without
       # fetching 5510 files over HTTP or pulling an image -- an air-gapped
       # install, or a build that vendors it. Named after the tree they hold so
@@ -216,9 +250,12 @@ jobs:
           mkdir -p dist
           # -X drops the extra-attributes fields whose contents vary between
           # runs, so an unchanged tree archives to unchanged bytes.
-          (cd output && zip -qrX ../dist/mibs-asn1.zip asn1)
-          (cd output && zip -qrX ../dist/mibs-json.zip json)
-          (cd output && zip -qrX ../dist/mibs-index.zip \
+          # From the github-pages tree; the depot-data tree holds the same
+          # bytes and the step below asserts it, so which one is archived is
+          # not a choice anything downstream can observe.
+          (cd output/github-pages && zip -qrX ../../dist/mibs-asn1.zip asn1)
+          (cd output/github-pages && zip -qrX ../../dist/mibs-json.zip json)
+          (cd output/github-pages && zip -qrX ../../dist/mibs-index.zip \
             index.csv index-v2.csv standard.txt)
           ls -l dist
       # The release runs in a container of its own now, so the archives have to
@@ -234,7 +271,7 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           name: corpus-report
-          path: output/report.json
+          path: output/github-pages/report.json
       # The documentation for what this repository publishes, deployed onto the
       # same tree as the thing it documents so the two cannot drift apart by a
       # release. It lands at the root, which until now answered 404: every
@@ -252,24 +289,229 @@ jobs:
           uv run --directory docs --locked --group dev --python 3.14
           sphinx-build -n -W --keep-going -b html
           -d "${RUNNER_TEMP}/doctrees" . "${RUNNER_TEMP}/docs-html"
-      - name: Place the documentation at the site root
+      # Onto both browsable trees. The GitHub Pages site keeps the docs it has
+      # always carried, and the depot site is a site in its own right, so each
+      # gets a copy rather than one linking across to the other.
+      #
+      # depot-data gets none: it is downloads addressed by exact path, with no
+      # page to land on.
+      - name: Place the documentation at both site roots
         run: |
-          cp -r "${RUNNER_TEMP}/docs-html/." output/
-          test -f output/index.html
-          test -f output/asn1/IF-MIB
+          set -eu
+          for tree in github-pages depot-site; do
+            cp -r "${RUNNER_TEMP}/docs-html/." "output/$tree/"
+            test -f "output/$tree/index.html"
+          done
+          test -f output/github-pages/asn1/IF-MIB
+      # The same reasoning as the assertion above, for what the site emit
+      # produces: a generator that wrote nothing still leaves a tree, and the
+      # deploy would publish the absence quietly. One page each, named, so the
+      # failure says which half went missing.
+      - name: Published site contract
+        run: |
+          set -eu
+          test -f output/depot-site/browse/index.html
+          test -f output/depot-site/mib/IF-MIB/index.html
+          test -f output/depot-site/entity/index.html
+          test -f output/depot-site/oid/index.html
+          test -s output/depot-data/search.db
+          # A module page that carries no definitions is a page that compiled
+          # and said nothing; IF-MIB has ninety.
+          grep -q 'class="defs' output/depot-site/mib/IF-MIB/index.html
+      # github-pages and depot-data publish the same artifacts to two hosts.
+      # Nothing in the driver makes them agree -- they are separate
+      # publications over a shared parse -- so a divergence would be two
+      # distributions quietly disagreeing about what a module is. Compared by
+      # content, not by listing: a truncated file has the same name.
+      - name: The two data trees agree
+        run: |
+          set -eu
+          # Named rather than compared whole. github-pages also carries the
+          # documentation, the chart index and .nojekyll, none of which the
+          # depot serves, and each tree's report.json is its own by design --
+          # a report is an emitted artifact and says which set it came from.
+          # These five are what both publish.
+          for artifact in asn1 json index.csv index-v2.csv standard.txt; do
+            diff -r --brief \
+              "output/github-pages/$artifact" "output/depot-data/$artifact"
+            echo "  ok $artifact"
+          done
+      # Every destination has a ceiling, and discovering one at the deploy
+      # means the corpus silently stops updating. Each is checked here
+      # instead, with room left to decide what to do about it.
+      #
+      # Apparent bytes throughout, which is what a host counts and what
+      # `du --apparent-size` reports; the runner's block size is not the limit.
+      - name: Each tree fits its host
+        run: |
+          set -eu
+          report() {
+            printf '%-13s %10s files %14s bytes (%.1f MB)\n' \
+              "$1" "$2" "$3" "$(echo "$3/1000000" | bc -l)"
+          }
+          over=0
+          for tree in github-pages depot-site depot-data; do
+            files="$(find "output/$tree" -type f | wc -l)"
+            size="$(du -sb --apparent-size "output/$tree" | cut -f1)"
+            report "$tree" "$files" "$size"
+            eval "files_$(echo "$tree" | tr - _)=$files"
+            eval "size_$(echo "$tree" | tr - _)=$size"
+          done
+          # Before the checks, so a tree that busts its ceiling says what is
+          # in it rather than only that it is too big.
+          du -sb --apparent-size output/*/* | sort -rn | head -15
+
+          # GitHub Pages refuses a published site over 1 GB, without saying
+          # whether it counts 10^9 or 2^30. 966 MB sits under the smaller
+          # reading with room to grow into rather than a cliff to discover.
+          if [ "$size_github_pages" -gt 966000000 ]; then
+            echo "::error::github-pages is over GitHub's 1 GB; see pysnmp/mibs#405"
+            over=1
+          fi
+
+          # Cloudflare Pages on the free plan serves at most 20,000 files per
+          # site and 25 MiB per file. There is no documented total size. The
+          # file count is the one that moves: a new module is a module page,
+          # and enough of them reach the ceiling long before the bytes do.
+          if [ "$files_depot_site" -gt 19000 ]; then
+            echo "::error::depot-site is near Cloudflare Pages' 20,000-file limit"
+            over=1
+          fi
+          big="$(find output/depot-site -type f -size +26214400c | head -5)"
+          if [ -n "$big" ]; then
+            echo "::error::files over Cloudflare Pages' 25 MiB limit:"
+            echo "$big"
+            over=1
+          fi
+
+          # R2 includes 10 GB-month on the free plan and caps neither the
+          # object count nor the object size that matters here. 9 GB leaves
+          # the margin the others have.
+          if [ "$size_depot_data" -gt 9000000000 ]; then
+            echo "::error::depot-data is over the 10 GB R2 free tier"
+            over=1
+          fi
+
+          [ "$over" -eq 0 ] || exit 1
       - name: Carry forward legacy chart index
         if: github.ref == 'refs/heads/main'
         run: |
-          mkdir -p output/charts
-          cp charts/index.yaml output/charts/index.yaml
-          grep -q 'releases/download' output/charts/index.yaml
+          mkdir -p output/github-pages/charts
+          cp charts/index.yaml output/github-pages/charts/index.yaml
+          grep -q 'releases/download' output/github-pages/charts/index.yaml
       - name: Deploy - GH-PAGES
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
+          publish_dir: ./output/github-pages
           force_orphan: true
+      # A deploy that is skipped because its configuration is half there
+      # looks exactly like a deploy that is skipped because it was never set
+      # up: the job goes green and the depot quietly stops updating. That is
+      # the same failure the contracts above exist to prevent, so the
+      # configuration is checked rather than trusted.
+      #
+      # The distinction that actually catches it: a bucket name is not a
+      # secret and is read from `vars`, while the four credentials are read
+      # from `secrets`. Putting the bucket name in the wrong one leaves the
+      # variable empty, the step skipped and nothing said. Here it fails.
+      - name: The depot deploy is configured or it is not
+        if: github.ref == 'refs/heads/main'
+        env:
+          BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+        run: |
+          set -eu
+          printf 'site  (Workers static assets): %s\n' "$HAS_CLOUDFLARE"
+          printf 'data  (R2 keys): %s, bucket variable: %s\n' \
+            "$HAS_R2_KEYS" "${BUCKET:-<unset>}"
+          if [ "$HAS_R2_KEYS" = "true" ] && [ -z "$BUCKET" ]; then
+            echo "::error::R2 credentials are set but the CLOUDFLARE_R2_BUCKET"\
+                 "*variable* is empty -- a bucket name is not a secret, and a"\
+                 "secret of that name is not read here. See docs/corpora.md."
+            exit 1
+          fi
+          if [ -n "$BUCKET" ] && [ "$HAS_R2_KEYS" != "true" ]; then
+            echo "::error::CLOUDFLARE_R2_BUCKET names a bucket but"\
+                 "R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY are not both set."
+            exit 1
+          fi
+          if [ "$HAS_CLOUDFLARE" != "true" ] && [ -z "$BUCKET" ]; then
+            echo "::notice::the depot is not wired up on this repository;"\
+                 "all three trees were still built and checked."
+          fi
+      # mibsdepot.com, in two halves, because the two have different problems.
+      #
+      # The pages go to Workers static assets, which resolve a directory URL
+      # to that directory's index.html -- every link the generator writes is
+      # one, ../../mib/IF-MIB/ -- and which run no script to do it. That is
+      # the distinction that matters on a free plan: Cloudflare meters
+      # requests to a Worker script, not to its assets, so the site is not
+      # rate-limited, while a script in front of R2 rewriting the same paths
+      # would be, at 100,000 requests a day with cache hits counted. What it
+      # costs instead is a file count, 20,000 per version, and the pages are
+      # 7,430. See wrangler.jsonc.
+      #
+      # The downloads go to R2, addressed by exact key: nothing to resolve, no
+      # file-count ceiling, 10 GB included and no egress charge. asn1/ and
+      # json/ are 11,025 files between them, which is most of a static-asset
+      # budget spent on files that never needed one.
+      #
+      # Gated on the credentials being present as well as on main, so a fork
+      # -- and this repository until the Cloudflare side is wired up -- builds
+      # and checks all three trees and skips only the publish. There is no
+      # separate switch to set: holding the token is the decision to publish,
+      # and the Worker's name lives in wrangler.jsonc where it can be read.
+      # The step above refuses a half-configured account. See docs/corpora.md.
+      - name: Deploy - mibsdepot.com site
+        if: >-
+          github.ref == 'refs/heads/main'
+          && env.HAS_CLOUDFLARE == 'true'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+      - name: Deploy - mibsdepot.com data
+        if: >-
+          github.ref == 'refs/heads/main'
+          && env.HAS_R2_KEYS == 'true'
+          && vars.CLOUDFLARE_R2_BUCKET != ''
+        env:
+          # rclone reads its remote out of the environment, so no config file
+          # holding credentials is ever written to the runner's disk.
+          RCLONE_CONFIG_R2_TYPE: s3
+          RCLONE_CONFIG_R2_PROVIDER: Cloudflare
+          RCLONE_CONFIG_R2_ENV_AUTH: "false"
+          RCLONE_CONFIG_R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          RCLONE_CONFIG_R2_ENDPOINT: https://${{ secrets.CLOUDFLARE_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          RCLONE_CONFIG_R2_NO_CHECK_BUCKET: "true"
+          BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+        run: |
+          set -eu
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq rclone
+          # --checksum, not the default size-and-modification-time: the
+          # runner checks out fresh every run, so every local file looks newer
+          # than the object it matches and a time-based sync would re-upload
+          # 11,000 unchanged files each release. MD5 is what R2 stores.
+          #
+          # sync, not copy: a module dropped from the corpus has to stop being
+          # served, and the index no longer names it.
+          common="--checksum --transfers=32 --checkers=32 --stats-one-line"
+          # asn1/ holds extensionless files -- asn1/IF-MIB, because pysnmp
+          # substitutes a bare module name into the @mib@ source URL -- and
+          # rclone types a file it cannot name as a stream of bytes, which
+          # makes a browser download a MIB rather than show it. Uploaded in a
+          # pass of its own so the type can be stated.
+          # shellcheck disable=SC2086
+          rclone sync output/depot-data/asn1 "R2:${BUCKET}/asn1" $common \
+            --header-upload "Content-Type: text/plain; charset=utf-8"
+          # shellcheck disable=SC2086
+          rclone sync output/depot-data "R2:${BUCKET}" $common \
+            --exclude "/asn1/**"
+          rclone size "R2:${BUCKET}"
       #Build docker images
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
@@ -283,15 +525,15 @@ jobs:
       # render.
       - name: Set up Helm
         uses: azure/setup-helm@v5
-      # Extracted rather than served from output/ directly: the image states
-      # its own file modes, and those are what a pod mounts. A corpus that
-      # serves fine on the runner and 403s from the image is exactly the
+      # Extracted rather than served from the built tree directly: the image
+      # states its own file modes, and those are what a pod mounts. A corpus
+      # that serves fine on the runner and 403s from the image is exactly the
       # failure this catches.
       - name: Extract the corpus image
         run: |
           mkdir -m 0755 -p /tmp/corpus-image
           docker buildx build -f docker/corpus.Dockerfile \
-            --build-arg CORPUS=output \
+            --build-arg CORPUS=output/github-pages \
             -o type=local,dest=/tmp/corpus-image .
       - name: Serving contract
         run: ./tests/serving-contract.sh /tmp/corpus-image
@@ -342,7 +584,7 @@ jobs:
           context: .
           file: docker/corpus.Dockerfile
           build-args: |
-            CORPUS=output
+            CORPUS=output/github-pages
           push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta.outputs.tags }}

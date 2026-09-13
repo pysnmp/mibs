@@ -9,17 +9,33 @@ MIBCORPUS ?= $(PY) mibcorpus
 CORPUS_ID ?= pysnmp/mibs
 CORPUS_VERSION ?= $(shell sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)
 
+# The IANA registries the arc names come from, committed rather than fetched:
+# a build with the network unplugged has to produce the same corpus as one
+# without, and the enterprise registry changes daily. See
+# scripts/update_registries.py and docs/registries.md.
+OID_REGISTRIES ?= --oid-registry=registries/smi-numbers.xml \
+	  --oid-registry=registries/pen-snapshot.csv
+
 .PHONY: corpus corpus-compact corpus-db render help
 
-corpus:  ## Build the published corpus into output/
+corpus:  ## Build the three published trees into output/
 	@# --frozen-index is the reason this target exists rather than a
 	@# documented command line: a build that forgets it silently produces an
 	@# index.csv that disagrees with the published one, which is the exact
 	@# failure index-frozen.csv is kept to prevent.
+	@#
+	@# One invocation, three trees. corpus.json declares a publication per
+	@# destination -- github-pages, depot-site, depot-data -- and the plan
+	@# shares one parse of the corpus rather than paying for 5510 modules
+	@# three times. See docs/corpora.md.
 	$(MIBCORPUS) --manifest=corpus.json \
 	  --output-directory=output \
-	  --frozen-index=index-frozen.csv
-	touch output/.nojekyll
+	  --frozen-index=index-frozen.csv \
+	  $(OID_REGISTRIES)
+	@# GitHub Pages serves output/github-pages, and would otherwise hide
+	@# every path beginning with an underscore -- which is where furo puts
+	@# its stylesheets. Neither depot tree goes through Jekyll.
+	touch output/github-pages/.nojekyll
 
 corpus-compact:  ## Build the compact corpus into output-compact/
 	$(MIBCORPUS) --manifest=corpus-compact.json \

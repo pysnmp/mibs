@@ -1,0 +1,42 @@
+// The depot site, mibsdepot.com. Static assets only: there is no Worker
+// script here and there is not meant to be one.
+//
+// That distinction is the whole reason the site is served this way rather
+// than out of the R2 bucket beside it. Every link the generator writes is a
+// directory URL -- ../../mib/IF-MIB/ -- and object storage serves the key it
+// is given, so /mib/IF-MIB/ is a 404 unless something on the serving path
+// resolves it to that directory's index.html. Static assets resolve it
+// natively, and a request they answer runs no script: Cloudflare bills and
+// meters requests to a Worker script, not to its assets. A script in front
+// of R2 doing the same rewriting would be metered, at 100,000 requests a day
+// on the free plan with cache hits counted.
+//
+// What it costs instead is a file count: 20,000 per version on the free
+// plan, 25 MiB each. The pages are 7,430 of them. The 11,025 files beside
+// them -- asn1/, json/, search.db -- are addressed by exact name, need no
+// resolving, and go to R2 where the count is not capped. CI holds each tree
+// to its own ceiling; see .github/workflows/build-test-release.yml.
+{
+  // The default for a local `wrangler deploy`. CI passes --name from the
+  // CLOUDFLARE_WORKER_NAME repository variable, which is also the switch
+  // that turns the deploy on at all, so a fork publishes under its own name
+  // or not at all.
+  "name": "mibsdepot",
+  "compatibility_date": "2026-09-13",
+  "assets": {
+    // Written by `make corpus`, which is one mibcorpus invocation writing
+    // three trees. This is the browsable one.
+    "directory": "./output/depot-site",
+    // The default, stated rather than inherited because the site depends on
+    // it: an asset at mib/IF-MIB/index.html is served at /mib/IF-MIB/ with a
+    // 200, which is the form every generated link uses. The documentation
+    // pages, which are individual .html files, are served at their
+    // extension-less paths and redirect once from the .html ones -- the same
+    // as this tree's other host does.
+    "html_handling": "auto-trailing-slash",
+    // The corpus emits no 404 page, so there is none to name. A path that
+    // matches nothing gets a plain 404 rather than a page pretending the
+    // site is a single-page application.
+    "not_found_handling": "none"
+  }
+}

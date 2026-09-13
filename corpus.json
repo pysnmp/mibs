@@ -1,6 +1,31 @@
 {
   "version": 1,
-  "emit": ["asn1", "json", "index", "index-v2", "standard", "report"],
+  "publications": [
+    {
+      "name": "github-pages",
+      "emit": ["asn1", "json", "index", "index-v2", "standard", "report"],
+      "output": "github-pages"
+    },
+    {
+      "name": "depot-site",
+      "emit": ["site", "entity", "report"],
+      "output": "depot-site"
+    },
+    {
+      "name": "depot-data",
+      "emit": [
+        "asn1", "json", "index", "index-v2", "standard",
+        "search-db", "report"
+      ],
+      "output": "depot-data"
+    }
+  ],
+  "site": {
+    "name": "MIBs Depot",
+    "template": "theme/page.html",
+    "stylesheet": "theme/style.css",
+    "page-size": { "browse": 500, "entity": 200 }
+  },
   "expect": {
     "modules": { "min": 5000 },
     "failures": { "max": 25 },

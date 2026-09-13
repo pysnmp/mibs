@@ -15,11 +15,11 @@
 #                     answers they already have. Deliberately frozen by #352;
 #                     several of its answers are wrong and stay wrong on
 #                     purpose. See "known-wrong" below.
-#   output/index-v2.csv  the ranked index, where collisions are resolved by
+#   index-v2.csv         the ranked index, where collisions are resolved by
 #                     rule. This is where corrections land.
 #
 # Runs without Docker and without a build. Checks that need built output are
-# skipped when output/ is absent, so a contributor can run this on a clean
+# skipped when the tree is absent, so a contributor can run this on a clean
 # checkout.
 #
 # See pysnmp/mibs#362.
@@ -27,6 +27,12 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+
+# Which published tree to check. corpus.json writes one tree per destination
+# and these artifacts are the same in each, so this checks one and the build
+# asserts separately that the copies agree. github-pages is the tree that has
+# always been published, so it is the default. See docs/corpora.md.
+TREE="${CORPUS_TREE:-output/github-pages}"
 
 FROZEN="index-frozen.csv"
 FAILURES=0
@@ -182,22 +188,22 @@ else
   echo "  skip pysmi bundle not importable; cannot tell rot from bundled modules"
 fi
 
-if [ -d output ]; then
-  # The workflow creates output/asn1 during the corpus build, so output/ existing
-  # says nothing about whether the index was built. Skipping on a missing
+if [ -d "$TREE" ]; then
+  # The workflow creates the tree's asn1/ during the corpus build, so the
+  # tree existing says nothing about whether the index was built. Skipping on a missing
   # index.csv would let an incomplete generation pass this script silently,
-  # which is the one thing a contract test must not do. Once output/ exists,
+  # which is the one thing a contract test must not do. Once it exists,
   # both files are required.
   echo "== built output: both index files are present"
-  for artifact in output/index.csv output/index-v2.csv; do
+  for artifact in "$TREE"/index.csv "$TREE"/index-v2.csv; do
     if [ -f "$artifact" ]; then
       pass "$artifact exists"
     else
-      fail "$artifact is missing, but output/ exists -- the index build did not complete"
+      fail "$artifact is missing, but ${TREE}/ exists -- the index build did not complete"
     fi
   done
 
-  if [ -f output/index.csv ]; then
+  if [ -f "$TREE"/index.csv ]; then
     echo "== built output: index.csv keeps every answer it can still serve"
     # index.csv is a compatibility index, not a literal freeze. It may drop a
     # row whose module is gone, and may add an OID the snapshot never carried.
@@ -210,7 +216,7 @@ if [ -d output ]; then
         printf "  %s: %s -> %s\n", $2, was[$2], $1; c++
       }
       END { exit (c > 0) }
-    ' <(ls output/json) snapshot="$FROZEN" "$FROZEN" output/index.csv)" \
+    ' <(ls "$TREE"/json) snapshot="$FROZEN" "$FROZEN" "$TREE"/index.csv)" \
       && pass "index.csv changes no answer whose module is still carried" \
       || fail "index.csv reassigns OIDs away from modules it still serves:"$'\n'"$CHANGED"
 
@@ -222,7 +228,7 @@ if [ -d output ]; then
     # snapshot is what puts them right for every reader of index.csv, not only
     # for the readers who move to index-v2.csv.
     check_v1() {
-      got="$(awk -F, -v k="$1" '$2 == k {print $1}' output/index.csv)"
+      got="$(awk -F, -v k="$1" '$2 == k {print $1}' "$TREE"/index.csv)"
       if [ "$got" = "$2" ]; then
         pass "index.csv resolves $1 -> $2${3:+  ($3)}"
       else
@@ -246,9 +252,9 @@ if [ -d output ]; then
     check_v1 1.3.6.1.2.1.7  UDP-MIB      "udp -- IPV6-UDP-MIB is no longer carried"
   fi
 
-  if [ -f output/index-v2.csv ]; then
+  if [ -f "$TREE"/index-v2.csv ]; then
     echo "== built output: index-v2.csv carries the corrections"
-    V2="$(awk -F, '$2 == "1.3.6.1.6.3.1" {print $1}' output/index-v2.csv)"
+    V2="$(awk -F, '$2 == "1.3.6.1.6.3.1" {print $1}' "$TREE"/index-v2.csv)"
     [ "$V2" = "SNMPv2-MIB" ] \
       || fail "index-v2.csv resolves 1.3.6.1.6.3.1 to '${V2:-<absent>}', expected SNMPv2-MIB"
     [ "$V2" = "SNMPv2-MIB" ] && pass "index-v2.csv fixes 1.3.6.1.6.3.1 -> SNMPv2-MIB"
@@ -264,7 +270,7 @@ if [ -d output ]; then
     # at and egp are the two RFC 2578 did not carry forward, so SNMPv2-SMI does
     # not define them and RFC1213-MIB is the right answer there, not SNMPv2-SMI.
     check_v2() {
-      got="$(awk -F, -v k="$1" '$2 == k {print $1}' output/index-v2.csv)"
+      got="$(awk -F, -v k="$1" '$2 == k {print $1}' "$TREE"/index-v2.csv)"
       if [ "$got" = "$2" ]; then
         pass "index-v2.csv resolves $1 -> $2${3:+  ($3)}"
       else
@@ -285,7 +291,7 @@ if [ -d output ]; then
     check_v2 1.3.6.1.2.1.8  RFC1213-MIB  "egp -- SMIv2 dropped it"
   fi
 else
-  echo "== output/ absent, skipping the built-index checks"
+  echo "== ${TREE}/ absent, skipping the built-index checks"
   echo "     run 'mibcorpus --manifest=corpus.json --output-directory=output' first"
 fi
 

@@ -6,9 +6,9 @@
 # Kubernetes 1.33 serves an OCI image as a read-only volume, so a pod gets the
 # corpus without this repository owning the image that serves it.
 #
-# Built from output/ or output-compact/ by naming the directory:
+# Built from a published tree or output-compact/ by naming the directory:
 #
-#   docker build -f docker/corpus.Dockerfile --build-arg CORPUS=output .
+#   docker build -f docker/corpus.Dockerfile --build-arg CORPUS=output/github-pages .
 #   docker build -f docker/corpus.Dockerfile --build-arg CORPUS=output-compact .
 #
 # There is deliberately no compile step here. Whatever CORPUS names was built
@@ -16,7 +16,7 @@
 # this file does -- so the image cannot disagree with what CI tested.
 FROM scratch
 
-ARG CORPUS=output
+ARG CORPUS=output/github-pages
 
 # --chmod, because the image states what its contents are readable as rather
 # than inheriting it from whatever built the tree. It is mounted into a pod and
