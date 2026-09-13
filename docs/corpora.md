@@ -56,23 +56,42 @@ today; the depot is an addition, not a move.
 ### What the depot deploy needs
 
 The GitHub Pages half deploys from the repository's own token and needs no
-configuration. The depot half is switched on by two repository *variables*,
-each of which turns on one step:
+configuration. The depot half reads five settings, all of them **repository**
+secrets and variables under Settings → Secrets and variables → **Actions** —
+not environment ones, because the job that publishes is the same job that
+builds and checks, and an environment's protection rules would gate the
+contracts too.
 
-| variable | what it names |
+Four are *secrets*:
+
+| secret | |
 |---|---|
-| `CLOUDFLARE_WORKER_NAME` | the Worker `depot-site` is uploaded to as static assets, configured in `wrangler.jsonc` |
-| `CLOUDFLARE_R2_BUCKET` | the R2 bucket `depot-data` is synced to |
+| `CLOUDFLARE_API_TOKEN` | account token, permissions below |
+| `CLOUDFLARE_ACCOUNT_ID` | the account the Worker and bucket live in |
+| `R2_ACCESS_KEY_ID` | an R2 API token's two halves, for the |
+| `R2_SECRET_ACCESS_KEY` | S3-compatible endpoint — not part of the first token |
 
-and four *secrets* they need to work: `CLOUDFLARE_API_TOKEN` (**Edit Cloudflare
-Workers**), `CLOUDFLARE_ACCOUNT_ID`, and `R2_ACCESS_KEY_ID` with
-`R2_SECRET_ACCESS_KEY` for the S3-compatible endpoint, which are an R2 API
-token's two halves rather than parts of the first one.
+and one is a *variable*, `CLOUDFLARE_R2_BUCKET`, because a bucket name is not
+a secret. Getting that last distinction wrong is the one mistake this
+arrangement can make quietly, so the build refuses it: R2 credentials present
+with the variable empty fails the job and says why.
+
+There is no separate switch to set. Holding the token is the decision to
+publish, and the Worker's name is in `wrangler.jsonc` where it can be read.
+
+The API token needs **Account → Workers Scripts: Edit** and **Account →
+Account Settings: Read**. The `Edit Cloudflare Workers` template also grants
+Workers KV Storage, Workers R2 Storage and Zone → Workers Routes, none of
+which this deploy uses: the Worker has no bindings, and its hostname is
+attached by hand rather than declared as a route. Create it under Manage
+Account → API Tokens → Create Token; the R2 pair comes from a different place,
+R2 object storage → Account Details → Manage next to API Tokens, at **Object
+Read & Write**.
 
 Each hostname is attached once, by hand, and neither is named in this
 repository: `mibsdepot.com` to the Worker, and `data.mibsdepot.com` to the
-bucket. Nothing here claims a domain it does not own, so a fork that sets the
-variables publishes to its own.
+bucket. Nothing here claims a domain it does not own, so a fork holding its
+own token publishes to its own.
 
 Unset, the deploy steps are skipped and everything before them still runs: a
 fork, and this repository before the Cloudflare side existed, builds all three

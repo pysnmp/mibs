@@ -164,6 +164,14 @@ jobs:
       # thing here two runs can race over, and it is deployed from here.
       group: ${{ github.ref == 'refs/heads/main' && 'gh-pages' || format('ci-{0}', github.ref) }}
       cancel-in-progress: false
+    # Whether the depot can be published at all, derived from the credentials
+    # rather than from a separate switch to set. A secret cannot be read in a
+    # step's `if`, but it can be reduced to a boolean here and that can.
+    env:
+      HAS_CLOUDFLARE: ${{ secrets.CLOUDFLARE_API_TOKEN != ''
+        && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+      HAS_R2_KEYS: ${{ secrets.R2_ACCESS_KEY_ID != ''
+        && secrets.R2_SECRET_ACCESS_KEY != '' }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -398,6 +406,40 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output/github-pages
           force_orphan: true
+      # A deploy that is skipped because its configuration is half there
+      # looks exactly like a deploy that is skipped because it was never set
+      # up: the job goes green and the depot quietly stops updating. That is
+      # the same failure the contracts above exist to prevent, so the
+      # configuration is checked rather than trusted.
+      #
+      # The distinction that actually catches it: a bucket name is not a
+      # secret and is read from `vars`, while the four credentials are read
+      # from `secrets`. Putting the bucket name in the wrong one leaves the
+      # variable empty, the step skipped and nothing said. Here it fails.
+      - name: The depot deploy is configured or it is not
+        if: github.ref == 'refs/heads/main'
+        env:
+          BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+        run: |
+          set -eu
+          printf 'site  (Workers static assets): %s\n' "$HAS_CLOUDFLARE"
+          printf 'data  (R2 keys): %s, bucket variable: %s\n' \
+            "$HAS_R2_KEYS" "${BUCKET:-<unset>}"
+          if [ "$HAS_R2_KEYS" = "true" ] && [ -z "$BUCKET" ]; then
+            echo "::error::R2 credentials are set but the CLOUDFLARE_R2_BUCKET"\
+                 "*variable* is empty -- a bucket name is not a secret, and a"\
+                 "secret of that name is not read here. See docs/corpora.md."
+            exit 1
+          fi
+          if [ -n "$BUCKET" ] && [ "$HAS_R2_KEYS" != "true" ]; then
+            echo "::error::CLOUDFLARE_R2_BUCKET names a bucket but"\
+                 "R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY are not both set."
+            exit 1
+          fi
+          if [ "$HAS_CLOUDFLARE" != "true" ] && [ -z "$BUCKET" ]; then
+            echo "::notice::the depot is not wired up on this repository;"\
+                 "all three trees were still built and checked."
+          fi
       # mibsdepot.com, in two halves, because the two have different problems.
       #
       # The pages go to Workers static assets, which resolve a directory URL
@@ -415,24 +457,25 @@ jobs:
       # json/ are 11,025 files between them, which is most of a static-asset
       # budget spent on files that never needed one.
       #
-      # Gated on the configuration being present as well as on main, so a fork
+      # Gated on the credentials being present as well as on main, so a fork
       # -- and this repository until the Cloudflare side is wired up -- builds
-      # and checks all three trees and skips only the publish. The variables
-      # are the switch; the secrets beside them are what the switch needs, and
-      # a variable set without its secrets fails here rather than silently
-      # publishing nothing. See docs/corpora.md.
+      # and checks all three trees and skips only the publish. There is no
+      # separate switch to set: holding the token is the decision to publish,
+      # and the Worker's name lives in wrangler.jsonc where it can be read.
+      # The step above refuses a half-configured account. See docs/corpora.md.
       - name: Deploy - mibsdepot.com site
         if: >-
           github.ref == 'refs/heads/main'
-          && vars.CLOUDFLARE_WORKER_NAME != ''
+          && env.HAS_CLOUDFLARE == 'true'
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --name=${{ vars.CLOUDFLARE_WORKER_NAME }}
+          command: deploy
       - name: Deploy - mibsdepot.com data
         if: >-
           github.ref == 'refs/heads/main'
+          && env.HAS_R2_KEYS == 'true'
           && vars.CLOUDFLARE_R2_BUCKET != ''
         env:
           # rclone reads its remote out of the environment, so no config file
