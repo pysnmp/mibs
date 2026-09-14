@@ -1,20 +1,21 @@
-# Modules the site used to serve and no longer does
+# Removed modules
+
+This page lists the 194 modules that `index-frozen.csv` names and this
+distribution no longer carries, with the reason each was dropped.
 
 `index-frozen.csv` is a snapshot of what `index.csv` answered before this
-repository began correcting it, and it is deliberately never rewritten: an OID
-that had an answer keeps that answer. That guarantee is about the *rows*, not
-about the modules they name. 194 of the modules named there are now carried
-nowhere — not in `src/`, not in pysmi's bundle — so `asn1/NAME` and
-`json/NAME.json` return 404 for them, and 1,625 index rows point at something
-the site will not serve.
+repository began correcting it, and it is never rewritten: an OID that had an
+answer keeps that answer. That guarantee covers the rows, not the modules they
+name. 194 of the modules named there are carried neither in `src/` nor in
+pysmi's bundle, so `asn1/NAME` and `json/NAME.json` return 404 for them, and
+1,625 index rows name a module this site does not serve.
 
 Nothing fails to compile because of this. No module still in the corpus imports
 any of the 194. What is lost is the site answering for their OIDs, and most of
-these are leaf modules — the class that gets polled directly and imported by
-nothing, so "nothing imports it" is not evidence that nothing wanted it.
+these are leaf modules, which are polled directly and imported by nothing. That
+nothing imports a module is not evidence that nothing used it.
 
-This file is the record of which modules those are and why each one went. It is
-the answer to "the site used to have X".
+This page is the record of which modules those are and why each was dropped.
 
 | | |
 |---|---|
@@ -23,9 +24,9 @@ the answer to "the site used to have X".
 | index rows naming them | **1,625** |
 | surviving modules with a dangling import | **0** |
 
-Three groups, and they need different things.
+The 194 modules fall into three groups, and each needs different work.
 
-## 1. Held back in pysmi — 65 consortium modules
+## 1. Held back in pysmi: 65 consortium modules
 
 These are published by a standards body or industry consortium, not by a vendor
 and not by the IETF. pysmi's manifest carries all of them, but its wheel stages
@@ -42,8 +43,8 @@ update_bundled_mibs.py --promote NAME
 Re-homing them here is the other option, and unlike the RFC group below it is a
 real one: `src/standard/<body>/` is the layout #338 established so that a
 consortium module could be filed under the consortium that publishes it. Each
-of these had a home there — `src/standard/cablelabs/DOCS-QOS3-MIB`,
-`src/standard/iee/IEEE8021-CFM-V2-MIB`, `src/standard/mef/MEF-UNI-EVC-MIB` —
+of these had a home there: `src/standard/cablelabs/DOCS-QOS3-MIB`,
+`src/standard/iee/IEEE8021-CFM-V2-MIB` and `src/standard/mef/MEF-UNI-EVC-MIB`,
 and the deletions are in git.
 
 | publisher | count | modules |
@@ -60,7 +61,7 @@ and the deletions are in git.
 | PROFIBUS | 1 | LLDP-EXT-PNO-MIB |
 | unattributed | 1 | LLDP-EXT-DCBX-MIB |
 
-## 2. Held back in pysmi — 98 RFC modules
+## 2. Held back in pysmi: 98 RFC modules
 
 Same mechanism, different publisher. These are IETF modules, and `src/` is not
 where they would come back to: `src/vendor` holds what a vendor publishes, and
@@ -95,18 +96,18 @@ something untrue about who publishes it. Promotion in pysmi is the route.
 `TN3270E-MIB`, `TN3270E-RT-MIB`, `TOKENRING-MIB`,
 `TOKENRING-STATION-SR-MIB`, `URI-TC-MIB`, `WWW-MIB`
 
-## 3. Deleted here on purpose — 31 modules
+## 3. Deleted here deliberately: 31 modules
 
 These are not an accident of packaging. Each was removed by a decision recorded
 in the PR named beside it, and none of them should come back.
 
 | why | modules |
 |---|---|
-| **Obsolete** — publisher marked every object `STATUS obsolete` (#353) | AC-PM-ATM-MIB, AcAtm, ARUBAWIRED-MCLAG-MIB, CISCO-GPRS-GTP-MIB, CTRON-SSR-L2-MIB, CTRON-SSR-L3-MIB, HP-ENTITY-MIB, Juniper-RADIUS-Disconnect-MIB, VMWARE-VCOPS-EVENT-MIB |
-| **Superseded** — pre-publication draft whose published successor is bundled, often under a different name (#358) | ADSL-DMT-LINE-MIB, DOCS-BPI2-MIB, DOCS-CABLE-DEVICE-TRAP-MIB, DOCS-IF-EXT-MIB, DOCS-SUBMGT-MIB, INT-SERV-GUARANTEED-MIB, ISIS-D13-MIB, MPLS-TC-MIB, MSTP-MIB, RTCPXR-MIB, XGCP-MIB |
-| **Superseded** — multicast drafts, importers repointed to the RFC (#367) | DVMRP-MIB, IGMP-MIB, IPMROUTE-MIB |
-| **Never published** — draft that never became a standard, squatting an assigned `mib-2` arc (#352, #359) | INT-SERV-MIB, SYSLOG-MIB, T11-FC-SP-CERTS-MIB, T11-ZONE-SERVER-MIB |
-| **Withdrawn** — RFC 8096 withdrew the module (pysmi#176) | IPV6-ICMP-MIB, IPV6-TCP-MIB, IPV6-UDP-MIB |
+| **Obsolete.** Publisher marked every object `STATUS obsolete` (#353) | AC-PM-ATM-MIB, AcAtm, ARUBAWIRED-MCLAG-MIB, CISCO-GPRS-GTP-MIB, CTRON-SSR-L2-MIB, CTRON-SSR-L3-MIB, HP-ENTITY-MIB, Juniper-RADIUS-Disconnect-MIB, VMWARE-VCOPS-EVENT-MIB |
+| **Superseded.** Pre-publication draft whose published successor is bundled, often under a different name (#358) | ADSL-DMT-LINE-MIB, DOCS-BPI2-MIB, DOCS-CABLE-DEVICE-TRAP-MIB, DOCS-IF-EXT-MIB, DOCS-SUBMGT-MIB, INT-SERV-GUARANTEED-MIB, ISIS-D13-MIB, MPLS-TC-MIB, MSTP-MIB, RTCPXR-MIB, XGCP-MIB |
+| **Superseded.** Multicast drafts, importers repointed to the RFC (#367) | DVMRP-MIB, IGMP-MIB, IPMROUTE-MIB |
+| **Never published.** Draft that never became a standard, squatting an assigned `mib-2` arc (#352, #359) | INT-SERV-MIB, SYSLOG-MIB, T11-FC-SP-CERTS-MIB, T11-ZONE-SERVER-MIB |
+| **Withdrawn.** RFC 8096 withdrew the module (pysmi#176) | IPV6-ICMP-MIB, IPV6-TCP-MIB, IPV6-UDP-MIB |
 | **Not bundled, no importers** (#375) | COFFEE-POT-MIB |
 
 ## A module can be carried without a file of its own
@@ -115,7 +116,7 @@ in the PR named beside it, and none of them should come back.
 index against what `src/` and the bundle carry. Until this was written it
 compared against *file basenames*, which is not the same question: a file may
 declare more than one module. `src/vendor/extreme/EXTREME-BASE-MIB` declares 30,
-and all 30 compile and serve — `asn1/EXTREME-VLAN-MIB` returns 200 — while the
+and all 30 compile and serve, so `asn1/EXTREME-VLAN-MIB` returns 200, while the
 check counted every one of them as carried nowhere.
 
 That inflated the figure by 30 modules and 112 rows. The check now reads the

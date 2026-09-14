@@ -1,11 +1,13 @@
-# Using the distribution
+# Resolving MIBs
 
-Two things people do with it, and the one wrinkle between them.
+This page covers the two common operations: resolving a name to an OID, and
+translating a received OID back to a name. It ends with how to point pysmi at a
+local directory instead of, or ahead of, the published tree.
 
 ## Resolving a name
 
-The everyday reason to care. `IF-MIB` is not one of the modules pysnmp ships,
-so naming an object in it needs pysmi and a source to read from:
+`IF-MIB` is not among the modules pysnmp ships, so naming an object in it
+requires pysmi and a source to read from:
 
 ```python
 from pysnmp.smi import builder, compiler, rfc1902, view
@@ -26,18 +28,20 @@ print(identity.getOid())
 1.3.6.1.2.1.2.2.1.10.1
 ```
 
-The `@mib@` in the source is a placeholder pysmi substitutes with the module
-name it wants; it is not a URL you would open. The first resolution compiles
-`IF-MIB`; later ones read the compiled copy. Hand the same `ObjectIdentity` to
-`getCmd` or `nextCmd` and you are polling by name.
+`@mib@` is a placeholder that pysmi substitutes with the module name it
+needs. It is not a URL you open in a browser.
+
+The first resolution compiles `IF-MIB`. Later ones read the compiled copy. Pass
+the same `ObjectIdentity` to `getCmd` or `nextCmd` to poll by name.
 
 ## Translating a trap
 
-A notification arrives as bare numbers. Turning it into something a human or a
-log pipeline can read is the same machinery in reverse, with one wrinkle worth
-knowing: **an OID carries no hint of which module defines it**, so the modules
-you care about have to be loaded before the lookup can succeed. Resolving
-against an empty builder raises `SmiError: ... (MIB not loaded?)`.
+A notification arrives as bare numbers. Translating it uses the same machinery
+in reverse, with one requirement.
+
+An OID carries no indication of which module defines it. Load the modules the
+receiver expects before the lookup. Resolving against an empty builder raises
+`SmiError: ... (MIB not loaded?)`.
 
 ```python
 from pysnmp.smi import builder, compiler, rfc1902, view
@@ -70,19 +74,20 @@ IF-MIB::ifIndex.1 = 1
 IF-MIB::ifOperStatus.1 = down
 ```
 
-Note the last line. `2` became `down` because the textual convention in
-`IF-MIB` says so — this distribution gives you the enumeration labels, not just
-the names.
+In the last line, `2` is rendered as `down` by the textual convention in
+`IF-MIB`. The distribution carries the enumeration labels, not only the object
+names.
 
 Where a receiver cannot know in advance which modules a trap will name,
-[`core.db`](corpora.md#the-corpus-database) answers the other way round: one
-indexed query per arc, from an OID to the module, the name, the syntax and the
+[`core.db`](corpora.md#the-corpus-database) resolves in the other direction:
+one indexed query per arc returns the module, the name, the syntax and the
 access level, with no compile on the trap path.
 
 ## Pointing pysmi somewhere else
 
-The source is a list, and the first hit wins, so a local directory in front of
-the published tree is how you override a module or work offline:
+The source list is ordered and the first hit wins. Put a local directory ahead
+of the published tree to override a module or to compile without network
+access:
 
 ```python
 compiler.addMibCompiler(
@@ -94,14 +99,14 @@ compiler.addMibCompiler(
 )
 ```
 
-The same list is what `mibdump` takes on the command line. Most vendor MIBs are
-not public, so this is the normal arrangement rather than the exception.
+`mibdump` takes the same list on the command line. Most vendor MIBs are not
+published, so a local directory ahead of the tree is the usual arrangement.
 
 An unpacked `mibs-asn1.zip` or a mounted `corpus-compact` image is a local
-directory like any other — see [channels](channels.md).
+directory like any other. See [getting the MIBs](channels.md).
 
 ```{warning}
-A MIB module compiled by pysmi becomes Python that pysnmp imports. Treat an
-ASN.1 MIB source the way you would treat any other code you are about to run,
-and compile from somewhere you trust.
+A MIB module compiled by pysmi becomes Python that pysnmp executes. Treat an
+ASN.1 MIB source as code you are about to run, and compile only from a source
+you trust.
 ```

@@ -1,8 +1,8 @@
 /*
  * The generated site, wearing the documentation's clothes.
  *
- * The Sphinx pages and these sit on one gh-pages tree, so a reader moving
- * from /using.html to /mib/IF-MIB/ should not notice a boundary. Every colour
+ * The Sphinx pages are copied into this tree beside the generated ones, so a
+ * reader moving from /using.html to /mib/IF-MIB/ should not notice a boundary. Every colour
  * and font below is furo's own, copied from the theme's variables rather than
  * approximated -- see docs/conf.py, which sets html_theme = "furo".
  *
@@ -74,6 +74,19 @@ body {
 
 a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
+
+/* Off-screen until focused. Without it a keyboard reader tabs the header on
+ * every one of the 7,430 generated pages before reaching the content. */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--bg);
+  color: var(--link);
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+.skip:focus { left: 0; }
 
 header.site {
   display: flex;

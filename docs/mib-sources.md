@@ -1,11 +1,12 @@
-# Where the MIBs in `src/` come from
+# MIB sources and patches
 
-Every module under `src/` came from somewhere. For most of this
-repository's life that somewhere was not written down.
+`mib-sources.json` records the publisher and the retrieval method for every
+module under `src/`. This page describes that record, why it exists, and how
+the tooling checks it.
 
-MIBs arrived in bulk — from the snmplabs collection this repository
-began as, and from librenms — and were hand-repaired whenever one would
-not compile. The repair went into the file, next to the vendor's own
+For most of this repository's life the provenance was not written down. MIBs
+arrived in bulk, from the snmplabs collection this repository began as and from
+librenms, and were hand-repaired whenever one would not compile. The repair went into the file, next to the vendor's own
 text, and after that the two were indistinguishable. A module carrying a
 deliberate one-line fix and a module eight years behind its vendor look
 exactly alike on disk. Nothing could tell us which modules had fallen
@@ -30,9 +31,9 @@ asks it.
 ## Why each patch exists
 
 A diff says what was changed and never why. That matters the month a
-publisher moves under a patch and it stops applying, because somebody then
-has to decide whether the vendor fixed the defect — in which case the patch
-should go — or changed something unrelated, in which case it should be
+publisher moves under a patch and it stops applying, because a maintainer then
+has to decide between two cases. If the vendor fixed the defect, the patch
+should go. If the vendor changed something unrelated, the patch should be
 re-cut. That decision needs the original defect written down.
 
 So every patch opens with the defect it repairs, in
@@ -67,21 +68,21 @@ Two things, and neither is a gap to be closed later.
 Plenty of vendors publish MIBs only behind a support login, or only
 inside a firmware image, or not at all. Those modules stay unmanaged.
 `--report` counts them, so the size of the gap stays visible rather than
-being quietly excluded from a green check.
+being excluded from a green check without notice.
 
 **An edit made before the file reached us is invisible.** The snmplabs
 and librenms collections were themselves hand-repaired for years, and
 those repairs arrived here inside the imported file. Our git history
 starts at the import; it cannot see behind it. So adopting a source turns
 silent patching into visible patching only for edits made *since* the
-import — anything older stays silent, and shows up merely as a
-difference nobody can explain.
+import. Anything older stays silent, and appears only as an unexplained
+difference.
 
 `--explain` is honest about this. It reports which differing lines a
 commit of ours wrote, and says plainly when the rest trace no further
-back than the import — which may mean a repair somebody made in 2015, or
-a revision the vendor has published since. Our history cannot say which,
-and the tool does not pretend otherwise. Somebody has to read the two
+back than the import. Those may be a repair made here in 2015, or a revision
+the vendor has published since. This repository's history cannot distinguish
+them, and the tool reports that rather than guessing. A maintainer reads the two
 texts.
 
 ## Using it
@@ -110,7 +111,7 @@ uv run python scripts/update_vendor_mibs.py --update src/vendor/cisco/CISCO-BGP4
 
 # Adopt a vendor directory wholesale: everything that already matches
 # the publisher is recorded, and everything that does not is listed for
-# somebody to --explain.
+# a maintainer to --explain.
 uv run python scripts/update_vendor_mibs.py --discover cisco-mibs-v2 src/vendor/cisco
 ```
 
@@ -123,14 +124,14 @@ the old set nor the new one.
 Not everything it reports is a problem to fix this month.
 
 A module that no longer matches its publisher, a patch that no longer
-applies, a source that has stopped serving the module it should — those
-fail the run. So does a *recorded* divergence that has since been
-resolved, because a note nobody removed is a note that stops being read.
+applies, and a source that has stopped serving the module it should all fail
+the run. So does a recorded divergence that has since been resolved: a note
+left after the condition clears stops being read.
 
-A divergence somebody has already written down does **not** fail the run.
+A divergence already recorded does **not** fail the run.
 It is listed every month under "known divergences, awaiting review", and
 that backlog is the honest state of this repository: 52 modules that
-differ from their vendor for reasons nobody has yet worked out. Failing
+differ from their vendor for reasons not yet established. Failing
 on them every month would train everybody to ignore the one month the
 sweep says something new.
 
@@ -143,8 +144,8 @@ A publisher belongs in `mib-sources.json` when it serves the vendor's own
 MIB text at a URL that can be fetched without a login and that keeps
 working. Two kinds are supported:
 
-- `file` — one URL per module, with `{module}` standing in for the name.
-- `archive` — one zip holding many modules, with `member` naming the path
+- `file`: one URL per module, with `{module}` standing in for the name.
+- `archive`: one zip holding many modules, with `member` naming the path
   inside it.
 
 Pin a **live** URL, not a dated release artefact. A frozen URL would make
@@ -155,7 +156,7 @@ Then run `--discover` and read what it could not place.
 
 ### Sources that do not work
 
-Worth recording, so nobody spends an afternoon rediscovering it:
+Recorded here so that it need not be rediscovered:
 
 | Vendor | What happens |
 | --- | --- |
