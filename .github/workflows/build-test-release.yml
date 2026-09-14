@@ -389,7 +389,11 @@ jobs:
           grep -q 'https://data.mibsdepot.com/json/' output/depot-site/llms.txt
           grep -q 'https://data.mibsdepot.com/index-v2.csv' output/depot-site/llms.txt
           grep -q 'https://mibsdepot.com/browse/' output/depot-site/llms.txt
-          ! grep -q 'data.mibsdepot.com' output/depot-site/sitemap.xml
+          # Every sitemap file, not just the index. sitemap.xml lists the
+          # three child sitemaps and nothing else, so checking it alone says
+          # almost nothing: the page URLs, which are where a wrong origin
+          # would show up, are in sitemap-browse, sitemap-mib and sitemap-oid.
+          ! grep -R -q --include='sitemap*.xml' 'data.mibsdepot.com' output/depot-site
           ! grep -q 'data.mibsdepot.com' output/depot-site/mib/IF-MIB/index.html
       # github-pages and depot-data publish the same artifacts to two hosts.
       # Nothing in the driver makes them agree -- they are separate
