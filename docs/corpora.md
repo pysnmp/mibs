@@ -92,10 +92,16 @@ It is not served over HTTP; it is published as an image to mount:
 ghcr.io/pysnmp/mibs/corpus-compact:<version>
 ```
 
-`publish: false` is the only difference between the two manifests in this
-repository. `corpus.json` and `corpus-compact.json` are otherwise identical,
-which makes the compact corpus a subset of the published one rather
-than a second rendering of it. pysmi holds that claim to account, in
+`publish: false` on the standard namespace is what makes the compact corpus a
+subset of the published one rather than a second rendering of it. It is not the
+only difference between the two manifests, and the others are about where the
+build goes rather than what it contains: `corpus.json` declares `publications`
+and `site`, because it writes three trees and one of them is a browsable site,
+while `corpus-compact.json` writes one tree from a top-level `emit` of `asn1`,
+`index-v2` and `report` and has no site to describe. `corpus.json` also asserts
+`namespaces-present`, which is meaningless where the standard namespace is
+deliberately unpublished. The source sets are the same, and that is the claim
+that matters here. pysmi holds it to account, in
 `tests/test_corpus_publish_invariance.py`: it builds one source set twice, with
 the standard namespace published and unpublished, and asserts every shared
 module has the same `content_hash` in both. The check belongs there because

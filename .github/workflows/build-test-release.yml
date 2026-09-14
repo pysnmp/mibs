@@ -327,10 +327,57 @@ jobs:
           test -s output/depot-site/sitemap.xml
           test -s output/depot-site/robots.txt
           test -s output/depot-site/llms.txt
-          grep -q 'rel="canonical"' output/depot-site/mib/IF-MIB/index.html
-          grep -q '<meta name="description"' output/depot-site/mib/IF-MIB/index.html
-          grep -q 'application/ld+json' output/depot-site/mib/IF-MIB/index.html
-          # Every one of those URLs is built from base-url, so a wrong origin
+          # Values, not marker strings. A grep for rel="canonical" passes on a
+          # canonical naming the wrong origin, and one for <meta name=
+          # "description" passes on an empty one -- which are the two ways this
+          # can be wrong while looking right.
+          python3 - <<'CHECK'
+          import json
+          import re
+          import sys
+
+          PAGE = "output/depot-site/mib/IF-MIB/index.html"
+          URL = "https://mibsdepot.com/mib/IF-MIB/"
+          head = open(PAGE, encoding="utf-8").read()
+          bad = []
+
+          canonical = re.search(r'<link rel="canonical" href="([^"]*)"', head)
+          if not canonical or canonical.group(1) != URL:
+              bad.append(f"canonical is {canonical and canonical.group(1)!r}, want {URL!r}")
+
+          described = re.search(r'<meta name="description" content="([^"]*)"', head)
+          text = described.group(1) if described else ""
+          # The generator falls back to "IF-MIB: 90 object(s), ..." where the
+          # build carries no DESCRIPTION. That fallback is a correct sentence
+          # and a useless search result, and it is what a texts-less build
+          # would silently publish on all 7,430 pages.
+          if len(text) < 80 or text.startswith("IF-MIB:"):
+              bad.append(f"description is not the module's own prose: {text[:80]!r}")
+
+          block = re.search(
+              r'<script type="application/ld\+json">(.*?)</script>', head, re.S
+          )
+          if not block:
+              bad.append("no JSON-LD block")
+          else:
+              try:
+                  data = json.loads(block.group(1))
+              except ValueError as exc:
+                  bad.append(f"JSON-LD does not parse: {exc}")
+              else:
+                  if data.get("url") != URL:
+                      bad.append(f"JSON-LD url is {data.get('url')!r}")
+                  if "DefinedTermSet" not in data.get("@type", []):
+                      bad.append(f"JSON-LD @type is {data.get('@type')!r}")
+                  terms = data.get("hasDefinedTerm") or []
+                  if len(terms) < 50:
+                      bad.append(f"JSON-LD names {len(terms)} symbols; IF-MIB has ninety")
+
+          for line in bad:
+              print(f"::error::{line}")
+          sys.exit(1 if bad else 0)
+          CHECK
+          # Every sitemap URL is built from base-url, so a wrong origin
           # publishes a site claiming to live somewhere it does not.
           grep -q 'https://mibsdepot.com/sitemap.xml' output/depot-site/robots.txt
       # github-pages and depot-data publish the same artifacts to two hosts.
