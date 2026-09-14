@@ -18,7 +18,7 @@ three *publications* rather than as three builds:
 | publication | destination | carries |
 |---|---|---|
 | `github-pages` | [`pysnmp.github.io/mibs/`](https://pysnmp.github.io/mibs/) | `asn1/`, `json/`, both indexes, `standard.txt`, this documentation |
-| `depot-site` | [`mibsdepot.com`](https://mibsdepot.com/browse/) | the browsable pages, one per module, OID arc and registrant, and this documentation |
+| `depot-site` | [`mibsdepot.com`](https://mibsdepot.com/browse/) | the browsable pages, one per module, OID arc and registrant, the crawl surface, and this documentation |
 | `depot-data` | [`data.mibsdepot.com`](https://data.mibsdepot.com) | `asn1/`, `json/`, both indexes, `standard.txt`, `search.db` |
 
 `mibcorpus` writes all three from one parse of the 5,510 modules. Parsing is
@@ -27,6 +27,16 @@ a half builds would. More importantly, the three trees are projections of a
 single parse rather than three runs that must be trusted to agree. CI compares
 the two data trees artifact by artifact regardless, because a shared parse is a
 claim and a `diff` is a check.
+
+**What the crawl surface is, and what turns it on.** `site.base-url` in
+`corpus.json` is the field that makes the build a site rather than a subtree.
+Given it, `mibcorpus` writes a canonical link, a `meta description` taken from
+the module's own DESCRIPTION, and JSON-LD naming every symbol on each of the
+7,430 pages, plus `sitemap.xml` as an index over three sitemap files,
+`robots.txt` pointing at it, and `llms.txt`. Without it, none of that is
+written and the site still renders correctly in a browser, which is how it was
+missing from the live site through 2.6.0. The CI site contract names each
+artifact now rather than only the pages.
 
 **Why the pages and the files are on different hosts.** Every link the site
 generator writes is a directory URL, `../../mib/IF-MIB/`, which a host must
@@ -82,10 +92,16 @@ It is not served over HTTP; it is published as an image to mount:
 ghcr.io/pysnmp/mibs/corpus-compact:<version>
 ```
 
-`publish: false` is the only difference between the two manifests in this
-repository. `corpus.json` and `corpus-compact.json` are otherwise identical,
-which makes the compact corpus a subset of the published one rather
-than a second rendering of it. pysmi holds that claim to account, in
+`publish: false` on the standard namespace is what makes the compact corpus a
+subset of the published one rather than a second rendering of it. It is not the
+only difference between the two manifests, and the others are about where the
+build goes rather than what it contains: `corpus.json` declares `publications`
+and `site`, because it writes three trees and one of them is a browsable site,
+while `corpus-compact.json` writes one tree from a top-level `emit` of `asn1`,
+`index-v2` and `report` and has no site to describe. `corpus.json` also asserts
+`namespaces-present`, which is meaningless where the standard namespace is
+deliberately unpublished. The source sets are the same, and that is the claim
+that matters here. pysmi holds it to account, in
 `tests/test_corpus_publish_invariance.py`: it builds one source set twice, with
 the standard namespace published and unpublished, and asserts every shared
 module has the same `content_hash` in both. The check belongs there because

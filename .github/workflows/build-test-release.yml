@@ -318,6 +318,83 @@ jobs:
           # A module page that carries no definitions is a page that compiled
           # and said nothing; IF-MIB has ninety.
           grep -q 'class="defs' output/depot-site/mib/IF-MIB/index.html
+          # The crawl surface. It is written only where the manifest declares
+          # site.base-url, and a manifest that lost that field would still
+          # build a site that looks right in a browser: the canonical links,
+          # the descriptions, the JSON-LD and all three sitemaps would just be
+          # absent. That is how they were absent from the live site until
+          # 2.6.0 without a single check going red, so each is named here.
+          test -s output/depot-site/sitemap.xml
+          test -s output/depot-site/robots.txt
+          test -s output/depot-site/llms.txt
+          # Values, not marker strings. A grep for rel="canonical" passes on a
+          # canonical naming the wrong origin, and one for <meta name=
+          # "description" passes on an empty one -- which are the two ways this
+          # can be wrong while looking right.
+          python3 - <<'CHECK'
+          import json
+          import re
+          import sys
+
+          PAGE = "output/depot-site/mib/IF-MIB/index.html"
+          URL = "https://mibsdepot.com/mib/IF-MIB/"
+          head = open(PAGE, encoding="utf-8").read()
+          bad = []
+
+          canonical = re.search(r'<link rel="canonical" href="([^"]*)"', head)
+          if not canonical or canonical.group(1) != URL:
+              bad.append(f"canonical is {canonical and canonical.group(1)!r}, want {URL!r}")
+
+          described = re.search(r'<meta name="description" content="([^"]*)"', head)
+          text = described.group(1) if described else ""
+          # The generator falls back to "IF-MIB: 90 object(s), ..." where the
+          # build carries no DESCRIPTION. That fallback is a correct sentence
+          # and a useless search result, and it is what a texts-less build
+          # would silently publish on all 7,430 pages.
+          if len(text) < 80 or text.startswith("IF-MIB:"):
+              bad.append(f"description is not the module's own prose: {text[:80]!r}")
+
+          block = re.search(
+              r'<script type="application/ld\+json">(.*?)</script>', head, re.S
+          )
+          if not block:
+              bad.append("no JSON-LD block")
+          else:
+              try:
+                  data = json.loads(block.group(1))
+              except ValueError as exc:
+                  bad.append(f"JSON-LD does not parse: {exc}")
+              else:
+                  if data.get("url") != URL:
+                      bad.append(f"JSON-LD url is {data.get('url')!r}")
+                  if "DefinedTermSet" not in data.get("@type", []):
+                      bad.append(f"JSON-LD @type is {data.get('@type')!r}")
+                  terms = data.get("hasDefinedTerm") or []
+                  if len(terms) < 50:
+                      bad.append(f"JSON-LD names {len(terms)} symbols; IF-MIB has ninety")
+
+          for line in bad:
+              print(f"::error::{line}")
+          sys.exit(1 if bad else 0)
+          CHECK
+          # Every sitemap URL is built from base-url, so a wrong origin
+          # publishes a site claiming to live somewhere it does not.
+          grep -q 'https://mibsdepot.com/sitemap.xml' output/depot-site/robots.txt
+          # The pages and the files are on two hosts, and llms.txt is the one
+          # artifact that names both. Its bulk links take data-url; everything
+          # that describes a page takes base-url. Written against one origin,
+          # the three bulk links 404 on the pages host, which is what they did
+          # before pysmi 5.0.0 had somewhere else to put them.
+          grep -q 'https://data.mibsdepot.com/asn1/' output/depot-site/llms.txt
+          grep -q 'https://data.mibsdepot.com/json/' output/depot-site/llms.txt
+          grep -q 'https://data.mibsdepot.com/index-v2.csv' output/depot-site/llms.txt
+          grep -q 'https://mibsdepot.com/browse/' output/depot-site/llms.txt
+          # Every sitemap file, not just the index. sitemap.xml lists the
+          # three child sitemaps and nothing else, so checking it alone says
+          # almost nothing: the page URLs, which are where a wrong origin
+          # would show up, are in sitemap-browse, sitemap-mib and sitemap-oid.
+          ! grep -R -q --include='sitemap*.xml' 'data.mibsdepot.com' output/depot-site
+          ! grep -q 'data.mibsdepot.com' output/depot-site/mib/IF-MIB/index.html
       # github-pages and depot-data publish the same artifacts to two hosts.
       # Nothing in the driver makes them agree -- they are separate
       # publications over a shared parse -- so a divergence would be two
