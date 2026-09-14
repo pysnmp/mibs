@@ -335,7 +335,7 @@ wheels = [
 
 [[package]]
 name = "pysnmp-mibs"
-version = "2.6.2"
+version = "2.6.3"
 source = { virtual = "." }
 dependencies = [
     { name = "pyyaml" },
