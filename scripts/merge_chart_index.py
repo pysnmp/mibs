@@ -45,8 +45,8 @@ def union(*indexes: dict) -> dict:
     out: dict = {}
 
     for index in indexes:
-        for name, entries in (index.get("entries") or {}).items():
-            for entry in entries or ():
+        for name, versions in (index.get("entries") or {}).items():
+            for entry in versions or ():
                 merged.setdefault((name, entry.get("version")), entry)
 
         for field, value in index.items():
@@ -58,8 +58,8 @@ def union(*indexes: dict) -> dict:
     for (name, _version), entry in merged.items():
         entries.setdefault(name, []).append(entry)
 
-    for name in entries:
-        entries[name].sort(key=key, reverse=True)
+    for versions in entries.values():
+        versions.sort(key=key, reverse=True)
 
     out["entries"] = entries
     out.setdefault("apiVersion", "v1")
