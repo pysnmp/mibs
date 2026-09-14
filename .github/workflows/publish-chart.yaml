@@ -39,6 +39,20 @@ jobs:
       - name: Package chart
         if: startsWith(github.ref, 'refs/tags/')
         run: helm package charts/mibserver -d /tmp/chart
+      # helm package names the archive from Chart.yaml; every step after this
+      # reads the version off the tag. semantic-release writes Chart.yaml and
+      # then tags, so the release path agrees with itself, but a tag cut by
+      # hand need not: the push would publish one version and the verify would
+      # then fail looking for another, leaving half a release behind. Assert
+      # they are the same before anything is published rather than after.
+      - name: Chart version matches the tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          test -f "/tmp/chart/mibserver-${GITHUB_REF_NAME#v}.tgz" || {
+            echo "::error::tag $GITHUB_REF_NAME does not match the packaged" \
+                 "chart $(ls /tmp/chart)"
+            exit 1
+          }
       - name: Publish Helm chart - OCI
         if: startsWith(github.ref, 'refs/tags/')
         run: helm push /tmp/chart/*.tgz oci://ghcr.io/${{ github.repository_owner }}/charts
