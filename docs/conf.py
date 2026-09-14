@@ -76,12 +76,20 @@ html_theme_options = {
     "source_repository": "https://github.com/pysnmp/mibs/",
     "source_branch": "main",
     "source_directory": "docs/",
+    # On every page of both trees. The documentation is copied into the depot
+    # as well as the distribution site, and the URL is absolute so it reaches
+    # the browser from either one.
+    "announcement": (
+        "Browse every module, OID arc and registrant at "
+        '<a href="https://mibsdepot.com/browse/">mibsdepot.com</a>.'
+    ),
 }
 
 html_title = "pysnmp MIB distribution"
 html_short_title = "MIB distribution"
 html_favicon = ".static/favicon.ico"
 html_static_path = [".static"]
+html_css_files = ["custom.css"]
 html_show_sourcelink = False
 html_copy_source = False
 html_domain_indices = False
