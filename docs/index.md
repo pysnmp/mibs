@@ -5,15 +5,10 @@ against: 5,510 modules as ASN.1 source and as JSON, with OID indexes and a
 SQLite model of the whole corpus. Fetch them over HTTPS, unpack them from a
 release archive, or mount them as an OCI image.
 
-<div class="depot-cta">
-  <span class="depot-cta__text">
-    <span class="depot-cta__title">Read a MIB instead of fetching one</span>
-    <span class="depot-cta__detail">MIBs Depot publishes this corpus as pages:
-    one per module, one per OID arc, one per registrant, including the
-    DESCRIPTION text that the files carry and no browser renders.</span>
-  </span>
-  <a class="depot-cta__button" href="https://mibsdepot.com/browse/">Browse the MIBs</a>
-</div>
+[MIBs Depot](https://mibsdepot.com/browse/) publishes the same corpus as pages
+to read: one per module, one per OID arc, one per registrant, including the
+DESCRIPTION text that the files carry and no browser renders. Use it to look a
+MIB up; use this site to fetch one.
 
 ## Resolving a MIB
 
@@ -97,6 +92,7 @@ pyasn1 sit underneath pysnmp, which loads them for you.
 :maxdepth: 2
 :hidden:
 
+Browse the MIBs <https://mibsdepot.com/browse/>
 using
 channels
 corpora
