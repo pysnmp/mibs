@@ -217,6 +217,72 @@ jobs:
       # different pysmi versions on purpose: the corpus above was built with
       # the pysmi this repository pins, and this checks it against the pysmi
       # pysnmp itself depends on, which is the one a consumer actually has.
+      # closure.json and arcs.json are small -- 1 MB and 1.6 MB against a
+      # 570 MB tree -- and each answers a question the rest of the corpus
+      # cannot. A closure says which files to fetch alongside a module for it
+      # to compile, which is the question every consumer of asn1/@mib@ hits
+      # second. The arc index says who registered each OID arc and on whose
+      # authority. Both are checked here because an artifact nothing asserts
+      # is an artifact that can quietly become empty.
+      - name: Closure and arc index contract
+        run: |
+          set -eu
+          python3 - <<'CHECK'
+          import json
+          import sys
+
+          failures = []
+
+          with open("output/depot-data/closure.json", encoding="utf-8") as f:
+              closure = json.load(f)
+
+          with open("output/depot-data/arcs.json", encoding="utf-8") as f:
+              arcs = json.load(f)
+
+          with open("output/depot-data/report.json", encoding="utf-8") as f:
+              modules = json.load(f)["modules"]
+
+          entries = closure["closure"]
+
+          if len(entries) != modules:
+              failures.append(
+                  f"closure covers {len(entries)} modules, the corpus has {modules}"
+              )
+
+          # A module's closure that does not name the module itself would send
+          # a consumer away without the file it asked for.
+          for name, entry in entries.items():
+              if name not in entry["files"]:
+                  failures.append(f"{name}: its own closure does not name it")
+                  break
+
+          # Every import resolving inside the corpus is what makes this corpus
+          # self-sufficient: a consumer fetching a closure gets a set it can
+          # compile without going anywhere else.
+          incomplete = [x for x, e in entries.items() if e["missing"]]
+
+          if incomplete:
+              failures.append(
+                  f"{len(incomplete)} closures name a module the corpus does "
+                  f"not carry, e.g. {incomplete[0]}"
+              )
+
+          named = arcs["meta"]["by-source"]
+
+          if len(arcs["arc"]) < 10000:
+              failures.append(f"the arc index holds {len(arcs['arc'])} arcs")
+
+          # The registries are committed snapshots, so an arc index that
+          # suddenly names nothing from them means they were not read.
+          if named.get("registry", 0) < 400:
+              failures.append(f"only {named.get('registry', 0)} arcs came from a registry")
+
+          for failure in failures:
+              print(f"::error::{failure}")
+
+          sys.exit(1 if failures else 0)
+          CHECK
+          echo "  ok closure.json and arcs.json"
       - name: Runtime-compile contract
         run: |
           uv sync --frozen --only-group consumer
@@ -407,8 +473,10 @@ jobs:
           # documentation, the chart index and .nojekyll, none of which the
           # depot serves, and each tree's report.json is its own by design --
           # a report is an emitted artifact and says which set it came from.
-          # These five are what both publish.
-          for artifact in asn1 json index.csv index-v2.csv standard.txt; do
+          # depot-data also carries search.db, which Pages has no room for.
+          # These seven are what both publish.
+          for artifact in asn1 json index.csv index-v2.csv standard.txt \
+                          closure.json arcs.json; do
             diff -r --brief \
               "output/github-pages/$artifact" "output/depot-data/$artifact"
             echo "  ok $artifact"

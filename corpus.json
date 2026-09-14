@@ -3,7 +3,10 @@
   "publications": [
     {
       "name": "github-pages",
-      "emit": ["asn1", "json", "index", "index-v2", "standard", "report"],
+      "emit": [
+        "asn1", "json", "index", "index-v2", "standard",
+        "closure", "arcs", "report"
+      ],
       "output": "github-pages"
     },
     {
@@ -15,7 +18,7 @@
       "name": "depot-data",
       "emit": [
         "asn1", "json", "index", "index-v2", "standard",
-        "search-db", "report"
+        "closure", "arcs", "search-db", "report"
       ],
       "output": "depot-data"
     }
