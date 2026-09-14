@@ -2,6 +2,10 @@ name: release-chart
 on:
   push:
     tags: "v*"
+  # The index is repairable without cutting a release. It went stale from
+  # 1.17.2 to 2.6.1 because the step that published it sat behind a step that
+  # could not succeed, and there was no way to republish it but to tag.
+  workflow_dispatch:
 
 jobs:
   release-chart:
@@ -33,10 +37,27 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Package chart
+        if: startsWith(github.ref, 'refs/tags/')
         run: helm package charts/mibserver -d /tmp/chart
+      # helm package names the archive from Chart.yaml; every step after this
+      # reads the version off the tag. semantic-release writes Chart.yaml and
+      # then tags, so the release path agrees with itself, but a tag cut by
+      # hand need not: the push would publish one version and the verify would
+      # then fail looking for another, leaving half a release behind. Assert
+      # they are the same before anything is published rather than after.
+      - name: Chart version matches the tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          test -f "/tmp/chart/mibserver-${GITHUB_REF_NAME#v}.tgz" || {
+            echo "::error::tag $GITHUB_REF_NAME does not match the packaged" \
+                 "chart $(ls /tmp/chart)"
+            exit 1
+          }
       - name: Publish Helm chart - OCI
+        if: startsWith(github.ref, 'refs/tags/')
         run: helm push /tmp/chart/*.tgz oci://ghcr.io/${{ github.repository_owner }}/charts
       - name: Verify OCI chart
+        if: startsWith(github.ref, 'refs/tags/')
         run: |
           VERSION="${GITHUB_REF_NAME#v}"
           mkdir -p /tmp/verify
@@ -44,30 +65,47 @@ jobs:
             --version "$VERSION" -d /tmp/verify
           test -s /tmp/verify/mibserver-"$VERSION".tgz
       - name: Attach chart to release
+        if: startsWith(github.ref, 'refs/tags/')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release upload "$GITHUB_REF_NAME" /tmp/chart/*.tgz --clobber
+      # The published index is the running total, not charts/index.yaml. The
+      # repository copy cannot be the accumulator: main is protected, so the
+      # commit that used to update it was rejected on every release, and the
+      # rejection took the publish step below down with it.
+      #
+      # charts/index.yaml is the floor rather than the base. Merging the union
+      # means a release can only ever add: an entry present in either source
+      # survives, so a fetch that fails or an index republished from an older
+      # checkout cannot silently drop versions.
       - name: Build legacy chart index
         run: |
           mkdir -p /tmp/index
-          cp /tmp/chart/*.tgz /tmp/index/
-          helm repo index /tmp/index \
-            --url https://github.com/${{ github.repository }}/releases/download/$GITHUB_REF_NAME \
-            --merge charts/index.yaml
-          rm -f /tmp/index/*.tgz
-          PREV=$(grep -c 'releases/download' charts/index.yaml)
-          NEW=$(grep -c 'releases/download' /tmp/index/index.yaml)
-          test "$NEW" -gt "$PREV"
-      - name: Commit legacy chart index to main
-        run: |
-          git fetch origin main
-          git checkout -B main origin/main
-          cp /tmp/index/index.yaml charts/index.yaml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add charts/index.yaml
-          git commit -m "chore(charts): index $GITHUB_REF_NAME"
-          git push origin main || (git pull --rebase origin main && git push origin main)
+          curl -fsSL -o /tmp/published.yaml \
+            "https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/charts/index.yaml" \
+            || cp charts/index.yaml /tmp/published.yaml
+          # Into a path outside the directory helm indexes: helm writes
+          # index.yaml into that directory, and --merge must not name the file
+          # it is about to overwrite.
+          python3 scripts/merge_chart_index.py \
+            charts/index.yaml /tmp/published.yaml /tmp/base.yaml
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            cp /tmp/chart/*.tgz /tmp/index/
+            helm repo index /tmp/index \
+              --url https://github.com/${{ github.repository }}/releases/download/$GITHUB_REF_NAME \
+              --merge /tmp/base.yaml
+            rm -f /tmp/index/*.tgz
+            # That the release is in the index, not that the index grew. A
+            # re-run of a release whose publish already succeeded adds nothing
+            # and must still be allowed to republish -- a count that has to
+            # rise would fail exactly when someone is repairing a bad run.
+            grep -q "mibserver-${GITHUB_REF_NAME#v}\.tgz" /tmp/index/index.yaml
+          else
+            cp /tmp/base.yaml /tmp/index/index.yaml
+          fi
+          echo "index carries $(grep -c 'releases/download' /tmp/index/index.yaml) charts"
+      # Where the index is actually served from, and now where it lives:
+      # https://pysnmp.github.io/mibs/charts/index.yaml
       - name: Publish legacy chart index - gh-pages (deprecated)
         uses: peaceiris/actions-gh-pages@v4
         with:
