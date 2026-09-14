@@ -43,16 +43,26 @@ carries the DESCRIPTION, REFERENCE, ORGANIZATION and CONTACT-INFO text from
 the MIB files; `json/` on GitHub Pages does not. Everything else in both trees
 is byte-identical, and CI compares it that way.
 
-The reason is size, not content. The texts are 88% more on disk -- 226 MB
-becomes 425 MB over 5,510 modules -- and GitHub Pages refuses a site over
-1 GB, which that tree is already 580 MB of. R2 charges nothing for egress and
-caps neither the object count nor the total that matters here, so the richer
-tree goes where there is room for it.
+The reason is size, not content. Measured over all 5,510 modules the texts
+are 41% more on disk: `json/` goes from 226 MB to 318 MB. GitHub Pages
+refuses a site over 1 GB and that tree is already 580 MB, so the 92 MB is a
+quarter of the headroom left on the destination the corpus is moving away
+from. R2 charges nothing for egress and caps neither the object count nor the
+total that matters here, so the richer tree goes where there is room for it.
 
 Because it is a size decision, the two must still be the same corpus, and CI
-asserts exactly that: strip those four keys from every one of the depot's
-5,510 documents and what is left has to equal the Pages document byte for
-byte. It also asserts the difference is really there -- that the depot's
+asserts exactly that: it walks each pair of documents together and requires
+every node on Pages to be on the depot identically, and every node only on
+the depot to be one of the four text fields.
+
+Walked rather than "delete those four keys and compare", because the names
+are not reserved. Five modules define a column called `description` --
+`ADVANTECH-EKI-PRONEER-MIB` among them -- and two more give an INTEGER
+enumeration a label of that name. Deleting the name wherever it appears
+deletes real definitions and reports a divergence that is not there, which is
+exactly what the first version of this check did.
+
+It also asserts the difference is really there -- that the depot's
 `IF-MIB.json` carries a DESCRIPTION and the Pages one does not -- because a
 comparison of two identical lean trees would otherwise pass.
 
