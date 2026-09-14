@@ -1,4 +1,4 @@
-# The corpora
+# Corpus variants
 
 One source set is rendered three ways: the published corpus, the compact
 corpus, and the corpus database. Choose by what the consumer already has.
@@ -58,7 +58,7 @@ today; the depot is an addition, not a move.
 
 The GitHub Pages half deploys from the repository's own token and needs no
 configuration. The depot half reads four secrets and one variable, set once;
-[deploying](deploying.md) is the procedure.
+[publishing the sites](deploying.md) is the procedure.
 
 There is no switch among them. Holding the Cloudflare token is the decision to
 publish, and the Worker's name is in `wrangler.jsonc`, so a repository that

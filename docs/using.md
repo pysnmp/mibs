@@ -1,4 +1,4 @@
-# Using the distribution
+# Resolving MIBs
 
 This page covers the two common operations: resolving a name to an OID, and
 translating a received OID back to a name. It ends with how to point pysmi at a
@@ -103,7 +103,7 @@ compiler.addMibCompiler(
 published, so a local directory ahead of the tree is the usual arrangement.
 
 An unpacked `mibs-asn1.zip` or a mounted `corpus-compact` image is a local
-directory like any other. See [channels](channels.md).
+directory like any other. See [getting the MIBs](channels.md).
 
 ```{warning}
 A MIB module compiled by pysmi becomes Python that pysnmp executes. Treat an

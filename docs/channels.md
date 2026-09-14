@@ -1,4 +1,4 @@
-# Channels
+# Getting the MIBs
 
 Five ways to obtain the corpus. They carry the same content; choose by how you
 consume it.
@@ -51,7 +51,7 @@ resolves a directory URL to its `index.html` without running code serves at
 most 20,000 files on the free plan. Pages that need that resolution go to the
 host that performs it; files addressed by exact name go to object storage,
 where the file count is not capped. See
-[the corpora](corpora.md#where-each-tree-goes).
+[the corpus variants](corpora.md#where-each-tree-goes).
 
 ## Installed from the archive
 

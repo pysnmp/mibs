@@ -58,7 +58,7 @@ Each target is one `mibcorpus` invocation over a manifest. Two runs over the
 same sources produce the same bytes and neither needs network access.
 `output/github-pages/report.json` records what was built, what failed to
 compile, and how long it took. The manifest format is documented in
-[Manifests and the build](https://pysnmp.github.io/mibs/manifests.html).
+[Build manifests](https://pysnmp.github.io/mibs/manifests.html).
 
 The documentation is a separate uv project under `docs/`. It needs a newer
 interpreter than the corpus build, which is pinned to the one its output is

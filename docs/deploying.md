@@ -1,4 +1,4 @@
-# Deploying
+# Publishing the sites
 
 Every push to `main` builds three trees and publishes each to its own host.
 Two of the three need nothing set up:
@@ -15,7 +15,7 @@ only the two depot deploys are skipped. Nothing here is needed to develop on
 this repository, and a fork never needs it at all.
 
 Where each piece goes and why, rather than how to create it, is in
-[the corpora](corpora.md#where-each-tree-goes).
+[the corpus variants](corpora.md#where-each-tree-goes).
 
 ```{note}
 The site is served by what Cloudflare calls a *Worker*, and **there is no

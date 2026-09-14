@@ -31,8 +31,8 @@ open in a browser.
 The source list is ordered and the first hit wins. Put a local directory ahead
 of the URL to override a module or to compile without network access.
 
-[Using the distribution](using.md) covers polling by name, translating a trap,
-and overriding a module with a local copy. [Channels](channels.md) covers
+[Resolving MIBs](using.md) covers polling by name, translating a trap,
+and overriding a module with a local copy. [Getting the MIBs](channels.md) covers
 getting the modules by means other than HTTPS. The {docs}`pysnmp` documentation
 covers what to do with a resolved name.
 
@@ -53,7 +53,7 @@ at [MIBs Depot](https://mibsdepot.com/browse/), which renders a page per module
 and per OID arc from the same build.
 
 194 modules that this site once served are no longer carried anywhere.
-[Absent modules](absent-modules.md) lists them, grouped by the reason each was
+[Removed modules](absent-modules.md) lists them, grouped by the reason each was
 dropped and what restoring it would take.
 
 ## What is in the repository

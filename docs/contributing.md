@@ -1,4 +1,4 @@
-# Contributing a module
+# Contributing a MIB
 
 Missing modules and corrections go to {repo}`mibs` as pull requests. To add a
 MIB, drop the file under `src/vendor/<vendor>/` and open a pull request. There
@@ -14,7 +14,7 @@ bundles:
 checked-in text  ==  the publisher's text  +  our patch
 ```
 
-[Where the MIBs come from](mib-sources.md) describes that record and what it is
+[MIB sources and patches](mib-sources.md) describes that record and what it is
 for.
 
 ## What is and is not carried
@@ -28,7 +28,7 @@ resolves during start-up are compiled into the package, which is why
 `pip install pysnmplib` works on a machine with no network. The distribution
 matters once you need to name something outside that set.
 
-[Absent modules](absent-modules.md) lists the 194 modules this site once served
+[Removed modules](absent-modules.md) lists the 194 modules this site once served
 and no longer carries, grouped by the reason each was dropped and what
 restoring it would take.
 
@@ -46,7 +46,7 @@ The contract scripts under `tests/` are what CI runs. Run them locally first:
 
 That the compact corpus is a byte-identical subset of the published one is
 checked upstream, in pysmi's `tests/test_corpus_publish_invariance.py`, because
-`publish: false` is pysmi's feature. See [The corpora](corpora.md).
+`publish: false` is pysmi's feature. See [Corpus variants](corpora.md).
 
 Run the lint and format that the four sibling repositories share:
 

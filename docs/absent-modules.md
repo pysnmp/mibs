@@ -1,4 +1,4 @@
-# Modules the site used to serve and no longer does
+# Removed modules
 
 This page lists the 194 modules that `index-frozen.csv` names and this
 distribution no longer carries, with the reason each was dropped.

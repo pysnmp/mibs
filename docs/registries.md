@@ -1,4 +1,4 @@
-# The IANA registries this corpus names OID arcs from
+# OID arc registries
 
 This corpus names OID arcs from two committed IANA registry snapshots. This
 page describes what they contain, why they are committed rather than fetched,

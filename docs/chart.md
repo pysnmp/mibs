@@ -1,4 +1,4 @@
-# The mibserver chart
+# mibserver Helm chart
 
 The `mibserver` chart serves the published corpus inside a Kubernetes cluster,
 for deployments that will not give every compile egress to the public site.

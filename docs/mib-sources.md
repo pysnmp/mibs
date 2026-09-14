@@ -1,4 +1,4 @@
-# Where the MIBs in `src/` come from
+# MIB sources and patches
 
 `mib-sources.json` records the publisher and the retrieval method for every
 module under `src/`. This page describes that record, why it exists, and how

@@ -1,4 +1,8 @@
-# Manifests and the build
+# Build manifests
+
+A manifest defines one corpus: the sources it is built from, the trees it
+renders, and the assertions the result must satisfy. This page covers running
+a build, the manifest format, and what the build writes.
 
 ## Building
 
