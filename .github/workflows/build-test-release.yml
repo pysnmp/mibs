@@ -318,6 +318,21 @@ jobs:
           # A module page that carries no definitions is a page that compiled
           # and said nothing; IF-MIB has ninety.
           grep -q 'class="defs' output/depot-site/mib/IF-MIB/index.html
+          # The crawl surface. It is written only where the manifest declares
+          # site.base-url, and a manifest that lost that field would still
+          # build a site that looks right in a browser: the canonical links,
+          # the descriptions, the JSON-LD and all three sitemaps would just be
+          # absent. That is how they were absent from the live site until
+          # 2.6.0 without a single check going red, so each is named here.
+          test -s output/depot-site/sitemap.xml
+          test -s output/depot-site/robots.txt
+          test -s output/depot-site/llms.txt
+          grep -q 'rel="canonical"' output/depot-site/mib/IF-MIB/index.html
+          grep -q '<meta name="description"' output/depot-site/mib/IF-MIB/index.html
+          grep -q 'application/ld+json' output/depot-site/mib/IF-MIB/index.html
+          # Every one of those URLs is built from base-url, so a wrong origin
+          # publishes a site claiming to live somewhere it does not.
+          grep -q 'https://mibsdepot.com/sitemap.xml' output/depot-site/robots.txt
       # github-pages and depot-data publish the same artifacts to two hosts.
       # Nothing in the driver makes them agree -- they are separate
       # publications over a shared parse -- so a divergence would be two
