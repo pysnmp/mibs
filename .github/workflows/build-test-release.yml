@@ -217,6 +217,72 @@ jobs:
       # different pysmi versions on purpose: the corpus above was built with
       # the pysmi this repository pins, and this checks it against the pysmi
       # pysnmp itself depends on, which is the one a consumer actually has.
+      # closure.json and arcs.json are small -- 1 MB and 1.6 MB against a
+      # 570 MB tree -- and each answers a question the rest of the corpus
+      # cannot. A closure says which files to fetch alongside a module for it
+      # to compile, which is the question every consumer of asn1/@mib@ hits
+      # second. The arc index says who registered each OID arc and on whose
+      # authority. Both are checked here because an artifact nothing asserts
+      # is an artifact that can quietly become empty.
+      - name: Closure and arc index contract
+        run: |
+          set -eu
+          python3 - <<'CHECK'
+          import json
+          import sys
+
+          failures = []
+
+          with open("output/depot-data/closure.json", encoding="utf-8") as f:
+              closure = json.load(f)
+
+          with open("output/depot-data/arcs.json", encoding="utf-8") as f:
+              arcs = json.load(f)
+
+          with open("output/depot-data/report.json", encoding="utf-8") as f:
+              modules = json.load(f)["modules"]
+
+          entries = closure["closure"]
+
+          if len(entries) != modules:
+              failures.append(
+                  f"closure covers {len(entries)} modules, the corpus has {modules}"
+              )
+
+          # A module's closure that does not name the module itself would send
+          # a consumer away without the file it asked for.
+          for name, entry in entries.items():
+              if name not in entry["files"]:
+                  failures.append(f"{name}: its own closure does not name it")
+                  break
+
+          # Every import resolving inside the corpus is what makes this corpus
+          # self-sufficient: a consumer fetching a closure gets a set it can
+          # compile without going anywhere else.
+          incomplete = [x for x, e in entries.items() if e["missing"]]
+
+          if incomplete:
+              failures.append(
+                  f"{len(incomplete)} closures name a module the corpus does "
+                  f"not carry, e.g. {incomplete[0]}"
+              )
+
+          named = arcs["meta"]["by-source"]
+
+          if len(arcs["arc"]) < 10000:
+              failures.append(f"the arc index holds {len(arcs['arc'])} arcs")
+
+          # The registries are committed snapshots, so an arc index that
+          # suddenly names nothing from them means they were not read.
+          if named.get("registry", 0) < 400:
+              failures.append(f"only {named.get('registry', 0)} arcs came from a registry")
+
+          for failure in failures:
+              print(f"::error::{failure}")
+
+          sys.exit(1 if failures else 0)
+          CHECK
+          echo "  ok closure.json and arcs.json"
       - name: Runtime-compile contract
         run: |
           uv sync --frozen --only-group consumer
@@ -250,9 +316,13 @@ jobs:
           mkdir -p dist
           # -X drops the extra-attributes fields whose contents vary between
           # runs, so an unchanged tree archives to unchanged bytes.
-          # From the github-pages tree; the depot-data tree holds the same
-          # bytes and the step below asserts it, so which one is archived is
-          # not a choice anything downstream can observe.
+          # From the github-pages tree. For everything but json/ the depot
+          # tree holds the same bytes and the steps below assert it, so which
+          # one is archived is not a choice anything downstream can observe.
+          # json/ is the exception: this is the lean tree, which is what this
+          # archive has always carried. The texts-carrying tree is served
+          # per-module from data.mibsdepot.com/json/ rather than zipped, and
+          # llms.txt points at it.
           (cd output/github-pages && zip -qrX ../../dist/mibs-asn1.zip asn1)
           (cd output/github-pages && zip -qrX ../../dist/mibs-json.zip json)
           (cd output/github-pages && zip -qrX ../../dist/mibs-index.zip \
@@ -407,12 +477,111 @@ jobs:
           # documentation, the chart index and .nojekyll, none of which the
           # depot serves, and each tree's report.json is its own by design --
           # a report is an emitted artifact and says which set it came from.
-          # These five are what both publish.
-          for artifact in asn1 json index.csv index-v2.csv standard.txt; do
+          # depot-data also carries search.db, which Pages has no room for.
+          # json/ is the one artifact the two deliberately differ on and is
+          # checked in the step below. These six are byte-identical.
+          for artifact in asn1 index.csv index-v2.csv standard.txt \
+                          closure.json arcs.json; do
             diff -r --brief \
               "output/github-pages/$artifact" "output/depot-data/$artifact"
             echo "  ok $artifact"
           done
+      # The exception, and the only one: depot-data's json/ carries the
+      # DESCRIPTION, REFERENCE, ORGANIZATION and CONTACT-INFO text and
+      # github-pages' does not. That is a size decision rather than a content
+      # one -- the texts are 88% more on disk, R2 has room and a 1 GB Pages
+      # site does not -- so the two must still be the same corpus. Asserted
+      # rather than reasoned about: strip the four text keys from the depot's
+      # documents and what is left has to equal the Pages tree exactly. Seven
+      # seconds over 652 MB, which is cheap enough not to sample.
+      - name: The depot's JSON is the Pages JSON plus its texts
+        run: |
+          set -eu
+          python3 - <<'CHECK'
+          import json
+          import os
+          import sys
+
+          TEXTS = ("contactinfo", "description", "organization", "reference")
+
+          LEAN = "output/github-pages/json"
+          RICH = "output/depot-data/json"
+
+
+          def strip(value):
+              """The document as the lean tree would have written it."""
+              if isinstance(value, dict):
+                  return {k: strip(v) for k, v in value.items() if k not in TEXTS}
+
+              if isinstance(value, list):
+                  return [strip(v) for v in value]
+
+              return value
+
+
+          def load(path):
+              with open(path, encoding="utf-8") as handle:
+                  return json.load(handle)
+
+
+          failures = []
+          lean_names = sorted(os.listdir(LEAN))
+          rich_names = sorted(os.listdir(RICH))
+
+          if lean_names != rich_names:
+              only_lean = set(lean_names) - set(rich_names)
+              only_rich = set(rich_names) - set(lean_names)
+              failures.append(
+                  f"the two json trees name different modules: "
+                  f"{sorted(only_lean)[:3]} only on Pages, "
+                  f"{sorted(only_rich)[:3]} only on the depot"
+              )
+
+          differing = []
+
+          for name in sorted(set(lean_names) & set(rich_names)):
+              if strip(load(os.path.join(RICH, name))) != load(os.path.join(LEAN, name)):
+                  differing.append(name)
+
+                  if len(differing) == 5:
+                      break
+
+          if differing:
+              failures.append(
+                  f"the depot's json differs from the Pages json by more than "
+                  f"its texts: {differing}"
+              )
+
+          # The point of the divergence, stated as a check. Without these the
+          # comparison above would pass on two identical lean trees and the
+          # depot would have quietly stopped carrying what it exists to carry.
+          #
+          # Guarded on the file being in both trees, because the module-set
+          # failure above already reports a missing IF-MIB and reading it here
+          # would end the step in a traceback instead of in that message.
+          if "IF-MIB.json" in set(lean_names) & set(rich_names):
+              rich = load(os.path.join(RICH, "IF-MIB.json"))
+              lean = load(os.path.join(LEAN, "IF-MIB.json"))
+
+              if "description" not in rich.get("ifDescr", {}):
+                  failures.append("the depot's IF-MIB.json carries no DESCRIPTION")
+
+              if "description" in lean.get("ifDescr", {}):
+                  failures.append(
+                      "the Pages IF-MIB.json carries DESCRIPTION; it is the lean tree"
+                  )
+
+          else:
+              failures.append("IF-MIB.json is not in both json trees")
+
+          if failures:
+              for failure in failures:
+                  print(f"::error::{failure}")
+
+              sys.exit(1)
+
+          print(f"  ok json: {len(rich_names)} modules, texts and all")
+          CHECK
       # Every destination has a ceiling, and discovering one at the deploy
       # means the corpus silently stops updating. Each is checked here
       # instead, with room left to decide what to do about it.

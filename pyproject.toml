@@ -15,14 +15,24 @@ dependencies = [
 # present in every fork of the lock, including the consumer one below, and
 # that is the coupling this split exists to remove.
 #
-# The floor names an rc for the same reason the consumer floor below does:
-# dependabot offers a prerelease only when the requirement string already
-# names one. pysmi 5 is the corpus feature line -- core.db schema 2, the
-# registry parsers, the arc index -- and this repository is what exercises it,
-# so it tracks the rc stream rather than waiting for the GA.
+# The floor named 5.0.0rc1 through the pysmi 5 cycle, because dependabot offers
+# a prerelease only when the requirement string already names one, and this
+# repository is what exercised that cycle -- core.db schema 2, the registry
+# parsers, the arc index, the site emitter. pysmi 5.0.0 is on PyPI, so the
+# floor is a final release and stays one: there is no rc stream left to track
+# and nothing here resolves to a prerelease of pysmi.
+#
+# The `fast` extra is orjson, which pysmi takes for the corpus JSON when it is
+# importable and falls back to the standard library when it is not. Worth
+# about 4% of a build here -- SMI parsing is three quarters of a pass, so the
+# encoder was never going to be the whole of it -- and worth taking because the
+# bytes do not change: pysmi asserts its encoders agree with the standard
+# library over every document this corpus produces, which is what keeps a
+# build byte-reproducible whether or not the extra resolved. report.json names
+# the implementation that ran.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi>=5.0.0rc1,<6",
+    "pysnmp-pysmi[fast]>=5.0.0,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
@@ -49,10 +59,11 @@ consumer = [
 [tool.uv]
 package = false
 
-# Both floors name an rc, so every resolve has to be willing to take one.
-# Without this, a bare `uv run` re-resolves away from the locked prereleases
-# and the build runs against a different pysmi, and the contract against a
-# different pysnmp, than the lockfile records.
+# The consumer floor names an rc, so every resolve has to be willing to take
+# one. Without this, a bare `uv run` re-resolves away from the locked
+# prerelease and the contract runs against a different pysnmp than the
+# lockfile records. The build environment no longer needs it -- pysmi's floor
+# is a final release -- but the setting is per-resolution, not per-group.
 prerelease = "allow"
 
 # uv resolves a conflicting pair into separate forks of the lock rather than
