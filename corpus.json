@@ -17,7 +17,7 @@
     {
       "name": "depot-data",
       "emit": [
-        "asn1", "json", "index", "index-v2", "standard",
+        "asn1", "json-texts", "index", "index-v2", "standard",
         "closure", "arcs", "search-db", "report"
       ],
       "output": "depot-data"

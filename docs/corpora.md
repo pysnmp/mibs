@@ -19,7 +19,7 @@ three *publications* rather than as three builds:
 |---|---|---|
 | `github-pages` | [`pysnmp.github.io/mibs/`](https://pysnmp.github.io/mibs/) | `asn1/`, `json/`, both indexes, `standard.txt`, `closure.json`, `arcs.json`, this documentation |
 | `depot-site` | [`mibsdepot.com`](https://mibsdepot.com/browse/) | the browsable pages, one per module, OID arc and registrant, the crawl surface, and this documentation |
-| `depot-data` | [`data.mibsdepot.com`](https://data.mibsdepot.com) | `asn1/`, `json/`, both indexes, `standard.txt`, `closure.json`, `arcs.json`, `search.db` |
+| `depot-data` | [`data.mibsdepot.com`](https://data.mibsdepot.com) | `asn1/`, `json/` **with the texts**, both indexes, `standard.txt`, `closure.json`, `arcs.json`, `search.db` |
 
 `mibcorpus` writes all three from one parse of the 5,510 modules. Parsing is
 about three quarters of a pass, so three publications cost roughly what one and
@@ -37,6 +37,28 @@ the module's own DESCRIPTION, and JSON-LD naming every symbol on each of the
 written and the site still renders correctly in a browser, which is how it was
 missing from the live site through 2.6.0. The CI site contract names each
 artifact now rather than only the pages.
+
+**The one artifact the two data trees differ on.** `json/` on the depot
+carries the DESCRIPTION, REFERENCE, ORGANIZATION and CONTACT-INFO text from
+the MIB files; `json/` on GitHub Pages does not. Everything else in both trees
+is byte-identical, and CI compares it that way.
+
+The reason is size, not content. The texts are 88% more on disk -- 226 MB
+becomes 425 MB over 5,510 modules -- and GitHub Pages refuses a site over
+1 GB, which that tree is already 580 MB of. R2 charges nothing for egress and
+caps neither the object count nor the total that matters here, so the richer
+tree goes where there is room for it.
+
+Because it is a size decision, the two must still be the same corpus, and CI
+asserts exactly that: strip those four keys from every one of the depot's
+5,510 documents and what is left has to equal the Pages document byte for
+byte. It also asserts the difference is really there -- that the depot's
+`IF-MIB.json` carries a DESCRIPTION and the Pages one does not -- because a
+comparison of two identical lean trees would otherwise pass.
+
+The release archive `mibs-json.zip` carries the lean tree, which is what it
+has always carried. The texts-carrying tree is served per module from
+`https://data.mibsdepot.com/json/@mib@.json`, and `llms.txt` points at it.
 
 **What to fetch alongside a module.** `closure.json` answers the question
 every consumer of `asn1/@mib@` hits second: a MIB does not compile alone, and
