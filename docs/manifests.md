@@ -44,15 +44,15 @@ which artifacts the build writes, and what must be true of the result.
 | `namespaces` | the source sets, **in precedence order** |
 | `name` | what the namespace is called in the build report |
 | `source` | one directory, or `package:` and a dotted package name for the modules a Python package ships |
-| `include` | a glob standing in for `source`, expanding to one namespace per directory it matches — `src/vendor/*` is ~285 of them, each named for its directory |
+| `include` | a glob standing in for `source`, expanding to one namespace per directory it matches. `src/vendor/*` expands to about 285, each named for its directory |
 | `tier` | `standard`, `draft` or `vendor`. Not decoration: it is what tells the OID index that a standard module owns an arc a vendor module also defines |
-| `publish` | `false` makes the namespace a *resolution* source — its modules satisfy what the published ones import and reach no output tree. Defaults to `true` |
+| `publish` | `false` makes the namespace a resolution source: its modules satisfy what the published ones import and reach no output tree. Defaults to `true` |
 
 Paths are relative to the manifest's own directory, so a manifest can be moved
 with the tree it describes.
 
 **Order is precedence.** Two namespaces holding a module of one name is normal
-— a vendor shipping its own copy of an IETF module, say — and the earlier
+(a vendor shipping its own copy of an IETF module, for example) and the earlier
 namespace wins. That is why `standard` is written first above.
 
 ## What the build writes
@@ -92,6 +92,6 @@ serves a corpus nothing can resolve against. `corpus-compact.json` omits the
 key because leaving `standard` unpublished is the whole point of it.
 
 The floors are deliberately slack. They are there to catch a source set that
-collapsed — a vendor directory that did not get checked out, a glob that
-stopped matching — not to pin a number that legitimately moves every time a
+collapsed: a vendor directory that was not checked out, or a glob that stopped
+matching. It is not there to pin a number that legitimately moves every time a
 MIB is added.

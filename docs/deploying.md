@@ -5,12 +5,12 @@ Two of the three need nothing set up:
 
 | tree | goes to | needs |
 |---|---|---|
-| `github-pages` | [`pysnmp.github.io/mibs/`](https://pysnmp.github.io/mibs/) | nothing — the repository's own token |
+| `github-pages` | [`pysnmp.github.io/mibs/`](https://pysnmp.github.io/mibs/) | nothing. It uses the repository's own token |
 | `depot-site` | [`mibsdepot.com`](https://mibsdepot.com) | the Cloudflare setup below |
 | `depot-data` | [`data.mibsdepot.com`](https://data.mibsdepot.com) | the Cloudflare setup below |
 
-This page is the depot half, once, in order. Until it is done the build still
-runs in full — all three trees are written and held to every contract — and
+This page covers the depot half, once, in order. Until it is done the build
+still runs in full: all three trees are written and held to every contract, and
 only the two depot deploys are skipped. Nothing here is needed to develop on
 this repository, and a fork never needs it at all.
 
@@ -20,14 +20,15 @@ Where each piece goes and why, rather than how to create it, is in
 ```{note}
 The site is served by what Cloudflare calls a *Worker*, and **there is no
 Worker code**. `wrangler.jsonc` declares a directory of static assets and
-nothing else — no script, no entrypoint, nothing of ours running per request.
+nothing else: no script, no entrypoint, and nothing of this project's running
+per request.
 Cloudflare now hosts static files under the Workers name, which is why the
 dashboard, the token permission and the `wrangler deploy` command all say
 Worker for something that is a pile of HTML.
 
-The distinction is not cosmetic. Requests a Worker's *script* answers are
-metered — 100,000 a day on the free plan, cache hits counted — and requests
-its *assets* answer are free and unlimited. Serving these pages out of R2
+The distinction is not cosmetic. Requests answered by a Worker's script are
+metered at 100,000 a day on the free plan, with cache hits counted. Requests
+answered by its assets are free and unlimited. Serving these pages out of R2
 would have needed a script, to turn `/mib/IF-MIB/` into that directory's
 `index.html`; static assets do it without one.
 ```
@@ -45,7 +46,7 @@ Steps 1 to 6 can be done in any order; 7, 8 and 9 depend on what came before.
 ## 1. Create the bucket
 
 R2 object storage → **Create bucket**. Any name; you will type it again in
-step 6. Location and storage class can stay on their defaults — the corpus is
+step 6. Location and storage class can stay on their defaults; the corpus is
 590 MB of small files read from everywhere.
 
 ## 2. Give the bucket its hostname
@@ -55,9 +56,9 @@ The bucket → **Settings** → under **Custom Domains**, **Add** →
 Domain**. The status goes from *Initializing* to *Active* within a few
 minutes.
 
-Do this before step 7 if you can. The sync in step 7 works without it — it
-writes to the bucket over the S3 API, not over the hostname — but nothing can
-read what it wrote until the domain is live.
+Do this before step 7 if you can. The sync in step 7 works without it, because
+it writes to the bucket over the S3 API rather than over the hostname, but
+nothing can read what it wrote until the domain is live.
 
 ## 3. Create the R2 credentials
 
@@ -78,10 +79,10 @@ the token in the next step.
 Manage Account → **API Tokens** → **Create Token** → use the **`Edit
 Cloudflare Workers`** template.
 
-The template grants more than this deploy strictly uses — Workers KV Storage,
-Workers R2 Storage and Zone → Workers Routes, none of which apply here, since
-the Worker has no bindings and its hostname is attached by hand in step 8
-rather than declared as a route. Use it anyway. It is the set Cloudflare
+The template grants more than this deploy uses: Workers KV Storage, Workers R2
+Storage and Zone → Workers Routes. None apply here, because the Worker has no
+bindings and its hostname is attached by hand in step 8 rather than declared as
+a route. Use it anyway. It is the set Cloudflare
 maintains for `wrangler deploy`, and a token narrower than what wrangler
 actually calls fails with
 
@@ -107,8 +108,8 @@ hex string in the dashboard URL.
 ## 6. Tell GitHub
 
 Repository **Settings** → **Secrets and variables** → **Actions**. Note the
-two tabs on that page — four of these are secrets and one is a variable, and
-the difference matters:
+two tabs on that page. Four of these are secrets and one is a variable, and the
+difference matters:
 
 | | tab | value |
 |---|---|---|
@@ -118,10 +119,10 @@ the difference matters:
 | `R2_SECRET_ACCESS_KEY` | Secrets | step 3 |
 | `CLOUDFLARE_R2_BUCKET` | **Variables** | the bucket name from step 1 |
 
-A bucket name is not a secret, so it is read from `vars` — and a secret of
-that name is not read at all. Entering it on the wrong tab used to mean the
-data deploy skipped, the job went green and the depot silently stopped
-updating; the build now fails and says so instead. See
+A bucket name is not a secret, so it is read from `vars`. A secret of that name
+is not read at all. Entering it on the wrong tab previously left the variable
+empty, skipped the data deploy and passed the job, leaving the depot without
+updates. The build now fails and names the cause. See
 [if something is wrong](#if-something-is-wrong).
 
 **Repository, not environment.** These are repository-wide Actions secrets and
@@ -138,8 +139,8 @@ and the Worker's name is in `wrangler.jsonc`.
 The next push to `main` deploys. Nothing needs to be triggered by hand; a
 merge is enough.
 
-The first R2 sync uploads the whole tree — 11,025 objects, 590 MB, about
-eleven thousand of the million writes a month the free tier includes. Every
+The first R2 sync uploads the whole tree: 11,025 objects, 590 MB, about 11,000
+of the million writes a month the free tier includes. Every
 sync after it uploads only what changed, because the sync compares checksums
 rather than timestamps.
 
@@ -183,10 +184,10 @@ a host that does not resolve it to `index.html` answers 404 there while the
 front page still works.
 
 The fourth is why `asn1/` is uploaded in a pass of its own. Its files carry no
-extension — `asn1/IF-MIB`, because pysmi substitutes a bare module name into
-the `@mib@` source URL — and a file whose name says nothing is typed as a
-stream of bytes by default, which makes a browser download a MIB rather than
-show it.
+extension, as in `asn1/IF-MIB`, because pysmi substitutes a bare module name
+into the `@mib@` source URL. A file whose name carries no extension is typed as
+a stream of bytes by default, which makes a browser download a MIB rather than
+display it.
 
 ## Afterwards
 
@@ -203,26 +204,26 @@ it.
 
 ## If something is wrong
 
-**`R2 credentials are set but the CLOUDFLARE_R2_BUCKET *variable* is empty`** —
+**`R2 credentials are set but the CLOUDFLARE_R2_BUCKET *variable* is empty`.**
 the bucket name went in as a secret. Move it to the Variables tab.
 
 **`CLOUDFLARE_R2_BUCKET names a bucket but R2_ACCESS_KEY_ID and
-R2_SECRET_ACCESS_KEY are not both set`** — the reverse; one of the two halves
+R2_SECRET_ACCESS_KEY are not both set`.** The reverse: one of the two halves
 from step 3 is missing or was pasted empty.
 
-**`the depot is not wired up on this repository`** — a notice, not a failure.
+**`the depot is not wired up on this repository`.** A notice, not a failure.
 Neither half is configured, which is correct before step 6 and on every fork.
 
-**The job is green but nothing appeared** — check the run's step list. A
+**The job is green but nothing appeared.** Check the run's step list. A
 deploy that was skipped shows as skipped; if both ran and the site is still
 unreachable, it is step 2 or step 8 that is missing, not the build.
 
-**`Authentication error [code: 10000]` from the site deploy** — the Workers
+**`Authentication error [code: 10000]` from the site deploy.** The Workers
 token does not carry what `wrangler deploy` calls. Recreate it from the `Edit
 Cloudflare Workers` template; see step 4. The failing request names the
 Worker, so a 10000 there is about the token rather than about the account id
 or the name.
 
-**`/mib/IF-MIB/` answers 404 but `/` is fine** — `html_handling` in
+**`/mib/IF-MIB/` answers 404 but `/` is fine.** `html_handling` in
 `wrangler.jsonc` is not doing its job. It should be `auto-trailing-slash`,
 which serves an asset at `mib/IF-MIB/index.html` for that path.

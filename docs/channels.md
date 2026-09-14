@@ -140,7 +140,8 @@ syntax, an access level, and the ordering a GETNEXT walk requires. See
 that reads it breaks today. It has a successor, and it will not be extended.
 
 The file exists to preserve answers it has already given, including answers now
-known to be wrong. That is what makes it a freeze rather than a stale copy.
+known to be wrong. Preserving them is what makes it a freeze rather than a
+stale copy.
 Corrections land in `index-v2.csv`. By construction, `index.csv` is the one
 artifact here permitted to be incorrect, and it is the one a consumer keying on
 it is most likely to be reading.

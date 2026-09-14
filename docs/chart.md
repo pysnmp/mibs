@@ -1,7 +1,7 @@
 # The mibserver chart
 
-Serves the published corpus inside a cluster, for deployments that would rather
-not give every compile egress to the public site.
+The `mibserver` chart serves the published corpus inside a Kubernetes cluster,
+for deployments that will not give every compile egress to the public site.
 
 Install from the OCI registry:
 
@@ -21,17 +21,17 @@ new releases are published to the OCI registry above. Migrate to
 The chart mounts the corpus as an [image
 volume](https://kubernetes.io/docs/concepts/storage/volumes/#image). The
 chart's `kubeVersion` refuses anything below 1.33, but **the version check is
-not sufficient on its own** — on 1.33 and 1.34 the feature ships beta and
+not sufficient on its own.** On 1.33 and 1.34 the feature ships beta and
 *disabled*:
 
 | Kubernetes | `ImageVolume` |
 |---|---|
-| 1.33, 1.34 | beta, **off by default** — enable the gate on the API server *and* the kubelet |
+| 1.33, 1.34 | beta, **off by default**. Enable the gate on both the API server and the kubelet |
 | 1.35 | beta, on by default |
 | 1.36+ | stable |
 
 The runtime has to implement it too: containerd 2.1+ (2.0 has no support at
-all) and CRI-O 1.33+ for the beta surface — CRI-O 1.31 carries only the
+all) and CRI-O 1.33+ for the beta surface. CRI-O 1.31 carries only the
 original alpha.
 
 Below 1.35 with the gate left at its default, `helm install` succeeds and the
@@ -40,9 +40,9 @@ express. If that is your cluster, enable the gate before installing.
 
 What this buys: the container serving MIBs is `nginxinc/nginx-unprivileged`
 from upstream, unmodified. This project no longer publishes an nginx image, so
-an nginx CVE is upstream's to fix and yours to pick up by bumping `image.tag` —
-not something that waits on a release here. The endpoints, ports and paths are
-unchanged.
+an nginx CVE is upstream's to fix and yours to pick up by bumping `image.tag`.
+Picking it up does not wait on a release here. The endpoints, ports and paths
+are unchanged.
 
 ## Local MIBs
 

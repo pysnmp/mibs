@@ -1,14 +1,14 @@
 # The corpora
 
-One source set, rendered three ways. Which one you want follows from what the
-consumer already has.
+One source set is rendered three ways: the published corpus, the compact
+corpus, and the corpus database. Choose by what the consumer already has.
 
 ## The published corpus
 
-Carries the standard modules, because its consumers fetch them from it:
-splunk-connect-for-snmp resolves `asn1/@mib@` against this site for every
-module it meets. This is what the site serves, what the release archives
-contain, and what the [`mibserver` chart](chart.md) mounts.
+The published corpus carries the standard modules, because its consumers fetch
+them from it: splunk-connect-for-snmp resolves `asn1/@mib@` against this site
+for every module it encounters. This is what the site serves, what the release
+archives contain, and what the [`mibserver` chart](chart.md) mounts.
 
 ## Where each tree goes
 
@@ -18,28 +18,29 @@ three *publications* rather than as three builds:
 | publication | destination | carries |
 |---|---|---|
 | `github-pages` | [`pysnmp.github.io/mibs/`](https://pysnmp.github.io/mibs/) | `asn1/`, `json/`, both indexes, `standard.txt`, this documentation |
-| `depot-site` | [`mibsdepot.com`](https://mibsdepot.com) | the browsable pages — one per module, OID arc and registrant — and this documentation |
+| `depot-site` | [`mibsdepot.com`](https://mibsdepot.com/browse/) | the browsable pages, one per module, OID arc and registrant, and this documentation |
 | `depot-data` | [`data.mibsdepot.com`](https://data.mibsdepot.com) | `asn1/`, `json/`, both indexes, `standard.txt`, `search.db` |
 
 `mibcorpus` writes all three from one parse of the 5,510 modules. Parsing is
 about three quarters of a pass, so three publications cost roughly what one and
-a half builds would, and — the part that matters more — the three trees are
-projections of a single parse rather than three runs that have to be trusted to
-agree. CI asserts the two data trees are byte-identical anyway, artifact by
-artifact, because "they came from the same parse" is a claim and a `diff` is a
-check.
+a half builds would. More importantly, the three trees are projections of a
+single parse rather than three runs that must be trusted to agree. CI compares
+the two data trees artifact by artifact regardless, because a shared parse is a
+claim and a `diff` is a check.
 
 **Why the pages and the files are on different hosts.** Every link the site
-generator writes is a directory URL — `../../mib/IF-MIB/` — which a host has to
-resolve to that directory's `index.html`. Object storage does not: it serves
-the key it is given, so `/mib/IF-MIB/` is a 404 unless something on the serving
-path rewrites it. Static assets resolve it natively and run no script to do so,
-which is the distinction that matters on a free plan: requests to a Worker's
-*script* are metered, at 100,000 a day with cache hits counted, and requests to
-its *assets* are not. What assets cost instead is a file count — 20,000 per
-version — and the browsable pages are 7,430 of them, with 11,025 more files
-beside them that never needed resolving at all, before the per-module downloads
-that are still to come.
+generator writes is a directory URL, `../../mib/IF-MIB/`, which a host must
+resolve to that directory's `index.html`. Object storage does not resolve it.
+It serves the key it is given, so `/mib/IF-MIB/` returns 404 unless something
+on the serving path rewrites it.
+
+Static assets resolve it natively and run no script to do so. That distinction
+decides the cost on a free plan: requests to a Worker's script are metered at
+100,000 a day with cache hits counted, and requests to its assets are not.
+
+Static assets are limited instead by file count: 20,000 per version. The
+browsable pages are 7,430 of them. The 11,025 files beside them need no
+resolution at all, and the per-module downloads still to come would add more.
 
 So the split follows the constraint rather than the content: **pages that need
 resolving go where resolving is free, and files addressed by exact name go
@@ -62,16 +63,16 @@ configuration. The depot half reads four secrets and one variable, set once;
 There is no switch among them. Holding the Cloudflare token is the decision to
 publish, and the Worker's name is in `wrangler.jsonc`, so a repository that
 has not been given credentials builds and checks all three trees and publishes
-the one it can. Neither hostname is named in this repository either —
+the one it can. Neither hostname is named in this repository.
 `mibsdepot.com` is attached to the Worker and `data.mibsdepot.com` to the
-bucket, each by hand — so nothing here claims a domain it does not own, and a
-fork holding its own token publishes to its own.
+bucket, each by hand in the Cloudflare dashboard. Nothing here claims a domain
+it does not own, and a fork holding its own token publishes to its own.
 
 ## The compact corpus
 
-The same source set with the standard namespace declared `"publish": false` —
-a [resolution source](manifests.md) rather than a published one. It carries
-only what a runtime that already has the standard modules does not have, since
+The same source set with the standard namespace declared `"publish": false`,
+making it a [resolution source](manifests.md) rather than a published one. It
+carries only what a runtime that already holds the standard modules lacks:
 pysmi bundles 210 of them and its wheel ships their compiled form. Each module
 in it is byte-identical to the same module in the published corpus.
 
@@ -83,7 +84,7 @@ ghcr.io/pysnmp/mibs/corpus-compact:<version>
 
 `publish: false` is the only difference between the two manifests in this
 repository. `corpus.json` and `corpus-compact.json` are otherwise identical,
-which is what makes the compact corpus a subset of the published one rather
+which makes the compact corpus a subset of the published one rather
 than a second rendering of it. pysmi holds that claim to account, in
 `tests/test_corpus_publish_invariance.py`: it builds one source set twice, with
 the standard namespace published and unpublished, and asserts every shared
@@ -102,11 +103,11 @@ file format is specified in pysmi's
 
 It exists because of two questions `index-v2.csv` cannot answer. The index is
 `MODULE,OID` and carries a module's *anchors*, so it says which module to load
-and nothing else — a leaf like `ifDescr` is not in it at all, and getting from
-an OID to a name, a syntax and an access level still means compiling the
-module's ASN.1 or parsing its whole JSON document. And an anchor index has no
-per-node ordering, so a walk cannot be served from one. Both are one indexed
-row here.
+and nothing else. A leaf such as `ifDescr` is not in it at all, so getting from
+an OID to a name, a syntax and an access level means compiling the module's
+ASN.1 or parsing its whole JSON document. An anchor index also has no per-node
+ordering, so a walk cannot be served from one. In `core.db` both are a single
+indexed row.
 
 Measured on the corpus this repository builds:
 
@@ -119,15 +120,16 @@ Measured on the corpus this repository builds:
 | size | 256 MB, 36 MB gzipped |
 | build | one `mibcorpus` invocation, ~5 minutes |
 
-**Built from `corpus-db.json`, whose source set is `corpus.json`'s — not the
+**Built from `corpus-db.json`, whose source set is `corpus.json`'s, not the
 compact manifest.** The two differ only in what they emit. The compact corpus
-leaves the standard modules out because a runtime that has pysmi already holds
-them as Python — but a database is consulted *by OID*, and one missing
-`1.3.6.1.2.1` cannot resolve `ifDescr` for anybody. There is one corpus; vendor
-is a column in it rather than a partition of it.
+omits the standard modules because a runtime with pysmi already holds them as
+Python. A database is consulted by OID, and a database missing `1.3.6.1.2.1`
+cannot resolve `ifDescr` for anyone. There is one corpus; vendor is a column in
+it rather than a partition of it.
 
 **No prose.** No DESCRIPTION, no REFERENCE. They are about a third of a
 generated module's bytes, pysnmp discards them under the default
 `loadTexts=False`, and `json/` already serves the one consumer that wants them
-— a MIB browser. A second database for prose would be the largest thing this
-repository publishes and would duplicate a channel that already works.
+the one consumer that wants it, a MIB browser. A second database for prose
+would be the largest artifact this repository publishes and would duplicate a
+channel that already works.

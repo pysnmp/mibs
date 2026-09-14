@@ -1,9 +1,13 @@
 # The IANA registries this corpus names OID arcs from
 
-An OID tree is only useful if it says what each arc *is*. Until now this
-repository had one source for that: whichever MIB happened to mention an
-arc on its way somewhere else. That gets the arcs a module actually
-registers right, and gets the arcs above them wrong.
+This corpus names OID arcs from two committed IANA registry snapshots. This
+page describes what they contain, why they are committed rather than fetched,
+and how staleness is detected.
+
+An OID tree is only useful if it says what each arc is. This repository
+previously had one source for that: whichever MIB happened to mention an arc on
+its way somewhere else. That names the arcs a module registers correctly, and
+names the arcs above them incorrectly.
 
 Measured against this corpus:
 
@@ -33,7 +37,7 @@ Two IANA registries answer both, and both are committed here:
 `pysmi`'s corpus driver opens on a property: *a build with the network
 unplugged produces the same corpus as one without*. The enterprise
 registry changes daily. Fetching either at build time would end that
-property, and two builds of the same sources would stop agreeing — the
+property, and two builds of the same sources would stop agreeing. The
 same class of defect as the shell pipeline that resolved missing
 dependencies from its own last publish.
 
@@ -51,10 +55,10 @@ The cost of reducing is staleness: a module arriving later under an arc
 the snapshot predates has no registrant, and its page renders nameless.
 That is not silent. Two things say so:
 
-- `scripts/update_registries.py --validate` — offline, run on every pull
+- `scripts/update_registries.py --validate`, offline, run on every pull
   request. Compares the committed arc list against `index-frozen.csv` and
   the committed snapshot against that list.
-- the corpus build itself — pysmi reports `unregistered` in `entity.json`
+- the corpus build itself: pysmi reports `unregistered` in `entity.json`
   and warns naming the numbers.
 
 Today that is one arc: **1004849**, which `DAHUA-SNMP-MIB` registers
@@ -65,7 +69,7 @@ registry has a hole.
 
 `registries/enterprise-arcs.txt` is the union of the arcs reached by
 `index-frozen.csv` and by the build's `index-v2.csv`. The two do not
-agree — the ranked index reaches ten arcs the frozen one does not, and
+agree. The ranked index reaches ten arcs the frozen one does not, and
 the frozen one replays five the corpus no longer compiles a module for.
 Both are published, so a reader resolving an OID through either should
 reach a named registrant.
@@ -88,7 +92,7 @@ uv run python scripts/update_registries.py --update
 workflow](https://github.com/pysnmp/mibs/blob/main/.github/workflows/mib-freshness.yml)
 beside the MIB sweep, for the same reason: the registries have a
 publisher and a baseline in exactly the same sense the MIBs do. Nothing
-there writes to the repository — a registry revision is a change somebody
+there writes to the repository. A registry revision is a change a maintainer
 reviews, not one a robot lands.
 
 Because the enterprise registry moves daily, `--check` will usually report
