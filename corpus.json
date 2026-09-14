@@ -22,6 +22,7 @@
   ],
   "site": {
     "base-url": "https://mibsdepot.com",
+    "data-url": "https://data.mibsdepot.com",
     "description": "5,510 SNMP MIB modules from their publishers, rendered as pages: one per module, one per OID arc, one per registrant, carrying the DESCRIPTION text the files themselves hold. The same corpus is downloadable as ASN.1 and JSON from https://data.mibsdepot.com.",
     "name": "MIBs Depot",
     "template": "theme/page.html",

@@ -380,6 +380,17 @@ jobs:
           # Every sitemap URL is built from base-url, so a wrong origin
           # publishes a site claiming to live somewhere it does not.
           grep -q 'https://mibsdepot.com/sitemap.xml' output/depot-site/robots.txt
+          # The pages and the files are on two hosts, and llms.txt is the one
+          # artifact that names both. Its bulk links take data-url; everything
+          # that describes a page takes base-url. Written against one origin,
+          # the three bulk links 404 on the pages host, which is what they did
+          # before pysmi 5.0.0 had somewhere else to put them.
+          grep -q 'https://data.mibsdepot.com/asn1/' output/depot-site/llms.txt
+          grep -q 'https://data.mibsdepot.com/json/' output/depot-site/llms.txt
+          grep -q 'https://data.mibsdepot.com/index-v2.csv' output/depot-site/llms.txt
+          grep -q 'https://mibsdepot.com/browse/' output/depot-site/llms.txt
+          ! grep -q 'data.mibsdepot.com' output/depot-site/sitemap.xml
+          ! grep -q 'data.mibsdepot.com' output/depot-site/mib/IF-MIB/index.html
       # github-pages and depot-data publish the same artifacts to two hosts.
       # Nothing in the driver makes them agree -- they are separate
       # publications over a shared parse -- so a divergence would be two
