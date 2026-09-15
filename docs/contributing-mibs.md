@@ -12,10 +12,11 @@ intend to write yourself.
 ## One command
 
 `mibcontribute` ships with [pysmi](https://pysnmp.github.io/pysmi/), which is
-the compiler this distribution is built with:
+the compiler this distribution is built with. It arrived in pysmi 5.2.0, so
+name that floor: an older pysmi installs `mibdump` and the rest without it.
 
 ```sh
-pip install pysnmp-pysmi
+pip install "pysnmp-pysmi>=5.2"
 mibcontribute ./my-mibs
 ```
 
