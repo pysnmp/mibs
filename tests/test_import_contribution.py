@@ -426,6 +426,133 @@ def test_a_publisher_the_manifest_does_not_define_is_refused() -> None:
         check("no publisher writes nothing", written, False)
 
 
+def test_a_bundle_naming_a_path_is_refused() -> None:
+    """findings.json is data, and it names the files this reads and commits."""
+    sys.stdout.write("\ntest_a_bundle_naming_a_path_is_refused\n")
+
+    with tempfile.TemporaryDirectory() as name:
+        directory = pathlib.Path(name)
+        found = bundle(directory)
+        secret = directory / "id_rsa"
+        secret.write_text("a private key\n", encoding="utf-8")
+
+        for module in ("../../id_rsa", "../id_rsa", "/etc/passwd", ".."):
+            refused = ""
+
+            try:
+                import_contribution.bundle_file(found, module)
+            except import_contribution.Refused as exc:
+                refused = str(exc)
+
+            check_true(f"{module!r} refused", "is not a MIB module name" in refused)
+
+        check(
+            "the key was not read",
+            import_contribution.MODULE_NAME.match("../../id_rsa"),
+            None,
+        )
+
+
+def test_a_symlink_in_a_bundle_is_refused() -> None:
+    """A link where the MIB should be is a file from somewhere else."""
+    sys.stdout.write("\ntest_a_symlink_in_a_bundle_is_refused\n")
+
+    with tempfile.TemporaryDirectory() as name:
+        directory = pathlib.Path(name)
+        found = bundle(directory)
+        secret = directory / "secret"
+        secret.write_text("not a MIB\n", encoding="utf-8")
+        (found / "mibs" / "NEW-MIB").unlink()
+
+        try:
+            (found / "mibs" / "NEW-MIB").symlink_to(secret)
+        except (OSError, NotImplementedError):
+            sys.stdout.write("  SKIP  this platform does not make symlinks\n")
+            return
+
+        refused = ""
+
+        try:
+            import_contribution.read_bundle(found)
+        except import_contribution.Refused as exc:
+            refused = str(exc)
+
+        check_true("refused", "is a symbolic link" in refused)
+
+
+def test_the_bundle_beside_the_checkout_does_not_refuse_the_import() -> None:
+    """The documented command writes the bundle where it is about to import from."""
+    sys.stdout.write(
+        "\ntest_the_bundle_beside_the_checkout_does_not_refuse_the_import\n"
+    )
+
+    with tempfile.TemporaryDirectory() as name:
+        directory = pathlib.Path(name)
+        clone = checkout(directory)
+        found = bundle(directory)
+        inside = clone / "found"
+        inside.mkdir()
+        (inside / "findings.json").write_text(
+            (found / "findings.json").read_text(), encoding="utf-8"
+        )
+        (inside / "mibs").mkdir()
+
+        for module in ("NEW-MIB", "NEWER-MIB"):
+            (inside / "mibs" / module).write_text(
+                (found / "mibs" / module).read_text(), encoding="utf-8"
+            )
+
+        code = import_contribution.main(
+            [
+                f"--contribution={inside}",
+                f"--checkout={clone}",
+                "--vendor=example",
+            ]
+        )
+
+        check("an untracked bundle is not a dirty tree", code, 0)
+
+        (clone / "mib-sources.json").write_text("{}", encoding="utf-8")
+        dirty = ""
+
+        try:
+            import_contribution.require_checkout(clone)
+        except import_contribution.Refused as exc:
+            dirty = str(exc)
+
+        check_true("a modified tracked file still is", "uncommitted changes" in dirty)
+
+
+def test_an_undefined_publisher_leaves_the_checkout_alone() -> None:
+    """A refusal after the branch and the writes is a checkout somebody has to clean."""
+    sys.stdout.write("\ntest_an_undefined_publisher_leaves_the_checkout_alone\n")
+
+    with tempfile.TemporaryDirectory() as name:
+        directory = pathlib.Path(name)
+        clone = checkout(directory)
+        code = import_contribution.main(
+            [
+                f"--contribution={bundle(directory)}",
+                f"--checkout={clone}",
+                "--vendor=example",
+                "--publisher=nobody",
+            ]
+        )
+
+        check("refused", code, 2)
+        check("still on main", git(clone, "rev-parse", "--abbrev-ref", "HEAD"), "main")
+        check(
+            "no branch was made",
+            git(clone, "branch", "--list", "mibs/example-contribution"),
+            "",
+        )
+        check(
+            "nothing was written",
+            (clone / "src" / "vendor" / "example").exists(),
+            False,
+        )
+
+
 def main() -> int:
     """Run every case and report."""
     test_the_modules_land_in_a_branch()
@@ -436,6 +563,10 @@ def main() -> int:
     test_a_directory_that_is_not_a_bundle_is_refused()
     test_the_checkout_must_be_this_repository_and_clean()
     test_a_publisher_the_manifest_does_not_define_is_refused()
+    test_a_bundle_naming_a_path_is_refused()
+    test_a_symlink_in_a_bundle_is_refused()
+    test_the_bundle_beside_the_checkout_does_not_refuse_the_import()
+    test_an_undefined_publisher_leaves_the_checkout_alone()
 
     if FAILURES:
         sys.stderr.write(f"\n{len(FAILURES)} check(s) failed:\n")

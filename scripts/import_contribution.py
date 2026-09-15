@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -47,6 +48,13 @@ from pathlib import Path
 
 #: What `mibcontribute` calls the modules it found nothing here carries.
 NOT_CARRIED = "not carried"
+
+#: What a module name may be, in a bundle that arrived from somewhere else.
+#: RFC 2578 Section 3.1 allows letters, digits and hyphens; the underscore is
+#: here because vendors use it. What this excludes is the point: a bundle is
+#: data, this reads a file path out of it, and "../" in that path would read
+#: and then commit a file from somewhere else entirely.
+MODULE_NAME = re.compile(r"^[A-Za-z][A-Za-z0-9_-]{0,127}$")
 
 
 class Refused(Exception):
@@ -79,20 +87,59 @@ def read_bundle(directory: Path) -> tuple[list[dict], dict[str, bytes]]:
     sources = {}
 
     for one in modules:
-        path = directory / "mibs" / str(one["module"])
-
-        if not path.is_file():
-            raise Refused(
-                f"{findings} names {one['module']}, which is not at {path}. "
-                "The bundle is incomplete; run the scan again."
-            )
-
-        sources[str(one["module"])] = path.read_bytes()
+        module = str(one["module"])
+        sources[module] = bundle_file(directory, module).read_bytes()
 
     if not modules:
         raise Refused(f"{findings} holds no modules, so there is nothing to import.")
 
     return modules, sources
+
+
+def bundle_file(directory: Path, module: str) -> Path:
+    """The file a bundle holds for one module, refusing one that is not in it.
+
+    Everything this reads it goes on to commit, and with ``--submit`` to push.
+    A bundle is a directory somebody sends: it can name a module
+    ``../../id_rsa`` or leave a symbolic link where the MIB should be, and
+    either would have this publish a file nobody meant to publish.
+
+    Args:
+        directory: the bundle.
+        module: the module name, as ``findings.json`` gives it.
+
+    Returns:
+        The file to read.
+
+    Raises:
+        Refused: the name is not a module name, the file is not there, or it is
+            not inside the bundle.
+    """
+    if not MODULE_NAME.match(module):
+        raise Refused(
+            f"{module!r} is not a MIB module name. findings.json names the files "
+            "this reads, so a name that is a path is refused rather than followed."
+        )
+
+    mibs = (directory / "mibs").resolve()
+    path = directory / "mibs" / module
+
+    if path.is_symlink():
+        raise Refused(
+            f"{path} is a symbolic link. A bundle carries MIB text, and what "
+            "this reads it commits."
+        )
+
+    if not path.is_file():
+        raise Refused(
+            f"{directory / 'findings.json'} names {module}, which is not at "
+            f"{path}. The bundle is incomplete; run the scan again."
+        )
+
+    if not path.resolve().is_relative_to(mibs):
+        raise Refused(f"{path} is not inside {mibs}.")
+
+    return path
 
 
 def git(checkout: Path, *arguments: str) -> str:
@@ -133,14 +180,45 @@ def require_checkout(checkout: Path) -> Path:
             "into src/vendor/ and mib-sources.json, and neither is here."
         )
 
-    if git(resolved, "status", "--porcelain"):
+    # Tracked changes only. The commit adds the paths this wrote by name, so an
+    # untracked file cannot reach it -- and the bundle being imported is often
+    # an untracked directory right here, which would otherwise make the
+    # documented command refuse itself. What is worth refusing is a modified
+    # file, which switching branches carries onto the new one.
+    if git(resolved, "status", "--porcelain", "--untracked-files=no"):
         raise Refused(
-            f"{resolved} has uncommitted changes. An import commits what it "
-            "writes, and a dirty tree would go into that commit. Commit or stash "
-            "first."
+            f"{resolved} has uncommitted changes to tracked files. An import "
+            "commits what it writes, and those changes would follow it onto the "
+            "branch. Commit or stash first."
         )
 
     return resolved
+
+
+def require_publisher(checkout: Path, publisher: str) -> None:
+    """Refuse a publisher the manifest does not define, before anything is written.
+
+    Args:
+        checkout: the clone being imported into.
+        publisher: the publisher named on the command line, or an empty string.
+
+    Raises:
+        Refused: the publisher is not one ``mib-sources.json`` defines, which is
+            what ``scripts/update_vendor_mibs.py --validate`` rejects in CI.
+    """
+    if not publisher:
+        return
+
+    defined = json.loads(
+        (checkout / "mib-sources.json").read_text(encoding="utf-8")
+    ).get("publishers", {})
+
+    if publisher not in defined:
+        raise Refused(
+            f"mib-sources.json defines no publisher {publisher!r}. It defines "
+            f"{', '.join(sorted(defined))}. Add the publisher in its own pull "
+            "request first, or leave --publisher off and answer it in review."
+        )
 
 
 def record_provenance(checkout: Path, paths: list[str], publisher: str) -> bool:
@@ -163,14 +241,7 @@ def record_provenance(checkout: Path, paths: list[str], publisher: str) -> bool:
 
     manifest = checkout / "mib-sources.json"
     parsed = json.loads(manifest.read_text(encoding="utf-8"))
-
-    if publisher not in parsed.get("publishers", {}):
-        raise Refused(
-            f"mib-sources.json defines no publisher {publisher!r}. It defines "
-            f"{', '.join(sorted(parsed.get('publishers', {})))}. Add the publisher "
-            "in its own pull request first, or leave --publisher off and answer it "
-            "in review."
-        )
+    require_publisher(checkout, publisher)
 
     for path in paths:
         parsed.setdefault("modules", {})[path] = {"publisher": publisher}
@@ -334,6 +405,10 @@ def import_bundle(options: argparse.Namespace) -> int:
     modules, sources = read_bundle(options.contribution)
     checkout = require_checkout(options.checkout)
     branch = options.branch or f"mibs/{options.vendor}-contribution"
+
+    # Before the branch and before any write: a refusal here would otherwise
+    # leave the checkout on a new branch full of uncommitted MIBs.
+    require_publisher(checkout, options.publisher)
     started = git(checkout, "rev-parse", "--abbrev-ref", "HEAD")
 
     git(checkout, "switch", "--create", branch)
