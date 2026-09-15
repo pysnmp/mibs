@@ -22,6 +22,14 @@ dependencies = [
 # floor is a final release and stays one: there is no rc stream left to track
 # and nothing here resolves to a prerelease of pysmi.
 #
+# 5.1.0 is the floor rather than a preference: the pull request preview builds
+# with --publish-only and --patch-directory, which arrived there. A lower
+# resolution does not degrade the preview, it refuses the command line, so
+# this is a requirement in the literal sense. The workflow checks it anyway
+# and says so in a sentence, because a lock is a claim about one machine and
+# the error it replaces is a page of getopt usage. See
+# .github/workflows/pr-mib-preview.yml.
+#
 # The `fast` extra is orjson, which pysmi takes for the corpus JSON when it is
 # importable and falls back to the standard library when it is not. Worth
 # about 4% of a build here -- SMI parsing is three quarters of a pass, so the
@@ -32,7 +40,7 @@ dependencies = [
 # the implementation that ran.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi[fast]>=5.0.0,<6",
+    "pysnmp-pysmi[fast]>=5.1.0,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
