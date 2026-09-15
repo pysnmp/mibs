@@ -1,0 +1,804 @@
+ACOS-CLASS-LIST-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		classListModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "classListModule OID for ACOS"
+				::=  {  acosSchema 137 }
+
+classList		 OBJECT IDENTIFIER ::= { classListModule 1}
+
+classListOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ClassListOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure classification list from object 'class-list'"
+	::= {classList 2}
+
+classListOperEntry OBJECT-TYPE
+	SYNTAX ClassListOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The classListOper entry"
+	INDEX {
+		classListOperSlotId,
+		classListOperName
+	}
+	::= { classListOperTable 1 }
+
+ClassListOperEntry ::=
+	SEQUENCE {
+		classListOperSlotId Integer32,
+		classListOperName DisplayString,
+		classListOperType	 DisplayString,
+		classListOperFileOrString	 DisplayString,
+		classListOperUserTag	 DisplayString,
+		classListOperIpv4TotalSingleIp	 Integer32,
+		classListOperIpv4TotalSubnet	 Integer32,
+		classListOperIpv6TotalSingleIp	 Integer32,
+		classListOperIpv6TotalSubnet	 Integer32,
+		classListOperDnsTotalEntries	 Integer32,
+		classListOperStringTotalEntries	 Integer32,
+		classListOperAcTotalEntries	 Integer32,
+		classListOperGeoLocationTotalEntries	 Integer32
+	}
+
+classListOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { classListOperEntry 1 }
+
+classListOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { classListOperEntry 2 }
+
+classListOperType OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "type"
+	::= { classListOperEntry 3 }
+
+classListOperFileOrString OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "file-or-string"
+	::= { classListOperEntry 4 }
+
+classListOperUserTag OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "user-tag"
+	::= { classListOperEntry 5 }
+
+classListOperIpv4TotalSingleIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-total-single-ip"
+	::= { classListOperEntry 6 }
+
+classListOperIpv4TotalSubnet OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-total-subnet"
+	::= { classListOperEntry 7 }
+
+classListOperIpv6TotalSingleIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-total-single-ip"
+	::= { classListOperEntry 8 }
+
+classListOperIpv6TotalSubnet OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-total-subnet"
+	::= { classListOperEntry 9 }
+
+classListOperDnsTotalEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns-total-entries"
+	::= { classListOperEntry 10 }
+
+classListOperStringTotalEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "string-total-entries"
+	::= { classListOperEntry 11 }
+
+classListOperAcTotalEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ac-total-entries"
+	::= { classListOperEntry 12 }
+
+classListOperGeoLocationTotalEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "geo-location-total-entries"
+	::= { classListOperEntry 13 }
+
+classListOperIpv4EntriesTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ClassListOperIpv4EntriesEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure classification list from object 'class-list'"
+	::= {classList 3}
+
+classListOperIpv4EntriesEntry OBJECT-TYPE
+	SYNTAX ClassListOperIpv4EntriesEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The classListOperIpv4Entries entry:ipv4-entries"
+	INDEX {
+		classListOperIpv4EntriesSlotId,
+		classListOperIpv4EntriesName,
+		classListOperIpv4EntriesIpv4EntriesListId
+	}
+	::= { classListOperIpv4EntriesTable 1}
+
+ClassListOperIpv4EntriesEntry ::=
+	SEQUENCE {
+		classListOperIpv4EntriesSlotId Integer32,
+		classListOperIpv4EntriesName DisplayString,
+		classListOperIpv4EntriesIpv4EntriesListId Integer32,
+		classListOperIpv4EntriesIpv4Addr	DisplayString,
+		classListOperIpv4EntriesIpv4Lid	Integer32,
+		classListOperIpv4EntriesIpv4Glid	Integer32,
+		classListOperIpv4EntriesIpv4LsnLid	Integer32,
+		classListOperIpv4EntriesIpv4LsnRadiusProfile	Integer32,
+		classListOperIpv4EntriesIpv4GtpPolicy	DisplayString,
+		classListOperIpv4EntriesIpv4HitCount	Integer32,
+		classListOperIpv4EntriesIpv4Age	Integer32,
+		classListOperIpv4EntriesIpv4RpzType	Integer32
+	}
+
+classListOperIpv4EntriesSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperIpv4EntriesEntry 1}
+
+classListOperIpv4EntriesName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { classListOperIpv4EntriesEntry 2}
+
+classListOperIpv4EntriesIpv4EntriesListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperIpv4EntriesEntry 3}
+
+classListOperIpv4EntriesIpv4Addr OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-addr"
+	::= { classListOperIpv4EntriesEntry 4}
+
+classListOperIpv4EntriesIpv4Lid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-lid"
+	::= { classListOperIpv4EntriesEntry 5}
+
+classListOperIpv4EntriesIpv4Glid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-glid"
+	::= { classListOperIpv4EntriesEntry 6}
+
+classListOperIpv4EntriesIpv4LsnLid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-lsn-lid"
+	::= { classListOperIpv4EntriesEntry 7}
+
+classListOperIpv4EntriesIpv4LsnRadiusProfile OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-lsn-radius-profile"
+	::= { classListOperIpv4EntriesEntry 8}
+
+classListOperIpv4EntriesIpv4GtpPolicy OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-gtp-policy"
+	::= { classListOperIpv4EntriesEntry 9}
+
+classListOperIpv4EntriesIpv4HitCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-hit-count"
+	::= { classListOperIpv4EntriesEntry 10}
+
+classListOperIpv4EntriesIpv4Age OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-age"
+	::= { classListOperIpv4EntriesEntry 11}
+
+classListOperIpv4EntriesIpv4RpzType OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4-rpz-type"
+	::= { classListOperIpv4EntriesEntry 12}
+
+classListOperIpv6EntriesTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ClassListOperIpv6EntriesEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure classification list from object 'class-list'"
+	::= {classList 4}
+
+classListOperIpv6EntriesEntry OBJECT-TYPE
+	SYNTAX ClassListOperIpv6EntriesEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The classListOperIpv6Entries entry:ipv6-entries"
+	INDEX {
+		classListOperIpv6EntriesSlotId,
+		classListOperIpv6EntriesName,
+		classListOperIpv6EntriesIpv6EntriesListId
+	}
+	::= { classListOperIpv6EntriesTable 1}
+
+ClassListOperIpv6EntriesEntry ::=
+	SEQUENCE {
+		classListOperIpv6EntriesSlotId Integer32,
+		classListOperIpv6EntriesName DisplayString,
+		classListOperIpv6EntriesIpv6EntriesListId Integer32,
+		classListOperIpv6EntriesIpv6addr	DisplayString,
+		classListOperIpv6EntriesIpv6Lid	Integer32,
+		classListOperIpv6EntriesIpv6Glid	Integer32,
+		classListOperIpv6EntriesIpv6LsnLid	Integer32,
+		classListOperIpv6EntriesIpv6LsnRadiusProfile	Integer32,
+		classListOperIpv6EntriesIpv6GtpPolicy	DisplayString,
+		classListOperIpv6EntriesIpv6HitCount	Integer32,
+		classListOperIpv6EntriesIpv6Age	Integer32,
+		classListOperIpv6EntriesIpv6RpzType	Integer32
+	}
+
+classListOperIpv6EntriesSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperIpv6EntriesEntry 1}
+
+classListOperIpv6EntriesName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { classListOperIpv6EntriesEntry 2}
+
+classListOperIpv6EntriesIpv6EntriesListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperIpv6EntriesEntry 3}
+
+classListOperIpv6EntriesIpv6addr OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6addr"
+	::= { classListOperIpv6EntriesEntry 4}
+
+classListOperIpv6EntriesIpv6Lid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6-lid"
+	::= { classListOperIpv6EntriesEntry 5}
+
+classListOperIpv6EntriesIpv6Glid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6-glid"
+	::= { classListOperIpv6EntriesEntry 6}
+
+classListOperIpv6EntriesIpv6LsnLid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6-lsn-lid"
+	::= { classListOperIpv6EntriesEntry 7}
+
+classListOperIpv6EntriesIpv6LsnRadiusProfile OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6-lsn-radius-profile"
+	::= { classListOperIpv6EntriesEntry 8}
+
+classListOperIpv6EntriesIpv6GtpPolicy OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6-gtp-policy"
+	::= { classListOperIpv6EntriesEntry 9}
+
+classListOperIpv6EntriesIpv6HitCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6-hit-count"
+	::= { classListOperIpv6EntriesEntry 10}
+
+classListOperIpv6EntriesIpv6Age OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6-age"
+	::= { classListOperIpv6EntriesEntry 11}
+
+classListOperIpv6EntriesIpv6RpzType OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6-rpz-type"
+	::= { classListOperIpv6EntriesEntry 12}
+
+classListOperDnsEntriesTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ClassListOperDnsEntriesEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure classification list from object 'class-list'"
+	::= {classList 5}
+
+classListOperDnsEntriesEntry OBJECT-TYPE
+	SYNTAX ClassListOperDnsEntriesEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The classListOperDnsEntries entry:dns-entries"
+	INDEX {
+		classListOperDnsEntriesSlotId,
+		classListOperDnsEntriesName,
+		classListOperDnsEntriesDnsEntriesListId
+	}
+	::= { classListOperDnsEntriesTable 1}
+
+ClassListOperDnsEntriesEntry ::=
+	SEQUENCE {
+		classListOperDnsEntriesSlotId Integer32,
+		classListOperDnsEntriesName DisplayString,
+		classListOperDnsEntriesDnsEntriesListId Integer32,
+		classListOperDnsEntriesDnsMatchType	DisplayString,
+		classListOperDnsEntriesDnsMatchString	DisplayString,
+		classListOperDnsEntriesDnsLid	Integer32,
+		classListOperDnsEntriesDnsGlid	Integer32,
+		classListOperDnsEntriesDnsHitCount	Integer32,
+		classListOperDnsEntriesDnsRpzType	Integer32
+	}
+
+classListOperDnsEntriesSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperDnsEntriesEntry 1}
+
+classListOperDnsEntriesName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { classListOperDnsEntriesEntry 2}
+
+classListOperDnsEntriesDnsEntriesListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperDnsEntriesEntry 3}
+
+classListOperDnsEntriesDnsMatchType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dns-match-type"
+	::= { classListOperDnsEntriesEntry 4}
+
+classListOperDnsEntriesDnsMatchString OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dns-match-string"
+	::= { classListOperDnsEntriesEntry 5}
+
+classListOperDnsEntriesDnsLid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dns-lid"
+	::= { classListOperDnsEntriesEntry 6}
+
+classListOperDnsEntriesDnsGlid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dns-glid"
+	::= { classListOperDnsEntriesEntry 7}
+
+classListOperDnsEntriesDnsHitCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dns-hit-count"
+	::= { classListOperDnsEntriesEntry 8}
+
+classListOperDnsEntriesDnsRpzType OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dns-rpz-type"
+	::= { classListOperDnsEntriesEntry 9}
+
+classListOperStringEntriesTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ClassListOperStringEntriesEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure classification list from object 'class-list'"
+	::= {classList 6}
+
+classListOperStringEntriesEntry OBJECT-TYPE
+	SYNTAX ClassListOperStringEntriesEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The classListOperStringEntries entry:string-entries"
+	INDEX {
+		classListOperStringEntriesSlotId,
+		classListOperStringEntriesName,
+		classListOperStringEntriesStringEntriesListId
+	}
+	::= { classListOperStringEntriesTable 1}
+
+ClassListOperStringEntriesEntry ::=
+	SEQUENCE {
+		classListOperStringEntriesSlotId Integer32,
+		classListOperStringEntriesName DisplayString,
+		classListOperStringEntriesStringEntriesListId Integer32,
+		classListOperStringEntriesStringKey	DisplayString,
+		classListOperStringEntriesStringValue	DisplayString,
+		classListOperStringEntriesStringLid	Integer32,
+		classListOperStringEntriesStringGlid	Integer32,
+		classListOperStringEntriesStringHitCount	Integer32
+	}
+
+classListOperStringEntriesSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperStringEntriesEntry 1}
+
+classListOperStringEntriesName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { classListOperStringEntriesEntry 2}
+
+classListOperStringEntriesStringEntriesListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperStringEntriesEntry 3}
+
+classListOperStringEntriesStringKey OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"string-key"
+	::= { classListOperStringEntriesEntry 4}
+
+classListOperStringEntriesStringValue OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"string-value"
+	::= { classListOperStringEntriesEntry 5}
+
+classListOperStringEntriesStringLid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"string-lid"
+	::= { classListOperStringEntriesEntry 6}
+
+classListOperStringEntriesStringGlid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"string-glid"
+	::= { classListOperStringEntriesEntry 7}
+
+classListOperStringEntriesStringHitCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"string-hit-count"
+	::= { classListOperStringEntriesEntry 8}
+
+classListOperAcEntriesTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ClassListOperAcEntriesEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure classification list from object 'class-list'"
+	::= {classList 7}
+
+classListOperAcEntriesEntry OBJECT-TYPE
+	SYNTAX ClassListOperAcEntriesEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The classListOperAcEntries entry:ac-entries"
+	INDEX {
+		classListOperAcEntriesSlotId,
+		classListOperAcEntriesName,
+		classListOperAcEntriesAcEntriesListId
+	}
+	::= { classListOperAcEntriesTable 1}
+
+ClassListOperAcEntriesEntry ::=
+	SEQUENCE {
+		classListOperAcEntriesSlotId Integer32,
+		classListOperAcEntriesName DisplayString,
+		classListOperAcEntriesAcEntriesListId Integer32,
+		classListOperAcEntriesAcMatchType	DisplayString,
+		classListOperAcEntriesAcMatchString	DisplayString,
+		classListOperAcEntriesAcMatchValue	DisplayString,
+		classListOperAcEntriesAcHitCount	Integer32,
+		classListOperAcEntriesAcGtpPolicy	DisplayString
+	}
+
+classListOperAcEntriesSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperAcEntriesEntry 1}
+
+classListOperAcEntriesName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { classListOperAcEntriesEntry 2}
+
+classListOperAcEntriesAcEntriesListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperAcEntriesEntry 3}
+
+classListOperAcEntriesAcMatchType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ac-match-type"
+	::= { classListOperAcEntriesEntry 4}
+
+classListOperAcEntriesAcMatchString OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ac-match-string"
+	::= { classListOperAcEntriesEntry 5}
+
+classListOperAcEntriesAcMatchValue OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ac-match-value"
+	::= { classListOperAcEntriesEntry 6}
+
+classListOperAcEntriesAcHitCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ac-hit-count"
+	::= { classListOperAcEntriesEntry 7}
+
+classListOperAcEntriesAcGtpPolicy OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ac-gtp-policy"
+	::= { classListOperAcEntriesEntry 8}
+
+classListOperGeoLocationEntriesTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ClassListOperGeoLocationEntriesEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure classification list from object 'class-list'"
+	::= {classList 8}
+
+classListOperGeoLocationEntriesEntry OBJECT-TYPE
+	SYNTAX ClassListOperGeoLocationEntriesEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The classListOperGeoLocationEntries entry:geo-location-entries"
+	INDEX {
+		classListOperGeoLocationEntriesSlotId,
+		classListOperGeoLocationEntriesName,
+		classListOperGeoLocationEntriesGeoLocationEntriesListId
+	}
+	::= { classListOperGeoLocationEntriesTable 1}
+
+ClassListOperGeoLocationEntriesEntry ::=
+	SEQUENCE {
+		classListOperGeoLocationEntriesSlotId Integer32,
+		classListOperGeoLocationEntriesName DisplayString,
+		classListOperGeoLocationEntriesGeoLocationEntriesListId Integer32,
+		classListOperGeoLocationEntriesGeoLocation	DisplayString,
+		classListOperGeoLocationEntriesGeoLocationStatus	DisplayString
+	}
+
+classListOperGeoLocationEntriesSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperGeoLocationEntriesEntry 1}
+
+classListOperGeoLocationEntriesName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { classListOperGeoLocationEntriesEntry 2}
+
+classListOperGeoLocationEntriesGeoLocationEntriesListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { classListOperGeoLocationEntriesEntry 3}
+
+classListOperGeoLocationEntriesGeoLocation OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"geo-location"
+	::= { classListOperGeoLocationEntriesEntry 4}
+
+classListOperGeoLocationEntriesGeoLocationStatus OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"geo-location-status"
+	::= { classListOperGeoLocationEntriesEntry 5}
+
+END
+

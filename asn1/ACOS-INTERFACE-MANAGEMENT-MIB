@@ -1,0 +1,426 @@
+ACOS-INTERFACE-MANAGEMENT-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		interfaceManagementModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "interfaceManagementModule OID for ACOS"
+				::=  {  acosSchema 187 }
+
+management		 OBJECT IDENTIFIER ::= { interfaceManagementModule 1}
+
+managementStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ManagementStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Management interface from object 'interface.management'"
+	::= {management 1}
+
+managementStatsEntry OBJECT-TYPE
+	SYNTAX ManagementStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The managementStats stats entry"
+	INDEX {
+		managementStatsSlotId
+	}
+	::= { managementStatsTable 1 }
+
+ManagementStatsEntry ::=
+	SEQUENCE {
+		managementStatsSlotId Integer32,
+		managementStatsPacketsInput	 CounterBasedGauge64,
+		managementStatsBytesInput	 CounterBasedGauge64,
+		managementStatsReceivedBroadcasts	 CounterBasedGauge64,
+		managementStatsReceivedMulticasts	 CounterBasedGauge64,
+		managementStatsReceivedUnicasts	 CounterBasedGauge64,
+		managementStatsInputErrors	 CounterBasedGauge64,
+		managementStatsCrc	 CounterBasedGauge64,
+		managementStatsFrame	 CounterBasedGauge64,
+		managementStatsInputErrShort	 CounterBasedGauge64,
+		managementStatsInputErrLong	 CounterBasedGauge64,
+		managementStatsPacketsOutput	 CounterBasedGauge64,
+		managementStatsBytesOutput	 CounterBasedGauge64,
+		managementStatsTransmittedBroadcasts	 CounterBasedGauge64,
+		managementStatsTransmittedMulticasts	 CounterBasedGauge64,
+		managementStatsTransmittedUnicasts	 CounterBasedGauge64,
+		managementStatsOutputErrors	 CounterBasedGauge64,
+		managementStatsCollisions	 CounterBasedGauge64
+	}
+
+managementStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { managementStatsEntry 1 }
+
+managementStatsPacketsInput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "packets_input"
+	::= { managementStatsEntry 2 }
+
+managementStatsBytesInput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bytes_input"
+	::= { managementStatsEntry 3 }
+
+managementStatsReceivedBroadcasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "received_broadcasts"
+	::= { managementStatsEntry 4 }
+
+managementStatsReceivedMulticasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "received_multicasts"
+	::= { managementStatsEntry 5 }
+
+managementStatsReceivedUnicasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "received_unicasts"
+	::= { managementStatsEntry 6 }
+
+managementStatsInputErrors OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "input_errors"
+	::= { managementStatsEntry 7 }
+
+managementStatsCrc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "crc"
+	::= { managementStatsEntry 8 }
+
+managementStatsFrame OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "frame"
+	::= { managementStatsEntry 9 }
+
+managementStatsInputErrShort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "input_err_short"
+	::= { managementStatsEntry 10 }
+
+managementStatsInputErrLong OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "input_err_long"
+	::= { managementStatsEntry 11 }
+
+managementStatsPacketsOutput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "packets_output"
+	::= { managementStatsEntry 12 }
+
+managementStatsBytesOutput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bytes_output"
+	::= { managementStatsEntry 13 }
+
+managementStatsTransmittedBroadcasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transmitted_broadcasts"
+	::= { managementStatsEntry 14 }
+
+managementStatsTransmittedMulticasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transmitted_multicasts"
+	::= { managementStatsEntry 15 }
+
+managementStatsTransmittedUnicasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transmitted_unicasts"
+	::= { managementStatsEntry 16 }
+
+managementStatsOutputErrors OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "output_errors"
+	::= { managementStatsEntry 17 }
+
+managementStatsCollisions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "collisions"
+	::= { managementStatsEntry 18 }
+
+managementOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ManagementOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Management interface from object 'interface.management'"
+	::= {management 2}
+
+managementOperEntry OBJECT-TYPE
+	SYNTAX ManagementOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The managementOper entry"
+	INDEX {
+		managementOperSlotId
+	}
+	::= { managementOperTable 1 }
+
+ManagementOperEntry ::=
+	SEQUENCE {
+		managementOperSlotId Integer32,
+		managementOperInterface	 DisplayString,
+		managementOperState	 Integer32,
+		managementOperLineProtocol	 DisplayString,
+		managementOperLinkType	 DisplayString,
+		managementOperMac	 DisplayString,
+		managementOperIpv4Addr	 DisplayString,
+		managementOperIpv4Mask	 DisplayString,
+		managementOperIpv4DefaultGateway	 DisplayString,
+		managementOperIpv6Addr	 DisplayString,
+		managementOperIpv6Prefix	 DisplayString,
+		managementOperIpv6LinkLocal	 DisplayString,
+		managementOperIpv6LinkLocalPrefix	 DisplayString,
+		managementOperIpv6DefaultGateway	 DisplayString,
+		managementOperSpeed	 DisplayString,
+		managementOperDuplexity	 DisplayString,
+		managementOperMtu	 Integer32,
+		managementOperFlowControl	 Integer32,
+		managementOperIpv4Acl	 DisplayString,
+		managementOperIpv6Acl	 DisplayString,
+		managementOperDhcpEnabled	 Integer32
+	}
+
+managementOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { managementOperEntry 1 }
+
+managementOperInterface OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "interface"
+	::= { managementOperEntry 2 }
+
+managementOperState OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { managementOperEntry 3 }
+
+managementOperLineProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "line_protocol"
+	::= { managementOperEntry 4 }
+
+managementOperLinkType OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "link_type"
+	::= { managementOperEntry 5 }
+
+managementOperMac OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mac"
+	::= { managementOperEntry 6 }
+
+managementOperIpv4Addr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-addr"
+	::= { managementOperEntry 7 }
+
+managementOperIpv4Mask OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-mask"
+	::= { managementOperEntry 8 }
+
+managementOperIpv4DefaultGateway OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-default-gateway"
+	::= { managementOperEntry 9 }
+
+managementOperIpv6Addr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-addr"
+	::= { managementOperEntry 10 }
+
+managementOperIpv6Prefix OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-prefix"
+	::= { managementOperEntry 11 }
+
+managementOperIpv6LinkLocal OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-link-local"
+	::= { managementOperEntry 12 }
+
+managementOperIpv6LinkLocalPrefix OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-link-local-prefix"
+	::= { managementOperEntry 13 }
+
+managementOperIpv6DefaultGateway OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-default-gateway"
+	::= { managementOperEntry 14 }
+
+managementOperSpeed OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "speed"
+	::= { managementOperEntry 15 }
+
+managementOperDuplexity OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "duplexity"
+	::= { managementOperEntry 16 }
+
+managementOperMtu OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mtu"
+	::= { managementOperEntry 17 }
+
+managementOperFlowControl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "flow_control"
+	::= { managementOperEntry 18 }
+
+managementOperIpv4Acl OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4_acl"
+	::= { managementOperEntry 19 }
+
+managementOperIpv6Acl OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6_acl"
+	::= { managementOperEntry 20 }
+
+managementOperDhcpEnabled OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dhcp_enabled"
+	::= { managementOperEntry 21 }
+
+lldp		 OBJECT IDENTIFIER ::= { management 3}
+
+END
+

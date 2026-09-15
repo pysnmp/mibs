@@ -1,0 +1,631 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="search" title="Search" href="search.html"><link rel="next" title="Build manifests" href="manifests.html"><link rel="prev" title="Getting the MIBs" href="channels.html">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Corpus variants - pysnmp MIB distribution</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">pysnmp MIB distribution</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/logo.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/logo.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">pysnmp MIB distribution</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://mibsdepot.com/browse/">Browse the MIBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Resolving MIBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="channels.html">Getting the MIBs</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Corpus variants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manifests.html">Build manifests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chart.html">mibserver Helm chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying.html">Publishing the sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing a MIB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing-mibs.html">Contributing MIBs you already have</a></li>
+<li class="toctree-l1"><a class="reference internal" href="absent-modules.html">Removed modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mib-sources.html">MIB sources and patches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registries.html">OID arc registries</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/blob/main/docs/corpora.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/edit/main/docs/corpora.md" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="corpus-variants">
+<h1>Corpus variants<a class="headerlink" href="#corpus-variants" title="Link to this heading">¶</a></h1>
+<p>One source set is rendered four ways: the published corpus, the compact
+corpus, the corpus database, and a preview of whatever one pull request
+touched. Choose the first three by what the consumer already has; the fourth
+has no consumer but a reviewer.</p>
+<section id="the-published-corpus">
+<h2>The published corpus<a class="headerlink" href="#the-published-corpus" title="Link to this heading">¶</a></h2>
+<p>The published corpus carries the standard modules, because its consumers fetch
+them from it: splunk-connect-for-snmp resolves <code class="docutils literal notranslate"><span class="pre">asn1/&#64;mib&#64;</span></code> against this site
+for every module it encounters. This is what the site serves, what the release
+archives contain, and what the <a class="reference internal" href="chart.html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">mibserver</span></code> chart</span></a> mounts.</p>
+</section>
+<section id="where-each-tree-goes">
+<h2>Where each tree goes<a class="headerlink" href="#where-each-tree-goes" title="Link to this heading">¶</a></h2>
+<p>The published corpus goes to three places, and <code class="docutils literal notranslate"><span class="pre">corpus.json</span></code> names them as
+three <em>publications</em> rather than as three builds:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>publication</p></th>
+<th class="head"><p>destination</p></th>
+<th class="head"><p>carries</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">github-pages</span></code></p></td>
+<td><p><a class="reference external" href="https://pysnmp.github.io/mibs/"><code class="docutils literal notranslate"><span class="pre">pysnmp.github.io/mibs/</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">asn1/</span></code>, <code class="docutils literal notranslate"><span class="pre">json/</span></code>, both indexes, <code class="docutils literal notranslate"><span class="pre">standard.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">closure.json</span></code>, <code class="docutils literal notranslate"><span class="pre">arcs.json</span></code>, this documentation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">depot-site</span></code></p></td>
+<td><p><a class="reference external" href="https://mibsdepot.com/browse/"><code class="docutils literal notranslate"><span class="pre">mibsdepot.com</span></code></a></p></td>
+<td><p>the browsable pages, one per module, OID arc and registrant, the crawl surface, and this documentation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">depot-data</span></code></p></td>
+<td><p><a class="reference external" href="https://data.mibsdepot.com"><code class="docutils literal notranslate"><span class="pre">data.mibsdepot.com</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">asn1/</span></code>, <code class="docutils literal notranslate"><span class="pre">json/</span></code> <strong>with the texts</strong>, both indexes, <code class="docutils literal notranslate"><span class="pre">standard.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">closure.json</span></code>, <code class="docutils literal notranslate"><span class="pre">arcs.json</span></code>, <code class="docutils literal notranslate"><span class="pre">search.db</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mibcorpus</span></code> writes all three from one parse of the 5,510 modules. Parsing is
+about three quarters of a pass, so three publications cost roughly what one and
+a half builds would. More importantly, the three trees are projections of a
+single parse rather than three runs that must be trusted to agree. CI compares
+the two data trees artifact by artifact regardless, because a shared parse is a
+claim and a <code class="docutils literal notranslate"><span class="pre">diff</span></code> is a check.</p>
+<p><strong>What the crawl surface is, and what turns it on.</strong> <code class="docutils literal notranslate"><span class="pre">site.base-url</span></code> in
+<code class="docutils literal notranslate"><span class="pre">corpus.json</span></code> is the field that makes the build a site rather than a subtree.
+Given it, <code class="docutils literal notranslate"><span class="pre">mibcorpus</span></code> writes a canonical link, a <code class="docutils literal notranslate"><span class="pre">meta</span> <span class="pre">description</span></code> taken from
+the module’s own DESCRIPTION, and JSON-LD naming every symbol on each of the
+7,430 pages, plus <code class="docutils literal notranslate"><span class="pre">sitemap.xml</span></code> as an index over three sitemap files,
+<code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> pointing at it, and <code class="docutils literal notranslate"><span class="pre">llms.txt</span></code>. Without it, none of that is
+written and the site still renders correctly in a browser, which is how it was
+missing from the live site through 2.6.0. The CI site contract names each
+artifact now rather than only the pages.</p>
+<p><strong>The one artifact the two data trees differ on.</strong> <code class="docutils literal notranslate"><span class="pre">json/</span></code> on the depot
+carries the DESCRIPTION, REFERENCE, ORGANIZATION and CONTACT-INFO text from
+the MIB files; <code class="docutils literal notranslate"><span class="pre">json/</span></code> on GitHub Pages does not. Everything else in both trees
+is byte-identical, and CI compares it that way.</p>
+<p>The reason is size, not content. Measured over all 5,510 modules the texts
+are 41% more on disk: <code class="docutils literal notranslate"><span class="pre">json/</span></code> goes from 226 MB to 318 MB. GitHub Pages
+refuses a site over 1 GB and that tree is already 580 MB, so the 92 MB is a
+quarter of the headroom left on the destination the corpus is moving away
+from. R2 charges nothing for egress and caps neither the object count nor the
+total that matters here, so the richer tree goes where there is room for it.</p>
+<p>Because it is a size decision, the two must still be the same corpus, and CI
+asserts exactly that: it walks each pair of documents together and requires
+every node on Pages to be on the depot identically, and every node only on
+the depot to be one of the four text fields.</p>
+<p>Walked rather than “delete those four keys and compare”, because the names
+are not reserved. Five modules define a column called <code class="docutils literal notranslate"><span class="pre">description</span></code> –
+<code class="docutils literal notranslate"><span class="pre">ADVANTECH-EKI-PRONEER-MIB</span></code> among them – and two more give an INTEGER
+enumeration a label of that name. Deleting the name wherever it appears
+deletes real definitions and reports a divergence that is not there, which is
+exactly what the first version of this check did.</p>
+<p>It also asserts the difference is really there – that the depot’s
+<code class="docutils literal notranslate"><span class="pre">IF-MIB.json</span></code> carries a DESCRIPTION and the Pages one does not – because a
+comparison of two identical lean trees would otherwise pass.</p>
+<p>The release archive <code class="docutils literal notranslate"><span class="pre">mibs-json.zip</span></code> carries the lean tree, which is what it
+has always carried. The texts-carrying tree is served per module from
+<code class="docutils literal notranslate"><span class="pre">https://data.mibsdepot.com/json/&#64;mib&#64;.json</span></code>, and <code class="docutils literal notranslate"><span class="pre">llms.txt</span></code> points at it.</p>
+<p><strong>What to fetch alongside a module.</strong> <code class="docutils literal notranslate"><span class="pre">closure.json</span></code> answers the question
+every consumer of <code class="docutils literal notranslate"><span class="pre">asn1/&#64;mib&#64;</span></code> hits second: a MIB does not compile alone, and
+its IMPORTS name modules that name more modules. Each entry is the transitive
+set, already resolved.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">"IF-MIB"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"IANAifType-MIB"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IF-MIB"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SNMPv2-CONF"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"SNMPv2-MIB"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SNMPv2-SMI"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SNMPv2-TC"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"missing"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">missing</span></code> is what the closure names and this corpus does not carry. It is
+empty for all 5,510 modules and CI fails the build if it stops being, because
+a closure a consumer cannot satisfy from this site is a closure that sends
+them somewhere else.</p>
+<p><strong>Who registered an arc.</strong> <code class="docutils literal notranslate"><span class="pre">arcs.json</span></code> is the OID registration tree: 14,752
+arcs, each with the name, where the name came from – a module’s own
+definition, an IANA registry, or the base standard – and a reference. It is
+what the browsable arc pages are rendered from, published as data so that a
+consumer resolving an OID no module defines has the same answer the site
+shows. 15 arcs are still unnamed, which is the number to watch: it falls as
+the committed registry snapshots are refreshed. See
+<a class="reference internal" href="registries.html"><span class="std std-doc">registries.md</span></a>.</p>
+<p>Both files are about a megabyte each against a 570 MB tree, which is why they
+are published rather than reasoned about.</p>
+<p><strong>Why the pages and the files are on different hosts.</strong> Every link the site
+generator writes is a directory URL, <code class="docutils literal notranslate"><span class="pre">../../mib/IF-MIB/</span></code>, which a host must
+resolve to that directory’s <code class="docutils literal notranslate"><span class="pre">index.html</span></code>. Object storage does not resolve it.
+It serves the key it is given, so <code class="docutils literal notranslate"><span class="pre">/mib/IF-MIB/</span></code> returns 404 unless something
+on the serving path rewrites it.</p>
+<p>Static assets resolve it natively and run no script to do so. That distinction
+decides the cost on a free plan: requests to a Worker’s script are metered at
+100,000 a day with cache hits counted, and requests to its assets are not.</p>
+<p>Static assets are limited instead by file count: 20,000 per version. The
+browsable pages are 7,430 of them. The 11,025 files beside them need no
+resolution at all, and the per-module downloads still to come would add more.</p>
+<p>So the split follows the constraint rather than the content: <strong>pages that need
+resolving go where resolving is free, and files addressed by exact name go
+where the file count is not capped.</strong> Nothing on a module page links into
+<code class="docutils literal notranslate"><span class="pre">asn1/</span></code> or <code class="docutils literal notranslate"><span class="pre">json/</span></code>, so the two halves can sit on different hostnames without a
+broken link between them.</p>
+<p><strong>Why <code class="docutils literal notranslate"><span class="pre">pysnmp.github.io/mibs/</span></code> stays.</strong> pysnmp’s own docstrings name
+<code class="docutils literal notranslate"><span class="pre">https://pysnmp.github.io/mibs/asn1/&#64;mib&#64;</span></code> as the remote MIB source to add, and
+splunk-connect-for-snmp binds <code class="docutils literal notranslate"><span class="pre">MIB_SOURCES</span></code> to the same path. Those are in
+released software. The distribution site keeps serving exactly what it serves
+today; the depot is an addition, not a move.</p>
+<section id="what-the-depot-deploy-needs">
+<h3>What the depot deploy needs<a class="headerlink" href="#what-the-depot-deploy-needs" title="Link to this heading">¶</a></h3>
+<p>The GitHub Pages half deploys from the repository’s own token and needs no
+configuration. The depot half reads four secrets and one variable, set once;
+<a class="reference internal" href="deploying.html"><span class="std std-doc">publishing the sites</span></a> is the procedure.</p>
+<p>There is no switch among them. Holding the Cloudflare token is the decision to
+publish, and the Worker’s name is in <code class="docutils literal notranslate"><span class="pre">wrangler.jsonc</span></code>, so a repository that
+has not been given credentials builds and checks all three trees and publishes
+the one it can. Neither hostname is named in this repository.
+<code class="docutils literal notranslate"><span class="pre">mibsdepot.com</span></code> is attached to the Worker and <code class="docutils literal notranslate"><span class="pre">data.mibsdepot.com</span></code> to the
+bucket, each by hand in the Cloudflare dashboard. Nothing here claims a domain
+it does not own, and a fork holding its own token publishes to its own.</p>
+</section>
+</section>
+<section id="the-compact-corpus">
+<h2>The compact corpus<a class="headerlink" href="#the-compact-corpus" title="Link to this heading">¶</a></h2>
+<p>The same source set with the standard namespace declared <code class="docutils literal notranslate"><span class="pre">&quot;publish&quot;:</span> <span class="pre">false</span></code>,
+making it a <a class="reference internal" href="manifests.html"><span class="std std-doc">resolution source</span></a> rather than a published one. It
+carries only what a runtime that already holds the standard modules lacks:
+pysmi bundles 210 of them and its wheel ships their compiled form. Each module
+in it is byte-identical to the same module in the published corpus.</p>
+<p>It is not served over HTTP; it is published as an image to mount:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ghcr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">pysnmp</span><span class="o">/</span><span class="n">mibs</span><span class="o">/</span><span class="n">corpus</span><span class="o">-</span><span class="n">compact</span><span class="p">:</span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">publish:</span> <span class="pre">false</span></code> on the standard namespace is what makes the compact corpus a
+subset of the published one rather than a second rendering of it. It is not the
+only difference between the two manifests, and the others are about where the
+build goes rather than what it contains: <code class="docutils literal notranslate"><span class="pre">corpus.json</span></code> declares <code class="docutils literal notranslate"><span class="pre">publications</span></code>
+and <code class="docutils literal notranslate"><span class="pre">site</span></code>, because it writes three trees and one of them is a browsable site,
+while <code class="docutils literal notranslate"><span class="pre">corpus-compact.json</span></code> writes one tree from a top-level <code class="docutils literal notranslate"><span class="pre">emit</span></code> of <code class="docutils literal notranslate"><span class="pre">asn1</span></code>,
+<code class="docutils literal notranslate"><span class="pre">index-v2</span></code> and <code class="docutils literal notranslate"><span class="pre">report</span></code> and has no site to describe. <code class="docutils literal notranslate"><span class="pre">corpus.json</span></code> also asserts
+<code class="docutils literal notranslate"><span class="pre">namespaces-present</span></code>, which is meaningless where the standard namespace is
+deliberately unpublished. The source sets are the same, and that is the claim
+that matters here. pysmi holds it to account, in
+<code class="docutils literal notranslate"><span class="pre">tests/test_corpus_publish_invariance.py</span></code>: it builds one source set twice, with
+the standard namespace published and unpublished, and asserts every shared
+module has the same <code class="docutils literal notranslate"><span class="pre">content_hash</span></code> in both. The check belongs there because
+<code class="docutils literal notranslate"><span class="pre">publish:</span> <span class="pre">false</span></code> is pysmi’s feature, and a hermetic test on every pysmi commit
+catches a regression earlier than a fingerprint comparison on this repository’s
+release schedule did.</p>
+</section>
+<section id="the-corpus-database">
+<h2>The corpus database<a class="headerlink" href="#the-corpus-database" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">core.db</span></code> is the same source set a third way: the SMI model as data, one row
+per node, keyed for lookup by OID and by name and ordered so a GETNEXT walk is
+a range query. pysnmp reads it with stdlib <code class="docutils literal notranslate"><span class="pre">sqlite3</span></code> and no pysmi import; the
+file format is specified in pysmi’s
+<a class="reference external" href="https://pysnmp.github.io/pysmi/stable/corpus-schema.html">corpus schema</a>.</p>
+<p>It exists because of two questions <code class="docutils literal notranslate"><span class="pre">index-v2.csv</span></code> cannot answer. The index is
+<code class="docutils literal notranslate"><span class="pre">MODULE,OID</span></code> and carries a module’s <em>anchors</em>, so it says which module to load
+and nothing else. A leaf such as <code class="docutils literal notranslate"><span class="pre">ifDescr</span></code> is not in it at all, so getting from
+an OID to a name, a syntax and an access level means compiling the module’s
+ASN.1 or parsing its whole JSON document. An anchor index also has no per-node
+ordering, so a walk cannot be served from one. In <code class="docutils literal notranslate"><span class="pre">core.db</span></code> both are a single
+indexed row.</p>
+<p>Measured on the corpus this repository builds:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>modules</p></td>
+<td><p>5,510</p></td>
+</tr>
+<tr class="row-odd"><td><p>nodes</p></td>
+<td><p>767,870</p></td>
+</tr>
+<tr class="row-even"><td><p>distinct type specifications</p></td>
+<td><p>47,226</p></td>
+</tr>
+<tr class="row-odd"><td><p>indexed OIDs</p></td>
+<td><p>98,867</p></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>256 MB, 36 MB gzipped</p></td>
+</tr>
+<tr class="row-odd"><td><p>build</p></td>
+<td><p>one <code class="docutils literal notranslate"><span class="pre">mibcorpus</span></code> invocation, ~5 minutes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Built from <code class="docutils literal notranslate"><span class="pre">corpus-db.json</span></code>, whose source set is <code class="docutils literal notranslate"><span class="pre">corpus.json</span></code>’s, not the
+compact manifest.</strong> The two differ only in what they emit. The compact corpus
+omits the standard modules because a runtime with pysmi already holds them as
+Python. A database is consulted by OID, and a database missing <code class="docutils literal notranslate"><span class="pre">1.3.6.1.2.1</span></code>
+cannot resolve <code class="docutils literal notranslate"><span class="pre">ifDescr</span></code> for anyone. There is one corpus; vendor is a column in
+it rather than a partition of it.</p>
+<p><strong>No prose.</strong> No DESCRIPTION, no REFERENCE. They are about a third of a
+generated module’s bytes, pysnmp discards them under the default
+<code class="docutils literal notranslate"><span class="pre">loadTexts=False</span></code>, and <code class="docutils literal notranslate"><span class="pre">json/</span></code> already serves the one consumer that wants them
+the one consumer that wants it, a MIB browser. A second database for prose
+would be the largest artifact this repository publishes and would duplicate a
+channel that already works.</p>
+</section>
+<section id="the-preview-corpus">
+<h2>The preview corpus<a class="headerlink" href="#the-preview-corpus" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">corpus-preview.json</span></code> is the same source set again, published one pull request
+at a time. Where the compact corpus narrows the build by <em>namespace</em> –
+<code class="docutils literal notranslate"><span class="pre">&quot;publish&quot;:</span> <span class="pre">false</span></code> on the standard modules, because a runtime with pysmi
+already holds them – the preview narrows it by <strong>module</strong>:
+<code class="docutils literal notranslate"><span class="pre">mibcorpus</span> <span class="pre">--publish-only</span></code> carries the modules a change touched and turns
+every other module in the corpus into a resolution source.</p>
+<p>The distinction matters because the two obvious alternatives both fail. A
+build over the changed files alone dies on the first <code class="docutils literal notranslate"><span class="pre">IMPORTS</span></code>: a vendor
+module needs <code class="docutils literal notranslate"><span class="pre">SNMPv2-TC</span></code>, which needs the rest of the input set to be there. A
+build over the whole corpus answers in about five minutes and puts the two
+pages under review somewhere inside 7,430. The preview keeps the input set
+whole and narrows the output set, which over this corpus is <strong>three modules
+and 26 files in about 45 seconds</strong>, most of it spent enumerating the 5,510.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>published</p></th>
+<th class="head"><p>compact</p></th>
+<th class="head"><p>preview</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>manifest</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">corpus.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">corpus-compact.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">corpus-preview.json</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>narrowed by</p></td>
+<td><p>nothing</p></td>
+<td><p>namespace</p></td>
+<td><p>module</p></td>
+</tr>
+<tr class="row-even"><td><p>standard modules</p></td>
+<td><p>carried</p></td>
+<td><p>resolved only</p></td>
+<td><p>resolved unless selected</p></td>
+</tr>
+<tr class="row-odd"><td><p>crawl surface</p></td>
+<td><p>yes</p></td>
+<td><p>n/a</p></td>
+<td><p><strong>no</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>built on</p></td>
+<td><p>every push to <code class="docutils literal notranslate"><span class="pre">main</span></code></p></td>
+<td><p>every push to <code class="docutils literal notranslate"><span class="pre">main</span></code></p></td>
+<td><p>every pull request</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>It rests on the same claim the compact corpus does, and it is the same claim:
+a module built narrowed is byte for byte the module built whole. That is
+pysmi’s guarantee, tested where it is made, in <code class="docutils literal notranslate"><span class="pre">tests/test_corpus_select.py</span></code>
+and <code class="docutils literal notranslate"><span class="pre">tests/test_corpus_publish_invariance.py</span></code>. A preview that rendered
+something other than what will be published would be worse than no preview.</p>
+<p>Two things it deliberately does not do. It declares no <code class="docutils literal notranslate"><span class="pre">site.base-url</span></code>, so it
+writes no canonical links, no JSON-LD and no sitemaps – a rendering of a
+proposal has no business claiming to live anywhere – and the workflow puts a
+<code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> disallowing everything beside it. And it passes
+<code class="docutils literal notranslate"><span class="pre">--patch-directory</span></code>, which the published build does not yet, so a repair shows
+up on the preview page as the defect it cites, the note explaining why this
+module has it, and the diff.</p>
+<p>How it is wired, where it is published and what a contributor sees is in
+<a class="reference internal" href="contributing.html#seeing-the-module-before-it-is-published"><span class="std std-ref">Contributing a MIB</span></a>.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="manifests.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Build manifests</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="channels.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Getting the MIBs</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2019-2026, the pysnmp maintainers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Corpus variants</a><ul>
+<li><a class="reference internal" href="#the-published-corpus">The published corpus</a></li>
+<li><a class="reference internal" href="#where-each-tree-goes">Where each tree goes</a><ul>
+<li><a class="reference internal" href="#what-the-depot-deploy-needs">What the depot deploy needs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-compact-corpus">The compact corpus</a></li>
+<li><a class="reference internal" href="#the-corpus-database">The corpus database</a></li>
+<li><a class="reference internal" href="#the-preview-corpus">The preview corpus</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=7f41d439"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

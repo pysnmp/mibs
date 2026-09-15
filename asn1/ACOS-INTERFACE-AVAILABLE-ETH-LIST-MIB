@@ -1,0 +1,146 @@
+ACOS-INTERFACE-AVAILABLE-ETH-LIST-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		interfaceAvailableEthListModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "interfaceAvailableEthListModule OID for ACOS"
+				::=  {  acosSchema 190 }
+
+availableEthList		 OBJECT IDENTIFIER ::= { interfaceAvailableEthListModule 1}
+
+availableEthListOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF AvailableEthListOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "List of ethernet interfaces available in a partition from object 'interface.available-eth-list'"
+	::= {availableEthList 2}
+
+availableEthListOperEntry OBJECT-TYPE
+	SYNTAX AvailableEthListOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The availableEthListOper entry"
+	INDEX {
+		availableEthListOperSlotId
+	}
+	::= { availableEthListOperTable 1 }
+
+AvailableEthListOperEntry ::=
+	SEQUENCE {
+		availableEthListOperSlotId Integer32,
+		availableEthListOperTotNumOfPorts	 Integer32
+	}
+
+availableEthListOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { availableEthListOperEntry 1 }
+
+availableEthListOperTotNumOfPorts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tot_num_of_ports"
+	::= { availableEthListOperEntry 2 }
+
+availableEthListOperIfListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF AvailableEthListOperIfListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "List of ethernet interfaces available in a partition from object 'interface.available-eth-list'"
+	::= {availableEthList 3}
+
+availableEthListOperIfListEntry OBJECT-TYPE
+	SYNTAX AvailableEthListOperIfListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The availableEthListOperIfList entry:if-list"
+	INDEX {
+		availableEthListOperIfListSlotId,
+		availableEthListOperIfListIfListListId
+	}
+	::= { availableEthListOperIfListTable 1}
+
+AvailableEthListOperIfListEntry ::=
+	SEQUENCE {
+		availableEthListOperIfListSlotId Integer32,
+		availableEthListOperIfListIfListListId Integer32,
+		availableEthListOperIfListIFType	DisplayString,
+		availableEthListOperIfListIFNum	Integer32,
+		availableEthListOperIfListIFStatus	DisplayString,
+		availableEthListOperIfListState	DisplayString
+	}
+
+availableEthListOperIfListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { availableEthListOperIfListEntry 1}
+
+availableEthListOperIfListIfListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { availableEthListOperIfListEntry 2}
+
+availableEthListOperIfListIFType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"IF-Type"
+	::= { availableEthListOperIfListEntry 3}
+
+availableEthListOperIfListIFNum OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"IF-Num"
+	::= { availableEthListOperIfListEntry 4}
+
+availableEthListOperIfListIFStatus OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"IF-Status"
+	::= { availableEthListOperIfListEntry 5}
+
+availableEthListOperIfListState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"state"
+	::= { availableEthListOperIfListEntry 6}
+
+END
+

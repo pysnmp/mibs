@@ -1,0 +1,149 @@
+ACOS-WEB-CATEGORY-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		webCategoryModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "webCategoryModule OID for ACOS"
+				::=  {  acosSchema 274 }
+
+webCategory		 OBJECT IDENTIFIER ::= { webCategoryModule 1}
+
+webCategoryOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF WebCategoryOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Web-Category Commands from object 'web-category'"
+	::= {webCategory 2}
+
+webCategoryOperEntry OBJECT-TYPE
+	SYNTAX WebCategoryOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The webCategoryOper entry"
+	INDEX {
+		webCategoryOperSlotId
+	}
+	::= { webCategoryOperTable 1 }
+
+WebCategoryOperEntry ::=
+	SEQUENCE {
+		webCategoryOperSlotId Integer32,
+		webCategoryOperWebCatVersion	 DisplayString,
+		webCategoryOperWebCatDatabaseName	 DisplayString,
+		webCategoryOperWebCatDatabaseStatus	 DisplayString,
+		webCategoryOperWebCatDatabaseSize	 DisplayString,
+		webCategoryOperWebCatDatabaseVersion	 Integer32,
+		webCategoryOperWebCatLastUpdateTime	 DisplayString,
+		webCategoryOperWebCatNextUpdateTime	 DisplayString,
+		webCategoryOperWebCatConnectionStatus	 DisplayString,
+		webCategoryOperWebCatFailureReason	 DisplayString,
+		webCategoryOperWebCatLastSuccessfulConnection	 DisplayString
+	}
+
+webCategoryOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { webCategoryOperEntry 1 }
+
+webCategoryOperWebCatVersion OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-version"
+	::= { webCategoryOperEntry 2 }
+
+webCategoryOperWebCatDatabaseName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-database-name"
+	::= { webCategoryOperEntry 3 }
+
+webCategoryOperWebCatDatabaseStatus OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-database-status"
+	::= { webCategoryOperEntry 4 }
+
+webCategoryOperWebCatDatabaseSize OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-database-size"
+	::= { webCategoryOperEntry 5 }
+
+webCategoryOperWebCatDatabaseVersion OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-database-version"
+	::= { webCategoryOperEntry 6 }
+
+webCategoryOperWebCatLastUpdateTime OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-last-update-time"
+	::= { webCategoryOperEntry 7 }
+
+webCategoryOperWebCatNextUpdateTime OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-next-update-time"
+	::= { webCategoryOperEntry 8 }
+
+webCategoryOperWebCatConnectionStatus OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-connection-status"
+	::= { webCategoryOperEntry 9 }
+
+webCategoryOperWebCatFailureReason OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-failure-reason"
+	::= { webCategoryOperEntry 10 }
+
+webCategoryOperWebCatLastSuccessfulConnection OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "web-cat-last-successful-connection"
+	::= { webCategoryOperEntry 11 }
+
+END
+

@@ -1,0 +1,1386 @@
+ACOS-NETFLOW-MONITOR-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		netflowMonitorModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "netflowMonitorModule OID for ACOS"
+				::=  {  acosSchema 437 }
+
+monitor		 OBJECT IDENTIFIER ::= { netflowMonitorModule 1}
+
+monitorStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF MonitorStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Configure NetFlow Monitor from object 'netflow.monitor'"
+	::= {monitor 1}
+
+monitorStatsEntry OBJECT-TYPE
+	SYNTAX MonitorStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The monitorStats stats entry"
+	INDEX {
+		monitorStatsSlotId,
+		monitorStatsName
+	}
+	::= { monitorStatsTable 1 }
+
+MonitorStatsEntry ::=
+	SEQUENCE {
+		monitorStatsSlotId Integer32,
+		monitorStatsName DisplayString,
+		monitorStatsPacketsSent	 CounterBasedGauge64,
+		monitorStatsBytesSent	 CounterBasedGauge64,
+		monitorStatsNat44RecordsSent	 CounterBasedGauge64,
+		monitorStatsNat44RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsNat64RecordsSent	 CounterBasedGauge64,
+		monitorStatsNat64RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsDsliteRecordsSent	 CounterBasedGauge64,
+		monitorStatsDsliteRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsSessionEventNat44RecordsSent	 CounterBasedGauge64,
+		monitorStatsSessionEventNat44RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsSessionEventNat64RecordsSent	 CounterBasedGauge64,
+		monitorStatsSessionEventNat64RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsSessionEventDsliteRecordsSent	 CounterBasedGauge64,
+		monitorStatsSessionEventDsliteRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsSessionEventFw4RecordsSent	 CounterBasedGauge64,
+		monitorStatsSessionEventFw4RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsSessionEventFw6RecordsSent	 CounterBasedGauge64,
+		monitorStatsSessionEventFw6RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortMappingNat44RecordsSent	 CounterBasedGauge64,
+		monitorStatsPortMappingNat44RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortMappingNat64RecordsSent	 CounterBasedGauge64,
+		monitorStatsPortMappingNat64RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortMappingDsliteRecordsSent	 CounterBasedGauge64,
+		monitorStatsPortMappingDsliteRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsNetflowV5RecordsSent	 CounterBasedGauge64,
+		monitorStatsNetflowV5RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsNetflowV5ExtRecordsSent	 CounterBasedGauge64,
+		monitorStatsNetflowV5ExtRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortBatchingNat44RecordsSent	 CounterBasedGauge64,
+		monitorStatsPortBatchingNat44RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortBatchingNat64RecordsSent	 CounterBasedGauge64,
+		monitorStatsPortBatchingNat64RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortBatchingDsliteRecordsSent	 CounterBasedGauge64,
+		monitorStatsPortBatchingDsliteRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortBatchingV2Nat44RecordsSent	 CounterBasedGauge64,
+		monitorStatsPortBatchingV2Nat44RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortBatchingV2Nat64RecordsSent	 CounterBasedGauge64,
+		monitorStatsPortBatchingV2Nat64RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsPortBatchingV2DsliteRecordsSent	 CounterBasedGauge64,
+		monitorStatsPortBatchingV2DsliteRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventNat44CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventNat44CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventNat64CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventNat64CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventDsliteCreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventDsliteCreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventNat44DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventNat44DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventNat64DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventNat64DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventDsliteDeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventDsliteDeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventFw4CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventFw4CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventFw6CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventFw6CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventFw4DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventFw4DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventFw6DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomSessionEventFw6DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomDenyResetEventFw4RecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomDenyResetEventFw4RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomDenyResetEventFw6RecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomDenyResetEventFw6RecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingNat44CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingNat44CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingNat64CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingNat64CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingDsliteCreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingDsliteCreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingNat44DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingNat44DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingNat64DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingNat64DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingDsliteDeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortMappingDsliteDeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingNat44CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingNat44CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingNat64CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingNat64CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingDsliteCreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingDsliteCreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingNat44DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingNat44DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingNat64DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingNat64DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingDsliteDeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingDsliteDeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2Nat44CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2Nat44CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2Nat64CreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2Nat64CreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2DsliteCreationRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2DsliteCreationRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2Nat44DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2Nat44DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2Nat64DeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2Nat64DeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2DsliteDeletionRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomPortBatchingV2DsliteDeletionRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsReducedLogsByDestination	 CounterBasedGauge64,
+		monitorStatsCustomGtpCTunnelEventRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomGtpCTunnelEventRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomGtpUTunnelEventRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomGtpUTunnelEventRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomGtpDenyEventRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomGtpDenyEventRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomGtpInfoEventRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomGtpInfoEventRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomFwIddosEntryCreatedRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomFwIddosEntryCreatedRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomFwIddosEntryDeletedRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomFwIddosEntryDeletedRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomFwSesnLimitExceededRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomFwSesnLimitExceededRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomNatIddosL3EntryCreatedRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomNatIddosL3EntryCreatedRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomNatIddosL3EntryDeletedRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomNatIddosL3EntryDeletedRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomNatIddosL4EntryCreatedRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomNatIddosL4EntryCreatedRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomNatIddosL4EntryDeletedRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomNatIddosL4EntryDeletedRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsCustomGtpRateLimitPeriodicRecordsSent	 CounterBasedGauge64,
+		monitorStatsCustomGtpRateLimitPeriodicRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsDdosGeneralStatRecordsSent	 CounterBasedGauge64,
+		monitorStatsDdosGeneralStatRecordsSentFailure	 CounterBasedGauge64,
+		monitorStatsDdosHttpStatRecordsSent	 CounterBasedGauge64,
+		monitorStatsDdosHttpStatRecordsSentFailure	 CounterBasedGauge64
+	}
+
+monitorStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { monitorStatsEntry 1 }
+
+monitorStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { monitorStatsEntry 2 }
+
+monitorStatsPacketsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "packets-sent"
+	::= { monitorStatsEntry 3 }
+
+monitorStatsBytesSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bytes-sent"
+	::= { monitorStatsEntry 4 }
+
+monitorStatsNat44RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat44-records-sent"
+	::= { monitorStatsEntry 5 }
+
+monitorStatsNat44RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat44-records-sent-failure"
+	::= { monitorStatsEntry 6 }
+
+monitorStatsNat64RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat64-records-sent"
+	::= { monitorStatsEntry 7 }
+
+monitorStatsNat64RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat64-records-sent-failure"
+	::= { monitorStatsEntry 8 }
+
+monitorStatsDsliteRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dslite-records-sent"
+	::= { monitorStatsEntry 9 }
+
+monitorStatsDsliteRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dslite-records-sent-failure"
+	::= { monitorStatsEntry 10 }
+
+monitorStatsSessionEventNat44RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-nat44-records-sent"
+	::= { monitorStatsEntry 11 }
+
+monitorStatsSessionEventNat44RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-nat44-records-sent-failure"
+	::= { monitorStatsEntry 12 }
+
+monitorStatsSessionEventNat64RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-nat64-records-sent"
+	::= { monitorStatsEntry 13 }
+
+monitorStatsSessionEventNat64RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-nat64-records-sent-failure"
+	::= { monitorStatsEntry 14 }
+
+monitorStatsSessionEventDsliteRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-dslite-records-sent"
+	::= { monitorStatsEntry 15 }
+
+monitorStatsSessionEventDsliteRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-dslite-records-sent-failure"
+	::= { monitorStatsEntry 16 }
+
+monitorStatsSessionEventFw4RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-fw4-records-sent"
+	::= { monitorStatsEntry 17 }
+
+monitorStatsSessionEventFw4RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-fw4-records-sent-failure"
+	::= { monitorStatsEntry 18 }
+
+monitorStatsSessionEventFw6RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-fw6-records-sent"
+	::= { monitorStatsEntry 19 }
+
+monitorStatsSessionEventFw6RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-event-fw6-records-sent-failure"
+	::= { monitorStatsEntry 20 }
+
+monitorStatsPortMappingNat44RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-mapping-nat44-records-sent"
+	::= { monitorStatsEntry 21 }
+
+monitorStatsPortMappingNat44RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-mapping-nat44-records-sent-failure"
+	::= { monitorStatsEntry 22 }
+
+monitorStatsPortMappingNat64RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-mapping-nat64-records-sent"
+	::= { monitorStatsEntry 23 }
+
+monitorStatsPortMappingNat64RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-mapping-nat64-records-sent-failure"
+	::= { monitorStatsEntry 24 }
+
+monitorStatsPortMappingDsliteRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-mapping-dslite-records-sent"
+	::= { monitorStatsEntry 25 }
+
+monitorStatsPortMappingDsliteRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-mapping-dslite-records-sent-failure"
+	::= { monitorStatsEntry 26 }
+
+monitorStatsNetflowV5RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "netflow-v5-records-sent"
+	::= { monitorStatsEntry 27 }
+
+monitorStatsNetflowV5RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "netflow-v5-records-sent-failure"
+	::= { monitorStatsEntry 28 }
+
+monitorStatsNetflowV5ExtRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "netflow-v5-ext-records-sent"
+	::= { monitorStatsEntry 29 }
+
+monitorStatsNetflowV5ExtRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "netflow-v5-ext-records-sent-failure"
+	::= { monitorStatsEntry 30 }
+
+monitorStatsPortBatchingNat44RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-nat44-records-sent"
+	::= { monitorStatsEntry 31 }
+
+monitorStatsPortBatchingNat44RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-nat44-records-sent-failure"
+	::= { monitorStatsEntry 32 }
+
+monitorStatsPortBatchingNat64RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-nat64-records-sent"
+	::= { monitorStatsEntry 33 }
+
+monitorStatsPortBatchingNat64RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-nat64-records-sent-failure"
+	::= { monitorStatsEntry 34 }
+
+monitorStatsPortBatchingDsliteRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-dslite-records-sent"
+	::= { monitorStatsEntry 35 }
+
+monitorStatsPortBatchingDsliteRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-dslite-records-sent-failure"
+	::= { monitorStatsEntry 36 }
+
+monitorStatsPortBatchingV2Nat44RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-v2-nat44-records-sent"
+	::= { monitorStatsEntry 37 }
+
+monitorStatsPortBatchingV2Nat44RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-v2-nat44-records-sent-failure"
+	::= { monitorStatsEntry 38 }
+
+monitorStatsPortBatchingV2Nat64RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-v2-nat64-records-sent"
+	::= { monitorStatsEntry 39 }
+
+monitorStatsPortBatchingV2Nat64RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-v2-nat64-records-sent-failure"
+	::= { monitorStatsEntry 40 }
+
+monitorStatsPortBatchingV2DsliteRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-v2-dslite-records-sent"
+	::= { monitorStatsEntry 41 }
+
+monitorStatsPortBatchingV2DsliteRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-batching-v2-dslite-records-sent-failure"
+	::= { monitorStatsEntry 42 }
+
+monitorStatsCustomSessionEventNat44CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-nat44-creation-records-sent"
+	::= { monitorStatsEntry 43 }
+
+monitorStatsCustomSessionEventNat44CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-nat44-creation-records-sent-failure"
+	::= { monitorStatsEntry 44 }
+
+monitorStatsCustomSessionEventNat64CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-nat64-creation-records-sent"
+	::= { monitorStatsEntry 45 }
+
+monitorStatsCustomSessionEventNat64CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-nat64-creation-records-sent-failure"
+	::= { monitorStatsEntry 46 }
+
+monitorStatsCustomSessionEventDsliteCreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-dslite-creation-records-sent"
+	::= { monitorStatsEntry 47 }
+
+monitorStatsCustomSessionEventDsliteCreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-dslite-creation-records-sent-failure"
+	::= { monitorStatsEntry 48 }
+
+monitorStatsCustomSessionEventNat44DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-nat44-deletion-records-sent"
+	::= { monitorStatsEntry 49 }
+
+monitorStatsCustomSessionEventNat44DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-nat44-deletion-records-sent-failure"
+	::= { monitorStatsEntry 50 }
+
+monitorStatsCustomSessionEventNat64DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-nat64-deletion-records-sent"
+	::= { monitorStatsEntry 51 }
+
+monitorStatsCustomSessionEventNat64DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-nat64-deletion-records-sent-failure"
+	::= { monitorStatsEntry 52 }
+
+monitorStatsCustomSessionEventDsliteDeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-dslite-deletion-records-sent"
+	::= { monitorStatsEntry 53 }
+
+monitorStatsCustomSessionEventDsliteDeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-dslite-deletion-records-sent-failure"
+	::= { monitorStatsEntry 54 }
+
+monitorStatsCustomSessionEventFw4CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-fw4-creation-records-sent"
+	::= { monitorStatsEntry 55 }
+
+monitorStatsCustomSessionEventFw4CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-fw4-creation-records-sent-failure"
+	::= { monitorStatsEntry 56 }
+
+monitorStatsCustomSessionEventFw6CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-fw6-creation-records-sent"
+	::= { monitorStatsEntry 57 }
+
+monitorStatsCustomSessionEventFw6CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-fw6-creation-records-sent-failure"
+	::= { monitorStatsEntry 58 }
+
+monitorStatsCustomSessionEventFw4DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-fw4-deletion-records-sent"
+	::= { monitorStatsEntry 59 }
+
+monitorStatsCustomSessionEventFw4DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-fw4-deletion-records-sent-failure"
+	::= { monitorStatsEntry 60 }
+
+monitorStatsCustomSessionEventFw6DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-fw6-deletion-records-sent"
+	::= { monitorStatsEntry 61 }
+
+monitorStatsCustomSessionEventFw6DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-session-event-fw6-deletion-records-sent-failure"
+	::= { monitorStatsEntry 62 }
+
+monitorStatsCustomDenyResetEventFw4RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-deny-reset-event-fw4-records-sent"
+	::= { monitorStatsEntry 63 }
+
+monitorStatsCustomDenyResetEventFw4RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-deny-reset-event-fw4-records-sent-failure"
+	::= { monitorStatsEntry 64 }
+
+monitorStatsCustomDenyResetEventFw6RecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-deny-reset-event-fw6-records-sent"
+	::= { monitorStatsEntry 65 }
+
+monitorStatsCustomDenyResetEventFw6RecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-deny-reset-event-fw6-records-sent-failure"
+	::= { monitorStatsEntry 66 }
+
+monitorStatsCustomPortMappingNat44CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-nat44-creation-records-sent"
+	::= { monitorStatsEntry 67 }
+
+monitorStatsCustomPortMappingNat44CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-nat44-creation-records-sent-failure"
+	::= { monitorStatsEntry 68 }
+
+monitorStatsCustomPortMappingNat64CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-nat64-creation-records-sent"
+	::= { monitorStatsEntry 69 }
+
+monitorStatsCustomPortMappingNat64CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-nat64-creation-records-sent-failure"
+	::= { monitorStatsEntry 70 }
+
+monitorStatsCustomPortMappingDsliteCreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-dslite-creation-records-sent"
+	::= { monitorStatsEntry 71 }
+
+monitorStatsCustomPortMappingDsliteCreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-dslite-creation-records-sent-failure"
+	::= { monitorStatsEntry 72 }
+
+monitorStatsCustomPortMappingNat44DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-nat44-deletion-records-sent"
+	::= { monitorStatsEntry 73 }
+
+monitorStatsCustomPortMappingNat44DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-nat44-deletion-records-sent-failure"
+	::= { monitorStatsEntry 74 }
+
+monitorStatsCustomPortMappingNat64DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-nat64-deletion-records-sent"
+	::= { monitorStatsEntry 75 }
+
+monitorStatsCustomPortMappingNat64DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-nat64-deletion-records-sent-failure"
+	::= { monitorStatsEntry 76 }
+
+monitorStatsCustomPortMappingDsliteDeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-dslite-deletion-records-sent"
+	::= { monitorStatsEntry 77 }
+
+monitorStatsCustomPortMappingDsliteDeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-mapping-dslite-deletion-records-sent-failure"
+	::= { monitorStatsEntry 78 }
+
+monitorStatsCustomPortBatchingNat44CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-nat44-creation-records-sent"
+	::= { monitorStatsEntry 79 }
+
+monitorStatsCustomPortBatchingNat44CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-nat44-creation-records-sent-failure"
+	::= { monitorStatsEntry 80 }
+
+monitorStatsCustomPortBatchingNat64CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-nat64-creation-records-sent"
+	::= { monitorStatsEntry 81 }
+
+monitorStatsCustomPortBatchingNat64CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-nat64-creation-records-sent-failure"
+	::= { monitorStatsEntry 82 }
+
+monitorStatsCustomPortBatchingDsliteCreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-dslite-creation-records-sent"
+	::= { monitorStatsEntry 83 }
+
+monitorStatsCustomPortBatchingDsliteCreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-dslite-creation-records-sent-failure"
+	::= { monitorStatsEntry 84 }
+
+monitorStatsCustomPortBatchingNat44DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-nat44-deletion-records-sent"
+	::= { monitorStatsEntry 85 }
+
+monitorStatsCustomPortBatchingNat44DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-nat44-deletion-records-sent-failure"
+	::= { monitorStatsEntry 86 }
+
+monitorStatsCustomPortBatchingNat64DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-nat64-deletion-records-sent"
+	::= { monitorStatsEntry 87 }
+
+monitorStatsCustomPortBatchingNat64DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-nat64-deletion-records-sent-failure"
+	::= { monitorStatsEntry 88 }
+
+monitorStatsCustomPortBatchingDsliteDeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-dslite-deletion-records-sent"
+	::= { monitorStatsEntry 89 }
+
+monitorStatsCustomPortBatchingDsliteDeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-dslite-deletion-records-sent-failure"
+	::= { monitorStatsEntry 90 }
+
+monitorStatsCustomPortBatchingV2Nat44CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-nat44-creation-records-sent"
+	::= { monitorStatsEntry 91 }
+
+monitorStatsCustomPortBatchingV2Nat44CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-nat44-creation-records-sent-failure"
+	::= { monitorStatsEntry 92 }
+
+monitorStatsCustomPortBatchingV2Nat64CreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-nat64-creation-records-sent"
+	::= { monitorStatsEntry 93 }
+
+monitorStatsCustomPortBatchingV2Nat64CreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-nat64-creation-records-sent-failure"
+	::= { monitorStatsEntry 94 }
+
+monitorStatsCustomPortBatchingV2DsliteCreationRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-dslite-creation-records-sent"
+	::= { monitorStatsEntry 95 }
+
+monitorStatsCustomPortBatchingV2DsliteCreationRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-dslite-creation-records-sent-failure"
+	::= { monitorStatsEntry 96 }
+
+monitorStatsCustomPortBatchingV2Nat44DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-nat44-deletion-records-sent"
+	::= { monitorStatsEntry 97 }
+
+monitorStatsCustomPortBatchingV2Nat44DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-nat44-deletion-records-sent-failure"
+	::= { monitorStatsEntry 98 }
+
+monitorStatsCustomPortBatchingV2Nat64DeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-nat64-deletion-records-sent"
+	::= { monitorStatsEntry 99 }
+
+monitorStatsCustomPortBatchingV2Nat64DeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-nat64-deletion-records-sent-failure"
+	::= { monitorStatsEntry 100 }
+
+monitorStatsCustomPortBatchingV2DsliteDeletionRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-dslite-deletion-records-sent"
+	::= { monitorStatsEntry 101 }
+
+monitorStatsCustomPortBatchingV2DsliteDeletionRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-port-batching-v2-dslite-deletion-records-sent-failure"
+	::= { monitorStatsEntry 102 }
+
+monitorStatsReducedLogsByDestination OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "reduced-logs-by-destination"
+	::= { monitorStatsEntry 103 }
+
+monitorStatsCustomGtpCTunnelEventRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-c-tunnel-event-records-sent"
+	::= { monitorStatsEntry 104 }
+
+monitorStatsCustomGtpCTunnelEventRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-c-tunnel-event-records-sent-failure"
+	::= { monitorStatsEntry 105 }
+
+monitorStatsCustomGtpUTunnelEventRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-u-tunnel-event-records-sent"
+	::= { monitorStatsEntry 106 }
+
+monitorStatsCustomGtpUTunnelEventRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-u-tunnel-event-records-sent-failure"
+	::= { monitorStatsEntry 107 }
+
+monitorStatsCustomGtpDenyEventRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-deny-event-records-sent"
+	::= { monitorStatsEntry 108 }
+
+monitorStatsCustomGtpDenyEventRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-deny-event-records-sent-failure"
+	::= { monitorStatsEntry 109 }
+
+monitorStatsCustomGtpInfoEventRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-info-event-records-sent"
+	::= { monitorStatsEntry 110 }
+
+monitorStatsCustomGtpInfoEventRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-info-event-records-sent-failure"
+	::= { monitorStatsEntry 111 }
+
+monitorStatsCustomFwIddosEntryCreatedRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-fw-iddos-entry-created-records-sent"
+	::= { monitorStatsEntry 112 }
+
+monitorStatsCustomFwIddosEntryCreatedRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-fw-iddos-entry-created-records-sent-failure"
+	::= { monitorStatsEntry 113 }
+
+monitorStatsCustomFwIddosEntryDeletedRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-fw-iddos-entry-deleted-records-sent"
+	::= { monitorStatsEntry 114 }
+
+monitorStatsCustomFwIddosEntryDeletedRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-fw-iddos-entry-deleted-records-sent-failure"
+	::= { monitorStatsEntry 115 }
+
+monitorStatsCustomFwSesnLimitExceededRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-fw-sesn-limit-exceeded-records-sent"
+	::= { monitorStatsEntry 116 }
+
+monitorStatsCustomFwSesnLimitExceededRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-fw-sesn-limit-exceeded-records-sent-failure"
+	::= { monitorStatsEntry 117 }
+
+monitorStatsCustomNatIddosL3EntryCreatedRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-nat-iddos-l3-entry-created-records-sent"
+	::= { monitorStatsEntry 118 }
+
+monitorStatsCustomNatIddosL3EntryCreatedRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-nat-iddos-l3-entry-created-records-sent-failure"
+	::= { monitorStatsEntry 119 }
+
+monitorStatsCustomNatIddosL3EntryDeletedRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-nat-iddos-l3-entry-deleted-records-sent"
+	::= { monitorStatsEntry 120 }
+
+monitorStatsCustomNatIddosL3EntryDeletedRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-nat-iddos-l3-entry-deleted-records-sent-failure"
+	::= { monitorStatsEntry 121 }
+
+monitorStatsCustomNatIddosL4EntryCreatedRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-nat-iddos-l4-entry-created-records-sent"
+	::= { monitorStatsEntry 122 }
+
+monitorStatsCustomNatIddosL4EntryCreatedRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-nat-iddos-l4-entry-created-records-sent-failure"
+	::= { monitorStatsEntry 123 }
+
+monitorStatsCustomNatIddosL4EntryDeletedRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-nat-iddos-l4-entry-deleted-records-sent"
+	::= { monitorStatsEntry 124 }
+
+monitorStatsCustomNatIddosL4EntryDeletedRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-nat-iddos-l4-entry-deleted-records-sent-failure"
+	::= { monitorStatsEntry 125 }
+
+monitorStatsCustomGtpRateLimitPeriodicRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-rate-limit-periodic-records-sent"
+	::= { monitorStatsEntry 126 }
+
+monitorStatsCustomGtpRateLimitPeriodicRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "custom-gtp-rate-limit-periodic-records-sent-failure"
+	::= { monitorStatsEntry 127 }
+
+monitorStatsDdosGeneralStatRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos-general-stat-records-sent"
+	::= { monitorStatsEntry 128 }
+
+monitorStatsDdosGeneralStatRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos-general-stat-records-sent-failure"
+	::= { monitorStatsEntry 129 }
+
+monitorStatsDdosHttpStatRecordsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos-http-stat-records-sent"
+	::= { monitorStatsEntry 130 }
+
+monitorStatsDdosHttpStatRecordsSentFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos-http-stat-records-sent-failure"
+	::= { monitorStatsEntry 131 }
+
+monitorOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF MonitorOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure NetFlow Monitor from object 'netflow.monitor'"
+	::= {monitor 2}
+
+monitorOperEntry OBJECT-TYPE
+	SYNTAX MonitorOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The monitorOper entry"
+	INDEX {
+		monitorOperSlotId,
+		monitorOperName
+	}
+	::= { monitorOperTable 1 }
+
+MonitorOperEntry ::=
+	SEQUENCE {
+		monitorOperSlotId Integer32,
+		monitorOperName DisplayString,
+		monitorOperProtocol	 DisplayString,
+		monitorOperStatus	 DisplayString,
+		monitorOperFilter	 DisplayString,
+		monitorOperDestination	 DisplayString,
+		monitorOperSourceIpUseMgmt	 DisplayString,
+		monitorOperSourceIpAddr	 DisplayString,
+		monitorOperFlowTimeout	 DisplayString,
+		monitorOperCounterPollingInterval	 DisplayString,
+		monitorOperResendTemplatePerRecords	 DisplayString,
+		monitorOperResendTemplateTimeout	 DisplayString
+	}
+
+monitorOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { monitorOperEntry 1 }
+
+monitorOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { monitorOperEntry 2 }
+
+monitorOperProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "protocol"
+	::= { monitorOperEntry 3 }
+
+monitorOperStatus OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "status"
+	::= { monitorOperEntry 4 }
+
+monitorOperFilter OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "filter"
+	::= { monitorOperEntry 5 }
+
+monitorOperDestination OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "destination"
+	::= { monitorOperEntry 6 }
+
+monitorOperSourceIpUseMgmt OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "source-ip-use-mgmt"
+	::= { monitorOperEntry 7 }
+
+monitorOperSourceIpAddr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "source-ip-addr"
+	::= { monitorOperEntry 8 }
+
+monitorOperFlowTimeout OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "flow-timeout"
+	::= { monitorOperEntry 9 }
+
+monitorOperCounterPollingInterval OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "counter-polling-interval"
+	::= { monitorOperEntry 10 }
+
+monitorOperResendTemplatePerRecords OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resend-template-per-records"
+	::= { monitorOperEntry 11 }
+
+monitorOperResendTemplateTimeout OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resend-template-timeout"
+	::= { monitorOperEntry 12 }
+
+disableLogByDestination		 OBJECT IDENTIFIER ::= { monitor 3}
+
+ip		 OBJECT IDENTIFIER ::= { disableLogByDestination 2}
+
+ip6		 OBJECT IDENTIFIER ::= { disableLogByDestination 3}
+
+record		 OBJECT IDENTIFIER ::= { monitor 4}
+
+customRecord		 OBJECT IDENTIFIER ::= { monitor 5}
+
+destination		 OBJECT IDENTIFIER ::= { monitor 6}
+
+sourceAddress		 OBJECT IDENTIFIER ::= { monitor 7}
+
+resendTemplate		 OBJECT IDENTIFIER ::= { monitor 8}
+
+sample		 OBJECT IDENTIFIER ::= { monitor 9}
+
+ethernet		 OBJECT IDENTIFIER ::= { sample 2}
+
+ve		 OBJECT IDENTIFIER ::= { sample 3}
+
+natPool		 OBJECT IDENTIFIER ::= { sample 4}
+
+END
+
