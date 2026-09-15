@@ -100,6 +100,7 @@ manifests
 chart
 deploying
 contributing
+contributing-mibs
 absent-modules
 mib-sources
 registries

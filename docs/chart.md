@@ -59,6 +59,16 @@ every configuration.
 The published corpus wins where both hold a module: the overlay adds to what
 this deployment serves rather than replacing it.
 
+Where the modules you mount are newer than the published ones, or are modules
+this distribution does not carry, `mibcontribute` offers them back. Point it at
+the same directory this deployment mounts:
+
+```sh
+mibcontribute /path/to/local-mibs
+```
+
+See [contributing MIBs you already have](contributing-mibs.md).
+
 ## IPv6 listeners
 
 IPv6 listener support is disabled by default. Enabling it adds IPv6 listeners

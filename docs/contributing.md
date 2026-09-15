@@ -17,6 +17,21 @@ checked-in text  ==  the publisher's text  +  our patch
 [MIB sources and patches](mib-sources.md) describes that record and what it is
 for.
 
+## When you are not going to write one
+
+A MIB set can be contributed without a pull request. `mibcontribute`, which
+ships with pysmi, reads a directory of MIBs, compares each module with what
+this site publishes, and writes the modules worth sending as an issue carrying
+the names, both revisions and the MIB sources themselves:
+
+```sh
+mibcontribute ./my-mibs
+```
+
+It reports the modules this distribution publishes an older copy of and the
+modules it does not carry at all. See [contributing MIBs you already
+have](contributing-mibs.md).
+
 ## What is and is not carried
 
 The standard modules, and the widely published vendor ones. Not every MIB ever
