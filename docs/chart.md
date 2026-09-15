@@ -60,10 +60,11 @@ The published corpus wins where both hold a module: the overlay adds to what
 this deployment serves rather than replacing it.
 
 The init container writes `report.json` beside what it compiled, recording
-every module both sets hold and which copy won. Where one of yours won on a
-newer MODULE-IDENTITY revision, this distribution is behind on that module.
-[Reporting a module you hold a better copy of](shadowing.md) covers turning
-that record into an issue here.
+every module both sets hold, which copy won, and where each published module
+came from. That record names the modules this deployment holds a newer copy of
+than the corpus does, and the modules the corpus does not carry at all.
+[Contributing MIBs you already have](contributing-mibs.md) covers turning it
+into an issue here.
 
 ## IPv6 listeners
 

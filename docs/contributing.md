@@ -17,13 +17,14 @@ checked-in text  ==  the publisher's text  +  our patch
 [MIB sources and patches](mib-sources.md) describes that record and what it is
 for.
 
-## When you cannot open a pull request
+## When you are not going to write one
 
-A module you hold a newer copy of can be reported without one. Resolve your own
-MIB directory against the published corpus, and `scripts/report_shadowing.py`
-turns the build's own record of which copy won into an issue carrying the
-module names, both revisions and the MIB sources themselves. See [reporting a
-module you hold a better copy of](shadowing.md).
+A MIB set can be contributed without a pull request. Resolve your own MIB
+directory against the published corpus, and `scripts/contribute_mibs.py` turns
+the build's own record of what it decided into an issue carrying the module
+names, both revisions and the MIB sources themselves. It reports the modules
+this distribution publishes an older copy of and the modules it does not carry
+at all. See [contributing MIBs you already have](contributing-mibs.md).
 
 ## What is and is not carried
 
