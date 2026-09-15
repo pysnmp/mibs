@@ -199,14 +199,18 @@ jobs:
       # A *version* of the preview Worker, never a deployment: each pull
       # request gets a URL of its own and nothing is promoted to the Worker's
       # own hostname. Gated on the credentials rather than on a switch to
-      # set, the way the depot deploy in build-test-release.yml is -- a fork,
-      # and this repository until the preview Worker is created, builds and
-      # checks the tree and skips only the publish. See docs/deploying.md.
+      # set, the way the depot deploy in build-test-release.yml is -- a fork
+      # builds and checks the tree and skips only the publish.
+      #
+      # continue-on-error because of the one case the step below handles, and
+      # only that: a real failure here still fails the job, by failing there
+      # too. See docs/deploying.md.
       - name: Deploy the preview
         id: deploy
         if: >-
           steps.scope.outputs.verdict != 'none'
           && env.HAS_CLOUDFLARE == 'true'
+        continue-on-error: true
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -215,6 +219,34 @@ jobs:
             versions upload --config wrangler.preview.jsonc
             --message "pysnmp/mibs#${{ github.event.pull_request.number }}
             at ${{ github.event.pull_request.head.sha }}"
+
+      # `versions upload` refuses on a Worker that does not exist yet --
+      # "You cannot upload a new version of a Worker that does not yet exist"
+      # -- and only a deploy creates one. That made the first run of this
+      # workflow fail on every repository that ever adopts it, for a reason
+      # no contributor caused and no amount of reading the diff would
+      # explain.
+      #
+      # So the workflow creates it, once, rather than a documented step
+      # somebody has to have done first. The distinction the original
+      # arrangement was protecting is untouched: this is the *preview*
+      # Worker, separate from the one serving mibsdepot.com, and after this
+      # run every pull request goes back to uploading a version and
+      # promoting nothing.
+      #
+      # No continue-on-error. Credentials that cannot deploy either are a
+      # genuinely broken configuration, and this is where it says so.
+      - name: Create the preview Worker on its first run
+        id: bootstrap
+        if: >-
+          steps.deploy.outcome == 'failure'
+          && steps.scope.outputs.verdict != 'none'
+          && env.HAS_CLOUDFLARE == 'true'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.preview.jsonc
 
       # Report, to two places and for two reasons. The job summary is written
       # on every run including a fork's, where the token cannot comment; the
@@ -234,7 +266,11 @@ jobs:
             --url="${PREVIEW_URL}" > preview-report.md
           cat preview-report.md >> "$GITHUB_STEP_SUMMARY"
         env:
-          PREVIEW_URL: ${{ steps.deploy.outputs.deployment-url }}
+          # Whichever of the two published. The bootstrap step runs only on a
+          # first run and is empty every time after it.
+          PREVIEW_URL: >-
+            ${{ steps.deploy.outputs.deployment-url
+            || steps.bootstrap.outputs.deployment-url }}
 
       # continue-on-error, and only here: a pull request from a fork gets a
       # read-only token whatever the permissions block above says, and failing

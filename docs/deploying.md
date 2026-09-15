@@ -203,19 +203,17 @@ versions onto the production site would put a build of three modules into the
 version history of the site serving 5,510, and a rollback there would have
 somewhere very wrong to roll back to.
 
-Create it once, from a checkout, with any preview tree in place:
+Nothing to create by hand. `wrangler versions upload` refuses on a Worker that
+does not exist yet, and only a deploy creates one, so the workflow deploys once
+on its first run and uploads versions from then on. A documented step somebody
+has to remember is a step the first pull request fails on.
 
-```sh
-mkdir -p output/preview && echo 'preview' > output/preview/index.html
-npx wrangler deploy --config wrangler.preview.jsonc
-```
+Do check, on **Workers & Pages** → the `mibsdepot-preview` Worker →
+**Settings**, that the `workers.dev` subdomain and **preview URLs** are both
+enabled after that first run. That is what gives each version its own address.
 
-Then, on **Workers & Pages** → the `mibsdepot-preview` Worker → **Settings**,
-make sure the `workers.dev` subdomain and **preview URLs** are both enabled.
-That is what gives each version its own address.
-
-Afterwards CI uploads a **version** of this Worker per pull request and never
-deploys one, so:
+Once it exists CI uploads a **version** of this Worker per pull request and
+never deploys one again, so:
 
 - each pull request gets a URL of its own, which the workflow puts in a comment
   and in the job summary;
