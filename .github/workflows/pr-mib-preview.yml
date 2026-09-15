@@ -81,13 +81,18 @@ jobs:
             exit 1
           fi
 
-      # The mapping this whole workflow rests on, tested before it is used
-      # and on every pull request rather than only on one that changes a MIB
-      # -- a scope that has quietly stopped recognising patch paths would
-      # otherwise be discovered by the first patch-only contribution. Offline
-      # and about a second.
-      - name: Test the scope
-        run: uv run python tests/test_pr_scope.py
+      # The mapping this whole workflow rests on, and the note it renders,
+      # tested before either is used and on every pull request rather than
+      # only on one that changes a MIB -- a scope that has quietly stopped
+      # recognising patch paths would otherwise be discovered by the first
+      # patch-only contribution, and a report that cannot render a failure
+      # by the first contributor whose MIB will not compile. Offline and
+      # about a second.
+      - name: Test the scope and the report
+        run: |
+          set -eu
+          uv run python tests/test_pr_scope.py
+          uv run python tests/test_pr_report.py
 
       # What to build, in modules rather than in files. scripts/pr_scope.py
       # says why the mapping is not "the file name"; tests/test_pr_scope.py
@@ -128,6 +133,7 @@ jobs:
       # so outright; every link between these pages is relative and needs no
       # origin.
       - name: Build the preview
+        id: build
         if: steps.scope.outputs.verdict != 'none'
         run: |
           set -eu
@@ -187,8 +193,11 @@ jobs:
       # the Cloudflare credentials, and the tree is a few hundred kilobytes:
       # downloading and opening index.html is a worse preview than a URL and a
       # far better one than nothing.
+      #
+      # always(), because a build that failed still wrote a report naming what
+      # failed, and that is the run whose output someone most wants to read.
       - uses: actions/upload-artifact@v7
-        if: steps.scope.outputs.verdict != 'none'
+        if: always() && steps.scope.outputs.verdict != 'none'
         with:
           name: mib-preview-site
           path: |
@@ -255,15 +264,22 @@ jobs:
       # carries one note saying what is true now. scripts/pr_report.py writes
       # both, so the half of a check people actually read is a script that can
       # be run rather than shell in a YAML file.
+      # always(), and this is the whole point of the step. A contributor whose
+      # MIB does not compile is the one person with something to read, and
+      # until now they were the only one who got nothing: a plain `if:` has
+      # success() folded into it, so a failed build skipped the report, the
+      # comment and the artifact, and left a red cross whose only explanation
+      # was in the run log. pysnmp/mibs#423 is that, demonstrated.
       - name: Write the report
-        if: steps.scope.outputs.verdict != 'none'
+        if: always() && steps.scope.outputs.verdict != 'none'
         run: |
           set -eu
           uv run python scripts/pr_report.py \
             --scope=preview-scope/scope.json \
             --report=output/preview/report.json \
             --tree=output/preview \
-            --url="${PREVIEW_URL}" > preview-report.md
+            --url="${PREVIEW_URL}" \
+            --build-outcome='${{ steps.build.outcome }}' > preview-report.md
           cat preview-report.md >> "$GITHUB_STEP_SUMMARY"
         env:
           # Whichever of the two published. The bootstrap step runs only on a
@@ -283,7 +299,7 @@ jobs:
       # so a branch pushed to ten times carries one comment saying what is
       # true now rather than ten saying what was.
       - name: Comment on the pull request
-        if: steps.scope.outputs.verdict != 'none'
+        if: always() && steps.scope.outputs.verdict != 'none'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
