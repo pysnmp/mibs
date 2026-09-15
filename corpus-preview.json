@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "emit": ["asn1", "json", "closure", "site", "report"],
+  "site": {
+    "name": "pysnmp/mibs preview",
+    "template": "theme/page.html",
+    "stylesheet": "theme/style.css",
+    "page-size": { "browse": 500, "entity": 200 }
+  },
+  "expect": {
+    "modules": { "min": 1 },
+    "namespaces-present": ["standard"]
+  },
+  "namespaces": [
+    {
+      "name": "standard",
+      "source": "package:pysmi.mibs.asn1",
+      "tier": "standard"
+    },
+    {
+      "include": "src/vendor/*",
+      "tier": "vendor"
+    }
+  ]
+}

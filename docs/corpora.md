@@ -1,7 +1,9 @@
 # Corpus variants
 
-One source set is rendered three ways: the published corpus, the compact
-corpus, and the corpus database. Choose by what the consumer already has.
+One source set is rendered four ways: the published corpus, the compact
+corpus, the corpus database, and a preview of whatever one pull request
+touched. Choose the first three by what the consumer already has; the fourth
+has no consumer but a reviewer.
 
 ## The published corpus
 
@@ -211,3 +213,46 @@ generated module's bytes, pysnmp discards them under the default
 the one consumer that wants it, a MIB browser. A second database for prose
 would be the largest artifact this repository publishes and would duplicate a
 channel that already works.
+
+
+## The preview corpus
+
+`corpus-preview.json` is the same source set again, published one pull request
+at a time. Where the compact corpus narrows the build by *namespace* --
+`"publish": false` on the standard modules, because a runtime with pysmi
+already holds them -- the preview narrows it by **module**:
+`mibcorpus --publish-only` carries the modules a change touched and turns
+every other module in the corpus into a resolution source.
+
+The distinction matters because the two obvious alternatives both fail. A
+build over the changed files alone dies on the first `IMPORTS`: a vendor
+module needs `SNMPv2-TC`, which needs the rest of the input set to be there. A
+build over the whole corpus answers in about five minutes and puts the two
+pages under review somewhere inside 7,430. The preview keeps the input set
+whole and narrows the output set, which over this corpus is **three modules
+and 26 files in about 45 seconds**, most of it spent enumerating the 5,510.
+
+| | published | compact | preview |
+|---|---|---|---|
+| manifest | `corpus.json` | `corpus-compact.json` | `corpus-preview.json` |
+| narrowed by | nothing | namespace | module |
+| standard modules | carried | resolved only | resolved unless selected |
+| crawl surface | yes | n/a | **no** |
+| built on | every push to `main` | every push to `main` | every pull request |
+
+It rests on the same claim the compact corpus does, and it is the same claim:
+a module built narrowed is byte for byte the module built whole. That is
+pysmi's guarantee, tested where it is made, in `tests/test_corpus_select.py`
+and `tests/test_corpus_publish_invariance.py`. A preview that rendered
+something other than what will be published would be worse than no preview.
+
+Two things it deliberately does not do. It declares no `site.base-url`, so it
+writes no canonical links, no JSON-LD and no sitemaps -- a rendering of a
+proposal has no business claiming to live anywhere -- and the workflow puts a
+`robots.txt` disallowing everything beside it. And it passes
+`--patch-directory`, which the published build does not yet, so a repair shows
+up on the preview page as the defect it cites, the note explaining why this
+module has it, and the diff.
+
+How it is wired, where it is published and what a contributor sees is in
+[Contributing a MIB](contributing.md#seeing-the-module-before-it-is-published).

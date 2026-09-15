@@ -130,6 +130,10 @@ dmypy.json
 output
 output-compact
 output-db
+# What the pull request preview build leaves behind; see
+# .github/workflows/pr-mib-preview.yml.
+preview-scope
+preview-report.md
 .DS_Store
 .DS_Store
 .idea

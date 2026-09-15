@@ -189,6 +189,49 @@ into the `@mib@` source URL. A file whose name carries no extension is typed as
 a stream of bytes by default, which makes a browser download a MIB rather than
 display it.
 
+## The pull request preview
+
+One more Worker, optional and separate: the one that serves the
+[per-pull-request preview](contributing.md#seeing-the-module-before-it-is-published).
+It reuses the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` from steps 4
+and 5 and needs nothing else. Skip this and every pull request still gets its
+preview built, checked and attached to the run as an artifact; what it does not
+get is a URL.
+
+A Worker of its own rather than a version of `mibsdepot`. Uploading preview
+versions onto the production site would put a build of three modules into the
+version history of the site serving 5,510, and a rollback there would have
+somewhere very wrong to roll back to.
+
+Nothing to create by hand. `wrangler versions upload` refuses on a Worker that
+does not exist yet, and only a deploy creates one, so the workflow deploys once
+on its first run and uploads versions from then on. A documented step somebody
+has to remember is a step the first pull request fails on.
+
+Do check, on **Workers & Pages** → the `mibsdepot-preview` Worker →
+**Settings**, that the `workers.dev` subdomain and **preview URLs** are both
+enabled after that first run. That is what gives each version its own address.
+
+Once it exists CI uploads a **version** of this Worker per pull request and
+never deploys one again, so:
+
+- each pull request gets a URL of its own, which the workflow puts in a comment
+  and in the job summary;
+- nothing is ever promoted to `mibsdepot-preview.<subdomain>.workers.dev`
+  itself, and two open pull requests cannot overwrite each other;
+- the production site is untouched by any of it.
+
+Give it no custom domain. A preview carries no sitemap, no canonical links and
+a `robots.txt` that disallows everything, because a rendering of a proposal
+should not be indexed as though it were the corpus.
+
+```{note}
+A pull request from a **fork** cannot read these credentials -- GitHub does not
+hand secrets to a workflow running on somebody else's branch -- so the deploy
+step is skipped there and the artifact is the preview. That is the same gating
+the depot deploys use: holding the token is the decision to publish.
+```
+
 ## Afterwards
 
 Nothing else is manual. Each push to `main` rebuilds all three trees and

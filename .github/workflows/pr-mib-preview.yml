@@ -1,0 +1,303 @@
+# What does the module this pull request touched look like?
+#
+# CI already builds the whole corpus on every pull request and holds it to
+# every contract, which answers "is the corpus still sound" and never answers
+# that one. The 5,510-page site it produces goes nowhere a reviewer can reach,
+# and would not help if it did: the two pages under review are somewhere in
+# seven thousand.
+#
+# This builds the modules the pull request changed, and only those, against
+# the whole corpus -- so their imports resolve against all 5,510 -- and
+# publishes the result where it can be clicked. Three kinds of change reach
+# it, and the third is the one that is easy to get wrong:
+#
+#   a MIB under src/            -> that module
+#   a repair under mib-patches/ -> the module it repairs, which is MIB
+#                                  content even though no MIB file changed
+#   a dependency bump           -> three canary modules, because a pysmi bump
+#                                  renders every page differently and touches
+#                                  no MIB at all
+#
+# A change to none of those previews nothing and passes. A red cross on a
+# documentation typo teaches everybody to ignore this check.
+#
+# Separate from build-test-release.yml on purpose. This is advisory: it
+# publishes nothing anyone depends on, it must answer in a minute rather than
+# behind a five-minute corpus build, and nothing in the release path may ever
+# wait on it.
+name: PR MIB preview
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+# One preview per pull request. A push that supersedes an earlier one should
+# cancel it: the older preview is a build of code that no longer exists.
+concurrency:
+  group: pr-mib-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  # For the comment. A pull request from a fork gets a read-only token
+  # whatever this says, which is why the report also goes to the job summary
+  # -- see "Report" below.
+  pull-requests: write
+
+jobs:
+  preview:
+    name: Preview the changed MIBs
+    runs-on: ubuntu-latest
+    env:
+      HAS_CLOUDFLARE: ${{ secrets.CLOUDFLARE_API_TOKEN != ''
+        && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # The scope is a diff against the base, so the base commit has to
+          # be in the checkout.
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.12.9"
+          python-version: "3.14"
+          enable-cache: true
+      - run: uv sync --frozen
+
+      # --publish-only and --patch-directory arrived in pysmi 5.1.0. Without
+      # them getopt refuses the command line and prints the whole usage, which
+      # is a wall of text saying nothing about why. This says it in a
+      # sentence. The floor in pyproject.toml is what fixes it; this is what
+      # explains a checkout that predates the bump.
+      - name: The installed pysmi can build a narrowed corpus
+        run: |
+          set -eu
+          if ! uv run mibcorpus --help 2>&1 | grep -q -- --publish-only; then
+            echo "::error::this needs pysmi 5.1.0 or newer, which is where"\
+                 "--publish-only and --patch-directory arrived. Raise the"\
+                 "pysnmp-pysmi floor in pyproject.toml and relock."
+            exit 1
+          fi
+
+      # The mapping this whole workflow rests on, tested before it is used
+      # and on every pull request rather than only on one that changes a MIB
+      # -- a scope that has quietly stopped recognising patch paths would
+      # otherwise be discovered by the first patch-only contribution. Offline
+      # and about a second.
+      - name: Test the scope
+        run: uv run python tests/test_pr_scope.py
+
+      # What to build, in modules rather than in files. scripts/pr_scope.py
+      # says why the mapping is not "the file name"; tests/test_pr_scope.py
+      # pins it.
+      - name: What this pull request changed
+        id: scope
+        run: |
+          set -eu
+          uv run python scripts/pr_scope.py \
+            --base=${{ github.event.pull_request.base.sha }} \
+            --out=preview-scope
+          echo "verdict=$(jq -r .verdict preview-scope/scope.json)" \
+            >> "$GITHUB_OUTPUT"
+
+      # The graceful half. A pull request that changes no MIB, no repair and
+      # nothing about how pages are built has nothing to preview, and says so
+      # in the summary rather than by failing or by going quiet.
+      - name: Nothing to preview
+        if: steps.scope.outputs.verdict == 'none'
+        run: |
+          {
+            echo "### MIB preview"
+            echo
+            echo "This pull request changes no MIB, no repair under"
+            echo "\`scripts/mib-patches/\`, and nothing about how the pages are"
+            echo "built, so there is nothing to render. The full corpus build in"
+            echo "\`CI\` covers the change."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # One mibcorpus invocation over the whole input set, publishing the
+      # selection and resolving against the rest. --fail-on-errors is what
+      # makes this a test rather than a rendering: a module that will not
+      # compile fails the check and report.json names it.
+      #
+      # No --base-url. That flag is what writes the crawl surface -- canonical
+      # links, JSON-LD, sitemaps, robots.txt -- and a preview has no business
+      # claiming to live anywhere or being indexed. The robots.txt below says
+      # so outright; every link between these pages is relative and needs no
+      # origin.
+      - name: Build the preview
+        if: steps.scope.outputs.verdict != 'none'
+        run: |
+          set -eu
+          uv run mibcorpus \
+            --manifest=corpus-preview.json \
+            --output-directory=output/preview \
+            --patch-directory=scripts/mib-patches \
+            --publish-only-from=preview-scope/modules.txt \
+            --oid-registry=registries/smi-numbers.xml \
+            --oid-registry=registries/pen-snapshot.csv \
+            --fail-on-errors
+          printf 'User-agent: *\nDisallow: /\n' > output/preview/robots.txt
+
+      # The page the pull request is about, asserted rather than assumed. A
+      # generator that wrote nothing still leaves a tree, and a preview that
+      # published the absence quietly would be worse than none -- the reviewer
+      # would read "no definitions" as a fact about the module.
+      - name: The preview carries what was asked for
+        if: steps.scope.outputs.verdict != 'none'
+        run: |
+          set -eu
+          test -f output/preview/browse/index.html
+          python3 - <<'CHECK'
+          import json
+          import os
+          import sys
+
+          with open("preview-scope/scope.json", encoding="utf-8") as handle:
+              wanted = json.load(handle)["modules"]
+
+          with open("output/preview/report.json", encoding="utf-8") as handle:
+              report = json.load(handle)
+
+          bad = []
+
+          for module in wanted:
+              page = f"output/preview/mib/{module}/index.html"
+
+              if not os.path.isfile(page):
+                  bad.append(f"{module}: no page was written")
+                  continue
+
+              if os.path.getsize(page) < 500:
+                  bad.append(f"{module}: its page is empty")
+
+          if sorted(report["selected"]["published"]) != sorted(wanted):
+              missing = sorted(set(wanted) - set(report["selected"]["published"]))
+              bad.append(f"the build did not publish {', '.join(missing)}")
+
+          for line in bad:
+              print(f"::error::{line}")
+
+          sys.exit(1 if bad else 0)
+          CHECK
+
+      # Always, and before the deploy. A pull request from a fork cannot reach
+      # the Cloudflare credentials, and the tree is a few hundred kilobytes:
+      # downloading and opening index.html is a worse preview than a URL and a
+      # far better one than nothing.
+      - uses: actions/upload-artifact@v7
+        if: steps.scope.outputs.verdict != 'none'
+        with:
+          name: mib-preview-site
+          path: |
+            output/preview
+            preview-scope
+          retention-days: 7
+
+      # A *version* of the preview Worker, never a deployment: each pull
+      # request gets a URL of its own and nothing is promoted to the Worker's
+      # own hostname. Gated on the credentials rather than on a switch to
+      # set, the way the depot deploy in build-test-release.yml is -- a fork
+      # builds and checks the tree and skips only the publish.
+      #
+      # continue-on-error because of the one case the step below handles, and
+      # only that: a real failure here still fails the job, by failing there
+      # too. See docs/deploying.md.
+      - name: Deploy the preview
+        id: deploy
+        if: >-
+          steps.scope.outputs.verdict != 'none'
+          && env.HAS_CLOUDFLARE == 'true'
+        continue-on-error: true
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            versions upload --config wrangler.preview.jsonc
+            --message "pysnmp/mibs#${{ github.event.pull_request.number }}
+            at ${{ github.event.pull_request.head.sha }}"
+
+      # `versions upload` refuses on a Worker that does not exist yet --
+      # "You cannot upload a new version of a Worker that does not yet exist"
+      # -- and only a deploy creates one. That made the first run of this
+      # workflow fail on every repository that ever adopts it, for a reason
+      # no contributor caused and no amount of reading the diff would
+      # explain.
+      #
+      # So the workflow creates it, once, rather than a documented step
+      # somebody has to have done first. The distinction the original
+      # arrangement was protecting is untouched: this is the *preview*
+      # Worker, separate from the one serving mibsdepot.com, and after this
+      # run every pull request goes back to uploading a version and
+      # promoting nothing.
+      #
+      # No continue-on-error. Credentials that cannot deploy either are a
+      # genuinely broken configuration, and this is where it says so.
+      - name: Create the preview Worker on its first run
+        id: bootstrap
+        if: >-
+          steps.deploy.outcome == 'failure'
+          && steps.scope.outputs.verdict != 'none'
+          && env.HAS_CLOUDFLARE == 'true'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.preview.jsonc
+
+      # Report, to two places and for two reasons. The job summary is written
+      # on every run including a fork's, where the token cannot comment; the
+      # comment is what a reviewer sees without opening the run, and is
+      # updated in place rather than added to, so a branch pushed to ten times
+      # carries one note saying what is true now. scripts/pr_report.py writes
+      # both, so the half of a check people actually read is a script that can
+      # be run rather than shell in a YAML file.
+      - name: Write the report
+        if: steps.scope.outputs.verdict != 'none'
+        run: |
+          set -eu
+          uv run python scripts/pr_report.py \
+            --scope=preview-scope/scope.json \
+            --report=output/preview/report.json \
+            --tree=output/preview \
+            --url="${PREVIEW_URL}" > preview-report.md
+          cat preview-report.md >> "$GITHUB_STEP_SUMMARY"
+        env:
+          # Whichever of the two published. The bootstrap step runs only on a
+          # first run and is empty every time after it.
+          PREVIEW_URL: >-
+            ${{ steps.deploy.outputs.deployment-url
+            || steps.bootstrap.outputs.deployment-url }}
+
+      # continue-on-error, and only here: a pull request from a fork gets a
+      # read-only token whatever the permissions block above says, and failing
+      # the check over that would make every outside contribution red for a
+      # reason the contributor cannot act on. The summary already carries the
+      # same report.
+      #
+      # gh rather than an action, because it is on the runner already and this
+      # is two API calls. Updated in place on the marker the report ends with,
+      # so a branch pushed to ten times carries one comment saying what is
+      # true now rather than ten saying what was.
+      - name: Comment on the pull request
+        if: steps.scope.outputs.verdict != 'none'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -eu
+          mine="$(gh api "repos/$REPO/issues/$PR/comments" --paginate \
+            --jq '.[] | select(.body | contains("<!-- mib-preview -->")) | .id' \
+            | head -1)"
+          if [ -n "$mine" ]; then
+            gh api -X PATCH "repos/$REPO/issues/comments/$mine" \
+              -F body=@preview-report.md
+          else
+            gh api -X POST "repos/$REPO/issues/$PR/comments" \
+              -F body=@preview-report.md
+          fi
