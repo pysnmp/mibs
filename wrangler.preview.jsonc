@@ -1,0 +1,25 @@
+// The pull request preview site. Static assets only, like the production
+// site beside it in wrangler.jsonc and for the same reason: every link the
+// generator writes is a directory URL, and assets resolve one natively
+// without a Worker script to meter.
+//
+// A separate Worker rather than a version of the production one. Uploading
+// preview versions onto mibsdepot would put a build of three modules into
+// the version history of the site serving 5,510, and a rollback there would
+// have somewhere very wrong to roll back to.
+//
+// .github/workflows/pr-mib-preview.yml uploads a *version* of this Worker
+// and never deploys one, so each pull request gets a URL of its own and
+// nothing is ever promoted to the Worker's own hostname. See
+// docs/contributing.md and docs/deploying.md.
+{
+  "name": "mibsdepot-preview",
+  "compatibility_date": "2026-09-13",
+  "assets": {
+    // Written by the preview build, which is one mibcorpus invocation over
+    // the modules the pull request touched. Tens of files, against 7,430.
+    "directory": "./output/preview",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}
