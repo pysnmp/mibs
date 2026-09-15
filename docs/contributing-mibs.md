@@ -1,228 +1,168 @@
 # Contributing MIBs you already have
 
-This page covers `scripts/contribute_mibs.py`, which offers a MIB set to this
-distribution as a GitHub issue or as a pull request. Use it if you have your
-own MIB directory and either a newer copy of a module than this site publishes
-or a module it does not carry. Writing a pull request is not required, and
-neither is knowing Python or SNMP tooling: what the script asks of you is one
-`mibcorpus` command and a read of what it wrote.
+This page covers `mibcontribute`, the tool that offers a MIB directory to this
+distribution. Use it if you have your own MIBs and want the ones this site is
+missing, or behind on, to reach it. Writing a pull request is not required, and
+neither is knowing Python: what it asks of you is one command and a read of
+what it wrote.
 
 [Contributing a MIB](contributing.md) is the other path, for a change you
 intend to write yourself.
 
-## What a build already knows
+## One command
 
-A MIB directory resolved against the published corpus is one source set with
-two namespaces in it. `charts/mibserver` arranges that in an init container;
-`mibcorpus` does it on a command line. The build then answers two questions
-without being asked, and `report.json` records both.
-
-| what it records | what it means |
-|---|---|
-| `shadowed` | the modules both sets hold a differing copy of, which copy was used, and which rule decided |
-| `provenance` | the namespace every published module came from |
-
-pysmi decides between two copies by one rule: the newest MODULE-IDENTITY
-revision wins, and the configured order breaks a tie. Three outcomes are
-possible and two of them are worth sending here.
-
-| what the build found | worth reporting |
-|---|---|
-| the published copy won | no. This distribution is current for that module |
-| your copy won on a newer revision | **yes.** This distribution is behind |
-| your copy won on source order | not by default. The two files carry the same revision, or none, and two copies of one name are as often two different modules as two revisions of one. `--include-differing` reports them |
-| no namespace here holds the module | **yes.** This is the larger half of what a collection has to offer |
-
-## Producing the report
-
-The script is one file, and it imports nothing but the standard library and
-pysmi, which is already installed wherever `mibcorpus` runs. A checkout of this
-repository is not needed:
+`mibcontribute` ships with [pysmi](https://pysnmp.github.io/pysmi/), which is
+the compiler this distribution is built with:
 
 ```sh
-curl -O https://raw.githubusercontent.com/pysnmp/mibs/main/scripts/contribute_mibs.py
+pip install pysnmp-pysmi
+mibcontribute ./my-mibs
 ```
 
-`mibcorpus` resolves against a directory, so the published corpus has to be on
-disk. Unpack `mibs-asn1.zip` from a release, or mount
-`ghcr.io/pysnmp/mibs/corpus`. See [getting the MIBs](channels.md).
+```text
+2 module(s) worth offering: 1 the distribution carries an older copy of,
+1 it does not carry.
 
-1. Resolve your MIBs against the published tree:
+    ACME-CHASSIS-MIB      2024-03-11  against 2015-05-01
+    ACME-POWER-MIB        2024-03-11  against not carried
 
-   ```sh
-   mibcorpus --quiet \
-     --resolve-namespace=standard:base:package:pysmi.mibs.asn1 \
-     --resolve-namespace=vendor:corpus:./asn1 \
-     --namespace=vendor:local:./my-mibs \
-     --output-directory=./out --emit=asn1 --emit=report
-   ```
+Wrote mib-contribution/issue.md
+```
 
-   `--emit=asn1` is not optional. The pass that stages the ASN.1 tree is the
-   pass that records what resolved, so a build asked for `--emit=report` alone
-   writes `shadowed` and `provenance` empty and the script refuses it.
+That reads every module in the directory, asks this site what it publishes for
+each, and writes the result as a GitHub issue. It sends nothing. There is no
+report to produce first and no build to run: point it at the directory your
+MIBs are in, including the one a [mibserver deployment](chart.md) mounts.
 
-   The namespace order is precedence: `corpus` is written before `local`, so
-   your copy wins by carrying a newer revision and never by being named last.
+## What it compares
 
-2. Read what would be offered. Nothing is sent by this command:
+Which of two copies of a module wins is not a judgement the tool makes. It is
+pysmi's `rank_by_revision`, the rule this corpus is built with: the newest
+MODULE-IDENTITY revision wins, and configured order breaks a tie. A module it
+reports is a module a build would prefer.
 
-   ```sh
-   python3 contribute_mibs.py --report=out/report.json
-   ```
+| what it found | reported |
+|---|---|
+| the published copy is newer | no. This distribution is current for that module |
+| the published copy is the same text | no. There is nothing to offer |
+| your copy is newer | **yes**, as a better copy |
+| this distribution has no copy | **yes**, as a module it does not carry |
 
-3. Read `contribution/issue.md`.
+A copy that wins on source order rather than on revision is not reported as
+better unless `--include-differing` asks: two copies of one name are as often
+two different modules that reuse a name as two revisions of one.
 
-Running it against a `mibserver` deployment is the same command over the report
-the init container already wrote:
+A module is offered under the name it declares rather than the name of the file
+it was found in, because that is the name this distribution would publish it
+under. A file that declares no module at all is passed over and named in the
+log.
+
+## What it compares against
+
+`--corpus` takes a directory, a `.zip`, or a URL with `@mib@` where the module
+name goes. It defaults to this site, which costs one request per module:
 
 ```sh
-kubectl exec deploy/mibserver -- cat /usr/share/nginx/overlay/report.json >report.json
+mibcontribute --corpus=./asn1 ./my-mibs
+mibcontribute --corpus=./mibs-asn1.zip ./my-mibs
 ```
 
-The overlay names its namespace `local`, which is what `--namespace` defaults
-to. A build that names yours something else has to say so:
-`--namespace=my-mibs`.
-
-## What it writes
-
-Into `contribution/`, or wherever `--out` names:
-
-| file | contents |
-|---|---|
-| `issue.md` | the issue body, with the ASN.1 of every module that fits in it |
-| `findings.json` | the same findings as data: module, both revisions, both digests |
-| `mibs/<MODULE>` | each MIB as it is on your disk, byte for byte |
-| `contribution.zip` | the same files, to attach to the issue |
-
-A GitHub issue body holds 65,536 characters, which is smaller than some single
-MIBs and much smaller than a set of them. The body carries as many modules in
-full as it holds, smallest first, and names the rest as being in the archive.
-
-`--per-module` writes one issue per module instead of one issue for all of
-them. One module per issue is one module per pull request, which is the shape
-to use when the modules are unrelated.
+A scan of a large collection should use a local copy. An unpacked
+`mibs-asn1.zip` or a mounted `ghcr.io/pysnmp/mibs/corpus` is a directory like
+any other. See [getting the MIBs](channels.md).
 
 ## Filing it
 
 | `--submit` | what happens | what it needs |
 |---|---|---|
 | `none` | the files are written and nothing is sent. The default | nothing |
-| `url` | a GitHub issue URL with the report already in it is printed. You open it, read it, and post it | a GitHub account in your browser |
+| `url` | a GitHub issue URL with the report already in it is printed, for you to read and post | a GitHub account in your browser |
 | `gh` | the issue is created by the GitHub CLI | `gh`, already authenticated |
-| `pr` | the MIBs are committed to a checkout and a pull request is opened | `gh`, and a clone of this repository |
-
-There is no way to open a GitHub issue without an account: GitHub accepts none
-anonymously, and this repository cannot accept one on your behalf.
-`--submit=url` is the closest thing to it, and the difference is worth stating
-exactly. No credential is read, stored or sent by the script; the report
-travels as a link you inspect, and the issue is posted by your browser under
-whatever account that browser is signed in as.
-
-Every path takes `--yes` as well, which is what says the MIB text in `issue.md`
-may be published:
 
 ```sh
-python3 contribute_mibs.py --report=out/report.json --submit=url --yes
-python3 contribute_mibs.py --report=out/report.json --submit=gh --yes
+mibcontribute ./my-mibs --submit=url
+mibcontribute ./my-mibs --submit=gh
 ```
 
-Where the report is too long to carry in a URL, `--submit=url` prints a shorter
-one and names the file to paste into the body. Attach `contribution.zip` to the
-issue in either case; the GitHub web form takes it as a drag and drop.
+GitHub accepts no issue anonymously, and this repository cannot file one on
+your behalf. `--submit=url` is the closest thing to it: no credential is read,
+stored or sent by the tool, the report travels as a link you inspect first, and
+the issue is posted by your browser under whatever account that browser is
+signed in as.
 
-`--submit=gh --gist` uploads the MIBs as a secret gist and links it from the
-issue instead of inlining them. A secret gist is not private: anybody with the
-link can read it, which is the point of putting the link in a public issue.
+An issue body holds 65,536 characters, which is smaller than some single MIBs.
+The body carries as many modules in full as it holds and names the rest as
+being in `mib-contribution/contribution.zip`, which the GitHub web form takes
+as a drag and drop.
+
+`--module=ACME-CHASSIS-MIB` offers one module rather than everything found;
+repeat it for a few. `--per-module` writes one issue per module instead of one
+issue for all of them, which is the shape to use when the modules are
+unrelated: one module per issue is one module per pull request.
+
+Read `mib-contribution/issue.md` before you post it. A MIB edited at your site
+can carry hostnames, contacts or ticket numbers in its comments, and those are
+published with the rest of the text. No path from your machine reaches the
+issue: the tool names every file relative to the directory it scanned.
 
 ## What is already reported
 
-Before submitting anything, the script searches this repository for the modules
-it is about to offer and leaves out the ones an issue or pull request is
-already open for. A closed issue does not stop a report, because it was closed
-for a reason nothing here can read; the report is filed again with the old
-issue named beside it.
-
-The search is one query for every issue this script has filed, matched on the
-marker each of them carries, and one query per module for reports up to eight
-modules long. It runs through `gh` where that is installed and over the public
-API otherwise, which is rate limited; `GITHUB_TOKEN` is used when it is set.
+Before submitting anything, the tracker is searched and the modules an issue or
+pull request is already open for are left out. A closed issue does not stop a
+report, because it was closed for a reason nothing can read back; the module is
+offered again with the old issue named beside it.
 
 | flag | |
 |---|---|
-| `--check-duplicates` | run the search without submitting, to see what is already open |
-| `--allow-duplicates` | report a module even where an issue for it is open |
-| `--require-duplicate-check` | submit nothing if the search cannot run. For unattended runs |
+| `--allow-duplicates` | offer a module even where an issue for it is open |
+| `--require-duplicate-check` | submit nothing if the tracker cannot be searched |
 
-A search that cannot run does not stop a person from filing: the script says so
-and carries on. An unattended run should invert that with
-`--require-duplicate-check`, because filing duplicates every month is worse
-than filing nothing until the search works again.
+A search that cannot run does not stop a person from filing. An unattended run
+should invert that with `--require-duplicate-check`.
 
-## What it will not send
+## What happens to the issue
 
-Read `issue.md` before posting it. Two things decide whether you can, and
-neither is something a script can answer:
-
-- **The licence.** A vendor MIB from a device or a support portal carries the
-  vendor's terms. This distribution publishes a module under those terms or not
-  at all.
-- **The file's own contents.** A MIB edited at your site can carry hostnames,
-  contacts or ticket numbers in its comments, and those are published with the
-  rest of the text.
-
-What the script does answer, it answers the same way every time. No absolute
-path from your machine reaches an issue: a report records the paths the build
-read, and those name the host it ran on, so every file is named relative to its
-namespace instead. Nothing is submitted without both `--submit` and `--yes`.
-The default command reads files and writes files, and the only thing that
-leaves your machine before you have read `issue.md` is the duplicate search,
-which sends module names and no MIB text.
-
-## Scanning a collection
-
-The second use is the freshness process rather than a single deployment. The
-source set is a published MIB collection, the run is unattended, and what it
-finds goes into a branch instead of into prose:
-
-```sh
-python3 scripts/contribute_mibs.py --report=out/report.json \
-  --namespace=scanned \
-  --submit=pr --yes \
-  --checkout=../mibs \
-  --vendor=example --publisher=example-mibs \
-  --require-duplicate-check
-```
-
-`--submit=pr` writes each module to `src/vendor/<vendor>/<MODULE>`, records
-`{"publisher": ...}` for each in `mib-sources.json`, commits on a branch named
-for the contribution, pushes it and opens the pull request. The ASN.1 is in the
-diff, so the pull request body carries the findings and the evidence and not
-the module text.
-
-| flag | |
-|---|---|
-| `--checkout` | the clone to commit into. It must be this repository, and its tree must be clean |
-| `--vendor` | the directory under `src/vendor/`. Nothing in a MIB says which vendor's tree it is filed under here |
-| `--publisher` | a publisher `mib-sources.json` already defines. Left off, the provenance is a question for review |
-| `--branch` | the branch to commit on. Defaults to `mibs/<slug>` |
-| `--base` | the branch to open the pull request against. Defaults to `main` |
-
-A publisher the manifest does not define is refused rather than written: a
-manifest entry naming one that does not exist fails
-`scripts/update_vendor_mibs.py --validate`, which CI runs on every pull
-request.
-
-## What happens next
-
-The issue carries what a pull request against this repository needs, except for
-one thing no build can supply: where the files came from.
-`mib-sources.json` records a publisher for every module under `src/`, which is
-what lets [the monthly workflow](https://github.com/pysnmp/mibs/blob/main/.github/workflows/mib-freshness.yml)
-notice the next revision without waiting for another report. The issue opens
-with that question. Answer it in the issue, with the publisher's URL and the
-device the files were taken from, and the pull request can be written from the
-issue alone.
+It carries the module names, both revisions, both digests and the MIB sources,
+which is what a pull request against this repository needs, plus one question
+no scan can answer: where the files came from. `mib-sources.json` records a
+publisher for every module under `src/`, which is what lets
+[the monthly workflow](https://github.com/pysnmp/mibs/blob/main/.github/workflows/mib-freshness.yml)
+notice the next revision without waiting for another report. Answer it in the
+issue, with the publisher's URL and the device the files came from, and the
+pull request can be written from the issue alone.
 
 Every issue carries `<!-- mib-contribution v1 -->` and a `json` block holding
 the findings, so the set is one search away and each one can be read without
 parsing prose.
+
+## Importing a scan into the tree
+
+The other half runs here rather than on a contributor's machine, and is what
+the freshness process uses: a scan of a published collection, imported into a
+branch. `mibcontribute` writes the bundle and
+`scripts/import_contribution.py` puts it where it belongs:
+
+```sh
+mibcontribute --quiet --corpus=./asn1 --output-directory=./found ./collection
+uv run python scripts/import_contribution.py --contribution=found \
+  --vendor=example --publisher=example-mibs --issue=123 --submit
+```
+
+It writes each module to `src/vendor/<vendor>/<MODULE>`, records
+`{"publisher": ...}` for each in `mib-sources.json`, commits on a branch, and
+with `--submit` pushes it and opens the pull request. The ASN.1 is in the diff,
+so the body carries the findings and not the module text.
+
+| flag | |
+|---|---|
+| `--contribution` | the directory `mibcontribute --output-directory` wrote |
+| `--vendor` | the directory under `src/vendor/`. Nothing in a MIB says which vendor's tree it is filed under here |
+| `--publisher` | a publisher `mib-sources.json` already defines. Left off, the provenance is a question for review |
+| `--issue` | the issue this closes, named in the pull request body |
+| `--checkout` | the clone to commit into. It must be this repository, and its tree must be clean |
+| `--branch`, `--base` | the branch to commit on, and what to open the pull request against |
+
+A publisher the manifest does not define is refused rather than written: an
+entry naming one that does not exist fails
+`scripts/update_vendor_mibs.py --validate`, which CI runs on every pull
+request.

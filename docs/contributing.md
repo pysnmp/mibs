@@ -19,12 +19,18 @@ for.
 
 ## When you are not going to write one
 
-A MIB set can be contributed without a pull request. Resolve your own MIB
-directory against the published corpus, and `scripts/contribute_mibs.py` turns
-the build's own record of what it decided into an issue carrying the module
-names, both revisions and the MIB sources themselves. It reports the modules
-this distribution publishes an older copy of and the modules it does not carry
-at all. See [contributing MIBs you already have](contributing-mibs.md).
+A MIB set can be contributed without a pull request. `mibcontribute`, which
+ships with pysmi, reads a directory of MIBs, compares each module with what
+this site publishes, and writes the modules worth sending as an issue carrying
+the names, both revisions and the MIB sources themselves:
+
+```sh
+mibcontribute ./my-mibs
+```
+
+It reports the modules this distribution publishes an older copy of and the
+modules it does not carry at all. See [contributing MIBs you already
+have](contributing-mibs.md).
 
 ## What is and is not carried
 

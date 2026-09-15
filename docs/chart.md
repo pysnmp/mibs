@@ -59,12 +59,15 @@ every configuration.
 The published corpus wins where both hold a module: the overlay adds to what
 this deployment serves rather than replacing it.
 
-The init container writes `report.json` beside what it compiled, recording
-every module both sets hold, which copy won, and where each published module
-came from. That record names the modules this deployment holds a newer copy of
-than the corpus does, and the modules the corpus does not carry at all.
-[Contributing MIBs you already have](contributing-mibs.md) covers turning it
-into an issue here.
+Where the modules you mount are newer than the published ones, or are modules
+this distribution does not carry, `mibcontribute` offers them back. Point it at
+the same directory this deployment mounts:
+
+```sh
+mibcontribute /path/to/local-mibs
+```
+
+See [contributing MIBs you already have](contributing-mibs.md).
 
 ## IPv6 listeners
 
