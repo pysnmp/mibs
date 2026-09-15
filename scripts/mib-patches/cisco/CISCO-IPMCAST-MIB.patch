@@ -6,6 +6,10 @@ which is what defines igmpInterfaceEntry and what this corpus carries.
 
 The repair is the published spelling.
 
+PREVIEW SMOKE TEST: this paragraph was added to prove that editing a
+repair, and no MIB, still previews the module the repair belongs to,
+and that the note reaches the page beside the diff. Do not merge.
+
 --- a/CISCO-IPMCAST-MIB
 +++ b/CISCO-IPMCAST-MIB
 @@ -9,7 +9,7 @@

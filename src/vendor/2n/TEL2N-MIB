@@ -13,7 +13,9 @@ tel2n MODULE-IDENTITY
 	CONTACT-INFO 
 		"Modranska 621, 143 01 Praha 4"
 	DESCRIPTION 
-		"telecommunication company"
+		"telecommunication company. PREVIEW SMOKE TEST: this sentence was
+		added to prove the pull request preview renders a changed MIB's own
+		text. Do not merge."
 
 	REVISION "201505011057Z"
 	DESCRIPTION 
