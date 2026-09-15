@@ -81,7 +81,9 @@ python3 -m http.server -d output/preview
 
 `--fail-on-errors` is what makes this a test rather than a rendering: a module
 that will not compile fails, and `output/preview/report.json` names it under
-`selected.failed`. A file under `src/` that declares no MIB module at all
+`selected.failed`. The pull request gets that name too — the comment says which
+module did not compile rather than leaving a red cross whose only explanation
+is in the run log. A file under `src/` that declares no MIB module at all
 fails earlier, in the scope, because a preview that quietly leaves out the
 file the pull request is about has answered the wrong question.
 
@@ -103,6 +105,7 @@ The contract scripts under `tests/` are what CI runs. Run them locally first:
 | `tests/serving-contract.sh` | the corpus image answers the paths the site does |
 | `tests/runtime-compile-contract.py` | a released pysnmp compiles what this build publishes |
 | `tests/test_pr_scope.py` | the preview builds the modules a change touched |
+| `tests/test_pr_report.py` | the preview says which module failed, when one does |
 
 That the compact corpus is a byte-identical subset of the published one is
 checked upstream, in pysmi's `tests/test_corpus_publish_invariance.py`, because

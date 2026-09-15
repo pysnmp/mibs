@@ -59,10 +59,38 @@ def definitions(tree: Path, module: str) -> int:
         return len([x for x in json.load(fileObj) if x not in NOT_SYMBOLS])
 
 
-def render(scope: dict, report: dict, tree: Path, url: str) -> str:
-    """The note, in Markdown."""
+def render(
+    scope: dict, report: dict, tree: Path, url: str, *, built: bool = True
+) -> str:
+    """The note, in Markdown.
+
+    Keyword Args:
+        built: whether the build succeeded. A failed build is the one case
+            where there is something to say and nothing to link to, and it
+            is the case this note exists for: the module that did not
+            compile is named here rather than only in the run log.
+    """
     failed = set(report.get("selected", {}).get("failed", ()))
     out = ["### MIB preview", ""]
+
+    if not built:
+        # Named first, because it is the answer. A reader who stops after
+        # one line should already know which module to open.
+        named = sorted(failed) or scope["modules"]
+        out += [
+            "**The preview build failed.** "
+            + (
+                f"{', '.join('`' + x + '`' for x in named)} did not compile."
+                if failed
+                else "No module reached the site."
+            ),
+            "",
+            "The corpus is built from the whole source set, so this is the module",
+            "as it will be published, not as it reads beside its own imports. The",
+            "compiler's own message is in the run log, under **Build the",
+            "preview**.",
+            "",
+        ]
 
     if scope["canary"]:
         out += [
@@ -72,8 +100,15 @@ def render(scope: dict, report: dict, tree: Path, url: str) -> str:
             "",
         ]
 
-    if url:
+    if url and built:
         out += [f"**[Browse the preview]({url}/browse/)**", ""]
+
+    elif not built:
+        out += [
+            "Nothing was published, so there is no site to browse. What the build",
+            "did write is attached to the run as the `mib-preview-site` artifact.",
+            "",
+        ]
 
     else:
         out += [
@@ -93,7 +128,7 @@ def render(scope: dict, report: dict, tree: Path, url: str) -> str:
             out.append(f"| `{module}` | {reasons} | **did not compile** | — |")
             continue
 
-        page = f"[{module}]({url}/mib/{module}/)" if url else "—"
+        page = f"[{module}]({url}/mib/{module}/)" if url and built else "—"
         out.append(f"| `{module}` | {reasons} | {definitions(tree, module)} | {page} |")
 
     if scope["removed"]:
@@ -107,8 +142,12 @@ def render(scope: dict, report: dict, tree: Path, url: str) -> str:
     out += [
         "",
         "<sub>Built from the whole corpus, publishing only these modules, so their",
-        "imports resolve against all 5,510 as they will on the live site. The",
-        "preview carries no sitemap and asks not to be indexed.</sub>",
+        "imports resolve against all 5,510 as they will on the live site."
+        + (
+            "</sub>"
+            if not built
+            else " The\npreview carries no sitemap and asks not to be indexed.</sub>"
+        ),
         "",
         MARKER,
     ]
@@ -123,16 +162,38 @@ def main(argv: "list[str] | None" = None) -> int:
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--tree", type=Path, required=True)
     parser.add_argument("--url", default="")
+    parser.add_argument(
+        "--build-outcome",
+        default="success",
+        help=(
+            "what the build step did, as GitHub reports it. Anything other "
+            "than success renders the failure note instead of the links."
+        ),
+    )
     options = parser.parse_args(argv)
 
     with options.scope.open(encoding="utf-8") as fileObj:
         scope = json.load(fileObj)
 
-    with options.report.open(encoding="utf-8") as fileObj:
-        report = json.load(fileObj)
+    # A build that failed before writing its report leaves nothing to read.
+    # That is the case with the most to say, so it must not be the case that
+    # ends in a traceback: the scope still knows which modules were asked
+    # for, and naming them is better than saying nothing.
+    try:
+        with options.report.open(encoding="utf-8") as fileObj:
+            report = json.load(fileObj)
+
+    except (OSError, ValueError):
+        report = {}
 
     sys.stdout.write(
-        render(scope, report, options.tree, options.url.strip().rstrip("/"))
+        render(
+            scope,
+            report,
+            options.tree,
+            options.url.strip().rstrip("/"),
+            built=options.build_outcome == "success",
+        )
     )
 
     return 0
