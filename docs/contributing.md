@@ -17,6 +17,14 @@ checked-in text  ==  the publisher's text  +  our patch
 [MIB sources and patches](mib-sources.md) describes that record and what it is
 for.
 
+## When you cannot open a pull request
+
+A module you hold a newer copy of can be reported without one. Resolve your own
+MIB directory against the published corpus, and `scripts/report_shadowing.py`
+turns the build's own record of which copy won into an issue carrying the
+module names, both revisions and the MIB sources themselves. See [reporting a
+module you hold a better copy of](shadowing.md).
+
 ## What is and is not carried
 
 The standard modules, and the widely published vendor ones. Not every MIB ever

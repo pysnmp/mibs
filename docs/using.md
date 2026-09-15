@@ -105,6 +105,10 @@ published, so a local directory ahead of the tree is the usual arrangement.
 An unpacked `mibs-asn1.zip` or a mounted `corpus-compact` image is a local
 directory like any other. See [getting the MIBs](channels.md).
 
+Where your directory carries a newer copy of a module than the published tree
+does, [reporting a module you hold a better copy of](shadowing.md) covers
+sending it back, MIB files and all, without writing a pull request.
+
 ```{warning}
 A MIB module compiled by pysmi becomes Python that pysnmp executes. Treat an
 ASN.1 MIB source as code you are about to run, and compile only from a source

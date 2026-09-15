@@ -59,6 +59,12 @@ every configuration.
 The published corpus wins where both hold a module: the overlay adds to what
 this deployment serves rather than replacing it.
 
+The init container writes `report.json` beside what it compiled, recording
+every module both sets hold and which copy won. Where one of yours won on a
+newer MODULE-IDENTITY revision, this distribution is behind on that module.
+[Reporting a module you hold a better copy of](shadowing.md) covers turning
+that record into an issue here.
+
 ## IPv6 listeners
 
 IPv6 listener support is disabled by default. Enabling it adds IPv6 listeners
