@@ -30,7 +30,7 @@ hipProductName  OBJECT-TYPE
 	MAX-ACCESS read-only
 	STATUS     current
 	DESCRIPTION 
-		"Name of product"
+		"Name of product
 	::= { heliosip 1 }
 
 hipHwVersion  OBJECT-TYPE
