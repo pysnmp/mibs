@@ -125,6 +125,35 @@ def build(destination: pathlib.Path) -> dict:
     return json.loads(report.read_text(encoding="utf-8"))
 
 
+def cell(text: str) -> str:
+    """Error text safe to put in a Markdown table cell.
+
+    Two things the compiler hands back that the table cannot take verbatim.
+    A pipe ends the cell, and an error naming a symbol with one in it would
+    silently add a column. And an "Illegal character" message quotes the
+    character it refused, which for A3COM0074-SMA-VLAN-SUPPORT is a literal
+    NUL -- git then calls the whole page binary and stops diffing it, which
+    is how this was found.
+
+    Args:
+        text: what the compiler said.
+
+    Returns:
+        The same text with pipes escaped and unprintables spelled out.
+    """
+    out = []
+
+    for char in text:
+        if char == "|":
+            out.append("\\|")
+        elif char.isprintable():
+            out.append(char)
+        else:
+            out.append(f"\\x{ord(char):02x}")
+
+    return "".join(out)
+
+
 def reason_for(
     module: str, vendor: str, error: str | None, imports: set[str], here: set[str]
 ) -> str | None:
@@ -170,8 +199,9 @@ def reason_for(
     # the symbol, which is what a person searches for, are at the front.
     said = " ".join(error.split())
     said = said.split(" at MIB ")[0]
+    said = said[:117] + "…" if len(said) > 118 else said
 
-    return said[:117] + "…" if len(said) > 118 else said
+    return cell(said)
 
 
 def sections(rows: dict[str, tuple[str, str]]) -> list[str]:
