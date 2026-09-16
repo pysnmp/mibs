@@ -4313,10 +4313,6 @@
       "publisher": "net-snmp"
     },
     "src/vendor/netsnmp/UCD-SNMP-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
       "publisher": "net-snmp"
     },
     "src/vendor/netsnmp/UCD-SNMP-MIB-OLD": {
