@@ -41,7 +41,7 @@ The corpus is published twice, to two hosts, for two kinds of reader.
 | [`data.mibsdepot.com`](https://data.mibsdepot.com) | the depot's copy of the files, so that a link on a depot page resolves without crossing to the other site |
 
 One build writes all three. `corpus.json` declares a publication per
-destination, and `mibcorpus` writes them from a single parse of the 5,510
+destination, and `mibcorpus` writes them from a single parse of the
 modules, so the three trees cannot disagree about what a module contains. CI
 also compares the two data trees artifact by artifact and fails if they differ.
 

@@ -23,7 +23,7 @@ three *publications* rather than as three builds:
 | `depot-site` | [`mibsdepot.com`](https://mibsdepot.com/browse/) | the browsable pages, one per module, OID arc and registrant, the crawl surface, and this documentation |
 | `depot-data` | [`data.mibsdepot.com`](https://data.mibsdepot.com) | `asn1/`, `json/` **with the texts**, both indexes, `standard.txt`, `closure.json`, `arcs.json`, `search.db` |
 
-`mibcorpus` writes all three from one parse of the 5,510 modules. Parsing is
+`mibcorpus` writes all three from one parse of the corpus. Parsing is
 about three quarters of a pass, so three publications cost roughly what one and
 a half builds would. More importantly, the three trees are projections of a
 single parse rather than three runs that must be trusted to agree. CI compares
@@ -45,7 +45,7 @@ carries the DESCRIPTION, REFERENCE, ORGANIZATION and CONTACT-INFO text from
 the MIB files; `json/` on GitHub Pages does not. Everything else in both trees
 is byte-identical, and CI compares it that way.
 
-The reason is size, not content. Measured over all 5,510 modules the texts
+The reason is size, not content. Measured over the whole corpus the texts
 are 41% more on disk: `json/` goes from 226 MB to 318 MB. GitHub Pages
 refuses a site over 1 GB and that tree is already 580 MB, so the 92 MB is a
 quarter of the headroom left on the destination the corpus is moving away
@@ -86,7 +86,7 @@ set, already resolved.
 ```
 
 `missing` is what the closure names and this corpus does not carry. It is
-empty for all 5,510 modules and CI fails the build if it stops being, because
+empty for every module and CI fails the build if it stops being, because
 a closure a consumer cannot satisfy from this site is a closure that sends
 them somewhere else.
 
@@ -189,7 +189,9 @@ ASN.1 or parsing its whole JSON document. An anchor index also has no per-node
 ordering, so a walk cannot be served from one. In `core.db` both are a single
 indexed row.
 
-Measured on the corpus this repository builds:
+Measured on the corpus this repository built in September 2026, as an
+indication of shape rather than a figure to keep current -- every build
+writes its own counts to `report.json`:
 
 | | |
 |---|---|
@@ -230,7 +232,7 @@ module needs `SNMPv2-TC`, which needs the rest of the input set to be there. A
 build over the whole corpus answers in about five minutes and puts the two
 pages under review somewhere inside 7,430. The preview keeps the input set
 whole and narrows the output set, which over this corpus is **three modules
-and 26 files in about 45 seconds**, most of it spent enumerating the 5,510.
+and 26 files in about 45 seconds**, most of it spent enumerating the corpus.
 
 | | published | compact | preview |
 |---|---|---|---|

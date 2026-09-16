@@ -199,7 +199,7 @@ jobs:
       # One driver invocation, three published trees. corpus.json declares a
       # publication per destination -- github-pages, depot-site, depot-data --
       # and the plan shares one parse of the corpus rather than paying for
-      # 5510 modules three times. The compact corpus is a second invocation,
+      # every module three times. The compact corpus is a second invocation,
       # in a job of its own; both come from the same source set and differ
       # only in whether the standard namespace is published. See corpus.json
       # and corpus-compact.json.
@@ -312,7 +312,7 @@ jobs:
             cat "output/$tree/report.json"
           done
       # One archive per format, for anyone who wants the corpus without
-      # fetching 5510 files over HTTP or pulling an image -- an air-gapped
+      # fetching every file over HTTP or pulling an image -- an air-gapped
       # install, or a build that vendors it. Named after the tree they hold so
       # a release page says what each one is. semantic-release attaches them to
       # the release it creates; the compact archive is built beside the compact
@@ -527,7 +527,7 @@ jobs:
 
           #: Complaints to collect per module before giving up on it. A
           #: systematic divergence would otherwise report itself once per
-          #: node across 5,510 modules.
+          #: node across the whole corpus.
           LIMIT = 5
 
 
@@ -1026,8 +1026,8 @@ jobs:
           enable-cache: true
       - run: uv sync --frozen
       # A third projection of the same sources, in a job of its own for the
-      # reason the compact corpus has one: it is a second full pass over 5510
-      # modules and there is no result to share between them.
+      # reason the compact corpus has one: it is a second full pass over the
+      # sources and there is no result to share between them.
       - name: Build the corpus database
         run: |
           uv run mibcorpus \
