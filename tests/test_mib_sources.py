@@ -367,6 +367,37 @@ def test_archive_failure_is_settled_once() -> None:
         mib_sources._archive_locks.update(locks)
 
 
+def test_a_revision_is_compared_with_its_century() -> None:
+    """A module revised in both stamp formats reports the newer revision.
+
+    SMIv1 writes YYMMDDHHMMZ and SMIv2 writes YYYYMMDDHHMMZ, and a module
+    revised across the change carries both. Compared as written, the
+    two-digit form wins on its first character, so the newest revision of a
+    module last touched in the nineties and again this century read as the
+    nineties one. That is the date a maintainer is shown when deciding
+    whether our copy has fallen behind: net-snmp's UCD-SNMP-MIB and ours
+    both reported 1999-12-09 while they were four years apart.
+    """
+    sys.stdout.write("\nrevision stamps\n")
+
+    mixed = MODULE.replace(
+        b'LAST-UPDATED "202401150000Z"',
+        b'LAST-UPDATED "202008210000Z"\n    REVISION     "9912090000Z"',
+    )
+
+    check("takes the later of the two", mib_sources.revision_of(mixed), "2020-08-21")
+    check(
+        "reads a two-digit year alone",
+        mib_sources.revision_of(MODULE.replace(b'"202401150000Z"', b'"9912090000Z"')),
+        "1999-12-09",
+    )
+    check(
+        "and a sixties one as this century",
+        mib_sources.revision_of(MODULE.replace(b'"202401150000Z"', b'"6501020000Z"')),
+        "2065-01-02",
+    )
+
+
 def test_a_bundle_folds_into_a_recorded_divergence() -> None:
     """A publisher serving the module in a bundle is refused, and reported once.
 
@@ -427,6 +458,7 @@ def main() -> int:
     test_attribution_is_per_line()
     test_drift_is_confirmed_on_the_bytes()
     test_archive_failure_is_settled_once()
+    test_a_revision_is_compared_with_its_century()
     test_a_bundle_folds_into_a_recorded_divergence()
 
     if FAILURES:

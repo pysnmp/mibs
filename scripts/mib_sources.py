@@ -292,6 +292,28 @@ def require_module(data: bytes, expected: str) -> bytes:
     return data
 
 
+def _century(stamp: str) -> str:
+    """A revision stamp with its century, so two of them can be compared.
+
+    SMIv1 writes ``YYMMDDHHMMZ`` and SMIv2 writes ``YYYYMMDDHHMMZ``, and a
+    module revised across the change carries both. Compared as they are
+    written, the two-digit form wins on its first character -- ``9912090000``
+    sorts above ``202008210000`` -- so the newest revision of a module last
+    touched in the nineties and again this century reads as the nineties one.
+
+    Args:
+        stamp: the digits of a revision stamp, without its trailing ``Z``.
+
+    Returns:
+        The same stamp with a four-digit year. The pivot is RFC 2578's:
+        a two-digit year of 70 or more is nineteen-hundreds.
+    """
+    if len(stamp) >= 12:
+        return stamp
+
+    return ("19" if int(stamp[:2]) >= 70 else "20") + stamp
+
+
 def revision_of(data: bytes) -> str:
     """The newest MODULE-IDENTITY revision in *data*, as ``YYYY-MM-DD``.
 
@@ -321,10 +343,7 @@ def revision_of(data: bytes) -> str:
     if not usable:
         return "--"
 
-    newest = max(usable)
-    if len(newest) < 12:
-        century = "19" if int(newest[:2]) >= 70 else "20"
-        newest = century + newest
+    newest = max(_century(s) for s in usable)
 
     return f"{newest[:4]}-{newest[4:6]}-{newest[6:8]}"
 
