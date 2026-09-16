@@ -195,6 +195,115 @@ def require_checkout(checkout: Path) -> Path:
     return resolved
 
 
+#: The headings of the sections in ``docs/absent-modules.md`` that record a
+#: module this distribution does not carry on purpose. The page has one other
+#: heading, prose about how the count is taken, and the module names in it are
+#: examples of modules that *are* carried -- reading names out of it would
+#: refuse them.
+EXCLUDING = re.compile(r"^## \d+\. ")
+
+
+def excluded_modules(checkout: Path) -> dict[str, str]:
+    """Every module ``docs/absent-modules.md`` records a decision against.
+
+    The page is prose, and parsing prose to gate a commit is only worth doing
+    because the alternative is worse: a contributor's scan offers whatever
+    their collection holds, and most of what it finds missing here is missing
+    because somebody already decided it should be. Pointing mibcontribute at
+    net-snmp's MIB directory offered 24 modules, and 17 were on this page.
+
+    Args:
+        checkout: the clone being imported into.
+
+    Returns:
+        Module name to the heading of the section that excluded it. Empty when
+        the page is not there, which is not this script's error to raise.
+    """
+    page = checkout / "docs" / "absent-modules.md"
+
+    if not page.is_file():
+        return {}
+
+    found: dict[str, str] = {}
+    section = ""
+    fenced = False
+    in_body = False
+
+    for line in page.read_text(encoding="utf-8").splitlines():
+        if line.startswith("```"):
+            fenced = not fenced
+            continue
+
+        if fenced:
+            continue
+
+        if line.startswith("## "):
+            section = line[3:].strip() if EXCLUDING.match(line) else ""
+            continue
+
+        if not line.startswith("|"):
+            in_body = False
+
+        if not section:
+            continue
+
+        # A table row names its modules in the last column; prose names them
+        # in backticks. Both are comma-separated lists of bare module names.
+        if line.startswith("|"):
+            cells = [cell.strip() for cell in line.strip("|").split("|")]
+
+            # Rows above the ---|--- rule are headings, and "modules" is the
+            # name of a column here, not of a module.
+            if all(set(cell) <= set("-: ") for cell in cells):
+                in_body = True
+                continue
+
+            if not in_body:
+                continue
+
+            names = cells[-1] if cells else ""
+        else:
+            names = " ".join(re.findall(r"`([^`]+)`", line))
+
+        for name in re.split(r"[,\s]+", names):
+            if MODULE_NAME.match(name):
+                found.setdefault(name, section)
+
+    return found
+
+
+def require_carryable(checkout: Path, modules: list[str]) -> None:
+    """Refuse a module this distribution has already decided not to carry.
+
+    Args:
+        checkout: the clone being imported into.
+        modules: the module names the bundle offers.
+
+    Raises:
+        Refused: one of them is recorded in ``docs/absent-modules.md``. The
+            page says what to do instead for each group, and none of the
+            answers is a file under ``src/vendor``: an RFC module filed under
+            the vendor that happened to ship a copy says something untrue
+            about who publishes it.
+    """
+    excluded = excluded_modules(checkout)
+    refused = {name: excluded[name] for name in modules if name in excluded}
+
+    if not refused:
+        return
+
+    listing = "\n".join(
+        f"  {name}: {section}" for name, section in sorted(refused.items())
+    )
+
+    raise Refused(
+        f"{len(refused)} of {len(modules)} module(s) offered are recorded in "
+        f"docs/absent-modules.md as not carried on purpose:\n{listing}\n"
+        "Read the section that names each one: it says where the module goes "
+        "instead, and it is not src/vendor. Offer the rest with --module."
+    )
+
+
 def require_publisher(checkout: Path, publisher: str) -> None:
     """Refuse a publisher the manifest does not define, before anything is written.
 
@@ -409,6 +518,7 @@ def import_bundle(options: argparse.Namespace) -> int:
     # Before the branch and before any write: a refusal here would otherwise
     # leave the checkout on a new branch full of uncommitted MIBs.
     require_publisher(checkout, options.publisher)
+    require_carryable(checkout, [str(one["module"]) for one in modules])
     started = git(checkout, "rev-parse", "--abbrev-ref", "HEAD")
 
     git(checkout, "switch", "--create", branch)

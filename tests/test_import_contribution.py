@@ -426,6 +426,77 @@ def test_a_publisher_the_manifest_does_not_define_is_refused() -> None:
         check("no publisher writes nothing", written, False)
 
 
+def test_a_module_the_page_excludes_is_refused() -> None:
+    """A scan offers what a collection holds, not what this repository wants.
+
+    Pointing mibcontribute at net-snmp's MIB directory offered 24 modules and
+    17 of them were on docs/absent-modules.md, each with a decision already
+    recorded against it. None of those decisions says "a file under
+    src/vendor", so an import that wrote one would be undoing the decision
+    silently -- and for the RFC group, filing the module under the vendor that
+    happened to ship a copy says something untrue about who publishes it.
+    """
+    sys.stdout.write("\ntest_a_module_the_page_excludes_is_refused\n")
+
+    page = """# Removed modules
+
+Prose naming `EXTREME-VLAN-MIB`, which this distribution does carry.
+
+## 1. Held back in pysmi: 2 consortium modules
+
+| publisher | count | modules |
+|---|---|---|
+| IANA | 2 | IANA-CHARSET-MIB, IANA-LANGUAGE-MIB |
+
+## 2. Held back in pysmi: 1 RFC module
+
+`AGENTX-MIB`
+
+## The count reads declarations, not filenames
+
+`EXTREME-BASE-MIB` declared 34 once.
+"""
+
+    with tempfile.TemporaryDirectory() as name:
+        directory = pathlib.Path(name)
+        clone = checkout(directory)
+        (clone / "docs").mkdir()
+        (clone / "docs" / "absent-modules.md").write_text(page, encoding="utf-8")
+
+        excluded = import_contribution.excluded_modules(clone)
+
+        check("reads the numbered sections only", len(excluded), 3)
+        check_true("a table row", "IANA-LANGUAGE-MIB" in excluded)
+        check_true("and a backticked name", "AGENTX-MIB" in excluded)
+        check_true("not the column heading", "modules" not in excluded)
+        check_true(
+            "not prose about a carried module", "EXTREME-VLAN-MIB" not in excluded
+        )
+        check_true(
+            "nor one under an unnumbered heading", "EXTREME-BASE-MIB" not in excluded
+        )
+
+        refused = ""
+
+        try:
+            import_contribution.require_carryable(
+                clone, ["NET-SNMP-SYSTEM-MIB", "AGENTX-MIB"]
+            )
+        except import_contribution.Refused as exc:
+            refused = str(exc)
+
+        check_true("refuses the excluded one", "AGENTX-MIB" in refused)
+        check_true("naming the section", "Held back in pysmi" in refused)
+        check_true("counts them", "1 of 2 module(s)" in refused)
+        check_true(
+            "leaves the carryable one out of it", "NET-SNMP-SYSTEM-MIB" not in refused
+        )
+
+        import_contribution.require_carryable(clone, ["NET-SNMP-SYSTEM-MIB"])
+
+        check_true("and passes a module it does not name", True)
+
+
 def test_a_bundle_naming_a_path_is_refused() -> None:
     """findings.json is data, and it names the files this reads and commits."""
     sys.stdout.write("\ntest_a_bundle_naming_a_path_is_refused\n")
@@ -563,6 +634,7 @@ def main() -> int:
     test_a_directory_that_is_not_a_bundle_is_refused()
     test_the_checkout_must_be_this_repository_and_clean()
     test_a_publisher_the_manifest_does_not_define_is_refused()
+    test_a_module_the_page_excludes_is_refused()
     test_a_bundle_naming_a_path_is_refused()
     test_a_symlink_in_a_bundle_is_refused()
     test_the_bundle_beside_the_checkout_does_not_refuse_the_import()
