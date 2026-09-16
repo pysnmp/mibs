@@ -1,7 +1,8 @@
 -- ****************************************************************************
 --  COLUBRIS-DEVICE-WIRELESS-MIB definitions
 --
---  Copyright (c) 2006, Colubris Networks, Inc.
+--  Copyright (c) 2006, Hewlett-Packard Development Company, L.P. 
+--  The information contained herein is subject to change without notice.
 --  All Rights Reserved.
 --
 --  Colubris Device Wireless MIB file.
@@ -23,13 +24,14 @@ IMPORTS
         FROM    COLUBRIS-SMI
     coDevDisIndex
         FROM    COLUBRIS-DEVICE-MIB
-    ColubrisSSIDOrNone, ColubrisNotificationEnable, ColubrisRadioType
+    ColubrisSSID, ColubrisSSIDOrNone, ColubrisNotificationEnable,
+    ColubrisRadioType
         FROM    COLUBRIS-TC
 ;
 
 
 colubrisDeviceWirelessMIB MODULE-IDENTITY
-    LAST-UPDATED    "200710300000Z"
+    LAST-UPDATED    "200906010000Z"
     ORGANIZATION    "Colubris Networks, Inc."
     CONTACT-INFO    "Colubris Networks
                      Postal: 200 West Street Ste 300
@@ -48,17 +50,18 @@ colubrisDeviceWirelessMIB MODULE-IDENTITY
 colubrisDeviceWirelessMIBObjects OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIB 1 }
 
 -- colubris Device Wireless groups
-coDeviceWirelessConfigGroup        OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 1 }
-coDeviceWirelessIfStatusGroup      OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 2 }
-coDeviceWirelessIfStatsGroup       OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 3 }
-coDeviceWirelessIfQosGroup         OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 4 }
-coDeviceWirelessVscStatusGroup     OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 5 }
-coDeviceWirelessVscStatsGroup      OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 6 }
-coDeviceWirelessClientStatusGroup  OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 7 }
-coDeviceWirelessClientStatsGroup   OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 8 }
-coDeviceWirelessClientRatesGroup   OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 9 }
-coDeviceWirelessClientHTRatesGroup OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 10 }
-coDeviceWirelessDetectedAPGroup    OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 13 }
+coDeviceWirelessConfigGroup          OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 1 }
+coDeviceWirelessIfStatusGroup        OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 2 }
+coDeviceWirelessIfStatsGroup         OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 3 }
+coDeviceWirelessIfQosGroup           OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 4 }
+coDeviceWirelessVscStatusGroup       OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 5 }
+coDeviceWirelessVscStatsGroup        OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 6 }
+coDeviceWirelessClientStatusGroup    OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 7 }
+coDeviceWirelessClientStatsGroup     OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 8 }
+coDeviceWirelessClientRatesGroup     OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 9 }
+coDeviceWirelessClientHTRatesGroup   OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 10 }
+coDeviceWirelessDetectedAPGroup      OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 13 }
+coDeviceWirelessDetectedStationGroup OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIBObjects 14 }
 
 -- The Device Wireless Configuration Group
 
@@ -76,7 +79,8 @@ coDevWirSNRLevelNotificationInterval OBJECT-TYPE
     UNITS       "minutes"
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "Specifies the interval in minutes between SNR level notifications."
+    DESCRIPTION "Specifies the interval in minutes between SNR level
+                 notifications."
     ::= { coDeviceWirelessConfigGroup 2 }
 
 coDevWirMinimumSNRLevel OBJECT-TYPE
@@ -84,16 +88,17 @@ coDevWirMinimumSNRLevel OBJECT-TYPE
     UNITS       "dBm"
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "A SNR level notification is generated each time the average SNR 
-                 for all wireless stations connected to a VSC drops below this value."
+    DESCRIPTION "A SNR level notification is generated each time the average
+                 SNR for all wireless stations connected to a VSC drops below
+                 this value."
     ::= { coDeviceWirelessConfigGroup 3 }
 
 coDevWirAssociationNotificationEnabled OBJECT-TYPE
     SYNTAX      ColubrisNotificationEnable
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "Specifies if an  association notification is generated when a new 
-                 wireless client station associates with any VSC."
+    DESCRIPTION "Specifies if an association notification is generated when a
+                 new wireless client station associates with any VSC."
     DEFVAL      { disable }
     ::= { coDeviceWirelessConfigGroup 4 }
 
@@ -110,8 +115,10 @@ coDeviceWirelessInterfaceStatusEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessInterfaceStatusTable.
-                 coDevDisIndex - Uniquely identifies a device in the
-                                 MultiService Controller.
+
+                 coDevDisIndex - Uniquely identifies a device on the
+                                 controller.
+
                  coDevWirIfStaRadioIndex - Uniquely identifies a radio
                                            on the device."
     INDEX       { coDevDisIndex, coDevWirIfStaRadioIndex }
@@ -133,15 +140,15 @@ CoDeviceWirelessInterfaceStatusEntry ::= SEQUENCE
     coDevWirIfStaAutoPowerEnabled        TruthValue,
     coDevWirIfStaAutoPowerInterval       Integer32,
     coDevWirIfStaResetStats              INTEGER,
-    coDevWirIfStaGreenfieldOptionEnabled TruthValue
+    coDevWirIfStaGreenfieldOptionEnabled TruthValue,
+    coDevWirIfStaNbDetectedStation       Unsigned32
 }
 
 coDevWirIfStaRadioIndex OBJECT-TYPE
     SYNTAX      Integer32 (1..2147483647)
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION "Specifies the index of a radio on the
-                 device."
+    DESCRIPTION "Specifies the index of a radio on the device."
     ::= { coDeviceWirelessInterfaceStatusEntry 1 }
 
 coDevWirIfStaIfIndex OBJECT-TYPE
@@ -194,14 +201,14 @@ coDevWirIfStaRadioMode OBJECT-TYPE
                 }
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Identifies the current operating phy type of the radio."
+    DESCRIPTION "Identifies the current operating PHY type of the radio."
     ::= { coDeviceWirelessInterfaceStatusEntry 6 }
 
 coDevWirIfStaRadioType OBJECT-TYPE
     SYNTAX      ColubrisRadioType
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Identifies the wireless device inside the Colubris product."
+    DESCRIPTION "Identifies the wireless device inside the device."
     ::= { coDeviceWirelessInterfaceStatusEntry 7 }
 
 coDevWirIfStaRadioOperState OBJECT-TYPE
@@ -229,26 +236,27 @@ coDevWirIfStaAutoChannelInterval OBJECT-TYPE
     SYNTAX      Integer32 (0..1440)
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Time interval, in minutes, between auto rescanning of channels.
-                 Maximum is 1440 minutes (24 hours). A value of zero disables automatic
-                 rescanning of channels which means that the radio will automatically 
-                 select a channel when the interface intializes and use that channel
-                 as long as the interface is operational."
+    DESCRIPTION "Time interval, in minutes, between auto rescanning of
+                 channels. Maximum is 1440 minutes (24 hours). A value of zero
+                 disables automatic rescanning of channels which means that the
+                 radio will automatically select a channel when the interface
+                 initializes and use that channel as long as the interface is
+                 operational."
     ::= { coDeviceWirelessInterfaceStatusEntry 11 }
 
 coDevWirIfStaAutoPowerEnabled OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "When True indicates that the Auto Power option is enabled."
+    DESCRIPTION "When True, indicates that the Auto Power option is enabled."
     ::= { coDeviceWirelessInterfaceStatusEntry 12 }
 
 coDevWirIfStaAutoPowerInterval OBJECT-TYPE
     SYNTAX      Integer32 (5..1440)
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Identifies the time interval, in minutes, between auto rescanning of channels.
-                 Maximum is 1440 minutes (24 hours)."
+    DESCRIPTION "Identifies the time interval, in minutes, between auto 
+                 rescanning of channels. Maximum is 1440 minutes (24 hours)."
     ::= { coDeviceWirelessInterfaceStatusEntry 13 }
 
 coDevWirIfStaResetStats OBJECT-TYPE
@@ -271,6 +279,13 @@ coDevWirIfStaGreenfieldOptionEnabled OBJECT-TYPE
                  Greenfield option is enabled."
     ::= { coDeviceWirelessInterfaceStatusEntry 15 }
 
+coDevWirIfStaNbDetectedStation OBJECT-TYPE
+    SYNTAX      Unsigned32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Number of stations detected on this radio."
+    ::= { coDeviceWirelessInterfaceStatusEntry 16 }
+
 -- The Device Wireless Interface Statistics Group
 coDeviceWirelessInterfaceStatsTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF CoDeviceWirelessInterfaceStatsEntry
@@ -284,8 +299,10 @@ coDeviceWirelessInterfaceStatsEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessInterfaceStatsTable.
-                 coDevDisIndex - Uniquely identifies a device in the
-                                 MultiService Controller.
+
+                 coDevDisIndex - Uniquely identifies a device on the
+                                 controller.
+
                  coDevWirIfStaRadioIndex - Uniquely identifies a radio
                                            on the device."
     AUGMENTS    { coDeviceWirelessInterfaceStatusEntry }
@@ -401,7 +418,7 @@ coDevWirIfStsMulticastReceivedFrameCount OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "This counter is incremented when a MSDU is received with the
+    DESCRIPTION "This counter is incremented when an MSDU is received with the
                  multicast bit set in the destination MAC address."
     ::= { coDeviceWirelessInterfaceStatsEntry 11 }
 
@@ -425,7 +442,7 @@ coDevWirIfStsReceivedFrameCount OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "This counter is incremented when a MSDU is received."
+    DESCRIPTION "This counter is incremented when an MSDU is received."
     ::= { coDeviceWirelessInterfaceStatsEntry 14 }
 
 -- The Device Virtual Service Communities Status Group
@@ -441,13 +458,16 @@ coDeviceWirelessVscStatusEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessVscStatusTable.
-                 coDevDisIndex - Uniquely identifies a device in the
-                                 MultiService Controller.
+
+                 coDevDisIndex - Uniquely identifies a device on the
+                                 controller.
+
                  coDevWirIfStaRadioIndex - Uniquely identifies a radio
                                            on the device.
-                 coDevWirVscStaVscIndex - Uniquely identifies a Virtual Service
-                                       Community on the device
-                                       configuration file."
+
+                 coDevWirVscStaVscIndex - Uniquely identifies a Virtual 
+                                          Service Community in the device 
+                                          configuration file."
     INDEX       { coDevDisIndex, coDevWirIfStaRadioIndex, coDevWirVscStaVscIndex }
     ::= { coDeviceWirelessVscStatusTable 1 }
 
@@ -500,16 +520,16 @@ coDevWirVscStaMaximumNumberOfUsers OBJECT-TYPE
     SYNTAX      Unsigned32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Maximum number of wireless client stations that can use the VSC on a
-                 specific radio."
+    DESCRIPTION "Maximum number of wireless client stations that can use the 
+                 VSC on a specific radio."
     ::= { coDeviceWirelessVscStatusEntry 5 }
 
 coDevWirVscStaCurrentNumberOfUsers OBJECT-TYPE
     SYNTAX      Unsigned32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Indicates the number of wireless client stations connected via this
-                 VSC."
+    DESCRIPTION "Indicates the number of wireless client stations connected via 
+                 this VSC."
     ::= { coDeviceWirelessVscStatusEntry 6 }
 
 coDevWirVscStaAverageSNR OBJECT-TYPE
@@ -528,9 +548,8 @@ coDevWirVscStaResetStats OBJECT-TYPE
                 }
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "Reset the Virtual Service Communities
-                 statistics. Read ing this object will always return
-                 'idle'."
+    DESCRIPTION "Reset the VSC statistics. Reading this object will always 
+                 return 'idle'."
     ::= { coDeviceWirelessVscStatusEntry 8 }
 
 -- The Device Virtual Service Communities Stats Group
@@ -546,13 +565,16 @@ coDeviceWirelessVscStatsEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessVscStatsTable.
+
                  coDevDisIndex - Uniquely identifies a device in the
                                  MultiService Controller.
+
                  coDevWirIfStaRadioIndex - Uniquely identifies a radio
                                            on the device.
+
                  coDevWirVscStaVscIndex - Uniquely identifies a Virtual Service
-                                       Community in the device
-                                       configuration file."
+                                          Community in the device
+                                          configuration file."
     AUGMENTS    { coDeviceWirelessVscStatusEntry }
     ::= { coDeviceWirelessVscStatsTable 1 }
 
@@ -660,10 +682,13 @@ coDeviceWirelessClientStatusEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessClientStatusTable.
-                 coDevDisIndex - Uniquely identifies a device in the
-                                 MultiService Controller.
+
+                 coDevDisIndex - Uniquely identifies a device on the
+                                 controller.
+
                  coDevWirIfStaRadioIndex - Uniquely identifies a radio
                                            on the device.
+
                  coDevWirCliStaIndex - Uniquely identifies a wireless
                                        client using the specified
                                        radio on the device."
@@ -697,7 +722,8 @@ CoDeviceWirelessClientStatusEntry ::= SEQUENCE
     coDevWirCliStaTransmitMCS         Unsigned32,
     coDevWirCliStaReceiveMCS          Unsigned32,
     coDevWirCliStaChannelWidth        INTEGER,
-    coDevWirCliStaShortGI             TruthValue
+    coDevWirCliStaShortGI             TruthValue,
+    coDevWirCliDisassociate           INTEGER
 }
 
 coDevWirCliStaIndex OBJECT-TYPE
@@ -705,7 +731,7 @@ coDevWirCliStaIndex OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "Specifies the index of a wireless client using the
-                 specified radio in the device. The association ID is
+                 specified radio on the device. The association ID is
                  used for the index."
     ::= { coDeviceWirelessClientStatusEntry 1 }
 
@@ -847,15 +873,17 @@ coDevWirCliStaPowerSavingMode OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "If true, indicates that the wireless station is in power saving mode."
+    DESCRIPTION "If true, indicates that the wireless station is in power 
+                 save mode."
     ::= { coDeviceWirelessClientStatusEntry 18 }
 
 coDevWirCliStaWME OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "true  : the wireless station sends QOS data frames.
-                 false : the wireless station sends data frames."
+    DESCRIPTION "true: The wireless station sends QOS data frames.
+
+                 false: The wireless station sends data frames."
     ::= { coDeviceWirelessClientStatusEntry 19 }
 
 coDevWirCliStaPreviousAPAddress OBJECT-TYPE
@@ -877,9 +905,12 @@ coDevWirCliStaResetStats OBJECT-TYPE
     STATUS      current
     DESCRIPTION "Reset the wireless client statistics. Reading this
                  object will always return 'idle'.
-                 resetStats: reset the client statistics,
-                 resetRates: reset the client statistics rates,
-                 resetAll: perform both operations."
+
+                 resetStats: Reset the client statistics.
+
+                 resetRates: Reset the client statistics rates.
+
+                 resetAll: Perform both operations."
     ::= { coDeviceWirelessClientStatusEntry 21 }
 
 coDevWirCliStaHT OBJECT-TYPE
@@ -900,7 +931,7 @@ coDevWirCliStaReceiveMCS OBJECT-TYPE
     SYNTAX      Unsigned32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Current receive rMCS of an HT associated station."
+    DESCRIPTION "Current receive MCS of an HT associated station."
     ::= { coDeviceWirelessClientStatusEntry 24 }
 
 coDevWirCliStaChannelWidth OBJECT-TYPE
@@ -921,6 +952,27 @@ coDevWirCliStaShortGI OBJECT-TYPE
     DESCRIPTION "Indicates if the wireless client is using short GI."
     ::= { coDeviceWirelessClientStatusEntry 26 }
 
+coDevWirCliDisassociate OBJECT-TYPE
+    SYNTAX      INTEGER
+                {
+                    idle(0),
+                    disassociate(1)
+                }
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION "Disassociate the wireless client. Reading this
+                 object will always return 'idle'.
+
+                 disassociate: disassociate the client."
+    ::= { coDeviceWirelessClientStatusEntry 27 }
+
+coDevWirNbAssociatedStation OBJECT-TYPE
+    SYNTAX      Unsigned32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Number of stations in the wireless client table."
+    ::= { coDeviceWirelessClientStatusGroup 2 }
+
 -- The Device Wireless Client Statistics Group
 coDeviceWirelessClientStatsTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF CoDeviceWirelessClientStatsEntry
@@ -934,10 +986,13 @@ coDeviceWirelessClientStatsEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessClientStatsTable.
+
                  coDevDisIndex - Uniquely identifies a device on the
-                                 MultiService Controller.
+                                 controller.
+
                  coDevWirIfStaRadioIndex - Uniquely identifies a radio
                                            on the device.
+
                  coDevWirCliStaIndex - Uniquely identifies a wireless
                                        client using the specified
                                        radio on the device."
@@ -997,10 +1052,13 @@ coDeviceWirelessClientStatsRatesEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessClientStatsRatesTable.
+
                  coDevDisIndex - Uniquely identifies a device on the
-                                 MultiService Controller.
+                                 controller.
+
                  coDevWirIfStaRadioIndex - Uniquely identifies a radio
                                            on the device.
+
                  coDevWirCliStaIndex - Uniquely identifies a wireless
                                        client using the specified
                                        radio on the device."
@@ -1039,7 +1097,7 @@ coDevWirCliStsPktsTxRate1 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 1 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 1 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 1 }
 
@@ -1047,7 +1105,7 @@ coDevWirCliStsPktsTxRate2 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 2 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 2 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 2 }
 
@@ -1055,7 +1113,7 @@ coDevWirCliStsPktsTxRate5dot5 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 5.5 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 5.5 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 3 }
 
@@ -1063,7 +1121,7 @@ coDevWirCliStsPktsTxRate11 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 11 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 11 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 4 }
 
@@ -1071,7 +1129,7 @@ coDevWirCliStsPktsTxRate6 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 6 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 6 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 5 }
 
@@ -1079,7 +1137,7 @@ coDevWirCliStsPktsTxRate9 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 9 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 9 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 6 }
 
@@ -1087,7 +1145,7 @@ coDevWirCliStsPktsTxRate12 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 12 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 12 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 7 }
 
@@ -1095,7 +1153,7 @@ coDevWirCliStsPktsTxRate18 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 18 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 18 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 8 }
 
@@ -1103,7 +1161,7 @@ coDevWirCliStsPktsTxRate24 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 24 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 24 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 9 }
 
@@ -1111,7 +1169,7 @@ coDevWirCliStsPktsTxRate36 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 36 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 36 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 10 }
 
@@ -1119,7 +1177,7 @@ coDevWirCliStsPktsTxRate48 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 48 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 48 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 11 }
 
@@ -1127,7 +1185,7 @@ coDevWirCliStsPktsTxRate54 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames transmitted at 54 Mbit/s since the
+    DESCRIPTION "Number of frames transmitted at 54 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 12 }
 
@@ -1135,7 +1193,7 @@ coDevWirCliStsPktsRxRate1 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 1 Mbit/s since the
+    DESCRIPTION "Number of frames received at 1 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 13 }
 
@@ -1143,7 +1201,7 @@ coDevWirCliStsPktsRxRate2 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 2 Mbit/s since the
+    DESCRIPTION "Number of frames received at 2 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 14 }
 
@@ -1151,7 +1209,7 @@ coDevWirCliStsPktsRxRate5dot5 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 5.5 Mbit/s since the
+    DESCRIPTION "Number of frames received at 5.5 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 15 }
 
@@ -1159,7 +1217,7 @@ coDevWirCliStsPktsRxRate11 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 11 Mbit/s since the
+    DESCRIPTION "Number of frames received at 11 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 16 }
 
@@ -1167,7 +1225,7 @@ coDevWirCliStsPktsRxRate6 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 6 Mbit/s since the
+    DESCRIPTION "Number of frames received at 6 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 17 }
 
@@ -1175,7 +1233,7 @@ coDevWirCliStsPktsRxRate9 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 9 Mbit/s since the
+    DESCRIPTION "Number of frames received at 9 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 18 }
 
@@ -1183,7 +1241,7 @@ coDevWirCliStsPktsRxRate12 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 12 Mbit/s since the
+    DESCRIPTION "Number of frames received at 12 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 19 }
 
@@ -1191,7 +1249,7 @@ coDevWirCliStsPktsRxRate18 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 18 Mbit/s since the
+    DESCRIPTION "Number of frames received at 18 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 20 }
 
@@ -1199,7 +1257,7 @@ coDevWirCliStsPktsRxRate24 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 24 Mbit/s since the
+    DESCRIPTION "Number of frames received at 24 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 21 }
 
@@ -1207,7 +1265,7 @@ coDevWirCliStsPktsRxRate36 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 36 Mbit/s since the
+    DESCRIPTION "Number of frames received at 36 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 22 }
 
@@ -1215,7 +1273,7 @@ coDevWirCliStsPktsRxRate48 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 48 Mbit/s since the
+    DESCRIPTION "Number of frames received at 48 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 23 }
 
@@ -1223,7 +1281,7 @@ coDevWirCliStsPktsRxRate54 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 54 Mbit/s since the
+    DESCRIPTION "Number of frames received at 54 Mbps since the
                  station associated."
     ::= { coDeviceWirelessClientStatsRatesEntry 24 }
 
@@ -1241,10 +1299,13 @@ coDeviceWirelessClientStatsHTRatesEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessClientStatsHTRatesTable.
+
                  coDevDisIndex - Uniquely identifies a device on the
-                                 MultiService Controller.
+                                 controller.
+
                  coDevWirIfStaRadioIndex - Uniquely identifies a radio
                                            on the device.
+
                  coDevWirCliStaIndex - Uniquely identifies an HT
                                        wireless client using the
                                        specified radio on the device."
@@ -1556,8 +1617,10 @@ coDeviceWirelessDetectedAPEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "An entry in the coDeviceWirelessDetectedAPTable.
+
                  coDevDisIndex - Uniquely identifies a device on the
                                  MultiService Controller.
+
                  coDevWirApIndex - Uniquely identifies an Access Point in
                                    the device detected AP table."
     INDEX       { coDevDisIndex, coDevWirApIndex }
@@ -1574,7 +1637,8 @@ CoDeviceWirelessDetectedAPEntry ::= SEQUENCE
     coDevWirApNoiseLevel       Integer32,
     coDevWirApSNR              Integer32,
     coDevWirApPHYType          INTEGER,
-    coDevWirApSecurity         INTEGER
+    coDevWirApSecurity         INTEGER,
+    coDevWirApNetworkType      INTEGER
 }
 
 coDevWirApIndex OBJECT-TYPE
@@ -1666,6 +1730,155 @@ coDevWirApSecurity OBJECT-TYPE
                  wireless station."
     ::= { coDeviceWirelessDetectedAPEntry 10 }
 
+coDevWirApNetworkType OBJECT-TYPE
+    SYNTAX      INTEGER
+                {
+                    ess(1),
+                    ibss(2)
+                }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Indicates the network type used by the
+                 wireless station."
+    ::= { coDeviceWirelessDetectedAPEntry 11 }
+
+-- The Device Wireless Detected Station Group
+coDevWirNbDetectedStation OBJECT-TYPE
+    SYNTAX      Unsigned32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Number of stations in the detected station table."
+    ::= { coDeviceWirelessDetectedStationGroup 1 }
+
+coDeviceWirelessDetectedStationTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF CoDeviceWirelessDetectedStationEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION "Device Wireless detected station attributes."
+    ::= { coDeviceWirelessDetectedStationGroup 2 }
+
+coDeviceWirelessDetectedStationEntry OBJECT-TYPE
+    SYNTAX      CoDeviceWirelessDetectedStationEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION "An entry in the coDeviceWirelessDetectedStationTable.
+
+                 coDevDisIndex - Uniquely identifies a device on the
+                                 controller.
+
+                 coDevWirSDetRadioIndex - Uniquely identifies a radio
+                                          on the device.
+
+                 coDevWirDetStaIndex - Uniquely identifies a station
+                                       in the device detected station
+                                       table."
+    INDEX       { coDevDisIndex, coDevWirSDetRadioIndex, coDevWirDetStaIndex }
+    ::= { coDeviceWirelessDetectedStationTable 1 }
+
+CoDeviceWirelessDetectedStationEntry ::= SEQUENCE
+{
+    coDevWirSDetRadioIndex        Integer32,
+    coDevWirDetStaIndex           Integer32,
+    coDevWirDetStaMacAddress      MacAddress,
+    coDevWirDetStaChannel         Integer32,
+    coDevWirDetStaSignalLevel     Integer32,
+    coDevWirDetStaNoiseLevel      Integer32,
+    coDevWirDetStaNbProbeReq      Counter32,
+    coDevWirDetStaRate            Unsigned32,
+    coDevWirDetStaSSID            ColubrisSSID,
+    coDevWirDetStaTimeDiscovered  Counter32,
+    coDevWirDetStaTimeLastSeen    Unsigned32
+}
+
+coDevWirSDetRadioIndex OBJECT-TYPE
+    SYNTAX      Integer32 (1..2147483647)
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION "Specifies the index of a radio on the
+                 device."
+    ::= { coDeviceWirelessDetectedStationEntry 1 }
+
+coDevWirDetStaIndex OBJECT-TYPE
+    SYNTAX      Integer32 (1..2147483647)
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION "Identifies a wireless client detected on a specific
+                 radio."
+    ::= { coDeviceWirelessDetectedStationEntry 2 }
+
+coDevWirDetStaMacAddress OBJECT-TYPE
+    SYNTAX      MacAddress
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "MAC address of the wireless client."
+    ::= { coDeviceWirelessDetectedStationEntry 3 }
+
+coDevWirDetStaChannel OBJECT-TYPE
+    SYNTAX      Integer32 (1..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "The operating frequency channel when the last probe
+                 request was received."
+    ::= { coDeviceWirelessDetectedStationEntry 4 }
+
+coDevWirDetStaSignalLevel OBJECT-TYPE
+    SYNTAX      Integer32
+    UNITS       "dBm"
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Strength of the wireless signal."
+    ::= { coDeviceWirelessDetectedStationEntry 5 }
+
+coDevWirDetStaNoiseLevel OBJECT-TYPE
+    SYNTAX      Integer32
+    UNITS       "dBm"
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Level of local background noise."
+    ::= { coDeviceWirelessDetectedStationEntry 6 }
+
+coDevWirDetStaNbProbeReq OBJECT-TYPE
+    SYNTAX      Counter32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Total number of probes request received from this client."
+    ::= { coDeviceWirelessDetectedStationEntry 7 }
+
+coDevWirDetStaRate OBJECT-TYPE
+    SYNTAX      Unsigned32
+    UNITS       "500Kb/s"
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Receive rate of the last probe request received from
+                 this client."
+    ::= { coDeviceWirelessDetectedStationEntry 8 }
+
+coDevWirDetStaSSID OBJECT-TYPE
+    SYNTAX      ColubrisSSID
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "SSID contained in the last probe request received from
+                 this client."
+    ::= { coDeviceWirelessDetectedStationEntry 9 }
+
+coDevWirDetStaTimeDiscovered OBJECT-TYPE
+    SYNTAX      Counter32
+    UNITS       "seconds"
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Elapsed time in seconds since the first probe has
+                 been received from this client."
+    ::= { coDeviceWirelessDetectedStationEntry 10 }
+
+coDevWirDetStaTimeLastSeen OBJECT-TYPE
+    SYNTAX      Unsigned32
+    UNITS       "seconds"
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Elapsed time in seconds since the last probe has
+                 been received from this client."
+    ::= { coDeviceWirelessDetectedStationEntry 11 }
+
 
 -- Device Wireless notifications
 colubrisDeviceWirelessMIBNotificationPrefix OBJECT IDENTIFIER ::= { colubrisDeviceWirelessMIB 2 }
@@ -1679,7 +1892,7 @@ coDeviceWirelessSNRLevelNotification NOTIFICATION-TYPE
                 }
     STATUS      current
     DESCRIPTION "The average SNR level for all the stations using this
-                 Virtual Service Community is below the threshlod."
+                 Virtual Service Community is below the threshold."
     ::= { colubrisDeviceWirelessMIBNotifications 1 }
 
 coDeviceWirelessAssociationNotification NOTIFICATION-TYPE
@@ -1716,7 +1929,8 @@ colubrisDeviceWirelessMIBCompliance MODULE-COMPLIANCE
                         colubrisDeviceWirelessClientStatsRatesMIBGroup,
                         colubrisDeviceWirelessDetectedAPMIBGroup,
                         colubrisDeviceWirelessNotificationGroup,
-                        colubrisDeviceWirelessClientStatsHTRatesMIBGroup
+                        colubrisDeviceWirelessClientStatsHTRatesMIBGroup,
+                        colubrisDeviceWirelessDetectedStationMIBGroup
                     }
     ::= { colubrisDeviceWirelessMIBCompliances 1 }
 
@@ -1748,7 +1962,8 @@ colubrisDeviceWirelessIfStatusMIBGroup OBJECT-GROUP
                     coDevWirIfStaAutoPowerEnabled,
                     coDevWirIfStaAutoPowerInterval,
                     coDevWirIfStaResetStats,
-                    coDevWirIfStaGreenfieldOptionEnabled
+                    coDevWirIfStaGreenfieldOptionEnabled,
+                    coDevWirIfStaNbDetectedStation
                 }
     STATUS      current
     DESCRIPTION "A collection of objects for the wireless interface
@@ -1836,7 +2051,9 @@ colubrisDeviceWirelessClientStatusMIBGroup OBJECT-GROUP
                     coDevWirCliStaTransmitMCS,
                     coDevWirCliStaReceiveMCS,
                     coDevWirCliStaChannelWidth,
-                    coDevWirCliStaShortGI
+                    coDevWirCliStaShortGI,
+                    coDevWirCliDisassociate,
+                    coDevWirNbAssociatedStation
                 }
     STATUS      current
     DESCRIPTION "A collection of objects for wireless client status
@@ -1897,7 +2114,8 @@ colubrisDeviceWirelessDetectedAPMIBGroup OBJECT-GROUP
                     coDevWirApNoiseLevel,
                     coDevWirApSNR,
                     coDevWirApPHYType,
-                    coDevWirApSecurity
+                    coDevWirApSecurity,
+                    coDevWirApNetworkType
                 }
     STATUS      current
     DESCRIPTION "A collection of objects for detected AP information."
@@ -1951,5 +2169,22 @@ colubrisDeviceWirelessClientStatsHTRatesMIBGroup OBJECT-GROUP
     DESCRIPTION "A collection of objects for wireless HT
                  client statistical rates information."
     ::= { colubrisDeviceWirelessMIBGroups 11 }
+
+colubrisDeviceWirelessDetectedStationMIBGroup OBJECT-GROUP
+    OBJECTS     {
+                    coDevWirNbDetectedStation,
+                    coDevWirDetStaMacAddress,
+                    coDevWirDetStaChannel,
+                    coDevWirDetStaSignalLevel,
+                    coDevWirDetStaNoiseLevel,
+                    coDevWirDetStaNbProbeReq,
+                    coDevWirDetStaRate,
+                    coDevWirDetStaSSID,
+                    coDevWirDetStaTimeDiscovered,
+                    coDevWirDetStaTimeLastSeen
+                }
+    STATUS      current
+    DESCRIPTION "A collection of objects for detected station information."
+    ::= { colubrisDeviceWirelessMIBGroups 12 }
 
 END

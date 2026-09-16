@@ -19,31 +19,42 @@
                 FROM IF-MIB            
             OBJECT-GROUP, MODULE-COMPLIANCE, NOTIFICATION-GROUP            
                 FROM SNMPv2-CONF            
-            Unsigned32, Counter64, OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE            
+            Unsigned32, Counter64, OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE, IpAddress            
                 FROM SNMPv2-SMI            
             DisplayString, RowStatus, TruthValue            
                 FROM SNMPv2-TC;
     
     
         hwL2VpnKompella MODULE-IDENTITY 
-            LAST-UPDATED "200605090900Z"        -- May 09, 2006 at 09:00 GMT
+            LAST-UPDATED "201306181100Z"        -- June 18, 2013 at 11:00 GMT        
             ORGANIZATION 
-                "Huawei Technologies Co., Ltd."
+                  "Huawei Technologies Co.,Ltd."
             CONTACT-INFO 
-                "R&D BeiJing, Huawei Technologies co.,Ltd.
-                Huawei Bld.,NO.3 Xinxi Rd., 
-                Shang-Di Information Industry Base,
-                Hai-Dian District Beijing P.R. China
-                Zip:100085 
-                Http://www.huawei.com                                       
-                E-mail:support@huawei.com"
+                  "Huawei Industrial Base
+                    Bantian, Longgang
+                     Shenzhen 518129
+                     People's Republic of China
+                     Website: http://www.huawei.com
+                     Email: support@huawei.com
+                   "
             DESCRIPTION 
                 "The HUAWEI-KOMPELLA-MIB contains objects to
                 manage KOMPELLA."
-            ::= { hwL2Vpn 2 }
-        
-    
-    
+
+            REVISION "201306181100Z"           -- June 18, 2013 at 11:00 GMT
+            DESCRIPTION 
+                "Add OBJECT(hwKompellaVcIsActive) to KOMPELLA MIB Trap(hwKompellaVcDown,hwKompellaVcUp)."
+
+            REVISION   "201303050900Z"
+            DESCRIPTION 
+                "Modified node's value. "
+
+            REVISION   "200605090900Z"     -- May 09, 2006 at 09:00 GMT
+            DESCRIPTION 
+                "The HUAWEI-KOMPELLA-MIB contains objects to
+                manage KOMPELLA."
+
+                ::= { hwL2Vpn 2 }    
 --
 -- Node definitions
 --
@@ -139,8 +150,7 @@
             STATUS current
             DESCRIPTION
                 "RowStatus for this Table.
-                Restriction:
-                  Only hwKompellaVpnMtu can be modified. 
+                Restriction:                   
                   If delete a VPN, the entries of hwKompellaCeTable
                   and hwKompellaVcTable under this VPN will be 
                   deleted too."
@@ -375,7 +385,9 @@
                 hwKompellaEthOamType
                     INTEGER,        
                 hwKompellaCfmMaIndex
-                    Unsigned32,    
+                    Unsigned32,  
+                hwKompellaVcPeerAddr
+                    IpAddress,    
                 hwKompellaVcRowStatus
                     RowStatus
              }
@@ -423,7 +435,7 @@
             ::= { hwKompellaVcEntry 5 }
         
         hwKompellaVcTnlPolicyName OBJECT-TYPE
-            SYNTAX OCTET STRING (SIZE (0..20))
+            SYNTAX OCTET STRING (SIZE (0..39))
             MAX-ACCESS read-create
             STATUS current
             DESCRIPTION
@@ -504,8 +516,9 @@
                 never(3),
                 none(4),
                 err(5),
-                invalid(6)
-                }                
+                invalid(6),                
+                immediatelySwitch(7)
+                }            
             MAX-ACCESS read-only
             STATUS current
             DESCRIPTION
@@ -572,7 +585,7 @@
             ::= { hwKompellaVcEntry 20 }  
               
         hwKompellaVcBFDDetectMultiplier OBJECT-TYPE
-            SYNTAX Unsigned32 (0 | 3..50)
+            SYNTAX Unsigned32 
             MAX-ACCESS read-only
             STATUS current
             DESCRIPTION
@@ -580,7 +593,7 @@
             ::= { hwKompellaVcEntry 21 }    
             
         hwKompellaVcBFDMinReceiveInterval OBJECT-TYPE
-            SYNTAX Unsigned32 (0 | 10..1000)
+            SYNTAX Unsigned32 
             MAX-ACCESS read-only
             STATUS current
             DESCRIPTION
@@ -588,7 +601,7 @@
             ::= { hwKompellaVcEntry 22 }  
         
         hwKompellaVcBFDMinTransmitInterval OBJECT-TYPE
-            SYNTAX Unsigned32 (0 | 10..1000)
+            SYNTAX Unsigned32 
             MAX-ACCESS read-only
             STATUS current
             DESCRIPTION
@@ -623,6 +636,16 @@
             DESCRIPTION
                 "This value indicates the CFM MA Index."
             ::= { hwKompellaVcEntry 26 } 
+            
+        hwKompellaVcPeerAddr OBJECT-TYPE
+            SYNTAX IpAddress
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION
+                "This object contain the value of the peer node address 
+                of the VC/PE maintenance protocol entity. "
+            ::= { hwKompellaVcEntry 27 }
+ 
         hwKompellaVcRowStatus OBJECT-TYPE
             SYNTAX RowStatus
             MAX-ACCESS read-create
@@ -774,8 +797,8 @@
             STATUS current
             DESCRIPTION
                 "This object indicates the enable sign of KOMPELLA
-                VC state change notification."
-            DEFVAL { disable }
+                VC state change notification. 
+                The default value is disable (2)."
             ::= { hwKompellaMIBObjects 7 }
         
         hwKompellaVcDeletedNotifEnable OBJECT-TYPE
@@ -784,8 +807,8 @@
             STATUS current
             DESCRIPTION
                 "This object indicates the enable sign of KOMPELLA
-                VC deletion notification."
-            DEFVAL { disable }
+                VC deletion notification. 
+                The default value is disable (2)."
             ::= { hwKompellaMIBObjects 8 }  
             
         hwKompellaSwitchNotifEnable OBJECT-TYPE
@@ -795,10 +818,9 @@
             DESCRIPTION
                 "If this object is set to enable(1),then it enbables
                  this emission of hwKompellaSwitchWtoP and hwKompellaSwitchPtoW
-                 notifications;otherwise these notifications are not emitted."
-            DEFVAL { disable }
-            ::= { hwKompellaMIBObjects 9 }
-        
+                 notifications;otherwise these notifications are not emitted.  
+                 The default value is disable (2)."
+            ::= { hwKompellaMIBObjects 9 }        
             
         hwKompellaVcStateChangeReason OBJECT-TYPE
             SYNTAX HWL2VpnStateChangeReason
@@ -825,14 +847,14 @@
         hwKompellaMIBTraps OBJECT IDENTIFIER ::= { hwL2VpnKompella 2 }
         
         hwKompellaVcDown NOTIFICATION-TYPE
-            OBJECTS { hwKompellaVcSecondary, hwKompellaVcStateChangeReason }
+            OBJECTS { hwKompellaVcSecondary, hwKompellaVcStateChangeReason, hwKompellaVcPeerAddr, hwKompellaVcTnlPolicyName,hwKompellaVcIsActive }
             STATUS current
             DESCRIPTION 
                 "This notification indicates the VC's state changes to down."
             ::= { hwKompellaMIBTraps 1 }
         
         hwKompellaVcUp NOTIFICATION-TYPE
-            OBJECTS { hwKompellaVcSecondary, hwKompellaVcStateChangeReason }
+            OBJECTS { hwKompellaVcSecondary, hwKompellaVcStateChangeReason, hwKompellaVcPeerAddr, hwKompellaVcTnlPolicyName,hwKompellaVcIsActive }
             STATUS current
             DESCRIPTION 
                 "This notification indicates the VC's state changes to up."

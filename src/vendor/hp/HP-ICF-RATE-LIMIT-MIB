@@ -2,7 +2,7 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
 
     IMPORTS
         MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
-        Integer32
+        Integer32, Unsigned32
             FROM SNMPv2-SMI
         InterfaceIndex, ifIndex
             FROM IF-MIB
@@ -13,13 +13,24 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
         ;
 
     hpicfRateLimitMIB MODULE-IDENTITY
-         LAST-UPDATED "200708291120Z"  -- August 29, 2007
-         ORGANIZATION "Hewlett Packard Company,
-                       Procurve Networking Business"
+         LAST-UPDATED "201009271130Z"  -- September 27, 2010
+         ORGANIZATION "HP Networking"
          CONTACT-INFO "Hewlett Packard Company
                        8000 Foothills Blvd.
                        Roseville, CA 95747"
          DESCRIPTION  "This MIB module describes HP rate limit information."
+
+         REVISION     "201009271130Z"  -- September 27, 2010
+         DESCRIPTION  "Added IPv6 ICMP Rate-Limiting Enhancements through
+                       the inclusion of IP packet type MIB object."
+         
+         REVISION     "201007141610Z"  -- July 14, 2010
+         DESCRIPTION  "Added kbps-mode limit option for ingress Broadcast and
+                       ingress Multicast rate limiting MIB objects."
+
+         REVISION     "200712041230Z"  -- December 4, 2007
+         DESCRIPTION  "Added ingress Broadcast and ingress Multicast rate 
+                       limiting MIB objects."
 
 	      REVISION     "200708291120Z"  -- August 29, 2007
          DESCRIPTION  "Deprecated all bps objects for 
@@ -86,7 +97,8 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
             hpICMPRateLimitPortPrct                     Integer32,
             hpICMPRateLimitPortAlarmFlag                INTEGER,
             hpICMPRateLimitPortKbps                     Integer32,
-            hpICMPRateLimitPortControlMode              INTEGER
+            hpICMPRateLimitPortControlMode              INTEGER,
+            hpICMPRateLimitPortIpPacketType             INTEGER
         }
 
     hpICMPRateLimitPortConfigIndex OBJECT-TYPE
@@ -172,6 +184,20 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
         DEFVAL { disabled }
         ::= { hpICMPRateLimitPortConfigEntry 6 }
 
+    hpICMPRateLimitPortIpPacketType OBJECT-TYPE
+        SYNTAX      INTEGER {
+	                ipv4PacketsOnly(1),
+                        ipv6PacketsOnly(2),
+                        ipv4AndIpv6Packets(3)
+                    }
+        MAX-ACCESS  read-write
+	STATUS      current
+	DESCRIPTION "This object represents the type(s) of IP packet to which
+                    the specified ICMP rate-limit will be applied. The
+                    default is IPv4."
+	DEFVAL { ipv4PacketsOnly }
+	::= { hpICMPRateLimitPortConfigEntry 7 }
+
 
     hpICMPRateLimitPortNotification NOTIFICATION-TYPE
         OBJECTS     { hpICMPRateLimitNotifyPortIndex }
@@ -250,7 +276,7 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
                     for all queues must not exceed 100 percent."
         ::= { hpBWMinEgressPortPrctEntry 2 }
 
--- Ingress Minimum Bandwidth Ojbects
+-- Ingress Minimum Bandwidth Objects
 
     hpicfBWMinIngressObjects OBJECT IDENTIFIER ::= 
                                { hpicfRateLimitObjects 3 }
@@ -755,6 +781,165 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
                     speed."
         ::= { hpIngressRateLimitPortBpsEntry 2 }
 
+
+-- Ingress Broadcast Limiting Objects
+
+    hpicfIngressBcastLimitPortObjects OBJECT IDENTIFIER ::=
+                               { hpicfRateLimitObjects 6 }
+    hpBcastLimitIngressPortConfig OBJECT IDENTIFIER ::=
+                               { hpicfIngressBcastLimitPortObjects 1 }
+
+    hpIngressBcastLimitPortConfigTable OBJECT-TYPE
+        SYNTAX      SEQUENCE OF HpIngressBcastLimitPortConfigEntry
+        MAX-ACCESS  not-accessible
+        STATUS      current
+        DESCRIPTION "A table that contains information about the port ingress 
+                    Broadcast-Limiting configurations on this switch."
+        ::= { hpBcastLimitIngressPortConfig 1 }
+
+    hpIngressBcastLimitPortConfigEntry OBJECT-TYPE
+        SYNTAX      HpIngressBcastLimitPortConfigEntry
+        MAX-ACCESS  not-accessible
+        STATUS      current
+        DESCRIPTION "The information associated with each port's ingress 
+                    Broadcast-Limiting configuration."
+        INDEX       { hpIngressBcastLimitPortIndex }
+        ::= { hpIngressBcastLimitPortConfigTable 1 }
+
+    HpIngressBcastLimitPortConfigEntry ::=
+        SEQUENCE {
+            hpIngressBcastLimitPortIndex             InterfaceIndex,
+            hpIngressBcastLimitPortControlMode       INTEGER,
+            hpIngressBcastLimitPortSingleControlPrct Integer32,
+            hpIngressBcastLimitPortSingleControlKbps Integer32
+        }
+
+    hpIngressBcastLimitPortIndex  OBJECT-TYPE
+        SYNTAX      InterfaceIndex
+        MAX-ACCESS  not-accessible
+        STATUS      current
+        DESCRIPTION "The ifIndex value which uniquely identifies a row in the 
+                    Interfaces Table."
+        ::= { hpIngressBcastLimitPortConfigEntry 1 }
+
+    hpIngressBcastLimitPortControlMode OBJECT-TYPE
+        SYNTAX INTEGER {
+            disabled(1),
+            ingressBcastLimitPerPortOnly(2),
+            ingressBcastLimitPerPortOnlyKbpsMode(3)
+        }
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "The mode by which this port will be Broadcast-Limited on
+                    ingress. If ingressBcastLimitPerPortOnly is configured, 
+		    there will be a single maximum percentage-based Bcast for 
+                    the entire port. If ingressBcastLimitPerPortOnlyKbpsMode
+                    is configured, there will be a single maximum 
+                    kilobits-per-second maximum broadcast traffic rate for
+                    the entire port.When ingress Bcast-limiting is disabled, 
+                    there are no maximum controls on ingress for this port."
+        DEFVAL      { disabled }
+        ::= { hpIngressBcastLimitPortConfigEntry 2 }
+
+    hpIngressBcastLimitPortSingleControlPrct OBJECT-TYPE
+        SYNTAX      Integer32 (0..100)
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "When hpIngressBcastLimitPortControlMode is configured
+                    for ingressBcastLimitPerPortOnly, this value is the maximum
+                    percentage of traffic that may be transmitted by this
+                    port on ingress."
+        ::= { hpIngressBcastLimitPortConfigEntry 3 }
+
+    hpIngressBcastLimitPortSingleControlKbps OBJECT-TYPE
+        SYNTAX      Integer32 (0..10000000)
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "When hpIngressBcastLimitPortControlMode is configured for
+                    ingressBcastLimitPerPortOnlyKbpsMode, this value is the
+                    maximum kilobits-per-second of broadcast traffic that may be
+                    transmitted by this port on ingress."
+       ::= { hpIngressBcastLimitPortConfigEntry 4}
+
+-- Ingress Multicast Limiting Objects
+
+    hpicfIngressMcastLimitPortObjects OBJECT IDENTIFIER ::=
+                               { hpicfRateLimitObjects 7 }
+    hpMcastLimitIngressPortConfig OBJECT IDENTIFIER ::=
+                               { hpicfIngressMcastLimitPortObjects 1 }
+
+    hpIngressMcastLimitPortConfigTable OBJECT-TYPE
+        SYNTAX      SEQUENCE OF HpIngressMcastLimitPortConfigEntry
+        MAX-ACCESS  not-accessible
+        STATUS      current
+        DESCRIPTION "A table that contains information about the port ingress 
+                    Multicast-Limiting configurations on this switch."
+        ::= { hpMcastLimitIngressPortConfig 1 }
+
+    hpIngressMcastLimitPortConfigEntry OBJECT-TYPE
+        SYNTAX      HpIngressMcastLimitPortConfigEntry
+        MAX-ACCESS  not-accessible
+        STATUS      current
+        DESCRIPTION "The information associated with each port's ingress 
+                    Multicast-Limiting configuration."
+        INDEX       { hpIngressMcastLimitPortIndex }
+        ::= { hpIngressMcastLimitPortConfigTable 1 }
+
+    HpIngressMcastLimitPortConfigEntry ::=
+        SEQUENCE {
+            hpIngressMcastLimitPortIndex             InterfaceIndex,
+            hpIngressMcastLimitPortControlMode       INTEGER,
+            hpIngressMcastLimitPortSingleControlPrct Integer32,
+            hpIngressMcastLimitPortSingleControlKbps Integer32
+        }
+
+    hpIngressMcastLimitPortIndex  OBJECT-TYPE
+        SYNTAX      InterfaceIndex
+        MAX-ACCESS  not-accessible
+        STATUS      current
+        DESCRIPTION "The ifIndex value which uniquely identifies a row in the 
+                    Interfaces Table."
+        ::= { hpIngressMcastLimitPortConfigEntry 1 }
+
+    hpIngressMcastLimitPortControlMode OBJECT-TYPE
+        SYNTAX INTEGER {
+            disabled(1),
+            ingressMcastLimitPerPortOnly(2),
+            ingressMcastLimitPerPortOnlyKbpsMode(3)
+        }
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "The mode by which this port will be Multicast-Limited on
+                    ingress. If ingressMcastLimitPerPortOnly is configured, 
+                    there will be a single maximum percentage-based Mcast for 
+                    the entire port. If ingressMcastLimitPerPortOnlyKbpsMode
+                    is configured, there will be a single maximum
+                    kilobits-per-second maximum multicast traffic rate for
+                    the entire port. When ingress Mcast-limiting is disabled, 
+                    there are no maximum controls on ingress for this port."        
+        DEFVAL      { disabled }
+        ::= { hpIngressMcastLimitPortConfigEntry 2 }
+
+    hpIngressMcastLimitPortSingleControlPrct OBJECT-TYPE
+        SYNTAX      Integer32 (0..100)
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "When hpIngressMcastLimitPortControlMode is configured
+                    for ingressMcastLimitPerPortOnly, this value is the maximum
+                    percentage of multicast traffic that may be transmitted
+                    by this port on ingress."
+        ::= { hpIngressMcastLimitPortConfigEntry 3 }
+
+    hpIngressMcastLimitPortSingleControlKbps OBJECT-TYPE
+        SYNTAX      Integer32 (0..10000000)
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "When hpIngressMcastLimitPortControlMode is configured 
+                    for ingressMcastLimitPerPortOnlyKbpsMode, this value is the
+                    maximum kilobits-per-second of multicast traffic that may be
+                    transmitted by this port on ingress."
+       ::= { hpIngressMcastLimitPortConfigEntry 4}
+
 -- Conformance Information
 
    hpicfRateLimitConformance OBJECT IDENTIFIER ::= { hpicfRateLimitMIB 2 }
@@ -842,7 +1027,7 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
             hpICMPRateLimitPortKbps,
             hpICMPRateLimitPortControlMode
         }
-        STATUS     current
+        STATUS     deprecated
         DESCRIPTION    
           "This replaces the deprecated hpICMPRateLimitPortConfigGroup.
            A collection of objects providing configuration to ICMP rate
@@ -877,6 +1062,62 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
            Rate-Limiting on an interface." 
        ::= { hpicfRateLimitGroups 9 }
 
+   hpBcastLimitIngressPortConfigGroup OBJECT-GROUP
+        OBJECTS { hpIngressBcastLimitPortControlMode,
+                  hpIngressBcastLimitPortSingleControlPrct }
+        STATUS     current
+        DESCRIPTION    
+          "A collection of objects providing configuration to 
+           Ingress Broadcast Limiting on an interface." 
+       ::= { hpicfRateLimitGroups 10 }
+
+   hpMcastLimitIngressPortConfigGroup OBJECT-GROUP
+        OBJECTS { hpIngressMcastLimitPortControlMode,
+                  hpIngressMcastLimitPortSingleControlPrct }
+        STATUS     current
+        DESCRIPTION    
+          "A collection of objects providing configuration to 
+           Ingress Multicast Limiting on an interface." 
+       ::= { hpicfRateLimitGroups 11 }
+
+   hpBcastLimitIngressPortConfigGroup2 OBJECT-GROUP
+        OBJECTS { hpIngressBcastLimitPortControlMode,
+                  hpIngressBcastLimitPortSingleControlPrct,
+                  hpIngressBcastLimitPortSingleControlKbps }
+        STATUS     current
+        DESCRIPTION
+          "This replaces the deprecated hpBcastLimitIngressPortConfigGroup.
+           A collection of objects providing configuration of
+           Ingress Broadcast Limiting on an interface."
+       ::= { hpicfRateLimitGroups 12 }
+
+   hpMcastLimitIngressPortConfigGroup2 OBJECT-GROUP
+        OBJECTS { hpIngressMcastLimitPortControlMode,
+                  hpIngressMcastLimitPortSingleControlPrct,
+                  hpIngressMcastLimitPortSingleControlKbps }
+        STATUS     current
+        DESCRIPTION
+          "This replaces the deprecated hpMcastLimitIngressPortConfigGroup 
+           A collection of objects providing configuration of
+           Ingress Multicast Limiting on an interface."
+       ::= { hpicfRateLimitGroups 13 }
+
+   hpICMPRateLimitPortConfigGroup3 OBJECT-GROUP
+        OBJECTS {
+            hpICMPRateLimitPortPrct,
+            hpICMPRateLimitPortAlarmFlag,
+            hpICMPRateLimitNotifyPortIndex,
+            hpICMPRateLimitPortKbps,
+            hpICMPRateLimitPortControlMode,
+            hpICMPRateLimitPortIpPacketType
+        }
+        STATUS     current
+        DESCRIPTION    
+          "This replaces the deprecated hpICMPRateLimitPortConfigGroup2.
+           A collection of objects providing configuration for ICMP rate
+           limiting on an interface."
+       ::= { hpicfRateLimitGroups 14 }
+
 
 -- compliance statements
 
@@ -884,7 +1125,7 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
    hpicfRateLimitCompliance MODULE-COMPLIANCE
        STATUS  deprecated
        DESCRIPTION
-           "The compliance statement for devices support of
+           "The compliance statement for device support of
            HP-ICF-RATE-LIMIT MIB."
        MODULE -- This Module
 
@@ -894,17 +1135,41 @@ HP-ICF-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
        ::= { hpicfRateLimitCompliances 1 }
 
    hpicfRateLimitCompliance1 MODULE-COMPLIANCE
-       STATUS  current
+       STATUS  deprecated
        DESCRIPTION
-           "The compliance statement for devices support of
+           "The compliance statement for device support of
            HP-ICF-RATE-LIMIT MIB."
        MODULE -- This Module
 
           MANDATORY-GROUPS { hpICMPRateLimitPortConfigGroup2,
                              hpICMPRateLimitPortNotifyGroup,
                              hpBWMinIngressPortConfigGroup,
+                             hpBWMinEgressPortConfigGroup,
                              hpEgressRateLimitPortConfigGroup2,
-                             hpIngressRateLimitPortConfigGroup2
-                           }   
+                             hpIngressRateLimitPortConfigGroup2,
+                             hpBcastLimitIngressPortConfigGroup,
+                             hpMcastLimitIngressPortConfigGroup
+                           }
        ::= { hpicfRateLimitCompliances 2 }
+
+   hpicfRateLimitCompliance2 MODULE-COMPLIANCE
+       STATUS  current			
+       DESCRIPTION
+           "The compliance statement for device support of
+           HP-ICF-RATE-LIMIT MIB."
+       MODULE -- This Module
+
+          MANDATORY-GROUPS { hpICMPRateLimitPortConfigGroup3,
+                             hpICMPRateLimitPortNotifyGroup,
+                             hpBWMinEgressPortConfigGroup,
+                             hpBWMinIngressPortConfigGroup,
+                             hpEgressRateLimitPortConfigGroup2,
+                             hpIngressRateLimitPortConfigGroup2,
+			     hpBcastLimitIngressPortConfigGroup2,
+			     hpMcastLimitIngressPortConfigGroup2
+                           }
+          OBJECT hpICMPRateLimitPortIpPacketType
+          MIN-ACCESS not-accessible
+          DESCRIPTION "Read and write access not required"
+       ::= { hpicfRateLimitCompliances 3 }
  END

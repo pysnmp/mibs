@@ -4,14 +4,14 @@ IMPORTS
     Integer32, IpAddress
         FROM SNMPv2-SMI
     fibrechannel  FROM Brocade-REG-MIB
-	swID, swSsn FROM BROCADE-SYSTEM-MIB
+	swID, swSsn FROM SW-MIB
     entPhysicalIndex, entPhysicalName FROM ENTITY-MIB
     DisplayString
         FROM SNMPv2-TC;
 
 
 	haMIB	MODULE-IDENTITY
-		LAST-UPDATED "200208160000Z"    -- Aug. 16, 2002
+		LAST-UPDATED "201305071757Z" -- May 07, 2013 05:57pm
 		ORGANIZATION "Brocade Communications Systems, Inc.,"
 		CONTACT-INFO "Customer Support Group
 			      Brocade Communications Systems,
@@ -44,15 +44,15 @@ IMPORTS
 		REVISION "200904060000Z"    -- Apr 6th, 2009
 		DESCRIPTION
 		"Added textual convention for FruClass."
-		
-		REVISION    "200906251200Z" -- Jun 25, 2009 12:00pm
-		DESCRIPTION "Removed the version information from Brocade's proprietary MIB file name."   
-		
-		REVISION	"201007221000Z" -- Jul 22, 2010 10:00am
-		DESCRIPTION	"Added frutype and frunum to the existing frustatuschange trap."
+	REVISION    "200906251200Z" -- Jun 25, 2009 12:00pm
+	DESCRIPTION "Removed the version information from Brocade's proprietary MIB file name."   
+	REVISION	"201007221000Z" -- Jul 22, 2010 10::00am
+	DESCRIPTION	"Added frutype and frunum to the existing frustatuschange trap."
+	REVISION	"201209251000Z" -- Sep 25, 2012 10:00am
+	DESCRIPTION "Added two enums powerdown & initialized for frustatus trap."
+	REVISION "201305071757Z" -- May 07, 2012 05:57pm
+	DESCRIPTION "Added bpTable"
 
-		REVISION "201202061130Z" -- Feb 6, 2012 11:30am
-		DESCRIPTION "Changed all CP terms in the description as control card."
 		::= { fibrechannel 2 }
 
 	highAvailability OBJECT IDENTIFIER ::= { haMIB 1 }
@@ -83,10 +83,7 @@ IMPORTS
 				powerSupply(8),
 				fan(9),
 				coreblade(10),
-                applicationblade(11),
-				sfm(12),
- 				lineCard(13),
- 				managementModule(14)
+                applicationblade(11)
             }
 
 	fruTable	OBJECT-TYPE
@@ -135,7 +132,9 @@ IMPORTS
         			unknown (2),
 				on (3),
 				off (4),
-				faulty (5)
+				faulty (5),
+				poweredon (6),
+				initialized (7)
 				}
 			MAX-ACCESS	read-only
 			STATUS	current
@@ -289,7 +288,7 @@ fruHistoryFactorySerialNum	OBJECT-TYPE
 			MAX-ACCESS	not-accessible
 			STATUS	current
 			DESCRIPTION
-			"This table lists all the control cards in the system"
+			"This table lists all the CPs in the system"
 		::= {highAvailability 7}
 
 	cpEntry  	OBJECT-TYPE
@@ -297,7 +296,7 @@ fruHistoryFactorySerialNum	OBJECT-TYPE
 			MAX-ACCESS	not-accessible
 			STATUS	current
 			DESCRIPTION
-			"An entry represents a single control card in the system"
+			"An entry represents a single CP in the system"
 			INDEX { entPhysicalIndex }
 		::= {cpTable 1}
 
@@ -320,7 +319,7 @@ fruHistoryFactorySerialNum	OBJECT-TYPE
 			MAX-ACCESS	read-only
 			STATUS	current
 			DESCRIPTION
-			"Gives the current status of the control card"
+			"Gives the current status of the CP"
 		::= { cpEntry 1 }
 
 	cpIpAddress 	OBJECT-TYPE
@@ -328,7 +327,7 @@ fruHistoryFactorySerialNum	OBJECT-TYPE
 			MAX-ACCESS read-only
 			STATUS	current
 			DESCRIPTION
-			"The IP Address of the Ethernet interface of this control card."
+			"The IP Address of the Ethernet interface of this CP."
 		::= { cpEntry 2 }
 
 	cpIpMask	OBJECT-TYPE
@@ -336,7 +335,7 @@ fruHistoryFactorySerialNum	OBJECT-TYPE
 			MAX-ACCESS	read-only
 			STATUS	current
 			DESCRIPTION
-			"The IP Mask of the Ethernet interface of this control card."
+			"The IP Mask of the Ethernet interface of this CP."
 		::= { cpEntry 3 }
 
 	cpIpGateway 	OBJECT-TYPE
@@ -344,7 +343,7 @@ fruHistoryFactorySerialNum	OBJECT-TYPE
 			MAX-ACCESS	read-only
 			STATUS	current
 			DESCRIPTION
-			"The IP Address of the IP Gateway for this control card."
+			"The IP Address of the IP Gateway for this CP."
 		::= { cpEntry 4 }
 
 	cpLastEvent	OBJECT-TYPE
@@ -365,8 +364,93 @@ fruHistoryFactorySerialNum	OBJECT-TYPE
 			MAX-ACCESS	read-only
 			STATUS	current
 			DESCRIPTION
-			"The last event related to this control card"
+			"The last event related to this CP"
 		::= { cpEntry 5 }
+    bpTable OBJECT-TYPE
+        SYNTAX      SEQUENCE OF BPEntry
+        MAX-ACCESS      not-accessible
+        STATUS      current
+        DESCRIPTION "The table of blade processor entries."
+      ::= { highAvailability 8 }
+
+    bpEntry OBJECT-TYPE
+        SYNTAX     BPEntry
+        MAX-ACCESS      not-accessible
+        STATUS      current
+        DESCRIPTION "An entry of the blade processor information."
+        INDEX  { entPhysicalIndex }
+      ::= { bpTable 1 }
+
+    BPEntry      ::= SEQUENCE {
+            bpStatus                INTEGER,
+            bpeth0IpAddress         IpAddress,
+            bpeth1IpAddress         IpAddress,
+            bpsubNetMaskIpaddress   IpAddress,
+            bpIpGateway             IpAddress,
+            bpSasPriVersion         DisplayString (SIZE (0..24)),
+            bpSasSecVersion         DisplayString (SIZE (0..24))
+    }
+
+   bpStatus      OBJECT-TYPE
+        SYNTAX          INTEGER {
+                        on (1),
+                        off (2),
+                        faulty (3),
+                        unknow (4),
+                        others (5)
+                }
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION     "This object identifies the  Blade Processor Status."
+   ::= { bpEntry 1 }
+
+
+   bpeth0IpAddress     OBJECT-TYPE
+            SYNTAX          IpAddress
+            MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The IP Address of the Ethernet interface Eth0 of Scimitar blade."
+  ::= { bpEntry 2 }
+
+  bpeth1IpAddress     OBJECT-TYPE
+        SYNTAX          IpAddress
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The IP Address of the Ethernet interface Eth1 of Scimitar blade."
+  ::= { bpEntry 3 }
+
+  bpsubNetMaskIpaddress     OBJECT-TYPE
+        SYNTAX                  IpAddress
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "The IP Mask of the Ethernet interface of this CP."
+  ::= { bpEntry 4 }
+
+  bpIpGateway     OBJECT-TYPE
+        SYNTAX          IpAddress
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The IP Address of the IP Gateway for this CP."
+  ::= { bpEntry 5 }
+
+   bpSasPriVersion   OBJECT-TYPE
+        SYNTAX          DisplayString(SIZE (0..24))
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION "The current primary version of the SAS."
+  ::= { bpEntry 6 }
+
+
+   bpSasSecVersion   OBJECT-TYPE
+        SYNTAX          DisplayString(SIZE (0..24))
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION "The current Secondary version of the SAS."
+  ::= { bpEntry 7 }
 
 	haMIBTraps	OBJECT IDENTIFIER ::= { haMIB 2 }
 	haMIBTrapPrefix OBJECT IDENTIFIER ::= { haMIBTraps 0 }
@@ -382,7 +466,7 @@ fruHistoryFactorySerialNum	OBJECT-TYPE
 			OBJECTS { cpStatus, cpLastEvent, swID, swSsn} 
 			STATUS	current
 			DESCRIPTION
-			"This trap is sent when status of any control card object is changed"
+			"This trap is sent when status of any CP object is changed"
 		::= { haMIBTrapPrefix 2 }
 
 	fruHistoryTrap NOTIFICATION-TYPE
