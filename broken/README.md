@@ -77,13 +77,13 @@ arrangement that asks whether a module would compile if it came back,
 and nothing else. Two shapes:
 
 - **root defect** -- the module's own text is rejected.
-- **consequential** -- it is rejected, or cannot be served, because a
-  module it imports is also here.
+- **consequential** -- it is rejected, or never reached, because a
+  module it imports is also here or is not in this corpus at all.
 
 A consequential entry usually returns to `src/` on its own once the
 module it imports is replaced.
 
-240 root defects, 73 consequential, and 77 the prose above accounts for.
+250 root defects, 81 consequential, and 77 the prose above accounts for.
 
 ### 3com
 
@@ -267,6 +267,7 @@ module it imports is replaced.
 | module | reason |
 | --- | --- |
 | `CIENA-CES-BENCHMARK-MIB` | no module "CIENA-SMI" in symbolTable |
+| `WWP-LEOS-RSTP-MIB` | no module "WWP-SMI" in symbolTable |
 
 ### cirpack
 
@@ -292,6 +293,12 @@ module it imports is replaced.
 | module | reason |
 | --- | --- |
 | `HH3C-ACFP-MIB` | no module "HH3C-OID-MIB" in symbolTable |
+
+### cxr-networks
+
+| module | reason |
+| --- | --- |
+| `CXR-TS-MIB` | imports a module this corpus does not hold |
 
 ### cyberark
 
@@ -400,14 +407,17 @@ module it imports is replaced.
 
 | module | reason |
 | --- | --- |
+| `ENTERASYS-DVMRP-EXT-MIB` | no module "ENTERASYS-MIB-NAMES" in symbolTable |
 | `ENTERASYS-MIRROR-CONFIG-MIB` | Bad grammar near token type LOWERCASE_IDENTIFIER, value etsysMirrorSystemMaxMirrorDestinationControlGroups |
 | `ENTERASYS-RADIUS-SNOOPING-MIB` | Unknown parents for symbols: etsysRadiusSnoopingPortIndex, etsysRadiusSnoopingSessionPort, etsysRadiusSnoopingSession… |
+| `ENTERASYS-RS-232-MIB-EXT-MIB` | no module "ENTERASYS-MIB-NAMES" in symbolTable |
 
 ### extreme
 
 | module | reason |
 | --- | --- |
 | `FDRY-MPLS-L2VPN-MIB` | no module "FOUNDRY-SN-ROOT-MIB" in symbolTable |
+| `Foundry-MPLS-MIB` | no module "FOUNDRY-SN-ROOT-MIB" in symbolTable |
 
 ### extricom
 
@@ -479,6 +489,7 @@ module it imports is replaced.
 | `HP-OV-TOPO-DB` | Bad grammar near token type SIZE, value SIZE |
 | `HP-SWITCH-TRAP-MIB` | no module "HP-ICF-OID" in symbolTable |
 | `HPN-ICF-ACFP-MIB` | no module "HPN-ICF-OID-MIB" in symbolTable |
+| `HPN-ICF-EOC-COMMON-MIB` | no module "HPN-ICF-OID-MIB" in symbolTable |
 | `HPN-ICF-HPEOC-MIB` | Bad grammar near token type LOWERCASE_IDENTIFIER, value hpnicfHPEOCTemplateGlobalEntry |
 | `HPN-ICF-RPR-MIB` | Unknown parents for symbols: hpnicfRprTrapIpAddress |
 | `HPNSADIMM-MIB` | Unknown parents for symbols: hpnsaDIMMHPLocalEntry |
@@ -496,9 +507,12 @@ module it imports is replaced.
 | module | reason |
 | --- | --- |
 | `GPFS-MIB` | Duplicate symbol found: gpfsDiskName |
+| `IBM-CPS-MIB` | imports a module this corpus does not hold |
 | `IBM-ELAN-MIB` | Unknown parents for symbols: atmDevLineSpeed, idleVccTime, lecsMaxVccs |
 | `IBM-LAN-EMULATION-EXTENSION-MIB` | Unknown parents for symbols: ibmVlanConfAgingTimer |
 | `IBM-LES-LECS-MIB` | Unknown parents for symbols: lesLecsAtmDevLineSpeed |
+| `IBM-NetFinity-Text-Alert-MIB` | imports a module this corpus does not hold |
+| `IBM-TS3500-MIBv1` | imports a module this corpus does not hold |
 | `IBMIROCAUTH-MIB` | no symbol "IpAddress" in module "SNMPv2-SMI-v1" |
 
 ### ict
@@ -557,6 +571,8 @@ module it imports is replaced.
 | `FtpServer-MIB` | no module "InternetServer-MIB" in symbolTable |
 | `HttpServer-MIB` | no module "InternetServer-MIB" in symbolTable |
 | `LanMgr-Alerts-II-MIB` | Bad grammar near token type LOWERCASE_IDENTIFIER, value size |
+| `MSSQLSERVER-MIB` | imports a module this corpus does not hold |
+| `TOASTER-MIB` | imports a module this corpus does not hold |
 | `WINDOWS-NT-PERFORMANCE` | Bad grammar near token type LOWERCASE_IDENTIFIER, value cpuprocessorEntry |
 | `WINDOWS-NT-PERFORMANCE-EXCHANGE` | Bad grammar near token type LOWERCASE_IDENTIFIER, value connmSExchangeMTA-ConnectionsEntry |
 
@@ -572,6 +588,8 @@ module it imports is replaced.
 | module | reason |
 | --- | --- |
 | `MRV-EFM-MIB` | no module "NBS-CMMC-MIB" in symbolTable |
+| `OA-SFP-MIB` | imports a module this corpus does not hold |
+| `OADWDM-MIB` | imports a module this corpus does not hold |
 
 ### netbotz
 
@@ -591,6 +609,7 @@ module it imports is replaced.
 
 | module | reason |
 | --- | --- |
+| `TIMETRA-APS-MIB` | no module "TIMETRA-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-IEEE8021-CFM-MIB` | no module "TIMETRA-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-MOBILE-GATEWAY-MIB` | no module "TIMETRA-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-MOBILE-PDN-MIB` | no module "TIMETRA-GLOBAL-MIB" in symbolTable |
@@ -600,8 +619,10 @@ module it imports is replaced.
 | `TIMETRA-SAS-OAM-TEST-MIB` | no module "TIMETRA-SAS-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-SAS-PORT-MIB` | no module "TIMETRA-SAS-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-SAS-QOS-MIB` | no module "TIMETRA-SAS-GLOBAL-MIB" in symbolTable |
+| `TIMETRA-SAS-SDP-MIB` | no module "TIMETRA-SAS-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-SAS-SERV-MIB` | no module "TIMETRA-SAS-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-SAS-SYSTEM-MIB` | no module "TIMETRA-SAS-GLOBAL-MIB" in symbolTable |
+| `TIMETRA-SCHEDULER-MIB` | no module "TIMETRA-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-VIDEO-MIB` | no module "TIMETRA-GLOBAL-MIB" in symbolTable |
 | `TIMETRA-WLAN-GW-MIB` | no module "TIMETRA-GLOBAL-MIB" in symbolTable |
 
@@ -929,6 +950,8 @@ module it imports is replaced.
 | `BITSTORM-HP-160-MIB` | Bad grammar near token type MODULE_IDENTITY, value MODULE-IDENTITY |
 | `EtcAgent-MIB` | Bad grammar near token type COLON_COLON_EQUAL, value ::= |
 | `NTNTECH-MTM-MIB` | Unknown parent symbol: ntntechInterfaceModule |
+| `PDN-PPP-BRIDGE-NCP-EXT-MIB` | no module "PDN-HEADER-MIB" in symbolTable |
+| `PDN-PPP-LCP-EXT-MIB` | no module "PDN-HEADER-MIB" in symbolTable |
 | `ZHNDS0BUNDLEMAPPING` | Duplicate symbol found: zhnBundleConfigGroup |
 | `ZHNPWMIB` | no module "Zhone" in symbolTable |
 
