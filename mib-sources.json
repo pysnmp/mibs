@@ -4264,11 +4264,20 @@
       },
       "publisher": "net-snmp"
     },
+    "src/vendor/netsnmp/NET-SNMP-MONITOR-MIB": {
+      "publisher": "net-snmp"
+    },
     "src/vendor/netsnmp/NET-SNMP-PASS-MIB": {
       "divergence": {
         "note": "not yet reviewed",
         "recorded": "2026-09-07"
       },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-PERIODIC-NOTIFY-MIB": {
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/NET-SNMP-SYSTEM-MIB": {
       "publisher": "net-snmp"
     },
     "src/vendor/netsnmp/NET-SNMP-TC": {
@@ -4285,6 +4294,9 @@
       },
       "publisher": "net-snmp"
     },
+    "src/vendor/netsnmp/SNMP-SSH-TM-MIB": {
+      "publisher": "net-snmp"
+    },
     "src/vendor/netsnmp/UCD-DEMO-MIB": {
       "publisher": "net-snmp"
     },
@@ -4294,14 +4306,16 @@
     "src/vendor/netsnmp/UCD-DLMOD-MIB": {
       "publisher": "net-snmp"
     },
+    "src/vendor/netsnmp/UCD-IPFILTER-MIB": {
+      "publisher": "net-snmp"
+    },
     "src/vendor/netsnmp/UCD-IPFWACC-MIB": {
       "publisher": "net-snmp"
     },
     "src/vendor/netsnmp/UCD-SNMP-MIB": {
-      "divergence": {
-        "note": "not yet reviewed",
-        "recorded": "2026-09-07"
-      },
+      "publisher": "net-snmp"
+    },
+    "src/vendor/netsnmp/UCD-SNMP-MIB-OLD": {
       "publisher": "net-snmp"
     },
     "src/vendor/pcube/PCUBE-SE-MIB": {
