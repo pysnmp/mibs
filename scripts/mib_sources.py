@@ -301,17 +301,26 @@ def _century(stamp: str) -> str:
     sorts above ``202008210000`` -- so the newest revision of a module last
     touched in the nineties and again this century reads as the nineties one.
 
+    The century is whichever one puts the date in the past. RFC 2578 allows
+    two digits only for 1900-1999, so by the specification a two-digit year is
+    always nineteen-hundreds; vendors write ``05`` for 2005 anyway, and
+    reading that as 1905 mis-dates a module that a reader is comparing their
+    own copy against. A revision cannot have been made in the future, and SMI
+    itself is younger than any MIB it could date, so that is enough to decide
+    the century without a pivot year to keep updated.
+
     Args:
         stamp: the digits of a revision stamp, without its trailing ``Z``.
 
     Returns:
-        The same stamp with a four-digit year. The pivot is RFC 2578's:
-        a two-digit year of 70 or more is nineteen-hundreds.
+        The same stamp with a four-digit year.
     """
     if len(stamp) >= 12:
         return stamp
 
-    return ("19" if int(stamp[:2]) >= 70 else "20") + stamp
+    century = "20" if int(stamp[:2]) <= datetime.date.today().year % 100 else "19"
+
+    return century + stamp
 
 
 def revision_of(data: bytes) -> str:
