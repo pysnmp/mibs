@@ -196,11 +196,17 @@ def require_checkout(checkout: Path) -> Path:
 
 
 #: The headings of the sections in ``docs/absent-modules.md`` that record a
-#: module this distribution does not carry on purpose. The page has one other
-#: heading, prose about how the count is taken, and the module names in it are
-#: examples of modules that *are* carried -- reading names out of it would
-#: refuse them.
-EXCLUDING = re.compile(r"^## \d+\. ")
+#: module this distribution does not carry on purpose. The page's other
+#: sections are prose -- how the count is taken, and what used to be listed --
+#: and the module names in those are examples of modules that *are* carried,
+#: so reading names out of them would refuse a module this repository serves.
+#:
+#: Matched on the wording rather than on a section number. The page was
+#: numbered "## 1.", "## 2.", "## 3." until pysnmp/pysmi#323 carried the two
+#: held groups and left one section, and a pattern keyed to the numbering
+#: found nothing at all the moment the numbering went -- no error, just a
+#: guard that stopped guarding.
+EXCLUDING = re.compile(r"^## (?:\d+\. )?Deleted here deliberately\b")
 
 
 def excluded_modules(checkout: Path) -> dict[str, str]:

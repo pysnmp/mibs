@@ -173,6 +173,26 @@ refused the same way, before the branch is made, and the refusal names the
 section that excluded it. A scan offers what a collection holds: pointing
 `mibcontribute` at net-snmp's MIB directory offered 24 modules, and 17 of them
 already had a decision recorded against them. None of those decisions says "a
-file under `src/vendor`" — the consortium and RFC groups are promoted in pysmi
-instead, and filing an RFC module under whichever vendor shipped a copy of it
-says something untrue about who publishes it. Offer the rest with `--module`.
+file under `src/vendor`" — each says the module is obsolete, superseded,
+withdrawn or never published, and writing one under a vendor would undo that
+silently. Offer the rest with `--module`.
+
+## Standard or vendor
+
+`src/vendor` is the only tree here, so a standard module offered to it is a
+module filed in the wrong repository: standards-track text belongs in pysmi's
+bundle, and a copy here would shadow the bundled one for every consumer.
+
+The module's own registration says which it is. A module rooted under
+`::= { enterprises N }` is that enterprise's, whatever else the file suggests
+— look up `N` in `registries/pen-snapshot.csv` ([what that is](registries.md))
+for whose. Two things that look like the answer are not:
+
+- **The directory the collection kept it in.** observium files by directory
+  and had put `DPI20-MIB` (`enterprises 2`, IBM) and `RFC7777-MIB`
+  (`enterprises 18`, Wellfleet) under `rfc/`.
+- **The module's name.** `RFC7777-MIB` is a private arc wearing an RFC
+  number, and `SSH-MIB` and `COMMUNITY-MIB` read as standard and are not.
+
+A module that really is standard and that pysmi does not bundle is a pysmi
+pull request, not one here.
