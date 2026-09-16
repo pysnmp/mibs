@@ -21,8 +21,8 @@ module compile if it came back?" and nothing else. Each entry lands in one of
 two shapes:
 
 * **root defect** -- the compiler rejected the module's own text.
-* **consequential** -- it was rejected while compiling a module it imports that
-  is also quarantined, or it compiles and imports one.
+* **consequential** -- it was rejected while compiling a module it imports
+  that is also quarantined, or it imports a module the corpus does not hold.
 
 A module that compiles and imports nothing quarantined is in neither: it is
 here for a reason the prose has to state, and this refuses rather than
@@ -65,6 +65,10 @@ BLAMES = re.compile(r'\bMIB ([A-Za-z][\w-]*)|module "([A-Za-z][\w-]*)"')
 #: useful about them: what keeps them out of `src/` is that the corpus is keyed
 #: by bare module name, not anything the compiler can see.
 NOT_DEFECTIVE = {"alcatel-aos6"}
+
+#: What the table says for a module the compiler never reached. pysmi reports
+#: it as neither compiled nor failed, so there is no error text to quote.
+UNRESOLVABLE = "imports a module this corpus does not hold"
 
 #: What the table says for one of those, pointing at the prose that explains it.
 ACCOUNTED_FOR = (
@@ -155,14 +159,21 @@ def cell(text: str) -> str:
 
 
 def reason_for(
-    module: str, vendor: str, error: str | None, imports: set[str], here: set[str]
+    module: str,
+    vendor: str,
+    error: str | None,
+    unprocessed: bool,
+    imports: set[str],
+    here: set[str],
 ) -> str | None:
     """Why this module is quarantined, in the words the table carries.
 
     Args:
         module: the module being described.
         vendor: the namespace it sits in under `broken/`.
-        error: what the compiler said, or None if it compiled.
+        error: what the compiler said, or None if it did not reject it.
+        unprocessed: the compiler never got to it, because something it
+            imports is not in the corpus.
         imports: the modules it imports.
         here: every quarantined module name.
 
@@ -180,6 +191,9 @@ def reason_for(
 
         if blocking:
             return f"needs `{blocking[0]}` (also here), which does not compile"
+
+        if unprocessed:
+            return UNRESOLVABLE
 
         return None
 
@@ -215,7 +229,7 @@ def sections(rows: dict[str, tuple[str, str]]) -> list[str]:
         "accounted for"
         if reason == ACCOUNTED_FOR
         else "consequential"
-        if "also here" in reason
+        if "also here" in reason or reason == UNRESOLVABLE
         else "root defect"
         for _, reason in rows.values()
     )
@@ -228,8 +242,8 @@ def sections(rows: dict[str, tuple[str, str]]) -> list[str]:
         "and nothing else. Two shapes:",
         "",
         "- **root defect** -- the module's own text is rejected.",
-        "- **consequential** -- it is rejected, or cannot be served, because a",
-        "  module it imports is also here.",
+        "- **consequential** -- it is rejected, or never reached, because a",
+        "  module it imports is also here or is not in this corpus at all.",
         "",
         "A consequential entry usually returns to `src/` on its own once the",
         "module it imports is replaced.",
@@ -262,6 +276,10 @@ def compose() -> str:
         report = build(pathlib.Path(scratch))
 
     errors = report.get("failed", {}).get("json", {})
+    # A module the compiler never reached is neither compiled nor failed. It
+    # is not in "failed", and reading absence from that map as success is how
+    # two modules were restored to src/ that could not build there.
+    stalled = set(report.get("unprocessed", {}).get("json", []))
     names = set(here)
     rows: dict[str, tuple[str, str]] = {}
     undecided = []
@@ -272,7 +290,12 @@ def compose() -> str:
             for match in IMPORTS.finditer(path.read_bytes())
         }
         reason = reason_for(
-            module, path.parent.name, errors.get(module), imports, names
+            module,
+            path.parent.name,
+            errors.get(module),
+            module in stalled,
+            imports,
+            names,
         )
 
         if reason is None:
