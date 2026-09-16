@@ -22,13 +22,21 @@ dependencies = [
 # floor is a final release and stays one: there is no rc stream left to track
 # and nothing here resolves to a prerelease of pysmi.
 #
-# 5.1.0 is the floor rather than a preference: the pull request preview builds
-# with --publish-only and --patch-directory, which arrived there. A lower
-# resolution does not degrade the preview, it refuses the command line, so
-# this is a requirement in the literal sense. The workflow checks it anyway
-# and says so in a sentence, because a lock is a claim about one machine and
-# the error it replaces is a page of getopt usage. See
-# .github/workflows/pr-mib-preview.yml.
+# 5.3.1 is the floor rather than a preference, and two things put it there.
+# The pull request preview builds with --publish-only and --patch-directory,
+# which arrived in 5.1.0; a lower resolution does not degrade the preview, it
+# refuses the command line, so this is a requirement in the literal sense. The
+# workflow checks it anyway and says so in a sentence, because a lock is a
+# claim about one machine and the error it replaces is a page of getopt usage.
+# See .github/workflows/pr-mib-preview.yml.
+#
+# 5.3.1 raised it from 5.1.0. scripts/import_contribution.py commits what a
+# contributor's mibcontribute scan produced, one file per module named for the
+# module, which is what tests/source-layout-contract.py requires of src/.
+# Before 5.3.1 a scan handed every module in a file the whole file, so a
+# contribution cut from a vendor bundle of thirty modules arrived as thirty
+# copies of the bundle. The importer would have committed them and the
+# contract would have failed the build afterwards. See pysnmp/pysmi#320.
 #
 # The `fast` extra is orjson, which pysmi takes for the corpus JSON when it is
 # importable and falls back to the standard library when it is not. Worth
@@ -40,7 +48,7 @@ dependencies = [
 # the implementation that ran.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi[fast]>=5.1.0,<6",
+    "pysnmp-pysmi[fast]>=5.3.1,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
