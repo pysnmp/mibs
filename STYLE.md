@@ -18,7 +18,7 @@ teaches SNMP.
 > the pysnmp organization publishes those modules.
 >
 > After: This site publishes the MIB modules that pysnmp and other SNMP tooling
-> resolve against: 5,510 modules as ASN.1 and as JSON, with OID indexes.
+> resolve against: every module as ASN.1 and as JSON, with OID indexes.
 
 **State the fact. Do not build to it.** No withheld conclusions, no sentence
 that exists to set up the next one.

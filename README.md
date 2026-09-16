@@ -1,6 +1,6 @@
 # mibs
 
-The MIB distribution for [pysnmp](https://pysnmp.github.io/pysnmp/): 5,510 MIB
+The MIB distribution for [pysnmp](https://pysnmp.github.io/pysnmp/): the MIB
 modules published over HTTPS, as release archives and as OCI images, so an SNMP
 engine can name a managed object instead of counting OID arcs.
 

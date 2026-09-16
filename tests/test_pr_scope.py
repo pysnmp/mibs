@@ -10,7 +10,7 @@ Run directly; no test framework, and no network:
 
 The scope decides what a pull request preview builds, and every way it can be
 wrong is quiet. Too narrow and the reviewer is shown a site that does not
-contain the module under review. Too wide and a dependency bump builds 5,510
+contain the module under review. Too wide and a dependency bump builds every
 modules onto a preview host. Named the wrong thing and the build is refused
 by pysmi for a module nobody asked about.
 

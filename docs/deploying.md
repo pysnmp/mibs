@@ -200,7 +200,7 @@ get is a URL.
 
 A Worker of its own rather than a version of `mibsdepot`. Uploading preview
 versions onto the production site would put a build of three modules into the
-version history of the site serving 5,510, and a rollback there would have
+version history of the site serving the whole corpus, and a rollback there would have
 somewhere very wrong to roll back to.
 
 Nothing to create by hand. `wrangler versions upload` refuses on a Worker that

@@ -6,7 +6,7 @@
 
 CI builds the whole corpus on every pull request and holds it to every
 contract, which answers *is the corpus still sound* and never answers *what
-does the module I just added look like*. The 5,510-page site that build
+does the module I just added look like*. The whole-corpus site that build
 produces is not published anywhere a reviewer can reach, and would not help
 if it were: the two pages the review is about are in it somewhere.
 

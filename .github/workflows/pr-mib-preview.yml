@@ -2,12 +2,12 @@
 #
 # CI already builds the whole corpus on every pull request and holds it to
 # every contract, which answers "is the corpus still sound" and never answers
-# that one. The 5,510-page site it produces goes nowhere a reviewer can reach,
+# that one. The whole-corpus site it produces goes nowhere a reviewer can reach,
 # and would not help if it did: the two pages under review are somewhere in
 # seven thousand.
 #
 # This builds the modules the pull request changed, and only those, against
-# the whole corpus -- so their imports resolve against all 5,510 -- and
+# the whole corpus -- so their imports all resolve -- and
 # publishes the result where it can be clicked. Three kinds of change reach
 # it, and the third is the one that is easy to get wrong:
 #

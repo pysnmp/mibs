@@ -1,7 +1,7 @@
 # The pysnmp MIB distribution
 
 This site publishes the MIB modules that pysnmp and other SNMP tooling resolve
-against: 5,510 modules as ASN.1 source and as JSON, with OID indexes and a
+against: every module as ASN.1 source and as JSON, with OID indexes and a
 SQLite model of the whole corpus. Fetch them over HTTPS, unpack them from a
 release archive, or mount them as an OCI image.
 

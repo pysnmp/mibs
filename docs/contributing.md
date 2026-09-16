@@ -59,11 +59,11 @@ restoring it would take.
 
 Every pull request gets a rendered preview of the modules it touches, and
 nothing else. The full CI build answers *is the corpus still sound*; it builds
-5,510 modules into a site nobody can reach, and the two pages under review
+every module into a site nobody can reach, and the two pages under review
 would be somewhere inside it. The preview answers the other question.
 
 It is one `mibcorpus` run over the whole source set publishing only what
-changed, so the module's imports resolve against all 5,510 exactly as they
+changed, so the module's imports all resolve exactly as they
 will on the live site -- a build over the changed files alone would fail on
 the first `IMPORTS`. A module built this way is byte for byte the module built
 whole; that is pysmi's guarantee and

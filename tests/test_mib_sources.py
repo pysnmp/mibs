@@ -377,6 +377,10 @@ def test_a_revision_is_compared_with_its_century() -> None:
     nineties one. That is the date a maintainer is shown when deciding
     whether our copy has fallen behind: net-snmp's UCD-SNMP-MIB and ours
     both reported 1999-12-09 while they were four years apart.
+
+    The century is whichever one puts the date in the past. A revision cannot
+    have been made in the future, and SMI is younger than any MIB it could
+    date, so there is no pivot year here to fall out of date.
     """
     sys.stdout.write("\nrevision stamps\n")
 
@@ -392,9 +396,14 @@ def test_a_revision_is_compared_with_its_century() -> None:
         "1999-12-09",
     )
     check(
-        "and a sixties one as this century",
+        "and a sixties one as the century that is in the past",
         mib_sources.revision_of(MODULE.replace(b'"202401150000Z"', b'"6501020000Z"')),
-        "2065-01-02",
+        "1965-01-02",
+    )
+    check(
+        "a year not yet reached is the one before it",
+        mib_sources.revision_of(MODULE.replace(b'"202401150000Z"', b'"0501020000Z"')),
+        "2005-01-02",
     )
 
 

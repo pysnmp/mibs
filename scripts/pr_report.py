@@ -142,7 +142,8 @@ def render(
     out += [
         "",
         "<sub>Built from the whole corpus, publishing only these modules, so their",
-        "imports resolve against all 5,510 as they will on the live site."
+        "imports resolve against the whole corpus as they will on the live "
+        "site."
         + (
             "</sub>"
             if not built

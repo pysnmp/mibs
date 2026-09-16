@@ -5,7 +5,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
         NOTIFICATION-TYPE
             FROM SNMPv2-SMI
         MacAddress, TruthValue, RowStatus, DisplayString,
-        TDomain, TAddress, StorageType, TimeStamp, TimeInterval
+        TDomain, TAddress, StorageType, TimeStamp,TimeInterval
             FROM SNMPv2-TC
         MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
             FROM SNMPv2-CONF
@@ -15,8 +15,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
             FROM ENTITY-MIB
         alarmEntry, eventEntry
             FROM RMON-MIB
-        InetAddress, InetAddressType, InetAddressPrefixLength,
-        InetPortNumber
+        InetAddress, InetAddressType
             FROM INET-ADDRESS-MIB
         hpicfObjectModules, hpicfCommon, hpicfCommonTrapsPrefix
             FROM HP-ICF-OID
@@ -24,15 +23,45 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
             FROM SNMP-TARGET-MIB;
 
     hpicfBasicMib MODULE-IDENTITY
-        LAST-UPDATED "200706070000Z"  -- June 7, 2007
-        ORGANIZATION "Hewlett Packard Company,
-                     Network Infrastructure Solutions"
+        LAST-UPDATED "201108301357Z"  -- August 30, 2011
+        ORGANIZATION "HP Networking"
         CONTACT-INFO "Hewlett Packard Company
                      8000 Foothills Blvd.
                      Roseville, CA 95747"
         DESCRIPTION  "This MIB module describes objects for basic
                      management of devices in the HP Integrated
                      Communication Facility product line."
+
+        REVISION     "201108301357Z"  -- August 30,, 2011
+        DESCRIPTION  "Added hpicfDNSConfigMode, hpicfCurDNSConfig
+                      objects."
+
+        REVISION     "201011111357Z"  -- November 11,, 2010
+        DESCRIPTION  "Added new option radiusTacacsOnly to 
+                      hpicfIncludeCredentials MIB object
+                      in 'hpicfBasicConfig' table."
+
+        REVISION     "200911021357Z"  -- November 2, 2009
+        DESCRIPTION  "Added objects hpicfExecBannerStatus and hpicfBannerExec"
+	
+        REVISION     "200902230000Z"  -- February 23, 2009
+        DESCRIPTION  "Added objects hpicfReloadState, hpicfReloadAfter,
+                      hpicfReloadAt" 
+
+        REVISION     "200902101539Z"  -- February 10, 2009
+        DESCRIPTION  "Added 'hpicfInetDNSNameServerEntryIsOobm' MIB object
+                      in 'hpicfInetDNSNameServersTable' table."
+             
+        REVISION     "200902030000Z"  -- Feb 3, 2009
+        DESCRIPTION  "Added hpicfDisplayLogNumbers,
+                      hpicfIncludeCredentials objects."
+
+        REVISION     "200812040000Z"  -- December 4, 2008
+        DESCRIPTION  "Added hpicfSnmpV2Enable
+                      hpSwitchSnmpViewConfig objects." 
+
+        REVISION     "200804040000Z"  -- April 04, 2008
+        DESCRIPTION  "Deprecated object hpicfTelnet6Enable" 
 
         REVISION     "200709130000Z"  -- Sept 13, 2007
         DESCRIPTION  "Limit the size to 1300 for the hpicfBannerMOTD."
@@ -47,7 +76,10 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
         REVISION     "200511170000Z"  -- November 17, 2005
         DESCRIPTION  "Added hpicfBasicDNSConfig object group to 
                       the HP ICF Basic Group.  Updated conformance and 
-                      compliences objects."
+                      compliances objects."
+
+        REVISION     "200404120000Z"  -- April 12, 2004
+        DESCRIPTION  "Added the hpicfIpZeroBroadcastEnable object." 
 
         REVISION     "200301090108Z"  -- January 9, 2003
         DESCRIPTION  "Changed the default value for 
@@ -92,9 +124,6 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
         DESCRIPTION  "Initial version of this MIB module.  Consisted of
                      the hpicfReset and hpicfSelfTest objects."
 
-        REVISION     "9501180000Z"  -- April 12, 2004
-        DESCRIPTION  "Added the hpicfIpZeroBroadcastEnable object." 
-	
         ::= { hpicfObjectModules 5 }
 
 
@@ -112,7 +141,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                     }
         MAX-ACCESS  read-write
         STATUS      current
-        DESCRIPTION "When this object is set to to 'normalReset' it 
+        DESCRIPTION "When this object is set to 'normalReset' it
                     results in a 'powerup' reset of the device.  When
                     set to 'agentReset', it results in a reset of the
                     agent software, without resetting the device
@@ -819,8 +848,8 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                     the macro is used directly as the hpicfFixedTrapID.
                     For traps defined using the SNMpv1 TRAP-TYPE macro,
                     the value of hpicfFixedTrapID is formed by adding
-                    two subids to the trap enterprise.  The first added
-                    subid is 0, and the second is the specific trap
+                    two sub IDs to the trap enterprise.  The first added
+                    sub ID is 0, and the second is the specific trap
                     value assigned by the macro to the trap.  Note: this
                     is the method specified in RFC 1908, 'Coexistence
                     between Version 1 and Version 2 of the
@@ -990,7 +1019,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                     4          debug events (HP internal use only)
 
                     For example, to specify that this trap receiver
-                    should recieve SNMP traps and critical event traps,
+                    should receive SNMP traps and critical event traps,
                     this object should be set to a value of 9 (2^0 +
                     2^3).
 
@@ -1157,7 +1186,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                     An agent should throttle the generation of
                     consecutive hpicfSelfTestTraps so that there is at
                     least a five-second gap between traps of this type.
-                    When traps are throttled, the are dropped, not
+                    When traps are throttled, they are dropped, not
                     queued for sending at a future time.  (Note that
                     'generating' a trap means sending to all configured
                     recipients.)."
@@ -1185,7 +1214,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
         ::= { hpicfSnmpTargetAddrLogFilterTable 1 }
 
     HpicfSnmpTargetAddrLogFilterEntry ::= SEQUENCE {
-        hpicfSnmpTargetAddrLogFilter Integer32 (0..31)
+        hpicfSnmpTargetAddrLogFilter Integer32 
     }
 
     hpicfSnmpTargetAddrLogFilter OBJECT-TYPE
@@ -1213,7 +1242,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                     4          debug events (HP internal use only)
 
                     For example, to specify that this trap receiver
-                    should recieve SNMP traps and critical event traps,
+                    should receive SNMP traps and critical event traps,
                     this object should be set to a value of 9 (2^0 +
                     2^3).
 
@@ -1238,7 +1267,9 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                      queries to name servers.  An example of a valid 
                      default domain suffix is 'hp.com'.  The resolver
                      will not use a default domain suffix if this object 
-                     is set to empty-string (which is the default value.)" 
+                     is set to empty-string (which is the default value.)
+		     This can set only if the 'hpicfDNSConfigMode'is
+		     manual(2)."
         ::= { hpicfBasicDNSConfig 1 }
 
     hpicfDNSNameServerTable OBJECT-TYPE
@@ -1249,6 +1280,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                     (DNS) Name Server configuration in this 
                     device."
         ::= { hpicfBasicDNSConfig 2 }
+
 
     hpicfDNSNameServerEntry OBJECT-TYPE
         SYNTAX      HpicfDNSNameServerEntry
@@ -1286,44 +1318,48 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
         DESCRIPTION "A table that contains information about the 
                     (DNS) Name Server configuration in this 
                     device.This table has 3 index's PRIORITY ADDRTYPE
-                    ADDR,for each pririoty only one address can be configured."
-
+                    ADDR,for each pririoty only one address can be 
+                    configured. An address can be created in this 
+                    table only if the 'hpicfDNSConfigMode' is 
+                    manual(2)."
         ::= { hpicfBasicDNSConfig 3 }
 
     hpicfInetDNSNameServerEntry OBJECT-TYPE
         SYNTAX      HpicfInetDNSNameServerEntry
         MAX-ACCESS  not-accessible
         STATUS      current
-        DESCRIPTION "An entry in hpicfInetDNSNameServerEntry contains single 
-                     manually configured DNS Address
-                     on this resolver device. "
+        DESCRIPTION "An entry in hpicfInetDNSNameServerEntry contains
+                     single manually configured DNS Address on this
+                     resolver device. This can created only if the
+                     'hpicfDNSConfigMode' is set to manual(2)."
         INDEX       { hpicfInetDNSNameServerAddrIndex,
-							 hpicfInetDNSNameServerAddrType, 
+		      hpicfInetDNSNameServerAddrType, 
                       hpicfInetDNSNameServerAddress }
         ::= { hpicfInetDNSNameServerTable 1 }
        
     HpicfInetDNSNameServerEntry ::=
         SEQUENCE {
-				hpicfInetDNSNameServerAddrIndex	 INTEGER, 
+            hpicfInetDNSNameServerAddrIndex   Integer32, 
             hpicfInetDNSNameServerAddrType    InetAddressType,
             hpicfInetDNSNameServerAddress     InetAddress,
-            hpicfInetDNSNameServerEntryStatus RowStatus 
+            hpicfInetDNSNameServerEntryStatus RowStatus,
+            hpicfInetDNSNameServerEntryIsOobm TruthValue 
         }
 
-	 hpicfInetDNSNameServerAddrIndex OBJECT-TYPE
-		SYNTAX		INTEGER(0..255)	
-		MAX-ACCESS 	not-accessible
-		STATUS	   current
-    DESCRIPTION "Index(which is also treated as priority) of DNS server address
-                 configured."
-		 ::=	{ hpicfInetDNSNameServerEntry 1 }
+    hpicfInetDNSNameServerAddrIndex OBJECT-TYPE
+	SYNTAX		Integer32(0..255)	
+	MAX-ACCESS 	not-accessible
+	STATUS	        current
+	DESCRIPTION     "Index(which is also treated as priority) 
+                         of DNS server address configured."
+	::= { hpicfInetDNSNameServerEntry 1 }
 			
     hpicfInetDNSNameServerAddrType OBJECT-TYPE
         SYNTAX      InetAddressType
         MAX-ACCESS  not-accessible
         STATUS      current 
-        DESCRIPTION "Address Type of the DNS Name server stored in hpicfInetDNSNameServer
-                     Address."
+        DESCRIPTION "Address Type of the DNS Name server stored in 
+                     hpicfInetDNSNameServer Address."
         ::= { hpicfInetDNSNameServerEntry 2 }
 
     hpicfInetDNSNameServerAddress OBJECT-TYPE
@@ -1331,8 +1367,8 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
         MAX-ACCESS  not-accessible
         STATUS      current 
         DESCRIPTION "Address of DNS and type of address stored is
-                      is mentioned in hpicfInetDNSNameServerAddType 
-                     This field needs to be used in conjuction with 
+                     is mentioned in hpicfInetDNSNameServerAddType 
+                     This field needs to be used in conjunction with
                      hpicfInetDNSNameServerAddrType."
         ::= { hpicfInetDNSNameServerEntry 3 }
 
@@ -1342,6 +1378,67 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
         STATUS      current
         DESCRIPTION "The row status of a given name server entry."
         ::= { hpicfInetDNSNameServerEntry 4 }
+
+   hpicfInetDNSNameServerEntryIsOobm OBJECT-TYPE
+      SYNTAX      TruthValue
+      MAX-ACCESS  read-create
+      STATUS      current
+      DESCRIPTION "This object indicates whether this DNS Server
+                  is reachable over OOBM (Out Of Band Management)
+                  interface or not. This mib object will be applicable
+                  only if there is a physical OOBM port on the device."
+      DEFVAL      {false}
+      ::= {  hpicfInetDNSNameServerEntry 5 }
+
+    hpicfDNSDefaultDomainSuffixIsOobm OBJECT-TYPE
+        SYNTAX      DisplayString (SIZE (0..255))
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "The default domain name (A unique designator on the
+                     network composed of symbols separated by dots) to
+                     which resolver appends host names before sending the
+                     queries to name servers on OOBM plane.  An example of
+                     a valid default domain suffix is 'hp.com'.  The resolver
+                     will not use a default domain suffix if this object
+                     is set to empty-string (which is the default value). 
+		     This can be set only if the 'hpicfDNSConfigMode'
+		     is set to manual(2)."
+        ::= { hpicfBasicDNSConfig 4 }
+
+    hpicfDNSConfigMode OBJECT-TYPE
+        SYNTAX      INTEGER {
+                        dhcp(1),
+                        manual(2),
+                        disabled(3)
+                    }
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "Setting this flag to 'dhcp' will cause the device
+                     to use DHCP to obtain its DNS configuration parameters (such as
+                     dns servers and domain name suffix).
+
+                     Setting this flag to 'manual' will allow manual DNS
+                     configuration.
+
+                     Setting this flag to 'disabled' will clear any existing DNS
+                     configuration."
+        ::= { hpicfBasicDNSConfig 5 }
+
+    hpicfCurDNSConfig OBJECT IDENTIFIER ::= { hpicfBasicDNSConfig 6}
+
+    hpicfCurDNSDefaultDomainSuffix OBJECT-TYPE
+        SYNTAX      DisplayString (SIZE (0..255))
+        MAX-ACCESS  read-only
+        STATUS      current
+        DESCRIPTION "The default domain name (A unique designator on the 
+                     network composed of symbols separated by dots) to 
+                     which resolver appends host names before sending the 
+                     queries to name servers.  An example of a valid 
+                     default domain suffix is 'hp.com'.  The resolver
+                     will not use a default domain suffix if this object 
+                     is set to empty-string (which is the default value.)" 
+        ::= { hpicfCurDNSConfig 1 }
+
     -- HP ICF BASIC Banner 
 
     hpicfBannerStatus OBJECT-TYPE
@@ -1370,6 +1467,34 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                      either the console or web-ui"
         ::= { hpicfBanner 1 }
 
+    hpicfExecBannerStatus OBJECT-TYPE
+         SYNTAX      INTEGER {
+	                 enabled(1),
+			 disabled(2)
+                     }
+         MAX-ACCESS  read-write
+	 STATUS      current
+	 DESCRIPTION "When the value of this object is 'enabled(1)', it means
+	              that the exec banner is configured. If authentication
+		      is enabled on the switch, exec banner is displayed after
+		      authentication in user interface sessions(console,telnet,
+		      SSH and webUI).
+		      When there is no authentication in the switch,exec banner
+		      is displayed before the switch prompt. When the value of
+		      this object is 'disabled (2)', it means that banner has
+		      not been configured. If the value of this object is
+		      'enabled (1)', banner cannot be an emptry string."
+         ::= { hpicfBanner 2 }
+
+     hpicfBannerExec OBJECT-TYPE
+          SYNTAX      OCTET STRING (SIZE(1..65535))
+	  MAX-ACCESS  read-write
+	  STATUS      current
+	  DESCRIPTION "An administratively configured exec banner message that
+	               is displayed in console, telnet, SSH and webUI sessions.
+		       Currently, the banner text can be configured upto
+		       1300 characters."
+     ::= { hpicfBanner 3 }
 
    hpicfResetDefault OBJECT-TYPE
         SYNTAX      INTEGER {
@@ -1384,19 +1509,91 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
 
 
    hpicfTelnet6Enable OBJECT-TYPE
-	SYNTAX      INTEGER {
-			enabled(1),
-			disabled(2)
-		    }
+      SYNTAX      INTEGER {
+                enabled(1),
+                disabled(2)
+                }
         MAX-ACCESS  read-write
-	STATUS      current
-	DESCRIPTION "When the value of this object is 'enabled(1)', the
-	             telnet6 server on this agent is running and allowed to
-		     accept connections.  When the value of this object is
-		     'disabled(2)', no incoming telnet6 connections will be
-		     accepted by this agent."
+        STATUS      deprecated
+        DESCRIPTION "********* THIS OBJECT IS DEPRECATED *********
+                    When the value of this object is 'enabled(1)', the
+                    telnet6 server on this agent is running and allowed to
+                    accept connections.  When the value of this object is
+                   'disabled(2)', no incoming telnet6 connections will be
+                    accepted by this agent."
         ::= { hpicfBasic 17 }
 
+
+  hpicfBasicSNMPConfig OBJECT IDENTIFIER ::= { hpicfBasic 18 }
+
+   hpSwitchSnmpViewConfig OBJECT-TYPE
+        SYNTAX       INTEGER {
+                         enabled(1),
+                         disabled(2)
+        }
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "Enable/Disable SNMP support for hpSwitchAuthentication
+                     MIB. When the MIB access is enabled, Manager read/write
+                     access to the MIB is permitted. Operator read/write 
+                     access to the MIB is always denied. For security
+                     reasons, network administrators are encouraged to
+                     disable SNMPV2c before using the MIB."
+        DEFVAL { disabled }
+        ::= { hpicfBasicSNMPConfig 1 }
+
+
+   hpicfSnmpV2Enable OBJECT-TYPE
+        SYNTAX      INTEGER {
+                        enabled(1),
+                        disabled(2)
+                    }
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "When the value of this object is 'enabled(1)', 
+                     it means that SNMPv1/v2 is enabled on the system.
+                     When the value of this object is 'disabled(2)', 
+                     it means that SNMPv1/v2 is disabled on the system." 
+        ::= { hpicfBasicSNMPConfig 2 }
+
+ hpicfBasicConfig OBJECT IDENTIFIER ::= { hpicfBasic 19 }
+
+   hpicfDisplayLogNumbers OBJECT-TYPE
+        SYNTAX      TruthValue
+        MAX-ACCESS      read-write
+        STATUS      current
+        DESCRIPTION "When this object is set to True, Log event numbers 
+                     will be displayed when log is displayed via the CLI
+                     or via the MENU. Log event numbers will not be
+                     displayed when this object is set to False."
+        DEFVAL { true }
+        ::= { hpicfBasicConfig 1 }
+        
+   hpicfIncludeCredentials OBJECT-TYPE
+        SYNTAX      INTEGER {
+                        enabled(1),
+                        disabled(2),
+                        radiusTacacsOnly(3)
+                    }
+        MAX-ACCESS  read-write
+        STATUS      current
+        DESCRIPTION "This object:
+                     enabled - Include password and credentials in the
+                              switch configuration.
+                     disabled - Do not include credentials in the switch
+                               configuration.
+                     radiusTacasOnly - Enable only the RADIUS and TACACS+
+                               server keys in the switch configuration.
+
+                   NOTE: This will insert possibly sensitive information 
+                   in switch configuration files, and as a part of some 
+                   CLI commands output.  It is strongly recommended that you
+                   use SFTP rather than TFTP for transfer of the configuration
+                   over the network, and that you use the web configuration 
+                   interface only with SSL enabled."
+        ::= { hpicfBasicConfig 2 }
+
+--    hpicfReloadMIB OBJECT IDENTIFIER ::= { hpicfBasic 20 }
 
     -- Conformance information
 
@@ -1446,9 +1643,9 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                         other than responses to network management
                         requests (e.g. repeaters and switches)."
 
---            GROUP       hpicfBasicSnmpNotifyLogFilterTable
---             DESCRIPTION "This group is required for devices that support
---                         SNMPv3."
+           -- GROUP       hpicfBasicSnmpNotifyLogFilterTable
+           -- DESCRIPTION "This group is required for devices that support
+             --            SNMPv3."
 
             OBJECT      hpicfIpConfigPingRouter
             MIN-ACCESS  read-only
@@ -1767,7 +1964,78 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
 
         ::= { hpicfBasicCompliances 7 }
 
+-- --------------------------------------------------------------
+   -- Compliance statements for hpicfSNMPGroup Group 
+-- --------------------------------------------------------------
+     hpicfBasicSNMPConfigCompliance MODULE-COMPLIANCE
+        STATUS      current
+        DESCRIPTION "The compliance statement for SNMP entities 
+                     which implements enabling/disabling of 
+                     SNMP v1/v2/v3 and for enabling/disabling 
+                     SNMP support for hpSwitchAuthenticationMIB."
+        MODULE       -- this module
+        MANDATORY-GROUPS { hpicfSNMPConfigGroup}
 
+       ::= { hpicfBasicCompliances 8 }
+
+-- --------------------------------------------------------------
+   -- Compliance statements for hpicfBasicConfigGroup Group 
+-- --------------------------------------------------------------
+     hpicfBasicConfigCompliance MODULE-COMPLIANCE
+        STATUS      current
+        DESCRIPTION "The compliance statement for config entities 
+                     which implements basic configuration of the switch." 
+        MODULE       -- this module
+        MANDATORY-GROUPS { hpicfBasicConfigGroup}
+
+       ::= { hpicfBasicCompliances 9 }
+
+     hpicfBasicComplianceOobm    MODULE-COMPLIANCE
+        STATUS         current
+        DESCRIPTION    "The compliance statement for devices implementing the
+                       HP DNS Server Mib with OOBM support"
+        MODULE
+
+            GROUP             hpicfInetDNSNameServerOobmGroup
+            DESCRIPTION       "A collection of objects for configuring
+                              DNS with OOBM."
+        ::= { hpicfBasicCompliances 10 }
+
+     hpicfBasicCompliance8 MODULE-COMPLIANCE
+        STATUS      current
+        DESCRIPTION "The compliance statement for SNMP entities 
+                     SNMP support for hpSwitchAuthenticationMIB."
+        MODULE       -- this module
+
+        GROUP       hpicfBasicObjectsGroup
+        DESCRIPTION "A collection of deprecated objects"
+
+        GROUP       hpicfBasicWebAgentGroup
+        DESCRIPTION "A collection of objects for managing the EHTTPD
+                    server in ICF devices."
+
+        GROUP       hpicfBasicProxyArpGroup
+        DESCRIPTION "A group of objects for configuring proxy ARP
+                    on devices that support IP forwarding."
+
+        GROUP       hpicfBasicIpSecondaryGroup
+        DESCRIPTION "A group of objects for configuring secondary IP
+                    addresses on devices that support more than one
+                    IP address on an interface."
+
+       ::= { hpicfBasicCompliances 11 }
+
+    hpicfBasicCompliance9 MODULE-COMPLIANCE
+        STATUS      current
+        DESCRIPTION "The compliance statement for SNMP entities
+                    which implements DNS domain configurations."
+        MODULE       -- this module
+
+        GROUP       hpicfBasicDNSGroup1
+        DESCRIPTION "A group of objects for DNS configuration 
+                    parameters."
+
+        ::= { hpicfBasicCompliances 12 }
 
     -- units of conformance
 
@@ -1987,5 +2255,64 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
                     ICF devices."
         ::= { hpicfBasicGroups 20 }
 
-END
+-- --------------------------------------------------------------  
+   -- Group for hpicfSnmpV2Enable
+   -- hpSwitchSnmpViewConfig
+-- --------------------------------------------------------------
 
+   hpicfSNMPConfigGroup OBJECT-GROUP
+        OBJECTS     { hpicfSnmpV2Enable,
+                      hpSwitchSnmpViewConfig
+                    }
+        STATUS      current
+        DESCRIPTION "A collection of objects for enabling/disabling
+                    of SNMP v1/v2/v3 and for enabling/disabling 
+                    SNMP support for hpSwitchAuthenticationMIB."
+        ::= { hpicfBasicGroups 21 }
+
+-- --------------------------------------------------------------  
+   -- Group for hpSwitchDisplayLogNumbers
+-- --------------------------------------------------------------
+     
+     
+    hpicfBasicConfigGroup OBJECT-GROUP
+        OBJECTS     { hpicfDisplayLogNumbers,
+                      hpicfIncludeCredentials
+                    }
+        STATUS      current
+        DESCRIPTION "A collection of objects for basic configuration
+                    of the switch."
+        ::= { hpicfBasicGroups 22 }
+
+    hpicfInetDNSNameServerOobmGroup OBJECT-GROUP
+        OBJECTS     { hpicfInetDNSNameServerEntryIsOobm }
+        STATUS      current
+        DESCRIPTION "A collection of objects for configuring the
+                    DNS server entry with support for OOBM
+                    (Out of Band Management) interface."
+        ::= { hpicfBasicGroups 23 }
+
+    hpicfBasicObjectsGroup OBJECT-GROUP
+        OBJECTS     { hpicfIpConfigLocalProxyArp,
+                      hpicfTrapDestNotifyType,
+                      hpicfTrapDestRetries,
+                      hpicfTrapDestTimeout,
+                      hpicfInetDNSNameServerEntryStatus,
+                      hpicfExecBannerStatus,
+                      hpicfBannerExec,
+                      hpicfTelnet6Enable }
+        STATUS      current
+        DESCRIPTION "A collection of deprecated objects"
+        ::= { hpicfBasicGroups 24 }
+
+    hpicfBasicDNSGroup1 OBJECT-GROUP
+        OBJECTS     { hpicfDNSDefaultDomainSuffixIsOobm,
+                      hpicfDNSConfigMode,
+                      hpicfCurDNSDefaultDomainSuffix
+                    }
+        STATUS      current
+        DESCRIPTION "A collection of objects for DNS configuration
+                    parameters."
+        ::= { hpicfBasicGroups 25 }
+
+END

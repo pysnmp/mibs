@@ -1,5 +1,5 @@
 -- =================================================================
--- Copyright (c) 2010-2013 Hewlett-Packard Development Company, L.P.
+-- Copyright (c) 2010-2014 Hewlett-Packard Development Company, L.P.
 --
 -- Description:
 --
@@ -9,7 +9,7 @@
 -- traps supported to notify client the RADIUS Server's down and up state.
 --
 -- Reference: RFC2866, RADIUS-AUTH-CLIENT-MIB, RADIUS-ACC-CLIENT-MIB
--- Version: V2.3
+-- Version: V2.4
 -- History:
 --  V1.0 Initial version 2004-07-13
 --  V1.1 2004-10-12 updated by gaolong
@@ -98,6 +98,9 @@
 --       Modified description of hpnicfRdSecondaryAccUdpPort
 --       Modified the default value and description of hpnicfRadiusSchAccPrimUdpPort
 --       Modified the default value and description of hpnicfRadiusSchAccSecUdpPort
+--  V2.4 2014-06-07, Modified by liubo
+--       Modified description of hpnicfRdSecondaryAuthRowStatus
+--       Modified description of hpnicfRdSecondaryAccRowStatus
 -- =================================================================
 HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
     IMPORTS
@@ -118,7 +121,7 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
             FROM RADIUS-ACC-CLIENT-MIB;
 
     hpnicfRadius MODULE-IDENTITY
-    LAST-UPDATED "201303300000Z"            -- March 30, 2013 at 00:00 GMT
+    LAST-UPDATED "201406071800Z"            -- June 7, 2014 at 18:00 GMT
     ORGANIZATION
         ""
     CONTACT-INFO
@@ -127,6 +130,10 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
         "The HPN-ICF-RADIUS-MIB contains objects to
         Manage configuration and Monitor running state
         for RADIUS feature."
+    REVISION "201406071800Z"        -- June 7, 2014 at 18:00 GMT
+    DESCRIPTION
+        "Modified description of hpnicfRdSecondaryAuthRowStatus.
+        Modified description of hpnicfRdSecondaryAccRowStatus"
     ::= { hpnicfCommon 13 }
 
     hpnicfRdObjects OBJECT IDENTIFIER ::= { hpnicfRadius 1 }
@@ -164,7 +171,7 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
         hpnicfRdSecAuthIpAddrType  InetAddressType,
         hpnicfRdSecAuthIpAddr      InetAddress,
         hpnicfRdServerType         INTEGER,
-        hpnicfRdQuietTime          INTEGER,
+        hpnicfRdQuietTime          Integer32,
         hpnicfRdUserNameFormat     INTEGER,
         hpnicfRdRowStatus          RowStatus,
         hpnicfRdSecKey             DisplayString,
@@ -331,12 +338,12 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
     ::= { hpnicfRdInfoEntry 15 }
 
     hpnicfRdQuietTime OBJECT-TYPE
-        SYNTAX INTEGER (0..255)
+        SYNTAX Integer32 (0..255)
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION
         "The time for server returning active.  The unit is minute.
-         When the value is 0, the server state retains active. Default value is 5."
+         When the value is 0, the server state retains active.  Default value is 5."
     ::= { hpnicfRdInfoEntry 16 }
 
     hpnicfRdUserNameFormat OBJECT-TYPE
@@ -463,12 +470,12 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
         hpnicfRdAccRetry               Integer32,
         hpnicfRdAccTimeout             Integer32,
         hpnicfRdAccServerType          INTEGER,
-        hpnicfRdAccQuietTime           INTEGER,
+        hpnicfRdAccQuietTime           Integer32,
         hpnicfRdAccFailureAction       INTEGER,
-        hpnicfRdAccRealTime            INTEGER,
-        hpnicfRdAccRealTimeRetry       INTEGER,
+        hpnicfRdAccRealTime            Integer32,
+        hpnicfRdAccRealTimeRetry       Integer32,
         hpnicfRdAccSaveStopPktEnable   TruthValue,
-        hpnicfRdAccStopRetry           INTEGER,
+        hpnicfRdAccStopRetry           Integer32,
         hpnicfRdAccDataFlowUnit        INTEGER,
         hpnicfRdAccPacketUnit          INTEGER,
         hpnicfRdAccRowStatus           RowStatus,
@@ -620,12 +627,12 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
     ::= { hpnicfRdAccInfoEntry 13 }
 
     hpnicfRdAccQuietTime OBJECT-TYPE
-        SYNTAX INTEGER (0..255)
+        SYNTAX Integer32 (0..255)
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION
         "The time for server returning active.  The unit is minute.
-         When the value is 0, the server state retains active. Default value is 5."
+         When the value is 0, the server state retains active.  Default value is 5."
     ::= { hpnicfRdAccInfoEntry 14 }
 
     hpnicfRdAccFailureAction OBJECT-TYPE
@@ -648,7 +655,7 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
     ::= { hpnicfRdAccInfoEntry 15 }
 
     hpnicfRdAccRealTime OBJECT-TYPE
-        SYNTAX INTEGER (0..60)
+        SYNTAX Integer32 (0..60)
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION
@@ -658,7 +665,7 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
     ::= { hpnicfRdAccInfoEntry 16 }
 
     hpnicfRdAccRealTimeRetry OBJECT-TYPE
-        SYNTAX INTEGER (1..255)
+        SYNTAX Integer32 (1..255)
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION
@@ -680,7 +687,7 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
     ::= { hpnicfRdAccInfoEntry 18 }
 
     hpnicfRdAccStopRetry OBJECT-TYPE
-        SYNTAX INTEGER (10..65535)
+        SYNTAX Integer32 (10..65535)
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION
@@ -947,7 +954,7 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
         "This object is responsible for managing the creation, deletion and
         modification of rows, which support active status and CreateAndGo,
         Destroy operation.  To create a new row, hpnicfRdGroupName must be specified.
-        The number of rows with the same hpnicfRdGroupName cann't be more than 15."
+        The number of rows with the same hpnicfRdGroupName can't be more than 16."
     ::= { hpnicfRdSecondaryAuthServerEntry 7 }
 
 -- ***********************************************************************
@@ -1049,7 +1056,7 @@ HPN-ICF-RADIUS-MIB DEFINITIONS ::= BEGIN
         "This object is responsible for managing the creation, deletion and
         modification of rows, which support active status and CreateAndGo,
         Destroy operation.  To create a new row, hpnicfRdAccGroupName must be specified.
-        The number of rows with the same hpnicfRdAccGroupName cann't be more than 15."
+        The number of rows with the same hpnicfRdAccGroupName can't be more than 16."
     ::= { hpnicfRdSecondaryAccServerEntry 7 }
 
 

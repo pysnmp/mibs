@@ -4294,9 +4294,6 @@
       },
       "publisher": "net-snmp"
     },
-    "src/vendor/netsnmp/SNMP-SSH-TM-MIB": {
-      "publisher": "net-snmp"
-    },
     "src/vendor/netsnmp/UCD-DEMO-MIB": {
       "publisher": "net-snmp"
     },
