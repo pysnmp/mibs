@@ -442,15 +442,18 @@ def test_a_module_the_page_excludes_is_refused() -> None:
 
 Prose naming `EXTREME-VLAN-MIB`, which this distribution does carry.
 
-## 1. Held back in pysmi: 2 consortium modules
+## What used to be here
 
-| publisher | count | modules |
-|---|---|---|
-| IANA | 2 | IANA-CHARSET-MIB, IANA-LANGUAGE-MIB |
+`AGENTX-MIB` was listed until pysmi carried it.
 
-## 2. Held back in pysmi: 1 RFC module
+## Deleted here deliberately: 3 modules
 
-`AGENTX-MIB`
+| why | modules |
+|---|---|
+| Obsolete | IANA-CHARSET-MIB, IANA-LANGUAGE-MIB |
+
+`COFFEE-POT-MIB` was withdrawn as well, and is named in prose rather than in
+the table because the page names a module either way.
 
 ## The count reads declarations, not filenames
 
@@ -465,28 +468,29 @@ Prose naming `EXTREME-VLAN-MIB`, which this distribution does carry.
 
         excluded = import_contribution.excluded_modules(clone)
 
-        check("reads the numbered sections only", len(excluded), 3)
+        check("reads the deliberate section only", len(excluded), 3)
         check_true("a table row", "IANA-LANGUAGE-MIB" in excluded)
-        check_true("and a backticked name", "AGENTX-MIB" in excluded)
+        check_true("and a backticked name", "COFFEE-POT-MIB" in excluded)
         check_true("not the column heading", "modules" not in excluded)
         check_true(
             "not prose about a carried module", "EXTREME-VLAN-MIB" not in excluded
         )
+        check_true("nor one the prose says has come back", "AGENTX-MIB" not in excluded)
         check_true(
-            "nor one under an unnumbered heading", "EXTREME-BASE-MIB" not in excluded
+            "nor one under the closing prose", "EXTREME-BASE-MIB" not in excluded
         )
 
         refused = ""
 
         try:
             import_contribution.require_carryable(
-                clone, ["NET-SNMP-SYSTEM-MIB", "AGENTX-MIB"]
+                clone, ["NET-SNMP-SYSTEM-MIB", "COFFEE-POT-MIB"]
             )
         except import_contribution.Refused as exc:
             refused = str(exc)
 
-        check_true("refuses the excluded one", "AGENTX-MIB" in refused)
-        check_true("naming the section", "Held back in pysmi" in refused)
+        check_true("refuses the excluded one", "COFFEE-POT-MIB" in refused)
+        check_true("naming the section", "Deleted here deliberately" in refused)
         check_true("counts them", "1 of 2 module(s)" in refused)
         check_true(
             "leaves the carryable one out of it", "NET-SNMP-SYSTEM-MIB" not in refused
