@@ -95,6 +95,29 @@ def test_module_recognition() -> None:
     except mib_sources.NotAModule:
         check("rejects a renamed module", "NotAModule", "NotAModule")
 
+    # A publisher who starts serving the module inside a bundle is the
+    # same kind of layout move, and what a sweep fetches it writes into
+    # src/, where a file holds one module and is named for it. Refusing
+    # here is what keeps a bundle from being committed and then failing
+    # tests/source-layout-contract.py after the fact.
+    combined = MODULE + MODULE.replace(b"ACME-MIB", b"ACME-SECOND-MIB")
+    check(
+        "reads both names",
+        mib_sources.module_names(combined),
+        ["ACME-MIB", "ACME-SECOND-MIB"],
+    )
+
+    try:
+        mib_sources.require_module(combined, "ACME-MIB")
+        check("rejects a module served inside a bundle", "accepted", "NotAModule")
+    except mib_sources.NotAModule as refusal:
+        check("rejects a module served inside a bundle", "NotAModule", "NotAModule")
+        check(
+            "says what it served",
+            "declaring 2 modules" in str(refusal),
+            True,
+        )
+
 
 def test_patch_round_trip() -> None:
     """A generated patch reproduces our text, and a moved one refuses."""

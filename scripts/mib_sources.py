@@ -234,15 +234,23 @@ def module_names(data: bytes) -> list[str]:
 
 
 def require_module(data: bytes, expected: str) -> bytes:
-    """Return *data* if it really is the MIB module *expected*.
+    """Return *data* if it really is the MIB module *expected*, and only it.
 
     Raises:
-        NotAModule: it declares no module, or not the one asked for. The
-            first is a login wall or an error page served as 200. The
-            second is a source whose layout has moved underneath us --
-            Cisco reissuing a module under a new name at the old path,
-            say, which adopted blindly would replace a module that every
-            importer still asks for by its old name.
+        NotAModule: it declares no module, not the one asked for, or more
+            than the one asked for. The first is a login wall or an error
+            page served as 200. The second is a source whose layout has
+            moved underneath us -- Cisco reissuing a module under a new
+            name at the old path, say, which adopted blindly would replace
+            a module that every importer still asks for by its old name.
+            The third is a publisher who has started serving the module
+            inside a bundle: what a sweep writes goes straight into
+            ``src/``, where a file holds one module and is named for it,
+            so the bundle is refused here rather than committed and caught
+            by ``tests/source-layout-contract.py`` afterwards. Splitting it
+            is ``pysmi.mibinfo.module_text``'s job, and the entry in
+            ``mib-sources.json`` has to be rewritten at the same time,
+            because this compares the publisher's whole served file.
     """
     found = module_names(data)
 
@@ -252,6 +260,12 @@ def require_module(data: bytes, expected: str) -> bytes:
 
     if expected not in found:
         raise NotAModule(f"served {', '.join(found)}, not {expected}")
+
+    if len(found) > 1:
+        raise NotAModule(
+            f"served {expected} inside a file declaring {len(found)} modules "
+            f"({', '.join(found)}); src/ holds one module per file"
+        )
 
     return data
 
