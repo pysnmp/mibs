@@ -24,8 +24,10 @@ them with the tool would not notice the day the tool stopped writing one.
 
 from __future__ import annotations
 
+import csv
 import json
 import pathlib
+import re
 import subprocess
 import sys
 import tempfile
@@ -501,6 +503,70 @@ the table because the page names a module either way.
         check_true("and passes a module it does not name", True)
 
 
+def test_the_page_counts_what_it_lists() -> None:
+    """docs/absent-modules.md states its counts in prose, so something must check them.
+
+    Three numbers on that page are facts about this checkout rather than
+    prose: how many modules it excludes, how many modules `index-frozen.csv`
+    names, and how many of its rows name an excluded one. A person editing the
+    table has no way to notice that the sentence above it now disagrees, and
+    the page is the record of what this distribution dropped -- a wrong count
+    there is a wrong answer about the corpus.
+
+    This reads the real page and the real snapshot, which is the point: a
+    fixture would only check the arithmetic, and the arithmetic is not what
+    goes stale.
+    """
+    sys.stdout.write("\ntest_the_page_counts_what_it_lists\n")
+
+    root = pathlib.Path(__file__).resolve().parent.parent
+    excluded = import_contribution.excluded_modules(root)
+    page = (root / "docs" / "absent-modules.md").read_text(encoding="utf-8")
+
+    named = set()
+    rows = 0
+
+    with (root / "index-frozen.csv").open(newline="", encoding="utf-8") as handle:
+        for module, _oid in csv.reader(handle):
+            named.add(module)
+
+            if module in excluded:
+                rows += 1
+
+    # A module the page excludes that the snapshot never named is not one of
+    # the modules this page is about: nothing 404s for it, because no row
+    # points at it.
+    check(
+        "every excluded module is named by the snapshot",
+        sorted(set(excluded) - named),
+        [],
+    )
+
+    for what, count in (
+        ("modules named by `index-frozen.csv`", len(named)),
+        ("carried nowhere", len(excluded)),
+        ("index rows naming them", rows),
+    ):
+        stated = re.search(
+            rf"^\| {re.escape(what)} \| \**([\d,]+)\**", page, re.MULTILINE
+        )
+        check(
+            f"the summary row for {what!r}",
+            stated and int(stated.group(1).replace(",", "")),
+            count,
+        )
+
+    heading = re.search(
+        r"^## Deleted here deliberately: ([\d,]+) modules", page, re.MULTILINE
+    )
+
+    check(
+        "the section heading counts its own table",
+        heading and int(heading.group(1).replace(",", "")),
+        len(excluded),
+    )
+
+
 def test_a_bundle_naming_a_path_is_refused() -> None:
     """findings.json is data, and it names the files this reads and commits."""
     sys.stdout.write("\ntest_a_bundle_naming_a_path_is_refused\n")
@@ -639,6 +705,7 @@ def main() -> int:
     test_the_checkout_must_be_this_repository_and_clean()
     test_a_publisher_the_manifest_does_not_define_is_refused()
     test_a_module_the_page_excludes_is_refused()
+    test_the_page_counts_what_it_lists()
     test_a_bundle_naming_a_path_is_refused()
     test_a_symlink_in_a_bundle_is_refused()
     test_the_bundle_beside_the_checkout_does_not_refuse_the_import()
