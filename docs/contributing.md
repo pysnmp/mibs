@@ -6,6 +6,14 @@ is no registration step and no index to edit:
 [`mibcorpus`](https://pysnmp.github.io/pysmi/stable/mibcorpus.html) derives both
 from the sources.
 
+One file holds one module, is named for the module it declares, and carries no
+extension. `EXTREME-VLAN-MIB`, not `extreme-vlan.mib` and not a vendor bundle
+holding thirty other modules beside it. Vendors ship any of those forms, so if
+yours arrives combined, split it: `pysmi.mibinfo.module_text` (pysmi 5.3 and
+later) cuts one module out of a file at the lexer's own token boundaries, and
+`scripts/import_contribution.py` normalises names on the way in.
+`tests/source-layout-contract.py` fails the build on anything else.
+
 Record where the module came from. `mib-sources.json` holds the provenance of
 every module under `src/`, in the form pysmi already uses for the base MIBs it
 bundles:
@@ -114,6 +122,7 @@ The contract scripts under `tests/` are what CI runs. Run them locally first:
 
 | script | asserts |
 |---|---|
+| `tests/source-layout-contract.py` | every file under `src/` holds one module, named for it, with no extension |
 | `tests/index-contract.sh` | the published indexes answer for what the corpus carries |
 | `tests/artifact-contract.sh` | the published names are what `asn1/@mib@` can fetch |
 | `tests/chart-contract.sh` | the chart renders what `charts/mibserver/rendered/` records |

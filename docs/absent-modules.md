@@ -110,15 +110,17 @@ in the PR named beside it, and none of them should come back.
 | **Withdrawn.** RFC 8096 withdrew the module (pysmi#176) | IPV6-ICMP-MIB, IPV6-TCP-MIB, IPV6-UDP-MIB |
 | **Not bundled, no importers** (#375) | COFFEE-POT-MIB |
 
-## A module can be carried without a file of its own
+## The count reads declarations, not filenames
 
 `tests/index-contract.sh` counts these by comparing the names in the frozen
 index against what `src/` and the bundle carry. Until this was written it
 compared against *file basenames*, which is not the same question: a file may
-declare more than one module. `src/vendor/extreme/EXTREME-BASE-MIB` declares 30,
-and all 30 compile and serve, so `asn1/EXTREME-VLAN-MIB` returns 200, while the
-check counted every one of them as carried nowhere.
+declare more than one module. `src/vendor/extreme/EXTREME-BASE-MIB` declared 34,
+33 of them with no file of their own, and all 34 compiled and served, so
+`asn1/EXTREME-VLAN-MIB` returned 200 while the check counted those 33 as carried
+nowhere.
 
-That inflated the figure by 30 modules and 112 rows. The check now reads the
-`NAME DEFINITIONS ::= BEGIN` line out of each file, so the number it pins is the
-number above.
+The check reads the `NAME DEFINITIONS ::= BEGIN` line out of each file, so the
+number it pins is the number above. `src/` no longer holds a file like that one:
+that MIB is stored as 34 files, and `tests/source-layout-contract.py` fails the
+build if any file under `src/` declares more or fewer than one module.
