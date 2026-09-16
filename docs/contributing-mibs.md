@@ -167,3 +167,12 @@ A publisher the manifest does not define is refused rather than written: an
 entry naming one that does not exist fails
 `scripts/update_vendor_mibs.py --validate`, which CI runs on every pull
 request.
+
+A module [this distribution does not carry on purpose](absent-modules.md) is
+refused the same way, before the branch is made, and the refusal names the
+section that excluded it. A scan offers what a collection holds: pointing
+`mibcontribute` at net-snmp's MIB directory offered 24 modules, and 17 of them
+already had a decision recorded against them. None of those decisions says "a
+file under `src/vendor`" — the consortium and RFC groups are promoted in pysmi
+instead, and filing an RFC module under whichever vendor shipped a copy of it
+says something untrue about who publishes it. Offer the rest with `--module`.
