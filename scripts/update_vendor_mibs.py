@@ -36,6 +36,7 @@ from mib_sources import (
     PATCHES,
     ROOT,
     SRC,
+    Bundled,
     NotAModule,
     Unreachable,
     apply_patch,
@@ -116,6 +117,20 @@ def inspect(
         upstream = fetch(path, entry, publisher)
     except Unreachable as exc:
         return Finding(path, "unreachable", str(exc))
+    except Bundled as exc:
+        # The module is served, inside a file that also holds others. That
+        # is a difference between our copy and the publisher's, and when a
+        # maintainer has already recorded one it belongs in the backlog
+        # with the rest rather than turning the monthly run red.
+        if recorded:
+            return Finding(
+                path,
+                "known-divergence",
+                f"{exc} -- {recorded.get('note', 'recorded')}"
+                f" (since {recorded.get('recorded', '?')})",
+            )
+
+        return Finding(path, "not-a-module", str(exc))
     except NotAModule as exc:
         return Finding(path, "not-a-module", str(exc))
 

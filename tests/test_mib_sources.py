@@ -95,6 +95,29 @@ def test_module_recognition() -> None:
     except mib_sources.NotAModule:
         check("rejects a renamed module", "NotAModule", "NotAModule")
 
+    # A publisher who starts serving the module inside a bundle is the
+    # same kind of layout move, and what a sweep fetches it writes into
+    # src/, where a file holds one module and is named for it. Refusing
+    # here is what keeps a bundle from being committed and then failing
+    # tests/source-layout-contract.py after the fact.
+    combined = MODULE + MODULE.replace(b"ACME-MIB", b"ACME-SECOND-MIB")
+    check(
+        "reads both names",
+        mib_sources.module_names(combined),
+        ["ACME-MIB", "ACME-SECOND-MIB"],
+    )
+
+    try:
+        mib_sources.require_module(combined, "ACME-MIB")
+        check("rejects a module served inside a bundle", "accepted", "NotAModule")
+    except mib_sources.NotAModule as refusal:
+        check("rejects a module served inside a bundle", "NotAModule", "NotAModule")
+        check(
+            "says what it served",
+            "declaring 2 modules" in str(refusal),
+            True,
+        )
+
 
 def test_patch_round_trip() -> None:
     """A generated patch reproduces our text, and a moved one refuses."""
@@ -344,6 +367,56 @@ def test_archive_failure_is_settled_once() -> None:
         mib_sources._archive_locks.update(locks)
 
 
+def test_a_bundle_folds_into_a_recorded_divergence() -> None:
+    """A publisher serving the module in a bundle is refused, and reported once.
+
+    Both halves matter and they pull opposite ways. The refusal is what
+    keeps an unattended --update from writing a file that declares several
+    modules into src/. Reporting it as a failure every month, for a module
+    a maintainer has already looked at and recorded, is what trains
+    everybody to ignore the run.
+    """
+    sys.stdout.write("\nserving a module inside a bundle\n")
+
+    refusal = mib_sources.Bundled("served A-MIB 3 times over in one file")
+    check("is refused as a fetch", isinstance(refusal, mib_sources.NotAModule), True)
+
+    def refuse(path, entry, publisher):
+        raise refusal
+
+    fetched = update_vendor_mibs.fetch
+    update_vendor_mibs.fetch = refuse
+
+    try:
+        recorded = update_vendor_mibs.inspect(
+            "src/vendor/cisco/CISCO-ATM-CELL-LAYER-CAPABILITY",
+            {
+                "publisher": "p",
+                "divergence": {"note": "reviewed", "recorded": "2026-09-07"},
+            },
+            {"kind": "file", "url": "https://example.invalid/{module}"},
+        )
+        fresh = update_vendor_mibs.inspect(
+            "src/vendor/cisco/CISCO-ATM-CELL-LAYER-CAPABILITY",
+            {"publisher": "p"},
+            {"kind": "file", "url": "https://example.invalid/{module}"},
+        )
+    finally:
+        update_vendor_mibs.fetch = fetched
+
+    check(
+        "a recorded divergence absorbs it",
+        recorded and recorded.kind,
+        "known-divergence",
+    )
+    check(
+        "and keeps the reason",
+        bool(recorded and "3 times over" in recorded.detail),
+        True,
+    )
+    check("an unrecorded one fails the run", fresh and fresh.kind, "not-a-module")
+
+
 def main() -> int:
     """Run every case and report."""
     test_module_recognition()
@@ -354,6 +427,7 @@ def main() -> int:
     test_attribution_is_per_line()
     test_drift_is_confirmed_on_the_bytes()
     test_archive_failure_is_settled_once()
+    test_a_bundle_folds_into_a_recorded_divergence()
 
     if FAILURES:
         sys.stderr.write(f"\n{len(FAILURES)} check(s) failed:\n")

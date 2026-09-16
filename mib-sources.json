@@ -240,7 +240,7 @@
     },
     "src/vendor/cisco/CISCO-ATM-CELL-LAYER-CAPABILITY": {
       "divergence": {
-        "note": "not yet reviewed",
+        "note": "the publisher's file is this module three times over, byte for byte; we carry one copy of it, which is the first of the three",
         "recorded": "2026-09-07"
       },
       "publisher": "cisco-mibs-v2"
