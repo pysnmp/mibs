@@ -38,6 +38,13 @@ dependencies = [
 # copies of the bundle. The importer would have committed them and the
 # contract would have failed the build afterwards. See pysnmp/pysmi#320.
 #
+# 5.3.2 raised it from 5.3.1. That release promoted SNMP-SSH-TM-MIB (RFC 5592)
+# out of pysmi's future/ and into the shipped bundle, so src/vendor/netsnmp no
+# longer carries a copy. Filing an IETF module under the vendor who happened to
+# redistribute it said something untrue about who publishes it, and the
+# standard namespace this corpus resolves against is the bundle. On 5.3.1 the
+# module would resolve nowhere and every module importing it would fail.
+#
 # The `fast` extra is orjson, which pysmi takes for the corpus JSON when it is
 # importable and falls back to the standard library when it is not. Worth
 # about 4% of a build here -- SMI parsing is three quarters of a pass, so the
@@ -48,7 +55,7 @@ dependencies = [
 # the implementation that ran.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi[fast]>=5.3.1,<6",
+    "pysnmp-pysmi[fast]>=5.3.2,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
