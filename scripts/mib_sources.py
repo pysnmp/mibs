@@ -99,6 +99,20 @@ class NotAModule(Exception):
     """
 
 
+class Bundled(NotAModule):
+    """The module is there, but not on its own.
+
+    A publisher serving the module inside a file that declares several --
+    a vendor bundle, or the same module repeated, which Cisco does for
+    some capability statements -- is serving something that cannot be
+    written into ``src/``, where a file holds one module and is named for
+    it. It is refused like any other fetch that did not return the module
+    asked for, and it is its own class because the sweep reports it
+    differently: a module already recorded as diverging from its
+    publisher is not news every month.
+    """
+
+
 def load_manifest() -> dict[str, Any]:
     """Read ``mib-sources.json``."""
     return json.loads(MANIFEST.read_text())
@@ -262,9 +276,17 @@ def require_module(data: bytes, expected: str) -> bytes:
         raise NotAModule(f"served {', '.join(found)}, not {expected}")
 
     if len(found) > 1:
-        raise NotAModule(
+        distinct = list(dict.fromkeys(found))
+
+        if len(distinct) == 1:
+            raise Bundled(
+                f"served {expected} {len(found)} times over in one file; "
+                "src/ holds one module per file"
+            )
+
+        raise Bundled(
             f"served {expected} inside a file declaring {len(found)} modules "
-            f"({', '.join(found)}); src/ holds one module per file"
+            f"({', '.join(distinct)}); src/ holds one module per file"
         )
 
     return data

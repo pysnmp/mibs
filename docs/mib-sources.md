@@ -128,13 +128,19 @@ applies, and a source that has stopped serving the module it should all fail
 the run. So does a recorded divergence that has since been resolved: a note
 left after the condition clears stops being read.
 
-A publisher that has started serving the module inside a bundle fails the
+A publisher that serves the module inside a file declaring several fails the
 same way, as a source that no longer serves that module on its own. Files
 under `src/` hold one module each and are named for it, which
-`tests/source-layout-contract.py` enforces, so a bundle is refused at the
-fetch rather than written and caught afterwards. Adopting one means splitting
-it with `pysmi.mibinfo.module_text` and rewriting its `mib-sources.json`
-entry, since the record compares the publisher's whole served file.
+`tests/source-layout-contract.py` enforces, so such a file is refused at the
+fetch rather than written by `--update` and caught afterwards. Adopting one
+means splitting it with `pysmi.mibinfo.module_text` and rewriting its
+`mib-sources.json` entry, since the record compares the publisher's whole
+served file.
+
+A module that already carries a divergence record is reported under the
+backlog instead, with the refusal as its reason. One publisher does this
+today: Cisco's `v2/CISCO-ATM-CELL-LAYER-CAPABILITY.my` is that module three
+times over, byte for byte, and this repository carries one copy of it.
 
 A divergence already recorded does **not** fail the run.
 It is listed every month under "known divergences, awaiting review", and
