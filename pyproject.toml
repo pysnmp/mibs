@@ -54,6 +54,13 @@ dependencies = [
 # from 194 modules to 31 because of it, and 1,402 index rows resolve again.
 # See pysnmp/pysmi#323.
 #
+# 5.5.0 raised it from 5.4.0, because the CI step this floor exists to
+# support cannot run without it. That release names the modules pysmi
+# supplied an import for in report.json's `repaired` key -- a compile that
+# succeeded on text which does not say what it means, which until then left
+# no trace but a log line. "No module is repaired at build time" reads that
+# key, and on 5.4.0 there is no key to read. See pysnmp/pysmi#324.
+#
 # The `fast` extra is orjson, which pysmi takes for the corpus JSON when it is
 # importable and falls back to the standard library when it is not. Worth
 # about 4% of a build here -- SMI parsing is three quarters of a pass, so the
@@ -64,7 +71,7 @@ dependencies = [
 # the implementation that ran.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi[fast]>=5.4.0,<6",
+    "pysnmp-pysmi[fast]>=5.5.0,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which

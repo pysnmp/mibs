@@ -301,6 +301,55 @@ jobs:
           uv sync --frozen --only-group consumer
           uv run --no-sync python ./tests/runtime-compile-contract.py
           uv sync --frozen
+      # A repair is pysmi supplying an import a module forgot, where the
+      # symbol is undefined, unimported and exported by exactly one base
+      # module. It compiles, so it is not a failure; the text still does not
+      # say what it means, so it is not nothing. This repository stores
+      # repaired text rather than the publisher's, which means the fix belongs
+      # in the MIB and in scripts/mib-patches, not in every build. Eighteen
+      # modules were being repaired this way and the only trace was a log
+      # line.
+      - name: No module is repaired at build time
+        run: |
+          set -eu
+          python3 - <<'CHECK'
+          import json
+          import sys
+
+          with open("output/depot-data/report.json", encoding="utf-8") as f:
+              report = json.load(f)
+
+          # Absent, not empty, is the case to fail loudly on: a pysmi without
+          # the key would make this check pass by having nothing to look at,
+          # which is the shape of guard that stops guarding without saying so.
+          if "repaired" not in report:
+              sys.exit(
+                  "report.json has no 'repaired' key: this pysmi cannot say "
+                  "whether anything was repaired, so nothing here can either"
+              )
+
+          repaired = {
+              name: supplied
+              for modules in report["repaired"].values()
+              for name, supplied in modules.items()
+          }
+
+          for name, supplied in sorted(repaired.items()):
+              named = ", ".join(f"{s} from {m}" for s, m in sorted(supplied.items()))
+              print(f"  {name}: {named}", file=sys.stderr)
+
+          if repaired:
+              sys.exit(
+                  f"{len(repaired)} module(s) compiled only because pysmi "
+                  "supplied an import they omit. Put the import in the MIB: "
+                  "`mibpatch --source=src --output-directory=scripts/mib-patches "
+                  "--apply` writes it, and a module with a mib-sources.json "
+                  "entry also needs `update_vendor_mibs.py --adopt PATH` so the "
+                  "change stays visible against its publisher."
+              )
+
+          print("  ok nothing was repaired at build time")
+          CHECK
       # One report per tree, because each is its own publication and carries
       # its own counts. All three are printed: a tree that emitted nothing
       # still leaves a report, and printing only one would hide it.
