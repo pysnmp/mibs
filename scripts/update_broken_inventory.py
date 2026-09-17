@@ -61,10 +61,17 @@ IMPORTS = re.compile(rb"\bFROM\s+([A-Za-z][\w-]*)")
 BLAMES = re.compile(r'\bMIB ([A-Za-z][\w-]*)|module "([A-Za-z][\w-]*)"')
 
 #: Namespaces the prose accounts for under "Not defective, but not usable here
-#: either". Their modules are not defects to describe, and a build says nothing
-#: useful about them: what keeps them out of `src/` is that the corpus is keyed
-#: by bare module name, not anything the compiler can see.
+#: either", every module in them. Their modules are not defects to describe,
+#: and a build says nothing useful about them: what keeps them out of `src/`
+#: is that the corpus is keyed by bare module name, not anything the compiler
+#: can see.
 NOT_DEFECTIVE = {"alcatel-aos6"}
+
+#: Single modules the prose accounts for the same way, where the namespace
+#: around them is ordinary. `allied` holds three modules the compiler really
+#: does reject and one it does not, so exempting the namespace would relabel
+#: those three as fine and quietly lose what is wrong with them.
+NOT_DEFECTIVE_MODULES = {"SWITCH-MIB"}
 
 #: What the table says for a module the compiler never reached. pysmi reports
 #: it as neither compiled nor failed, so there is no error text to quote.
@@ -183,7 +190,7 @@ def reason_for(
         together: each one costs a build to find, so finding them one at a
         time is finding them one build at a time.
     """
-    if vendor in NOT_DEFECTIVE:
+    if vendor in NOT_DEFECTIVE or module in NOT_DEFECTIVE_MODULES:
         return ACCOUNTED_FOR
 
     if error is None:
