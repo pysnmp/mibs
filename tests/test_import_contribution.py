@@ -34,6 +34,7 @@ import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "scripts"))
 
+import corpus_figures
 import import_contribution
 
 FAILURES: list[str] = []
@@ -513,6 +514,12 @@ def test_the_page_counts_what_it_lists() -> None:
     the page is the record of what this distribution dropped -- a wrong count
     there is a wrong answer about the corpus.
 
+    The two that count the page's own tables are the page's to state, and are
+    what this holds it to. The one that counts `index-frozen.csv` is a figure
+    the documentation build substitutes, so the page cannot state it wrongly;
+    this resolves the figure and checks it anyway, because the figure being
+    right is the reason the row can be left alone.
+
     This reads the real page and the real snapshot, which is the point: a
     fixture would only check the arithmetic, and the arithmetic is not what
     goes stale.
@@ -522,6 +529,15 @@ def test_the_page_counts_what_it_lists() -> None:
     root = pathlib.Path(__file__).resolve().parent.parent
     excluded = import_contribution.excluded_modules(root)
     page = (root / "docs" / "absent-modules.md").read_text(encoding="utf-8")
+
+    # A row may name a figure rather than state a count -- docs/conf.py
+    # substitutes those at publish time from scripts/corpus_figures.py, so
+    # what a reader sees is the figure and what this has to check is the
+    # figure. Resolved the same way the documentation build resolves it,
+    # which is what makes this a check of the published page rather than of
+    # its source.
+    for name, value in corpus_figures.figures(root).items():
+        page = page.replace("{{ " + name + " }}", value)
 
     # The page holds two groups and only one of them is about the snapshot.
     # "Deleted here deliberately" is what this distribution carried and

@@ -33,8 +33,8 @@ claim and a `diff` is a check.
 **What the crawl surface is, and what turns it on.** `site.base-url` in
 `corpus.json` is the field that makes the build a site rather than a subtree.
 Given it, `mibcorpus` writes a canonical link, a `meta description` taken from
-the module's own DESCRIPTION, and JSON-LD naming every symbol on each of the
-7,430 pages, plus `sitemap.xml` as an index over three sitemap files,
+the module's own DESCRIPTION, and JSON-LD naming every symbol on each of
+{{ pages }} pages, plus `sitemap.xml` as an index over its sitemap files,
 `robots.txt` pointing at it, and `llms.txt`. Without it, none of that is
 written and the site still renders correctly in a browser, which is how it was
 missing from the live site through 2.6.0. The CI site contract names each
@@ -45,11 +45,11 @@ carries the DESCRIPTION, REFERENCE, ORGANIZATION and CONTACT-INFO text from
 the MIB files; `json/` on GitHub Pages does not. Everything else in both trees
 is byte-identical, and CI compares it that way.
 
-The reason is size, not content. Measured over the whole corpus the texts
-are 41% more on disk: `json/` goes from 226 MB to 318 MB. GitHub Pages
-refuses a site over 1 GB and that tree is already 580 MB, so the 92 MB is a
-quarter of the headroom left on the destination the corpus is moving away
-from. R2 charges nothing for egress and caps neither the object count nor the
+The reason is size, not content. The texts are about 40% more on disk over
+the whole corpus, and `json/` is {{ json_bytes }} of the GitHub Pages tree
+without them. That tree is {{ pages_tree_bytes }} against the 1 GB GitHub
+Pages refuses a site over, so carrying the texts there would spend most of the
+headroom left on the destination the corpus is moving away from. R2 charges nothing for egress and caps neither the object count nor the
 total that matters here, so the richer tree goes where there is room for it.
 
 Because it is a size decision, the two must still be the same corpus, and CI
@@ -90,17 +90,18 @@ empty for every module and CI fails the build if it stops being, because
 a closure a consumer cannot satisfy from this site is a closure that sends
 them somewhere else.
 
-**Who registered an arc.** `arcs.json` is the OID registration tree: 14,752
-arcs, each with the name, where the name came from -- a module's own
-definition, an IANA registry, or the base standard -- and a reference. It is
-what the browsable arc pages are rendered from, published as data so that a
+**Who registered an arc.** `arcs.json` is the OID registration tree:
+{{ arcs }} arcs, each with the name, where the name came from -- a module's
+own definition, an IANA registry, or the base standard -- and a reference. It
+is what the browsable arc pages are rendered from, published as data so that a
 consumer resolving an OID no module defines has the same answer the site
-shows. 15 arcs are still unnamed, which is the number to watch: it falls as
-the committed registry snapshots are refreshed. See
+shows. {{ unnamed_arcs }} of them are still unnamed, which is the number to
+watch: it falls as the committed registry snapshots are refreshed. See
 [registries.md](registries.md).
 
-Both files are about a megabyte each against a 570 MB tree, which is why they
-are published rather than reasoned about.
+Both files are about a megabyte each against a tree of
+{{ pages_tree_bytes }}, which is why they are published rather than reasoned
+about.
 
 **Why the pages and the files are on different hosts.** Every link the site
 generator writes is a directory URL, `../../mib/IF-MIB/`, which a host must
@@ -113,8 +114,9 @@ decides the cost on a free plan: requests to a Worker's script are metered at
 100,000 a day with cache hits counted, and requests to its assets are not.
 
 Static assets are limited instead by file count: 20,000 per version. The
-browsable pages are 7,430 of them. The 11,025 files beside them need no
-resolution at all, and the per-module downloads still to come would add more.
+browsable site is {{ pages }} files. The {{ data_files }} files beside it need
+no resolution at all, and the per-module downloads still to come would add
+more.
 
 So the split follows the constraint rather than the content: **pages that need
 resolving go where resolving is free, and files addressed by exact name go
@@ -189,18 +191,17 @@ ASN.1 or parsing its whole JSON document. An anchor index also has no per-node
 ordering, so a walk cannot be served from one. In `core.db` both are a single
 indexed row.
 
-Measured on the corpus this repository built in September 2026, as an
-indication of shape rather than a figure to keep current -- every build
-writes its own counts to `report.json`:
+Over the corpus the build that wrote these pages produced. Each row is read
+from that build's `report.json` rather than written here, so the table is
+current by construction:
 
 | | |
 |---|---|
-| modules | 5,510 |
-| nodes | 767,870 |
-| distinct type specifications | 47,226 |
-| indexed OIDs | 98,867 |
-| size | 256 MB, 36 MB gzipped |
-| build | one `mibcorpus` invocation, ~5 minutes |
+| modules | {{ modules }} |
+| nodes | {{ nodes }} |
+| indexed OIDs | {{ indexed_oids }} |
+| `node` rows in the database | {{ db_rows }} |
+| build | one `mibcorpus` invocation, minutes rather than hours |
 
 **Built from `corpus-db.json`, whose source set is `corpus.json`'s, not the
 compact manifest.** The two differ only in what they emit. The compact corpus
@@ -230,7 +231,8 @@ The distinction matters because the two obvious alternatives both fail. A
 build over the changed files alone dies on the first `IMPORTS`: a vendor
 module needs `SNMPv2-TC`, which needs the rest of the input set to be there. A
 build over the whole corpus answers in about five minutes and puts the two
-pages under review somewhere inside 7,430. The preview keeps the input set
+pages under review somewhere inside a site of {{ pages }} pages. The preview
+keeps the input set
 whole and narrows the output set, which over this corpus is **three modules
 and 26 files in about 45 seconds**, most of it spent enumerating the corpus.
 

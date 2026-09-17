@@ -47,7 +47,7 @@ Steps 1 to 6 can be done in any order; 7, 8 and 9 depend on what came before.
 
 R2 object storage → **Create bucket**. Any name; you will type it again in
 step 6. Location and storage class can stay on their defaults; the corpus is
-590 MB of small files read from everywhere.
+{{ data_bytes }} of small files read from everywhere.
 
 ## 2. Give the bucket its hostname
 
@@ -139,10 +139,10 @@ and the Worker's name is in `wrangler.jsonc`.
 The next push to `main` deploys. Nothing needs to be triggered by hand; a
 merge is enough.
 
-The first R2 sync uploads the whole tree: 11,025 objects, 590 MB, about 11,000
-of the million writes a month the free tier includes. Every
-sync after it uploads only what changed, because the sync compares checksums
-rather than timestamps.
+The first R2 sync uploads the whole tree: {{ data_files }} objects and
+{{ data_bytes }}, a small fraction of the million writes a month the free tier
+includes. Every sync after it uploads only what changed, because the sync
+compares checksums rather than timestamps.
 
 The first Worker deploy creates the Worker. `wrangler` prints the URL it
 deployed to; open it and the site should be there, on a `workers.dev` address,

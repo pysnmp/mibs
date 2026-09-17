@@ -161,12 +161,12 @@ if [ -f "$TREE"/standard.txt ]; then
   # file collapsing to a handful of entries or to nothing, which is what a broken
   # find or a changed src/ layout would produce.
   #
-  # The floor was 250 while pysmi bundled 485 modules. pysmi 3.0.0rc5 holds 275
-  # of them (pysnmp/pysmi#220) and the wheel carries 210, so this file -- built
-  # from the staged bundle alone, less the RFC* and SNMPv2* exclusions above --
-  # holds 186. The floor moves to 150 to sit below that with room for ordinary
-  # bundle churn, while still being far above the handful of entries a broken
-  # build produces.
+  # The floor was 250 until pysmi 3.0.0rc5 moved most of its bundle into
+  # pysmi/mibs/future/ (pysnmp/pysmi#220), which took this file -- built from
+  # the staged bundle alone, less the RFC* and SNMPv2* exclusions above --
+  # below it. The floor sits under what the bundle currently yields, with room
+  # for ordinary churn, and far above the handful of entries a broken build
+  # produces. The exact count is in the artifact, not restated here.
   STDCOUNT="$(grep -c . "$TREE"/standard.txt || true)"
   if [ "$STDCOUNT" -ge 150 ]; then
     pass "$STDCOUNT entries, above the floor of 150"

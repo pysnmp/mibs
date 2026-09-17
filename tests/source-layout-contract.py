@@ -14,9 +14,9 @@ diff on ``src/vendor/acme/ACME-MIB`` believing it is a change to
 
 A file holding several modules breaks all three. It publishes once per
 module it declares, the same bytes written out under every name, so a
-776 KB vendor blob declaring 34 modules became 26 MB of the
-distribution, and each of those 34 copies carried the other 33. A change
-to any one of them showed up as a diff against a file named for a
+vendor blob declaring dozens of modules squared its own size in the
+distribution, and every copy carried all the other modules with it. A
+change to any one of them showed up as a diff against a file named for a
 different module. No build step failed over it, and no check reported
 the shape.
 

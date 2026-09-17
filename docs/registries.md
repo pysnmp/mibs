@@ -28,8 +28,8 @@ Two IANA registries answer both, and both are committed here:
 
 | file | what it is |
 |---|---|
-| `registries/smi-numbers.xml` | IANA's SMI Numbers registry, whole. 1,076 arcs, naming the `1.3.6.1` subtree. |
-| `registries/pen-snapshot.csv` | The Private Enterprise Numbers registry, reduced to the arcs this corpus uses. 360 registrants. |
+| `registries/smi-numbers.xml` | IANA's SMI Numbers registry, whole. It names the `1.3.6.1` subtree. |
+| `registries/pen-snapshot.csv` | The Private Enterprise Numbers registry, reduced to the arcs this corpus uses: {{ pen_rows }} registrants. |
 | `registries/enterprise-arcs.txt` | Which arcs those are: the input to the reduction. |
 
 ## Why committed rather than fetched
@@ -46,10 +46,10 @@ the CI build both pass them with `--oid-registry`.
 
 ## Why the PEN snapshot is reduced
 
-IANA publishes 66,807 registrations in a 5.1 MB file. This corpus reaches
-361 enterprise arcs. Committing the whole registry would mean a ~4 MB CSV
-and a monthly diff of the entire thing, most of it about vendors no module
-here has ever mentioned.
+IANA publishes tens of thousands of registrations in one multi-megabyte file.
+This corpus reaches {{ registrants }} enterprise arcs. Committing the whole
+registry would mean a CSV of megabytes and a monthly diff of the entire thing,
+most of it about vendors no module here has ever mentioned.
 
 The cost of reducing is staleness: a module arriving later under an arc
 the snapshot predates has no registrant, and its page renders nameless.

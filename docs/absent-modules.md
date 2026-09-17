@@ -29,7 +29,7 @@ This page is the record of which modules those are and why each was dropped.
 
 | | |
 |---|---|
-| modules named by `index-frozen.csv` | 5,347 |
+| modules named by `index-frozen.csv` | {{ frozen_modules }} |
 | carried nowhere | **31** |
 | index rows naming them | **223** |
 | surviving modules with a dangling import | **0** |
@@ -49,8 +49,8 @@ them, which was true and was the wrong question to ask of a general-purpose
 compiler. What settled it was that pgmillon/observium, an independent
 monitoring distribution, ships 200 of the 274.
 
-Those 1,402 index rows resolve again. What is left below is the group that was
-never about packaging.
+Every index row that named one of them resolves again. What is left below is
+the group that was never about packaging.
 
 ## Deleted here deliberately: 31 modules
 
