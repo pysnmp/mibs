@@ -30,7 +30,7 @@ is a worse answer than no answer.
 
 ## Not defective, but not usable here either
 
-Two things under `broken/` compile perfectly well. They are here because what
+Some things under `broken/` compile perfectly well. They are here because what
 they say cannot be served from a flat distribution alongside what else is
 here, which is a different problem from a module the compiler refuses.
 
@@ -42,6 +42,15 @@ reusing the names. A distribution keyed by bare module name can serve one of
 each, so it serves AOS 7's, whose text is current to 2024-07-15 against AOS
 6's 2019-10-07. Twenty modules only AOS 6 had go with it; nothing else in the
 corpus imported any of them.
+
+`vendor/allied/SWITCH-MIB` is Allied Telesyn's HS150, registering under
+`switchProduct` from TELESYN-ATI-TC. It compiles. It cannot be served because
+`src/vendor/fs/SWITCH` already holds a module named `SWITCH`, and pysmi's
+reader tries a name both with and without the `-MIB` suffix -- `fuzzyMatching`
+in `pysmi.reader.base.get_mib_variants` -- so one file answers for both names.
+Asked for `SWITCH-MIB`, the corpus takes FS's `SWITCH` and passes over this,
+which is the shadowing the build reports. Two different vendors' modules, one
+name between them as far as the lookup is concerned.
 
 `vendor/extreme/BROCADE-MAPS-MIB` imports `swVfId` from `SYSTEM-MIB`. Its own
 revision history records why: *"modified SW-MIB from IMPORTS to SYSTEM-MIB"*,
@@ -83,7 +92,7 @@ and nothing else. Two shapes:
 A consequential entry usually returns to `src/` on its own once the
 module it imports is replaced.
 
-251 root defects, 81 consequential, and 79 modules the prose above accounts for.
+251 root defects, 81 consequential, and 80 modules the prose above accounts for.
 
 ### 3com
 
@@ -185,6 +194,7 @@ module it imports is replaced.
 | `AT-DOS-MIB` | Illegal character '/', 9727 characters left unparsed at this stage |
 | `ATI-8324SX-MIB` | Bad grammar near token type ., value . |
 | `ATI-MIB` | Bad grammar near token type OCTET, value OCTET |
+| `SWITCH-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 
 ### alvarion
 
