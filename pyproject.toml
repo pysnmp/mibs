@@ -46,12 +46,12 @@ dependencies = [
 # module would resolve nowhere and every module importing it would fail.
 #
 # 5.4.0 raised it from 5.3.2, and for the same reason one step larger. That
-# release emptied pysmi's future/ tier: all 274 held modules moved into the
-# shipped bundle, which now carries every one of the 485 its manifest names.
-# The hold had rested on a survey showing nothing in this corpus imported one
-# of them -- true, and the wrong question to ask of a general-purpose
-# compiler, since observium ships 200 of the 274. docs/absent-modules.md fell
-# from 194 modules to 31 because of it, and 1,402 index rows resolve again.
+# release emptied pysmi's future/ tier: every held module moved into the
+# shipped bundle, which now carries all of the ones its manifest names. The
+# hold had rested on a survey showing nothing in this corpus imported one of
+# them -- true, and the wrong question to ask of a general-purpose compiler,
+# since observium ships most of them. docs/absent-modules.md lost most of its
+# length because of it, and the index rows naming those modules resolve again.
 # See pysnmp/pysmi#323.
 #
 # 5.5.0 raised it from 5.4.0, because the CI step this floor exists to

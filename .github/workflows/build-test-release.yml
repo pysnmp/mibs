@@ -307,7 +307,8 @@ jobs:
       # never becomes an undefined symbol, so nothing reports it and
       # `mibdump --strict-imports` passes. AH_TRAP_MIB and EDFA-oa-MIB were
       # found in #435 by a reviewer reading the diff, which does not scale to
-      # 6,976 modules. 562 already carry it, so this gates against the number
+      # a corpus of thousands of modules. The ones already carrying it are
+      # listed in unimported-symbols.txt, so this gates against that list
       # growing rather than against the debt existing.
       - name: No new module omits a standard import
         run: uv run python scripts/report_unimported_symbols.py --check
@@ -492,7 +493,7 @@ jobs:
           # The generator falls back to "IF-MIB: 90 object(s), ..." where the
           # build carries no DESCRIPTION. That fallback is a correct sentence
           # and a useless search result, and it is what a texts-less build
-          # would silently publish on all 7,430 pages.
+          # would publish on every page of the site.
           if len(text) < 80 or text.startswith("IF-MIB:"):
               bad.append(f"description is not the module's own prose: {text[:80]!r}")
 
@@ -903,13 +904,13 @@ jobs:
       # requests to a Worker script, not to its assets, so the site is not
       # rate-limited, while a script in front of R2 rewriting the same paths
       # would be, at 100,000 requests a day with cache hits counted. What it
-      # costs instead is a file count, 20,000 per version, and the pages are
-      # 7,430. See wrangler.jsonc.
+      # costs instead is a file count, 20,000 per version, which the page
+      # count is well inside. See wrangler.jsonc.
       #
       # The downloads go to R2, addressed by exact key: nothing to resolve, no
       # file-count ceiling, 10 GB included and no egress charge. asn1/ and
-      # json/ are 11,025 files between them, which is most of a static-asset
-      # budget spent on files that never needed one.
+      # json/ are two files per module between them, which would be most of a
+      # static-asset budget spent on files that never needed one.
       #
       # Gated on the credentials being present as well as on main, so a fork
       # -- and this repository until the Cloudflare side is wired up -- builds
@@ -949,7 +950,7 @@ jobs:
           # --checksum, not the default size-and-modification-time: the
           # runner checks out fresh every run, so every local file looks newer
           # than the object it matches and a time-based sync would re-upload
-          # 11,000 unchanged files each release. MD5 is what R2 stores.
+          # every unchanged file each release. MD5 is what R2 stores.
           #
           # sync, not copy: a module dropped from the corpus has to stop being
           # served, and the index no longer names it.

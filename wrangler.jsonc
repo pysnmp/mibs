@@ -12,8 +12,8 @@
 // on the free plan with cache hits counted.
 //
 // What it costs instead is a file count: 20,000 per version on the free
-// plan, 25 MiB each. The pages are 7,430 of them. The 11,025 files beside
-// them -- asn1/, json/, search.db -- are addressed by exact name, need no
+// plan, 25 MiB each. The pages are well inside that. The files beside them
+// -- asn1/, json/, search.db -- are addressed by exact name, need no
 // resolving, and go to R2 where the count is not capped. CI holds each tree
 // to its own ceiling; see .github/workflows/build-test-release.yml.
 {

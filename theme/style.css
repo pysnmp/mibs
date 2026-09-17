@@ -76,7 +76,7 @@ a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1
 a:hover { text-decoration-thickness: 2px; }
 
 /* Off-screen until focused. Without it a keyboard reader tabs the header on
- * every one of the 7,430 generated pages before reaching the content. */
+ * every one of the thousands of generated pages before reaching the content. */
 .skip {
   position: absolute;
   left: -9999px;
@@ -233,10 +233,66 @@ nav.keys {
 section > :last-child { margin-bottom: 0; }
 .note { color: var(--ink-muted); font-size: 0.9375rem; }
 
+/* The figures on browse/. One hero number and a tile per count, and no chart:
+   these are unrelated totals rather than a series, and a bar chart of
+   unrelated totals invites a comparison between them that means nothing. */
+.hero { margin: 0 0 1.25rem; }
+
+.hero .figure {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.hero .label { color: var(--ink-secondary); }
+
+ul.kpis {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.75rem;
+}
+
+ul.kpis li {
+  padding: 0.7rem 0.9rem;
+  background: var(--raised);
+  border: 1px solid var(--rule);
+  border-radius: 0.3rem;
+}
+
+ul.kpis .figure {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+ul.kpis .label {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--ink-muted);
+  font-size: 0.8125rem;
+}
+
+/* Dates and counts down a column, so the eye compares them column-wise
+   rather than reading each row's digits as a word. */
+.recent td:nth-child(2), .recent td:last-child {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.recent td:last-child, .recent th:last-child { text-align: right; }
+
 /* The definition cells carry no wrapping element -- pysmi stopped emitting one
-   per cell, which was 61 bytes a row over 764,000 definitions -- so these
-   reach them by position. .defs.typed is the five-column shape, Name / OID /
-   Syntax / Access / Status; .defs on its own is the three-column one.
+   per cell, which was 61 bytes a row over every definition in the corpus --
+   so these reach them by position. .defs.typed is the five-column shape,
+   Name / OID / Syntax / Access / Status; .defs on its own is the
+   three-column one.
 
    Deliberately without the chip background that `code` carries in prose: a
    background on every name and syntax in a dense five-column table reads as
@@ -266,7 +322,7 @@ section > :last-child { margin-bottom: 0; }
 
 /* The description is prose and has to look like prose. `inherit` here would
    take the monospace from the cell above -- the parent is the td -- which is
-   what shipped 670,827 descriptions in a code font. */
+   what shipped every description in the corpus in a code font. */
 .defs .desc {
   font-family: var(--font-stack);
   color: var(--ink-muted);
@@ -284,4 +340,5 @@ section > :last-child { margin-bottom: 0; }
   dl.facts dt { margin-top: 0.6rem; }
   ul.plain { columns: auto; }
   h1 { font-size: 1.6rem; }
+  .hero .figure { font-size: 2.25rem; }
 }
