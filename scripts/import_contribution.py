@@ -206,7 +206,13 @@ def require_checkout(checkout: Path) -> Path:
 #: held groups and left one section, and a pattern keyed to the numbering
 #: found nothing at all the moment the numbering went -- no error, just a
 #: guard that stopped guarding.
-EXCLUDING = re.compile(r"^## (?:\d+\. )?Deleted here deliberately\b")
+#:
+#: Two sections match now. "Deleted here deliberately" is what this
+#: distribution carried and dropped; "Declined" is what it was offered and
+#: turned down, which was never here and so is in no snapshot. A contributor
+#: offering either gets the same refusal, which is the only thing this needs
+#: to know about the difference.
+EXCLUDING = re.compile(r"^## (?:\d+\. )?(?:Deleted here deliberately|Declined)\b")
 
 
 def excluded_modules(checkout: Path) -> dict[str, str]:

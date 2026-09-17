@@ -1,7 +1,17 @@
-# Removed modules
+# Modules this distribution does not carry
 
-This page lists the 31 modules that `index-frozen.csv` names and this
-distribution no longer carries, with the reason each was dropped.
+Two different things, on one page because a contributor offering either gets
+the same answer.
+
+**Removed**: 31 modules `index-frozen.csv` names and this distribution no
+longer carries, with the reason each was dropped. That is the bulk of the page
+and everything below down to the count.
+
+**Declined**: 10 modules another collection ships that this distribution was
+offered and turned down. They were never here, so the snapshot never named
+them and no index row points at them; what they have in common with the
+removed ones is only that the answer to "should we carry this?" is already
+written down.
 
 `index-frozen.csv` is a snapshot of what `index.csv` answered before this
 repository began correcting it, and it is never rewritten: an OID that had an
@@ -55,6 +65,20 @@ in the PR named beside it, and none of them should come back.
 | **Never published.** Draft that never became a standard, squatting an assigned `mib-2` arc (#352, #359) | INT-SERV-MIB, SYSLOG-MIB, T11-FC-SP-CERTS-MIB, T11-ZONE-SERVER-MIB |
 | **Withdrawn.** RFC 8096 withdrew the module (pysmi#176) | IPV6-ICMP-MIB, IPV6-TCP-MIB, IPV6-UDP-MIB |
 | **Not bundled, no importers** (#375) | COFFEE-POT-MIB |
+
+## Declined: 10 modules
+
+Modules pgmillon/observium ships that this distribution does not, where the
+reason is a decision rather than an oversight. Auditing observium's whole tree
+against ours left fourteen standard modules carried nowhere; four of them went
+into pysmi's bundle in pysnmp/pysmi#325 and these ten did not.
+
+| why | modules |
+|---|---|
+| **Superseded.** SMIv1 predecessor whose successor pysmi bundles, on the same arcs: `RFC1231-MIB` shares `dot5 3` and `dot5 4` with TOKENRING-MIB, `RFC1243-MIB` shares `mib-2 13` and `appletalk 1`-`9` with APPLETALK-MIB, and `RFC1354-MIB` defines the `ipForward` arc IP-FORWARD-MIB builds on (pysmi#325) | RFC1229-MIB, RFC1231-MIB, RFC1243-MIB, RFC1354-MIB |
+| **Superseded framework.** The SNMPv2 party administration SNMPv2c and v3 abandoned, written against the 1993 draft SMI: SNMPv2-PARTY-MIB imports `UInteger32` from SNMPv2-SMI, which RFC 2578 renamed `Unsigned32` and does not export. Carrying them would mean rewriting them onto a different SMI (pysmi#325) | SNMPv2-PARTY-MIB, SNMPv2-M2M-MIB |
+| **Never published.** No RFC publishes the module. Searching the RFC index finds no MIB document for either working group's, and SAVI-MIB names no `ORGANIZATION` at all (pysmi#325) | SMF-MIB, IANA-SMF-MIB, SAVI-MIB |
+| **Not attributed.** IEEE 802.1, which wants an `ieee802.1` manifest entry and a revision to fetch against rather than a copy taken from a collection | LLDP-EXT-DOT1-PE-MIB |
 
 ## The count reads declarations, not filenames
 
