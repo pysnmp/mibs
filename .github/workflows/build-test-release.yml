@@ -301,6 +301,16 @@ jobs:
           uv sync --frozen --only-group consumer
           uv run --no-sync python ./tests/runtime-compile-contract.py
           uv sync --frozen
+      # The other half of "no silent repairs". The step below catches what
+      # pysmi reports as repaired; this catches what it cannot see at all --
+      # a macro the grammar knows or a base type the relaxed parser resolves
+      # never becomes an undefined symbol, so nothing reports it and
+      # `mibdump --strict-imports` passes. AH_TRAP_MIB and EDFA-oa-MIB were
+      # found in #435 by a reviewer reading the diff, which does not scale to
+      # 6,976 modules. 562 already carry it, so this gates against the number
+      # growing rather than against the debt existing.
+      - name: No new module omits a standard import
+        run: uv run python scripts/report_unimported_symbols.py --check
       # A repair is pysmi supplying an import a module forgot, where the
       # symbol is undefined, unimported and exported by exactly one base
       # module. It compiles, so it is not a failure; the text still does not
