@@ -83,7 +83,7 @@ and nothing else. Two shapes:
 A consequential entry usually returns to `src/` on its own once the
 module it imports is replaced.
 
-250 root defects, 81 consequential, and 77 the prose above accounts for.
+251 root defects, 81 consequential, and 79 modules the prose above accounts for.
 
 ### 3com
 
@@ -133,6 +133,7 @@ module it imports is replaced.
 | `ALCATEL-IND1-LBD-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 | `ALCATEL-IND1-LICENSE-MANAGER-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 | `ALCATEL-IND1-LLDP-MED-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
+| `ALCATEL-IND1-LLDP-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 | `ALCATEL-IND1-LPS-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 | `ALCATEL-IND1-MAC-ADDRESS-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 | `ALCATEL-IND1-MAC-SERVER-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
@@ -175,6 +176,7 @@ module it imports is replaced.
 | `ALCATEL-IND1-WEBMGT-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 | `ALCATEL-ISIS-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 | `ALCATEL-STATIC-FRR-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
+| `ALU-POWER-ETHERNET-MIB` | compiles; see [Not defective](#not-defective-but-not-usable-here-either) |
 
 ### allied
 
@@ -506,6 +508,7 @@ module it imports is replaced.
 
 | module | reason |
 | --- | --- |
+| `DPI20-MIB` | Bad grammar near token type OBJECT, value OBJECT |
 | `GPFS-MIB` | Duplicate symbol found: gpfsDiskName |
 | `IBM-CPS-MIB` | imports a module this corpus does not hold |
 | `IBM-ELAN-MIB` | Unknown parents for symbols: atmDevLineSpeed, idleVccTime, lecsMaxVccs |

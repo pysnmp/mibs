@@ -9,7 +9,7 @@
  IMPORTS       
    Integer32, IpAddress, Unsigned32, NOTIFICATION-TYPE, OBJECT-TYPE, MODULE-IDENTITY        
        FROM SNMPv2-SMI        
-   DisplayString, TruthValue
+   DisplayString, TruthValue, MacAddress
        FROM SNMPv2-TC 
    InetAddress, InetAddressPrefixLength, InetAddressType  
         FROM INET-ADDRESS-MIB 

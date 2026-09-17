@@ -13,7 +13,7 @@ CONFIG-MIB DEFINITIONS ::= BEGIN
         dot1dStpPortState, dot1dStpPortDesignatedBridge,
         dot1dStpPortDesignatedPort
             FROM BRIDGE-MIB -- RFC-1493
-        DisplayString, RowStatus, MacAddress, TimeStamp
+        DisplayString, RowStatus, MacAddress, TimeStamp, TruthValue
             FROM SNMPv2-TC
         HpSwitchPortType, ConfigStatus
             FROM HP-ICF-TC

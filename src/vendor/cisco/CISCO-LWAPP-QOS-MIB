@@ -22,7 +22,7 @@ IMPORTS
         RowStatus,
         TruthValue,
         DisplayString,
-        TimeStamp
+        TimeStamp, MacAddress
                 FROM SNMPv2-TC 
         ciscoMgmt
                 FROM CISCO-SMI

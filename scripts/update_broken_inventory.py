@@ -250,7 +250,7 @@ def sections(rows: dict[str, tuple[str, str]]) -> list[str]:
         "",
         f"{shapes['root defect']} root defects, "
         f"{shapes['consequential']} consequential, and "
-        f"{shapes['accounted for']} the prose above accounts for.",
+        f"{shapes['accounted for']} modules the prose above accounts for.",
         "",
     ]
 

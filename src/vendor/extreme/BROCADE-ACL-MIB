@@ -21,7 +21,7 @@ IMPORTS
 
         FROM SNMPv2-CONF
 
-    TEXTUAL-CONVENTION
+    TEXTUAL-CONVENTION, MacAddress, TruthValue
 
         FROM SNMPv2-TC
 

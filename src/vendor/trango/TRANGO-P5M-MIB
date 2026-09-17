@@ -7,7 +7,7 @@ IMPORTS
 	OBJECT-IDENTITY,
 	Unsigned32,
 	NOTIFICATION-TYPE,
-	enterprises
+	enterprises, Opaque
 		FROM SNMPv2-SMI
 	
 	NOTIFICATION-GROUP,

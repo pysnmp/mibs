@@ -18,7 +18,8 @@ KYOCERA-Private-MIB DEFINITIONS ::= BEGIN
 			FROM HOST-RESOURCES-MIB
 		OBJECT-TYPE
 			FROM RFC-1212
-		DisplayString FROM SNMPv2-TC;
+		DisplayString FROM SNMPv2-TC
+		enterprises FROM SNMPv2-SMI;
 
 --
 --	Object identifier definition

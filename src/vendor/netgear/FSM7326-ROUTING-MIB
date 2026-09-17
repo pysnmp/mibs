@@ -20,7 +20,9 @@ FSM7326-ROUTING-MIB DEFINITIONS ::= BEGIN
       TimeTicks                                         FROM RFC1155-SMI
       DisplayString,PhysAddress                         FROM RFC1213-MIB
       ospfIfEntry, ospfVirtIfEntry, ospfAreaEntry       FROM OSPF-MIB
-      rip2IfConfEntry                                   FROM RIPv2-MIB;
+      rip2IfConfEntry                                   FROM RIPv2-MIB
+      TruthValue
+        FROM SNMPv2-TC;
 
     fsm7326Routing MODULE-IDENTITY
            LAST-UPDATED "200311101200Z" -- 10 Nov 2003 12:00:00 GMT

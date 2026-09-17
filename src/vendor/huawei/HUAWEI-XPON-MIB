@@ -8,7 +8,7 @@
     HUAWEI-XPON-MIB DEFINITIONS ::= BEGIN
         IMPORTS
             MODULE-IDENTITY, mib-2, OBJECT-TYPE, Counter32, Counter64, Unsigned32,
-            Integer32, zeroDotZero, IpAddress, Gauge32, NOTIFICATION-TYPE
+            Integer32, zeroDotZero, IpAddress, Gauge32, NOTIFICATION-TYPE, Opaque
                 FROM SNMPv2-SMI
             TruthValue, DateAndTime, RowStatus, MacAddress, TEXTUAL-CONVENTION
                 FROM SNMPv2-TC
