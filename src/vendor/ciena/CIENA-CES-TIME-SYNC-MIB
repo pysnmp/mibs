@@ -8,7 +8,7 @@
  IMPORTS
     Integer32, Unsigned32, OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE
         FROM SNMPv2-SMI
-    DisplayString, TEXTUAL-CONVENTION
+    DisplayString, TEXTUAL-CONVENTION, MacAddress
         FROM SNMPv2-TC
     cienaCesConfig, cienaCesNotifications 
         FROM CIENA-SMI

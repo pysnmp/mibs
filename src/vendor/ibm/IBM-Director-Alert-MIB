@@ -5,7 +5,9 @@ IMPORTS
    Integer32                                             FROM SNMPv2-SMI
    DisplayString, TruthValue                             FROM SNMPv2-TC
    MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP   FROM SNMPv2-CONF
-   SnmpAdminString                                       FROM SNMP-FRAMEWORK-MIB;
+   SnmpAdminString                                       FROM SNMP-FRAMEWORK-MIB
+   enterprises
+        FROM SNMPv2-SMI;
 
 ibm OBJECT IDENTIFIER ::= { enterprises 2 }
 

@@ -2149,7 +2149,9 @@
       "publisher": "cisco-mibs-v2"
     },
     "src/vendor/cisco/CISCO-LWAPP-SYS-MIB": {
-      "publisher": "cisco-mibs-v2"
+      "patch": "cisco/CISCO-LWAPP-SYS-MIB.patch",
+      "publisher": "cisco-mibs-v2",
+      "reason": "Uses TimeInterval without importing it. Added to the IMPORTS from SNMPv2-TC, which is where the textual convention is defined. The compiler supplied the same import at build time until this was written down."
     },
     "src/vendor/cisco/CISCO-LWAPP-TC-MIB": {
       "divergence": {

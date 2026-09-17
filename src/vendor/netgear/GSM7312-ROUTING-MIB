@@ -20,7 +20,9 @@ GSM7312-ROUTING-MIB DEFINITIONS ::= BEGIN
       TimeTicks                                         FROM RFC1155-SMI
       DisplayString,PhysAddress                         FROM RFC1213-MIB
       ospfIfEntry, ospfVirtIfEntry, ospfAreaEntry       FROM OSPF-MIB
-      rip2IfConfEntry                                   FROM RIPv2-MIB;
+      rip2IfConfEntry                                   FROM RIPv2-MIB
+      TruthValue
+        FROM SNMPv2-TC;
 
     gsm7312Routing MODULE-IDENTITY
     LAST-UPDATED "200305061200Z" -- 22 Aug 2003 12:00:00 GMT

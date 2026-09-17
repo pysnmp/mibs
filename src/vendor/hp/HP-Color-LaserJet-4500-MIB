@@ -58,6 +58,10 @@
 --
 HP-Color-LaserJet-4500-MIB DEFINITIONS ::= BEGIN
 
+IMPORTS
+    enterprises
+        FROM SNMPv2-SMI;
+
 hp OBJECT IDENTIFIER ::= { enterprises 11 }
 nm OBJECT IDENTIFIER ::= { hp 2 }
 hpsystem OBJECT IDENTIFIER ::= { nm 3 }

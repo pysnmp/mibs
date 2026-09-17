@@ -1,0 +1,13 @@
+Defect: SMI-MISSING-IMPORT https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-missing-import
+
+--- a/CISCO-LWAPP-SYS-MIB
++++ b/CISCO-LWAPP-SYS-MIB
+@@ -24,7 +24,7 @@
+         FROM SNMPv2-CONF
+     MacAddress,
+     RowStatus,
+-    TruthValue
++    TruthValue, TimeInterval
+         FROM SNMPv2-TC
+     SnmpAdminString
+         FROM SNMP-FRAMEWORK-MIB

@@ -7,7 +7,7 @@
 	EDFA-oa-MIB DEFINITIONS ::= BEGIN
  
 		IMPORTS
-			OBJECT-TYPE			
+			OBJECT-TYPE, enterprises
 				FROM SNMPv2-SMI;
 	
 	
