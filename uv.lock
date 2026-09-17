@@ -347,7 +347,7 @@ consumer = [
 ]
 dev = [
     { name = "pre-commit" },
-    { name = "pysnmp-pysmi", version = "5.6.0", source = { registry = "https://pypi.org/simple" }, extra = ["fast"], marker = "extra == 'group-11-pysnmp-mibs-dev'" },
+    { name = "pysnmp-pysmi", version = "5.7.0", source = { registry = "https://pypi.org/simple" }, extra = ["fast"], marker = "extra == 'group-11-pysnmp-mibs-dev'" },
 ]
 
 [package.metadata]
@@ -357,7 +357,7 @@ requires-dist = [{ name = "pyyaml", specifier = "!=6.0.0" }]
 consumer = [{ name = "pysnmplib", specifier = ">=6.0.0rc10,<7" }]
 dev = [
     { name = "pre-commit", specifier = ">=4.6.2,<5" },
-    { name = "pysnmp-pysmi", extras = ["fast"], specifier = ">=5.6.0,<6" },
+    { name = "pysnmp-pysmi", extras = ["fast"], specifier = ">=5.7.0,<6" },
 ]
 
 [[package]]
@@ -384,15 +384,15 @@ wheels = [
 
 [[package]]
 name = "pysnmp-pysmi"
-version = "5.6.0"
+version = "5.7.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ply" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2e/2f/f478306b9255398bd8af7788f0ef19647f31b263a428dfdc7358f4f0426e/pysnmp_pysmi-5.6.0.tar.gz", hash = "sha256:453eb6bcd8a56e435b523e2dcc99cc3e96a76b9914d058cffb2eef4a0db1202d", size = 4644802, upload-time = "2026-09-17T07:35:12.59Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/0a/6c/fa62c4941a77d44319fb1f62958f6031347e83382b963ee5239583b36b7a/pysnmp_pysmi-5.7.0.tar.gz", hash = "sha256:db901f420b22a24f572530a7d44c97df25fee5e50a9e230c0400730f886bebe0", size = 4657749, upload-time = "2026-09-17T21:20:43.574Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b6/64/9bf05ee958704c9a7424d1426b0d3a9cdabe7058a92ba706219a37c65f53/pysnmp_pysmi-5.6.0-py3-none-any.whl", hash = "sha256:e80f3220fd373282892a9acbf1902bace1fe13a156220bdab590963ca57ec4eb", size = 6387318, upload-time = "2026-09-17T07:35:10.188Z" },
+    { url = "https://files.pythonhosted.org/packages/78/4a/f902141495c60cf2e8e033e0a3b152dee3acee2e1547d9ff3597f384616b/pysnmp_pysmi-5.7.0-py3-none-any.whl", hash = "sha256:4971a9face3e8f08fa6fcf65fb0624a5f98ef7d68d0168bbdbff4b05c36d68cb", size = 6392050, upload-time = "2026-09-17T21:20:40.935Z" },
 ]
 
 [package.optional-dependencies]
