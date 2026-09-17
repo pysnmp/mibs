@@ -61,6 +61,16 @@ dependencies = [
 # no trace but a log line. "No module is repaired at build time" reads that
 # key, and on 5.4.0 there is no key to read. See pysnmp/pysmi#324.
 #
+# 5.6.0 raised it from 5.5.0, and this one is about what the corpus carries
+# rather than what the build can do. Auditing observium against this
+# distribution left fourteen standard modules carried nowhere; thirteen are
+# declined with a reason on docs/absent-modules.md and the fourteenth,
+# IANA-IPPM-METRICS-REGISTRY-MIB (RFC 4148), went into the bundle. The
+# standard namespace this corpus resolves against is the bundle, so on 5.5.0
+# that module resolves nowhere and the site does not answer for its arcs.
+# Nothing here imports it today, which is why this is a floor and not an
+# urgent one. See pysnmp/pysmi#325.
+#
 # The `fast` extra is orjson, which pysmi takes for the corpus JSON when it is
 # importable and falls back to the standard library when it is not. Worth
 # about 4% of a build here -- SMI parsing is three quarters of a pass, so the
@@ -71,7 +81,7 @@ dependencies = [
 # the implementation that ran.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi[fast]>=5.5.0,<6",
+    "pysnmp-pysmi[fast]>=5.6.0,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
