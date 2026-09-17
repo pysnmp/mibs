@@ -182,23 +182,27 @@ def _source_modules(root: pathlib.Path) -> int:
         return 0
 
 
-def _megabytes(*where: pathlib.Path) -> int:
-    """Megabytes of the given directories, or 0 where no build wrote them.
+def _megabytes(*where: pathlib.Path) -> "int | None":
+    """Megabytes of the given directories, or ``None`` where none of them exist.
 
     Measured off the tree rather than taken from the report, which counts
-    pages and rows and not the bytes an artifact weighs. A directory the build
-    did not write contributes nothing, and nothing at all answers 0, which
-    :py:func:`_figure` turns into a phrase.
+    pages and rows and not the bytes an artifact weighs. ``None`` rather than
+    zero where no build wrote any of them, because the two are different
+    answers: a tree that exists and weighs under half a megabyte rounds to 0
+    and is a measurement, while a tree that was never written is the case
+    :py:func:`_size` has a phrase for.
     """
     total = 0
+    written = False
 
     for tree in where:
         if not tree.is_dir():
             continue
 
+        written = True
         total += sum(x.stat().st_size for x in tree.rglob("*") if x.is_file())
 
-    return round(total / 1e6)
+    return round(total / 1e6) if written else None
 
 
 def _data_tree(root: pathlib.Path) -> pathlib.Path:
@@ -229,8 +233,11 @@ def _size(megabytes: "int | None", scale: str) -> str:
     where it did not. The unit is inside the figure rather than in the prose
     around it, because "a few hundred MB" is not a phrase and "a few hundred
     megabytes" is.
+
+    A measured zero renders as ``0 MB``: only a size nobody measured takes the
+    phrase.
     """
-    return scale if not megabytes else f"{_grouped(megabytes)} MB"
+    return scale if megabytes is None else f"{_grouped(megabytes)} MB"
 
 
 def _count(block: "dict[str, Any]", key: str) -> "int | None":
@@ -272,6 +279,17 @@ def _scaled(count: "int | None") -> "int | None":
     return None if count is None else round(count / 1e6)
 
 
+def _reported(count: "int | None", committed: int) -> int:
+    """*count* where the build reported one, the committed artifact otherwise.
+
+    ``is None`` rather than falsy: a build that indexed no legacy rows, or
+    resolved no registrant arcs, reported that -- and answering it with the
+    committed file's row count would put a different number on the page than
+    the build measured.
+    """
+    return committed if count is None else count
+
+
 def _figure(count: "int | None", scale: str) -> str:
     """*count* where the build supplied one, and *scale* where it did not.
 
@@ -301,7 +319,15 @@ def _namespaces(report: dict[str, Any], tier: str) -> "tuple[int, int | None]":
     if not found:
         return 0, None
 
-    return len(found), sum(_count(x, "modules") or 0 for x in found)
+    counted = [_count(x, "modules") for x in found]
+
+    # A namespace block that does not say how many modules it supplied makes
+    # the total unknowable, and summing the rest gives an under-count that
+    # reads exactly like a real figure. The phrase is the honest answer.
+    if any(x is None for x in counted):
+        return len(found), None
+
+    return len(found), sum(x for x in counted if x is not None)
 
 
 def figures(root: pathlib.Path = ROOT) -> dict[str, str]:
@@ -346,7 +372,7 @@ def figures(root: pathlib.Path = ROOT) -> dict[str, str]:
         "nodes": _figure(_count(nodes, "defined"), "hundreds of thousands of"),
         "indexed_oids": _figure(_count(nodes, "distinct"), "tens of thousands of"),
         "index_rows": _figure(
-            _count(index, "legacy") or _count_lines(root / "index-frozen.csv"),
+            _reported(_count(index, "legacy"), _count_lines(root / "index-frozen.csv")),
             "tens of thousands of",
         ),
         "frozen_modules": _grouped(_index_modules(root / "index-frozen.csv")),
@@ -355,7 +381,9 @@ def figures(root: pathlib.Path = ROOT) -> dict[str, str]:
         # count is the registrant count for a checkout with no build. The two
         # can differ by the arcs the snapshot predates, which is what the
         # build's `unregistered` names.
-        "registrants": _figure(_count(entity, "arcs") or pen_rows, "a few hundred"),
+        "registrants": _figure(
+            _reported(_count(entity, "arcs"), pen_rows), "a few hundred"
+        ),
         "pen_rows": _grouped(pen_rows),
         "unregistered": _figure(_count(entity, "unregistered"), "a handful"),
         "arcs": _figure(_count(arcs, "arcs"), "tens of thousands of"),
