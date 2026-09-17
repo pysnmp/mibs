@@ -46,12 +46,12 @@ dependencies = [
 # module would resolve nowhere and every module importing it would fail.
 #
 # 5.4.0 raised it from 5.3.2, and for the same reason one step larger. That
-# release emptied pysmi's future/ tier: all 274 held modules moved into the
-# shipped bundle, which now carries every one of the 485 its manifest names.
-# The hold had rested on a survey showing nothing in this corpus imported one
-# of them -- true, and the wrong question to ask of a general-purpose
-# compiler, since observium ships 200 of the 274. docs/absent-modules.md fell
-# from 194 modules to 31 because of it, and 1,402 index rows resolve again.
+# release emptied pysmi's future/ tier: every held module moved into the
+# shipped bundle, which now carries all of the ones its manifest names. The
+# hold had rested on a survey showing nothing in this corpus imported one of
+# them -- true, and the wrong question to ask of a general-purpose compiler,
+# since observium ships most of them. docs/absent-modules.md lost most of its
+# length because of it, and the index rows naming those modules resolve again.
 # See pysnmp/pysmi#323.
 #
 # 5.5.0 raised it from 5.4.0, because the CI step this floor exists to
@@ -71,6 +71,15 @@ dependencies = [
 # Nothing here imports it today, which is why this is a floor and not an
 # urgent one. See pysnmp/pysmi#325.
 #
+# 5.7.0 raised it from 5.6.0, and this one is about what the site renders
+# rather than what the build can do or what the bundle carries. That release
+# gives the browse entry point an overview: figures for what the corpus holds,
+# and per tier the modules revised most recently. The stylesheet this
+# repository hands the build -- theme/style.css, named by corpus.json -- has
+# rules for that markup, and on 5.6.0 there is no markup for them to match:
+# the browse root renders the module list it always did, and the rules are
+# dead weight styling nothing. See pysnmp/pysmi#326.
+#
 # The `fast` extra is orjson, which pysmi takes for the corpus JSON when it is
 # importable and falls back to the standard library when it is not. Worth
 # about 4% of a build here -- SMI parsing is three quarters of a pass, so the
@@ -81,7 +90,7 @@ dependencies = [
 # the implementation that ran.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi[fast]>=5.6.0,<6",
+    "pysnmp-pysmi[fast]>=5.7.0,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which

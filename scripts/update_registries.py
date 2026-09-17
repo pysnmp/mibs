@@ -30,9 +30,11 @@ file                         what it is
 Why the PEN snapshot is reduced
 -------------------------------
 
-IANA publishes 66,807 registrations in a 5.1 MB file and revises it daily.
-Committing all of it would mean a 4 MB CSV and a monthly diff of the whole
-registry. The arcs this corpus reaches are 351 of them.
+IANA publishes tens of thousands of registrations in one file and revises it
+daily. Committing all of it would mean a multi-megabyte CSV and a monthly diff
+of the whole registry. The arcs this corpus reaches are a few hundred of them,
+and ``pen-snapshot.csv`` is that reduction: its row count is the number, so
+nothing here restates it.
 
 The cost is staleness: a module arriving later under an arc the snapshot
 predates has no registrant, and its page renders nameless. That is not silent.
@@ -299,10 +301,10 @@ def check() -> int:
         moved.append("pen-snapshot.csv")
 
     # Both sides parsed, not the bytes. IANA stamps the file with the day it
-    # was generated -- <updated>2026-08-18</updated> at the top -- and carries
-    # 2,233 <xref> elements and 31 <note> blocks that name nothing. Comparing
-    # the text reports a revision every time any of that moves, and what this
-    # snapshot is here for is the arc-to-name mapping. A sweep that cries
+    # was generated -- an <updated> element at the top -- and carries
+    # thousands of <xref> elements and a set of <note> blocks that name
+    # nothing. Comparing the text reports a revision every time any of that
+    # moves, and what this snapshot is here for is the arc-to-name mapping. A sweep that cries
     # revision on a regenerated date teaches the reader to skip it.
     #
     # update() still writes what IANA published, so a real revision lands as a

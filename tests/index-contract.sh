@@ -131,10 +131,11 @@ echo "== every module named in the index is still carried somewhere"
 # bundle it and nothing imports it, so the snapshot's two rows for it now name
 # a module the site cannot serve.
 #
-# The ceilings went 61/335 -> 224/1737 when pysmi 3.0.0rc5 held 275 of its 485
-# bundled modules in pysmi/mibs/future/ (pysnmp/pysmi#220). The wheel carries
-# 210, so 163 modules this repository used to publish by staging the bundle are
-# no longer staged, and the snapshot's rows for them name nothing carried.
+# The ceilings went 61/335 -> 224/1737 when pysmi 3.0.0rc5 moved most of its
+# bundled modules into pysmi/mibs/future/ (pysnmp/pysmi#220). Those modules
+# stopped being staged here, so the snapshot's rows for them name nothing the
+# corpus carries. The ceilings above are the current allowance; what a build
+# actually drops is in its report.
 #
 # Those were removed deliberately, upstream, as modules nothing imports -- not
 # defective, and not rot appearing here. Nothing in src/ imports any of them,

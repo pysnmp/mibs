@@ -13,6 +13,9 @@ the contract scripts. Moving them to gain one directory level would break
 those links for no reader's benefit.
 """
 
+import pathlib
+import sys
+
 # -- Project information -----------------------------------------------------
 
 project = "pysnmp MIB distribution"
@@ -63,6 +66,42 @@ extlinks_detect_hardcoded_links = False
 extlinks["issue"] = ("https://github.com/pysnmp/mibs/issues/%s", "#%s")
 
 myst_heading_anchors = 3
+
+# Substitution, so a page writes {{ modules }} where a count belongs and this
+# file supplies it. See the figures block below.
+myst_enable_extensions = ["substitution"]
+
+# -- The corpus's own figures ------------------------------------------------
+#
+# Every count this distribution publishes changes when a MIB is added. Written
+# into prose by hand, each one is wrong at the next contribution and is a diff
+# to review on every one after that -- and they were: the pages said 5,510
+# modules for long enough that the corpus passed 7,000.
+#
+# So no page states a count. A page names a figure, {{ modules }} or
+# |modules|, and scripts/corpus_figures.py supplies it from the build report
+# the corpus build wrote and from the committed artifacts -- index-frozen.csv,
+# the PEN snapshot, the missing-import baseline, src/ itself. CI builds the
+# corpus in this same job before it builds these pages, so the published
+# figure is the one that build measured.
+#
+# A checkout with no build still renders: a figure only the build knows falls
+# back to a phrase naming the scale rather than to a wrong number. Run
+# `make corpus` first, or point MIBS_CORPUS_REPORT at a report.json, to see
+# the numbers locally.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "scripts"))
+
+import corpus_figures
+
+myst_substitutions = corpus_figures.figures()
+
+# The same figures for the reStructuredText pages, which do not read
+# myst_substitutions. Written as a prolog rather than per page so a figure is
+# defined once however many pages name it.
+rst_prolog = "\n".join(
+    f".. |{name}| replace:: {value}"
+    for name, value in sorted(myst_substitutions.items())
+)
 
 # -- Options for HTML output -------------------------------------------------
 

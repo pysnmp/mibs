@@ -13,15 +13,15 @@ The visible one is ``SMI-MISSING-IMPORT``: a symbol undefined, unimported,
 and exported by exactly one SMIv2 base module. pysmi supplies the import
 rather than failing, records the module in ``report.json``'s ``repaired``
 map, and the CI step "No module is repaired at build time" fails the build
-over it. Eighteen modules were fixed that way in #435.
+over it. That is how the first batch of them was fixed, in #435.
 
 The invisible one is this. A macro the grammar already knows --
 ``MODULE-IDENTITY``, ``TEXTUAL-CONVENTION``, ``NOTIFICATION-TYPE`` -- or a
 base type the relaxed parser resolves never becomes an undefined symbol, so
 ``missing_canonical_imports`` has nothing to report, ``repaired`` stays empty
 and ``mibdump --strict-imports`` passes. ``AH_TRAP_MIB`` and ``EDFA-oa-MIB``
-were found in #435 by a reviewer reading the diff, which does not scale to
-6,976 modules.
+were found in #435 by a reviewer reading the diff, which does not scale to a
+corpus of thousands of modules.
 
 What this looks for
 -------------------
@@ -39,11 +39,12 @@ what the vendor meant; the repair is a separate decision.
 The baseline
 ------------
 
-562 modules already carry this, about 8% of the corpus, and they cannot all
-be fixed at once. ``unimported-symbols.txt`` records what is known, and
-``--check`` fails only on a module that is not in it -- so the debt cannot
-grow while it is being paid down, and a module fixed and removed from the
-baseline cannot come back.
+Modules already carrying this run to a few per cent of the corpus, and they
+cannot all be fixed at once. ``unimported-symbols.txt`` records what is known
+-- its length is how many, so nothing here restates the count -- and
+``--check`` fails only on a module that is not in it. The debt therefore
+cannot grow while it is being paid down, and a module fixed and removed from
+the baseline cannot come back.
 
 Usage:
 

@@ -46,7 +46,8 @@ modules, so the three trees cannot disagree about what a module contains. CI
 also compares the two data trees artifact by artifact and fails if they differ.
 
 The split across two hosts follows a file-count limit. The browsable site is
-7,430 files of HTML; the files beside it are another 11,025. A host that
+{{ pages }} files of HTML, and {{ data_files }} files sit beside it. A host
+that
 resolves a directory URL to its `index.html` without running code serves at
 most 20,000 files on the free plan. Pages that need that resolution go to the
 host that performs it; files addressed by exact name go to object storage,
@@ -117,7 +118,7 @@ and ships no remote source. splunk-connect-for-snmp binds `MIB_SOURCES` to
 compiled form was wanted only to avoid running a compiler, `json/` carries the
 same facts in a format that is parsed rather than executed.
 
-The two trees were 603 MB of a 1,237 MB corpus.
+When they were dropped the two trees were about half the corpus by size.
 
 ```{warning}
 The same reasoning applies to a MIB you supply yourself. A module compiled by

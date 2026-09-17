@@ -114,6 +114,15 @@ jobs:
         # module it declares -- the same bytes under every name -- and
         # makes every diff on it name the wrong module. Offline, ~40s.
         run: uv run python tests/source-layout-contract.py
+      - name: No page states a count outright
+        # Every count this distribution publishes moves when a MIB is added.
+        # A page that states one is wrong at the next contribution and is a
+        # diff to review on every one after that -- which is what the
+        # documentation did, saying 5,510 modules until the corpus passed
+        # 7,000. The pages name a figure now and docs/conf.py supplies it
+        # from the build report. This is the check that they keep doing so.
+        # Offline and instant. See scripts/corpus_figures.py.
+        run: uv run python scripts/corpus_figures.py --check
       - run: uv run python scripts/update_vendor_mibs.py --validate
       - name: Check the registry snapshots against the committed index
         # Offline: the committed arc list against index-frozen.csv, and
@@ -307,7 +316,8 @@ jobs:
       # never becomes an undefined symbol, so nothing reports it and
       # `mibdump --strict-imports` passes. AH_TRAP_MIB and EDFA-oa-MIB were
       # found in #435 by a reviewer reading the diff, which does not scale to
-      # 6,976 modules. 562 already carry it, so this gates against the number
+      # a corpus of thousands of modules. The ones already carrying it are
+      # listed in unimported-symbols.txt, so this gates against that list
       # growing rather than against the debt existing.
       - name: No new module omits a standard import
         run: uv run python scripts/report_unimported_symbols.py --check
@@ -426,6 +436,13 @@ jobs:
       #
       # Built on every ref, not just main. A pull request that breaks the docs
       # build should fail on the pull request.
+      #
+      # It runs after `make corpus` in this same job, which is what makes the
+      # figures in the prose real: docs/conf.py reads
+      # output/github-pages/report.json and substitutes what that build
+      # counted, so no page states a count that a later MIB can falsify. A
+      # build with no report renders a phrase naming the scale instead, which
+      # is what a local `sphinx-build` on a fresh checkout gets.
       - name: Build the documentation
         run: >
           uv run --directory docs --locked --group dev --python 3.14
@@ -492,7 +509,7 @@ jobs:
           # The generator falls back to "IF-MIB: 90 object(s), ..." where the
           # build carries no DESCRIPTION. That fallback is a correct sentence
           # and a useless search result, and it is what a texts-less build
-          # would silently publish on all 7,430 pages.
+          # would publish on every page of the site.
           if len(text) < 80 or text.startswith("IF-MIB:"):
               bad.append(f"description is not the module's own prose: {text[:80]!r}")
 
@@ -903,13 +920,13 @@ jobs:
       # requests to a Worker script, not to its assets, so the site is not
       # rate-limited, while a script in front of R2 rewriting the same paths
       # would be, at 100,000 requests a day with cache hits counted. What it
-      # costs instead is a file count, 20,000 per version, and the pages are
-      # 7,430. See wrangler.jsonc.
+      # costs instead is a file count, 20,000 per version, which the page
+      # count is well inside. See wrangler.jsonc.
       #
       # The downloads go to R2, addressed by exact key: nothing to resolve, no
       # file-count ceiling, 10 GB included and no egress charge. asn1/ and
-      # json/ are 11,025 files between them, which is most of a static-asset
-      # budget spent on files that never needed one.
+      # json/ are two files per module between them, which would be most of a
+      # static-asset budget spent on files that never needed one.
       #
       # Gated on the credentials being present as well as on main, so a fork
       # -- and this repository until the Cloudflare side is wired up -- builds
@@ -949,7 +966,7 @@ jobs:
           # --checksum, not the default size-and-modification-time: the
           # runner checks out fresh every run, so every local file looks newer
           # than the object it matches and a time-based sync would re-upload
-          # 11,000 unchanged files each release. MD5 is what R2 stores.
+          # every unchanged file each release. MD5 is what R2 stores.
           #
           # sync, not copy: a module dropped from the corpus has to stop being
           # served, and the index no longer names it.

@@ -5,8 +5,8 @@
 //
 // A separate Worker rather than a version of the production one. Uploading
 // preview versions onto mibsdepot would put a build of three modules into
-// the version history of the site serving 5,510, and a rollback there would
-// have somewhere very wrong to roll back to.
+// the version history of the site serving the whole corpus, and a rollback
+// there would have somewhere very wrong to roll back to.
 //
 // .github/workflows/pr-mib-preview.yml uploads a *version* of this Worker
 // and never deploys one, so each pull request gets a URL of its own and
@@ -17,7 +17,8 @@
   "compatibility_date": "2026-09-13",
   "assets": {
     // Written by the preview build, which is one mibcorpus invocation over
-    // the modules the pull request touched. Tens of files, against 7,430.
+    // the modules the pull request touched. Tens of files, against the whole
+    // site's thousands.
     "directory": "./output/preview",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none"
