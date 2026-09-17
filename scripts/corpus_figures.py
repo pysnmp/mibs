@@ -67,19 +67,31 @@ REPORT_ENV = "MIBS_CORPUS_REPORT"
 
 
 def read_report(root: pathlib.Path = ROOT) -> dict[str, Any]:
-    """The build report, or ``{}`` where this checkout has no build.
+    """Every build report this checkout has, merged block by block.
+
+    One report per publication, and a publication carries only what it
+    emitted: ``github-pages`` emits the indexes and the closure, ``depot-site``
+    emits the pages and the registrants, ``depot-data`` emits the database.
+    Reading the first report found therefore answers for one publication's
+    artifacts and falls back for every other -- which is how the page count
+    came to read "thousands of" on a build that knew it exactly.
+
+    So the reports are merged rather than chosen: for each block, the first
+    report carrying it wins, in :py:data:`REPORTS` order. They are reports of
+    the same corpus from the same run, so they agree on what they share.
 
     Args:
         root: the repository root.
 
     Returns:
-        The report as written, or an empty mapping. A report that will not
-        parse counts as no report: the figures then fall back like any other
-        build-less checkout, rather than failing a documentation build over a
-        truncated artifact.
+        The merged report, or an empty mapping where this checkout has no
+        build. A report that will not parse is skipped rather than fatal: the
+        figures then fall back like any other build-less checkout, rather than
+        failing a documentation build over a truncated artifact.
     """
     named = os.environ.get(REPORT_ENV)
     paths = [pathlib.Path(named)] if named else [root / x for x in REPORTS]
+    merged: dict[str, Any] = {}
 
     for path in paths:
         if not path.is_file():
@@ -92,10 +104,16 @@ def read_report(root: pathlib.Path = ROOT) -> dict[str, Any]:
         except (OSError, ValueError):
             continue
 
-        if isinstance(found, dict):
-            return found
+        if not isinstance(found, dict):
+            continue
 
-    return {}
+        for key, value in found.items():
+            # A block a publication did not emit is written as an empty
+            # mapping, and must not shadow the publication that did emit it.
+            if key not in merged or merged[key] in ({}, [], "", None):
+                merged[key] = value
+
+    return merged
 
 
 def _count_lines(path: pathlib.Path, *, header: bool = False) -> int:
@@ -152,7 +170,13 @@ def _source_modules(root: pathlib.Path) -> int:
     where = root / "src"
 
     try:
-        return sum(1 for x in where.rglob("*") if x.is_file())
+        # Hidden files are this repository's own metadata rather than MIBs --
+        # src/vendor/cisco/.mib-sources is a per-vendor note -- and
+        # tests/source-layout-contract.py skips them for that reason, so the
+        # contract this docstring cites does not hold them to one module each.
+        return sum(
+            1 for x in where.rglob("*") if x.is_file() and not x.name.startswith(".")
+        )
 
     except OSError:
         return 0
@@ -346,7 +370,13 @@ def figures(root: pathlib.Path = ROOT) -> dict[str, str]:
         "data_bytes": _size(
             _megabytes(data / "asn1", data / "json"), "a few hundred megabytes"
         ),
-        "json_bytes": _size(_megabytes(data / "json"), "a couple of hundred megabytes"),
+        # The lean tree explicitly: docs/corpora.md cites this against the
+        # texts-carrying one, and _data_tree prefers depot-data, whose json/
+        # is the tree with the texts in it.
+        "json_bytes": _size(
+            _megabytes(root / "output" / "github-pages" / "json"),
+            "a couple of hundred megabytes",
+        ),
         "pages_tree_bytes": _size(
             _megabytes(root / "output" / "github-pages"), "most of a gigabyte"
         ),

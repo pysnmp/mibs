@@ -191,9 +191,9 @@ ASN.1 or parsing its whole JSON document. An anchor index also has no per-node
 ordering, so a walk cannot be served from one. In `core.db` both are a single
 indexed row.
 
-Over the corpus the build that wrote these pages produced. Each row is read
-from that build's `report.json` rather than written here, so the table is
-current by construction:
+These are measured over the corpus the build that wrote these pages produced.
+Each row is read from that build's `report.json` rather than written here, so
+the table is current by construction:
 
 | | |
 |---|---|
