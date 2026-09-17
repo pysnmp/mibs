@@ -523,6 +523,14 @@ def test_the_page_counts_what_it_lists() -> None:
     excluded = import_contribution.excluded_modules(root)
     page = (root / "docs" / "absent-modules.md").read_text(encoding="utf-8")
 
+    # The page holds two groups and only one of them is about the snapshot.
+    # "Deleted here deliberately" is what this distribution carried and
+    # dropped, so every one of those has rows pointing at it; "Declined" was
+    # never here, so none of them does. Checking the snapshot against all of
+    # them would fail on the second group for being exactly what it says.
+    removed = {n for n, s in excluded.items() if s.startswith("Deleted")}
+    declined = {n for n, s in excluded.items() if s.startswith("Declined")}
+
     named = set()
     rows = 0
 
@@ -530,21 +538,15 @@ def test_the_page_counts_what_it_lists() -> None:
         for module, _oid in csv.reader(handle):
             named.add(module)
 
-            if module in excluded:
+            if module in removed:
                 rows += 1
 
-    # A module the page excludes that the snapshot never named is not one of
-    # the modules this page is about: nothing 404s for it, because no row
-    # points at it.
-    check(
-        "every excluded module is named by the snapshot",
-        sorted(set(excluded) - named),
-        [],
-    )
+    check("every removed module is named by the snapshot", sorted(removed - named), [])
+    check("and no declined one is", sorted(declined & named), [])
 
     for what, count in (
         ("modules named by `index-frozen.csv`", len(named)),
-        ("carried nowhere", len(excluded)),
+        ("carried nowhere", len(removed)),
         ("index rows naming them", rows),
     ):
         stated = re.search(
@@ -556,15 +558,17 @@ def test_the_page_counts_what_it_lists() -> None:
             count,
         )
 
-    heading = re.search(
-        r"^## Deleted here deliberately: ([\d,]+) modules", page, re.MULTILINE
-    )
+    for label, group in (
+        ("Deleted here deliberately", removed),
+        ("Declined", declined),
+    ):
+        heading = re.search(rf"^## {label}: ([\d,]+) modules", page, re.MULTILINE)
 
-    check(
-        "the section heading counts its own table",
-        heading and int(heading.group(1).replace(",", "")),
-        len(excluded),
-    )
+        check(
+            f"the {label!r} heading counts its own table",
+            heading and int(heading.group(1).replace(",", "")),
+            len(group),
+        )
 
 
 def test_a_bundle_naming_a_path_is_refused() -> None:

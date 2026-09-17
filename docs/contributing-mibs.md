@@ -177,6 +177,11 @@ file under `src/vendor`" — each says the module is obsolete, superseded,
 withdrawn or never published, and writing one under a vendor would undo that
 silently. Offer the rest with `--module`.
 
+The page holds two groups and the refusal covers both: modules this
+distribution carried and dropped, and modules it was offered and declined. The
+second were never here, so no index row points at one and nothing 404s for it;
+what it has in common with the first is that the answer is already written.
+
 ## Standard or vendor
 
 `src/vendor` is the only tree here, so a standard module offered to it is a
