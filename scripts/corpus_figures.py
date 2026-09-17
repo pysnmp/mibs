@@ -198,7 +198,7 @@ def _grouped(count: int) -> str:
     return f"{count:,}"
 
 
-def _size(megabytes: int, scale: str) -> str:
+def _size(megabytes: "int | None", scale: str) -> str:
     """A size with its unit, so the fallback reads as a size too.
 
     ``580 MB`` where the build wrote the tree and ``most of a gigabyte``
@@ -206,47 +206,78 @@ def _size(megabytes: int, scale: str) -> str:
     around it, because "a few hundred MB" is not a phrase and "a few hundred
     megabytes" is.
     """
-    return f"{_grouped(megabytes)} MB" if megabytes else scale
+    return scale if not megabytes else f"{_grouped(megabytes)} MB"
 
 
-def _exact(block: "dict[str, Any]", key: str, scale: str) -> str:
-    """A figure whose zero is a real answer rather than a missing one.
+def _count(block: "dict[str, Any]", key: str) -> "int | None":
+    """One count out of a report block, or ``None`` where it has none.
 
-    ``0 arcs unnamed`` is the good outcome and worth stating, so these cannot
-    use :py:func:`_figure` -- it reads any zero as "the build did not say".
-    The key being present is what separates the two: a publication that did
-    not emit the arc names writes no ``arcs`` block at all.
+    ``None`` rather than zero, because a build that counted none of something
+    and a build that did not count it are different answers: a corpus with no
+    unnamed arcs reports ``0`` and a publication that emitted no arc index
+    reports nothing at all. Only the second wants a fallback, which is why
+    ``0 arcs unnamed`` -- the good outcome -- reaches the page as a number.
+
+    A field that is present and is not a number is absent for this purpose.
+    ``report.json`` is an artifact read off disk, and a documentation build
+    that raised ``ValueError`` partway through substituting its figures would
+    fail over a field it could have ignored.
     """
-    if key not in block:
-        return scale
+    if not isinstance(block, dict) or key not in block:
+        return None
+
+    found = block[key]
+
+    if isinstance(found, bool) or not isinstance(found, (int, float, str)):
+        return None
 
     try:
-        return _grouped(int(block[key] or 0))
+        return int(found)
 
     except (TypeError, ValueError):
-        return scale
+        return None
 
 
-def _figure(count: int, scale: str) -> str:
+def _pairs(count: "int | None") -> "int | None":
+    """Twice a count, for the two data trees that carry a file per module."""
+    return None if count is None else count * 2
+
+
+def _scaled(count: "int | None") -> "int | None":
+    """Bytes as megabytes, keeping a missing figure missing."""
+    return None if count is None else round(count / 1e6)
+
+
+def _figure(count: "int | None", scale: str) -> str:
     """*count* where the build supplied one, and *scale* where it did not.
 
-    A phrase rather than a zero or a ``?``: a sentence reading "the site is 0
-    pages" is false, and one reading "the site is thousands of pages" is true
-    of every corpus this documentation describes. The published build always
-    has the report, so the published sentence always carries the number.
+    A phrase where the figure is missing, because "the site is 0 pages" is
+    false and "the site is thousands of pages" is true of every corpus this
+    documentation describes. A supplied zero is a measurement and is rendered
+    as ``0``. The published build always has the report, so the published
+    sentence always carries the number.
     """
-    return _grouped(count) if count else scale
+    return scale if count is None else _grouped(count)
 
 
-def _namespaces(report: dict[str, Any], tier: str) -> tuple[int, int]:
-    """Namespaces of one tier, and the modules they supplied between them."""
+def _namespaces(report: dict[str, Any], tier: str) -> "tuple[int, int | None]":
+    """Namespaces of one tier, and the modules they supplied between them.
+
+    The module count is ``None`` where the report names no namespace of this
+    tier, which is what a report-less checkout looks like. Summing nothing
+    gives a real zero, and a page reading "0 standard modules" over a corpus
+    that has them is the falsehood :py:func:`_figure` exists to avoid.
+    """
     found = [
         x
         for x in report.get("namespaces") or []
         if isinstance(x, dict) and x.get("tier") == tier
     ]
 
-    return len(found), sum(int(x.get("modules") or 0) for x in found)
+    if not found:
+        return 0, None
+
+    return len(found), sum(_count(x, "modules") or 0 for x in found)
 
 
 def figures(root: pathlib.Path = ROOT) -> dict[str, str]:
@@ -282,18 +313,16 @@ def figures(root: pathlib.Path = ROOT) -> dict[str, str]:
 
     return {
         # The corpus itself.
-        "modules": _figure(int(report.get("modules") or 0), "thousands of"),
+        "modules": _figure(_count(report, "modules"), "thousands of"),
         "standard_modules": _figure(standard_modules, "several hundred"),
         "vendor_modules": _figure(vendor_modules, "thousands of"),
         "vendors": _grouped(directories or vendors),
         "source_files": _grouped(_source_modules(root)),
         # What it defines.
-        "nodes": _figure(int(nodes.get("defined") or 0), "hundreds of thousands of"),
-        "indexed_oids": _figure(
-            int(nodes.get("distinct") or 0), "tens of thousands of"
-        ),
+        "nodes": _figure(_count(nodes, "defined"), "hundreds of thousands of"),
+        "indexed_oids": _figure(_count(nodes, "distinct"), "tens of thousands of"),
         "index_rows": _figure(
-            int(index.get("legacy") or 0) or _count_lines(root / "index-frozen.csv"),
+            _count(index, "legacy") or _count_lines(root / "index-frozen.csv"),
             "tens of thousands of",
         ),
         "frozen_modules": _grouped(_index_modules(root / "index-frozen.csv")),
@@ -302,22 +331,18 @@ def figures(root: pathlib.Path = ROOT) -> dict[str, str]:
         # count is the registrant count for a checkout with no build. The two
         # can differ by the arcs the snapshot predates, which is what the
         # build's `unregistered` names.
-        "registrants": _figure(
-            int(entity.get("arcs") or 0) or pen_rows, "a few hundred"
-        ),
+        "registrants": _figure(_count(entity, "arcs") or pen_rows, "a few hundred"),
         "pen_rows": _grouped(pen_rows),
-        "unregistered": _exact(entity, "unregistered", "a handful"),
-        "arcs": _figure(int(arcs.get("arcs") or 0), "tens of thousands of"),
-        "unnamed_arcs": _exact(arcs, "unnamed", "a handful"),
+        "unregistered": _figure(_count(entity, "unregistered"), "a handful"),
+        "arcs": _figure(_count(arcs, "arcs"), "tens of thousands of"),
+        "unnamed_arcs": _figure(_count(arcs, "unnamed"), "a handful"),
         # What the site renders.
-        "pages": _figure(int(site.get("pages") or 0), "thousands of"),
-        "module_pages": _figure(int(site.get("modules") or 0), "thousands of"),
-        "site_bytes": _size(
-            round(int(site.get("bytes") or 0) / 1e6), "a few hundred megabytes"
-        ),
+        "pages": _figure(_count(site, "pages"), "thousands of"),
+        "module_pages": _figure(_count(site, "modules"), "thousands of"),
+        "site_bytes": _size(_scaled(_count(site, "bytes")), "a few hundred megabytes"),
         # The two data trees, one file per module each, and what they weigh on
         # the object storage they are synced to.
-        "data_files": _figure(int(report.get("modules") or 0) * 2, "thousands of"),
+        "data_files": _figure(_pairs(_count(report, "modules")), "thousands of"),
         "data_bytes": _size(
             _megabytes(data / "asn1", data / "json"), "a few hundred megabytes"
         ),
@@ -326,9 +351,9 @@ def figures(root: pathlib.Path = ROOT) -> dict[str, str]:
             _megabytes(root / "output" / "github-pages"), "most of a gigabyte"
         ),
         # Corpus health.
-        "incomplete_closures": _exact(closure, "incomplete", "a handful"),
+        "incomplete_closures": _figure(_count(closure, "incomplete"), "a handful"),
         "unimported": _grouped(_count_lines(root / "unimported-symbols.txt")),
-        "db_rows": _figure(int(db.get("node") or 0), "hundreds of thousands of"),
+        "db_rows": _figure(_count(db, "node"), "hundreds of thousands of"),
         "pysmi": str(report.get("version") or ""),
     }
 
@@ -355,13 +380,28 @@ ALLOWED: "frozenset[str]" = frozenset(
 #: Where the documentation lives, relative to the repository root.
 PAGES = "docs"
 
+#: A comma-grouped number. Every count this corpus publishes is in the
+#: thousands or above, so this is the shape that goes stale here.
+#:
+#: It does not see an ungrouped one: "210 modules" passes. pysnmp/pysmi#326
+#: widened the sibling check in pysmi to a number followed by a unit, and
+#: doing the same here reports nineteen counts across five pages -- the
+#: inventory absent-modules.md keeps of its own tables, historical records of
+#: what a past release moved, a vendor file's size. Each wants a decision,
+#: and several want a figure this module does not compute yet, so widening
+#: this is its own change. See pysnmp/mibs#441.
+GROUPED = re.compile(r"\b\d{1,3}(?:,\d{3})+\b")
+
 
 def stated(root: pathlib.Path = ROOT) -> "list[tuple[str, int, str]]":
-    """Comma-grouped numbers written into the documentation by hand.
+    """Comma-grouped counts written into the documentation by hand.
 
     A count typed into a page is wrong at the next contribution and is a diff
     to review on every one after that, which is what :py:func:`figures` exists
     to prevent. This is the check that it stays prevented.
+
+    :py:data:`GROUPED` says which shape is looked for, and what it does not
+    catch.
 
     Fenced code blocks are skipped: a sample of a report or a command's output
     is a transcript, and a transcript states what it stated.
@@ -373,7 +413,6 @@ def stated(root: pathlib.Path = ROOT) -> "list[tuple[str, int, str]]":
         ``(path, line number, the line)`` per finding, in file order.
     """
     found = []
-    grouped = re.compile(r"\b\d{1,3}(?:,\d{3})+\b")
 
     for page in sorted((root / PAGES).glob("*.md")) + sorted(
         (root / PAGES).glob("*.rst")
@@ -389,7 +428,7 @@ def stated(root: pathlib.Path = ROOT) -> "list[tuple[str, int, str]]":
                 if fenced:
                     continue
 
-                if [x for x in grouped.findall(line) if x not in ALLOWED]:
+                if [x for x in GROUPED.findall(line) if x not in ALLOWED]:
                     found.append((str(page.relative_to(root)), number, line.rstrip()))
 
     return found
