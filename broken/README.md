@@ -83,7 +83,7 @@ and nothing else. Two shapes:
 A consequential entry usually returns to `src/` on its own once the
 module it imports is replaced.
 
-251 root defects, 81 consequential, and 79 the prose above accounts for.
+251 root defects, 81 consequential, and 79 modules the prose above accounts for.
 
 ### 3com
 

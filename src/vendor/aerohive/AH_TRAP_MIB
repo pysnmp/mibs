@@ -8,9 +8,10 @@ AH_TRAP_MIB DEFINITIONS ::= BEGIN
 -- Imports
 --
 
-IMPORTS MODULE-IDENTITY, NOTIFICATION-TYPE, OBJECT-TYPE
+IMPORTS MODULE-IDENTITY, NOTIFICATION-TYPE, OBJECT-TYPE, Integer32,
+        Counter32
 		  FROM SNMPv2-SMI
-        DisplayString, TruthValue
+        DisplayString, TruthValue, TEXTUAL-CONVENTION
 	  	  FROM SNMPv2-TC
         ahAPTrap, AhString, AhNodeID, AhMACProtocol FROM AH-SMI-MIB;
 
