@@ -1,5 +1,14 @@
 Defect: SMI-MISSING-IMPORT https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-missing-import
 
+The module uses TimeInterval as the SYNTAX of an object without naming
+it in IMPORTS. SNMPv2-TC defines the textual convention and the clause
+already imports MacAddress, RowStatus and TruthValue from it.
+
+The repair adds TimeInterval to that existing FROM group. Until it was
+written down the compiler supplied the same import on every build, which
+compiles but leaves the checked-in text saying something it does not
+mean.
+
 --- a/CISCO-LWAPP-SYS-MIB
 +++ b/CISCO-LWAPP-SYS-MIB
 @@ -24,7 +24,7 @@
