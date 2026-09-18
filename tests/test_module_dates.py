@@ -259,21 +259,13 @@ def test_an_unreadable_bundle_is_fatal() -> None:
     """
     sys.stdout.write("\ntest_an_unreadable_bundle_is_fatal\n")
 
-    was = module_dates.STANDARD
-
     try:
-        module_dates.STANDARD = "pysmi.mibs.no_such_package"
+        module_dates.standard("pysmi.mibs.no_such_package")
+        check("it exits", False, True)
 
-        try:
-            module_dates.standard()
-            check("it exits", False, True)
-
-        except SystemExit as exc:
-            check("it exits", True, True)
-            check("it says why", "cannot be excluded" in str(exc), True)
-
-    finally:
-        module_dates.STANDARD = was
+    except SystemExit as exc:
+        check("it exits", True, True)
+        check("it says why", "cannot be excluded" in str(exc), True)
 
 
 def test_the_written_file_is_what_the_build_reads() -> None:

@@ -139,13 +139,18 @@ def dates(root: pathlib.Path = ROOT) -> "dict[str, str]":
     return found
 
 
-def standard() -> "frozenset[str]":
+def standard(package: str = STANDARD) -> "frozenset[str]":
     """The modules the corpus takes from pysmi rather than from this tree.
 
     ``corpus.json`` resolves its standard namespace against
     :py:data:`STANDARD`, and pysmi adjudicates in the bundle's favour for
     every module it claims authority over, so the copy the site publishes for
     one of these is pysmi's -- whatever this tree holds under the same name.
+
+    Args:
+        package: the package to read, for a test that needs an unreadable
+            one. :py:data:`STANDARD` otherwise, which is what the manifest
+            names.
 
     Two names collide today, ``ATM-FORUM-SRVC-REG`` and ``MPLS-FTN-STD-MIB``.
     Without this the site would say this repository updated them on the day
@@ -160,7 +165,7 @@ def standard() -> "frozenset[str]":
     try:
         from pysmi.compiler import bundled_mib_names
 
-        return bundled_mib_names(STANDARD)
+        return bundled_mib_names(package)
 
     except (ImportError, OSError) as exc:
         # Not a warning and a partial answer. Every module this cannot name
@@ -170,7 +175,7 @@ def standard() -> "frozenset[str]":
         # needs pysmi anyway, so nothing reaches a page from here that could
         # not have imported it.
         raise SystemExit(
-            f"cannot read {STANDARD}, so the modules the corpus takes from "
+            f"cannot read {package}, so the modules the corpus takes from "
             f"pysmi cannot be excluded and this would date them from files "
             f"the site does not publish: {exc}"
         ) from exc
