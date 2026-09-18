@@ -1,0 +1,152 @@
+-- ***************************************************************************
+--  Copyright  1993 - 2001 VERITAS Software Corporation. All Rights Reserved 
+--  
+--	The right to change this MIB without notification is retained.
+--
+--	VERITAS Software Corporation
+--	mailstop
+--	350 Ellis Street
+--	P.O. Box 7011
+--	Mountain View CA 94043-2237
+-- ***************************************************************************
+
+VERITAS-TC DEFINITIONS ::= BEGIN
+
+IMPORTS
+
+    veritasModules
+        FROM VERITAS-REG
+        
+    Counter64, Opaque, MODULE-IDENTITY, enterprises
+        FROM SNMPv2-SMI
+
+    TEXTUAL-CONVENTION
+		FROM SNMPv2-TC;
+		
+veritastc MODULE-IDENTITY
+    LAST-UPDATED 	"0401082030Z"
+    ORGANIZATION 	"VERITAS Software Corp."
+    CONTACT-INFO 	"VERITAS Software Corp.
+                     1600 Plymouth Street.
+                     Mountain View, CA 94043 US
+                     Tel: +1 650 318 4464
+                     Email: support@veritas.com"
+    DESCRIPTION 	"A private TEXTUAL CONVENTION module for VERITAS"
+
+::= { veritasModules 2 }
+
+
+--
+--   The Float TEXTUAL-CONVENTION was written by David Perkins.
+--
+
+Float ::= TEXTUAL-CONVENTION
+    STATUS      current
+    DESCRIPTION
+        "A single precision floating-point number.  The semantics
+         and encoding are identical for type 'single' defined in
+         IEEE Standard for Binary Floating-Point,
+         ANSI/IEEE Std 754-1985.
+         The value is restricted to the BER serialization of
+         the following ASN.1 type:
+             FLOATTYPE ::= [120] IMPLICIT FloatType
+         (note: the value 120 is the sum of '30'h and '48'h)
+         The BER serialization of the length for values of
+         this type must use the definite length, short
+         encoding form.
+
+         For example, the BER serialization of value 123
+         of type FLOATTYPE is '9f780442f60000'h.  (The tag
+         is '9f78'h; the length is '04'h; and the value is
+         '42f60000'h.) The BER serialization of value
+         '9f780442f60000'h of data type Opaque is
+         '44079f780442f60000'h. (The tag is '44'h; the length
+         is '07'h; and the value is '9f780442f60000'h."
+    SYNTAX Opaque (SIZE (7))
+    
+Utf8StringLong ::= TEXTUAL-CONVENTION
+	DISPLAY-HINT "65535t"
+	STATUS  current
+	DESCRIPTION
+		"A human readable string represented using the ISO/IEC IS
+         10646-1 character set, encoded as an octet string using
+         the UTF-8 transformation format described in RFC 2279.
+
+         Since additional code points are added by amendments to
+         the 10646 standard from time to time, implementations must
+         be prepared to encounter any code point from 0x00000000 to
+         0x7fffffff.  Byte sequences that do not correspond to the
+         valid UTF-8 encoding of a code point or are outside this
+         range are prohibited.
+         
+         The use of control codes should be avoided. When it is
+         necessary to represent a newline, the control code
+         sequence CR LF should be used.
+ 
+         The use of leading or trailing white space should be
+         avoided.
+ 
+         For code points not directly supported by user interface
+         hardware or software, an alternative means of entry and
+         display, such as hexadecimal, may be provided.
+ 
+         For information encoded in 7-bit US-ASCII, the UTF-8
+         encoding is identical to the US-ASCII encoding.
+ 
+         UTF-8 may require multiple bytes to represent a single
+         character / code point; thus the length of a Utf8String in
+         octets may be different from the number of characters
+         encoded.  Similarly, size constraints refer to the number
+         of encoded octets, not the number of characters
+         represented by an encoding.
+
+         Note that the size of an Utf8String is measured in octets,
+         not characters."
+	SYNTAX  OCTET STRING (SIZE (0..65535))
+	
+Utf8StringShort ::= TEXTUAL-CONVENTION
+	DISPLAY-HINT "255t"
+	STATUS current
+	DESCRIPTION
+		"A Utf8String with a maximum length of 255 octets.  Note
+         that the size of an Utf8String is measured in octets, not
+         characters."
+	SYNTAX OCTET STRING (SIZE (0..255))
+	
+Uint64ReadOnly ::= TEXTUAL-CONVENTION
+	STATUS current
+	DESCRIPTION
+		"This textual convention implements a READ-ONLY, unsigned, 64-bit
+		 integer, per the PROPOSED STANDARD RFC2856: 'Textual Conventions
+		 for Additional High Capacity Data Types' by A. Bierman,
+		 K. McCloghrie, R. Presuhn, June 2000.
+         
+         This textual convention may only be used if the object type being
+         defined will not take on signed values and is defined as read only."
+	SYNTAX Counter64
+
+Int64ReadWrite ::= TEXTUAL-CONVENTION
+	DISPLAY-HINT "21a"
+	STATUS current
+	DESCRIPTION
+		"This textual convention implements a READ/WRITE, signed or unsigned,
+		64-bit integer as a 21 character octet string.  The first character 
+		could be a sign the remaining 20 characters should be treated as
+		decimal digits.
+		
+		The valid values for this textual convention are 0 to (2^64)-1 
+		[18446744073709551615] for unsigned integers and -(2^64)/2 
+		[-9223372036854775808] to ((2^64)/2)-1 [9223372036854775807] for 
+		signed integers."
+	SYNTAX  OCTET STRING (SIZE (0..21))                 
+
+
+END
+
+--
+--   End VERITAS-TC
+--
+
+
+
+

@@ -1,0 +1,182 @@
+ACOS-SYSTEMCPU-DATA-CPU-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		systemCpuDataCpuModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "systemCpuDataCpuModule OID for ACOS"
+				::=  {  acosSchema 111 }
+
+dataCpu		 OBJECT IDENTIFIER ::= { systemCpuDataCpuModule 1}
+
+dataCpuOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DataCpuOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Data CPU usage from object 'system-cpu.data-cpu'"
+	::= {dataCpu 2}
+
+dataCpuOperEntry OBJECT-TYPE
+	SYNTAX DataCpuOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dataCpuOper entry"
+	INDEX {
+		dataCpuOperSlotId
+	}
+	::= { dataCpuOperTable 1 }
+
+DataCpuOperEntry ::=
+	SEQUENCE {
+		dataCpuOperSlotId Integer32,
+		dataCpuOperNumberOfCpu	 Integer32,
+		dataCpuOperNumberOfDataCpu	 Integer32
+	}
+
+dataCpuOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dataCpuOperEntry 1 }
+
+dataCpuOperNumberOfCpu OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "number-of-cpu"
+	::= { dataCpuOperEntry 2 }
+
+dataCpuOperNumberOfDataCpu OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "number-of-data-cpu"
+	::= { dataCpuOperEntry 3 }
+
+dataCpuOperCpuUsageTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DataCpuOperCpuUsageEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Data CPU usage from object 'system-cpu.data-cpu'"
+	::= {dataCpu 3}
+
+dataCpuOperCpuUsageEntry OBJECT-TYPE
+	SYNTAX DataCpuOperCpuUsageEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dataCpuOperCpuUsage entry:cpu-usage"
+	INDEX {
+		dataCpuOperCpuUsageSlotId,
+		dataCpuOperCpuUsageCpuUsageListId
+	}
+	::= { dataCpuOperCpuUsageTable 1}
+
+DataCpuOperCpuUsageEntry ::=
+	SEQUENCE {
+		dataCpuOperCpuUsageSlotId Integer32,
+		dataCpuOperCpuUsageCpuUsageListId Integer32,
+		dataCpuOperCpuUsageCpuId	Integer32,
+		dataCpuOperCpuUsage1Sec	Integer32,
+		dataCpuOperCpuUsage5Sec	Integer32,
+		dataCpuOperCpuUsage10Sec	Integer32,
+		dataCpuOperCpuUsage30Sec	Integer32,
+		dataCpuOperCpuUsage60Sec	Integer32,
+		dataCpuOperCpuUsageDcpuStr	DisplayString
+	}
+
+dataCpuOperCpuUsageSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { dataCpuOperCpuUsageEntry 1}
+
+dataCpuOperCpuUsageCpuUsageListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { dataCpuOperCpuUsageEntry 2}
+
+dataCpuOperCpuUsageCpuId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cpu-id"
+	::= { dataCpuOperCpuUsageEntry 3}
+
+dataCpuOperCpuUsage1Sec OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"1-sec"
+	::= { dataCpuOperCpuUsageEntry 4}
+
+dataCpuOperCpuUsage5Sec OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"5-sec"
+	::= { dataCpuOperCpuUsageEntry 5}
+
+dataCpuOperCpuUsage10Sec OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"10-sec"
+	::= { dataCpuOperCpuUsageEntry 6}
+
+dataCpuOperCpuUsage30Sec OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"30-sec"
+	::= { dataCpuOperCpuUsageEntry 7}
+
+dataCpuOperCpuUsage60Sec OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"60-sec"
+	::= { dataCpuOperCpuUsageEntry 8}
+
+dataCpuOperCpuUsageDcpuStr OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dcpu-str"
+	::= { dataCpuOperCpuUsageEntry 9}
+
+END
+

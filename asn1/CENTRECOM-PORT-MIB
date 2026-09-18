@@ -1,0 +1,129 @@
+--/* 
+-- * $RCSfile: atkkext.mib $ - ATKK Model CentreCOM 8500 and 9100 Enterprise MIB
+-- *
+-- * Copyright (c) 1997-8 by Extreme Networks Inc.
+-- * 
+-- *	  Allied Telesis K.K
+-- *      http://www1.allied-telesis.co.jp/GIGA
+-- *
+-- *
+-- * Revision control history
+-- * ------------------------
+-- * $Id: atkkext.mib 1.4 1998/11/12 22:30:11 abhatt PR3811 abhatt $ $Name: PR3811 $ $ProjectRevision: 1.118.1.9 $
+-- *
+-- * modification history
+-- * --------------------
+-- * $Log: atkkext.mib $
+-- * Revision 1.4  1998/11/12 22:30:11  abhatt
+-- * Revision 1.3  1998/11/12 22:28:49  abhatt
+-- * Modified the enterprise-name, www-site-address, etc. globally.
+-- * Revision 1.2  1998/11/09 22:48:16  abhatt
+-- * Changed file name from atkk.mib to atkkext.mib upon request.
+-- * Revision 1.1  1998/11/09 22:41:34  abhatt
+-- * Initial revision
+-- * Revision 1.4  1998/10/20 00:56:06  abhatt
+-- * Revision 1.3  1998/10/20 00:52:51  abhatt
+-- * PR3715
+-- * Revision 1.2  1998/04/15 20:41:04  asmith
+-- * add <CR> to make HPOV happy
+-- * Revision 1.1  1998/02/19 23:02:51  asmith
+-- * Initial revision
+-- */
+
+-- ===============================================================================
+
+--
+-- Atkk Switch Port objects
+--
+
+CENTRECOM-PORT-MIB DEFINITIONS ::= BEGIN
+
+        IMPORTS
+                MODULE-IDENTITY         FROM SNMPv2-SMI
+		RowStatus               FROM SNMPv2-TC
+		OBJECT-TYPE             FROM RFC-1212
+        extSwitchMIB        FROM CENTRECOM-MIB;
+
+        atiPort MODULE-IDENTITY
+                LAST-UPDATED "9802030000Z"
+                ORGANIZATION "Allied Telesis K.K"
+                CONTACT-INFO "www1.allied-telesis.co.jp/GIGA"
+                DESCRIPTION "Atkk network port objects"
+        ::= { extSwitchMIB 6 }
+
+--
+-- Load-sharing
+--
+	atiPortLoadshareTable OBJECT-TYPE
+		SYNTAX  SEQUENCE OF AtiPortLoadshareEntry
+		ACCESS  not-accessible
+		STATUS  mandatory
+		DESCRIPTION
+                      "A table of bindings between a master port 
+                        and its load-sharing slaves: create/delete 
+                        entries here to add/delete a port to/from a 
+                        load-sharing group. Default is empty table. 
+                        There are restrictions on what row creates 
+                        will be accepted by each device - see Summit 
+                        release notes for details."
+	::= { atiPort 1 }
+
+	atiPortLoadshareEntry OBJECT-TYPE
+		SYNTAX  AtiPortLoadshareEntry
+		ACCESS  not-accessible
+		STATUS  mandatory
+		DESCRIPTION
+                      "A binding between a master port and one
+                       of its load-sharing slave ports."
+                INDEX { atiPortLoadshareMasterIfIndex, 
+                        atiPortLoadshareSlaveIfIndex } 
+	::= { atiPortLoadshareTable 1 }
+
+	AtiPortLoadshareEntry ::= SEQUENCE {
+                atiPortLoadshareMasterIfIndex INTEGER, 
+                atiPortLoadshareSlaveIfIndex INTEGER,
+   				atiPortLoadshareGrouping	INTEGER,
+                atiPortLoadshareStatus RowStatus 
+	}
+
+	atiPortLoadshareMasterIfIndex OBJECT-TYPE
+                SYNTAX INTEGER
+                ACCESS  read-write
+                STATUS  mandatory
+                DESCRIPTION
+                      "The ifIndex value which identifies the
+                       port controlling a loadsharing group
+                       of ports which includes
+                       atiPortLoadshareSlaveIfIndex."
+        ::= { atiPortLoadshareEntry 1 }
+
+	atiPortLoadshareSlaveIfIndex OBJECT-TYPE
+                SYNTAX INTEGER
+                ACCESS  read-write
+                STATUS  mandatory
+                DESCRIPTION
+                      "The ifIndex value which identifies the
+                       port which is a member of a loadsharing 
+                       group controlled by 
+                        atiPortLoadshareMasterIfIndex."
+        ::= { atiPortLoadshareEntry 2 }
+
+	atiPortLoadshareGrouping OBJECT-TYPE
+                SYNTAX INTEGER { pair (2), quad (4) }
+                ACCESS  read-write
+                STATUS  mandatory
+                DESCRIPTION
+                      "The Grouping value which identifies if load sharing is
+                      in pair or quad."
+        ::= { atiPortLoadshareEntry 3 }
+
+	atiPortLoadshareStatus OBJECT-TYPE
+                SYNTAX  RowStatus
+                ACCESS  read-write
+                STATUS  mandatory
+                DESCRIPTION
+                        "The row status variable, used according to
+                        row installation and removal conventions."
+        ::= { atiPortLoadshareEntry 4 }
+
+END

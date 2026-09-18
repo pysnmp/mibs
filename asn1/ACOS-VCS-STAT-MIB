@@ -1,0 +1,716 @@
+ACOS-VCS-STAT-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vcsStatModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vcsStatModule OID for ACOS"
+				::=  {  acosSchema 18 }
+
+stat		 OBJECT IDENTIFIER ::= { vcsStatModule 1}
+
+statStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF StatStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Show aVCS statistics information from object 'vcs.stat'"
+	::= {stat 1}
+
+statStatsEntry OBJECT-TYPE
+	SYNTAX StatStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The statStats stats entry"
+	INDEX {
+		statStatsSlotId
+	}
+	::= { statStatsTable 1 }
+
+StatStatsEntry ::=
+	SEQUENCE {
+		statStatsSlotId Integer32,
+		statStatsElectRecvErr	 CounterBasedGauge64,
+		statStatsElectSendErr	 CounterBasedGauge64,
+		statStatsElectRecvByte	 CounterBasedGauge64,
+		statStatsElectSendByte	 CounterBasedGauge64,
+		statStatsElectPduMasterRecv	 CounterBasedGauge64,
+		statStatsElectPduMasterCandRecv	 CounterBasedGauge64,
+		statStatsElectPduSlaveRecv	 CounterBasedGauge64,
+		statStatsElectPduMasterTakeOverRecv	 CounterBasedGauge64,
+		statStatsElectPduUnknownRecv	 CounterBasedGauge64,
+		statStatsElectPduMasterSent	 CounterBasedGauge64,
+		statStatsElectPduMasterCandSent	 CounterBasedGauge64,
+		statStatsElectPduSlaveSent	 CounterBasedGauge64,
+		statStatsElectPduMasterTakeOverSent	 CounterBasedGauge64,
+		statStatsElectPduUnknownSent	 CounterBasedGauge64,
+		statStatsElectPduInval	 CounterBasedGauge64,
+		statStatsElectPduHwMismatch	 CounterBasedGauge64,
+		statStatsElectPduClusterMismatch	 CounterBasedGauge64,
+		statStatsElectPduDevIdCollision	 CounterBasedGauge64,
+		statStatsElectMcDiscardMaster	 CounterBasedGauge64,
+		statStatsElectMcReplaceMaster	 CounterBasedGauge64,
+		statStatsElectMcDupMasterr	 CounterBasedGauge64,
+		statStatsElectMcResetTimerByMc	 CounterBasedGauge64,
+		statStatsElectMcResetTimerByMto	 CounterBasedGauge64,
+		statStatsElectSlaveDupMaster	 CounterBasedGauge64,
+		statStatsElectSlaveDiscardChallenger	 CounterBasedGauge64,
+		statStatsElectSlaveReplaceChallenger	 CounterBasedGauge64,
+		statStatsElectSlaveDupChallenger	 CounterBasedGauge64,
+		statStatsElectSlaveDiscardNeighbour	 CounterBasedGauge64,
+		statStatsElectSlaveTooManyNeighbour	 CounterBasedGauge64,
+		statStatsElectSlaveDupNeighbour	 CounterBasedGauge64,
+		statStatsElectMasterDiscardChallenger	 CounterBasedGauge64,
+		statStatsElectMasterNewChallenger	 CounterBasedGauge64,
+		statStatsElectMasterReplaceChallenger	 CounterBasedGauge64,
+		statStatsElectMasterDupChallenger	 CounterBasedGauge64,
+		statStatsElectMasterDiscardNeighbour	 CounterBasedGauge64,
+		statStatsElectMasterTooManyNeighbour	 CounterBasedGauge64,
+		statStatsElectMasterDupNeighbour	 CounterBasedGauge64,
+		statStatsElectEnterMasterCandStat	 CounterBasedGauge64,
+		statStatsElectEnterSlave	 CounterBasedGauge64,
+		statStatsElectEnterMaster	 CounterBasedGauge64,
+		statStatsElectEnterMasterTakeOver	 CounterBasedGauge64,
+		statStatsElectLeaveMasterCand	 CounterBasedGauge64,
+		statStatsElectLeaveSlave	 CounterBasedGauge64,
+		statStatsElectLeaveMaster	 CounterBasedGauge64,
+		statStatsElectLeaveMasterTakeOver	 CounterBasedGauge64,
+		statStatsMasterSlaveStartErr	 CounterBasedGauge64,
+		statStatsMasterSlaveStart	 CounterBasedGauge64,
+		statStatsMasterSlaveStop	 CounterBasedGauge64,
+		statStatsMasterCfgUpd	 CounterBasedGauge64,
+		statStatsMasterCfgUpdLFail	 CounterBasedGauge64,
+		statStatsMasterCfgUpdRFail	 CounterBasedGauge64,
+		statStatsMasterCfgUpdNotifErr	 CounterBasedGauge64,
+		statStatsMasterCfgUpdResultErr	 CounterBasedGauge64,
+		statStatsSlaveRecvErr	 CounterBasedGauge64,
+		statStatsSlaveSendErr	 CounterBasedGauge64,
+		statStatsSlaveRecvBytes	 CounterBasedGauge64,
+		statStatsSlaveSentBytes	 CounterBasedGauge64,
+		statStatsSlaveNRecv	 CounterBasedGauge64,
+		statStatsSlaveNSent	 CounterBasedGauge64,
+		statStatsSlaveMsgInval	 CounterBasedGauge64,
+		statStatsSlaveKeepalive	 CounterBasedGauge64,
+		statStatsSlaveCfgUpd	 CounterBasedGauge64,
+		statStatsSlaveCfgUpdFail	 CounterBasedGauge64,
+		statStatsDaemonNElecStart	 CounterBasedGauge64,
+		statStatsDaemonNElecStop	 CounterBasedGauge64,
+		statStatsDaemonRecvErr	 CounterBasedGauge64,
+		statStatsDaemonSendErr	 CounterBasedGauge64,
+		statStatsDaemonRecvBytes	 CounterBasedGauge64,
+		statStatsDaemonSentBytes	 CounterBasedGauge64,
+		statStatsDaemonNRecv	 CounterBasedGauge64,
+		statStatsDaemonNSent	 CounterBasedGauge64,
+		statStatsDaemonMsgInval	 CounterBasedGauge64,
+		statStatsDaemonMsgHandleFailure	 CounterBasedGauge64
+	}
+
+statStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { statStatsEntry 1 }
+
+statStatsElectRecvErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_recv_err"
+	::= { statStatsEntry 2 }
+
+statStatsElectSendErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_send_err"
+	::= { statStatsEntry 3 }
+
+statStatsElectRecvByte OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_recv_byte"
+	::= { statStatsEntry 4 }
+
+statStatsElectSendByte OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_send_byte"
+	::= { statStatsEntry 5 }
+
+statStatsElectPduMasterRecv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_master_recv"
+	::= { statStatsEntry 6 }
+
+statStatsElectPduMasterCandRecv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_master_cand_recv"
+	::= { statStatsEntry 7 }
+
+statStatsElectPduSlaveRecv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_slave_recv"
+	::= { statStatsEntry 8 }
+
+statStatsElectPduMasterTakeOverRecv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_master_take_over_recv"
+	::= { statStatsEntry 9 }
+
+statStatsElectPduUnknownRecv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_unknown_recv"
+	::= { statStatsEntry 10 }
+
+statStatsElectPduMasterSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_master_sent"
+	::= { statStatsEntry 11 }
+
+statStatsElectPduMasterCandSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_master_cand_sent"
+	::= { statStatsEntry 12 }
+
+statStatsElectPduSlaveSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_slave_sent"
+	::= { statStatsEntry 13 }
+
+statStatsElectPduMasterTakeOverSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_master_take_over_sent"
+	::= { statStatsEntry 14 }
+
+statStatsElectPduUnknownSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_unknown_sent"
+	::= { statStatsEntry 15 }
+
+statStatsElectPduInval OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_inval"
+	::= { statStatsEntry 16 }
+
+statStatsElectPduHwMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_hw_mismatch"
+	::= { statStatsEntry 17 }
+
+statStatsElectPduClusterMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_cluster_mismatch"
+	::= { statStatsEntry 18 }
+
+statStatsElectPduDevIdCollision OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_pdu_dev_id_collision"
+	::= { statStatsEntry 19 }
+
+statStatsElectMcDiscardMaster OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_mc_discard_master"
+	::= { statStatsEntry 20 }
+
+statStatsElectMcReplaceMaster OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_mc_replace_master"
+	::= { statStatsEntry 21 }
+
+statStatsElectMcDupMasterr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_mc_dup_masterr"
+	::= { statStatsEntry 22 }
+
+statStatsElectMcResetTimerByMc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_mc_reset_timer_by_mc"
+	::= { statStatsEntry 23 }
+
+statStatsElectMcResetTimerByMto OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_mc_reset_timer_by_mto"
+	::= { statStatsEntry 24 }
+
+statStatsElectSlaveDupMaster OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_slave_dup_master"
+	::= { statStatsEntry 25 }
+
+statStatsElectSlaveDiscardChallenger OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_slave_discard_challenger"
+	::= { statStatsEntry 26 }
+
+statStatsElectSlaveReplaceChallenger OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_slave_replace_challenger"
+	::= { statStatsEntry 27 }
+
+statStatsElectSlaveDupChallenger OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_slave_dup_challenger"
+	::= { statStatsEntry 28 }
+
+statStatsElectSlaveDiscardNeighbour OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_slave_discard_neighbour"
+	::= { statStatsEntry 29 }
+
+statStatsElectSlaveTooManyNeighbour OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_slave_too_many_neighbour"
+	::= { statStatsEntry 30 }
+
+statStatsElectSlaveDupNeighbour OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_slave_dup_neighbour"
+	::= { statStatsEntry 31 }
+
+statStatsElectMasterDiscardChallenger OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_master_discard_challenger"
+	::= { statStatsEntry 32 }
+
+statStatsElectMasterNewChallenger OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_master_new_challenger"
+	::= { statStatsEntry 33 }
+
+statStatsElectMasterReplaceChallenger OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_master_replace_challenger"
+	::= { statStatsEntry 34 }
+
+statStatsElectMasterDupChallenger OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_master_dup_challenger"
+	::= { statStatsEntry 35 }
+
+statStatsElectMasterDiscardNeighbour OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_master_discard_neighbour"
+	::= { statStatsEntry 36 }
+
+statStatsElectMasterTooManyNeighbour OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_master_too_many_neighbour"
+	::= { statStatsEntry 37 }
+
+statStatsElectMasterDupNeighbour OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_master_dup_neighbour"
+	::= { statStatsEntry 38 }
+
+statStatsElectEnterMasterCandStat OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_enter_master_cand_stat"
+	::= { statStatsEntry 39 }
+
+statStatsElectEnterSlave OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_enter_slave"
+	::= { statStatsEntry 40 }
+
+statStatsElectEnterMaster OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_enter_master"
+	::= { statStatsEntry 41 }
+
+statStatsElectEnterMasterTakeOver OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_enter_master_take_over"
+	::= { statStatsEntry 42 }
+
+statStatsElectLeaveMasterCand OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_leave_master_cand"
+	::= { statStatsEntry 43 }
+
+statStatsElectLeaveSlave OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_leave_slave"
+	::= { statStatsEntry 44 }
+
+statStatsElectLeaveMaster OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_leave_master"
+	::= { statStatsEntry 45 }
+
+statStatsElectLeaveMasterTakeOver OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "elect_leave_master_take_over"
+	::= { statStatsEntry 46 }
+
+statStatsMasterSlaveStartErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "master_slave_start_err"
+	::= { statStatsEntry 47 }
+
+statStatsMasterSlaveStart OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "master_slave_start"
+	::= { statStatsEntry 48 }
+
+statStatsMasterSlaveStop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "master_slave_stop"
+	::= { statStatsEntry 49 }
+
+statStatsMasterCfgUpd OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "master_cfg_upd"
+	::= { statStatsEntry 50 }
+
+statStatsMasterCfgUpdLFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "master_cfg_upd_l_fail"
+	::= { statStatsEntry 51 }
+
+statStatsMasterCfgUpdRFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "master_cfg_upd_r_fail"
+	::= { statStatsEntry 52 }
+
+statStatsMasterCfgUpdNotifErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "master_cfg_upd_notif_err"
+	::= { statStatsEntry 53 }
+
+statStatsMasterCfgUpdResultErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "master_cfg_upd_result_err"
+	::= { statStatsEntry 54 }
+
+statStatsSlaveRecvErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_recv_err"
+	::= { statStatsEntry 55 }
+
+statStatsSlaveSendErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_send_err"
+	::= { statStatsEntry 56 }
+
+statStatsSlaveRecvBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_recv_bytes"
+	::= { statStatsEntry 57 }
+
+statStatsSlaveSentBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_sent_bytes"
+	::= { statStatsEntry 58 }
+
+statStatsSlaveNRecv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_n_recv"
+	::= { statStatsEntry 59 }
+
+statStatsSlaveNSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_n_sent"
+	::= { statStatsEntry 60 }
+
+statStatsSlaveMsgInval OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_msg_inval"
+	::= { statStatsEntry 61 }
+
+statStatsSlaveKeepalive OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_keepalive"
+	::= { statStatsEntry 62 }
+
+statStatsSlaveCfgUpd OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_cfg_upd"
+	::= { statStatsEntry 63 }
+
+statStatsSlaveCfgUpdFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slave_cfg_upd_fail"
+	::= { statStatsEntry 64 }
+
+statStatsDaemonNElecStart OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_n_elec_start"
+	::= { statStatsEntry 65 }
+
+statStatsDaemonNElecStop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_n_elec_stop"
+	::= { statStatsEntry 66 }
+
+statStatsDaemonRecvErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_recv_err"
+	::= { statStatsEntry 67 }
+
+statStatsDaemonSendErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_send_err"
+	::= { statStatsEntry 68 }
+
+statStatsDaemonRecvBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_recv_bytes"
+	::= { statStatsEntry 69 }
+
+statStatsDaemonSentBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_sent_bytes"
+	::= { statStatsEntry 70 }
+
+statStatsDaemonNRecv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_n_recv"
+	::= { statStatsEntry 71 }
+
+statStatsDaemonNSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_n_sent"
+	::= { statStatsEntry 72 }
+
+statStatsDaemonMsgInval OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_msg_inval"
+	::= { statStatsEntry 73 }
+
+statStatsDaemonMsgHandleFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "daemon_msg_handle_failure"
+	::= { statStatsEntry 74 }
+
+END
+

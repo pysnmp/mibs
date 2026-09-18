@@ -1,0 +1,777 @@
+--
+-- Copyright (c) 2004-2024, Infoblox, Inc
+-- All rights reserved.
+
+IB-TRAP-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Imports
+--
+
+IMPORTS MODULE-IDENTITY, NOTIFICATION-TYPE, OBJECT-TYPE, Unsigned32, IpAddress
+		  FROM SNMPv2-SMI
+        DisplayString, TEXTUAL-CONVENTION
+	  	  FROM SNMPv2-TC
+        ibTrapOne, IbString, IbNode FROM IB-SMI-MIB;
+
+--
+-- Module Identity
+--
+
+ibTrapOneModule MODULE-IDENTITY
+         LAST-UPDATED "202507180000Z"  -- July 18, 2025
+         ORGANIZATION "Infoblox."
+         CONTACT-INFO "See IB-SMI-MIB for information."
+         DESCRIPTION
+           "This is the MIB module for trap definitions for Infoblox
+            one products."
+        
+         REVISION     "202507180000Z"  -- July 18, 2025
+         DESCRIPTION  "Modified trap numbers to match with previous version."
+
+         REVISION     "202505120000Z"  -- May 12, 2025
+         DESCRIPTION  "Added Query Logging Banner trap."
+
+         REVISION     "202505260000Z"  -- May 26, 2025
+         DESCRIPTION  "Added separate DoT/DoH disable trap for better monitoring."
+
+         REVISION     "202407090000Z"  -- July 10, 2024
+         DESCRIPTION  "Modified IMC gRPC Server trap."
+
+         REVISION     "202406180000Z"  -- Jun 18, 2024
+         DESCRIPTION  "Added fastpath core stuck/working traps."
+
+         REVISION     "202403050000Z"  -- Mar 5, 2024
+         DESCRIPTION  "Added IMC gRPC Server trap."
+
+         REVISION     "202303140000Z"  -- Mar 14, 2023
+         DESCRIPTION  "Added Cloud Sync traps."
+
+         REVISION     "202211240000Z"  -- November 24,2022
+         DESCRIPTION  "Added zvelo update/expiry/clear traps."
+
+         REVISION  "202209120000Z"  -- September 12, 2022
+         DESCRIPTION "Added continuous serial numbers in the states as bloxtools states were removed"
+
+         REVISION  "202112160000Z"  -- December 16, 2021
+         DESCRIPTION "Remove bloxtools states"
+
+         REVISION     "202105050000Z"  -- May 5,2021
+         DESCRIPTION  "Added DOT DOH and IMC DCA BWL traps."  
+
+	 REVISION     "201908200000Z"  -- Aug 20, 2019
+	 DESCRIPTION  "Added DFP Service traps."
+
+         REVISION     "201712060000Z"  -- Dec 06, 2017
+         DESCRIPTION  "Added Disk Predictive Failure warning trap"
+
+         REVISION     "201711090000Z"  -- Nov 09, 2017
+         DESCRIPTION  "Added missing reporting warning trap"
+
+         REVISION     "201710260000Z"  -- Oct 26, 2017
+         DESCRIPTION  "Added ATC forwarding service failure trap"
+
+         REVISION     "201707280000Z"  -- Jul. 28, 2017
+         DESCRIPTION  "Added additional IMC Servers traps."
+
+         REVISION     "201703270000Z"  -- Mar. 27, 2017
+         DESCRIPTION  "Added IMC Servers Trap support."
+
+         REVISION     "201606120000Z"  -- Jun 12, 2016
+         DESCRIPTION  "Added BFD service trap"
+
+         REVISION  "201606070000Z"  -- June 07, 2016
+         DESCRIPTION "Add Outbound traps"
+
+         REVISION     "201601270000Z"  -- Jan 27, 2016
+         DESCRIPTION  "Added DNS Health Check succeed trap"
+
+         REVISION     "201601010000Z"  -- Jan 01, 2016
+         DESCRIPTION  "Added Threat Analytics Service trap."
+
+         REVISION     "201512170000Z"  -- Dec. 17, 2015
+         DESCRIPTION  "Added DNS Health Check trap."
+
+         REVISION     "201511170000Z"  -- Nov. 17, 2015
+         DESCRIPTION  "Added Cisco ISE server states."
+
+         REVISION  "201510290000Z"  -- Oct 29, 2015
+         DESCRIPTION "Add Taxii service status"
+
+         REVISION     "201510260000Z"  -- Oct. 26, 2015
+         DESCRIPTION  "Added Analytics Auto Download Failure Trap."
+
+         REVISION     "201510090000Z"  -- Oct. 09, 2015
+         DESCRIPTION  "Added Analytics service traps."
+
+         REVISION     "201510070000Z"  -- Oct. 07, 2015
+         DESCRIPTION  "Added RPZ Feed Validation traps."
+
+         REVISION     "201508110000Z"  --  Aug. 11, 2015
+         DESCRIPTION  "Added Rotated Syslog Files Backup traps."
+
+         REVISION     "201507300000Z"  -- Jul. 30, 2015
+         DESCRIPTION  "Added RAID Inoperable trap for RAID monitor."
+
+         REVISION     "201505110000Z"  -- May. 11, 2015
+         DESCRIPTION  "Added RPZ refresh traps."
+
+         REVISION     "201502130000Z"  -- Feb. 13, 2015
+         DESCRIPTION  "Added DNS attack detection trap."
+
+         REVISION     "201502110000Z"  -- Feb. 11, 2015
+         DESCRIPTION  "Added IPMI and RAID status availability traps."
+
+         REVISION     "201501200000Z"  -- Jan. 20, 2015
+         DESCRIPTION  "Added discovery unmanaged device trap."
+
+         REVISION     "201412240000Z"  -- Dec. 24, 2014
+         DESCRIPTION  "Added DTC service failure trap."
+
+         REVISION     "201411240000Z"  -- Nov. 24, 2014
+         DESCRIPTION  "Modified Cloud API service failure trap."
+
+         REVISION     "201411210000Z"  -- Nov. 21, 2014
+         DESCRIPTION  "Modified Cloud API service trap names."
+
+         REVISION     "201407290000Z"  -- Jul. 29, 2014
+         DESCRIPTION  "Added Cloud API service traps."
+
+         REVISION     "201406260000Z"  -- June. 26, 2014
+         DESCRIPTION  "Added traps for port and device conflicts."
+
+         REVISION     "201406090000Z"  -- June. 09, 2014
+         DESCRIPTION  "Added DNS Integrity Check severity traps."
+
+         REVISION     "201406040000Z"  -- June. 04, 2014
+         DESCRIPTION  "Added DNS Integrity Check trap."
+
+         REVISION     "201405290000Z"  -- May. 29, 2014
+         DESCRIPTION  "Added missing mgm external storage trap."
+
+         REVISION     "201405230000Z"  -- May. 23, 2014
+         DESCRIPTION  "Added passive HA node ARP connectivity traps."
+
+         REVISION     "201403030000Z"  -- March. 03, 2014
+         DESCRIPTION  "Added DNSSEC rollover trap."
+
+         REVISION     "201311150000Z"  -- Nov. 15, 2013
+         DESCRIPTION  "Added Threat Protection publish failure trap."
+
+         REVISION     "201307300000Z"  -- July. 30, 2013
+         DESCRIPTION  "Added Threat Protection traps."
+
+         REVISION     "201305230000Z"  -- May. 23, 2013
+         DESCRIPTION  "Add discovery backup failure trap"
+
+         REVISION     "201305070000Z"  -- May. 7, 2013
+         DESCRIPTION  "Add discovery service state traps"
+
+         REVISION     "201304090000Z"  -- April. 9, 2013
+         DESCRIPTION  "Add trap for power supply removed & ipmi error"
+
+         REVISION     "201301090000Z"  -- January. 9, 2013
+         DESCRIPTION  "Add trap for sgm online/offline state
+                       remove entry for vNIOS master candidate"
+
+         REVISION     "201210010000Z"  -- October. 1, 2012
+         DESCRIPTION  "Add trap for RIR SWIP API failure"
+
+         REVISION     "201208140000Z"  -- Aug. 14, 2012
+         DESCRIPTION  "Add LDAP traps."
+
+         REVISION     "201207130000Z"  -- July. 13, 2012
+         DESCRIPTION  "Add trap for vNIOS master candidate"
+
+         REVISION     "201207090000Z"  -- July. 9, 2012
+         DESCRIPTION  "Add trap for LB device states"
+
+         REVISION     "201206260000Z"  -- June. 26, 2012
+         DESCRIPTION  "Add trap for Reporting alert triggered, and
+                       captured queries upload failure"
+
+         REVISION     "201206210000Z"  -- June. 21, 2012
+         DESCRIPTION  "Add OCSP traps."
+
+         REVISION     "201206190000Z"  -- June. 19, 2012
+         DESCRIPTION  "Add dns cache acceleration traps."
+
+         REVISION     "201206050000Z"  -- June. 5, 2012
+         DESCRIPTION  "Add Disconnected Grid traps."
+
+         REVISION     "201203290000Z"  -- Mar. 29, 2012
+         DESCRIPTION  "Update Copyright"
+
+         REVISION     "201203140000Z"  -- Mar. 14, 2012
+         DESCRIPTION  "Add additional RAID traps"
+
+         REVISION     "201201120000Z"  -- Jan. 12, 2012
+         DESCRIPTION  "Add Reporting service state changes"
+
+         REVISION     "201201060000Z"  -- Jan. 06, 2012
+         DESCRIPTION  "Fix hsm state change traps"
+
+         REVISION     "201112160000Z"  -- Dec. 16, 2011
+         DESCRIPTION  "Add missing state change and probablefailures"
+
+         REVISION     "201109200000Z"  -- Sep. 20, 2011
+         DESCRIPTION  "Added State change Trap Support for services"
+
+         REVISION     "201108170000Z"  -- Aug. 17, 2011
+         DESCRIPTION  "Added SNMP Trap Support for DHCP Protocol & Syslog"
+
+         REVISION     "201108110000Z"  -- Aug. 11, 2011
+         DESCRIPTION  "Added SNMP Trap Support for Restart & Zone Transfer"
+
+         REVISION     "201108030000Z"  -- Aug. 3, 2011
+         DESCRIPTION  "Added SNMP Trap Support for HA Pair Dual Active state"
+
+         REVISION     "201103030000Z"  -- Mar. 3, 2011
+         DESCRIPTION  "Added HSM Group failure traps"
+
+         REVISION     "201010100000Z"  -- Oct. 10, 2010
+         DESCRIPTION  "Added IF-MAP and Captive portal software failure traps"
+
+         REVISION     "201005210000Z"  -- May 21, 2010
+         DESCRIPTION  "Added NAC Authentication service state changes"
+
+         REVISION     "201004160000Z"  -- Apr. 16, 2010
+         DESCRIPTION  "Added MS server and service states."
+
+         REVISION  "201003230000Z"  --  Mar 23, 2010
+         DESCRIPTION   "Fixed smilint errors"
+
+         REVISION     "200802280000Z"  -- FEB. 28, 2008
+         DESCRIPTION  "Change oid of NOTIFICATION-TYPE definitions"
+
+         REVISION     "200802040000Z"  -- FEB. 04, 2008
+         DESCRIPTION  "Added ntp-sync-up (15) and ntp-sync-down (6) states."
+
+         REVISION     "200504170000Z"  -- APR. 17, 2005
+         DESCRIPTION  "Added enet link states and replication
+                       states"
+
+         REVISION     "200501100000Z"  -- Jan. 10, 2005
+         DESCRIPTION  "Modified comments to the mib,
+                       Added copyright, and defined
+                       ibProcStartStopTrap for normal
+                       software process start/stop. "
+
+         REVISION     "200405100000Z"  -- May 10, 2004
+         DESCRIPTION  "Initial creation of the module."
+
+         ::= {  ibTrapOne  1  }
+
+ibNotificationVarBind  OBJECT IDENTIFIER  ::= { ibTrapOne 2 }
+
+IbState ::= TEXTUAL-CONVENTION
+   STATUS        current
+   DESCRIPTION   "It defines the state for infoblox One products."
+   SYNTAX        INTEGER {
+                   ha-active     (1), -- high availability ACTIVE
+                   ha-passive    (2), -- high availability PASSIVE
+                   ha-initial    (3), -- high availability INITIAL
+                   grid-connected (4), -- connected to grid
+                   grid-disconnected (5), -- not connected to grid
+                   enet-link-up        (6), -- enet port link active
+                   enet-link-down        (7), -- enet port link inactive
+                   replication-online    (8), -- REPLICATION ONLINE
+                   replication-offline   (9), -- REPLICATION OFFLINE
+                   replication-snapshotting (10), -- REPLICATION SNAPSHOTTING
+                   service-up            (11), -- service is up
+                   service-down          (12),  -- service is down
+                   ha-replication-online (13), -- ha replication is online
+                   ha-replication-offline (14), -- ha replication is offline
+                   ntp-sync-up            (15), -- NTP is synchronized
+                   ntp-sync-down          (16), -- NTP is out of sync
+                   ms-server-up           (17), -- Microsoft server is active
+                   ms-server-down         (18), -- Microsoft server is inactive
+                   ms-service-up          (19), -- Microsoft service connection is up
+                   ms-service-down        (20), -- Microsoft service connection is down
+                   nac-server-group-down    (21), -- NAC Authentication server group is down
+                   nac-server-group-up      (22), -- NAC Authentication server group is up
+                   mgm-service-up           (23), -- MGM service is active
+                   mgm-service-down         (24), -- MGM service is inactive
+                   ha-active-active         (25), -- HA Pair in Dual Active
+                   ftp-service-working      (26), -- FTP service is working
+                   ftp-service-failed       (27), -- FTP service is failed
+                   ftp-service-inactive     (28), -- FTP service is inactive
+                   tftp-service-working     (29), -- TFTP service is working
+                   tftp-service-failed      (30), -- TFTP service is failed
+                   tftp-service-inactive    (31), -- TFTP service is inactive
+                   dns-service-working      (32), -- DNS service is working
+                   dns-service-failed       (33), -- DNS service is failed
+                   dns-service-inactive     (34), -- DNS service is inactive
+                   ntp-service-working      (35), -- NTP service is working
+                   ntp-service-failed       (36), -- NTP service is failed
+                   ntp-service-inactive     (37), -- NTP service is inactive
+                   http-file-dist-service-working     (38), -- HTTP File Dist service is working
+                   http-file-dist-service-failed      (39), -- HTTP File Dist service is failed
+                   http-file-dist-service-inactive    (40), -- HTTP File Dist service is inactive
+                   dhcp-service-working     (45), -- DHCP service is working
+                   dhcp-service-warning     (46), -- DHCP service is in warning state
+                   dhcp-service-failed      (47), -- DHCP service is failed
+                   dhcp-service-inactive    (48), -- DHCP service is inactive
+                   captive-portal-service-working     (49), -- Captive Portal service is working
+                   captive-portal-service-failed      (50), -- Captive Portal service is failed
+                   captive-portal-service-inactive    (51), -- Captive Portal service is inactive
+                   ifmap-service-working     (52), -- IFMap service is working
+                   ifmap-service-failed      (53), -- IFMap service is failed
+                   ifmap-service-inactive    (54), -- IFMap service is inactive
+                   dns-service-noengine      (55), -- DNS service is restarted in no-engine mode
+                   hsm-group-down            (56), -- HSM service is down
+                   hsm-group-up              (57), -- HSM service is up
+                   dns-service-working-no-hsm(58), -- DNS Service is failed to generate signature due to HSM error
+                   reporting-service-working (59), -- Reporting service is working
+                   reporting-service-failed  (60), -- Reporting service failed
+                   reporting-service-inactive(61), -- Reporting service inactive
+                   dns-cache-acceleration-working (62), -- DNS cache acceleration service is working
+                   dns-cache-acceleration-failed  (63), -- DNS cache acceleration service is failed
+                   dns-cache-acceleration-inactive(64), -- DNS cache acceleration service is inactive
+                   ocsp-responders-ok          (65), -- All OCSP responders available
+                   ocsp-responder-failed       (66), -- At least one OCSP responder became unavailable
+                   ocsp-responders-unavailable (67), -- All OCSP responders are out of service
+                   ocsp-service-inactive       (68), -- OCSP service inactive
+                   subgrid-attached          (69), -- Subgrid attached
+                   subgrid-detached          (70), -- Subgrid detached
+                   snapshot-disabled         (71), -- Snapshot disabled
+                   snapshot-enabled          (72),  -- Snapshot enabled
+                   lb-device-up              (73),  -- lb device up
+                   lb-device-down            (74),  -- lb device down
+                   ldap-servers-ok           (76), -- All LDAP servers available
+                   ldap-server-failure       (77), -- At least one LDAP server is unavailable
+                   ldap-servers-unavailable  (78), -- All LDAP servers are unavailable
+                   ldap-service-inactive     (79),  -- LDAP service is inactive
+                   sgm-state-online          (80),  -- sgm state online
+                   sgm-state-offline         (81),   -- sgm state offline
+                   discovery-consolidator-service-working     (82), -- Discovery consolidator service is working
+                   discovery-consolidator-service-warning     (83), -- Discovery consolidator service is warning
+                   discovery-consolidator-service-failed      (84), -- Discovery consolidator service is failed
+                   discovery-consolidator-service-inactive    (85), -- Discovery consolidator service is inactive
+                   discovery-collector-service-working        (86), -- Discovery collector service is working
+                   discovery-collector-service-warning        (87), -- Discovery collector service is warning
+                   discovery-collector-service-failed         (88), -- Discovery collector service is failed
+                   discovery-collector-service-inactive       (89), -- Discovery collector service is inactive
+                   threat-protection-service-working  (90), -- Threat Protection service is working
+                   threat-protection-service-warning  (91), -- Threat Protection service is in warning state
+                   threat-protection-service-failed   (92), -- Threat Protection service failed
+                   threat-protection-service-inactive (93), -- Threat Protection service is inactive
+                   mgm-external-storage-disabled (94), -- Mgm external storage is disabled
+                   dns-integrity-check-failed  (95), -- DNS Integrity Check daemon has failed
+                   dns-integrity-check-working (96), -- DNS Integrity Check daemon is working
+                   dns-integrity-check-severity-indetermined (97), -- DNS Integrity Check severity is None
+                   dns-integrity-check-severity-normal (98), -- DNS Integrity Check severity is NORMAL
+                   dns-integrity-check-severity-informational (99), -- DNS Integrity Check severity is INFORMATIONAL
+                   dns-integrity-check-severity-warning (100), -- DNS Integrity Check severity is WARNING
+                   dns-integrity-check-severity-severe (101), -- DNS Integrity Check severity is SEVERE
+                   dns-integrity-check-severity-critical (102), -- DNS Integrity Check severity is CRITICAL
+                   cloud-api-service-working (103), -- Cloud API service is working
+                   cloud-api-service-failed (104), -- Cloud API service failed
+                   cloud-api-service-inactive (105), -- Cloud API service is inactive
+                   dns-service-dtc-failed     (106), -- DNS sub-feature DNS Traffic Control failed
+                   raid-status-is-unavailable (107), -- RAID hardware status unavailable
+                   raid-status-is-available   (108), -- RAID hardware status available again
+                   ipmi-device-warning        (109), -- IPMI device not available
+                   ipmi-device-unavailable    (110), -- IPMI device repeatedly not available
+                   ipmi-device-available      (111), -- IPMI device available again
+                   rpz-refresh-working        (112), -- RPZ refresh working
+                   rpz-refresh-failed         (113), -- RPZ refresh failed
+                   rpz-refresh-unknown        (114),  -- RPZ refresh unknown
+                   dns-attack-active     (115), -- DNS attack is active
+                   dns-attack-inactive     (116), -- DNS attack is inactive
+                   high-rpz-hit-rate          (117), -- RPZ Hit rate exceed normal value
+                   normal-rpz-hit-rate          (118), -- RPZ Hit rate has returned to normal value
+                   taxii-working        (119), -- TAXII server is working
+                   taxii-warning        (120), -- TAXII server is warning
+                   taxii-failed         (121), -- TAXII server is failed
+                   taxii-inactive       (122), -- TAXII server is inactive
+                   ciscoise-service-up          (123), -- Cisco ISE server connection is up
+                   ciscoise-service-down        (124), -- Cisco ISE server connection is down
+                   threat-analytics-service-inactive (125), -- Threat Analytics Service is inactive
+                   threat-analytics-service-working  (126), -- Threat Analytics  service is working
+                   threat-analytics-service-warning  (127), -- Threat Analytics  service is in warning state
+                   threat-analytics-service-failed   (128),  -- Threat Analytics  service failed
+                   reporting-service-warning         (129), -- Reporting service is warning
+                   outbound-service-manager-started  (130), -- OUTBOUND Service Manager is working
+                   outbound-service-manager-failed   (131), -- OUTBOUND Service Manager is failed
+                   outbound-service-manager-stopped  (132), -- OUTBOUND Service Manager is inactive
+                   imc-servers-ok           (133), -- Subscriber Collection Service is working
+                   imc-server-failure       (134), -- Subscriber Collection Service failed
+                   imc-servers-unavailable  (135), -- All NAS gateways are unavailable
+                   imc-service-inactive     (136), -- Subscriber Collection Service is inactive
+                   imc-zvelo-service-unavailable  (137), -- Category information data is unavailable
+                   imc-server-initializing  (138), -- Initial Subscriber Collection service interim Interval
+                   dns-service-atc-failed   (139), -- Forwarding to ActiveTruct Cloud is not working properly
+                   dfp-working		    (140), -- DFP Container is Working
+                   dfp-failed		    (141), -- DFP Container is failed
+                   dfp-inactive             (142), -- DFP Container is deactivated
+                   dfp-stopped              (143),  -- DFP Container is stopped
+                   dfp-init                 (144),  -- DFP service is initializing
+                   dot-doh-reboot-required  (150),  -- DoT/DoH is enabled, reboot required
+                   dot-doh-working          (151),  -- DOT DOH working
+                   dot-doh-support-inactive (152),  -- DOT DOH support is inactive
+                   dot-doh-disable-reboot-required (153), -- DoT/DoH is disabled, reboot required
+                   imc-bwl-support-inactive (160),  -- IMC DCA BWlist support is inactive
+                   imc-bwl-reboot-required  (161),  -- IMC DCA BWlist reboot required
+                   imc-bwl-working          (162),  -- IMC DCA BWlist working
+                   imc-zvelo-database-update-failed  (163), -- Imc-zvelo-db-upd-failed
+                   imc-zvelo-database-expired  (164), -- Imc-zvelo-db-expired
+                   imc-zvelo-snmp-clear-trap   (165) -- Imc-zvelo-snmp-clear-trap
+                   cds-working              (166)  -- Cloud Sync is working
+                   cds-failed               (167)  -- Cloud Sync is failed
+                   cds-initializing         (168)  -- Cloud Sync is initializing
+                   cds-inactive             (169)  -- Cloud Sync is disabled
+                   imc-grpc-server-healthy  (172)  -- IMC gRPC Server is healthy
+                   imc-grpc-server-failed   (173)  -- IMC gRPC Server is failed
+                   imc-grpc-server-inactive (174)  -- IMC gRPC Server is inactive
+                   fast-path-core-working   (175)  -- fast path cores working.
+                   fast-path-core-stuck     (176)  -- fast path cores stuck.
+                   query-logging-banner-enabled (177)  -- Query Logging Banner enabled
+                   query-logging-banner-disabled (178)  -- Query Logging Banner disabled
+                 }
+
+IbProbableCause ::= TEXTUAL-CONVENTION
+   STATUS        current
+   DESCRIPTION   "It defines the probable cause for infoblox One products."
+   SYNTAX        INTEGER {
+                   ibClear                  (0),
+                   ibUnknown                (1),
+                   ibPrimaryDiskFailure     (2),
+                   ibFanFailure-old         (3),
+                   ibPowerSupplyFailure     (4),
+                   ibDBFailure              (5),
+                   ibApacheSoftwareFailure  (6),
+                   ibSerialConsoleFailure   (7),
+                   ibControldSoftwareFailure(11),
+                   ibUpgradeFailure         (12),
+                   ibSNMPDFailure           (13),
+                   ibSSHDSoftwareFailure    (15),
+                   ibNTPDSoftwareFailure    (16),
+                   ibClusterdSoftwarFailure (17),
+                   ibLCDSoftwareFailure     (18),
+                   ibDHCPdSoftwareFailure   (19),
+                   ibNamedSoftwareFailure   (20),
+                   ibAuthServerGroupDown    (21),
+                   ibAuthServerGroupUp      (22),
+                   ibNTLMSoftwareFailure    (24),
+                   ibNetBIOSDaemonFailure   (25),
+                   ibWindowBindDaemonFailure (26),
+                   ibTFTPDSoftwareFailure    (27),
+                   ibUNUSED28 (28),
+                   ibBackupSoftwareFailure   (29),
+                   ibBackupDatabaseSoftwareFailure   (30),
+                   ibBackupModuleSoftwareFailure   (31),
+                   ibBackupSizeSoftwareFailure   (32),
+                   ibBackupLockSoftwareFailure   (33),
+                   ibHTTPFileDistSoftwareFailure   (34),
+                   ibOSPFSoftwareFailure   (35),
+                   ibAuthDHCPNamedSoftwareFailure   (36),
+                   ibFan1Failure         (37),
+                   ibFan2Failure         (38),
+                   ibFan3Failure         (39),
+                   ibFan1OK         (40),
+                   ibFan2OK         (41),
+                   ibFan3OK         (42),
+                   ibFTPDSoftwareFailure    (44),
+                   ibPowerSupplyOK     (46),
+                   ibWebUISoftwareFailure   (47),
+                   ibUNUSED48 (48),
+                   ibADAgentSyncFailure (49),
+                   ibIFMAPSoftwareFailure (50),
+                   ibCaptivePortalSoftwareFailure (51),
+                   ibDuplicateIPAddressFailure (52),
+                   ibBGPSoftwareFailure (53),
+                   ibRevokedLicense (54),
+                   ibGUILoginFailure (58),
+                   ibSerialConsoleLoginFailure (59),
+                   ibSystemReboot   (60),
+                   ibSystemRestart  (61),
+                   ibZoneTransferFailure (62),
+                   ibDHCPLeaseConflict (63),
+                   ibDHCPAddressConflict (64),
+                   ibDHCPRangeConflict (65),
+                   ibDHCPHostConflict (66),
+                   ibSyslogFailure (67),
+                   ibPowerSupply1Failure (68),
+                   ibPowerSupply2Failure (69),
+                   ibPowerSupply1OK (70),
+                   ibPowerSupply2OK (71),
+                   ibReportingTaskSwFailure  (72),
+                   ibReportingDbBackupFailure  (73),
+                   ibFan4Failure (74),
+                   ibFan5Failure (75),
+                   ibFan6Failure (76),
+                   ibFan7Failure (77),
+                   ibFan8Failure (78),
+                   ibFan4OK (79),
+                   ibFan5OK (80),
+                   ibFan6OK (81),
+                   ibFan7OK (82),
+                   ibFan8OK (83),
+                   ibOSPF6SoftwareFailure   (84),
+                   ibOCSPResponderFailure   (85),
+                   ibReportingAlertTriggered    (86),
+                   ibCapturedQueriesUploadFailure  (87),
+                   ibLDAPServerFailure      (88),
+                   ibRIRSWIPRegistrationFailure  (89),
+                   ibPowerSupply1Removed (90),
+                   ibPowerSupply2Removed (91),
+                   ibIPMISensorErrorDetected (92),
+                   ibDiscoveryConsolidatorTaskSwFailure (93),
+                   ibDiscoveryCollectorTaskSwFailure (94),
+                   ibDiscoveryBackupSwFailure (95),
+                   ibThreatProtectionAutoDownloadFailure (96),
+                   ibThreatProtectionPublishFailure (97),
+                   ibPassiveHANodeARPConnectivityFailure(98),
+                   ibPassiveHANodeARPConnectivitySuccess(99),
+                   ibDNSIntegrityCheckConnectionFailed (100),
+                   ibDNSIntegrityCheckPrimaryServersFailed (101),
+                   ibDNSIntegrityCheckNameserversFailed (102),
+                   ibCloudApiFailure (103),
+                   ibRpzRefreshFailure (104),
+                   ibAnalyticsAutoDownloadFailure (106),
+                   ibDnsHealthCheckFailed (107),
+                   ibDnsHealthCheckSucceed (108),
+                   ibBFDSoftwareFailure (109),
+                   ibOutboundWorkerFailed (110),
+                   ibIMCgRPCServerFailure (111),
+
+		   ibRAIDIsOptimal (3001),
+		   ibRAIDIsDegraded (3002),
+		   ibRAIDIsRebuilding (3003),
+		   ibRAIDStatusUnknown (3004),
+		   ibRAIDBatteryIsOK (3005),
+		   ibRAIDBatteryFailed (3006),
+		   ibRAIDOptimalMismatch (3007),
+		   ibRAIDDegradedMismatch (3008),
+		   ibRAIDRebuildingMismatch (3009),
+		   ibRAIDBatteryWeak (3010),
+		   ibRAIDIsDegradedDisk1 (3011),
+		   ibRAIDIsDegradedDisk2 (3012),
+		   ibRAIDIsDegradedDisk3 (3013),
+		   ibRAIDIsDegradedDisk4 (3014),
+		   ibRAIDIsDegradedDisk5 (3015),
+		   ibRAIDIsDegradedDisk6 (3016),
+		   ibRAIDIsDegradedDisk7 (3017),
+		   ibRAIDIsDegradedDisk8 (3018),
+		   ibRAIDIsRebuildingDisk1 (3019),
+		   ibRAIDIsRebuildingDisk2 (3020),
+		   ibRAIDIsRebuildingDisk3 (3021),
+		   ibRAIDIsRebuildingDisk4 (3022),
+		   ibRAIDIsRebuildingDisk5 (3023),
+		   ibRAIDIsRebuildingDisk6 (3024),
+		   ibRAIDIsRebuildingDisk7 (3025),
+		   ibRAIDIsRebuildingDisk8 (3026),
+		   ibRAIDDegradedMismatchDisk1 (3027),
+		   ibRAIDDegradedMismatchDisk2 (3028),
+		   ibRAIDDegradedMismatchDisk3 (3029),
+		   ibRAIDDegradedMismatchDisk4 (3030),
+		   ibRAIDDegradedMismatchDisk5 (3031),
+		   ibRAIDDegradedMismatchDisk6 (3032),
+		   ibRAIDDegradedMismatchDisk7 (3033),
+		   ibRAIDDegradedMismatchDisk8 (3034),
+		   ibRAIDRebuildingMismatchDisk1 (3035),
+		   ibRAIDRebuildingMismatchDisk2 (3036),
+		   ibRAIDRebuildingMismatchDisk3 (3037),
+		   ibRAIDRebuildingMismatchDisk4 (3038),
+		   ibRAIDRebuildingMismatchDisk5 (3039),
+		   ibRAIDRebuildingMismatchDisk6 (3040),
+		   ibRAIDRebuildingMismatchDisk7 (3041),
+		   ibRAIDRebuildingMismatchDisk8 (3042),
+		   ibRAIDIsInoperable (3043),
+		   ibRAIDPredictedDegraded (3044),
+		   ibRAIDPredictedDegradedDisk1 (3045),
+                   ibRAIDPredictedDegradedDisk2 (3046),
+                   ibRAIDPredictedDegradedDisk3 (3047),
+                   ibRAIDPredictedDegradedDisk4 (3048),
+                   ibRAIDPredictedDegradedDisk5 (3049),
+                   ibRAIDPredictedDegradedDisk6 (3050),
+                   ibRAIDPredictedDegradedDisk7 (3051),
+                   ibRAIDPredictedDegradedDisk8 (3052), 
+                   ibDisconnectedGridAttachFailed (4001),
+                   ibDisconnectedGridDetachFailed (4002),
+                   ibDisconnectedGridDetachFailedSubgridOffline (4003),
+                   ibDisconnectedGridSnapshotFailed (4004),
+                   ibDnssecAutomaticKSKRolloverApproching (4005),
+                   ibDnssecManualKSKRolloverDueApproching (4006),
+                   ibDnssecAutomaticKSKRolloverDone (4007),
+                   ibDnssecManualKSKRolloverDone (4008),
+                   ibDnssecKSKRolloverOverdue (4009),
+                   ibPortDiscoveryConflict (4010),
+                   ibDeviceDiscoveryConflict (4011),
+                   ibDeviceUnmanaged (4012),
+                   ibAnalyticsDnstUpdate (4013),
+                   ibSyslogBackupDone (4014),
+                   ibSyslogBackupFailed (4015)
+                 }
+
+--
+-- Trap Definitions
+--
+
+ibEquipmentFailureTrap  NOTIFICATION-TYPE
+	OBJECTS         { ibNodeName,
+                          ibTrapSeverity,
+                          ibObjectName,     -- equipment name
+			  ibProbableCause,
+                          ibTrapDesc   }
+	STATUS          current
+	DESCRIPTION     "This event is generated for any equipment failure.
+                         "
+	::= {  ibTrapOneModule 1}
+
+ibProcessingFailureTrap NOTIFICATION-TYPE
+        OBJECTS         { ibNodeName,
+                          ibTrapSeverity,
+                          ibSubsystemName,
+                          ibProbableCause,     -- ibClear is used to clear a trap
+                          ibTrapDesc   }
+	STATUS          current
+	DESCRIPTION     "This trap is generated whenever a software failure is detected."
+	::= { ibTrapOneModule 2}
+
+ibThresholdCrossingEvent  NOTIFICATION-TYPE
+        OBJECTS         { ibNodeName,
+                          ibTrapSeverity,
+                          ibObjectName,         -- threshold name
+                          ibCurThresholdValue,
+                          ibThresholdHigh,
+                          ibThresholdLow,
+                          ibTrapDesc   }
+	STATUS          current
+	DESCRIPTION     "This event is generated whenever a threshold crossing has
+			 occurred for the first time."
+	::= { ibTrapOneModule 3}
+
+ibStateChangeEvent   NOTIFICATION-TYPE
+        OBJECTS         { ibNodeName,
+                          ibTrapSeverity,
+                          ibObjectName,        -- the object changes state
+                          ibPreviousState,
+                          ibCurrentState,
+                          ibTrapDesc   }
+	STATUS          current
+	DESCRIPTION     "This event is generated whenever an object state change
+			 has occurred."
+	::= { ibTrapOneModule 4}
+
+ibProcStartStopTrap NOTIFICATION-TYPE
+        OBJECTS         { ibNodeName,
+                          ibTrapSeverity,
+                          ibSubsystemName,
+                          ibTrapDesc   }
+        STATUS          current
+        DESCRIPTION     "This trap is generated when a process is started or
+                         stopped normally."
+        ::= { ibTrapOneModule 5}
+
+ibRevokedLicenseTrap NOTIFICATION-TYPE
+        OBJECTS         { ibNodeName,
+                          ibTrapSeverity,
+                          ibSubsystemName,
+                          ibTrapDesc   }
+        STATUS          current
+        DESCRIPTION     "This trap is generated when a license is revoked."
+        ::= { ibTrapOneModule 6}
+
+ibOperationTrap NOTIFICATION-TYPE
+        OBJECTS         { ibNodeName,
+                          ibTrapSeverity,
+                          ibSubsystemName,
+                          ibProbableCause,     -- ibClear is used to clear a trap
+                          ibTrapDesc   }
+	STATUS          current
+	DESCRIPTION     "This trap is generated whenever a software operation is noteworthy."
+	::= { ibTrapOneModule 7}
+
+--
+-- Types
+--
+
+ibNodeName  OBJECT-TYPE
+	SYNTAX          IbNode
+	MAX-ACCESS      accessible-for-notify
+	STATUS          current
+	DESCRIPTION     "It is the node name (node ip address) the trap occurred.
+                         This node name may or may not the same as the node sending
+                         out the trap."
+	::= {ibNotificationVarBind 1}
+
+ibTrapSeverity OBJECT-TYPE
+	SYNTAX          INTEGER {
+                         critical (5),   -- service impact problem
+                         major    (4),   -- problem requiring user intervention
+                         minor    (3),   -- problem not requiring user interv.
+                         info     (2),   -- informational only
+                         indetermined (1)
+                        }
+	MAX-ACCESS      accessible-for-notify
+	STATUS          current
+	DESCRIPTION     "It contains the severity of the trap."
+	::= { ibNotificationVarBind 2}
+
+ibObjectName OBJECT-TYPE
+	SYNTAX          DisplayString (SIZE (0..20) )
+	MAX-ACCESS      accessible-for-notify
+	STATUS          current
+	DESCRIPTION     "It describes the object for which the trap is generated."
+	::= { ibNotificationVarBind 3}
+
+ibProbableCause OBJECT-TYPE
+	SYNTAX          IbProbableCause
+	MAX-ACCESS      accessible-for-notify
+	STATUS          current
+	DESCRIPTION     "It describes the probable cause of a problem ."
+	::= { ibNotificationVarBind 4}
+
+ibSubsystemName OBJECT-TYPE
+        SYNTAX          DisplayString (SIZE (0..20) )
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     "It describes the subsystem for which the trap is generated."
+        ::= { ibNotificationVarBind 5}
+
+ibCurThresholdValue OBJECT-TYPE
+        SYNTAX          INTEGER
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     "It contains the current value of a threshold counter."
+        ::= { ibNotificationVarBind 6}
+
+ibThresholdHigh OBJECT-TYPE
+        SYNTAX          INTEGER
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     "It contains the value for threshold high"
+        ::= { ibNotificationVarBind 7}
+
+ibThresholdLow  OBJECT-TYPE
+        SYNTAX          INTEGER
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     "It contains the value for threshold low"
+        ::= { ibNotificationVarBind 8}
+
+ibPreviousState OBJECT-TYPE
+        SYNTAX          IbState
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     "It contains the value for previous state"
+        ::= { ibNotificationVarBind 9}
+
+ibCurrentState OBJECT-TYPE
+        SYNTAX          IbState
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     "It contains the value for current state"
+        ::= { ibNotificationVarBind 10}
+
+ibTrapDesc OBJECT-TYPE
+        SYNTAX          IbString
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     "It contains the description of the trap."
+        ::= { ibNotificationVarBind 11}
+
+END
+

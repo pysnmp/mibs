@@ -1,0 +1,176 @@
+--  ***************************************************************************
+--  File SA_Europe_Trapcontrol_SMIv2.mib
+-- 
+--  Copyright (c) 2002 by Scientific-Atlanta Europe nv
+-- 
+--  This document (SNMP mib file) is the intellectual property of 
+--  Scientific Atlanta Europe nv and contains confidential information. 
+--  All reproduction and communication to third parties is strictly prohibited
+--  without prior consent of Scientific-Atlanta Europe nv.
+--
+--  ***************************************************************************
+
+
+SAEUROPE-TRAPCONTROL-MIB
+
+DEFINITIONS ::= BEGIN
+
+IMPORTS
+    NOTIFICATION-TYPE, MODULE-IDENTITY 
+        FROM SNMPv2-SMI
+    MODULE-COMPLIANCE, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+    msgId, msgSourceName, msgText, msgSubject, msgGenerationTime,
+    msgBehaviour, msgClass, msgSubClass, msgSubClassNbr, msgDetailPresent,
+    msgStatus, msgSeverity, msgSequenceNumber, msgDetail,
+    msgPhysicalEntity
+        FROM SAEUROPE-MESSAGES-MIB
+    trapControl, trapControlMIBGroups
+        FROM SAEUROPE-ROOT-MIB;
+
+
+saEuropeTrapControl 
+  MODULE-IDENTITY
+
+  LAST-UPDATED "201511101300Z"    
+
+  ORGANIZATION 
+		  "Synamedia"
+  CONTACT-INFO 
+		  "https://www.synamedia.com/video-professional-services/"
+
+  DESCRIPTION
+      "MIB for the Synamedia Trap Control"
+
+  REVISION "201511101300Z"		-- November 10, 2015 at 13:00 GMT
+  DESCRIPTION 
+      "Updated contact info."
+
+  REVISION     "200509090800Z"
+  DESCRIPTION
+      "V01.01.00
+       Added trapControlMsgTrap2."
+
+  REVISION     "200211301400Z"
+  DESCRIPTION
+      "V01.00.03       
+       Initial version of the SA Europe Trap Control MIB.
+       Changes to MIB name and OID names, contents of the MIB are 
+       the same as BarcoNet Trap Control MIB V01.00.02."
+
+  REVISION     "200207021730Z"
+  DESCRIPTION
+      "V01.00.02       
+       Small editorial changes."
+
+  REVISION     "200206211330Z"
+  DESCRIPTION
+      "V01.00.01       
+       trapControlNotificationGroup is chosen as mandatory group."
+
+  REVISION     "200108311330Z"
+  DESCRIPTION
+      "V01.00.00       
+       Initial version of the Trap Control MIB."
+
+::= { trapControl 1 }
+
+
+-- ***************************************************************************
+-- trapcontrol subtree 
+-- 
+-- 
+-- 
+-- 
+-- ***************************************************************************
+
+-- Use trapControlTrap for reverse mappable traps.                               
+trapControlTrapRoot OBJECT IDENTIFIER ::= { saEuropeTrapControl 1 }
+trapControlTrap OBJECT IDENTIFIER ::= { trapControlTrapRoot 0 }
+
+trapControlMsgTrap  NOTIFICATION-TYPE
+    OBJECTS  {
+        msgId, 
+        msgSourceName, 
+        msgText, 
+        msgSubject,
+        msgGenerationTime,
+        msgBehaviour,
+        msgClass,
+        msgSubClass,
+        msgSubClassNbr,
+        msgDetailPresent,
+        msgStatus,
+        msgSeverity,
+        msgSequenceNumber,
+        msgDetail
+        }
+    STATUS current
+    DESCRIPTION
+        "This trap is sent when a message is generated in the device for
+         which msgPhysicalEntity, msgNetworkInterfaceAddress and msgUdpPort
+         are not relevant."
+    ::= { saEuropeTrapControl 0 }
+
+trapControlMsgTrap2 NOTIFICATION-TYPE
+    OBJECTS  {
+        msgId, 
+        msgSourceName, 
+        msgText, 
+        msgSubject,
+        msgGenerationTime,
+        msgBehaviour,
+        msgClass,
+        msgSubClass,
+        msgSubClassNbr,
+        msgDetailPresent,
+        msgStatus,
+        msgSeverity,
+        msgDetail,
+        msgPhysicalEntity
+        }
+    STATUS  current
+    DESCRIPTION
+        "This trap is sent when a message is generated in the device
+         for which the msgPhysicalEntity, msgNetworkInterfaceAddress and
+         msgUdpPort are relevant."
+    ::= { trapControlTrap 1 }
+
+-- ***************************************************************************
+-- trapControl Conformance sub-tree
+--
+--
+--
+--
+-- ***************************************************************************
+
+trapControlModuleCompliance MODULE-COMPLIANCE
+    STATUS  current
+    DESCRIPTION
+        "The compliance statement for entities which
+         implement the SA Europe Trap Control MIB"
+    MODULE  MANDATORY-GROUPS
+        { 
+        trapControlNotificationGroup
+        }
+    ::= { trapControlMIBGroups 1 }
+
+trapControlNotificationGroup NOTIFICATION-GROUP
+    NOTIFICATIONS  {
+        trapControlMsgTrap 
+        }
+    STATUS  current
+    DESCRIPTION
+        "Trap control notification group."
+    ::= { trapControlMIBGroups 2 }
+
+trapControlNotificationGroup2 NOTIFICATION-GROUP
+    NOTIFICATIONS  {
+        trapControlMsgTrap2 
+        }
+    STATUS  current
+    DESCRIPTION
+        "Trap control notification group version 2."
+    ::= { trapControlMIBGroups 3 }
+
+END

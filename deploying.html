@@ -1,0 +1,623 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="search" title="Search" href="search.html"><link rel="next" title="Contributing a MIB" href="contributing.html"><link rel="prev" title="mibserver Helm chart" href="chart.html">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Publishing the sites - pysnmp MIB distribution</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">pysnmp MIB distribution</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/logo.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/logo.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">pysnmp MIB distribution</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://mibsdepot.com/browse/">Browse the MIBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Resolving MIBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="channels.html">Getting the MIBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpora.html">Corpus variants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manifests.html">Build manifests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chart.html">mibserver Helm chart</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Publishing the sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing a MIB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing-mibs.html">Contributing MIBs you already have</a></li>
+<li class="toctree-l1"><a class="reference internal" href="absent-modules.html">Modules this distribution does not carry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mib-sources.html">MIB sources and patches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registries.html">OID arc registries</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/blob/main/docs/deploying.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/edit/main/docs/deploying.md" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="publishing-the-sites">
+<h1>Publishing the sites<a class="headerlink" href="#publishing-the-sites" title="Link to this heading">¶</a></h1>
+<p>Every push to <code class="docutils literal notranslate"><span class="pre">main</span></code> builds three trees and publishes each to its own host.
+Two of the three need nothing set up:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>tree</p></th>
+<th class="head"><p>goes to</p></th>
+<th class="head"><p>needs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">github-pages</span></code></p></td>
+<td><p><a class="reference external" href="https://pysnmp.github.io/mibs/"><code class="docutils literal notranslate"><span class="pre">pysnmp.github.io/mibs/</span></code></a></p></td>
+<td><p>nothing. It uses the repository’s own token</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">depot-site</span></code></p></td>
+<td><p><a class="reference external" href="https://mibsdepot.com"><code class="docutils literal notranslate"><span class="pre">mibsdepot.com</span></code></a></p></td>
+<td><p>the Cloudflare setup below</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">depot-data</span></code></p></td>
+<td><p><a class="reference external" href="https://data.mibsdepot.com"><code class="docutils literal notranslate"><span class="pre">data.mibsdepot.com</span></code></a></p></td>
+<td><p>the Cloudflare setup below</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This page covers the depot half, once, in order. Until it is done the build
+still runs in full: all three trees are written and held to every contract, and
+only the two depot deploys are skipped. Nothing here is needed to develop on
+this repository, and a fork never needs it at all.</p>
+<p>Where each piece goes and why, rather than how to create it, is in
+<a class="reference internal" href="corpora.html#where-each-tree-goes"><span class="std std-ref">the corpus variants</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The site is served by what Cloudflare calls a <em>Worker</em>, and <strong>there is no
+Worker code</strong>. <code class="docutils literal notranslate"><span class="pre">wrangler.jsonc</span></code> declares a directory of static assets and
+nothing else: no script, no entrypoint, and nothing of this project’s running
+per request.
+Cloudflare now hosts static files under the Workers name, which is why the
+dashboard, the token permission and the <code class="docutils literal notranslate"><span class="pre">wrangler</span> <span class="pre">deploy</span></code> command all say
+Worker for something that is a pile of HTML.</p>
+<p>The distinction is not cosmetic. Requests answered by a Worker’s script are
+metered at 100,000 a day on the free plan, with cache hits counted. Requests
+answered by its assets are free and unlimited. Serving these pages out of R2
+would have needed a script, to turn <code class="docutils literal notranslate"><span class="pre">/mib/IF-MIB/</span></code> into that directory’s
+<code class="docutils literal notranslate"><span class="pre">index.html</span></code>; static assets do it without one.</p>
+</div>
+<section id="before-you-start">
+<h2>Before you start<a class="headerlink" href="#before-you-start" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The domain on a Cloudflare account you administer. Everything below is free
+tier: R2 includes 10 GB-month of storage, 1 million writes and 10 million
+reads a month with no egress charge, and Workers static assets serve up to
+20,000 files with unlimited requests.</p></li>
+<li><p>Admin on the repository, to set secrets.</p></li>
+</ul>
+<p>Steps 1 to 6 can be done in any order; 7, 8 and 9 depend on what came before.</p>
+</section>
+<section id="create-the-bucket">
+<h2>1. Create the bucket<a class="headerlink" href="#create-the-bucket" title="Link to this heading">¶</a></h2>
+<p>R2 object storage → <strong>Create bucket</strong>. Any name; you will type it again in
+step 6. Location and storage class can stay on their defaults; the corpus is
+820 MB of small files read from everywhere.</p>
+</section>
+<section id="give-the-bucket-its-hostname">
+<h2>2. Give the bucket its hostname<a class="headerlink" href="#give-the-bucket-its-hostname" title="Link to this heading">¶</a></h2>
+<p>The bucket → <strong>Settings</strong> → under <strong>Custom Domains</strong>, <strong>Add</strong> →
+<code class="docutils literal notranslate"><span class="pre">data.mibsdepot.com</span></code> → <strong>Continue</strong> → review the DNS record → <strong>Connect
+Domain</strong>. The status goes from <em>Initializing</em> to <em>Active</em> within a few
+minutes.</p>
+<p>Do this before step 7 if you can. The sync in step 7 works without it, because
+it writes to the bucket over the S3 API rather than over the hostname, but
+nothing can read what it wrote until the domain is live.</p>
+</section>
+<section id="create-the-r2-credentials">
+<h2>3. Create the R2 credentials<a class="headerlink" href="#create-the-r2-credentials" title="Link to this heading">¶</a></h2>
+<p>R2 object storage → under <strong>Account Details</strong>, <strong>Manage</strong> next to <strong>API
+Tokens</strong> → <strong>Create Account API token</strong>.</p>
+<p>Give it <strong>Object Read &amp; Write</strong>, and scope it to the one bucket from step 1
+rather than to all of them. The build writes objects and deletes the ones a
+dropped module leaves behind; it never creates or configures a bucket, so it
+does not need admin.</p>
+<p>You get an <strong>Access Key ID</strong> and a <strong>Secret Access Key</strong>. The secret is shown
+once. These are the S3-compatible endpoint’s credentials and are not part of
+the token in the next step.</p>
+</section>
+<section id="create-the-workers-token">
+<h2>4. Create the Workers token<a class="headerlink" href="#create-the-workers-token" title="Link to this heading">¶</a></h2>
+<p>Manage Account → <strong>API Tokens</strong> → <strong>Create Token</strong> → use the <strong><code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">Cloudflare</span> <span class="pre">Workers</span></code></strong> template.</p>
+<p>The template grants more than this deploy uses: Workers KV Storage, Workers R2
+Storage and Zone → Workers Routes. None apply here, because the Worker has no
+bindings and its hostname is attached by hand in step 8 rather than declared as
+a route. Use it anyway. It is the set Cloudflare
+maintains for <code class="docutils literal notranslate"><span class="pre">wrangler</span> <span class="pre">deploy</span></code>, and a token narrower than what wrangler
+actually calls fails with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>✘ [ERROR] A request to the Cloudflare API
+  (/accounts/&lt;id&gt;/workers/services/&lt;name&gt;) failed.
+  Authentication error [code: 10000]
+</pre></div>
+</div>
+<p>which names no permission and takes a full build to reach.</p>
+<p>The account-level permissions it must have in any case are <strong>Workers Scripts:
+Edit</strong> and <strong>Account Settings: Read</strong>; wrangler also reads <strong>User →
+Memberships → Read</strong> when reporting who it is logged in as. If you build a
+custom token and hit the error above, the template is the answer rather than
+guessing at the next permission.</p>
+</section>
+<section id="find-the-account-id">
+<h2>5. Find the account ID<a class="headerlink" href="#find-the-account-id" title="Link to this heading">¶</a></h2>
+<p>Shown on the R2 overview page under <strong>Account Details</strong>, and it is also the
+hex string in the dashboard URL.</p>
+</section>
+<section id="tell-github">
+<h2>6. Tell GitHub<a class="headerlink" href="#tell-github" title="Link to this heading">¶</a></h2>
+<p>Repository <strong>Settings</strong> → <strong>Secrets and variables</strong> → <strong>Actions</strong>. Note the
+two tabs on that page. Four of these are secrets and one is a variable, and the
+difference matters:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>tab</p></th>
+<th class="head"><p>value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CLOUDFLARE_API_TOKEN</span></code></p></td>
+<td><p>Secrets</p></td>
+<td><p>step 4</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CLOUDFLARE_ACCOUNT_ID</span></code></p></td>
+<td><p>Secrets</p></td>
+<td><p>step 5</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">R2_ACCESS_KEY_ID</span></code></p></td>
+<td><p>Secrets</p></td>
+<td><p>step 3</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">R2_SECRET_ACCESS_KEY</span></code></p></td>
+<td><p>Secrets</p></td>
+<td><p>step 3</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CLOUDFLARE_R2_BUCKET</span></code></p></td>
+<td><p><strong>Variables</strong></p></td>
+<td><p>the bucket name from step 1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A bucket name is not a secret, so it is read from <code class="docutils literal notranslate"><span class="pre">vars</span></code>. A secret of that name
+is not read at all. Entering it on the wrong tab previously left the variable
+empty, skipped the data deploy and passed the job, leaving the depot without
+updates. The build now fails and names the cause. See
+<a class="reference internal" href="#if-something-is-wrong">if something is wrong</a>.</p>
+<p><strong>Repository, not environment.</strong> These are repository-wide Actions secrets and
+variables rather than deployment environment ones, because the job that
+publishes is the same job that builds the corpus and runs its contracts. An
+environment’s protection rules would gate the contracts too, and a rule that
+holds up a test is a rule people learn to click through.</p>
+<p>There is no switch to turn on. Holding the token is the decision to publish,
+and the Worker’s name is in <code class="docutils literal notranslate"><span class="pre">wrangler.jsonc</span></code>.</p>
+</section>
+<section id="let-it-run">
+<h2>7. Let it run<a class="headerlink" href="#let-it-run" title="Link to this heading">¶</a></h2>
+<p>The next push to <code class="docutils literal notranslate"><span class="pre">main</span></code> deploys. Nothing needs to be triggered by hand; a
+merge is enough.</p>
+<p>The first R2 sync uploads the whole tree: 14,936 objects and
+820 MB, a small fraction of the million writes a month the free tier
+includes. Every sync after it uploads only what changed, because the sync
+compares checksums rather than timestamps.</p>
+<p>The first Worker deploy creates the Worker. <code class="docutils literal notranslate"><span class="pre">wrangler</span></code> prints the URL it
+deployed to; open it and the site should be there, on a <code class="docutils literal notranslate"><span class="pre">workers.dev</span></code> address,
+before it has a domain of its own.</p>
+</section>
+<section id="give-the-site-its-hostname">
+<h2>8. Give the site its hostname<a class="headerlink" href="#give-the-site-its-hostname" title="Link to this heading">¶</a></h2>
+<p>Only possible after step 7, because the Worker does not exist until its first
+deploy.</p>
+<p><strong>Workers &amp; Pages</strong> → in <strong>Overview</strong>, select the Worker → <strong>Settings</strong> →
+<strong>Domains &amp; Routes</strong> → <strong>Add</strong> → <strong>Custom Domain</strong> → enter <code class="docutils literal notranslate"><span class="pre">mibsdepot.com</span></code> →
+<strong>Add Custom Domain</strong>. Cloudflare creates the DNS record for you.</p>
+<p>Add <code class="docutils literal notranslate"><span class="pre">www.mibsdepot.com</span></code> the same way if you want it to resolve; nothing in the
+corpus links to it.</p>
+</section>
+<section id="check-it">
+<h2>9. Check it<a class="headerlink" href="#check-it" title="Link to this heading">¶</a></h2>
+<p>Four requests, which between them cover both hosts and both kinds of path:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl<span class="w"> </span>-sI<span class="w"> </span>https://mibsdepot.com/<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1
+<span class="go">HTTP/2 200</span>
+
+<span class="gp">$ </span>curl<span class="w"> </span>-sI<span class="w"> </span>https://mibsdepot.com/mib/IF-MIB/<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1
+<span class="go">HTTP/2 200</span>
+
+<span class="gp">$ </span>curl<span class="w"> </span>-s<span class="w"> </span>https://data.mibsdepot.com/asn1/IF-MIB<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1
+<span class="go">IF-MIB DEFINITIONS ::= BEGIN</span>
+
+<span class="gp">$ </span>curl<span class="w"> </span>-sI<span class="w"> </span>https://data.mibsdepot.com/asn1/IF-MIB<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>content-type
+<span class="go">content-type: text/plain; charset=utf-8</span>
+</pre></div>
+</div>
+<p>The second is the one worth doing deliberately. <code class="docutils literal notranslate"><span class="pre">/mib/IF-MIB/</span></code> is a directory
+URL with no file at that path, and it is the form every link in the site uses;
+a host that does not resolve it to <code class="docutils literal notranslate"><span class="pre">index.html</span></code> answers 404 there while the
+front page still works.</p>
+<p>The fourth is why <code class="docutils literal notranslate"><span class="pre">asn1/</span></code> is uploaded in a pass of its own. Its files carry no
+extension, as in <code class="docutils literal notranslate"><span class="pre">asn1/IF-MIB</span></code>, because pysmi substitutes a bare module name
+into the <code class="docutils literal notranslate"><span class="pre">&#64;mib&#64;</span></code> source URL. A file whose name carries no extension is typed as
+a stream of bytes by default, which makes a browser download a MIB rather than
+display it.</p>
+</section>
+<section id="the-pull-request-preview">
+<h2>The pull request preview<a class="headerlink" href="#the-pull-request-preview" title="Link to this heading">¶</a></h2>
+<p>One more Worker, optional and separate: the one that serves the
+<a class="reference internal" href="contributing.html#seeing-the-module-before-it-is-published"><span class="std std-ref">per-pull-request preview</span></a>.
+It reuses the <code class="docutils literal notranslate"><span class="pre">CLOUDFLARE_API_TOKEN</span></code> and <code class="docutils literal notranslate"><span class="pre">CLOUDFLARE_ACCOUNT_ID</span></code> from steps 4
+and 5 and needs nothing else. Skip this and every pull request still gets its
+preview built, checked and attached to the run as an artifact; what it does not
+get is a URL.</p>
+<p>A Worker of its own rather than a version of <code class="docutils literal notranslate"><span class="pre">mibsdepot</span></code>. Uploading preview
+versions onto the production site would put a build of three modules into the
+version history of the site serving the whole corpus, and a rollback there would have
+somewhere very wrong to roll back to.</p>
+<p>Nothing to create by hand. <code class="docutils literal notranslate"><span class="pre">wrangler</span> <span class="pre">versions</span> <span class="pre">upload</span></code> refuses on a Worker that
+does not exist yet, and only a deploy creates one, so the workflow deploys once
+on its first run and uploads versions from then on. A documented step somebody
+has to remember is a step the first pull request fails on.</p>
+<p>Do check, on <strong>Workers &amp; Pages</strong> → the <code class="docutils literal notranslate"><span class="pre">mibsdepot-preview</span></code> Worker →
+<strong>Settings</strong>, that the <code class="docutils literal notranslate"><span class="pre">workers.dev</span></code> subdomain and <strong>preview URLs</strong> are both
+enabled after that first run. That is what gives each version its own address.</p>
+<p>Once it exists CI uploads a <strong>version</strong> of this Worker per pull request and
+never deploys one again, so:</p>
+<ul class="simple">
+<li><p>each pull request gets a URL of its own, which the workflow puts in a comment
+and in the job summary;</p></li>
+<li><p>nothing is ever promoted to <code class="docutils literal notranslate"><span class="pre">mibsdepot-preview.&lt;subdomain&gt;.workers.dev</span></code>
+itself, and two open pull requests cannot overwrite each other;</p></li>
+<li><p>the production site is untouched by any of it.</p></li>
+</ul>
+<p>Give it no custom domain. A preview carries no sitemap, no canonical links and
+a <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> that disallows everything, because a rendering of a proposal
+should not be indexed as though it were the corpus.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A pull request from a <strong>fork</strong> cannot read these credentials – GitHub does not
+hand secrets to a workflow running on somebody else’s branch – so the deploy
+step is skipped there and the artifact is the preview. That is the same gating
+the depot deploys use: holding the token is the decision to publish.</p>
+</div>
+</section>
+<section id="afterwards">
+<h2>Afterwards<a class="headerlink" href="#afterwards" title="Link to this heading">¶</a></h2>
+<p>Nothing else is manual. Each push to <code class="docutils literal notranslate"><span class="pre">main</span></code> rebuilds all three trees and
+publishes them, and each publish is held to the same contracts first: every
+source module reaches the published tree, the two data trees are byte
+identical, and each tree fits its host.</p>
+<p>That last one is worth knowing about before it fires. The three ceilings are
+GitHub’s 1 GB, the 20,000 files and 25 MiB per file that static assets allow,
+and R2’s 10 GB. The build fails rather than the deploy, so a corpus that has
+outgrown a host says so while there is still room to decide what to do about
+it.</p>
+</section>
+<section id="if-something-is-wrong">
+<h2>If something is wrong<a class="headerlink" href="#if-something-is-wrong" title="Link to this heading">¶</a></h2>
+<p><strong><code class="docutils literal notranslate"><span class="pre">R2</span> <span class="pre">credentials</span> <span class="pre">are</span> <span class="pre">set</span> <span class="pre">but</span> <span class="pre">the</span> <span class="pre">CLOUDFLARE_R2_BUCKET</span> <span class="pre">*variable*</span> <span class="pre">is</span> <span class="pre">empty</span></code>.</strong>
+the bucket name went in as a secret. Move it to the Variables tab.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">CLOUDFLARE_R2_BUCKET</span> <span class="pre">names</span> <span class="pre">a</span> <span class="pre">bucket</span> <span class="pre">but</span> <span class="pre">R2_ACCESS_KEY_ID</span> <span class="pre">and</span> <span class="pre">R2_SECRET_ACCESS_KEY</span> <span class="pre">are</span> <span class="pre">not</span> <span class="pre">both</span> <span class="pre">set</span></code>.</strong> The reverse: one of the two halves
+from step 3 is missing or was pasted empty.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">the</span> <span class="pre">depot</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">wired</span> <span class="pre">up</span> <span class="pre">on</span> <span class="pre">this</span> <span class="pre">repository</span></code>.</strong> A notice, not a failure.
+Neither half is configured, which is correct before step 6 and on every fork.</p>
+<p><strong>The job is green but nothing appeared.</strong> Check the run’s step list. A
+deploy that was skipped shows as skipped; if both ran and the site is still
+unreachable, it is step 2 or step 8 that is missing, not the build.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Authentication</span> <span class="pre">error</span> <span class="pre">[code:</span> <span class="pre">10000]</span></code> from the site deploy.</strong> The Workers
+token does not carry what <code class="docutils literal notranslate"><span class="pre">wrangler</span> <span class="pre">deploy</span></code> calls. Recreate it from the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">Cloudflare</span> <span class="pre">Workers</span></code> template; see step 4. The failing request names the
+Worker, so a 10000 there is about the token rather than about the account id
+or the name.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">/mib/IF-MIB/</span></code> answers 404 but <code class="docutils literal notranslate"><span class="pre">/</span></code> is fine.</strong> <code class="docutils literal notranslate"><span class="pre">html_handling</span></code> in
+<code class="docutils literal notranslate"><span class="pre">wrangler.jsonc</span></code> is not doing its job. It should be <code class="docutils literal notranslate"><span class="pre">auto-trailing-slash</span></code>,
+which serves an asset at <code class="docutils literal notranslate"><span class="pre">mib/IF-MIB/index.html</span></code> for that path.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="contributing.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Contributing a MIB</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="chart.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">mibserver Helm chart</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2019-2026, the pysnmp maintainers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Publishing the sites</a><ul>
+<li><a class="reference internal" href="#before-you-start">Before you start</a></li>
+<li><a class="reference internal" href="#create-the-bucket">1. Create the bucket</a></li>
+<li><a class="reference internal" href="#give-the-bucket-its-hostname">2. Give the bucket its hostname</a></li>
+<li><a class="reference internal" href="#create-the-r2-credentials">3. Create the R2 credentials</a></li>
+<li><a class="reference internal" href="#create-the-workers-token">4. Create the Workers token</a></li>
+<li><a class="reference internal" href="#find-the-account-id">5. Find the account ID</a></li>
+<li><a class="reference internal" href="#tell-github">6. Tell GitHub</a></li>
+<li><a class="reference internal" href="#let-it-run">7. Let it run</a></li>
+<li><a class="reference internal" href="#give-the-site-its-hostname">8. Give the site its hostname</a></li>
+<li><a class="reference internal" href="#check-it">9. Check it</a></li>
+<li><a class="reference internal" href="#the-pull-request-preview">The pull request preview</a></li>
+<li><a class="reference internal" href="#afterwards">Afterwards</a></li>
+<li><a class="reference internal" href="#if-something-is-wrong">If something is wrong</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=7f41d439"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

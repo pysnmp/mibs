@@ -1,0 +1,450 @@
+ACOS-VCSCHASSIS-SLOT-SUMMARY-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vcsChassisSlotSummaryModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vcsChassisSlotSummaryModule OID for ACOS"
+				::=  {  acosSchema 19 }
+
+slotSummary		 OBJECT IDENTIFIER ::= { vcsChassisSlotSummaryModule 1}
+
+slotSummaryOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SlotSummaryOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Chassis Summary Information from object 'vcs-chassis.slot-summary'"
+	::= {slotSummary 2}
+
+slotSummaryOperEntry OBJECT-TYPE
+	SYNTAX SlotSummaryOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The slotSummaryOper entry"
+	INDEX {
+		slotSummaryOperSlotId
+	}
+	::= { slotSummaryOperTable 1 }
+
+SlotSummaryOperEntry ::=
+	SEQUENCE {
+		slotSummaryOperSlotId Integer32,
+		slotSummaryOperVcsEnabled	 DisplayString,
+		slotSummaryOperChassisId	 Integer32,
+		slotSummaryOperMulticastAddr	 DisplayString,
+		slotSummaryOperMulticastPort	 Integer32,
+		slotSummaryOperVersion	 DisplayString,
+		slotSummaryOperVmasterMaintenanceInterval	 Integer32,
+		slotSummaryOperVmasterMaintenanceLeft	 Integer32
+	}
+
+slotSummaryOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { slotSummaryOperEntry 1 }
+
+slotSummaryOperVcsEnabled OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vcs-enabled"
+	::= { slotSummaryOperEntry 2 }
+
+slotSummaryOperChassisId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "chassis-id"
+	::= { slotSummaryOperEntry 3 }
+
+slotSummaryOperMulticastAddr OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "multicast-addr"
+	::= { slotSummaryOperEntry 4 }
+
+slotSummaryOperMulticastPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "multicast-port"
+	::= { slotSummaryOperEntry 5 }
+
+slotSummaryOperVersion OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "version"
+	::= { slotSummaryOperEntry 6 }
+
+slotSummaryOperVmasterMaintenanceInterval OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vmaster-maintenance-interval"
+	::= { slotSummaryOperEntry 7 }
+
+slotSummaryOperVmasterMaintenanceLeft OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vmaster-maintenance-left"
+	::= { slotSummaryOperEntry 8 }
+
+slotSummaryOperVcsHandshakeCompletedListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SlotSummaryOperVcsHandshakeCompletedListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Chassis Summary Information from object 'vcs-chassis.slot-summary'"
+	::= {slotSummary 3}
+
+slotSummaryOperVcsHandshakeCompletedListEntry OBJECT-TYPE
+	SYNTAX SlotSummaryOperVcsHandshakeCompletedListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The slotSummaryOperVcsHandshakeCompletedList entry:vcs-handshake-completed-list"
+	INDEX {
+		slotSummaryOperVcsHandshakeCompletedListSlotId,
+		slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId
+	}
+	::= { slotSummaryOperVcsHandshakeCompletedListTable 1}
+
+SlotSummaryOperVcsHandshakeCompletedListEntry ::=
+	SEQUENCE {
+		slotSummaryOperVcsHandshakeCompletedListSlotId Integer32,
+		slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId Integer32,
+		slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedId	Integer32,
+		slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompleted	Integer32
+	}
+
+slotSummaryOperVcsHandshakeCompletedListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperVcsHandshakeCompletedListEntry 1}
+
+slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperVcsHandshakeCompletedListEntry 2}
+
+slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompletedId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vcs-handshake-completed-id"
+	::= { slotSummaryOperVcsHandshakeCompletedListEntry 3}
+
+slotSummaryOperVcsHandshakeCompletedListVcsHandshakeCompleted OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vcs-handshake-completed"
+	::= { slotSummaryOperVcsHandshakeCompletedListEntry 4}
+
+slotSummaryOperFloatingIpv4ListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SlotSummaryOperFloatingIpv4ListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Chassis Summary Information from object 'vcs-chassis.slot-summary'"
+	::= {slotSummary 4}
+
+slotSummaryOperFloatingIpv4ListEntry OBJECT-TYPE
+	SYNTAX SlotSummaryOperFloatingIpv4ListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The slotSummaryOperFloatingIpv4List entry:floating-ipv4-list"
+	INDEX {
+		slotSummaryOperFloatingIpv4ListSlotId,
+		slotSummaryOperFloatingIpv4ListFloatingIpv4ListListId
+	}
+	::= { slotSummaryOperFloatingIpv4ListTable 1}
+
+SlotSummaryOperFloatingIpv4ListEntry ::=
+	SEQUENCE {
+		slotSummaryOperFloatingIpv4ListSlotId Integer32,
+		slotSummaryOperFloatingIpv4ListFloatingIpv4ListListId Integer32,
+		slotSummaryOperFloatingIpv4ListFloatingIpv4	DisplayString,
+		slotSummaryOperFloatingIpv4ListFloatingIpv4Mask	DisplayString
+	}
+
+slotSummaryOperFloatingIpv4ListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperFloatingIpv4ListEntry 1}
+
+slotSummaryOperFloatingIpv4ListFloatingIpv4ListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperFloatingIpv4ListEntry 2}
+
+slotSummaryOperFloatingIpv4ListFloatingIpv4 OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"floating-ipv4"
+	::= { slotSummaryOperFloatingIpv4ListEntry 3}
+
+slotSummaryOperFloatingIpv4ListFloatingIpv4Mask OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"floating-ipv4-mask"
+	::= { slotSummaryOperFloatingIpv4ListEntry 4}
+
+slotSummaryOperFloatingIpv6ListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SlotSummaryOperFloatingIpv6ListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Chassis Summary Information from object 'vcs-chassis.slot-summary'"
+	::= {slotSummary 5}
+
+slotSummaryOperFloatingIpv6ListEntry OBJECT-TYPE
+	SYNTAX SlotSummaryOperFloatingIpv6ListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The slotSummaryOperFloatingIpv6List entry:floating-ipv6-list"
+	INDEX {
+		slotSummaryOperFloatingIpv6ListSlotId,
+		slotSummaryOperFloatingIpv6ListFloatingIpv6ListListId
+	}
+	::= { slotSummaryOperFloatingIpv6ListTable 1}
+
+SlotSummaryOperFloatingIpv6ListEntry ::=
+	SEQUENCE {
+		slotSummaryOperFloatingIpv6ListSlotId Integer32,
+		slotSummaryOperFloatingIpv6ListFloatingIpv6ListListId Integer32,
+		slotSummaryOperFloatingIpv6ListFloatingIpv6	DisplayString,
+		slotSummaryOperFloatingIpv6ListFloatingIpv6Prefix	Integer32
+	}
+
+slotSummaryOperFloatingIpv6ListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperFloatingIpv6ListEntry 1}
+
+slotSummaryOperFloatingIpv6ListFloatingIpv6ListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperFloatingIpv6ListEntry 2}
+
+slotSummaryOperFloatingIpv6ListFloatingIpv6 OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"floating-ipv6"
+	::= { slotSummaryOperFloatingIpv6ListEntry 3}
+
+slotSummaryOperFloatingIpv6ListFloatingIpv6Prefix OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"floating-ipv6-prefix"
+	::= { slotSummaryOperFloatingIpv6ListEntry 4}
+
+slotSummaryOperMemberListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SlotSummaryOperMemberListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Chassis Summary Information from object 'vcs-chassis.slot-summary'"
+	::= {slotSummary 6}
+
+slotSummaryOperMemberListEntry OBJECT-TYPE
+	SYNTAX SlotSummaryOperMemberListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The slotSummaryOperMemberList entry:member-list"
+	INDEX {
+		slotSummaryOperMemberListSlotId,
+		slotSummaryOperMemberListMemberListListId
+	}
+	::= { slotSummaryOperMemberListTable 1}
+
+SlotSummaryOperMemberListEntry ::=
+	SEQUENCE {
+		slotSummaryOperMemberListSlotId Integer32,
+		slotSummaryOperMemberListMemberListListId Integer32,
+		slotSummaryOperMemberListId	Integer32,
+		slotSummaryOperMemberListState	DisplayString,
+		slotSummaryOperMemberListPriority	Integer32,
+		slotSummaryOperMemberListPort	Integer32,
+		slotSummaryOperMemberListLocation	DisplayString
+	}
+
+slotSummaryOperMemberListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperMemberListEntry 1}
+
+slotSummaryOperMemberListMemberListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperMemberListEntry 2}
+
+slotSummaryOperMemberListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"id"
+	::= { slotSummaryOperMemberListEntry 3}
+
+slotSummaryOperMemberListState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"state"
+	::= { slotSummaryOperMemberListEntry 4}
+
+slotSummaryOperMemberListPriority OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"priority"
+	::= { slotSummaryOperMemberListEntry 5}
+
+slotSummaryOperMemberListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port"
+	::= { slotSummaryOperMemberListEntry 6}
+
+slotSummaryOperMemberListLocation OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"location"
+	::= { slotSummaryOperMemberListEntry 7}
+
+slotSummaryOperMemberListIpListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SlotSummaryOperMemberListIpListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Chassis Summary Information from object 'vcs-chassis.slot-summary'"
+	::= {slotSummary 7}
+
+slotSummaryOperMemberListIpListEntry OBJECT-TYPE
+	SYNTAX SlotSummaryOperMemberListIpListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The slotSummaryOperMemberListIpList entry:ip-list"
+	INDEX {
+		slotSummaryOperMemberListIpListSlotId,
+		slotSummaryOperMemberListIpListMemberListListId,
+		slotSummaryOperMemberListIpListIpListListId
+	}
+	::= { slotSummaryOperMemberListIpListTable 1}
+
+SlotSummaryOperMemberListIpListEntry ::=
+	SEQUENCE {
+		slotSummaryOperMemberListIpListSlotId Integer32,
+		slotSummaryOperMemberListIpListMemberListListId Integer32,
+		slotSummaryOperMemberListIpListIpListListId Integer32,
+		slotSummaryOperMemberListIpListIp	DisplayString
+	}
+
+slotSummaryOperMemberListIpListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperMemberListIpListEntry 1}
+
+slotSummaryOperMemberListIpListMemberListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperMemberListIpListEntry 2}
+
+slotSummaryOperMemberListIpListIpListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { slotSummaryOperMemberListIpListEntry 3}
+
+slotSummaryOperMemberListIpListIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip"
+	::= { slotSummaryOperMemberListIpListEntry 4}
+
+END
+

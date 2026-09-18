@@ -1,0 +1,322 @@
+ACOS-FW-DDOS-PROTECTION-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		fwDdosProtectionModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "fwDdosProtectionModule OID for ACOS"
+				::=  {  acosSchema 491 }
+
+ddosProtection		 OBJECT IDENTIFIER ::= { fwDdosProtectionModule 1}
+
+ddosProtectionStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DdosProtectionStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Configure FW DDoS Protection from object 'fw.ddos-protection'"
+	::= {ddosProtection 1}
+
+ddosProtectionStatsEntry OBJECT-TYPE
+	SYNTAX DdosProtectionStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ddosProtectionStats stats entry"
+	INDEX {
+		ddosProtectionStatsSlotId
+	}
+	::= { ddosProtectionStatsTable 1 }
+
+DdosProtectionStatsEntry ::=
+	SEQUENCE {
+		ddosProtectionStatsSlotId Integer32,
+		ddosProtectionStatsDdosEntriesTooMany	 CounterBasedGauge64,
+		ddosProtectionStatsDdosEntryAdded	 CounterBasedGauge64,
+		ddosProtectionStatsDdosEntryRemoved	 CounterBasedGauge64,
+		ddosProtectionStatsDdosEntryAddedToBgp	 CounterBasedGauge64,
+		ddosProtectionStatsDdosEntryRemovedFromBgp	 CounterBasedGauge64,
+		ddosProtectionStatsDdosEntryAddToBgpFailure	 CounterBasedGauge64,
+		ddosProtectionStatsDdosEntryRemoveFromBgpFailure	 CounterBasedGauge64,
+		ddosProtectionStatsDdosPacketDropped	 CounterBasedGauge64
+	}
+
+ddosProtectionStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ddosProtectionStatsEntry 1 }
+
+ddosProtectionStatsDdosEntriesTooMany OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos_entries_too_many"
+	::= { ddosProtectionStatsEntry 2 }
+
+ddosProtectionStatsDdosEntryAdded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos_entry_added"
+	::= { ddosProtectionStatsEntry 3 }
+
+ddosProtectionStatsDdosEntryRemoved OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos_entry_removed"
+	::= { ddosProtectionStatsEntry 4 }
+
+ddosProtectionStatsDdosEntryAddedToBgp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos_entry_added_to_bgp"
+	::= { ddosProtectionStatsEntry 5 }
+
+ddosProtectionStatsDdosEntryRemovedFromBgp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos_entry_removed_from_bgp"
+	::= { ddosProtectionStatsEntry 6 }
+
+ddosProtectionStatsDdosEntryAddToBgpFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos_entry_add_to_bgp_failure"
+	::= { ddosProtectionStatsEntry 7 }
+
+ddosProtectionStatsDdosEntryRemoveFromBgpFailure OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos_entry_remove_from_bgp_failure"
+	::= { ddosProtectionStatsEntry 8 }
+
+ddosProtectionStatsDdosPacketDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ddos_packet_dropped"
+	::= { ddosProtectionStatsEntry 9 }
+
+ddosProtectionOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DdosProtectionOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure FW DDoS Protection from object 'fw.ddos-protection'"
+	::= {ddosProtection 2}
+
+ddosProtectionOperEntry OBJECT-TYPE
+	SYNTAX DdosProtectionOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ddosProtectionOper entry"
+	INDEX {
+		ddosProtectionOperSlotId
+	}
+	::= { ddosProtectionOperTable 1 }
+
+DdosProtectionOperEntry ::=
+	SEQUENCE {
+		ddosProtectionOperSlotId Integer32,
+		ddosProtectionOperDetails	 DisplayString,
+		ddosProtectionOperV4Address	 DisplayString,
+		ddosProtectionOperV4Netmask	 DisplayString,
+		ddosProtectionOperV6Prefix	 DisplayString
+	}
+
+ddosProtectionOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ddosProtectionOperEntry 1 }
+
+ddosProtectionOperDetails OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "details"
+	::= { ddosProtectionOperEntry 2 }
+
+ddosProtectionOperV4Address OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v4-address"
+	::= { ddosProtectionOperEntry 3 }
+
+ddosProtectionOperV4Netmask OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v4-netmask"
+	::= { ddosProtectionOperEntry 4 }
+
+ddosProtectionOperV6Prefix OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v6-prefix"
+	::= { ddosProtectionOperEntry 5 }
+
+ddosProtectionOperEntriesListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DdosProtectionOperEntriesListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure FW DDoS Protection from object 'fw.ddos-protection'"
+	::= {ddosProtection 3}
+
+ddosProtectionOperEntriesListEntry OBJECT-TYPE
+	SYNTAX DdosProtectionOperEntriesListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ddosProtectionOperEntriesList entry:entries-list"
+	INDEX {
+		ddosProtectionOperEntriesListSlotId,
+		ddosProtectionOperEntriesListEntriesListListId
+	}
+	::= { ddosProtectionOperEntriesListTable 1}
+
+DdosProtectionOperEntriesListEntry ::=
+	SEQUENCE {
+		ddosProtectionOperEntriesListSlotId Integer32,
+		ddosProtectionOperEntriesListEntriesListListId Integer32,
+		ddosProtectionOperEntriesListIp	DisplayString,
+		ddosProtectionOperEntriesListPrefix	Integer32,
+		ddosProtectionOperEntriesListRuleName	DisplayString,
+		ddosProtectionOperEntriesListPps	Integer32,
+		ddosProtectionOperEntriesListExpiration	Integer32,
+		ddosProtectionOperEntriesListHints	DisplayString,
+		ddosProtectionOperEntriesListHash	Integer32,
+		ddosProtectionOperEntriesListLid	Integer32,
+		ddosProtectionOperEntriesListRate	Integer32
+	}
+
+ddosProtectionOperEntriesListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ddosProtectionOperEntriesListEntry 1}
+
+ddosProtectionOperEntriesListEntriesListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ddosProtectionOperEntriesListEntry 2}
+
+ddosProtectionOperEntriesListIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip"
+	::= { ddosProtectionOperEntriesListEntry 3}
+
+ddosProtectionOperEntriesListPrefix OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"prefix"
+	::= { ddosProtectionOperEntriesListEntry 4}
+
+ddosProtectionOperEntriesListRuleName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rule-name"
+	::= { ddosProtectionOperEntriesListEntry 5}
+
+ddosProtectionOperEntriesListPps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pps"
+	::= { ddosProtectionOperEntriesListEntry 6}
+
+ddosProtectionOperEntriesListExpiration OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"expiration"
+	::= { ddosProtectionOperEntriesListEntry 7}
+
+ddosProtectionOperEntriesListHints OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hints"
+	::= { ddosProtectionOperEntriesListEntry 8}
+
+ddosProtectionOperEntriesListHash OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hash"
+	::= { ddosProtectionOperEntriesListEntry 9}
+
+ddosProtectionOperEntriesListLid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"lid"
+	::= { ddosProtectionOperEntriesListEntry 10}
+
+ddosProtectionOperEntriesListRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rate"
+	::= { ddosProtectionOperEntriesListEntry 11}
+
+END
+
