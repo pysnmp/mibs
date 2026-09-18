@@ -52,6 +52,15 @@ corpus with `index-v2.csv` and `core.db`, both published here. Readers index it
 at [MIBs Depot](https://mibsdepot.com/browse/), which renders a page per module
 and per OID arc from the same build.
 
+Its front page lists what changed recently two ways, because the two answer
+different questions. **Revised by publisher** orders modules by the date each
+one carries, which is what the vendor or working group last published.
+**Added or updated here** orders them by when this repository last changed the
+file, which is what a reader tracking this distribution wants and what no date
+inside a MIB can say -- a module added here today may carry a revision from
+decades back. The second covers the modules this repository supplies; the
+standard tree comes from pysmi, so it is dated by its publishers alone.
+
 194 modules that this site once served are no longer carried anywhere.
 [Removed modules](absent-modules.md) lists them, grouped by the reason each was
 dropped and what restoring it would take.

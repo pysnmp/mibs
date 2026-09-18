@@ -288,6 +288,62 @@ ul.kpis .label {
 
 .recent td:last-child, .recent th:last-child { text-align: right; }
 
+/* Two lists of the same modules under two different dates -- what the
+   publishers revised, and what this repository changed -- one shown at a
+   time. The radio a label points at is the whole mechanism: no script, and
+   nothing is remembered between visits, which is right for a page a reader
+   arrives at rather than works in.
+
+   These rules have to be here as well as in pysmi's own stylesheet, because
+   corpus.json hands the build this file instead of that one. Without them
+   both panels show, one after the other under their own headings, which is
+   what a crawler and a reader with no CSS get either way. */
+.switch > input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.switch .tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 1.25rem 0 0;
+}
+
+.switch .tab {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  font-size: 0.9375rem;
+}
+
+.switch .tab:hover { background: var(--hover); color: var(--ink); }
+.switch .panel { display: none; }
+.switch .panel > section:first-child > h2 { margin-top: 1rem; }
+
+/* The input is one invisible pixel, so the ring it would draw goes on the
+   label a reader can actually see. */
+#recent-published:focus-visible ~ .tabs .tab[for="recent-published"],
+#recent-changed:focus-visible ~ .tabs .tab[for="recent-changed"] {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+#recent-published:checked ~ .tabs .tab[for="recent-published"],
+#recent-changed:checked ~ .tabs .tab[for="recent-changed"] {
+  background: var(--raised);
+  border-color: var(--ink-muted);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+#recent-published:checked ~ .panel.recent-published,
+#recent-changed:checked ~ .panel.recent-changed { display: block; }
+
 /* The definition cells carry no wrapping element -- pysmi stopped emitting one
    per cell, which was 61 bytes a row over every definition in the corpus --
    so these reach them by position. .defs.typed is the five-column shape,

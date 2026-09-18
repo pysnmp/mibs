@@ -197,6 +197,11 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
+          # The whole history, because the site states when this repository
+          # last changed each module and that is a fact about the history --
+          # see "Module dates" below. Twelve seconds on a repository this
+          # size, against a build measured in tens of minutes.
+          fetch-depth: 0
           persist-credentials: false
       - name: Install uv
         uses: astral-sh/setup-uv@v10.0.1
@@ -212,6 +217,13 @@ jobs:
       # in a job of its own; both come from the same source set and differ
       # only in whether the standard namespace is published. See corpus.json
       # and corpus-compact.json.
+      # Before the build, because corpus.json names the file this writes:
+      # `site.changed` is what gives browse/ its second recent list, ordered
+      # by when this repository last changed a module rather than by when its
+      # publisher last revised it. Derived from the history on every build, so
+      # there is nothing to keep right by hand.
+      - name: Module dates
+        run: uv run python scripts/module_dates.py
       - name: Build the published corpus
         # The registries are read from the checkout, never fetched: a build
         # with the network unplugged has to produce the same corpus as one

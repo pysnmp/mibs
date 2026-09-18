@@ -5,6 +5,10 @@
     "name": "pysnmp/mibs preview",
     "template": "theme/page.html",
     "stylesheet": "theme/style.css",
+    "changed": {
+      "label": "Added or updated here",
+      "dates": "output/module-dates.json"
+    },
     "page-size": { "browse": 500, "entity": 200 }
   },
   "expect": {
