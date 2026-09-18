@@ -80,6 +80,16 @@ dependencies = [
 # the browse root renders the module list it always did, and the rules are
 # dead weight styling nothing. See pysnmp/pysmi#326.
 #
+# 5.8.0 raised it from 5.7.0, and this one is about a manifest key rather
+# than about the corpus or the build. corpus.json declares site.changed,
+# naming the file scripts/module_dates.py writes, which is what gives the
+# browse entry point its second recent list: the modules this repository
+# changed most recently, against the ones their publishers revised most
+# recently. pysmi refuses a site setting a release does not know rather than
+# ignoring it, so on 5.7.0 every publication that writes a site fails with
+# "site declares changed" instead of quietly publishing one list. See
+# pysnmp/pysmi#327.
+#
 # The `fast` extra is orjson, which pysmi takes for the corpus JSON when it is
 # importable and falls back to the standard library when it is not. Worth
 # about 4% of a build here -- SMI parsing is three quarters of a pass, so the
@@ -90,7 +100,7 @@ dependencies = [
 # the implementation that ran.
 dev = [
     "pre-commit>=4.6.2,<5",
-    "pysnmp-pysmi[fast]>=5.7.0,<6",
+    "pysnmp-pysmi[fast]>=5.8.0,<6",
 ]
 
 # tests/runtime-compile-contract.py is a contract against pysnmp/pysnmp, which
