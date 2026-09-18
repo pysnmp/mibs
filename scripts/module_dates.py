@@ -152,22 +152,28 @@ def standard() -> "frozenset[str]":
     it last touched its own copy, over a page rendered from the text pysmi
     publishes. Dating a module nobody serves from here is the one way a date
     read off the history can be false rather than merely coarse.
+
+    Raises:
+        SystemExit: pysmi is not importable, so which modules to exclude
+            cannot be known.
     """
     try:
         from pysmi.compiler import bundled_mib_names
 
         return bundled_mib_names(STANDARD)
 
-    except (ImportError, OSError, ModuleNotFoundError):
-        # A checkout without pysmi importable still writes a dates file. The
-        # two collisions are worth removing and are not worth failing a build
-        # that could otherwise state 6,982 true dates.
-        sys.stderr.write(
-            f"WARNING: cannot read {STANDARD}, so the modules pysmi publishes "
-            f"are not excluded\n"
-        )
-
-        return frozenset()
+    except (ImportError, OSError) as exc:
+        # Not a warning and a partial answer. Every module this cannot name
+        # is one this would then date from a file the site does not serve, so
+        # a dates file written without it is the specific falsehood the
+        # exclusion exists to prevent -- and the build that reads the file
+        # needs pysmi anyway, so nothing reaches a page from here that could
+        # not have imported it.
+        raise SystemExit(
+            f"cannot read {STANDARD}, so the modules the corpus takes from "
+            f"pysmi cannot be excluded and this would date them from files "
+            f"the site does not publish: {exc}"
+        ) from exc
 
 
 def present(root: pathlib.Path = ROOT) -> "dict[str, str]":

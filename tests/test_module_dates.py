@@ -213,10 +213,7 @@ def test_a_module_the_corpus_takes_from_pysmi_is_not_dated_here() -> None:
     root = pathlib.Path(__file__).resolve().parent.parent
     bundled = module_dates.standard()
 
-    if not bundled:
-        sys.stdout.write("  SKIP  pysmi is not importable here\n")
-
-        return
+    check("the bundle is readable", bool(bundled), True)
 
     if module_dates.shallow(root):
         sys.stdout.write("  SKIP  this checkout is shallow\n")
@@ -253,6 +250,32 @@ def test_this_repository_dates_every_module_it_supplies() -> None:
     check("nothing extra", sorted(set(found) - supplied), [])
 
 
+def test_an_unreadable_bundle_is_fatal() -> None:
+    """Rather than a warning and a partial answer.
+
+    Every module the exclusion cannot name is one this would date from a file
+    the site does not serve, so a dates file written without it carries the
+    specific falsehood the exclusion exists to prevent.
+    """
+    sys.stdout.write("\ntest_an_unreadable_bundle_is_fatal\n")
+
+    was = module_dates.STANDARD
+
+    try:
+        module_dates.STANDARD = "pysmi.mibs.no_such_package"
+
+        try:
+            module_dates.standard()
+            check("it exits", False, True)
+
+        except SystemExit as exc:
+            check("it exits", True, True)
+            check("it says why", "cannot be excluded" in str(exc), True)
+
+    finally:
+        module_dates.STANDARD = was
+
+
 def test_the_written_file_is_what_the_build_reads() -> None:
     """The manifest names it, so its shape is a contract with pysmi: an
     object of module name to YYYY-MM-DD."""
@@ -282,6 +305,7 @@ def main() -> int:
     test_a_full_checkout_is_not_shallow()
     test_every_date_is_one_the_site_can_sort_by()
     test_a_module_the_corpus_takes_from_pysmi_is_not_dated_here()
+    test_an_unreadable_bundle_is_fatal()
     test_this_repository_dates_every_module_it_supplies()
     test_the_written_file_is_what_the_build_reads()
 
