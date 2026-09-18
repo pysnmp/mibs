@@ -132,6 +132,11 @@ jobs:
       # claiming to live anywhere or being indexed. The robots.txt below says
       # so outright; every link between these pages is relative and needs no
       # origin.
+      # As in the release build: corpus-preview.json names this file, and a
+      # preview missing it would be refused rather than built.
+      - name: Module dates
+        if: steps.scope.outputs.verdict != 'none'
+        run: uv run python scripts/module_dates.py
       - name: Build the preview
         id: build
         if: steps.scope.outputs.verdict != 'none'
