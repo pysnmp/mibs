@@ -1,0 +1,543 @@
+ACOS-VRRPA-DETAIL-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vrrpADetailModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vrrpADetailModule OID for ACOS"
+				::=  {  acosSchema 14 }
+
+detail		 OBJECT IDENTIFIER ::= { vrrpADetailModule 1}
+
+detailOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DetailOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "display vrrp-a peer detail status from object 'vrrp-a.detail'"
+	::= {detail 2}
+
+detailOperEntry OBJECT-TYPE
+	SYNTAX DetailOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The detailOper entry"
+	INDEX {
+		detailOperSlotId
+	}
+	::= { detailOperTable 1 }
+
+DetailOperEntry ::=
+	SEQUENCE {
+		detailOperSlotId Integer32,
+		detailOperDupIdRcv	 Integer32,
+		detailOperBadGroupRcv	 Integer32,
+		detailOperSetIdMismatch	 Integer32,
+		detailOperVrrpVersionMismatch	 Integer32,
+		detailOperTimeInaccurateCount	 Integer32,
+		detailOperIpPoolsExceeded	 Integer32,
+		detailOperIp6PoolsExceeded	 Integer32,
+		detailOperErrPort	 Integer32,
+		detailOperErrDevid	 Integer32,
+		detailOperErrParid	 Integer32,
+		detailOperLockTry	 Integer32,
+		detailOperL2NoRoute	 Integer32
+	}
+
+detailOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { detailOperEntry 1 }
+
+detailOperDupIdRcv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dup_id_rcv"
+	::= { detailOperEntry 2 }
+
+detailOperBadGroupRcv OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bad_group_rcv"
+	::= { detailOperEntry 3 }
+
+detailOperSetIdMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "set_id_mismatch"
+	::= { detailOperEntry 4 }
+
+detailOperVrrpVersionMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vrrp_version_mismatch"
+	::= { detailOperEntry 5 }
+
+detailOperTimeInaccurateCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "time_inaccurate_count"
+	::= { detailOperEntry 6 }
+
+detailOperIpPoolsExceeded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_pools_exceeded"
+	::= { detailOperEntry 7 }
+
+detailOperIp6PoolsExceeded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip6_pools_exceeded"
+	::= { detailOperEntry 8 }
+
+detailOperErrPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "err_port"
+	::= { detailOperEntry 9 }
+
+detailOperErrDevid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "err_devid"
+	::= { detailOperEntry 10 }
+
+detailOperErrParid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "err_parid"
+	::= { detailOperEntry 11 }
+
+detailOperLockTry OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "lock_try"
+	::= { detailOperEntry 12 }
+
+detailOperL2NoRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l2_no_route"
+	::= { detailOperEntry 13 }
+
+detailOperPeerInfoListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DetailOperPeerInfoListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "display vrrp-a peer detail status from object 'vrrp-a.detail'"
+	::= {detail 3}
+
+detailOperPeerInfoListEntry OBJECT-TYPE
+	SYNTAX DetailOperPeerInfoListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The detailOperPeerInfoList entry:peer_info_list"
+	INDEX {
+		detailOperPeerInfoListSlotId,
+		detailOperPeerInfoListPeerInfoListListId
+	}
+	::= { detailOperPeerInfoListTable 1}
+
+DetailOperPeerInfoListEntry ::=
+	SEQUENCE {
+		detailOperPeerInfoListSlotId Integer32,
+		detailOperPeerInfoListPeerInfoListListId Integer32,
+		detailOperPeerInfoListPeerIp	DisplayString,
+		detailOperPeerInfoListPeerPktRecv	Integer32
+	}
+
+detailOperPeerInfoListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListEntry 1}
+
+detailOperPeerInfoListPeerInfoListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListEntry 2}
+
+detailOperPeerInfoListPeerIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"peer_ip"
+	::= { detailOperPeerInfoListEntry 3}
+
+detailOperPeerInfoListPeerPktRecv OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"peer_pkt_recv"
+	::= { detailOperPeerInfoListEntry 4}
+
+detailOperPeerInfoListPeerListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DetailOperPeerInfoListPeerListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "display vrrp-a peer detail status from object 'vrrp-a.detail'"
+	::= {detail 4}
+
+detailOperPeerInfoListPeerListEntry OBJECT-TYPE
+	SYNTAX DetailOperPeerInfoListPeerListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The detailOperPeerInfoListPeerList entry:peer_list"
+	INDEX {
+		detailOperPeerInfoListPeerListSlotId,
+		detailOperPeerInfoListPeerListPeerInfoListListId,
+		detailOperPeerInfoListPeerListPeerListListId
+	}
+	::= { detailOperPeerInfoListPeerListTable 1}
+
+DetailOperPeerInfoListPeerListEntry ::=
+	SEQUENCE {
+		detailOperPeerInfoListPeerListSlotId Integer32,
+		detailOperPeerInfoListPeerListPeerInfoListListId Integer32,
+		detailOperPeerInfoListPeerListPeerListListId Integer32,
+		detailOperPeerInfoListPeerListPeerId	Integer32,
+		detailOperPeerInfoListPeerListVrid	Integer32,
+		detailOperPeerInfoListPeerListMissingHeartbeat	Integer32
+	}
+
+detailOperPeerInfoListPeerListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListPeerListEntry 1}
+
+detailOperPeerInfoListPeerListPeerInfoListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListPeerListEntry 2}
+
+detailOperPeerInfoListPeerListPeerListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListPeerListEntry 3}
+
+detailOperPeerInfoListPeerListPeerId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"peer_id"
+	::= { detailOperPeerInfoListPeerListEntry 4}
+
+detailOperPeerInfoListPeerListVrid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vrid"
+	::= { detailOperPeerInfoListPeerListEntry 5}
+
+detailOperPeerInfoListPeerListMissingHeartbeat OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"missing_heartbeat"
+	::= { detailOperPeerInfoListPeerListEntry 6}
+
+detailOperPeerInfoListPeerListPeerPortListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DetailOperPeerInfoListPeerListPeerPortListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "display vrrp-a peer detail status from object 'vrrp-a.detail'"
+	::= {detail 5}
+
+detailOperPeerInfoListPeerListPeerPortListEntry OBJECT-TYPE
+	SYNTAX DetailOperPeerInfoListPeerListPeerPortListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The detailOperPeerInfoListPeerListPeerPortList entry:peer_port_list"
+	INDEX {
+		detailOperPeerInfoListPeerListPeerPortListSlotId,
+		detailOperPeerInfoListPeerListPeerPortListPeerInfoListListId,
+		detailOperPeerInfoListPeerListPeerPortListPeerListListId,
+		detailOperPeerInfoListPeerListPeerPortListPeerPortListListId
+	}
+	::= { detailOperPeerInfoListPeerListPeerPortListTable 1}
+
+DetailOperPeerInfoListPeerListPeerPortListEntry ::=
+	SEQUENCE {
+		detailOperPeerInfoListPeerListPeerPortListSlotId Integer32,
+		detailOperPeerInfoListPeerListPeerPortListPeerInfoListListId Integer32,
+		detailOperPeerInfoListPeerListPeerPortListPeerListListId Integer32,
+		detailOperPeerInfoListPeerListPeerPortListPeerPortListListId Integer32,
+		detailOperPeerInfoListPeerListPeerPortListEth	Integer32,
+		detailOperPeerInfoListPeerListPeerPortListVrrpPktRecv	Integer32,
+		detailOperPeerInfoListPeerListPeerPortListEthMiss	Integer32
+	}
+
+detailOperPeerInfoListPeerListPeerPortListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListPeerListPeerPortListEntry 1}
+
+detailOperPeerInfoListPeerListPeerPortListPeerInfoListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListPeerListPeerPortListEntry 2}
+
+detailOperPeerInfoListPeerListPeerPortListPeerListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListPeerListPeerPortListEntry 3}
+
+detailOperPeerInfoListPeerListPeerPortListPeerPortListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperPeerInfoListPeerListPeerPortListEntry 4}
+
+detailOperPeerInfoListPeerListPeerPortListEth OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"eth"
+	::= { detailOperPeerInfoListPeerListPeerPortListEntry 5}
+
+detailOperPeerInfoListPeerListPeerPortListVrrpPktRecv OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vrrp_pkt_recv"
+	::= { detailOperPeerInfoListPeerListPeerPortListEntry 6}
+
+detailOperPeerInfoListPeerListPeerPortListEthMiss OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"eth_miss"
+	::= { detailOperPeerInfoListPeerListPeerPortListEntry 7}
+
+detailOperLocalInfoListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DetailOperLocalInfoListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "display vrrp-a peer detail status from object 'vrrp-a.detail'"
+	::= {detail 6}
+
+detailOperLocalInfoListEntry OBJECT-TYPE
+	SYNTAX DetailOperLocalInfoListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The detailOperLocalInfoList entry:local_info_list"
+	INDEX {
+		detailOperLocalInfoListSlotId,
+		detailOperLocalInfoListLocalInfoListListId
+	}
+	::= { detailOperLocalInfoListTable 1}
+
+DetailOperLocalInfoListEntry ::=
+	SEQUENCE {
+		detailOperLocalInfoListSlotId Integer32,
+		detailOperLocalInfoListLocalInfoListListId Integer32,
+		detailOperLocalInfoListSwitchToActive	Integer32,
+		detailOperLocalInfoListSwitchToStandby	Integer32,
+		detailOperLocalInfoListVrid	Integer32,
+		detailOperLocalInfoListVrrpPktSend	Integer32
+	}
+
+detailOperLocalInfoListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperLocalInfoListEntry 1}
+
+detailOperLocalInfoListLocalInfoListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperLocalInfoListEntry 2}
+
+detailOperLocalInfoListSwitchToActive OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"switch_to_active"
+	::= { detailOperLocalInfoListEntry 3}
+
+detailOperLocalInfoListSwitchToStandby OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"switch_to_standby"
+	::= { detailOperLocalInfoListEntry 4}
+
+detailOperLocalInfoListVrid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vrid"
+	::= { detailOperLocalInfoListEntry 5}
+
+detailOperLocalInfoListVrrpPktSend OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vrrp_pkt_send"
+	::= { detailOperLocalInfoListEntry 6}
+
+detailOperLocalInfoListLocalEthSendListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DetailOperLocalInfoListLocalEthSendListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "display vrrp-a peer detail status from object 'vrrp-a.detail'"
+	::= {detail 7}
+
+detailOperLocalInfoListLocalEthSendListEntry OBJECT-TYPE
+	SYNTAX DetailOperLocalInfoListLocalEthSendListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The detailOperLocalInfoListLocalEthSendList entry:local_eth_send_list"
+	INDEX {
+		detailOperLocalInfoListLocalEthSendListSlotId,
+		detailOperLocalInfoListLocalEthSendListLocalInfoListListId,
+		detailOperLocalInfoListLocalEthSendListLocalEthSendListListId
+	}
+	::= { detailOperLocalInfoListLocalEthSendListTable 1}
+
+DetailOperLocalInfoListLocalEthSendListEntry ::=
+	SEQUENCE {
+		detailOperLocalInfoListLocalEthSendListSlotId Integer32,
+		detailOperLocalInfoListLocalEthSendListLocalInfoListListId Integer32,
+		detailOperLocalInfoListLocalEthSendListLocalEthSendListListId Integer32,
+		detailOperLocalInfoListLocalEthSendListEthPort	Integer32,
+		detailOperLocalInfoListLocalEthSendListEthPktSend	Integer32
+	}
+
+detailOperLocalInfoListLocalEthSendListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperLocalInfoListLocalEthSendListEntry 1}
+
+detailOperLocalInfoListLocalEthSendListLocalInfoListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperLocalInfoListLocalEthSendListEntry 2}
+
+detailOperLocalInfoListLocalEthSendListLocalEthSendListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { detailOperLocalInfoListLocalEthSendListEntry 3}
+
+detailOperLocalInfoListLocalEthSendListEthPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"eth_port"
+	::= { detailOperLocalInfoListLocalEthSendListEntry 4}
+
+detailOperLocalInfoListLocalEthSendListEthPktSend OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"eth_pkt_send"
+	::= { detailOperLocalInfoListLocalEthSendListEntry 5}
+
+END
+

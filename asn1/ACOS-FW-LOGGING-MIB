@@ -1,0 +1,714 @@
+ACOS-FW-LOGGING-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		fwLoggingModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "fwLoggingModule OID for ACOS"
+				::=  {  acosSchema 480 }
+
+logging		 OBJECT IDENTIFIER ::= { fwLoggingModule 1}
+
+loggingStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF LoggingStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "logging configurations e.g. FW logging template Binding/CEF log options from object 'fw.logging'"
+	::= {logging 1}
+
+loggingStatsEntry OBJECT-TYPE
+	SYNTAX LoggingStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The loggingStats stats entry"
+	INDEX {
+		loggingStatsSlotId
+	}
+	::= { loggingStatsTable 1 }
+
+LoggingStatsEntry ::=
+	SEQUENCE {
+		loggingStatsSlotId Integer32,
+		loggingStatsLogMessageSent	 CounterBasedGauge64,
+		loggingStatsLogTypeReset	 CounterBasedGauge64,
+		loggingStatsLogTypeDeny	 CounterBasedGauge64,
+		loggingStatsLogTypeSessionClosed	 CounterBasedGauge64,
+		loggingStatsLogTypeSessionOpened	 CounterBasedGauge64,
+		loggingStatsRuleNotLogged	 CounterBasedGauge64,
+		loggingStatsLogDropped	 CounterBasedGauge64,
+		loggingStatsTcpSessionCreated	 CounterBasedGauge64,
+		loggingStatsTcpSessionDeleted	 CounterBasedGauge64,
+		loggingStatsUdpSessionCreated	 CounterBasedGauge64,
+		loggingStatsUdpSessionDeleted	 CounterBasedGauge64,
+		loggingStatsIcmpSessionDeleted	 CounterBasedGauge64,
+		loggingStatsIcmpSessionCreated	 CounterBasedGauge64,
+		loggingStatsIcmpv6SessionDeleted	 CounterBasedGauge64,
+		loggingStatsIcmpv6SessionCreated	 CounterBasedGauge64,
+		loggingStatsOtherSessionDeleted	 CounterBasedGauge64,
+		loggingStatsOtherSessionCreated	 CounterBasedGauge64,
+		loggingStatsHttpRequestLogged	 CounterBasedGauge64,
+		loggingStatsHttpLoggingInvalidFormat	 CounterBasedGauge64,
+		loggingStatsDcmsgPermit	 CounterBasedGauge64,
+		loggingStatsAlgOverridePermit	 CounterBasedGauge64,
+		loggingStatsTemplateError	 CounterBasedGauge64,
+		loggingStatsIpv4FragApplied	 CounterBasedGauge64,
+		loggingStatsIpv4FragFailed	 CounterBasedGauge64,
+		loggingStatsIpv6FragApplied	 CounterBasedGauge64,
+		loggingStatsIpv6FragFailed	 CounterBasedGauge64,
+		loggingStatsOutOfBuffers	 CounterBasedGauge64,
+		loggingStatsAddMsgFailed	 CounterBasedGauge64,
+		loggingStatsTcpLoggingConnEstablished	 CounterBasedGauge64,
+		loggingStatsTcpLoggingConnCreateFailed	 CounterBasedGauge64,
+		loggingStatsTcpLoggingConnDropped	 CounterBasedGauge64,
+		loggingStatsLogMessageTooLong	 CounterBasedGauge64,
+		loggingStatsHttpOutOfOrderDropped	 CounterBasedGauge64,
+		loggingStatsHttpAllocFailed	 CounterBasedGauge64,
+		loggingStatsSctpSessionCreated	 CounterBasedGauge64,
+		loggingStatsSctpSessionDeleted	 CounterBasedGauge64,
+		loggingStatsLogTypeSctpInnerProtoFilter	 CounterBasedGauge64,
+		loggingStatsTcpLoggingPortAllocated	 CounterBasedGauge64,
+		loggingStatsTcpLoggingPortFreed	 CounterBasedGauge64,
+		loggingStatsTcpLoggingPortAllocationFailed	 CounterBasedGauge64,
+		loggingStatsIddosBlackholeEntryCreate	 CounterBasedGauge64,
+		loggingStatsIddosBlackholeEntryDelete	 CounterBasedGauge64,
+		loggingStatsSessionLimitExceeded	 CounterBasedGauge64
+	}
+
+loggingStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { loggingStatsEntry 1 }
+
+loggingStatsLogMessageSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_message_sent"
+	::= { loggingStatsEntry 2 }
+
+loggingStatsLogTypeReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_reset"
+	::= { loggingStatsEntry 3 }
+
+loggingStatsLogTypeDeny OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_deny"
+	::= { loggingStatsEntry 4 }
+
+loggingStatsLogTypeSessionClosed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_session_closed"
+	::= { loggingStatsEntry 5 }
+
+loggingStatsLogTypeSessionOpened OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_session_opened"
+	::= { loggingStatsEntry 6 }
+
+loggingStatsRuleNotLogged OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rule_not_logged"
+	::= { loggingStatsEntry 7 }
+
+loggingStatsLogDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log-dropped"
+	::= { loggingStatsEntry 8 }
+
+loggingStatsTcpSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-session-created"
+	::= { loggingStatsEntry 9 }
+
+loggingStatsTcpSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-session-deleted"
+	::= { loggingStatsEntry 10 }
+
+loggingStatsUdpSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-session-created"
+	::= { loggingStatsEntry 11 }
+
+loggingStatsUdpSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-session-deleted"
+	::= { loggingStatsEntry 12 }
+
+loggingStatsIcmpSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-session-deleted"
+	::= { loggingStatsEntry 13 }
+
+loggingStatsIcmpSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-session-created"
+	::= { loggingStatsEntry 14 }
+
+loggingStatsIcmpv6SessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-session-deleted"
+	::= { loggingStatsEntry 15 }
+
+loggingStatsIcmpv6SessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-session-created"
+	::= { loggingStatsEntry 16 }
+
+loggingStatsOtherSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "other-session-deleted"
+	::= { loggingStatsEntry 17 }
+
+loggingStatsOtherSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "other-session-created"
+	::= { loggingStatsEntry 18 }
+
+loggingStatsHttpRequestLogged OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-request-logged"
+	::= { loggingStatsEntry 19 }
+
+loggingStatsHttpLoggingInvalidFormat OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-logging-invalid-format"
+	::= { loggingStatsEntry 20 }
+
+loggingStatsDcmsgPermit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dcmsg_permit"
+	::= { loggingStatsEntry 21 }
+
+loggingStatsAlgOverridePermit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "alg_override_permit"
+	::= { loggingStatsEntry 22 }
+
+loggingStatsTemplateError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "template_error"
+	::= { loggingStatsEntry 23 }
+
+loggingStatsIpv4FragApplied OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-frag-applied"
+	::= { loggingStatsEntry 24 }
+
+loggingStatsIpv4FragFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-frag-failed"
+	::= { loggingStatsEntry 25 }
+
+loggingStatsIpv6FragApplied OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-frag-applied"
+	::= { loggingStatsEntry 26 }
+
+loggingStatsIpv6FragFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-frag-failed"
+	::= { loggingStatsEntry 27 }
+
+loggingStatsOutOfBuffers OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "out-of-buffers"
+	::= { loggingStatsEntry 28 }
+
+loggingStatsAddMsgFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "add-msg-failed"
+	::= { loggingStatsEntry 29 }
+
+loggingStatsTcpLoggingConnEstablished OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-logging-conn-established"
+	::= { loggingStatsEntry 30 }
+
+loggingStatsTcpLoggingConnCreateFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-logging-conn-create-failed"
+	::= { loggingStatsEntry 31 }
+
+loggingStatsTcpLoggingConnDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-logging-conn-dropped"
+	::= { loggingStatsEntry 32 }
+
+loggingStatsLogMessageTooLong OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log-message-too-long"
+	::= { loggingStatsEntry 33 }
+
+loggingStatsHttpOutOfOrderDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-out-of-order-dropped"
+	::= { loggingStatsEntry 34 }
+
+loggingStatsHttpAllocFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-alloc-failed"
+	::= { loggingStatsEntry 35 }
+
+loggingStatsSctpSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-session-created"
+	::= { loggingStatsEntry 36 }
+
+loggingStatsSctpSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sctp-session-deleted"
+	::= { loggingStatsEntry 37 }
+
+loggingStatsLogTypeSctpInnerProtoFilter OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_sctp_inner_proto_filter"
+	::= { loggingStatsEntry 38 }
+
+loggingStatsTcpLoggingPortAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-logging-port-allocated"
+	::= { loggingStatsEntry 39 }
+
+loggingStatsTcpLoggingPortFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-logging-port-freed"
+	::= { loggingStatsEntry 40 }
+
+loggingStatsTcpLoggingPortAllocationFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-logging-port-allocation-failed"
+	::= { loggingStatsEntry 41 }
+
+loggingStatsIddosBlackholeEntryCreate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "iddos-blackhole-entry-create"
+	::= { loggingStatsEntry 42 }
+
+loggingStatsIddosBlackholeEntryDelete OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "iddos-blackhole-entry-delete"
+	::= { loggingStatsEntry 43 }
+
+loggingStatsSessionLimitExceeded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "session-limit-exceeded"
+	::= { loggingStatsEntry 44 }
+
+gtp		 OBJECT IDENTIFIER ::= { logging 2}
+
+gtpStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF GtpStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Counters for GTP Logging from object 'fw.logging.gtp'"
+	::= {gtp 1}
+
+gtpStatsEntry OBJECT-TYPE
+	SYNTAX GtpStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The gtpStats stats entry"
+	INDEX {
+		gtpStatsSlotId
+	}
+	::= { gtpStatsTable 1 }
+
+GtpStatsEntry ::=
+	SEQUENCE {
+		gtpStatsSlotId Integer32,
+		gtpStatsLogTypeGtpInvalidTeid	 CounterBasedGauge64,
+		gtpStatsLogGtpTypeReservedIePresent	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpMandatoryIeMissing	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpMandatoryIeInsideGroupedIeMissing	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpMsisdnFiltering	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpOutOfOrderIe	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpOutOfStateIe	 CounterBasedGauge64,
+		gtpStatsLogTypeEnduserIpSpoofed	 CounterBasedGauge64,
+		gtpStatsLogTypeCrosslayerCorrelation	 CounterBasedGauge64,
+		gtpStatsLogTypeMessageNotSupported	 CounterBasedGauge64,
+		gtpStatsLogTypeOutOfState	 CounterBasedGauge64,
+		gtpStatsLogTypeMaxMsgLength	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpMessageFiltering	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpApnFiltering	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpRatTypeFiltering	 CounterBasedGauge64,
+		gtpStatsLogTypeCountryCodeMismatch	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpInGtpFiltering	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpNodeRestart	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpSeqNumMismatch	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpRateLimitPeriodic	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpInvalidMessageLength	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpHdrInvalidProtocolFlag	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpHdrInvalidSpareBits	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpHdrInvalidPiggyFlag	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpInvalidVersion	 CounterBasedGauge64,
+		gtpStatsLogTypeGtpInvalidPorts	 CounterBasedGauge64
+	}
+
+gtpStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { gtpStatsEntry 1 }
+
+gtpStatsLogTypeGtpInvalidTeid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_invalid_teid"
+	::= { gtpStatsEntry 2 }
+
+gtpStatsLogGtpTypeReservedIePresent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_gtp_type_reserved_ie_present"
+	::= { gtpStatsEntry 3 }
+
+gtpStatsLogTypeGtpMandatoryIeMissing OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_mandatory_ie_missing"
+	::= { gtpStatsEntry 4 }
+
+gtpStatsLogTypeGtpMandatoryIeInsideGroupedIeMissing OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_mandatory_ie_inside_grouped_ie_missing"
+	::= { gtpStatsEntry 5 }
+
+gtpStatsLogTypeGtpMsisdnFiltering OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_msisdn_filtering"
+	::= { gtpStatsEntry 6 }
+
+gtpStatsLogTypeGtpOutOfOrderIe OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_out_of_order_ie"
+	::= { gtpStatsEntry 7 }
+
+gtpStatsLogTypeGtpOutOfStateIe OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_out_of_state_ie"
+	::= { gtpStatsEntry 8 }
+
+gtpStatsLogTypeEnduserIpSpoofed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_enduser_ip_spoofed"
+	::= { gtpStatsEntry 9 }
+
+gtpStatsLogTypeCrosslayerCorrelation OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_crosslayer_correlation"
+	::= { gtpStatsEntry 10 }
+
+gtpStatsLogTypeMessageNotSupported OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_message_not_supported"
+	::= { gtpStatsEntry 11 }
+
+gtpStatsLogTypeOutOfState OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_out_of_state"
+	::= { gtpStatsEntry 12 }
+
+gtpStatsLogTypeMaxMsgLength OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_max_msg_length"
+	::= { gtpStatsEntry 13 }
+
+gtpStatsLogTypeGtpMessageFiltering OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_message_filtering"
+	::= { gtpStatsEntry 14 }
+
+gtpStatsLogTypeGtpApnFiltering OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_apn_filtering"
+	::= { gtpStatsEntry 15 }
+
+gtpStatsLogTypeGtpRatTypeFiltering OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_rat_type_filtering"
+	::= { gtpStatsEntry 16 }
+
+gtpStatsLogTypeCountryCodeMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_country_code_mismatch"
+	::= { gtpStatsEntry 17 }
+
+gtpStatsLogTypeGtpInGtpFiltering OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_in_gtp_filtering"
+	::= { gtpStatsEntry 18 }
+
+gtpStatsLogTypeGtpNodeRestart OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_node_restart"
+	::= { gtpStatsEntry 19 }
+
+gtpStatsLogTypeGtpSeqNumMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_seq_num_mismatch"
+	::= { gtpStatsEntry 20 }
+
+gtpStatsLogTypeGtpRateLimitPeriodic OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_rate_limit_periodic"
+	::= { gtpStatsEntry 21 }
+
+gtpStatsLogTypeGtpInvalidMessageLength OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_invalid_message_length"
+	::= { gtpStatsEntry 22 }
+
+gtpStatsLogTypeGtpHdrInvalidProtocolFlag OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_hdr_invalid_protocol_flag"
+	::= { gtpStatsEntry 23 }
+
+gtpStatsLogTypeGtpHdrInvalidSpareBits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_hdr_invalid_spare_bits"
+	::= { gtpStatsEntry 24 }
+
+gtpStatsLogTypeGtpHdrInvalidPiggyFlag OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_hdr_invalid_piggy_flag"
+	::= { gtpStatsEntry 25 }
+
+gtpStatsLogTypeGtpInvalidVersion OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_invalid_version"
+	::= { gtpStatsEntry 26 }
+
+gtpStatsLogTypeGtpInvalidPorts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log_type_gtp_invalid_ports"
+	::= { gtpStatsEntry 27 }
+
+END
+

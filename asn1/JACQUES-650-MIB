@@ -1,0 +1,236 @@
+--
+-- Jacques 650 System MIB module
+--
+-- (c) Copyright, Jacques Technologies Pty Ltd. All rights reserved.
+--
+
+JACQUES-650-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-COMPLIANCE, OBJECT-GROUP,
+    NOTIFICATION-GROUP                      FROM SNMPv2-CONF
+    MODULE-IDENTITY, OBJECT-TYPE,
+        NOTIFICATION-TYPE, enterprises      FROM SNMPv2-SMI
+    TruthValue                              FROM SNMPv2-TC
+    SnmpAdminString                         FROM SNMP-FRAMEWORK-MIB
+;
+
+jacquesMIB MODULE-IDENTITY
+    LAST-UPDATED "201703260000Z"
+    ORGANIZATION "Jacques Technologies"
+    CONTACT-INFO "Postal: 268 Montague Road
+                          West End QLD
+                          Australia 4101
+                  Tel:    +61 07 3846 8400
+                  E-Mail: support@jacques.com.au"
+    DESCRIPTION  "Jacques 650 System MIB module"
+    REVISION     "201703260000Z"
+    DESCRIPTION  "Initial version"
+    ::= { enterprises 49759 }
+
+--
+-- Top level OIDs
+--
+
+jacquesMIBConformance OBJECT IDENTIFIER
+    ::= { jacquesMIB 1 }
+
+jacquesScalars OBJECT IDENTIFIER
+    ::= { jacquesMIB 2 }
+
+jacquesNotify OBJECT IDENTIFIER
+    ::= { jacquesMIB 3 }
+
+-- NOTIFICATION-TYPEs must be "reverse-mappable" - i.e. the second
+-- to last subidentifier in their OID must be zero.
+
+jacquesAppNotifyPrePrefix OBJECT IDENTIFIER
+    ::= { jacquesNotify 0 }
+
+jacquesAppNotifyPrefix OBJECT IDENTIFIER
+    ::= { jacquesAppNotifyPrePrefix 0 }
+
+jacquesEndpointNotifyPrePrefix OBJECT IDENTIFIER
+    ::= { jacquesNotify 1 }
+
+jacquesEndpointNotifyPrefix OBJECT IDENTIFIER
+    ::= { jacquesEndpointNotifyPrePrefix 0 }
+
+jacquesMIBCompliances OBJECT IDENTIFIER
+    ::= { jacquesMIBConformance 1 }
+
+jacquesMIBGroups OBJECT IDENTIFIER
+    ::= { jacquesMIBConformance 2 }
+
+--
+-- Scalars
+--
+
+jacquesServerName OBJECT-TYPE
+    SYNTAX      SnmpAdminString (SIZE(0..32))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The name of this server"
+::= { jacquesScalars 1 }
+
+
+jacquesAppUp OBJECT-TYPE
+    SYNTAX      TruthValue
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "A flag indicating whether an application is up or down."
+::= { jacquesScalars 2}
+
+
+jacquesTag OBJECT-TYPE
+    SYNTAX      SnmpAdminString (SIZE(0..15))
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "Unique identifier given to a particular endpoint device.
+         Usually the string form of a number"
+::= { jacquesScalars 3 }
+
+
+jacquesEndpointOnline OBJECT-TYPE
+    SYNTAX      TruthValue
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "A flag indicating whether an endpoint is online."
+::= { jacquesScalars 4 }
+
+
+jacquesEndpointMode OBJECT-TYPE
+    SYNTAX      INTEGER {
+        normal(1),
+        remote(2),      -- the endpoint is remoted
+        isolate(3)      -- the endpoint is isolated
+    }
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "The mode of the endpoint."
+::= { jacquesScalars 5 }
+
+
+jacquesEndpointAlarmType OBJECT-TYPE
+    SYNTAX      SnmpAdminString (SIZE(0..32))
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "The type of endpoint alarm."
+::= { jacquesScalars 6 }
+
+
+jacquesEndpointAlarmState OBJECT-TYPE
+    SYNTAX      TruthValue
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "A flag indicating whether the endpoint alarm is set or reset."
+::= { jacquesScalars 7 }
+
+
+--
+--  Notifications
+--
+
+jacquesJccpserverUpNotify NOTIFICATION-TYPE
+    OBJECTS     { jacquesAppUp, jacquesServerName }
+    STATUS      current
+    DESCRIPTION
+        "Notification that the jccpserver application is up/down."
+::= { jacquesAppNotifyPrefix 1 }
+
+
+jacquesEndpointOnlineNotify NOTIFICATION-TYPE
+    OBJECTS     { jacquesTag, jacquesEndpointOnline }
+    STATUS      current
+    DESCRIPTION
+        "Notification that the endpoint online state has changed."
+::= { jacquesEndpointNotifyPrefix 1 }
+
+
+jacquesEndpointModeNotify NOTIFICATION-TYPE
+    OBJECTS     { jacquesTag, jacquesEndpointMode }
+    STATUS      current
+    DESCRIPTION
+        "Notification that the endpoint mode has changed."
+::= { jacquesEndpointNotifyPrefix 2 }
+
+
+jacquesEndpointAlarmNotify NOTIFICATION-TYPE
+    OBJECTS     { jacquesTag, jacquesEndpointAlarmType }
+    STATUS      current
+    DESCRIPTION
+        "Notification that an endpoint alarm has set or reset."
+::= { jacquesEndpointNotifyPrefix 3 }
+
+
+--
+-- Compliance statements
+--
+
+jacquesMIBCompliance MODULE-COMPLIANCE
+    STATUS  current
+    DESCRIPTION
+        "The requirements for conformance to the Jacques 650 MIB."
+    MODULE  -- this module
+    MANDATORY-GROUPS {
+        jacquesServerGroup,
+        jacquesEndpointGroup,
+        jacquesServerNotifyGroup,
+        jacquesEndpointNotifyGroup
+    }
+    ::= { jacquesMIBCompliances 1 }
+
+
+jacquesServerGroup OBJECT-GROUP
+    OBJECTS {
+        jacquesAppUp,
+        jacquesServerName
+    }
+    STATUS     current
+    DESCRIPTION
+           "The Jacques 650 System Server Group"
+    ::= { jacquesMIBGroups 1 }
+
+
+jacquesEndpointGroup OBJECT-GROUP
+    OBJECTS {
+        jacquesTag,
+        jacquesEndpointOnline,
+        jacquesEndpointMode,
+        jacquesEndpointAlarmType,
+        jacquesEndpointAlarmState
+    }
+    STATUS     current
+    DESCRIPTION
+           "The Jacques 650 System Endpoint Group"
+    ::= { jacquesMIBGroups 2 }
+
+
+jacquesServerNotifyGroup NOTIFICATION-GROUP
+    NOTIFICATIONS {
+        jacquesJccpserverUpNotify
+    }
+    STATUS     current
+    DESCRIPTION
+           "The Jacques 650 System Server Notifications Group"
+    ::= { jacquesMIBGroups 3 }
+
+jacquesEndpointNotifyGroup NOTIFICATION-GROUP
+    NOTIFICATIONS {
+        jacquesEndpointOnlineNotify,
+        jacquesEndpointModeNotify,
+        jacquesEndpointAlarmNotify
+    }
+    STATUS     current
+    DESCRIPTION
+           "The Jacques 650 System Endpoint Notifications Group"
+    ::= { jacquesMIBGroups 4 }
+
+END

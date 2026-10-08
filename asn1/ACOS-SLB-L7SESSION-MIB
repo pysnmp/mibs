@@ -1,0 +1,482 @@
+ACOS-SLB-L7SESSION-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		slbL7sessionModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "slbL7sessionModule OID for ACOS"
+				::=  {  acosSchema 329 }
+
+l7session		 OBJECT IDENTIFIER ::= { slbL7sessionModule 1}
+
+l7sessionStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF L7sessionStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Configure l7session from object 'slb.l7session'"
+	::= {l7session 1}
+
+l7sessionStatsEntry OBJECT-TYPE
+	SYNTAX L7sessionStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The l7sessionStats stats entry"
+	INDEX {
+		l7sessionStatsSlotId
+	}
+	::= { l7sessionStatsTable 1 }
+
+L7sessionStatsEntry ::=
+	SEQUENCE {
+		l7sessionStatsSlotId Integer32,
+		l7sessionStatsStartServerConnSucc	 CounterBasedGauge64,
+		l7sessionStatsConnNotExist	 CounterBasedGauge64,
+		l7sessionStatsDataEvent	 CounterBasedGauge64,
+		l7sessionStatsClientFin	 CounterBasedGauge64,
+		l7sessionStatsServerFin	 CounterBasedGauge64,
+		l7sessionStatsWbufEvent	 CounterBasedGauge64,
+		l7sessionStatsWbufCbFailed	 CounterBasedGauge64,
+		l7sessionStatsErrEvent	 CounterBasedGauge64,
+		l7sessionStatsErrCbFailed	 CounterBasedGauge64,
+		l7sessionStatsServerConnFailed	 CounterBasedGauge64,
+		l7sessionStatsClientRst	 CounterBasedGauge64,
+		l7sessionStatsServerRst	 CounterBasedGauge64,
+		l7sessionStatsClientRstReq	 CounterBasedGauge64,
+		l7sessionStatsClientRstConnecting	 CounterBasedGauge64,
+		l7sessionStatsClientRstConnected	 CounterBasedGauge64,
+		l7sessionStatsClientRstRsp	 CounterBasedGauge64,
+		l7sessionStatsServerRstReq	 CounterBasedGauge64,
+		l7sessionStatsServerRstConnecting	 CounterBasedGauge64,
+		l7sessionStatsServerRstConnected	 CounterBasedGauge64,
+		l7sessionStatsServerRstRsp	 CounterBasedGauge64,
+		l7sessionStatsProxyV1Connection	 CounterBasedGauge64,
+		l7sessionStatsProxyV2Connection	 CounterBasedGauge64,
+		l7sessionStatsCurrProxy	 CounterBasedGauge64,
+		l7sessionStatsCurrProxyClient	 CounterBasedGauge64,
+		l7sessionStatsCurrProxyServer	 CounterBasedGauge64,
+		l7sessionStatsCurrProxyEs	 CounterBasedGauge64,
+		l7sessionStatsTotalProxy	 CounterBasedGauge64,
+		l7sessionStatsTotalProxyClient	 CounterBasedGauge64,
+		l7sessionStatsTotalProxyServer	 CounterBasedGauge64,
+		l7sessionStatsTotalProxyEs	 CounterBasedGauge64,
+		l7sessionStatsServerSelectFail	 CounterBasedGauge64,
+		l7sessionStatsEstEvent	 CounterBasedGauge64,
+		l7sessionStatsEstCbFailed	 CounterBasedGauge64,
+		l7sessionStatsDataCbFailed	 CounterBasedGauge64,
+		l7sessionStatsHpsFwdreqFail	 CounterBasedGauge64,
+		l7sessionStatsHpsFwdreqFailBuff	 CounterBasedGauge64,
+		l7sessionStatsHpsFwdreqFailRport	 CounterBasedGauge64,
+		l7sessionStatsHpsFwdreqFailRoute	 CounterBasedGauge64,
+		l7sessionStatsHpsFwdreqFailPersist	 CounterBasedGauge64,
+		l7sessionStatsHpsFwdreqFailServer	 CounterBasedGauge64,
+		l7sessionStatsHpsFwdreqFailTuple	 CounterBasedGauge64,
+		l7sessionStatsUdpDataEvent	 CounterBasedGauge64,
+		l7sessionStatsTransactionCleaned	 CounterBasedGauge64,
+		l7sessionStatsOldServerCleaned	 CounterBasedGauge64,
+		l7sessionStatsServerNotCleaned	 CounterBasedGauge64,
+		l7sessionStatsClientNotCleaned	 CounterBasedGauge64,
+		l7sessionStatsInvalidServer	 CounterBasedGauge64
+	}
+
+l7sessionStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { l7sessionStatsEntry 1 }
+
+l7sessionStatsStartServerConnSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "start_server_conn_succ"
+	::= { l7sessionStatsEntry 2 }
+
+l7sessionStatsConnNotExist OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn_not_exist"
+	::= { l7sessionStatsEntry 3 }
+
+l7sessionStatsDataEvent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "data_event"
+	::= { l7sessionStatsEntry 4 }
+
+l7sessionStatsClientFin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_fin"
+	::= { l7sessionStatsEntry 5 }
+
+l7sessionStatsServerFin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_fin"
+	::= { l7sessionStatsEntry 6 }
+
+l7sessionStatsWbufEvent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "wbuf_event"
+	::= { l7sessionStatsEntry 7 }
+
+l7sessionStatsWbufCbFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "wbuf_cb_failed"
+	::= { l7sessionStatsEntry 8 }
+
+l7sessionStatsErrEvent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "err_event"
+	::= { l7sessionStatsEntry 9 }
+
+l7sessionStatsErrCbFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "err_cb_failed"
+	::= { l7sessionStatsEntry 10 }
+
+l7sessionStatsServerConnFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_conn_failed"
+	::= { l7sessionStatsEntry 11 }
+
+l7sessionStatsClientRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst"
+	::= { l7sessionStatsEntry 12 }
+
+l7sessionStatsServerRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst"
+	::= { l7sessionStatsEntry 13 }
+
+l7sessionStatsClientRstReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst_req"
+	::= { l7sessionStatsEntry 14 }
+
+l7sessionStatsClientRstConnecting OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst_connecting"
+	::= { l7sessionStatsEntry 15 }
+
+l7sessionStatsClientRstConnected OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst_connected"
+	::= { l7sessionStatsEntry 16 }
+
+l7sessionStatsClientRstRsp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_rst_rsp"
+	::= { l7sessionStatsEntry 17 }
+
+l7sessionStatsServerRstReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst_req"
+	::= { l7sessionStatsEntry 18 }
+
+l7sessionStatsServerRstConnecting OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst_connecting"
+	::= { l7sessionStatsEntry 19 }
+
+l7sessionStatsServerRstConnected OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst_connected"
+	::= { l7sessionStatsEntry 20 }
+
+l7sessionStatsServerRstRsp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_rst_rsp"
+	::= { l7sessionStatsEntry 21 }
+
+l7sessionStatsProxyV1Connection OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy_v1_connection"
+	::= { l7sessionStatsEntry 22 }
+
+l7sessionStatsProxyV2Connection OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy_v2_connection"
+	::= { l7sessionStatsEntry 23 }
+
+l7sessionStatsCurrProxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_proxy"
+	::= { l7sessionStatsEntry 24 }
+
+l7sessionStatsCurrProxyClient OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_proxy_client"
+	::= { l7sessionStatsEntry 25 }
+
+l7sessionStatsCurrProxyServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_proxy_server"
+	::= { l7sessionStatsEntry 26 }
+
+l7sessionStatsCurrProxyEs OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_proxy_es"
+	::= { l7sessionStatsEntry 27 }
+
+l7sessionStatsTotalProxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_proxy"
+	::= { l7sessionStatsEntry 28 }
+
+l7sessionStatsTotalProxyClient OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_proxy_client"
+	::= { l7sessionStatsEntry 29 }
+
+l7sessionStatsTotalProxyServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_proxy_server"
+	::= { l7sessionStatsEntry 30 }
+
+l7sessionStatsTotalProxyEs OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_proxy_es"
+	::= { l7sessionStatsEntry 31 }
+
+l7sessionStatsServerSelectFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_select_fail"
+	::= { l7sessionStatsEntry 32 }
+
+l7sessionStatsEstEvent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "est_event"
+	::= { l7sessionStatsEntry 33 }
+
+l7sessionStatsEstCbFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "est_cb_failed"
+	::= { l7sessionStatsEntry 34 }
+
+l7sessionStatsDataCbFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "data_cb_failed"
+	::= { l7sessionStatsEntry 35 }
+
+l7sessionStatsHpsFwdreqFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hps_fwdreq_fail"
+	::= { l7sessionStatsEntry 36 }
+
+l7sessionStatsHpsFwdreqFailBuff OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hps_fwdreq_fail_buff"
+	::= { l7sessionStatsEntry 37 }
+
+l7sessionStatsHpsFwdreqFailRport OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hps_fwdreq_fail_rport"
+	::= { l7sessionStatsEntry 38 }
+
+l7sessionStatsHpsFwdreqFailRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hps_fwdreq_fail_route"
+	::= { l7sessionStatsEntry 39 }
+
+l7sessionStatsHpsFwdreqFailPersist OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hps_fwdreq_fail_persist"
+	::= { l7sessionStatsEntry 40 }
+
+l7sessionStatsHpsFwdreqFailServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hps_fwdreq_fail_server"
+	::= { l7sessionStatsEntry 41 }
+
+l7sessionStatsHpsFwdreqFailTuple OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hps_fwdreq_fail_tuple"
+	::= { l7sessionStatsEntry 42 }
+
+l7sessionStatsUdpDataEvent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_data_event"
+	::= { l7sessionStatsEntry 43 }
+
+l7sessionStatsTransactionCleaned OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transaction_cleaned"
+	::= { l7sessionStatsEntry 44 }
+
+l7sessionStatsOldServerCleaned OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "old_server_cleaned"
+	::= { l7sessionStatsEntry 45 }
+
+l7sessionStatsServerNotCleaned OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_not_cleaned"
+	::= { l7sessionStatsEntry 46 }
+
+l7sessionStatsClientNotCleaned OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "client_not_cleaned"
+	::= { l7sessionStatsEntry 47 }
+
+l7sessionStatsInvalidServer OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "invalid_server"
+	::= { l7sessionStatsEntry 48 }
+
+END
+

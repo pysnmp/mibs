@@ -1,0 +1,2599 @@
+ACOS-SLB-L4-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		slbL4Module MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "slbL4Module OID for ACOS"
+				::=  {  acosSchema 358 }
+
+l4		 OBJECT IDENTIFIER ::= { slbL4Module 1}
+
+l4StatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF L4StatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Configure L4 from object 'slb.l4'"
+	::= {l4 1}
+
+l4StatsEntry OBJECT-TYPE
+	SYNTAX L4StatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The l4Stats stats entry"
+	INDEX {
+		l4StatsSlotId
+	}
+	::= { l4StatsTable 1 }
+
+L4StatsEntry ::=
+	SEQUENCE {
+		l4StatsSlotId Integer32,
+		l4StatsIntcp	 CounterBasedGauge64,
+		l4StatsSynreceived	 CounterBasedGauge64,
+		l4StatsTcpFwdLastAck	 CounterBasedGauge64,
+		l4StatsTcpRevLastAck	 CounterBasedGauge64,
+		l4StatsTcpRevFin	 CounterBasedGauge64,
+		l4StatsTcpFwdFin	 CounterBasedGauge64,
+		l4StatsTcpFwdAckfin	 CounterBasedGauge64,
+		l4StatsInudp	 CounterBasedGauge64,
+		l4StatsSyncookiessent	 CounterBasedGauge64,
+		l4StatsSyncookiessentTs	 CounterBasedGauge64,
+		l4StatsSyncookiessentfailed	 CounterBasedGauge64,
+		l4StatsOutrst	 CounterBasedGauge64,
+		l4StatsOutrstNosyn	 CounterBasedGauge64,
+		l4StatsOutrstBroker	 CounterBasedGauge64,
+		l4StatsOutrstAckAttack	 CounterBasedGauge64,
+		l4StatsOutrstAflex	 CounterBasedGauge64,
+		l4StatsOutrstStaleSess	 CounterBasedGauge64,
+		l4StatsSynStaleSess	 CounterBasedGauge64,
+		l4StatsOutrstTcpproxy	 CounterBasedGauge64,
+		l4StatsSvrselfail	 CounterBasedGauge64,
+		l4StatsNoroute	 CounterBasedGauge64,
+		l4StatsSnatFail	 CounterBasedGauge64,
+		l4StatsSnatNoFwdRoute	 CounterBasedGauge64,
+		l4StatsSnatNoRevRoute	 CounterBasedGauge64,
+		l4StatsSnatIcmpErrorProcess	 CounterBasedGauge64,
+		l4StatsSnatIcmpNoMatch	 CounterBasedGauge64,
+		l4StatsSmartNatIdMismatch	 CounterBasedGauge64,
+		l4StatsSyncookiescheckfailed	 CounterBasedGauge64,
+		l4StatsNovportDrop	 CounterBasedGauge64,
+		l4StatsNoVportDrop	 CounterBasedGauge64,
+		l4StatsNosynDrop	 CounterBasedGauge64,
+		l4StatsNosynDropFin	 CounterBasedGauge64,
+		l4StatsNosynDropRst	 CounterBasedGauge64,
+		l4StatsNosynDropAck	 CounterBasedGauge64,
+		l4StatsConnlimitDrop	 CounterBasedGauge64,
+		l4StatsConnlimitReset	 CounterBasedGauge64,
+		l4StatsConnRateLimitDrop	 CounterBasedGauge64,
+		l4StatsConnRateLimitReset	 CounterBasedGauge64,
+		l4StatsProxyNosockDrop	 CounterBasedGauge64,
+		l4StatsDropAflex	 CounterBasedGauge64,
+		l4StatsSessAgedOut	 CounterBasedGauge64,
+		l4StatsTcpSessAgedOut	 CounterBasedGauge64,
+		l4StatsUdpSessAgedOut	 CounterBasedGauge64,
+		l4StatsOtherSessAgedOut	 CounterBasedGauge64,
+		l4StatsTcpNoSlb	 CounterBasedGauge64,
+		l4StatsUdpNoSlb	 CounterBasedGauge64,
+		l4StatsThrottleSyn	 CounterBasedGauge64,
+		l4StatsDropGslb	 CounterBasedGauge64,
+		l4StatsInbandHmRetry	 CounterBasedGauge64,
+		l4StatsInbandHmReassign	 CounterBasedGauge64,
+		l4StatsAutoReassign	 CounterBasedGauge64,
+		l4StatsFastAgingSet	 CounterBasedGauge64,
+		l4StatsFastAgingReset	 CounterBasedGauge64,
+		l4StatsDnsPolicyDrop	 CounterBasedGauge64,
+		l4StatsTcpInvalidDrop	 CounterBasedGauge64,
+		l4StatsAnomalyOutSeq	 CounterBasedGauge64,
+		l4StatsAnomalyZeroWin	 CounterBasedGauge64,
+		l4StatsAnomalyBadContent	 CounterBasedGauge64,
+		l4StatsAnomalyPbslbDrop	 CounterBasedGauge64,
+		l4StatsNoResourseDrop	 CounterBasedGauge64,
+		l4StatsResetUnknownConn	 CounterBasedGauge64,
+		l4StatsResetL7OnFailover	 CounterBasedGauge64,
+		l4StatsIgnoreMsl	 CounterBasedGauge64,
+		l4StatsL2Dsr	 CounterBasedGauge64,
+		l4StatsL3Dsr	 CounterBasedGauge64,
+		l4StatsPortPreserveAttempt	 CounterBasedGauge64,
+		l4StatsPortPreserveSucc	 CounterBasedGauge64,
+		l4StatsTcpsyndataDrop	 CounterBasedGauge64,
+		l4StatsTcpotherflagsDrop	 CounterBasedGauge64,
+		l4StatsBwRateLimitExceed	 CounterBasedGauge64,
+		l4StatsBwWatermarkDrop	 CounterBasedGauge64,
+		l4StatsL4CpsExceed	 CounterBasedGauge64,
+		l4StatsNatCpsExceed	 CounterBasedGauge64,
+		l4StatsL7CpsExceed	 CounterBasedGauge64,
+		l4StatsSslCpsExceed	 CounterBasedGauge64,
+		l4StatsSslTptExceed	 CounterBasedGauge64,
+		l4StatsSslWatermarkDrop	 CounterBasedGauge64,
+		l4StatsConcurrentConnExceed	 CounterBasedGauge64,
+		l4StatsSvrSynHandshakeFail	 CounterBasedGauge64,
+		l4StatsStatelessConnTimeout	 CounterBasedGauge64,
+		l4StatsTcpAxRexmitSyn	 CounterBasedGauge64,
+		l4StatsTcpSynRcvAck	 CounterBasedGauge64,
+		l4StatsTcpSynRcvRst	 CounterBasedGauge64,
+		l4StatsTcpSessNoestAgedOut	 CounterBasedGauge64,
+		l4StatsTcpSessNoestCsynRcvAgedOut	 CounterBasedGauge64,
+		l4StatsTcpSessNoestSsynXmitAgedOut	 CounterBasedGauge64,
+		l4StatsTcpRexmitSyn	 CounterBasedGauge64,
+		l4StatsTcpRexmitSynDelq	 CounterBasedGauge64,
+		l4StatsTcpRexmitSynack	 CounterBasedGauge64,
+		l4StatsTcpRexmitSynackDelq	 CounterBasedGauge64,
+		l4StatsTcpFwdFinDup	 CounterBasedGauge64,
+		l4StatsTcpRevFinDup	 CounterBasedGauge64,
+		l4StatsTcpRevAckfin	 CounterBasedGauge64,
+		l4StatsTcpFwdRst	 CounterBasedGauge64,
+		l4StatsTcpRevRst	 CounterBasedGauge64,
+		l4StatsUdpReqOneplusNoResp	 CounterBasedGauge64,
+		l4StatsUdpReqOneOneplusResp	 CounterBasedGauge64,
+		l4StatsUdpReqRespNotmatch	 CounterBasedGauge64,
+		l4StatsUdpReqMoreResp	 CounterBasedGauge64,
+		l4StatsUdpRespMoreReq	 CounterBasedGauge64,
+		l4StatsUdpReqOneplus	 CounterBasedGauge64,
+		l4StatsUdpRespOneplus	 CounterBasedGauge64,
+		l4StatsOutSeqAckDrop	 CounterBasedGauge64,
+		l4StatsTcpEst	 CounterBasedGauge64,
+		l4StatsSynattack	 CounterBasedGauge64,
+		l4StatsSynRate	 CounterBasedGauge64,
+		l4StatsSyncookieBuffDrop	 CounterBasedGauge64,
+		l4StatsSyncookieBuffQueue	 CounterBasedGauge64,
+		l4StatsSkipInsertClientIp	 CounterBasedGauge64,
+		l4StatsSynreceivedHw	 CounterBasedGauge64,
+		l4StatsDnsIdSwitch	 CounterBasedGauge64,
+		l4StatsServerDownDel	 CounterBasedGauge64,
+		l4StatsDnssecSwitch	 CounterBasedGauge64,
+		l4StatsRateDropResetUnkn	 CounterBasedGauge64,
+		l4StatsTcpConnectionsClosed	 CounterBasedGauge64,
+		l4StatsGtpCInvalidPort	 CounterBasedGauge64,
+		l4StatsGtpCInvalidHeader	 CounterBasedGauge64,
+		l4StatsGtpCInvalidMessage	 CounterBasedGauge64,
+		l4StatsReselectSvrselfail	 CounterBasedGauge64,
+		l4StatsSnatPortOverloadFail	 CounterBasedGauge64,
+		l4StatsSnatForcePreserveAlloc	 CounterBasedGauge64,
+		l4StatsSnatForcePreserveFree	 CounterBasedGauge64,
+		l4StatsProxyHeaderInsert	 CounterBasedGauge64,
+		l4StatsProxyHeaderRexmit	 CounterBasedGauge64,
+		l4StatsProxyProtError	 CounterBasedGauge64,
+		l4StatsProxyProtDrop	 CounterBasedGauge64,
+		l4StatsSlbGtpProxyPktRcvRr	 CounterBasedGauge64,
+		l4StatsSlbGtpProxySmpMatch	 CounterBasedGauge64,
+		l4StatsSlbGtpProxySmpNoMatch	 CounterBasedGauge64,
+		l4StatsSlbGtpProxyCProcessLocalRr	 CounterBasedGauge64,
+		l4StatsSlbGtpProxySmpCreationFailed	 CounterBasedGauge64,
+		l4StatsSlbGtpProxySmpCreated	 CounterBasedGauge64,
+		l4StatsSlbGtpProxySmpFreeNotFound	 CounterBasedGauge64,
+		l4StatsSlbGtpProxySmpFreed	 CounterBasedGauge64,
+		l4StatsSlbGtpProxyRetxRequests	 CounterBasedGauge64,
+		l4StatsPbslbEntryLimitExceed	 CounterBasedGauge64,
+		l4StatsFastPathReroute	 CounterBasedGauge64,
+		l4StatsFastPathL2Reroute	 CounterBasedGauge64
+	}
+
+l4StatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { l4StatsEntry 1 }
+
+l4StatsIntcp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "intcp"
+	::= { l4StatsEntry 2 }
+
+l4StatsSynreceived OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "synreceived"
+	::= { l4StatsEntry 3 }
+
+l4StatsTcpFwdLastAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_fwd_last_ack"
+	::= { l4StatsEntry 4 }
+
+l4StatsTcpRevLastAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rev_last_ack"
+	::= { l4StatsEntry 5 }
+
+l4StatsTcpRevFin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rev_fin"
+	::= { l4StatsEntry 6 }
+
+l4StatsTcpFwdFin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_fwd_fin"
+	::= { l4StatsEntry 7 }
+
+l4StatsTcpFwdAckfin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_fwd_ackfin"
+	::= { l4StatsEntry 8 }
+
+l4StatsInudp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "inudp"
+	::= { l4StatsEntry 9 }
+
+l4StatsSyncookiessent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syncookiessent"
+	::= { l4StatsEntry 10 }
+
+l4StatsSyncookiessentTs OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syncookiessent_ts"
+	::= { l4StatsEntry 11 }
+
+l4StatsSyncookiessentfailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syncookiessentfailed"
+	::= { l4StatsEntry 12 }
+
+l4StatsOutrst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outrst"
+	::= { l4StatsEntry 13 }
+
+l4StatsOutrstNosyn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outrst_nosyn"
+	::= { l4StatsEntry 14 }
+
+l4StatsOutrstBroker OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outrst_broker"
+	::= { l4StatsEntry 15 }
+
+l4StatsOutrstAckAttack OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outrst_ack_attack"
+	::= { l4StatsEntry 16 }
+
+l4StatsOutrstAflex OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outrst_aflex"
+	::= { l4StatsEntry 17 }
+
+l4StatsOutrstStaleSess OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outrst_stale_sess"
+	::= { l4StatsEntry 18 }
+
+l4StatsSynStaleSess OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syn_stale_sess"
+	::= { l4StatsEntry 19 }
+
+l4StatsOutrstTcpproxy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outrst_tcpproxy"
+	::= { l4StatsEntry 20 }
+
+l4StatsSvrselfail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "svrselfail"
+	::= { l4StatsEntry 21 }
+
+l4StatsNoroute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "noroute"
+	::= { l4StatsEntry 22 }
+
+l4StatsSnatFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_fail"
+	::= { l4StatsEntry 23 }
+
+l4StatsSnatNoFwdRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_no_fwd_route"
+	::= { l4StatsEntry 24 }
+
+l4StatsSnatNoRevRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_no_rev_route"
+	::= { l4StatsEntry 25 }
+
+l4StatsSnatIcmpErrorProcess OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_icmp_error_process"
+	::= { l4StatsEntry 26 }
+
+l4StatsSnatIcmpNoMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_icmp_no_match"
+	::= { l4StatsEntry 27 }
+
+l4StatsSmartNatIdMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "smart_nat_id_mismatch"
+	::= { l4StatsEntry 28 }
+
+l4StatsSyncookiescheckfailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syncookiescheckfailed"
+	::= { l4StatsEntry 29 }
+
+l4StatsNovportDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "novport_drop"
+	::= { l4StatsEntry 30 }
+
+l4StatsNoVportDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "no_vport_drop"
+	::= { l4StatsEntry 31 }
+
+l4StatsNosynDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nosyn_drop"
+	::= { l4StatsEntry 32 }
+
+l4StatsNosynDropFin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nosyn_drop_fin"
+	::= { l4StatsEntry 33 }
+
+l4StatsNosynDropRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nosyn_drop_rst"
+	::= { l4StatsEntry 34 }
+
+l4StatsNosynDropAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nosyn_drop_ack"
+	::= { l4StatsEntry 35 }
+
+l4StatsConnlimitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connlimit_drop"
+	::= { l4StatsEntry 36 }
+
+l4StatsConnlimitReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connlimit_reset"
+	::= { l4StatsEntry 37 }
+
+l4StatsConnRateLimitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn_rate_limit_drop"
+	::= { l4StatsEntry 38 }
+
+l4StatsConnRateLimitReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn_rate_limit_reset"
+	::= { l4StatsEntry 39 }
+
+l4StatsProxyNosockDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy_nosock_drop"
+	::= { l4StatsEntry 40 }
+
+l4StatsDropAflex OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "drop_aflex"
+	::= { l4StatsEntry 41 }
+
+l4StatsSessAgedOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sess_aged_out"
+	::= { l4StatsEntry 42 }
+
+l4StatsTcpSessAgedOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_sess_aged_out"
+	::= { l4StatsEntry 43 }
+
+l4StatsUdpSessAgedOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_sess_aged_out"
+	::= { l4StatsEntry 44 }
+
+l4StatsOtherSessAgedOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "other_sess_aged_out"
+	::= { l4StatsEntry 45 }
+
+l4StatsTcpNoSlb OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_no_slb"
+	::= { l4StatsEntry 46 }
+
+l4StatsUdpNoSlb OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_no_slb"
+	::= { l4StatsEntry 47 }
+
+l4StatsThrottleSyn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "throttle_syn"
+	::= { l4StatsEntry 48 }
+
+l4StatsDropGslb OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "drop_gslb"
+	::= { l4StatsEntry 49 }
+
+l4StatsInbandHmRetry OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "inband_hm_retry"
+	::= { l4StatsEntry 50 }
+
+l4StatsInbandHmReassign OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "inband_hm_reassign"
+	::= { l4StatsEntry 51 }
+
+l4StatsAutoReassign OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "auto_reassign"
+	::= { l4StatsEntry 52 }
+
+l4StatsFastAgingSet OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fast_aging_set"
+	::= { l4StatsEntry 53 }
+
+l4StatsFastAgingReset OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fast_aging_reset"
+	::= { l4StatsEntry 54 }
+
+l4StatsDnsPolicyDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_policy_drop"
+	::= { l4StatsEntry 55 }
+
+l4StatsTcpInvalidDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_invalid_drop"
+	::= { l4StatsEntry 56 }
+
+l4StatsAnomalyOutSeq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "anomaly_out_seq"
+	::= { l4StatsEntry 57 }
+
+l4StatsAnomalyZeroWin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "anomaly_zero_win"
+	::= { l4StatsEntry 58 }
+
+l4StatsAnomalyBadContent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "anomaly_bad_content"
+	::= { l4StatsEntry 59 }
+
+l4StatsAnomalyPbslbDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "anomaly_pbslb_drop"
+	::= { l4StatsEntry 60 }
+
+l4StatsNoResourseDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "no_resourse_drop"
+	::= { l4StatsEntry 61 }
+
+l4StatsResetUnknownConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "reset_unknown_conn"
+	::= { l4StatsEntry 62 }
+
+l4StatsResetL7OnFailover OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "reset_l7_on_failover"
+	::= { l4StatsEntry 63 }
+
+l4StatsIgnoreMsl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ignore_msl"
+	::= { l4StatsEntry 64 }
+
+l4StatsL2Dsr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l2_dsr"
+	::= { l4StatsEntry 65 }
+
+l4StatsL3Dsr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3_dsr"
+	::= { l4StatsEntry 66 }
+
+l4StatsPortPreserveAttempt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port_preserve_attempt"
+	::= { l4StatsEntry 67 }
+
+l4StatsPortPreserveSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port_preserve_succ"
+	::= { l4StatsEntry 68 }
+
+l4StatsTcpsyndataDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcpsyndata_drop"
+	::= { l4StatsEntry 69 }
+
+l4StatsTcpotherflagsDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcpotherflags_drop"
+	::= { l4StatsEntry 70 }
+
+l4StatsBwRateLimitExceed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bw_rate_limit_exceed"
+	::= { l4StatsEntry 71 }
+
+l4StatsBwWatermarkDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bw_watermark_drop"
+	::= { l4StatsEntry 72 }
+
+l4StatsL4CpsExceed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l4_cps_exceed"
+	::= { l4StatsEntry 73 }
+
+l4StatsNatCpsExceed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_cps_exceed"
+	::= { l4StatsEntry 74 }
+
+l4StatsL7CpsExceed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l7_cps_exceed"
+	::= { l4StatsEntry 75 }
+
+l4StatsSslCpsExceed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ssl_cps_exceed"
+	::= { l4StatsEntry 76 }
+
+l4StatsSslTptExceed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ssl_tpt_exceed"
+	::= { l4StatsEntry 77 }
+
+l4StatsSslWatermarkDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ssl_watermark_drop"
+	::= { l4StatsEntry 78 }
+
+l4StatsConcurrentConnExceed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "concurrent_conn_exceed"
+	::= { l4StatsEntry 79 }
+
+l4StatsSvrSynHandshakeFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "svr_syn_handshake_fail"
+	::= { l4StatsEntry 80 }
+
+l4StatsStatelessConnTimeout OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "stateless_conn_timeout"
+	::= { l4StatsEntry 81 }
+
+l4StatsTcpAxRexmitSyn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_ax_rexmit_syn"
+	::= { l4StatsEntry 82 }
+
+l4StatsTcpSynRcvAck OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_syn_rcv_ack"
+	::= { l4StatsEntry 83 }
+
+l4StatsTcpSynRcvRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_syn_rcv_rst"
+	::= { l4StatsEntry 84 }
+
+l4StatsTcpSessNoestAgedOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_sess_noest_aged_out"
+	::= { l4StatsEntry 85 }
+
+l4StatsTcpSessNoestCsynRcvAgedOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_sess_noest_csyn_rcv_aged_out"
+	::= { l4StatsEntry 86 }
+
+l4StatsTcpSessNoestSsynXmitAgedOut OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_sess_noest_ssyn_xmit_aged_out"
+	::= { l4StatsEntry 87 }
+
+l4StatsTcpRexmitSyn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rexmit_syn"
+	::= { l4StatsEntry 88 }
+
+l4StatsTcpRexmitSynDelq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rexmit_syn_delq"
+	::= { l4StatsEntry 89 }
+
+l4StatsTcpRexmitSynack OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rexmit_synack"
+	::= { l4StatsEntry 90 }
+
+l4StatsTcpRexmitSynackDelq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rexmit_synack_delq"
+	::= { l4StatsEntry 91 }
+
+l4StatsTcpFwdFinDup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_fwd_fin_dup"
+	::= { l4StatsEntry 92 }
+
+l4StatsTcpRevFinDup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rev_fin_dup"
+	::= { l4StatsEntry 93 }
+
+l4StatsTcpRevAckfin OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rev_ackfin"
+	::= { l4StatsEntry 94 }
+
+l4StatsTcpFwdRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_fwd_rst"
+	::= { l4StatsEntry 95 }
+
+l4StatsTcpRevRst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_rev_rst"
+	::= { l4StatsEntry 96 }
+
+l4StatsUdpReqOneplusNoResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_req_oneplus_no_resp"
+	::= { l4StatsEntry 97 }
+
+l4StatsUdpReqOneOneplusResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_req_one_oneplus_resp"
+	::= { l4StatsEntry 98 }
+
+l4StatsUdpReqRespNotmatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_req_resp_notmatch"
+	::= { l4StatsEntry 99 }
+
+l4StatsUdpReqMoreResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_req_more_resp"
+	::= { l4StatsEntry 100 }
+
+l4StatsUdpRespMoreReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_resp_more_req"
+	::= { l4StatsEntry 101 }
+
+l4StatsUdpReqOneplus OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_req_oneplus"
+	::= { l4StatsEntry 102 }
+
+l4StatsUdpRespOneplus OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp_resp_oneplus"
+	::= { l4StatsEntry 103 }
+
+l4StatsOutSeqAckDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "out_seq_ack_drop"
+	::= { l4StatsEntry 104 }
+
+l4StatsTcpEst OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_est"
+	::= { l4StatsEntry 105 }
+
+l4StatsSynattack OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "synattack"
+	::= { l4StatsEntry 106 }
+
+l4StatsSynRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syn_rate"
+	::= { l4StatsEntry 107 }
+
+l4StatsSyncookieBuffDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syncookie_buff_drop"
+	::= { l4StatsEntry 108 }
+
+l4StatsSyncookieBuffQueue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "syncookie_buff_queue"
+	::= { l4StatsEntry 109 }
+
+l4StatsSkipInsertClientIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "skip_insert_client_ip"
+	::= { l4StatsEntry 110 }
+
+l4StatsSynreceivedHw OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "synreceived_hw"
+	::= { l4StatsEntry 111 }
+
+l4StatsDnsIdSwitch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_id_switch"
+	::= { l4StatsEntry 112 }
+
+l4StatsServerDownDel OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_down_del"
+	::= { l4StatsEntry 113 }
+
+l4StatsDnssecSwitch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dnssec_switch"
+	::= { l4StatsEntry 114 }
+
+l4StatsRateDropResetUnkn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_drop_reset_unkn"
+	::= { l4StatsEntry 115 }
+
+l4StatsTcpConnectionsClosed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp_connections_closed"
+	::= { l4StatsEntry 116 }
+
+l4StatsGtpCInvalidPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gtp_c_invalid_port"
+	::= { l4StatsEntry 117 }
+
+l4StatsGtpCInvalidHeader OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gtp_c_invalid_header"
+	::= { l4StatsEntry 118 }
+
+l4StatsGtpCInvalidMessage OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gtp_c_invalid_message"
+	::= { l4StatsEntry 119 }
+
+l4StatsReselectSvrselfail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "reselect_svrselfail"
+	::= { l4StatsEntry 120 }
+
+l4StatsSnatPortOverloadFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_port_overload_fail"
+	::= { l4StatsEntry 121 }
+
+l4StatsSnatForcePreserveAlloc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_force_preserve_alloc"
+	::= { l4StatsEntry 122 }
+
+l4StatsSnatForcePreserveFree OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "snat_force_preserve_free"
+	::= { l4StatsEntry 123 }
+
+l4StatsProxyHeaderInsert OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy_header_insert"
+	::= { l4StatsEntry 124 }
+
+l4StatsProxyHeaderRexmit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy_header_rexmit"
+	::= { l4StatsEntry 125 }
+
+l4StatsProxyProtError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy_prot_error"
+	::= { l4StatsEntry 126 }
+
+l4StatsProxyProtDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy_prot_drop"
+	::= { l4StatsEntry 127 }
+
+l4StatsSlbGtpProxyPktRcvRr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_pkt_rcv_rr"
+	::= { l4StatsEntry 128 }
+
+l4StatsSlbGtpProxySmpMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_smp_match"
+	::= { l4StatsEntry 129 }
+
+l4StatsSlbGtpProxySmpNoMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_smp_no_match"
+	::= { l4StatsEntry 130 }
+
+l4StatsSlbGtpProxyCProcessLocalRr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_c_process_local_rr"
+	::= { l4StatsEntry 131 }
+
+l4StatsSlbGtpProxySmpCreationFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_smp_creation_failed"
+	::= { l4StatsEntry 132 }
+
+l4StatsSlbGtpProxySmpCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_smp_created"
+	::= { l4StatsEntry 133 }
+
+l4StatsSlbGtpProxySmpFreeNotFound OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_smp_free_not_found"
+	::= { l4StatsEntry 134 }
+
+l4StatsSlbGtpProxySmpFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_smp_freed"
+	::= { l4StatsEntry 135 }
+
+l4StatsSlbGtpProxyRetxRequests OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_gtp_proxy_retx_requests"
+	::= { l4StatsEntry 136 }
+
+l4StatsPbslbEntryLimitExceed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pbslb_entry_limit_exceed"
+	::= { l4StatsEntry 137 }
+
+l4StatsFastPathReroute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fast_path_reroute"
+	::= { l4StatsEntry 138 }
+
+l4StatsFastPathL2Reroute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fast_path_l2_reroute"
+	::= { l4StatsEntry 139 }
+
+l4OperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF L4OperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure L4 from object 'slb.l4'"
+	::= {l4 2}
+
+l4OperEntry OBJECT-TYPE
+	SYNTAX L4OperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The l4Oper entry"
+	INDEX {
+		l4OperSlotId
+	}
+	::= { l4OperTable 1 }
+
+L4OperEntry ::=
+	SEQUENCE {
+		l4OperSlotId Integer32,
+		l4OperCpuCount	 Integer32
+	}
+
+l4OperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { l4OperEntry 1 }
+
+l4OperCpuCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-count"
+	::= { l4OperEntry 2 }
+
+l4OperL4CpuListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF L4OperL4CpuListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Configure L4 from object 'slb.l4'"
+	::= {l4 3}
+
+l4OperL4CpuListEntry OBJECT-TYPE
+	SYNTAX L4OperL4CpuListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The l4OperL4CpuList entry:l4-cpu-list"
+	INDEX {
+		l4OperL4CpuListSlotId,
+		l4OperL4CpuListL4CpuListListId
+	}
+	::= { l4OperL4CpuListTable 1}
+
+L4OperL4CpuListEntry ::=
+	SEQUENCE {
+		l4OperL4CpuListSlotId Integer32,
+		l4OperL4CpuListL4CpuListListId Integer32,
+		l4OperL4CpuListIpOutnoroute	Integer32,
+		l4OperL4CpuListTcpOutrst	Integer32,
+		l4OperL4CpuListTcpOutrstNosyn	Integer32,
+		l4OperL4CpuListTcpOutrstBroker	Integer32,
+		l4OperL4CpuListTcpOutrstAckAttack	Integer32,
+		l4OperL4CpuListTcpOutrstAflex	Integer32,
+		l4OperL4CpuListTcpOutrstStaleSess	Integer32,
+		l4OperL4CpuListTcpSynStaleSess	Integer32,
+		l4OperL4CpuListTcpOutrstTcpproxy	Integer32,
+		l4OperL4CpuListTcpSynreceived	Integer32,
+		l4OperL4CpuListTcpSynreceivedHw	Integer32,
+		l4OperL4CpuListTcpSynRate	Integer32,
+		l4OperL4CpuListTcpSyncookiessent	Integer32,
+		l4OperL4CpuListTcpSyncookiessentTs	Integer32,
+		l4OperL4CpuListTcpSyncookiessentfailed	Integer32,
+		l4OperL4CpuListIntcp	Integer32,
+		l4OperL4CpuListInudp	Integer32,
+		l4OperL4CpuListSvrSelFailed	Integer32,
+		l4OperL4CpuListSnatFail	Integer32,
+		l4OperL4CpuListSnatNoFwdRoute	Integer32,
+		l4OperL4CpuListSnatNoRevRoute	Integer32,
+		l4OperL4CpuListSnatIcmpErrorProcess	Integer32,
+		l4OperL4CpuListSnatIcmpNoMatch	Integer32,
+		l4OperL4CpuListSmartNatIdMismatch	Integer32,
+		l4OperL4CpuListTcpSyncookiescheckfailed	Integer32,
+		l4OperL4CpuListNovportDrop	Integer32,
+		l4OperL4CpuListNoVportDrop	Integer32,
+		l4OperL4CpuListNosynDrop	Integer32,
+		l4OperL4CpuListNosynDropFin	Integer32,
+		l4OperL4CpuListNosynDropRst	Integer32,
+		l4OperL4CpuListNosynDropAck	Integer32,
+		l4OperL4CpuListConnlimitDrop	Integer32,
+		l4OperL4CpuListConnlimitReset	Integer32,
+		l4OperL4CpuListConnRateLimitDrop	Integer32,
+		l4OperL4CpuListConnRateLimitReset	Integer32,
+		l4OperL4CpuListProxyNosockDrop	Integer32,
+		l4OperL4CpuListAflexDrop	Integer32,
+		l4OperL4CpuListSessAgedOut	Integer32,
+		l4OperL4CpuListTcpSessAgedOut	Integer32,
+		l4OperL4CpuListUdpSessAgedOut	Integer32,
+		l4OperL4CpuListOtherSessAgedOut	Integer32,
+		l4OperL4CpuListTcpNoSlb	Integer32,
+		l4OperL4CpuListUdpNoSlb	Integer32,
+		l4OperL4CpuListThrottleSyn	Integer32,
+		l4OperL4CpuListInbandHmRetry	Integer32,
+		l4OperL4CpuListInbandHmReassign	Integer32,
+		l4OperL4CpuListAutoReassign	Integer32,
+		l4OperL4CpuListFastAgingSet	Integer32,
+		l4OperL4CpuListFastAgingReset	Integer32,
+		l4OperL4CpuListTcpInvalidDrop	Integer32,
+		l4OperL4CpuListOutSeqAckDrop	Integer32,
+		l4OperL4CpuListAnomalyOutSeq	Integer32,
+		l4OperL4CpuListAnomalyZeroWin	Integer32,
+		l4OperL4CpuListAnomalyBadContent	Integer32,
+		l4OperL4CpuListAnomalyPbslbDrop	Integer32,
+		l4OperL4CpuListNoResourceDrop	Integer32,
+		l4OperL4CpuListResetUnknownConn	Integer32,
+		l4OperL4CpuListResetL7OnFailover	Integer32,
+		l4OperL4CpuListTcpSynOtherflags	Integer32,
+		l4OperL4CpuListTcpSynWithdata	Integer32,
+		l4OperL4CpuListIgnoreMsl	Integer32,
+		l4OperL4CpuListL2Dsr	Integer32,
+		l4OperL4CpuListL3Dsr	Integer32,
+		l4OperL4CpuListPortPreserveAttempt	Integer32,
+		l4OperL4CpuListPortPreserveSucc	Integer32,
+		l4OperL4CpuListBwRateLimitExceedDrop	Integer32,
+		l4OperL4CpuListBwWatermarkDrop	Integer32,
+		l4OperL4CpuListL4CpsExceedDrop	Integer32,
+		l4OperL4CpuListNatCpsExceedDrop	Integer32,
+		l4OperL4CpuListL7CpsExceedDrop	Integer32,
+		l4OperL4CpuListSslCpsExceedDrop	Integer32,
+		l4OperL4CpuListSslTptExceedDrop	Integer32,
+		l4OperL4CpuListSslWatermarkDrop	Integer32,
+		l4OperL4CpuListConnLimitExceedDrop	Integer32,
+		l4OperL4CpuListL4SvrHandshakeFail	Integer32,
+		l4OperL4CpuListStatelessConnTimeout	Integer32,
+		l4OperL4CpuListAxRexmitSyn	Integer32,
+		l4OperL4CpuListRcvAckOnSyn	Integer32,
+		l4OperL4CpuListRcvRstOnSyn	Integer32,
+		l4OperL4CpuListTcpNoestAgedOut	Integer32,
+		l4OperL4CpuListNoestClientSynAgedOut	Integer32,
+		l4OperL4CpuListNoestServerSynXmitAgedOut	Integer32,
+		l4OperL4CpuListRcvRexmitSyn	Integer32,
+		l4OperL4CpuListRcvRexmitSynDelq	Integer32,
+		l4OperL4CpuListRcvRexmitSynack	Integer32,
+		l4OperL4CpuListRcvRexmitSynackDelq	Integer32,
+		l4OperL4CpuListRcvFwdLastAck	Integer32,
+		l4OperL4CpuListRcvRevLastAck	Integer32,
+		l4OperL4CpuListRcvFwdFin	Integer32,
+		l4OperL4CpuListRcvFwdFinDup	Integer32,
+		l4OperL4CpuListRcvFwdFinack	Integer32,
+		l4OperL4CpuListRcvRevFin	Integer32,
+		l4OperL4CpuListRcvRevFinDup	Integer32,
+		l4OperL4CpuListRcvRevFinack	Integer32,
+		l4OperL4CpuListRcvFwdRst	Integer32,
+		l4OperL4CpuListRcvRevRst	Integer32,
+		l4OperL4CpuListRcvReqsNoRsp	Integer32,
+		l4OperL4CpuListRcvReqRsps	Integer32,
+		l4OperL4CpuListRcvReqNotMatch	Integer32,
+		l4OperL4CpuListRcvReqMorethanRsps	Integer32,
+		l4OperL4CpuListRcvRspsMorethanReqs	Integer32,
+		l4OperL4CpuListRcvUdpReqs	Integer32,
+		l4OperL4CpuListRcvUdpRsps	Integer32,
+		l4OperL4CpuListTcpEst	Integer32,
+		l4OperL4CpuListSynattack	Integer32,
+		l4OperL4CpuListSkipInsertClientIp	Integer32,
+		l4OperL4CpuListDnsIdSwitch	Integer32,
+		l4OperL4CpuListDnssecSwitch	Integer32,
+		l4OperL4CpuListSyncookiesBuffQueue	Integer32,
+		l4OperL4CpuListSyncookiesBuffDrop	Integer32,
+		l4OperL4CpuListServerDownDel	Integer32,
+		l4OperL4CpuListTcpConnectionsClosed	Integer32,
+		l4OperL4CpuListGtpCInvalidPort	Integer32,
+		l4OperL4CpuListGtpCInvalidHeader	Integer32,
+		l4OperL4CpuListGtpCInvalidMessage	Integer32,
+		l4OperL4CpuListReselectSvrselfail	Integer32,
+		l4OperL4CpuListSnatPortOverloadFail	Integer32,
+		l4OperL4CpuListSnatForcePreserveAlloc	Integer32,
+		l4OperL4CpuListSnatForcePreserveFree	Integer32,
+		l4OperL4CpuListProxyHeaderInsert	Integer32,
+		l4OperL4CpuListProxyHeaderRexmit	Integer32,
+		l4OperL4CpuListProxyProtError	Integer32,
+		l4OperL4CpuListProxyProtDrop	Integer32,
+		l4OperL4CpuListSlbGtpProxyPktRcvRr	Integer32,
+		l4OperL4CpuListSlbGtpProxySmpMatch	Integer32,
+		l4OperL4CpuListSlbGtpProxySmpNoMatch	Integer32,
+		l4OperL4CpuListSlbGtpProxyCProcessLocalRr	Integer32,
+		l4OperL4CpuListSlbGtpProxySmpCreationFailed	Integer32,
+		l4OperL4CpuListSlbGtpProxySmpCreated	Integer32,
+		l4OperL4CpuListSlbGtpProxySmpFreeNotFound	Integer32,
+		l4OperL4CpuListSlbGtpProxySmpFreed	Integer32,
+		l4OperL4CpuListSlbGtpProxyRetxRequests	Integer32,
+		l4OperL4CpuListPbslbEntryLimitExceed	Integer32,
+		l4OperL4CpuListFastPathReroute	Integer32,
+		l4OperL4CpuListFastPathL2Reroute	Integer32
+	}
+
+l4OperL4CpuListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { l4OperL4CpuListEntry 1}
+
+l4OperL4CpuListL4CpuListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { l4OperL4CpuListEntry 2}
+
+l4OperL4CpuListIpOutnoroute OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip_outnoroute"
+	::= { l4OperL4CpuListEntry 3}
+
+l4OperL4CpuListTcpOutrst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_outrst"
+	::= { l4OperL4CpuListEntry 4}
+
+l4OperL4CpuListTcpOutrstNosyn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_outrst_nosyn"
+	::= { l4OperL4CpuListEntry 5}
+
+l4OperL4CpuListTcpOutrstBroker OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_outrst_broker"
+	::= { l4OperL4CpuListEntry 6}
+
+l4OperL4CpuListTcpOutrstAckAttack OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_outrst_ack_attack"
+	::= { l4OperL4CpuListEntry 7}
+
+l4OperL4CpuListTcpOutrstAflex OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_outrst_aflex"
+	::= { l4OperL4CpuListEntry 8}
+
+l4OperL4CpuListTcpOutrstStaleSess OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_outrst_stale_sess"
+	::= { l4OperL4CpuListEntry 9}
+
+l4OperL4CpuListTcpSynStaleSess OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_syn_stale_sess"
+	::= { l4OperL4CpuListEntry 10}
+
+l4OperL4CpuListTcpOutrstTcpproxy OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_outrst_tcpproxy"
+	::= { l4OperL4CpuListEntry 11}
+
+l4OperL4CpuListTcpSynreceived OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_synreceived"
+	::= { l4OperL4CpuListEntry 12}
+
+l4OperL4CpuListTcpSynreceivedHw OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_synreceived_hw"
+	::= { l4OperL4CpuListEntry 13}
+
+l4OperL4CpuListTcpSynRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_syn_rate"
+	::= { l4OperL4CpuListEntry 14}
+
+l4OperL4CpuListTcpSyncookiessent OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_syncookiessent"
+	::= { l4OperL4CpuListEntry 15}
+
+l4OperL4CpuListTcpSyncookiessentTs OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_syncookiessent_ts"
+	::= { l4OperL4CpuListEntry 16}
+
+l4OperL4CpuListTcpSyncookiessentfailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_syncookiessentfailed"
+	::= { l4OperL4CpuListEntry 17}
+
+l4OperL4CpuListIntcp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"intcp"
+	::= { l4OperL4CpuListEntry 18}
+
+l4OperL4CpuListInudp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"inudp"
+	::= { l4OperL4CpuListEntry 19}
+
+l4OperL4CpuListSvrSelFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"svr_sel_failed"
+	::= { l4OperL4CpuListEntry 20}
+
+l4OperL4CpuListSnatFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_fail"
+	::= { l4OperL4CpuListEntry 21}
+
+l4OperL4CpuListSnatNoFwdRoute OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_no_fwd_route"
+	::= { l4OperL4CpuListEntry 22}
+
+l4OperL4CpuListSnatNoRevRoute OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_no_rev_route"
+	::= { l4OperL4CpuListEntry 23}
+
+l4OperL4CpuListSnatIcmpErrorProcess OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_icmp_error_process"
+	::= { l4OperL4CpuListEntry 24}
+
+l4OperL4CpuListSnatIcmpNoMatch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_icmp_no_match"
+	::= { l4OperL4CpuListEntry 25}
+
+l4OperL4CpuListSmartNatIdMismatch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"smart_nat_id_mismatch"
+	::= { l4OperL4CpuListEntry 26}
+
+l4OperL4CpuListTcpSyncookiescheckfailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_syncookiescheckfailed"
+	::= { l4OperL4CpuListEntry 27}
+
+l4OperL4CpuListNovportDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"novport_drop"
+	::= { l4OperL4CpuListEntry 28}
+
+l4OperL4CpuListNoVportDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"no_vport_drop"
+	::= { l4OperL4CpuListEntry 29}
+
+l4OperL4CpuListNosynDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"nosyn_drop"
+	::= { l4OperL4CpuListEntry 30}
+
+l4OperL4CpuListNosynDropFin OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"nosyn_drop_fin"
+	::= { l4OperL4CpuListEntry 31}
+
+l4OperL4CpuListNosynDropRst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"nosyn_drop_rst"
+	::= { l4OperL4CpuListEntry 32}
+
+l4OperL4CpuListNosynDropAck OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"nosyn_drop_ack"
+	::= { l4OperL4CpuListEntry 33}
+
+l4OperL4CpuListConnlimitDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connlimit_drop"
+	::= { l4OperL4CpuListEntry 34}
+
+l4OperL4CpuListConnlimitReset OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"connlimit_reset"
+	::= { l4OperL4CpuListEntry 35}
+
+l4OperL4CpuListConnRateLimitDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"conn_rate_limit_drop"
+	::= { l4OperL4CpuListEntry 36}
+
+l4OperL4CpuListConnRateLimitReset OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"conn_rate_limit_reset"
+	::= { l4OperL4CpuListEntry 37}
+
+l4OperL4CpuListProxyNosockDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"proxy_nosock_drop"
+	::= { l4OperL4CpuListEntry 38}
+
+l4OperL4CpuListAflexDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"aflex_drop"
+	::= { l4OperL4CpuListEntry 39}
+
+l4OperL4CpuListSessAgedOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"sess_aged_out"
+	::= { l4OperL4CpuListEntry 40}
+
+l4OperL4CpuListTcpSessAgedOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_sess_aged_out"
+	::= { l4OperL4CpuListEntry 41}
+
+l4OperL4CpuListUdpSessAgedOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"udp_sess_aged_out"
+	::= { l4OperL4CpuListEntry 42}
+
+l4OperL4CpuListOtherSessAgedOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"other_sess_aged_out"
+	::= { l4OperL4CpuListEntry 43}
+
+l4OperL4CpuListTcpNoSlb OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_no_slb"
+	::= { l4OperL4CpuListEntry 44}
+
+l4OperL4CpuListUdpNoSlb OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"udp_no_slb"
+	::= { l4OperL4CpuListEntry 45}
+
+l4OperL4CpuListThrottleSyn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"throttle_syn"
+	::= { l4OperL4CpuListEntry 46}
+
+l4OperL4CpuListInbandHmRetry OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"inband_hm_retry"
+	::= { l4OperL4CpuListEntry 47}
+
+l4OperL4CpuListInbandHmReassign OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"inband_hm_reassign"
+	::= { l4OperL4CpuListEntry 48}
+
+l4OperL4CpuListAutoReassign OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"auto_reassign"
+	::= { l4OperL4CpuListEntry 49}
+
+l4OperL4CpuListFastAgingSet OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fast_aging_set"
+	::= { l4OperL4CpuListEntry 50}
+
+l4OperL4CpuListFastAgingReset OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fast_aging_reset"
+	::= { l4OperL4CpuListEntry 51}
+
+l4OperL4CpuListTcpInvalidDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_invalid_drop"
+	::= { l4OperL4CpuListEntry 52}
+
+l4OperL4CpuListOutSeqAckDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"out_seq_ack_drop"
+	::= { l4OperL4CpuListEntry 53}
+
+l4OperL4CpuListAnomalyOutSeq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"anomaly_out_seq"
+	::= { l4OperL4CpuListEntry 54}
+
+l4OperL4CpuListAnomalyZeroWin OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"anomaly_zero_win"
+	::= { l4OperL4CpuListEntry 55}
+
+l4OperL4CpuListAnomalyBadContent OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"anomaly_bad_content"
+	::= { l4OperL4CpuListEntry 56}
+
+l4OperL4CpuListAnomalyPbslbDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"anomaly_pbslb_drop"
+	::= { l4OperL4CpuListEntry 57}
+
+l4OperL4CpuListNoResourceDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"no_resource_drop"
+	::= { l4OperL4CpuListEntry 58}
+
+l4OperL4CpuListResetUnknownConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"reset_unknown_conn"
+	::= { l4OperL4CpuListEntry 59}
+
+l4OperL4CpuListResetL7OnFailover OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"reset_l7_on_failover"
+	::= { l4OperL4CpuListEntry 60}
+
+l4OperL4CpuListTcpSynOtherflags OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_syn_otherflags"
+	::= { l4OperL4CpuListEntry 61}
+
+l4OperL4CpuListTcpSynWithdata OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_syn_withdata"
+	::= { l4OperL4CpuListEntry 62}
+
+l4OperL4CpuListIgnoreMsl OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ignore_msl"
+	::= { l4OperL4CpuListEntry 63}
+
+l4OperL4CpuListL2Dsr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l2_dsr"
+	::= { l4OperL4CpuListEntry 64}
+
+l4OperL4CpuListL3Dsr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l3_dsr"
+	::= { l4OperL4CpuListEntry 65}
+
+l4OperL4CpuListPortPreserveAttempt OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port_preserve_attempt"
+	::= { l4OperL4CpuListEntry 66}
+
+l4OperL4CpuListPortPreserveSucc OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port_preserve_succ"
+	::= { l4OperL4CpuListEntry 67}
+
+l4OperL4CpuListBwRateLimitExceedDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"bw_rate_limit_exceed_drop"
+	::= { l4OperL4CpuListEntry 68}
+
+l4OperL4CpuListBwWatermarkDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"bw_watermark_drop"
+	::= { l4OperL4CpuListEntry 69}
+
+l4OperL4CpuListL4CpsExceedDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l4_cps_exceed_drop"
+	::= { l4OperL4CpuListEntry 70}
+
+l4OperL4CpuListNatCpsExceedDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"nat_cps_exceed_drop"
+	::= { l4OperL4CpuListEntry 71}
+
+l4OperL4CpuListL7CpsExceedDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l7_cps_exceed_drop"
+	::= { l4OperL4CpuListEntry 72}
+
+l4OperL4CpuListSslCpsExceedDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ssl_cps_exceed_drop"
+	::= { l4OperL4CpuListEntry 73}
+
+l4OperL4CpuListSslTptExceedDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ssl_tpt_exceed_drop"
+	::= { l4OperL4CpuListEntry 74}
+
+l4OperL4CpuListSslWatermarkDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ssl_watermark_drop"
+	::= { l4OperL4CpuListEntry 75}
+
+l4OperL4CpuListConnLimitExceedDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"conn_limit_exceed_drop"
+	::= { l4OperL4CpuListEntry 76}
+
+l4OperL4CpuListL4SvrHandshakeFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"l4_svr_handshake_fail"
+	::= { l4OperL4CpuListEntry 77}
+
+l4OperL4CpuListStatelessConnTimeout OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"stateless_conn_timeout"
+	::= { l4OperL4CpuListEntry 78}
+
+l4OperL4CpuListAxRexmitSyn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ax_rexmit_syn"
+	::= { l4OperL4CpuListEntry 79}
+
+l4OperL4CpuListRcvAckOnSyn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_ack_on_syn"
+	::= { l4OperL4CpuListEntry 80}
+
+l4OperL4CpuListRcvRstOnSyn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rst_on_syn"
+	::= { l4OperL4CpuListEntry 81}
+
+l4OperL4CpuListTcpNoestAgedOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_noest_aged_out"
+	::= { l4OperL4CpuListEntry 82}
+
+l4OperL4CpuListNoestClientSynAgedOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"noest_client_syn_aged_out"
+	::= { l4OperL4CpuListEntry 83}
+
+l4OperL4CpuListNoestServerSynXmitAgedOut OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"noest_server_syn_xmit_aged_out"
+	::= { l4OperL4CpuListEntry 84}
+
+l4OperL4CpuListRcvRexmitSyn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rexmit_syn"
+	::= { l4OperL4CpuListEntry 85}
+
+l4OperL4CpuListRcvRexmitSynDelq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rexmit_syn_delq"
+	::= { l4OperL4CpuListEntry 86}
+
+l4OperL4CpuListRcvRexmitSynack OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rexmit_synack"
+	::= { l4OperL4CpuListEntry 87}
+
+l4OperL4CpuListRcvRexmitSynackDelq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rexmit_synack_delq"
+	::= { l4OperL4CpuListEntry 88}
+
+l4OperL4CpuListRcvFwdLastAck OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_fwd_last_ack"
+	::= { l4OperL4CpuListEntry 89}
+
+l4OperL4CpuListRcvRevLastAck OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rev_last_ack"
+	::= { l4OperL4CpuListEntry 90}
+
+l4OperL4CpuListRcvFwdFin OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_fwd_fin"
+	::= { l4OperL4CpuListEntry 91}
+
+l4OperL4CpuListRcvFwdFinDup OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_fwd_fin_dup"
+	::= { l4OperL4CpuListEntry 92}
+
+l4OperL4CpuListRcvFwdFinack OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_fwd_finack"
+	::= { l4OperL4CpuListEntry 93}
+
+l4OperL4CpuListRcvRevFin OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rev_fin"
+	::= { l4OperL4CpuListEntry 94}
+
+l4OperL4CpuListRcvRevFinDup OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rev_fin_dup"
+	::= { l4OperL4CpuListEntry 95}
+
+l4OperL4CpuListRcvRevFinack OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rev_finack"
+	::= { l4OperL4CpuListEntry 96}
+
+l4OperL4CpuListRcvFwdRst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_fwd_rst"
+	::= { l4OperL4CpuListEntry 97}
+
+l4OperL4CpuListRcvRevRst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rev_rst"
+	::= { l4OperL4CpuListEntry 98}
+
+l4OperL4CpuListRcvReqsNoRsp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_reqs_no_rsp"
+	::= { l4OperL4CpuListEntry 99}
+
+l4OperL4CpuListRcvReqRsps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_req_rsps"
+	::= { l4OperL4CpuListEntry 100}
+
+l4OperL4CpuListRcvReqNotMatch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_req_not_match"
+	::= { l4OperL4CpuListEntry 101}
+
+l4OperL4CpuListRcvReqMorethanRsps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_req_morethan_rsps"
+	::= { l4OperL4CpuListEntry 102}
+
+l4OperL4CpuListRcvRspsMorethanReqs OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_rsps_morethan_reqs"
+	::= { l4OperL4CpuListEntry 103}
+
+l4OperL4CpuListRcvUdpReqs OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_udp_reqs"
+	::= { l4OperL4CpuListEntry 104}
+
+l4OperL4CpuListRcvUdpRsps OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rcv_udp_rsps"
+	::= { l4OperL4CpuListEntry 105}
+
+l4OperL4CpuListTcpEst OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_est"
+	::= { l4OperL4CpuListEntry 106}
+
+l4OperL4CpuListSynattack OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"synattack"
+	::= { l4OperL4CpuListEntry 107}
+
+l4OperL4CpuListSkipInsertClientIp OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"skip_insert_client_ip"
+	::= { l4OperL4CpuListEntry 108}
+
+l4OperL4CpuListDnsIdSwitch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dns_id_switch"
+	::= { l4OperL4CpuListEntry 109}
+
+l4OperL4CpuListDnssecSwitch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dnssec_switch"
+	::= { l4OperL4CpuListEntry 110}
+
+l4OperL4CpuListSyncookiesBuffQueue OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"syncookies_buff_queue"
+	::= { l4OperL4CpuListEntry 111}
+
+l4OperL4CpuListSyncookiesBuffDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"syncookies_buff_drop"
+	::= { l4OperL4CpuListEntry 112}
+
+l4OperL4CpuListServerDownDel OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server_down_del"
+	::= { l4OperL4CpuListEntry 113}
+
+l4OperL4CpuListTcpConnectionsClosed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp_connections_closed"
+	::= { l4OperL4CpuListEntry 114}
+
+l4OperL4CpuListGtpCInvalidPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"gtp_c_invalid_port"
+	::= { l4OperL4CpuListEntry 115}
+
+l4OperL4CpuListGtpCInvalidHeader OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"gtp_c_invalid_header"
+	::= { l4OperL4CpuListEntry 116}
+
+l4OperL4CpuListGtpCInvalidMessage OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"gtp_c_invalid_message"
+	::= { l4OperL4CpuListEntry 117}
+
+l4OperL4CpuListReselectSvrselfail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"reselect_svrselfail"
+	::= { l4OperL4CpuListEntry 118}
+
+l4OperL4CpuListSnatPortOverloadFail OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_port_overload_fail"
+	::= { l4OperL4CpuListEntry 119}
+
+l4OperL4CpuListSnatForcePreserveAlloc OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_force_preserve_alloc"
+	::= { l4OperL4CpuListEntry 120}
+
+l4OperL4CpuListSnatForcePreserveFree OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"snat_force_preserve_free"
+	::= { l4OperL4CpuListEntry 121}
+
+l4OperL4CpuListProxyHeaderInsert OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"proxy_header_insert"
+	::= { l4OperL4CpuListEntry 122}
+
+l4OperL4CpuListProxyHeaderRexmit OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"proxy_header_rexmit"
+	::= { l4OperL4CpuListEntry 123}
+
+l4OperL4CpuListProxyProtError OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"proxy_prot_error"
+	::= { l4OperL4CpuListEntry 124}
+
+l4OperL4CpuListProxyProtDrop OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"proxy_prot_drop"
+	::= { l4OperL4CpuListEntry 125}
+
+l4OperL4CpuListSlbGtpProxyPktRcvRr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_pkt_rcv_rr"
+	::= { l4OperL4CpuListEntry 126}
+
+l4OperL4CpuListSlbGtpProxySmpMatch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_smp_match"
+	::= { l4OperL4CpuListEntry 127}
+
+l4OperL4CpuListSlbGtpProxySmpNoMatch OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_smp_no_match"
+	::= { l4OperL4CpuListEntry 128}
+
+l4OperL4CpuListSlbGtpProxyCProcessLocalRr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_c_process_local_rr"
+	::= { l4OperL4CpuListEntry 129}
+
+l4OperL4CpuListSlbGtpProxySmpCreationFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_smp_creation_failed"
+	::= { l4OperL4CpuListEntry 130}
+
+l4OperL4CpuListSlbGtpProxySmpCreated OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_smp_created"
+	::= { l4OperL4CpuListEntry 131}
+
+l4OperL4CpuListSlbGtpProxySmpFreeNotFound OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_smp_free_not_found"
+	::= { l4OperL4CpuListEntry 132}
+
+l4OperL4CpuListSlbGtpProxySmpFreed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_smp_freed"
+	::= { l4OperL4CpuListEntry 133}
+
+l4OperL4CpuListSlbGtpProxyRetxRequests OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"slb_gtp_proxy_retx_requests"
+	::= { l4OperL4CpuListEntry 134}
+
+l4OperL4CpuListPbslbEntryLimitExceed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pbslb_entry_limit_exceed"
+	::= { l4OperL4CpuListEntry 135}
+
+l4OperL4CpuListFastPathReroute OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fast_path_reroute"
+	::= { l4OperL4CpuListEntry 136}
+
+l4OperL4CpuListFastPathL2Reroute OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"fast_path_l2_reroute"
+	::= { l4OperL4CpuListEntry 137}
+
+END
+

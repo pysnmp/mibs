@@ -1,0 +1,38 @@
+--
+-- Copyright (c) 2004-2024, Infoblox, Inc
+-- All rights reserved.
+                                                                                                
+IB-DNSSERV-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+   OBJECT-TYPE, NOTIFICATION-TYPE, MODULE-IDENTITY, enterprises, 
+   Counter64          FROM SNMPv2-SMI
+   TEXTUAL-CONVENTION FROM SNMPv2-TC
+   ibDNSServ, IbString FROM IB-SMI-MIB;
+
+ibDnsServMIBModule MODULE-IDENTITY
+    LAST-UPDATED "201107130000Z"  --  Jul 13, 2011
+    ORGANIZATION "Infoblox"
+    CONTACT-INFO "Please See IB-SMI-MIB."
+    DESCRIPTION "This file defines the Infoblox DNS Server MIB."
+
+    REVISION  "201107130000Z"  --  Jul 13, 2011
+    DESCRIPTION   "Creation of the DNS Server MIB file"
+
+    ::= { ibDNSServ 1 }
+
+-- Infoblox DNS-Server MIB Definitions
+
+ibDnsServMIBObjects OBJECT IDENTIFIER ::=  { ibDnsServMIBModule 1 }
+
+ibDnsServConfig OBJECT IDENTIFIER ::=  { ibDnsServMIBObjects 1 }
+
+ibDnsServConfigImplementIdent OBJECT-TYPE
+   SYNTAX        IbString
+   MAX-ACCESS    read-only
+   STATUS        current
+   DESCRIPTION   "The implementation identification string for
+                  the DNS server software in use on the system."
+   ::= { ibDnsServConfig 1 }
+
+END

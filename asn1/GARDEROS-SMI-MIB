@@ -1,0 +1,31 @@
+GARDEROS-SMI-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        MODULE-IDENTITY,
+        enterprises
+                FROM SNMPv2-SMI;
+
+
+garderos MODULE-IDENTITY
+        LAST-UPDATED "201602021612Z"
+        ORGANIZATION "Garderos GmbH"
+        CONTACT-INFO
+               "Garderos GmbH
+                Balanstr. 55, D-81541 Muenchen, Germany
+                Tel. +49 (0)89/189 306-0, Fax +49 (0)89/189 306-98
+                http://www.garderos.com
+                Sitz und Registergericht Muenchen. Geschaeftsfuehrer: Hermann Knauer, Dr. Walter Hinder.
+                HRB 141001"
+        DESCRIPTION
+                "Garderos SMI definition."
+
+        -- revision history
+
+        REVISION "201602021612Z"  -- 2016-02-02
+        DESCRIPTION
+                "Redesign"
+
+        ::= { enterprises 16108 }        -- 1.3.6.1.4.1.16108, assigned by IANA
+
+
+END

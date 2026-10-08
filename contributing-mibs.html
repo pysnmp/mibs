@@ -1,0 +1,585 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="search" title="Search" href="search.html"><link rel="next" title="Modules this distribution does not carry" href="absent-modules.html"><link rel="prev" title="Contributing a MIB" href="contributing.html">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+        <link rel="prefetch" href="_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Contributing MIBs you already have - pysnmp MIB distribution</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">pysnmp MIB distribution</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/logo.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/logo.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">pysnmp MIB distribution</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://mibsdepot.com/browse/">Browse the MIBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Resolving MIBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="channels.html">Getting the MIBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpora.html">Corpus variants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manifests.html">Build manifests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chart.html">mibserver Helm chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying.html">Publishing the sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing a MIB</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Contributing MIBs you already have</a></li>
+<li class="toctree-l1"><a class="reference internal" href="absent-modules.html">Modules this distribution does not carry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mib-sources.html">MIB sources and patches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registries.html">OID arc registries</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/blob/main/docs/contributing-mibs.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/pysnmp/mibs/edit/main/docs/contributing-mibs.md" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="contributing-mibs-you-already-have">
+<h1>Contributing MIBs you already have<a class="headerlink" href="#contributing-mibs-you-already-have" title="Link to this heading">¶</a></h1>
+<p>This page covers <code class="docutils literal notranslate"><span class="pre">mibcontribute</span></code>, the tool that offers a MIB directory to this
+distribution. Use it if you have your own MIBs and want the ones this site is
+missing, or behind on, to reach it. Writing a pull request is not required, and
+neither is knowing Python: what it asks of you is one command and a read of
+what it wrote.</p>
+<p><a class="reference internal" href="contributing.html"><span class="std std-doc">Contributing a MIB</span></a> is the other path, for a change you
+intend to write yourself.</p>
+<section id="one-command">
+<h2>One command<a class="headerlink" href="#one-command" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mibcontribute</span></code> ships with <a class="reference external" href="https://pysnmp.github.io/pysmi/">pysmi</a>, which is
+the compiler this distribution is built with. It arrived in pysmi 5.2.0, so
+name that floor: an older pysmi installs <code class="docutils literal notranslate"><span class="pre">mibdump</span></code> and the rest without it.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"pysnmp-pysmi&gt;=5.2"</span>
+mibcontribute<span class="w"> </span>./my-mibs
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2 module(s) worth offering: 1 the distribution carries an older copy of,
+1 it does not carry.
+
+    ACME-CHASSIS-MIB      2024-03-11  against 2015-05-01
+    ACME-POWER-MIB        2024-03-11  against not carried
+
+Wrote mib-contribution/issue.md
+</pre></div>
+</div>
+<p>That reads every module in the directory, asks this site what it publishes for
+each, and writes the result as a GitHub issue. It sends nothing. There is no
+report to produce first and no build to run: point it at the directory your
+MIBs are in, including the one a <a class="reference internal" href="chart.html"><span class="std std-doc">mibserver deployment</span></a> mounts.</p>
+</section>
+<section id="what-it-compares">
+<h2>What it compares<a class="headerlink" href="#what-it-compares" title="Link to this heading">¶</a></h2>
+<p>Which of two copies of a module wins is not a judgement the tool makes. It is
+pysmi’s <code class="docutils literal notranslate"><span class="pre">rank_by_revision</span></code>, the rule this corpus is built with: the newest
+MODULE-IDENTITY revision wins, and configured order breaks a tie. A module it
+reports is a module a build would prefer.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>what it found</p></th>
+<th class="head"><p>reported</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>the published copy is newer</p></td>
+<td><p>no. This distribution is current for that module</p></td>
+</tr>
+<tr class="row-odd"><td><p>the published copy is the same text</p></td>
+<td><p>no. There is nothing to offer</p></td>
+</tr>
+<tr class="row-even"><td><p>your copy is newer</p></td>
+<td><p><strong>yes</strong>, as a better copy</p></td>
+</tr>
+<tr class="row-odd"><td><p>this distribution has no copy</p></td>
+<td><p><strong>yes</strong>, as a module it does not carry</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A copy that wins on source order rather than on revision is not reported as
+better unless <code class="docutils literal notranslate"><span class="pre">--include-differing</span></code> asks: two copies of one name are as often
+two different modules that reuse a name as two revisions of one.</p>
+<p>A module is offered under the name it declares rather than the name of the file
+it was found in, because that is the name this distribution would publish it
+under. A file that declares no module at all is passed over and named in the
+log.</p>
+</section>
+<section id="what-it-compares-against">
+<h2>What it compares against<a class="headerlink" href="#what-it-compares-against" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--corpus</span></code> takes a directory, a <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, or a URL with <code class="docutils literal notranslate"><span class="pre">&#64;mib&#64;</span></code> where the module
+name goes. It defaults to this site, which costs one request per module:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mibcontribute<span class="w"> </span>--corpus<span class="o">=</span>./asn1<span class="w"> </span>./my-mibs
+mibcontribute<span class="w"> </span>--corpus<span class="o">=</span>./mibs-asn1.zip<span class="w"> </span>./my-mibs
+</pre></div>
+</div>
+<p>A scan of a large collection should use a local copy. An unpacked
+<code class="docutils literal notranslate"><span class="pre">mibs-asn1.zip</span></code> or a mounted <code class="docutils literal notranslate"><span class="pre">ghcr.io/pysnmp/mibs/corpus</span></code> is a directory like
+any other. See <a class="reference internal" href="channels.html"><span class="std std-doc">getting the MIBs</span></a>.</p>
+</section>
+<section id="filing-it">
+<h2>Filing it<a class="headerlink" href="#filing-it" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">--submit</span></code></p></th>
+<th class="head"><p>what happens</p></th>
+<th class="head"><p>what it needs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">none</span></code></p></td>
+<td><p>the files are written and nothing is sent. The default</p></td>
+<td><p>nothing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">url</span></code></p></td>
+<td><p>a GitHub issue URL with the report already in it is printed, for you to read and post</p></td>
+<td><p>a GitHub account in your browser</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gh</span></code></p></td>
+<td><p>the issue is created by the GitHub CLI</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gh</span></code>, already authenticated</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mibcontribute<span class="w"> </span>./my-mibs<span class="w"> </span>--submit<span class="o">=</span>url
+mibcontribute<span class="w"> </span>./my-mibs<span class="w"> </span>--submit<span class="o">=</span>gh
+</pre></div>
+</div>
+<p>GitHub accepts no issue anonymously, and this repository cannot file one on
+your behalf. <code class="docutils literal notranslate"><span class="pre">--submit=url</span></code> is the closest thing to it: no credential is read,
+stored or sent by the tool, the report travels as a link you inspect first, and
+the issue is posted by your browser under whatever account that browser is
+signed in as.</p>
+<p>An issue body holds 65,536 characters, which is smaller than some single MIBs.
+The body carries as many modules in full as it holds and names the rest as
+being in <code class="docutils literal notranslate"><span class="pre">mib-contribution/contribution.zip</span></code>, which the GitHub web form takes
+as a drag and drop.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--module=ACME-CHASSIS-MIB</span></code> offers one module rather than everything found;
+repeat it for a few. <code class="docutils literal notranslate"><span class="pre">--per-module</span></code> writes one issue per module instead of one
+issue for all of them, which is the shape to use when the modules are
+unrelated: one module per issue is one module per pull request.</p>
+<p>Read <code class="docutils literal notranslate"><span class="pre">mib-contribution/issue.md</span></code> before you post it. A MIB edited at your site
+can carry hostnames, contacts or ticket numbers in its comments, and those are
+published with the rest of the text. No path from your machine reaches the
+issue: the tool names every file relative to the directory it scanned.</p>
+</section>
+<section id="what-is-already-reported">
+<h2>What is already reported<a class="headerlink" href="#what-is-already-reported" title="Link to this heading">¶</a></h2>
+<p>Before submitting anything, the tracker is searched and the modules an issue or
+pull request is already open for are left out. A closed issue does not stop a
+report, because it was closed for a reason nothing can read back; the module is
+offered again with the old issue named beside it.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>flag</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--allow-duplicates</span></code></p></td>
+<td><p>offer a module even where an issue for it is open</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--require-duplicate-check</span></code></p></td>
+<td><p>submit nothing if the tracker cannot be searched</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A search that cannot run does not stop a person from filing. An unattended run
+should invert that with <code class="docutils literal notranslate"><span class="pre">--require-duplicate-check</span></code>.</p>
+</section>
+<section id="what-happens-to-the-issue">
+<h2>What happens to the issue<a class="headerlink" href="#what-happens-to-the-issue" title="Link to this heading">¶</a></h2>
+<p>It carries the module names, both revisions, both digests and the MIB sources,
+which is what a pull request against this repository needs, plus one question
+no scan can answer: where the files came from. <code class="docutils literal notranslate"><span class="pre">mib-sources.json</span></code> records a
+publisher for every module under <code class="docutils literal notranslate"><span class="pre">src/</span></code>, which is what lets
+<a class="reference external" href="https://github.com/pysnmp/mibs/blob/main/.github/workflows/mib-freshness.yml">the monthly workflow</a>
+notice the next revision without waiting for another report. Answer it in the
+issue, with the publisher’s URL and the device the files came from, and the
+pull request can be written from the issue alone.</p>
+<p>Every issue carries <code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">mib-contribution</span> <span class="pre">v1</span> <span class="pre">--&gt;</span></code> and a <code class="docutils literal notranslate"><span class="pre">json</span></code> block holding
+the findings, so the set is one search away and each one can be read without
+parsing prose.</p>
+</section>
+<section id="importing-a-scan-into-the-tree">
+<h2>Importing a scan into the tree<a class="headerlink" href="#importing-a-scan-into-the-tree" title="Link to this heading">¶</a></h2>
+<p>The other half runs here rather than on a contributor’s machine, and is what
+the freshness process uses: a scan of a published collection, imported into a
+branch. <code class="docutils literal notranslate"><span class="pre">mibcontribute</span></code> writes the bundle and
+<code class="docutils literal notranslate"><span class="pre">scripts/import_contribution.py</span></code> puts it where it belongs:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mibcontribute<span class="w"> </span>--quiet<span class="w"> </span>--corpus<span class="o">=</span>./asn1<span class="w"> </span>--output-directory<span class="o">=</span>./found<span class="w"> </span>./collection
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>scripts/import_contribution.py<span class="w"> </span>--contribution<span class="o">=</span>found<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vendor<span class="o">=</span>example<span class="w"> </span>--publisher<span class="o">=</span>example-mibs<span class="w"> </span>--issue<span class="o">=</span><span class="m">123</span><span class="w"> </span>--submit
+</pre></div>
+</div>
+<p>It writes each module to <code class="docutils literal notranslate"><span class="pre">src/vendor/&lt;vendor&gt;/&lt;MODULE&gt;</span></code>, records
+<code class="docutils literal notranslate"><span class="pre">{&quot;publisher&quot;:</span> <span class="pre">...}</span></code> for each in <code class="docutils literal notranslate"><span class="pre">mib-sources.json</span></code>, commits on a branch, and
+with <code class="docutils literal notranslate"><span class="pre">--submit</span></code> pushes it and opens the pull request. The ASN.1 is in the diff,
+so the body carries the findings and not the module text.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>flag</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--contribution</span></code></p></td>
+<td><p>the directory <code class="docutils literal notranslate"><span class="pre">mibcontribute</span> <span class="pre">--output-directory</span></code> wrote</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--vendor</span></code></p></td>
+<td><p>the directory under <code class="docutils literal notranslate"><span class="pre">src/vendor/</span></code>. Nothing in a MIB says which vendor’s tree it is filed under here</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--publisher</span></code></p></td>
+<td><p>a publisher <code class="docutils literal notranslate"><span class="pre">mib-sources.json</span></code> already defines. Left off, the provenance is a question for review</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--issue</span></code></p></td>
+<td><p>the issue this closes, named in the pull request body</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--checkout</span></code></p></td>
+<td><p>the clone to commit into. It must be this repository, and its tree must be clean</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--branch</span></code>, <code class="docutils literal notranslate"><span class="pre">--base</span></code></p></td>
+<td><p>the branch to commit on, and what to open the pull request against</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A publisher the manifest does not define is refused rather than written: an
+entry naming one that does not exist fails
+<code class="docutils literal notranslate"><span class="pre">scripts/update_vendor_mibs.py</span> <span class="pre">--validate</span></code>, which CI runs on every pull
+request.</p>
+<p>A module <a class="reference internal" href="absent-modules.html"><span class="std std-doc">this distribution does not carry on purpose</span></a> is
+refused the same way, before the branch is made, and the refusal names the
+section that excluded it. A scan offers what a collection holds: pointing
+<code class="docutils literal notranslate"><span class="pre">mibcontribute</span></code> at net-snmp’s MIB directory offered 24 modules, and 17 of them
+already had a decision recorded against them. None of those decisions says “a
+file under <code class="docutils literal notranslate"><span class="pre">src/vendor</span></code>” — each says the module is obsolete, superseded,
+withdrawn or never published, and writing one under a vendor would undo that
+silently. Offer the rest with <code class="docutils literal notranslate"><span class="pre">--module</span></code>.</p>
+<p>The page holds two groups and the refusal covers both: modules this
+distribution carried and dropped, and modules it was offered and declined. The
+second were never here, so no index row points at one and nothing 404s for it;
+what it has in common with the first is that the answer is already written.</p>
+</section>
+<section id="standard-or-vendor">
+<h2>Standard or vendor<a class="headerlink" href="#standard-or-vendor" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">src/vendor</span></code> is the only tree here, so a standard module offered to it is a
+module filed in the wrong repository: standards-track text belongs in pysmi’s
+bundle, and a copy here would shadow the bundled one for every consumer.</p>
+<p>The module’s own registration says which it is. A module rooted under
+<code class="docutils literal notranslate"><span class="pre">::=</span> <span class="pre">{</span> <span class="pre">enterprises</span> <span class="pre">N</span> <span class="pre">}</span></code> is that enterprise’s, whatever else the file suggests
+— look up <code class="docutils literal notranslate"><span class="pre">N</span></code> in <code class="docutils literal notranslate"><span class="pre">registries/pen-snapshot.csv</span></code> (<a class="reference internal" href="registries.html"><span class="std std-doc">what that is</span></a>)
+for whose. Two things that look like the answer are not:</p>
+<ul class="simple">
+<li><p><strong>The directory the collection kept it in.</strong> observium files by directory
+and had put <code class="docutils literal notranslate"><span class="pre">DPI20-MIB</span></code> (<code class="docutils literal notranslate"><span class="pre">enterprises</span> <span class="pre">2</span></code>, IBM) and <code class="docutils literal notranslate"><span class="pre">RFC7777-MIB</span></code>
+(<code class="docutils literal notranslate"><span class="pre">enterprises</span> <span class="pre">18</span></code>, Wellfleet) under <code class="docutils literal notranslate"><span class="pre">rfc/</span></code>.</p></li>
+<li><p><strong>The module’s name.</strong> <code class="docutils literal notranslate"><span class="pre">RFC7777-MIB</span></code> is a private arc wearing an RFC
+number, and <code class="docutils literal notranslate"><span class="pre">SSH-MIB</span></code> and <code class="docutils literal notranslate"><span class="pre">COMMUNITY-MIB</span></code> read as standard and are not.</p></li>
+</ul>
+<p>A module that really is standard and that pysmi does not bundle is a pysmi
+pull request, not one here.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="absent-modules.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Modules this distribution does not carry</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="contributing.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Contributing a MIB</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2019-2026, the pysnmp maintainers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Contributing MIBs you already have</a><ul>
+<li><a class="reference internal" href="#one-command">One command</a></li>
+<li><a class="reference internal" href="#what-it-compares">What it compares</a></li>
+<li><a class="reference internal" href="#what-it-compares-against">What it compares against</a></li>
+<li><a class="reference internal" href="#filing-it">Filing it</a></li>
+<li><a class="reference internal" href="#what-is-already-reported">What is already reported</a></li>
+<li><a class="reference internal" href="#what-happens-to-the-issue">What happens to the issue</a></li>
+<li><a class="reference internal" href="#importing-a-scan-into-the-tree">Importing a scan into the tree</a></li>
+<li><a class="reference internal" href="#standard-or-vendor">Standard or vendor</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=7f41d439"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

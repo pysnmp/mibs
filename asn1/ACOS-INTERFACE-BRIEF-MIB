@@ -1,0 +1,213 @@
+ACOS-INTERFACE-BRIEF-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		interfaceBriefModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "interfaceBriefModule OID for ACOS"
+				::=  {  acosSchema 201 }
+
+brief		 OBJECT IDENTIFIER ::= { interfaceBriefModule 1}
+
+briefOperInterfacesTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF BriefOperInterfacesEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Interface statistics information from object 'interface.brief'"
+	::= {brief 2}
+
+briefOperInterfacesEntry OBJECT-TYPE
+	SYNTAX BriefOperInterfacesEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The briefOperInterfaces entry:interfaces"
+	INDEX {
+		briefOperInterfacesSlotId,
+		briefOperInterfacesInterfacesListId
+	}
+	::= { briefOperInterfacesTable 1}
+
+BriefOperInterfacesEntry ::=
+	SEQUENCE {
+		briefOperInterfacesSlotId Integer32,
+		briefOperInterfacesInterfacesListId Integer32,
+		briefOperInterfacesPortNum	DisplayString,
+		briefOperInterfacesSpeed	DisplayString,
+		briefOperInterfacesDuplexity	DisplayString,
+		briefOperInterfacesTrunkGroup	DisplayString,
+		briefOperInterfacesVlanInfo	DisplayString,
+		briefOperInterfacesEncapInfo	DisplayString,
+		briefOperInterfacesState	DisplayString,
+		briefOperInterfacesMac	DisplayString,
+		briefOperInterfacesIpv4AddrCount	Integer32,
+		briefOperInterfacesIpv4Addr	DisplayString,
+		briefOperInterfacesIpv4Mask	DisplayString,
+		briefOperInterfacesIpv6AddrCount	Integer32,
+		briefOperInterfacesIpv6Addr	DisplayString,
+		briefOperInterfacesIpv6Prefix	DisplayString,
+		briefOperInterfacesIntfName	DisplayString,
+		briefOperInterfacesUnnumberedOper	DisplayString
+	}
+
+briefOperInterfacesSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { briefOperInterfacesEntry 1}
+
+briefOperInterfacesInterfacesListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { briefOperInterfacesEntry 2}
+
+briefOperInterfacesPortNum OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port_num"
+	::= { briefOperInterfacesEntry 3}
+
+briefOperInterfacesSpeed OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"speed"
+	::= { briefOperInterfacesEntry 4}
+
+briefOperInterfacesDuplexity OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"duplexity"
+	::= { briefOperInterfacesEntry 5}
+
+briefOperInterfacesTrunkGroup OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"trunk_group"
+	::= { briefOperInterfacesEntry 6}
+
+briefOperInterfacesVlanInfo OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vlan_info"
+	::= { briefOperInterfacesEntry 7}
+
+briefOperInterfacesEncapInfo OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"encap_info"
+	::= { briefOperInterfacesEntry 8}
+
+briefOperInterfacesState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"state"
+	::= { briefOperInterfacesEntry 9}
+
+briefOperInterfacesMac OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"mac"
+	::= { briefOperInterfacesEntry 10}
+
+briefOperInterfacesIpv4AddrCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4_addr_count"
+	::= { briefOperInterfacesEntry 11}
+
+briefOperInterfacesIpv4Addr OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4_addr"
+	::= { briefOperInterfacesEntry 12}
+
+briefOperInterfacesIpv4Mask OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv4_mask"
+	::= { briefOperInterfacesEntry 13}
+
+briefOperInterfacesIpv6AddrCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6_addr_count"
+	::= { briefOperInterfacesEntry 14}
+
+briefOperInterfacesIpv6Addr OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6_addr"
+	::= { briefOperInterfacesEntry 15}
+
+briefOperInterfacesIpv6Prefix OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ipv6_prefix"
+	::= { briefOperInterfacesEntry 16}
+
+briefOperInterfacesIntfName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"intf_name"
+	::= { briefOperInterfacesEntry 17}
+
+briefOperInterfacesUnnumberedOper OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"unnumbered_oper"
+	::= { briefOperInterfacesEntry 18}
+
+END
+

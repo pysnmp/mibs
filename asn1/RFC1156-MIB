@@ -1,0 +1,21 @@
+               RFC1156-MIB
+
+               DEFINITIONS ::= BEGIN
+
+               IMPORTS
+                       mgmt, OBJECT-TYPE, NetworkAddress, IpAddress,
+                       Counter, Gauge, TimeTicks
+                           FROM RFC1155-SMI;
+
+               mib        OBJECT IDENTIFIER ::= { mgmt 1 }
+
+               system     OBJECT IDENTIFIER ::= { mib 1 }
+               interfaces OBJECT IDENTIFIER ::= { mib 2 }
+               at         OBJECT IDENTIFIER ::= { mib 3 }
+               ip         OBJECT IDENTIFIER ::= { mib 4 }
+               icmp       OBJECT IDENTIFIER ::= { mib 5 }
+               tcp        OBJECT IDENTIFIER ::= { mib 6 }
+               udp        OBJECT IDENTIFIER ::= { mib 7 }
+               egp        OBJECT IDENTIFIER ::= { mib 8 }
+
+               END

@@ -1,0 +1,364 @@
+--------------------------------------------------------------------------------
+--ACMEPACKET-ITU-X733-MIB:  ORACLE NNC Fault Management Northbound MIB file
+--
+--June 2013
+--
+--Copyright (c) by ORACLE, Inc.
+--All rights reserved.
+--------------------------------------------------------------------------------
+--This MIB provides a means to gather information about the
+--Acme Management Interface running at the Net-Net NNC and/or Device
+--
+
+APNNCItuX733Alarm-MIB DEFINITIONS ::= BEGIN
+
+    IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE, Integer32, Unsigned32,
+	enterprises
+        FROM SNMPv2-SMI
+    OBJECT-GROUP, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+    DisplayString, TruthValue 
+  	FROM SNMPv2-TC;
+
+    apNNCItuX733AlarmModule MODULE-IDENTITY
+        LAST-UPDATED	    "201803070000Z" 
+        ORGANIZATION	    "ORACLE, Inc"
+        CONTACT-INFO    
+			  "       Customer Service
+                        Postal: ORACLE, Inc
+                                100 Crosby Drive
+                                Bedford, MA 01730
+                                US
+                        Tel:    1-781-328-4400
+                        E-mail: support@oracle.com"  
+        DESCRIPTION     "The Net-Net NNC ITU X733 MIB for Oracle Communications Acme Packet SBCs"
+        REVISION        "201307200000Z"
+        DESCRIPTION     "Initial version"
+	REVISION 	"201406260000Z" 			
+        DESCRIPTION
+			"Updated Organization and Contact info."
+	REVISION        "201803280000Z"
+        DESCRIPTION     "Resolved compilation issue for apNNCItuX733AdditionalInformation Object"
+
+        ::= { apEMSModule 6 }
+
+    acmepacket OBJECT IDENTIFIER ::= { enterprises 9148 }
+    acmepacketMgmt OBJECT IDENTIFIER ::= { acmepacket 3}
+    apEMSModule OBJECT IDENTIFIER ::= { acmepacketMgmt 8 }
+
+    apNNCItuX733AlarmMIBObjects OBJECT IDENTIFIER ::= { apNNCItuX733AlarmModule 1 }
+
+    apNNCItuX733NotificationObjects OBJECT IDENTIFIER ::= { apNNCItuX733AlarmModule 2 }	 
+
+    apNNCItuX733NotificationId     OBJECT-TYPE
+        SYNTAX                  Unsigned32
+        MAX-ACCESS       	accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+            "Unique identifier for the notification."
+        ::= {apNNCItuX733NotificationObjects 1}
+        
+    apNNCItuX733ManagedObjectClass OBJECT-TYPE
+        SYNTAX                  DisplayString
+        MAX-ACCESS       	accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+            "Type of managed object."
+        ::= {apNNCItuX733NotificationObjects 2}
+
+    apNNCItuX733ManagedObjectInstance OBJECT-TYPE
+        SYNTAX                     DisplayString
+        MAX-ACCESS       	   accessible-for-notify
+        STATUS                     current
+        DESCRIPTION
+            "Managed object instance."
+        ::= {apNNCItuX733NotificationObjects 3}
+
+    apNNCItuX733PerceivedSeverity OBJECT-TYPE
+        SYNTAX                        INTEGER {
+                                cleared(1),
+                                indeterminate(2),
+                                critical(3),
+                                major(4),
+                                minor(5),
+                                warning(6)
+                                }
+        MAX-ACCESS       	   accessible-for-notify
+        STATUS                     current
+        DESCRIPTION
+            "Represents the perceived severity values for the alarms as per[X.733]"
+        ::= {apNNCItuX733NotificationObjects 4}
+
+    apNNCItuX733EventTime      OBJECT-TYPE
+        SYNTAX                     DisplayString (SIZE (1..64))
+        MAX-ACCESS       	   accessible-for-notify
+        STATUS                     current
+        DESCRIPTION
+            "Timestamp of event."
+        ::= {apNNCItuX733NotificationObjects 5}
+
+    apNNCItuX733EventType       OBJECT-TYPE
+        SYNTAX               INTEGER {
+                other(1),
+                communicationsAlarm(2),
+                qualityOfServiceAlarm(3),
+                processingErrorAlarm(4),
+                equipmentAlarm(5),
+                environmentalAlarm(6),
+                integrityViolation (7),
+                operationalViolation (8),
+                physicalViolation (9),
+                securityServiceOrMechanismViolation (10),
+                timeDomainViolation (11)
+                }
+        MAX-ACCESS       	   accessible-for-notify
+        STATUS                     current
+        DESCRIPTION
+            "Represents the event type values for the alarms as per [X.733] and [X.736]"
+        ::= {apNNCItuX733NotificationObjects 6}
+
+    apNNCItuX733ProbableCause      OBJECT-TYPE
+        SYNTAX                  INTEGER {
+                other (1),
+                adapterError (2),
+                applicationSubsystemFailure (3),
+                bandwidthReduced (4),
+                callEstablishmentError (5),
+                communicationsProtocolError (6),
+                communicationsSubsystemFailure (7),
+                configurationOrCustomizationError (8),
+                congestion (9),
+                corruptData (10),
+                cpuCyclesLimitExceeded (11),
+                dataSetOrModemError (12),
+                degradedSignal (13),
+                dteDceInterfaceError (14),
+                enclosureDoorOpen (15),
+                equipmentMalfunction (16),
+                excessiveVibration (17),
+                fileError (18),
+                fireDetected (19),
+                floodDetected (20),
+                framingError (21),
+                heatingVentCoolingSystemProblem (22),
+                humidityUnacceptable (23),
+                inputOutputDeviceError (24),
+                inputDeviceError (25),
+                lanError (26),
+                leakDetected (27),
+                localNodeTransmissionError (28),
+                lossOfFrame (29),
+                lossOfSignal (30),
+                materialSupplyExhausted (31),
+                multiplexerProblem (32),
+                outOfMemory (33),
+                ouputDeviceError (34),
+                performanceDegraded (35),
+                powerProblem (36),
+                pressureUnacceptable (37),
+                processorProblem (38),
+                pumpFailure (39),
+                queueSizeExceeded (40),
+                receiveFailure (41),
+                receiverFailure (42),
+                remoteNodeTransmissionError (43),
+                resourceAtOrNearingCapacity (44),
+                responseTimeExecessive (45),
+                retransmissionRateExcessive (46),
+                softwareError (47),
+                softwareProgramAbnormallyTerminated (48),
+                softwareProgramError (49),
+                storageCapacityProblem (50),
+                temperatureUnacceptable (51),
+                thresholdCrossed (52),
+                timingProblem (53),
+                toxicLeakDetected (54),
+                transmitFailure (55),
+                transmitterFailure (56),
+                underlyingResourceUnavailable (57),
+                versionMismatch (58),
+                authenticationFailure (59),
+                breachOfConfidentiality (60),
+                cableTamper (61),
+                delayedInformation (62),
+                denialOfService (63),
+                duplicateInformation (64),
+                informationMissing (65),
+                informationModificationDetected (66),
+                informationOutOfSequence (67),
+                intrusionDetection (68),
+                keyExpired (69),
+                nonRepudiationFailure (70),
+                outOfHoursActivity (71),
+                outOfService (72),
+                proceduralError (73),
+                unauthorizedAccessAttempt (74),
+                unexpectedInformation (75)
+                }
+                
+        MAX-ACCESS          accessible-for-notify 
+        STATUS              current
+        DESCRIPTION
+            "Represents the probable cause values for the alarms as per[X.733]"
+        ::= {apNNCItuX733NotificationObjects 7}
+
+    apNNCItuX733AdditionalText        OBJECT-TYPE
+        SYNTAX                     OCTET STRING (SIZE (1..2048))
+        MAX-ACCESS       	   accessible-for-notify
+        STATUS                     current
+        DESCRIPTION
+            "Represents free form text description."
+        ::= {apNNCItuX733NotificationObjects 8}
+
+    apNNCItuX733ThresholdInformation      OBJECT-TYPE
+        SYNTAX                         DisplayString (SIZE (1..255))
+        MAX-ACCESS                     accessible-for-notify 
+        STATUS                         current
+        DESCRIPTION
+            "Identifies that it is a threshold crossing event."
+        ::= {apNNCItuX733NotificationObjects 9}
+
+    apNNCItuX733SpecificProblem       OBJECT-TYPE
+        SYNTAX                     DisplayString (SIZE (1..64))
+        MAX-ACCESS       	   accessible-for-notify
+        STATUS                     current
+        DESCRIPTION
+            "Identifies refinement to probable cause of the alarm."
+        ::= {apNNCItuX733NotificationObjects 10}
+
+    apNNCItuX733CorrelationNotificationIds      OBJECT-TYPE
+        SYNTAX                              DisplayString
+        MAX-ACCESS       	            accessible-for-notify 
+        STATUS                              current
+        DESCRIPTION
+            "A set of notification identifiers for event correlation."
+        ::= {apNNCItuX733NotificationObjects 11}
+
+    apNNCItuX733AdditionalInformation		OBJECT-TYPE
+	SYNTAX          	 	SEQUENCE OF ApNNCItuX733AdditionalInformationSeq
+	MAX-ACCESS      		accessible-for-notify
+	STATUS          		current
+	DESCRIPTION
+		"Represents the additional text field for the alarm as per[X.733] "        
+	::= { apNNCItuX733NotificationObjects 12 }
+
+    apNNCItuX733AdditionalInformationSeq 	OBJECT-TYPE
+	SYNTAX     					ApNNCItuX733AdditionalInformationSeq
+	MAX-ACCESS 					not-accessible
+	STATUS     					current
+	DESCRIPTION
+		   "Each entry contains the list of additional text field for the alarm as per[X.733] "   
+   INDEX   {                                                             
+             apNNCItuX733AdditionalInformationIdentifier
+
+                                                }	
+	::= { apNNCItuX733AdditionalInformation 1 }
+			
+    ApNNCItuX733AdditionalInformationSeq ::= SEQUENCE {
+	apNNCItuX733AdditionalInformationIdentifier	INTEGER,
+	apNNCItuX733AdditionalInformationIndicator      TruthValue,
+	apNNCItuX733AdditionalInformationInformation	OCTET STRING	
+	}
+
+    apNNCItuX733AdditionalInformationIdentifier        			   OBJECT-TYPE
+	SYNTAX		INTEGER {
+				unknown(0),
+				keyValue(1),
+				text(2)
+				}
+	MAX-ACCESS      accessible-for-notify
+	STATUS          current
+	DESCRIPTION
+		"object identifier which defines the data type of the information subparameter"
+	DEFVAL { keyValue }
+	::= {apNNCItuX733AdditionalInformationSeq 1 }
+
+    apNNCItuX733AdditionalInformationIndicator					   OBJECT-TYPE
+	SYNTAX          TruthValue 
+	MAX-ACCESS      accessible-for-notify
+	STATUS          current
+	DESCRIPTION
+	   "boolean value which is set to true if the receiving system must be able to parse the 
+	   contents of the information subparameter for the event report to be fully understood"
+	DEFVAL { false }
+	::= {apNNCItuX733AdditionalInformationSeq 2 }
+
+    apNNCItuX733AdditionalInformationInformation					   OBJECT-TYPE
+	SYNTAX          OCTET STRING (SIZE (1..2048))
+	MAX-ACCESS      accessible-for-notify
+	STATUS          current
+	DESCRIPTION
+		"The information subparameter carries information about the event"
+	::= {apNNCItuX733AdditionalInformationSeq 3 }
+		
+    apNNCItuX733ProposedRepairAction           OBJECT-TYPE
+        SYNTAX                              DisplayString
+        MAX-ACCESS       	            accessible-for-notify 
+        STATUS                              current
+        DESCRIPTION
+            "Suggestion for resolving the problem."
+        ::= {apNNCItuX733NotificationObjects 13}
+
+    apNNCItuX733Notifications          OBJECT IDENTIFIER ::= { apNNCItuX733AlarmModule 3 }
+    apNNCItuX733NotificationsPrefix    OBJECT IDENTIFIER ::= { apNNCItuX733Notifications 0 }
+
+    apNNCItuX733Notification NOTIFICATION-TYPE
+        OBJECTS {
+            apNNCItuX733NotificationId,
+            apNNCItuX733ManagedObjectClass,
+            apNNCItuX733ManagedObjectInstance,
+            apNNCItuX733PerceivedSeverity,
+            apNNCItuX733EventTime,
+            apNNCItuX733EventType,
+            apNNCItuX733ProbableCause,    
+            apNNCItuX733AdditionalText,
+            apNNCItuX733ThresholdInformation,
+            apNNCItuX733SpecificProblem,
+            apNNCItuX733CorrelationNotificationIds,
+            apNNCItuX733AdditionalInformation,
+            apNNCItuX733ProposedRepairAction
+            }
+	STATUS current
+        DESCRIPTION
+            "The notification will be generated whenever a trap is received from devices managed by NNC or a trap is generated by NNC server its self."
+    ::= { apNNCItuX733NotificationsPrefix 1 }
+
+    apNNCItuX733ModuleConformance OBJECT IDENTIFIER ::= { apNNCItuX733AlarmModule 4 }
+
+    apNNCItuX733Groups OBJECT IDENTIFIER ::= { apNNCItuX733ModuleConformance 1 }
+    apNNCItuX733NotificationsGroups OBJECT IDENTIFIER ::= { apNNCItuX733ModuleConformance 2 }
+    apNNCItuX733NotificationObjectsGroups OBJECT IDENTIFIER ::= { apNNCItuX733ModuleConformance 3 }
+
+    apNNCItuX733NotificationsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+          apNNCItuX733Notification       
+        }
+    STATUS current
+    DESCRIPTION "NNC northbound X.733 format trap"
+    ::= { apNNCItuX733NotificationsGroups 1 }
+
+    apNNCItuX733NotificationObjectsGroup OBJECT-GROUP
+        OBJECTS {
+            apNNCItuX733NotificationId,
+            apNNCItuX733ManagedObjectClass,
+            apNNCItuX733ManagedObjectInstance,
+            apNNCItuX733PerceivedSeverity,
+            apNNCItuX733EventTime,
+            apNNCItuX733EventType,
+            apNNCItuX733ProbableCause,    
+            apNNCItuX733AdditionalText,
+            apNNCItuX733ThresholdInformation,
+            apNNCItuX733SpecificProblem,
+            apNNCItuX733CorrelationNotificationIds,
+            apNNCItuX733AdditionalInformationIdentifier,
+	    apNNCItuX733AdditionalInformationIndicator,
+	    apNNCItuX733AdditionalInformationInformation,
+            apNNCItuX733ProposedRepairAction
+       }
+    STATUS current
+    DESCRIPTION "Objects for NNC northbound X.733 notifications."
+    ::= { apNNCItuX733NotificationObjectsGroups 1 }
+
+END
+

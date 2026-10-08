@@ -1,0 +1,214 @@
+--
+-- defines VERITAS-COMMAND-CENTRAL-MIB MIB 
+--
+-- Copyright (C) 2000-2004 by VERITAS SOFTWARE Corporation.
+-- All rights reserved.
+--
+--
+
+VERITAS-COMMAND-CENTRAL-MIB DEFINITIONS ::= BEGIN
+ 
+IMPORTS
+    OBJECT-TYPE, OBJECT-IDENTITY, NOTIFICATION-TYPE, MODULE-IDENTITY
+		FROM SNMPv2-SMI
+		
+    OBJECT-GROUP, NOTIFICATION-GROUP
+                FROM SNMPv2-CONF		
+		
+    DisplayString
+		FROM SNMPv2-TC
+		
+    Uint64ReadOnly, Utf8StringLong, Utf8StringShort
+		FROM VERITAS-TC
+    
+    products
+		FROM VERITAS-REG;
+                
+veritascc MODULE-IDENTITY
+    LAST-UPDATED 	"0401082130Z"
+    ORGANIZATION 	"VERITAS Software Corp."
+    CONTACT-INFO 	"VERITAS Software Corp.
+                     1600 Plymouth Street.
+                     Mountain View, CA 94043 US
+                     Tel: +1 650 318 4464
+                     Email: support@veritas.com"
+    DESCRIPTION 	"A private MIB module for VERITAS Command Central"
+    REVISION    	"0210241630Z"
+    DESCRIPTION		"Conversion of CC MIB to SMI v2."
+    REVISION    	"0401082130Z"
+    DESCRIPTION		"Fixed a few errors found with very strict compiler."
+
+
+::= { products 12 }
+
+
+--
+--   Trap Definitions Section
+--
+     ccTrapDefinitionsBranch OBJECT IDENTIFIER
+			
+	 ::= { veritascc 10 }
+
+--   Trap Variables 
+
+     ccTrapVarsGroup OBJECT-GROUP
+			OBJECTS { alertRecipients, alertSummary, alertDescription, policyName, objectType,
+					  collectorName, ccHost, sourceId, ccObject, sampleData,
+					  ccAlertSeverity, ccAlertTime }
+			STATUS current
+			DESCRIPTION 
+			"Group for CC Trap VarBinds"
+	 ::= { ccTrapDefinitionsBranch 100 }
+	
+	 ccTrapVarsBranch OBJECT-IDENTITY
+			STATUS	current
+			DESCRIPTION
+			"Branch of the CC MIB for VarBind Definitions"
+	 ::= { ccTrapDefinitionsBranch 1 }
+
+     
+     alertRecipients OBJECT-TYPE
+            SYNTAX DisplayString
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "A list of recipients (mail recipients, trap recipients
+            				 or groups) that are receiving the alert."
+     ::= { ccTrapVarsBranch 1 }
+
+     alertSummary OBJECT-TYPE
+            SYNTAX Utf8StringShort
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "A user specified summary of the alert. This summary may
+            				 also show up as alert in the CC console"
+     ::= { ccTrapVarsBranch 2 }
+
+     alertDescription OBJECT-TYPE
+            SYNTAX Utf8StringLong
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "A user specified detailed description of the alert." 
+     ::= { ccTrapVarsBranch 3 }
+
+     policyName OBJECT-TYPE
+            SYNTAX Utf8StringShort
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "The name of the policy that describes the condition under which the
+            				 alert was generated and the actions (including the trap) that are taken
+            				 as a result of the condition."
+     ::= { ccTrapVarsBranch 4 }
+
+     objectType OBJECT-TYPE
+            SYNTAX Utf8StringShort
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "The type or class of object on which the alert condition happened."
+     ::= { ccTrapVarsBranch 5 }
+
+     collectorName OBJECT-TYPE
+            SYNTAX Utf8StringShort
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "The collector used in the policy condition. It provides the data for condition
+            				 evaluation."
+     ::= { ccTrapVarsBranch 6 }
+
+     ccHost OBJECT-TYPE
+            SYNTAX DisplayString
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "The name of the host where Command Central is running."
+     ::= { ccTrapVarsBranch 7 }
+
+     sourceId OBJECT-TYPE
+            SYNTAX DisplayString
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "The identity of the alert source."
+     ::= { ccTrapVarsBranch 8 }
+
+     ccObject OBJECT-TYPE
+            SYNTAX DisplayString
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "The CC object on which the alert condition triggered."
+     ::= { ccTrapVarsBranch 9 }
+
+     sampleData OBJECT-TYPE
+            SYNTAX Utf8StringShort
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "The value of the sample data at the time the alert was raised."
+     ::= { ccTrapVarsBranch 10 }
+ 
+     ccAlertSeverity OBJECT-TYPE
+     		SYNTAX Utf8StringShort 
+     		MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "Severity of the alert as defined in the policy. It can be one of:
+            				 Critical, Error, Warning or Informational."
+     ::= { ccTrapVarsBranch 11 }
+ 
+     ccAlertTime OBJECT-TYPE
+            SYNTAX Utf8StringShort
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION     "Time string in the time zone of the CC host.  The string takes the form:
+            				 YYYY-MM-DD hh:mm:ss"
+     ::= { ccTrapVarsBranch 12 }
+         
+
+
+-- 	 Trap Definitions                
+
+	ccTrapGroup NOTIFICATION-GROUP
+		NOTIFICATIONS { ccCritical, ccError, ccWarning, ccInformational }
+		STATUS current
+		DESCRIPTION 
+			"Group for CC Traps."
+		::= { ccTrapDefinitionsBranch 200 }
+	
+	ccTrapBranch OBJECT IDENTIFIER ::= { ccTrapDefinitionsBranch 2 }
+		
+	ccTrapBranchPrefix OBJECT-IDENTITY
+		STATUS	current
+		DESCRIPTION
+			"The branch of the CC MIB for Trap Notification Definitions."
+		::= { ccTrapBranch 0 }
+		
+
+     ccCritical    NOTIFICATION-TYPE
+          OBJECTS { alertRecipients, alertSummary, alertDescription, policyName, objectType, collectorName,
+          			  ccHost, sourceId, ccObject, sampleData, ccAlertSeverity, ccAlertTime }
+          STATUS current
+          DESCRIPTION  "A Critical alert trap from Command Central."
+     ::= { ccTrapBranchPrefix 1 }
+
+     ccError    NOTIFICATION-TYPE
+          OBJECTS { alertRecipients, alertSummary, alertDescription, policyName, objectType, collectorName,
+          			  ccHost, sourceId, ccObject, sampleData, ccAlertSeverity, ccAlertTime }
+          STATUS current     			  
+          DESCRIPTION       "An Error alert trap from Command Central."
+     ::= { ccTrapBranchPrefix 2 }
+     
+     ccWarning    NOTIFICATION-TYPE
+          OBJECTS { alertRecipients, alertSummary, alertDescription, policyName, objectType, collectorName,
+          			  ccHost, sourceId, ccObject, sampleData, ccAlertSeverity, ccAlertTime }
+          STATUS current
+          DESCRIPTION       "A Warning alert trap from Command Central."
+     ::= { ccTrapBranchPrefix 3 }
+
+     ccInformational    NOTIFICATION-TYPE
+          OBJECTS { alertRecipients, alertSummary, alertDescription, policyName, objectType, collectorName,
+          			  ccHost, sourceId, ccObject, sampleData, ccAlertSeverity, ccAlertTime }
+          STATUS current
+          DESCRIPTION       "An Informational alert trap from Command Central."
+     ::= { ccTrapBranchPrefix 4 }
+
+     
+END
+
+--
+--   End VERITAS-COMMAND-CENTRAL-MIB
+--

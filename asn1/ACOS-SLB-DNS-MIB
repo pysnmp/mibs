@@ -1,0 +1,383 @@
+ACOS-SLB-DNS-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		slbDnsModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "slbDnsModule OID for ACOS"
+				::=  {  acosSchema 351 }
+
+dns		 OBJECT IDENTIFIER ::= { slbDnsModule 1}
+
+dnsStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "DNS Packet Statistics from object 'slb.dns'"
+	::= {dns 1}
+
+dnsStatsEntry OBJECT-TYPE
+	SYNTAX DnsStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsStats stats entry"
+	INDEX {
+		dnsStatsSlotId
+	}
+	::= { dnsStatsTable 1 }
+
+DnsStatsEntry ::=
+	SEQUENCE {
+		dnsStatsSlotId Integer32,
+		dnsStatsSlbReq	 CounterBasedGauge64,
+		dnsStatsSlbResp	 CounterBasedGauge64,
+		dnsStatsSlbNoResp	 CounterBasedGauge64,
+		dnsStatsSlbReqRexmit	 CounterBasedGauge64,
+		dnsStatsSlbRespNoMatch	 CounterBasedGauge64,
+		dnsStatsSlbNoResource	 CounterBasedGauge64,
+		dnsStatsNatReq	 CounterBasedGauge64,
+		dnsStatsNatResp	 CounterBasedGauge64,
+		dnsStatsNatNoResp	 CounterBasedGauge64,
+		dnsStatsNatReqRexmit	 CounterBasedGauge64,
+		dnsStatsNatRespNoMatch	 CounterBasedGauge64,
+		dnsStatsNatNoResource	 CounterBasedGauge64,
+		dnsStatsNatXidReused	 CounterBasedGauge64,
+		dnsStatsFilterTypeDrop	 CounterBasedGauge64,
+		dnsStatsFilterClassDrop	 CounterBasedGauge64,
+		dnsStatsFilterTypeAnyDrop	 CounterBasedGauge64,
+		dnsStatsSlbDnsClientSslSucc	 CounterBasedGauge64,
+		dnsStatsSlbDnsServerSslSucc	 CounterBasedGauge64,
+		dnsStatsSlbDnsUdpConn	 CounterBasedGauge64,
+		dnsStatsSlbDnsUdpConnSucc	 CounterBasedGauge64,
+		dnsStatsSlbDnsPaddingToServerRemoved	 CounterBasedGauge64,
+		dnsStatsSlbDnsPaddingToClientAdded	 CounterBasedGauge64,
+		dnsStatsSlbDnsEdnsSubnetToServerRemoved	 CounterBasedGauge64,
+		dnsStatsSlbDnsUdpRetransmit	 CounterBasedGauge64,
+		dnsStatsSlbDnsUdpRetransmitFail	 CounterBasedGauge64,
+		dnsStatsRpzActionDrop	 CounterBasedGauge64,
+		dnsStatsRpzActionPassThru	 CounterBasedGauge64,
+		dnsStatsRpzActionTcpOnly	 CounterBasedGauge64,
+		dnsStatsRpzActionNxdomain	 CounterBasedGauge64,
+		dnsStatsRpzActionNodata	 CounterBasedGauge64,
+		dnsStatsRpzActionLocalData	 CounterBasedGauge64,
+		dnsStatsSlbDrop	 CounterBasedGauge64,
+		dnsStatsNatSlbDrop	 CounterBasedGauge64,
+		dnsStatsInvalidQLenToUdp	 CounterBasedGauge64,
+		dnsStatsSlbDnsEdnsEcsReceived	 CounterBasedGauge64,
+		dnsStatsSlbDnsEdnsEcsInserted	 CounterBasedGauge64
+	}
+
+dnsStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsStatsEntry 1 }
+
+dnsStatsSlbReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_req"
+	::= { dnsStatsEntry 2 }
+
+dnsStatsSlbResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_resp"
+	::= { dnsStatsEntry 3 }
+
+dnsStatsSlbNoResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_no_resp"
+	::= { dnsStatsEntry 4 }
+
+dnsStatsSlbReqRexmit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_req_rexmit"
+	::= { dnsStatsEntry 5 }
+
+dnsStatsSlbRespNoMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_resp_no_match"
+	::= { dnsStatsEntry 6 }
+
+dnsStatsSlbNoResource OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_no_resource"
+	::= { dnsStatsEntry 7 }
+
+dnsStatsNatReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_req"
+	::= { dnsStatsEntry 8 }
+
+dnsStatsNatResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_resp"
+	::= { dnsStatsEntry 9 }
+
+dnsStatsNatNoResp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_no_resp"
+	::= { dnsStatsEntry 10 }
+
+dnsStatsNatReqRexmit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_req_rexmit"
+	::= { dnsStatsEntry 11 }
+
+dnsStatsNatRespNoMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_resp_no_match"
+	::= { dnsStatsEntry 12 }
+
+dnsStatsNatNoResource OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_no_resource"
+	::= { dnsStatsEntry 13 }
+
+dnsStatsNatXidReused OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_xid_reused"
+	::= { dnsStatsEntry 14 }
+
+dnsStatsFilterTypeDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "filter_type_drop"
+	::= { dnsStatsEntry 15 }
+
+dnsStatsFilterClassDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "filter_class_drop"
+	::= { dnsStatsEntry 16 }
+
+dnsStatsFilterTypeAnyDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "filter_type_any_drop"
+	::= { dnsStatsEntry 17 }
+
+dnsStatsSlbDnsClientSslSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_client_ssl_succ"
+	::= { dnsStatsEntry 18 }
+
+dnsStatsSlbDnsServerSslSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_server_ssl_succ"
+	::= { dnsStatsEntry 19 }
+
+dnsStatsSlbDnsUdpConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_udp_conn"
+	::= { dnsStatsEntry 20 }
+
+dnsStatsSlbDnsUdpConnSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_udp_conn_succ"
+	::= { dnsStatsEntry 21 }
+
+dnsStatsSlbDnsPaddingToServerRemoved OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_padding_to_server_removed"
+	::= { dnsStatsEntry 22 }
+
+dnsStatsSlbDnsPaddingToClientAdded OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_padding_to_client_added"
+	::= { dnsStatsEntry 23 }
+
+dnsStatsSlbDnsEdnsSubnetToServerRemoved OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_edns_subnet_to_server_removed"
+	::= { dnsStatsEntry 24 }
+
+dnsStatsSlbDnsUdpRetransmit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_udp_retransmit"
+	::= { dnsStatsEntry 25 }
+
+dnsStatsSlbDnsUdpRetransmitFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_udp_retransmit_fail"
+	::= { dnsStatsEntry 26 }
+
+dnsStatsRpzActionDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rpz_action_drop"
+	::= { dnsStatsEntry 27 }
+
+dnsStatsRpzActionPassThru OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rpz_action_pass_thru"
+	::= { dnsStatsEntry 28 }
+
+dnsStatsRpzActionTcpOnly OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rpz_action_tcp_only"
+	::= { dnsStatsEntry 29 }
+
+dnsStatsRpzActionNxdomain OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rpz_action_nxdomain"
+	::= { dnsStatsEntry 30 }
+
+dnsStatsRpzActionNodata OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rpz_action_nodata"
+	::= { dnsStatsEntry 31 }
+
+dnsStatsRpzActionLocalData OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rpz_action_local_data"
+	::= { dnsStatsEntry 32 }
+
+dnsStatsSlbDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_drop"
+	::= { dnsStatsEntry 33 }
+
+dnsStatsNatSlbDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat_slb_drop"
+	::= { dnsStatsEntry 34 }
+
+dnsStatsInvalidQLenToUdp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "invalid_q_len_to_udp"
+	::= { dnsStatsEntry 35 }
+
+dnsStatsSlbDnsEdnsEcsReceived OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_edns_ecs_received"
+	::= { dnsStatsEntry 36 }
+
+dnsStatsSlbDnsEdnsEcsInserted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slb_dns_edns_ecs_inserted"
+	::= { dnsStatsEntry 37 }
+
+END
+

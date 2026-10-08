@@ -1,0 +1,37 @@
+
+-- File Name : mystro-root.mib
+-- Date      : Wed Nov 06 00:51:51 MST 2002
+-- Author    : AdventNet AgentToolkit (C Edition) - MibEditor 5.1
+
+MYSTRO-ROOT-MIB	DEFINITIONS ::= BEGIN
+	IMPORTS
+		enterprises, MODULE-IDENTITY
+			FROM SNMPv2-SMI;
+
+	mystrotv	MODULE-IDENTITY
+		LAST-UPDATED	"200211052324Z"
+		ORGANIZATION	"Mystro TV - an AOL Time Warner Company"
+		CONTACT-INFO	"Michael Durand : Senior Software Engineer : 720-279-2865 :	mdurand@mystrotv.com"
+		DESCRIPTION
+			"This file defines the fundamental  modules, objects, and textual conventions required by all other Mystro TV MIBs."
+		REVISION		"200211052324Z"
+		DESCRIPTION
+			"1.0"
+		::=  {  enterprises  14373  }
+
+	reg	OBJECT IDENTIFIER
+		::=  {  mystrotv  1  }
+
+	generic	OBJECT IDENTIFIER
+		::=  {  mystrotv  2  }
+
+	products	OBJECT IDENTIFIER
+		::=  {  mystrotv  3  }
+
+	caps	OBJECT IDENTIFIER
+		::=  {  mystrotv  4  }
+
+	reqs	OBJECT IDENTIFIER
+		::=  {  mystrotv  5  }
+
+END

@@ -1,0 +1,552 @@
+ACOS-RULESET-RULES-BY-ZONE-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		ruleSetRulesByZoneModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "ruleSetRulesByZoneModule OID for ACOS"
+				::=  {  acosSchema 472 }
+
+rulesByZone		 OBJECT IDENTIFIER ::= { ruleSetRulesByZoneModule 1}
+
+rulesByZoneStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RulesByZoneStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 " from object 'rule-set.rules-by-zone'"
+	::= {rulesByZone 1}
+
+rulesByZoneStatsEntry OBJECT-TYPE
+	SYNTAX RulesByZoneStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rulesByZoneStats stats entry"
+	INDEX {
+		rulesByZoneStatsSlotId,
+		rulesByZoneStatsName
+	}
+	::= { rulesByZoneStatsTable 1 }
+
+RulesByZoneStatsEntry ::=
+	SEQUENCE {
+		rulesByZoneStatsSlotId Integer32,
+		rulesByZoneStatsName DisplayString,
+		rulesByZoneStatsDummy	 CounterBasedGauge64
+	}
+
+rulesByZoneStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { rulesByZoneStatsEntry 1 }
+
+rulesByZoneStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { rulesByZoneStatsEntry 2 }
+
+rulesByZoneStatsDummy OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dummy"
+	::= { rulesByZoneStatsEntry 3 }
+
+rulesByZoneOperGroupListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RulesByZoneOperGroupListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'rule-set.rules-by-zone'"
+	::= {rulesByZone 2}
+
+rulesByZoneOperGroupListEntry OBJECT-TYPE
+	SYNTAX RulesByZoneOperGroupListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rulesByZoneOperGroupList entry:group-list"
+	INDEX {
+		rulesByZoneOperGroupListSlotId,
+		rulesByZoneOperGroupListName,
+		rulesByZoneOperGroupListGroupListListId
+	}
+	::= { rulesByZoneOperGroupListTable 1}
+
+RulesByZoneOperGroupListEntry ::=
+	SEQUENCE {
+		rulesByZoneOperGroupListSlotId Integer32,
+		rulesByZoneOperGroupListName DisplayString,
+		rulesByZoneOperGroupListGroupListListId Integer32,
+		rulesByZoneOperGroupListFrom	DisplayString,
+		rulesByZoneOperGroupListTo	DisplayString
+	}
+
+rulesByZoneOperGroupListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListEntry 1}
+
+rulesByZoneOperGroupListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { rulesByZoneOperGroupListEntry 2}
+
+rulesByZoneOperGroupListGroupListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListEntry 3}
+
+rulesByZoneOperGroupListFrom OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"from"
+	::= { rulesByZoneOperGroupListEntry 4}
+
+rulesByZoneOperGroupListTo OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"to"
+	::= { rulesByZoneOperGroupListEntry 5}
+
+rulesByZoneOperGroupListRuleListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RulesByZoneOperGroupListRuleListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'rule-set.rules-by-zone'"
+	::= {rulesByZone 3}
+
+rulesByZoneOperGroupListRuleListEntry OBJECT-TYPE
+	SYNTAX RulesByZoneOperGroupListRuleListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rulesByZoneOperGroupListRuleList entry:rule-list"
+	INDEX {
+		rulesByZoneOperGroupListRuleListSlotId,
+		rulesByZoneOperGroupListRuleListName,
+		rulesByZoneOperGroupListRuleListGroupListListId,
+		rulesByZoneOperGroupListRuleListRuleListListId
+	}
+	::= { rulesByZoneOperGroupListRuleListTable 1}
+
+RulesByZoneOperGroupListRuleListEntry ::=
+	SEQUENCE {
+		rulesByZoneOperGroupListRuleListSlotId Integer32,
+		rulesByZoneOperGroupListRuleListName DisplayString,
+		rulesByZoneOperGroupListRuleListGroupListListId Integer32,
+		rulesByZoneOperGroupListRuleListRuleListListId Integer32,
+		rulesByZoneOperGroupListRuleListName1	DisplayString,
+		rulesByZoneOperGroupListRuleListAction	DisplayString
+	}
+
+rulesByZoneOperGroupListRuleListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListEntry 1}
+
+rulesByZoneOperGroupListRuleListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { rulesByZoneOperGroupListRuleListEntry 2}
+
+rulesByZoneOperGroupListRuleListGroupListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListEntry 3}
+
+rulesByZoneOperGroupListRuleListRuleListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListEntry 4}
+
+rulesByZoneOperGroupListRuleListName1 OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { rulesByZoneOperGroupListRuleListEntry 5}
+
+rulesByZoneOperGroupListRuleListAction OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"action"
+	::= { rulesByZoneOperGroupListRuleListEntry 6}
+
+rulesByZoneOperGroupListRuleListSourceListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RulesByZoneOperGroupListRuleListSourceListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'rule-set.rules-by-zone'"
+	::= {rulesByZone 4}
+
+rulesByZoneOperGroupListRuleListSourceListEntry OBJECT-TYPE
+	SYNTAX RulesByZoneOperGroupListRuleListSourceListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rulesByZoneOperGroupListRuleListSourceList entry:source-list"
+	INDEX {
+		rulesByZoneOperGroupListRuleListSourceListSlotId,
+		rulesByZoneOperGroupListRuleListSourceListName,
+		rulesByZoneOperGroupListRuleListSourceListGroupListListId,
+		rulesByZoneOperGroupListRuleListSourceListRuleListListId,
+		rulesByZoneOperGroupListRuleListSourceListSourceListListId
+	}
+	::= { rulesByZoneOperGroupListRuleListSourceListTable 1}
+
+RulesByZoneOperGroupListRuleListSourceListEntry ::=
+	SEQUENCE {
+		rulesByZoneOperGroupListRuleListSourceListSlotId Integer32,
+		rulesByZoneOperGroupListRuleListSourceListName DisplayString,
+		rulesByZoneOperGroupListRuleListSourceListGroupListListId Integer32,
+		rulesByZoneOperGroupListRuleListSourceListRuleListListId Integer32,
+		rulesByZoneOperGroupListRuleListSourceListSourceListListId Integer32,
+		rulesByZoneOperGroupListRuleListSourceListSource	DisplayString
+	}
+
+rulesByZoneOperGroupListRuleListSourceListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListSourceListEntry 1}
+
+rulesByZoneOperGroupListRuleListSourceListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { rulesByZoneOperGroupListRuleListSourceListEntry 2}
+
+rulesByZoneOperGroupListRuleListSourceListGroupListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListSourceListEntry 3}
+
+rulesByZoneOperGroupListRuleListSourceListRuleListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListSourceListEntry 4}
+
+rulesByZoneOperGroupListRuleListSourceListSourceListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListSourceListEntry 5}
+
+rulesByZoneOperGroupListRuleListSourceListSource OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"source"
+	::= { rulesByZoneOperGroupListRuleListSourceListEntry 6}
+
+rulesByZoneOperGroupListRuleListDestListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RulesByZoneOperGroupListRuleListDestListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'rule-set.rules-by-zone'"
+	::= {rulesByZone 5}
+
+rulesByZoneOperGroupListRuleListDestListEntry OBJECT-TYPE
+	SYNTAX RulesByZoneOperGroupListRuleListDestListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rulesByZoneOperGroupListRuleListDestList entry:dest-list"
+	INDEX {
+		rulesByZoneOperGroupListRuleListDestListSlotId,
+		rulesByZoneOperGroupListRuleListDestListName,
+		rulesByZoneOperGroupListRuleListDestListGroupListListId,
+		rulesByZoneOperGroupListRuleListDestListRuleListListId,
+		rulesByZoneOperGroupListRuleListDestListDestListListId
+	}
+	::= { rulesByZoneOperGroupListRuleListDestListTable 1}
+
+RulesByZoneOperGroupListRuleListDestListEntry ::=
+	SEQUENCE {
+		rulesByZoneOperGroupListRuleListDestListSlotId Integer32,
+		rulesByZoneOperGroupListRuleListDestListName DisplayString,
+		rulesByZoneOperGroupListRuleListDestListGroupListListId Integer32,
+		rulesByZoneOperGroupListRuleListDestListRuleListListId Integer32,
+		rulesByZoneOperGroupListRuleListDestListDestListListId Integer32,
+		rulesByZoneOperGroupListRuleListDestListDest	DisplayString
+	}
+
+rulesByZoneOperGroupListRuleListDestListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListDestListEntry 1}
+
+rulesByZoneOperGroupListRuleListDestListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { rulesByZoneOperGroupListRuleListDestListEntry 2}
+
+rulesByZoneOperGroupListRuleListDestListGroupListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListDestListEntry 3}
+
+rulesByZoneOperGroupListRuleListDestListRuleListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListDestListEntry 4}
+
+rulesByZoneOperGroupListRuleListDestListDestListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListDestListEntry 5}
+
+rulesByZoneOperGroupListRuleListDestListDest OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dest"
+	::= { rulesByZoneOperGroupListRuleListDestListEntry 6}
+
+rulesByZoneOperGroupListRuleListServiceListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RulesByZoneOperGroupListRuleListServiceListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'rule-set.rules-by-zone'"
+	::= {rulesByZone 6}
+
+rulesByZoneOperGroupListRuleListServiceListEntry OBJECT-TYPE
+	SYNTAX RulesByZoneOperGroupListRuleListServiceListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rulesByZoneOperGroupListRuleListServiceList entry:service-list"
+	INDEX {
+		rulesByZoneOperGroupListRuleListServiceListSlotId,
+		rulesByZoneOperGroupListRuleListServiceListName,
+		rulesByZoneOperGroupListRuleListServiceListGroupListListId,
+		rulesByZoneOperGroupListRuleListServiceListRuleListListId,
+		rulesByZoneOperGroupListRuleListServiceListServiceListListId
+	}
+	::= { rulesByZoneOperGroupListRuleListServiceListTable 1}
+
+RulesByZoneOperGroupListRuleListServiceListEntry ::=
+	SEQUENCE {
+		rulesByZoneOperGroupListRuleListServiceListSlotId Integer32,
+		rulesByZoneOperGroupListRuleListServiceListName DisplayString,
+		rulesByZoneOperGroupListRuleListServiceListGroupListListId Integer32,
+		rulesByZoneOperGroupListRuleListServiceListRuleListListId Integer32,
+		rulesByZoneOperGroupListRuleListServiceListServiceListListId Integer32,
+		rulesByZoneOperGroupListRuleListServiceListService	DisplayString
+	}
+
+rulesByZoneOperGroupListRuleListServiceListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListServiceListEntry 1}
+
+rulesByZoneOperGroupListRuleListServiceListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { rulesByZoneOperGroupListRuleListServiceListEntry 2}
+
+rulesByZoneOperGroupListRuleListServiceListGroupListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListServiceListEntry 3}
+
+rulesByZoneOperGroupListRuleListServiceListRuleListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListServiceListEntry 4}
+
+rulesByZoneOperGroupListRuleListServiceListServiceListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListServiceListEntry 5}
+
+rulesByZoneOperGroupListRuleListServiceListService OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service"
+	::= { rulesByZoneOperGroupListRuleListServiceListEntry 6}
+
+rulesByZoneOperGroupListRuleListDscpListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RulesByZoneOperGroupListRuleListDscpListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'rule-set.rules-by-zone'"
+	::= {rulesByZone 7}
+
+rulesByZoneOperGroupListRuleListDscpListEntry OBJECT-TYPE
+	SYNTAX RulesByZoneOperGroupListRuleListDscpListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rulesByZoneOperGroupListRuleListDscpList entry:dscp-list"
+	INDEX {
+		rulesByZoneOperGroupListRuleListDscpListSlotId,
+		rulesByZoneOperGroupListRuleListDscpListName,
+		rulesByZoneOperGroupListRuleListDscpListGroupListListId,
+		rulesByZoneOperGroupListRuleListDscpListRuleListListId,
+		rulesByZoneOperGroupListRuleListDscpListDscpListListId
+	}
+	::= { rulesByZoneOperGroupListRuleListDscpListTable 1}
+
+RulesByZoneOperGroupListRuleListDscpListEntry ::=
+	SEQUENCE {
+		rulesByZoneOperGroupListRuleListDscpListSlotId Integer32,
+		rulesByZoneOperGroupListRuleListDscpListName DisplayString,
+		rulesByZoneOperGroupListRuleListDscpListGroupListListId Integer32,
+		rulesByZoneOperGroupListRuleListDscpListRuleListListId Integer32,
+		rulesByZoneOperGroupListRuleListDscpListDscpListListId Integer32,
+		rulesByZoneOperGroupListRuleListDscpListDscp	DisplayString
+	}
+
+rulesByZoneOperGroupListRuleListDscpListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListDscpListEntry 1}
+
+rulesByZoneOperGroupListRuleListDscpListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { rulesByZoneOperGroupListRuleListDscpListEntry 2}
+
+rulesByZoneOperGroupListRuleListDscpListGroupListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListDscpListEntry 3}
+
+rulesByZoneOperGroupListRuleListDscpListRuleListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListDscpListEntry 4}
+
+rulesByZoneOperGroupListRuleListDscpListDscpListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rulesByZoneOperGroupListRuleListDscpListEntry 5}
+
+rulesByZoneOperGroupListRuleListDscpListDscp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"dscp"
+	::= { rulesByZoneOperGroupListRuleListDscpListEntry 6}
+
+END
+

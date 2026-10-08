@@ -1,0 +1,1098 @@
+-------------------------------------------------------------------------------
+-- ACMEPACKET-APPS.txt:  Acme Packet usbc system MIB
+--
+-- March 2012
+--
+-- Copyright (c) by Oracle Communications
+-- All rights reserved.
+-------------------------------------------------------------------------------
+
+APUSBCSYS-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+        Gauge32, Integer32, Unsigned32
+                FROM SNMPv2-SMI
+        TEXTUAL-CONVENTION, DisplayString, TruthValue
+                FROM SNMPv2-TC
+        MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+                FROM SNMPv2-CONF
+        InetAddress, InetAddressType
+            FROM INET-ADDRESS-MIB
+        acmepacketMgmt
+                FROM ACMEPACKET-SMI
+        ApHardwareModuleFamily, ApRedundancyState, ApPhyPortType,
+        ApPresence, ApServerStatus, ApThreadOverloaded
+            FROM ACMEPACKET-TC;
+
+apUsbcSysModule  MODULE-IDENTITY
+	       LAST-UPDATED	"201804130000Z"
+	       ORGANIZATION 	"Oracle Communications"
+	       CONTACT-INFO
+	       		"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+                DESCRIPTION
+                        "APPS MIB for Oracle Communications Acme Packet SBCs"
+                REVISION        "201203070000Z"
+                DESCRIPTION
+                        "Initial version."
+		REVISION 	"201406260000Z" 			
+	    	DESCRIPTION
+		    	"Updated Organization and Contact info."
+		REVISION 	"201804130000Z" 			
+	    	DESCRIPTION
+		    	"Added MIB OID for system FD count traps"
+                ::= { acmepacketMgmt 17 }
+
+
+apUsbcSysMIBObjects OBJECT IDENTIFIER ::= { apUsbcSysModule 1 }
+
+apUsbcSysNotificationObjects OBJECT IDENTIFIER ::= { apUsbcSysModule 2 }
+apUsbcSysNotifObjects OBJECT IDENTIFIER ::= { apUsbcSysNotificationObjects 1 }
+apUsbcSysNotifPrefix  OBJECT IDENTIFIER ::= { apUsbcSysNotificationObjects 2 }
+apUsbcSysCpuNotif  OBJECT IDENTIFIER ::= { apUsbcSysNotifPrefix 1 }
+apUsbcSysCpuNotifications  OBJECT IDENTIFIER ::= { apUsbcSysCpuNotif 0 }
+apUsbcSysFdNotif  OBJECT IDENTIFIER ::= { apUsbcSysNotifPrefix 2 }
+apUsbcSysFdNotifications  OBJECT IDENTIFIER ::= { apUsbcSysFdNotif 0 }
+
+-- conformance information
+
+apUsbcSysConformance OBJECT IDENTIFIER ::= { apUsbcSysModule 3 }
+apUsbcSysObjectGroups OBJECT IDENTIFIER ::= { apUsbcSysConformance 1 }
+apUsbcSysNotificationGroups OBJECT IDENTIFIER ::= { apUsbcSysConformance 2 }
+
+
+UsbcSysPercent ::= TEXTUAL-CONVENTION
+        STATUS           current
+        DESCRIPTION
+                "A percentage value."
+        SYNTAX          Gauge32 (0..100)
+
+apUsbcSysObjects OBJECT IDENTIFIER ::= {apUsbcSysMIBObjects 1}
+
+apUsbcSysCpuUtilAll     OBJECT-TYPE
+        SYNTAX          UsbcSysPercent
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "The percentage of total Cpu utilization."
+        ::= { apUsbcSysObjects 1 }
+
+apUsbcSysCpuCount       OBJECT-TYPE
+        SYNTAX          Integer32 (0..255)
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The number of cpus for this system."
+        ::= {  apUsbcSysObjects 2 }
+
+apUsbcSysCpuSpeedMHz    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The speed in MHz of the cpus for this system."
+        ::= {  apUsbcSysObjects 3 }
+
+apUsbcSysMemSzMB        OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The number of megabytes of all cpus for this system."
+        ::= {  apUsbcSysObjects 4 }
+
+apUsbcSysMemSzGB        OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The number of gigabytes of all cpus for this system."
+        ::= {  apUsbcSysObjects 5 }
+
+apUsbcSysAppMemUtil     OBJECT-TYPE
+        SYNTAX           UsbcSysPercent
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The percentage of total memory used by the applications."
+        ::= {  apUsbcSysObjects 6 }
+
+apUsbcSysKernelMemUtil  OBJECT-TYPE
+        SYNTAX           UsbcSysPercent
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The perventage of total memory used by the kernel."
+        ::= {  apUsbcSysObjects 7 }
+
+
+apUsbcSysMyBogoMips     OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The processor speed measured in millions of instructions per
+	     seond.  Calculated by the kernel at boot time."
+        ::= { apUsbcSysObjects 8 }
+
+apUsbcSysAllBogoMips    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The sum of all bogo mips(millions of instrctuctions per second)
+             of all cpus for this system."
+        ::= {  apUsbcSysObjects 9 }
+
+
+apUsbcSysCpuTblObjects OBJECT IDENTIFIER ::= { apUsbcSysObjects 10 }
+
+apUsbcSysCpuTable       OBJECT-TYPE
+        SYNTAX          SEQUENCE OF UsbcSysCpuEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A read-only table to hold nformation for a cpu indexed by
+            the cpu numberi + 1."
+        ::= { apUsbcSysCpuTblObjects 1  }
+
+apUsbcSysCpuEntry       OBJECT-TYPE
+        SYNTAX          UsbcSysCpuEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A entry designed to hold the status of a single Cpu."
+        INDEX { apUsbcSysCpuNum }
+        ::= { apUsbcSysCpuTable 1 }
+
+UsbcSysCpuEntry ::= SEQUENCE {
+        apUsbcSysCpuNum      Integer32,
+        apUsbcSysCpuUtil     UsbcSysPercent
+        }
+
+apUsbcSysCpuNum         OBJECT-TYPE
+        SYNTAX          Integer32 (0..255)
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The cpu number + 1 of this entry."
+        ::= { apUsbcSysCpuEntry 1 }
+
+apUsbcSysCpuUtil        OBJECT-TYPE
+        SYNTAX          UsbcSysPercent
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The percent of cpu utilization of this cpu."
+        ::= { apUsbcSysCpuEntry 2 }
+
+
+
+apUsbcSysScalingObjects OBJECT IDENTIFIER ::= { apUsbcSysObjects 12 }
+
+apUsbcSysEstSessions    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Estimated number of unecrypted media sessions."
+        ::= {  apUsbcSysScalingObjects 1 }
+
+apUsbcSysEstG711G729Trans    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Estimated number of G711<->G729 transcoded media sessions."
+        ::= {  apUsbcSysScalingObjects 2 }
+
+apUsbcSysEstSigTPS    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Estimated number of signaling TPS."
+        ::= {  apUsbcSysScalingObjects 3 }
+
+apUsbcSysEstACLs    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Estimated number of ACLs."
+        ::= {  apUsbcSysScalingObjects 4 }
+
+apUsbcSysEstTCP    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Estimated number of TCP connections."
+        ::= {  apUsbcSysScalingObjects 5 }
+
+apUsbcSysEstTLS    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Estimated number of TLS connections."
+        ::= {  apUsbcSysScalingObjects 6 }
+
+apUsbcSysEstVLANs    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Estimated number of VLANs."
+        ::= {  apUsbcSysScalingObjects 7 }
+
+
+apUsbcSysDPDKObjects OBJECT IDENTIFIER ::= { apUsbcSysObjects 13 }
+
+apUsbcSysDPDKFwdPurpose    OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "A bitset representing cores designated for forwarding purposes. 
+	    Bits set to 1 represent forwarding cores."
+        ::= {  apUsbcSysDPDKObjects 1 }
+
+apUsbcSysDPDKDOSPurpose    OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "A bitset representing cores designated for DoS purposes. 
+	    Bits set to 1 represent DoS cores."
+        ::= { apUsbcSysDPDKObjects 2 }
+
+apUsbcSysDPDKSigPurpose    OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "A bitset representing cores designated for Signaling purposes. 
+	    Bits set to 1 represent signaling cores."
+        ::= { apUsbcSysDPDKObjects 3 }
+
+apUsbcSysDPDKTransPurpose    OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "A bitset representing Cores designated for transcoding purposes. 
+	    Bits set to 1 represent transcoding cores."
+        ::= { apUsbcSysDPDKObjects 4 }
+
+apUsbcSysDPDKCmdLine     OBJECT-TYPE
+        SYNTAX          OCTET STRING (SIZE(0..255))
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "System CmdLine string - as defined in /proc/cmdline. (including relevant bootparams.)"
+        ::= { apUsbcSysDPDKObjects 5 }
+
+apUsbcSysDPDKFileMem    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Total DPDK File Memory."
+        ::= { apUsbcSysDPDKObjects 6 }
+
+apUsbcSysDPDKSysMem    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Total DPDK System Memory."
+        ::= { apUsbcSysDPDKObjects 7 }
+
+apUsbcSysDPDKNum1G    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Number of 1GB Hugepages allocated."
+        ::= { apUsbcSysDPDKObjects 8 }
+
+apUsbcSysDPDKNum2MB    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Number of 2MB hugepages allocated."
+        ::= { apUsbcSysDPDKObjects 9 }
+
+apUsbcSysDPDKHypervisorType     OBJECT-TYPE
+        SYNTAX          OCTET STRING (SIZE(0..255))
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The description regarding the system type and what hypervisor the system
+	     is running on (OVM, KVM, VMWare,...) if any."
+        ::= { apUsbcSysDPDKObjects 10 }
+
+apUsbcSysDPDKAddFwdCores    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Number of additional cores that may be used for forwarding."
+        ::= {  apUsbcSysDPDKObjects 11 }
+
+apUsbcSysDPDKAddSigCores    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Number of additional cores that may be used for signaling."
+        ::= { apUsbcSysDPDKObjects 12 }
+
+apUsbcSysDPDKAddTransCores    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Number of additional cores that may be used for transcoding."
+        ::= { apUsbcSysDPDKObjects 13 }
+     
+apUsbcSysSmObjects OBJECT IDENTIFIER ::= { apUsbcSysObjects 14 }
+     
+apUsbcSysSmMsgRate      OBJECT-TYPE
+        SYNTAX          Integer32 (0..2147483647)
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "Session Manager SIP Messages, Enum Messages, and Cx Diameter messages per second."
+        ::=  { apUsbcSysSmObjects 1 }
+
+apUsbcSysThreadObjects OBJECT IDENTIFIER ::= {apUsbcSysMIBObjects 2}
+
+apUsbcThreadUsageTableObject OBJECT IDENTIFIER ::= { apUsbcSysThreadObjects 1 }
+
+apUsbcThreadUsageTable        OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApThreadUsageEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "A table to hold the thread usage information,
+		on a Session Border Controller.
+		These are all read only."
+        ::=  { apUsbcThreadUsageTableObject 1 }
+
+apThreadUsageEntry        OBJECT-TYPE
+        SYNTAX          ApThreadUsageEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "A table entry designed to hold the thread usage information,
+		on a Session Border Controller."
+        INDEX {  apThreadId }
+        ::= { apUsbcThreadUsageTable 1 }
+
+ApThreadUsageEntry ::= SEQUENCE {
+        apThreadId      		Integer32,
+		apThreadName			DisplayString,
+        apThreadCurrentUsage	Integer32,
+		apThreadOverloaded		ApThreadOverloaded
+}
+
+apThreadId     OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              not-accessible 
+        STATUS                  current
+        DESCRIPTION
+                "The instance index of the thread."
+        ::= { apThreadUsageEntry 1}
+
+apThreadName 	OBJECT-TYPE
+	SYNTAX		DisplayString
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The name of the thread"
+	::= { apThreadUsageEntry 2 }
+
+apThreadCurrentUsage      OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The current cpu usage of the thread.
+		 Multiply by 100 from % value."
+        ::= { apThreadUsageEntry 3 }
+
+
+apThreadOverloaded 	OBJECT-TYPE
+	SYNTAX             ApThreadOverloaded
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "Indicator if thread is in overload control"
+	::= { apThreadUsageEntry 4 }
+
+apUsbcSysFdCurrentCount      OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The current system FD count."
+        ::= { apUsbcSysObjects 11 }
+
+apUsbcThreadEventTableObject OBJECT IDENTIFIER ::= { apUsbcSysThreadObjects 2 }
+
+apUsbcThreadEventTable        OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApThreadEventEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "A table to hold the thread event information,
+		on a Session Border Controller.
+		These are all read only."
+        ::=  { apUsbcThreadEventTableObject 1 }
+
+apThreadEventEntry        OBJECT-TYPE
+        SYNTAX          ApThreadEventEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "A table entry designed to hold the thread event information,
+		on a Session Border Controller."
+        INDEX {  apThreadId }
+        ::= { apUsbcThreadEventTable 1 }
+
+ApThreadEventEntry ::= SEQUENCE {
+	apThreadEventPendingCurrent	Integer32,
+	apThreadEventPendingCurhigh	Integer32,
+	apThreadEventPendingWindow	Integer32,
+	apThreadEventPendingTotal	Integer32,
+	apThreadEventPendingMaximum	Integer32,
+	apThreadEventPendingHigh	Integer32,
+	apThreadEventDroppedCurrent	Integer32,
+	apThreadEventDroppedCurhigh	Integer32,
+	apThreadEventDroppedWindow	Integer32,
+	apThreadEventDroppedTotal	Integer32,
+	apThreadEventDroppedMaximum	Integer32,
+	apThreadEventDroppedHigh	Integer32,
+	apThreadLatencyPendingAverage		Integer32,
+	apThreadLatencyPendingMax			Integer32,
+	apThreadLatencyProcessingAverage	Integer32,
+	apThreadLatencyProcessingMax		Integer32
+}
+
+apThreadEventPendingCurrent	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event pending Active counter."
+        ::= { apThreadEventEntry 1 }
+
+apThreadEventPendingCurhigh	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event pending High counter."
+        ::= { apThreadEventEntry 2 }
+        
+apThreadEventPendingWindow	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event pending Total counter."
+        ::= { apThreadEventEntry 3 }      
+        
+apThreadEventPendingTotal	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event pending Total counter."
+        ::= { apThreadEventEntry 4 }
+
+apThreadEventPendingMaximum	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event pending PerMax counter."
+        ::= { apThreadEventEntry 5 }
+        
+apThreadEventPendingHigh	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event pending High counter."
+        ::= { apThreadEventEntry 6 }  
+
+apThreadEventDroppedCurrent	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event dropped Active counter."
+        ::= { apThreadEventEntry 7 }
+
+apThreadEventDroppedCurhigh	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event dropped High counter."
+        ::= { apThreadEventEntry 8 }
+        
+apThreadEventDroppedWindow	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event dropped Total counter."
+        ::= { apThreadEventEntry 9 }      
+        
+apThreadEventDroppedTotal	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event dropped Total counter."
+        ::= { apThreadEventEntry 10 }
+
+apThreadEventDroppedMaximum	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event dropped PerMax counter."
+        ::= { apThreadEventEntry 11 }
+        
+apThreadEventDroppedHigh	  OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The event dropped High counter."
+        ::= { apThreadEventEntry 12 }  
+
+apThreadLatencyPendingAverage     OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The thread average latency."
+        ::= { apThreadEventEntry 13 }
+
+apThreadLatencyPendingMax     OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The thread max latency."
+        ::= { apThreadEventEntry 14 }
+
+apThreadLatencyProcessingAverage     OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The thread average latency."
+        ::= { apThreadEventEntry 15 }
+
+apThreadLatencyProcessingMax     OBJECT-TYPE
+        SYNTAX                  Integer32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The thread max latency."
+        ::= { apThreadEventEntry 16 }
+
+
+apUsbcSipObjects OBJECT IDENTIFIER ::= {apUsbcSysThreadObjects 3}
+apUsbcAtcpObjects OBJECT IDENTIFIER ::= {apUsbcSysThreadObjects 4}
+apUsbcMbcdObjects OBJECT IDENTIFIER ::= {apUsbcSysThreadObjects 5}
+apUsbcEbmdObjects OBJECT IDENTIFIER ::= {apUsbcSysThreadObjects 6}
+apUsbcDnsObjects OBJECT IDENTIFIER ::= {apUsbcSysThreadObjects 7}
+
+apSipNumberOfThreads	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Number of SIP threads."
+	::= { apUsbcSipObjects 1 }
+
+apSipAverageCpuUtil	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Average CPU utilization."
+	::= { apUsbcSipObjects 2 }
+
+apSipPendingAverageLatency	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"The average latency of SIP Pending events."
+	::= { apUsbcSipObjects 3 }
+
+apSipPendingMaxLatency	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"The max latency of SIP Pending events."
+	::= { apUsbcSipObjects 4 }
+	
+apSipProcessingAverageLatency	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"The average latency of SIP Processing events."
+	::= { apUsbcSipObjects 5 }
+
+apSipProcessingMaxLatency	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"The max latency of SIP Processing events."
+	::= { apUsbcSipObjects 6 }
+
+
+apAtcpNumberOfThreads	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Number of ATCP threads."
+	::= { apUsbcAtcpObjects 1 }
+
+apAtcpAverageCpuUtil	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Average CPU utilization."
+	::= { apUsbcAtcpObjects 2 }
+
+apAtcpPendingAverageLatency	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"The average latency of ATCP Pending events."
+	::= { apUsbcAtcpObjects 3 }
+
+apAtcpPendingMaxLatency	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"The max latency of ATCP Pending events."
+	::= { apUsbcAtcpObjects 4 }
+	
+apAtcpProcessingAverageLatency	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"The average latency of ATCP Processing events."
+	::= { apUsbcAtcpObjects 5 }
+
+apAtcpProcessingMaxLatency	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"The max latency of ATCP Processing events."
+	::= { apUsbcAtcpObjects 6 }  
+	
+	
+
+apMbcdNumberOfThreads	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Number of MBCD threads."
+	::= { apUsbcMbcdObjects 1 }
+
+apMbcdAverageCpuUtil	OBJECT-TYPE
+      	SYNTAX          Integer32 
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Average CPU utilization."
+	::= { apUsbcMbcdObjects 2 }
+
+apEbmdNumberOfThreads	OBJECT-TYPE
+        SYNTAX          Integer32 (0..2147483647)
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Number of EBMD threads."
+	::= { apUsbcEbmdObjects 1 }
+
+apEbmdAverageCpuUtil	OBJECT-TYPE
+        SYNTAX          Integer32 (0..1000)
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Average CPU utilization."
+	::= { apUsbcEbmdObjects 2 }
+
+apDnsNumberOfThreads	OBJECT-TYPE
+        SYNTAX          Integer32 (0..2147483647)
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Number of DNS threads."
+	::= { apUsbcDnsObjects 1 }
+
+apDnsAverageCpuUtil	OBJECT-TYPE
+        SYNTAX          Integer32 (0..1000)
+      	MAX-ACCESS      read-only
+      	STATUS	  	current
+	DESCRIPTION
+            	"Average CPU utilization."
+	::= { apUsbcDnsObjects 2 }
+        
+apUsbcSysGroup          OBJECT-GROUP
+      OBJECTS   {
+                apUsbcSysCpuUtilAll,
+                apUsbcSysCpuCount,
+                apUsbcSysCpuSpeedMHz,
+                apUsbcSysMemSzMB,
+                apUsbcSysMemSzGB,
+		apUsbcSysAppMemUtil,
+		apUsbcSysKernelMemUtil,
+                apUsbcSysMyBogoMips,
+                apUsbcSysAllBogoMips
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the system manager MIB
+                capability."
+      ::= { apUsbcSysObjectGroups 1 }
+
+
+apUsbcSysCpuTblGroup    OBJECT-GROUP
+        OBJECTS {
+                apUsbcSysCpuNum,
+                apUsbcSysCpuUtil
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report information for all cpus on the system."
+        ::= { apUsbcSysObjectGroups 2  }
+
+apUsbcSysScalingGroup          OBJECT-GROUP
+      OBJECTS   {
+                apUsbcSysEstSessions,
+                apUsbcSysEstG711G729Trans,
+                apUsbcSysEstSigTPS,
+                apUsbcSysEstACLs,
+                apUsbcSysEstTCP,
+                apUsbcSysEstTLS,
+                apUsbcSysEstVLANs
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing estimates for the USBC capacity."
+      ::= { apUsbcSysObjectGroups 3 }
+
+apUsbcSysDPDKGroup    OBJECT-GROUP
+        OBJECTS {
+                apUsbcSysDPDKFwdPurpose,
+                apUsbcSysDPDKDOSPurpose,
+                apUsbcSysDPDKSigPurpose,
+                apUsbcSysDPDKTransPurpose,
+                apUsbcSysDPDKCmdLine,
+                apUsbcSysDPDKFileMem,
+                apUsbcSysDPDKSysMem,
+                apUsbcSysDPDKNum1G,  
+                apUsbcSysDPDKNum2MB, 
+                apUsbcSysDPDKHypervisorType,
+		apUsbcSysDPDKAddFwdCores,
+		apUsbcSysDPDKAddSigCores,
+		apUsbcSysDPDKAddTransCores    
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report information for all cpus on the system."
+        ::= { apUsbcSysObjectGroups 4  }
+
+apUsbcSysThreadUsageTblGroup          OBJECT-GROUP
+      OBJECTS   {
+					apThreadName,
+					apThreadCurrentUsage,
+					apThreadOverloaded
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the thread level usage stats."
+      ::= { apUsbcSysObjectGroups 5 }
+
+apUsbcSysThreadEventTblGroup          OBJECT-GROUP
+      OBJECTS   {
+  					apThreadEventPendingCurrent,
+					apThreadEventPendingCurhigh,
+					apThreadEventPendingWindow,
+					apThreadEventPendingTotal,
+					apThreadEventPendingMaximum,
+					apThreadEventPendingWindow,			
+					apThreadEventDroppedCurrent,
+					apThreadEventDroppedCurhigh,
+					apThreadEventDroppedWindow,
+					apThreadEventDroppedTotal,
+					apThreadEventDroppedMaximum,
+					apThreadEventDroppedWindow,				
+					apThreadLatencyPendingAverage,
+					apThreadLatencyPendingMax,
+					apThreadLatencyProcessingAverage,
+					apThreadLatencyProcessingMax
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the thread level event stats."
+      ::= { apUsbcSysObjectGroups 6 }
+	  
+apUsbcSysThreadSipGroup          OBJECT-GROUP
+      OBJECTS   {
+					apSipNumberOfThreads,
+					apSipAverageCpuUtil,
+					apSipPendingAverageLatency,
+					apSipPendingMaxLatency,
+					apSipProcessingAverageLatency,
+					apSipProcessingMaxLatency
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the general thread level stats."
+      ::= { apUsbcSysObjectGroups 7 }
+
+apUsbcSysThreadAtcpGroup          OBJECT-GROUP
+      OBJECTS   {
+					apAtcpNumberOfThreads,
+					apAtcpAverageCpuUtil,
+					apAtcpPendingAverageLatency,
+					apAtcpPendingMaxLatency,
+					apAtcpProcessingAverageLatency,
+					apAtcpProcessingMaxLatency
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the general thread level stats."
+      ::= { apUsbcSysObjectGroups 8 }
+      
+apUsbcSysThreadMbcdGroup          OBJECT-GROUP
+      OBJECTS   {
+					apMbcdNumberOfThreads,
+					apMbcdAverageCpuUtil
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the general thread level stats."
+      ::= { apUsbcSysObjectGroups 9 }
+
+apUsbcSysThreadEbmdGroup          OBJECT-GROUP
+      OBJECTS   {
+					apEbmdNumberOfThreads,
+					apEbmdAverageCpuUtil
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the EBMD thread level stats."
+      ::= { apUsbcSysObjectGroups 10 }
+
+apUsbcSysThreadDnsGroup          OBJECT-GROUP
+      OBJECTS   {
+					apDnsNumberOfThreads,
+					apDnsAverageCpuUtil
+                }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the DNS thread level stats."
+      ::= { apUsbcSysObjectGroups 11 }
+
+apUsbcSysSmGroup    OBJECT-GROUP
+        OBJECTS {
+                apUsbcSysSmMsgRate
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report information for session manager system."
+        ::= { apUsbcSysObjectGroups 12  }
+
+
+
+
+
+apUsbcSysFdCountExceedingTrap   NOTIFICATION-TYPE
+        OBJECTS  { 
+        			
+					apUsbcSysFdCurrentCount
+				 }	
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when the FD count is over a threshold."
+        ::= { apUsbcSysFdNotifications 1 }
+
+apUsbcSysFdCountClearTrap   NOTIFICATION-TYPE
+        OBJECTS  { 
+        			
+					apUsbcSysFdCurrentCount
+				 }	
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when the FD count drops below the pre-defined threshold."
+        ::= { apUsbcSysFdNotifications 2 }
+
+apUsbcSysFdCountGroups OBJECT IDENTIFIER ::= { apUsbcSysNotificationGroups 4 }
+
+apUsbcSysFdCountGroup   NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                              apUsbcSysFdCountExceedingTrap,
+                              apUsbcSysFdCountClearTrap
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor system FD count."
+        ::= {  apUsbcSysFdCountGroups 1 } 
+
+
+apUsbcSysFdObjGroups OBJECT IDENTIFIER ::= { apUsbcSysNotificationGroups 5 }
+
+apUsbcSysFdObjGroup   OBJECT-GROUP
+        OBJECTS {
+                              apUsbcSysFdCurrentCount
+                      }
+        STATUS          current
+        DESCRIPTION
+                "System FD count object."
+        ::= {  apUsbcSysFdObjGroups 1 } 
+
+apUsbcSysThreadUsageExceededTrap   NOTIFICATION-TYPE
+        OBJECTS  { 
+        			apThreadName,
+					apThreadCurrentUsage
+				 }	
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when a thread is exceeding pre-defined usage."
+        ::= { apUsbcSysCpuNotifications 1 }
+        
+apUsbcSysThreadUsageClearTrap   NOTIFICATION-TYPE
+        OBJECTS  { 
+        			apThreadName,
+					apThreadCurrentUsage
+				 }	
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when a thread is droping back under pre-defined usage."
+        ::= { apUsbcSysCpuNotifications 2 }
+        
+apUsbcSysThreadUsageOverloadEnableTrap   NOTIFICATION-TYPE
+        OBJECTS  { 
+        			apThreadName
+				 }	
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when a thread cpu overload is activated."
+        ::= { apUsbcSysCpuNotifications 3 }
+
+apUsbcSysThreadUsageOverloadDisableTrap   NOTIFICATION-TYPE
+        OBJECTS  { 
+        			apThreadName
+				 }	
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when a thread cpu overload is de-activated."
+        ::= { apUsbcSysCpuNotifications 4 }
+        
+apUsbcSysCpuNotificationGroups OBJECT IDENTIFIER ::= { apUsbcSysNotificationGroups 1 }
+        
+apUsbcSysCpuNotificationsGroup   NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                              apUsbcSysThreadUsageExceededTrap,
+                              apUsbcSysThreadUsageClearTrap,
+                              apUsbcSysThreadUsageOverloadEnableTrap,
+                              apUsbcSysThreadUsageOverloadDisableTrap
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor CPU usage of threads."
+        ::= {  apUsbcSysCpuNotificationGroups 1 }  
+        
+apMutexDeadLockDetectedTrap   NOTIFICATION-TYPE
+        OBJECTS  { 
+        			apThreadName
+				 }	
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when a worker thread encounters a deadlock."
+        ::= { apUsbcSysCpuNotifications 5 }
+
+apMutexDeadLockClearTrap   NOTIFICATION-TYPE
+        OBJECTS  { 
+        			apThreadName
+				 }	
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated after the trap for thread DeadLock apMutexDeadLockDetectedTrap is generated."
+        ::= { apUsbcSysCpuNotifications 6 }
+        
+apMutexDeadLockNotificationGroups OBJECT IDENTIFIER ::= { apUsbcSysNotificationGroups 2 }
+
+apMutexDeadLockNotificationsGroup   NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                              apMutexDeadLockDetectedTrap,
+                              apMutexDeadLockClearTrap
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor mutex deadlocks for worker threads."
+        ::= {  apMutexDeadLockNotificationGroups 1 } 
+        
+apThreadNotRespBackTrace	OBJECT-TYPE
+        SYNTAX          OCTET STRING (SIZE (0..1152))
+      	MAX-ACCESS      accessible-for-notify
+      	STATUS	  	current
+	DESCRIPTION
+            	"Back trace info for the thread stack."
+	::= { apUsbcSysNotifObjects 1 }
+
+apUsbcSysThreadNotRespondingTrap   NOTIFICATION-TYPE
+        OBJECTS  {
+                    apThreadName,
+		    apThreadNotRespBackTrace
+                 }   
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated once a thread is detected not responding."
+        ::= { apUsbcSysCpuNotifications 7 }
+
+apUsbcSysThreadNotRespNotifGroup   NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                              apUsbcSysThreadNotRespondingTrap
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor CPU usage of threads."
+        ::= {  apUsbcSysNotificationGroups 3 }  
+                 
+END
