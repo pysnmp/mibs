@@ -1,115 +1,127 @@
-name: release-chart
+name: cd-pages-helm
+
 on:
   push:
-    tags: "v*"
-  # The index is repairable without cutting a release. It went stale from
-  # 1.17.2 to 2.6.1 because the step that published it sat behind a step that
-  # could not succeed, and there was no way to republish it but to tag.
-  workflow_dispatch:
+    branches-ignore:
+      - "**"
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
 
 jobs:
-  release-chart:
+  image:
+    name: Release
+    if: github.repository == 'splunk/mibs'
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       packages: write
     concurrency:
       group: gh-pages
       cancel-in-progress: false
     steps:
-      - name: Free Disk Space
-        uses: jlumbroso/free-disk-space@main
+      - name: Checkout
+        uses: actions/checkout@v7
         with:
-          android: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          docker-images: false
-          swap-storage: false
-
-      - uses: actions/checkout@v7
-      - name: Install Helm
-        uses: azure/setup-helm@v5
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y parallel
+          pipx install --python python3.11 poetry==2.1.2
+          poetry install
+      - name: Build and index MIBs
+        run: MIB_SOURCE_URL="file://$PWD/src" poetry run make index
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: mibserver-build-logs
+          path: log/
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
       - name: Login to GitHub Packages Docker Registry
         uses: docker/login-action@v4.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Package chart
-        if: startsWith(github.ref, 'refs/tags/')
-        run: helm package charts/mibserver -d /tmp/chart
-      # helm package names the archive from Chart.yaml; every step after this
-      # reads the version off the tag. semantic-release writes Chart.yaml and
-      # then tags, so the release path agrees with itself, but a tag cut by
-      # hand need not: the push would publish one version and the verify would
-      # then fail looking for another, leaving half a release behind. Assert
-      # they are the same before anything is published rather than after.
-      - name: Chart version matches the tag
-        if: startsWith(github.ref, 'refs/tags/')
-        run: |
-          test -f "/tmp/chart/mibserver-${GITHUB_REF_NAME#v}.tgz" || {
-            echo "::error::tag $GITHUB_REF_NAME does not match the packaged" \
-                 "chart $(ls /tmp/chart)"
-            exit 1
-          }
-      - name: Publish Helm chart - OCI
-        if: startsWith(github.ref, 'refs/tags/')
-        run: helm push /tmp/chart/*.tgz oci://ghcr.io/${{ github.repository_owner }}/charts
-      - name: Verify OCI chart
-        if: startsWith(github.ref, 'refs/tags/')
-        run: |
-          VERSION="${GITHUB_REF_NAME#v}"
-          mkdir -p /tmp/verify
-          helm pull oci://ghcr.io/${{ github.repository_owner }}/charts/mibserver \
-            --version "$VERSION" -d /tmp/verify
-          test -s /tmp/verify/mibserver-"$VERSION".tgz
-      - name: Attach chart to release
-        if: startsWith(github.ref, 'refs/tags/')
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload "$GITHUB_REF_NAME" /tmp/chart/*.tgz --clobber
-      # The published index is the running total, not charts/index.yaml. The
-      # repository copy cannot be the accumulator: main is protected, so the
-      # commit that used to update it was rejected on every release, and the
-      # rejection took the publish step below down with it.
-      #
-      # charts/index.yaml is the floor rather than the base. Merging the union
-      # means a release can only ever add: an entry present in either source
-      # survives, so a fetch that fails or an index republished from an older
-      # checkout cannot silently drop versions.
-      - name: Build legacy chart index
-        run: |
-          mkdir -p /tmp/index
-          curl -fsSL -o /tmp/published.yaml \
-            "https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/charts/index.yaml" \
-            || cp charts/index.yaml /tmp/published.yaml
-          # Into a path outside the directory helm indexes: helm writes
-          # index.yaml into that directory, and --merge must not name the file
-          # it is about to overwrite.
-          python3 scripts/merge_chart_index.py \
-            charts/index.yaml /tmp/published.yaml /tmp/base.yaml
-          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
-            cp /tmp/chart/*.tgz /tmp/index/
-            helm repo index /tmp/index \
-              --url https://github.com/${{ github.repository }}/releases/download/$GITHUB_REF_NAME \
-              --merge /tmp/base.yaml
-            rm -f /tmp/index/*.tgz
-            # That the release is in the index, not that the index grew. A
-            # re-run of a release whose publish already succeeded adds nothing
-            # and must still be allowed to republish -- a count that has to
-            # rise would fail exactly when someone is repairing a bad run.
-            grep -q "mibserver-${GITHUB_REF_NAME#v}\.tgz" /tmp/index/index.yaml
-          else
-            cp /tmp/base.yaml /tmp/index/index.yaml
-          fi
-          echo "index carries $(grep -c 'releases/download' /tmp/index/index.yaml) charts"
-      # Where the index is actually served from, and now where it lives:
-      # https://pysnmp.github.io/mibs/charts/index.yaml
-      - name: Publish legacy chart index - gh-pages (deprecated)
+      - name: Docker meta
+        id: docker_meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/splunk/mibs/container
+          tags: |
+            type=semver,pattern=v{{major}}.{{minor}}
+            type=semver,pattern=v{{major}}
+            type=semver,pattern=v{{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=semver,pattern={{version}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+            type=sha,format=long
+      - name: Build and push action
+        id: docker_action_build
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
+          cache-to: type=inline
+      - name: Deploy MIB files
+        if: ${{ !contains(github.ref_name, '-') }}
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.GH_TOKEN_ADMIN }}
+          publish_dir: ./output
+          keep_files: true
+
+  helm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: image
+    concurrency:
+      group: gh-pages
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install Helm
+        uses: azure/setup-helm@v5
+        with:
+          version: v4.3.0
+      - name: Upload
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p /tmp/package /tmp/index /tmp/origin
+          VERSION="$GITHUB_REF_NAME"
+          wget -q https://splunk.github.io/mibs/charts/index.yaml -P /tmp/origin || true
+          helm package charts/mibserver -d /tmp/package
+          gh release upload "$VERSION" /tmp/package/*
+          helm repo index /tmp/package --url "https://github.com/splunk/mibs/releases/download/$VERSION" --merge /tmp/origin/index.yaml
+          cp /tmp/package/index.yaml /tmp/index/
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GH_TOKEN_ADMIN }}
           publish_dir: /tmp/index
           destination_dir: charts
-          keep_files: false
+          keep_files: true

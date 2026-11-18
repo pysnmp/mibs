@@ -128,18 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 output
-output-compact
-output-db
-# What the pull request preview build leaves behind; see
-# .github/workflows/pr-mib-preview.yml.
-preview-scope
-preview-report.md
 .DS_Store
+list.tmp
+log/*
+.pycache/**
 .DS_Store
 .idea
 .vscode
 .cursor
-# Build detritus from the shell pipeline #365 phase 1 deleted.
-log/
-.pycache/
-list.tmp

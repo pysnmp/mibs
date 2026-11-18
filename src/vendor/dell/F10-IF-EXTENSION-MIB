@@ -1,6 +1,10 @@
     F10-IF-EXTENSION-MIB DEFINITIONS ::= BEGIN
+    --  Force10 Networks, Inc.
+    --  390 Holger Way
+    --  San Jose, CA 95134
+
     --  This module provides authoritative definitions for 
-    --  Dell Networking OS extenstion to the IF MIB.
+    --  Force10 extenstion to the IF MIB.
     --
     --  This module will be extended, as needed.
     --  
@@ -15,37 +19,31 @@
             FROM SNMPv2-CONF
         ifIndex
             FROM IF-MIB
-        Integer32
-            FROM SNMPv2-SMI
         f10Mgmt
             FROM FORCE10-SMI;     
         
     f10IfExtensionMib MODULE-IDENTITY
-    LAST-UPDATED "201203061200Z"  -- Mar 6, 2012 12:00:00 GMT
+    LAST-UPDATED "200804071200Z"  -- Apr 7, 2008 12:00:00 GMT
     ORGANIZATION
-      "Dell Inc"
+      "Force10 Networks, Inc."
     CONTACT-INFO
-      "http://www.force10networks.com/support" 
+       "Force10 Networks, Inc.
+        350 Holger Way
+        San Jose, CA 95134 USA
+        Phone: +1 (408) 571 3500
+        Fax:   +1 (408) 571 3550
+        Email: support@force10networks.com"
 
     DESCRIPTION
-       "Dell Networking OS IF Extenstion MIB. "
-   
-    REVISION     "201408121200Z"
-    DESCRIPTION
-          "Added f10IfPortListBitPos.Removed f10IfDhcpAdminStatus and f10IfDhcpOperStatus."
- 
-    REVISION     "201203061200Z"
-    DESCRIPTION
-          "Added DHCP Client attributes."
-
-    REVISION     "201008111200Z"
+       "Force10 Enterprise IF Extenstion MIB. "
+    
+    REVISION     "200804071200Z"
     DESCRIPTION
         "Add f10IfOutThrottles."
         
-    REVISION     "201008101200Z"
+    REVISION     "200710031200Z"
     DESCRIPTION
           "Initial version of this mib module."
-    
            ::= { f10Mgmt 11 }   
 
 
@@ -55,7 +53,7 @@
     f10IfExtensionParams    OBJECT IDENTIFIER ::={ f10IfExtensionMibObject 1 }
     f10IfExtensionStats     OBJECT IDENTIFIER ::={ f10IfExtensionMibObject 2 }
         
-    -- ### Dell Networking OS IF Extenstion Tables
+    -- ### Force10 IF Extenstion Tables
     
     --
     -- Interface Table
@@ -66,7 +64,7 @@
         MAX-ACCESS    not-accessible
         STATUS        current
         DESCRIPTION
-            "Dell Networking OS Extension ifTable contains
+            "Force10 Extension ifTable contains
             generic interface parameters."
         ::= { f10IfExtensionParams 1 }
 
@@ -75,27 +73,23 @@
         MAX-ACCESS    not-accessible
         STATUS        current
         DESCRIPTION
-            " A row defintion of Dell Networking OS Interface
+            " A row defintion of Force10 Interface
             Extension parameters." 
         INDEX    { ifIndex }
         ::= { f10IfTable 1 }
+
       F10IfEntry    ::=
         SEQUENCE {
            f10IfIpMtu                 Unsigned32,
            f10IfDuplexMode            INTEGER,
            f10IfQueueingStrategy      DisplayString,
            f10IfRxFlowCtrl            TruthValue,
-           f10IfTxFlowCtrl            TruthValue,
-           f10IfDescr                 OCTET STRING,
-           f10IfAdminStatus           INTEGER,
-           f10IfRateInterval          Unsigned32,
-           f10IfSpeed                 INTEGER,
-           f10IfPortListBitPos        Integer32
+           f10IfTxFlowCtrl            TruthValue
         }
         
        f10IfIpMtu     OBJECT-TYPE
-        SYNTAX        Unsigned32 (594..9252)
-        MAX-ACCESS    read-write
+        SYNTAX        Unsigned32
+        MAX-ACCESS    read-only
         STATUS        current
         DESCRIPTION
             "The IP (Internet Protocol), Maximum 
@@ -108,11 +102,10 @@
                       full(2),
                       auto(3)
                       }
-        MAX-ACCESS    read-write
+        MAX-ACCESS    read-only
         STATUS        current
         DESCRIPTION
-            "Duplex mode of the interface. 
-            This will be read-write only for s60"
+            "Duplex mode of the interface."
         ::= { f10IfEntry 2 }
 
        f10IfQueueingStrategy OBJECT-TYPE
@@ -125,73 +118,20 @@
 
        f10IfRxFlowCtrl OBJECT-TYPE
         SYNTAX        TruthValue
-        MAX-ACCESS    read-write
+        MAX-ACCESS    read-only
         STATUS        current
         DESCRIPTION
-            "Flow control receive. This will be read-write only for s60"
+            "Flow control receive."
         ::= { f10IfEntry 4 }
 
        f10IfTxFlowCtrl OBJECT-TYPE
         SYNTAX        TruthValue
-        MAX-ACCESS    read-write
-        STATUS        current
-        DESCRIPTION
-            "Flow Control transmit.This will be read-only only for s60"
-        ::= { f10IfEntry 5 }
-                
-       f10IfDescr  OBJECT-TYPE
-        SYNTAX        OCTET STRING (SIZE (0..241))
-        MAX-ACCESS    read-write
-        STATUS        current
-        DESCRIPTION
-            "A textual string containing information about the interface.
-            This will be read-write only for s60"
-        ::= { f10IfEntry 6 }
-
-       f10IfAdminStatus OBJECT-TYPE
-        SYNTAX        INTEGER{
-                        up (1),
-                        down(2)
-                        }
-        MAX-ACCESS    read-write
-        STATUS        current
-        DESCRIPTION
-            "A admin status of any interface.
-            This will be read-write only for s60"
-        ::= { f10IfEntry 7 }
-
-       f10IfRateInterval  OBJECT-TYPE
-        SYNTAX        Unsigned32 (30..299)
-        MAX-ACCESS    read-write
-        STATUS        current
-        DESCRIPTION
-            "The rate info interval for the interface.
-            This will be read-write only for s60"
-        ::= { f10IfEntry 8 }
-
-       f10IfSpeed  OBJECT-TYPE
-        SYNTAX        INTEGER{
-                  auto (1),
-                  tenMbps (10),
-                  hundredMbps (100),
-                  thousandMbps (1000)
-               }
-        MAX-ACCESS    read-write
-        STATUS        current
-        DESCRIPTION
-            "The interface's current bandwidth in bits per second.
-            This will be read-write only for s60"
-        ::= { f10IfEntry 9 }
-
-        f10IfPortListBitPos    OBJECT-TYPE
-        SYNTAX         Integer32 
         MAX-ACCESS    read-only
         STATUS        current
         DESCRIPTION
-        "This is used for identifying the bit position in PortList Object for a given interface."
-        ::= { f10IfEntry 10 }
-
-
+            "Flow Control transmit."
+        ::= { f10IfEntry 5 }
+                
     --
     -- Interface Statistics Table
     --
@@ -201,7 +141,8 @@
         MAX-ACCESS    not-accessible
         STATUS        current
         DESCRIPTION
-            "The statistcs information of the interfaces for performance monitoring." 
+            "The statistcs information of the
+             interfaces for performance monitoring." 
         ::= { f10IfExtensionStats 1 }
 
       f10IfStaticsEntry  OBJECT-TYPE 
@@ -209,7 +150,7 @@
         MAX-ACCESS    not-accessible
         STATUS        current
         DESCRIPTION
-            "A row defintion of Dell Networking OS Extension 
+            "A row defintion of Force10 Extension 
              interface statistics."
         INDEX    { ifIndex }
         ::= { f10IfStaticsTable 1 }
@@ -240,9 +181,7 @@
            f10IfOut512To1023BytePkts      Counter64,
            f10IfOutOver1023BytePkts       Counter64,
            f10IfOutThrottles              Counter64,
-           f10IfLastDiscontinuityTime     TimeStamp,
-           f10IfInCentRate                Integer32,
-           f10IfOutCentRate               Integer32
+           f10IfLastDiscontinuityTime     TimeStamp
         }
        
        f10IfInVlanPkts OBJECT-TYPE
@@ -495,25 +434,6 @@
             contains a zero value."
         ::= { f10IfStaticsEntry 25 }
 
-       f10IfInCentRate OBJECT-TYPE
-        SYNTAX        Integer32 (0..100)
-        MAX-ACCESS    read-only
-        STATUS        current
-        DESCRIPTION
-             "This is the ingress rate in percentage.
-             This is an integer value which can go from 0 to 100." 
-        ::= { f10IfStaticsEntry 26 }
-
-       f10IfOutCentRate OBJECT-TYPE
-        SYNTAX        Integer32 (0..100)
-        MAX-ACCESS    read-only
-        STATUS        current
-        DESCRIPTION
-             "This is the egress rate in percentage.
-             This is an integer value which can go from 0 to 100." 
-        ::= { f10IfStaticsEntry 27 }
-
-
 
     -- ### conformance information ###
     f10IfExtensionMibConformance OBJECT IDENTIFIER ::= { f10IfExtensionMib 2 }
@@ -524,7 +444,7 @@
     f10IfExtensionMibCompliance    MODULE-COMPLIANCE
         STATUS                  current
         DESCRIPTION
-            "The compliance statement for Dell Networking OS
+            "The compliance statement for Force10
             IF Extension MIB."
         MODULE    -- this module
         MANDATORY-GROUPS {
@@ -541,17 +461,12 @@
            f10IfDuplexMode,
            f10IfQueueingStrategy,
            f10IfRxFlowCtrl,
-           f10IfTxFlowCtrl,
-           f10IfDescr,
-           f10IfAdminStatus,
-           f10IfRateInterval,
-           f10IfSpeed, 
-           f10IfPortListBitPos 
+           f10IfTxFlowCtrl
         }
         STATUS    current
         DESCRIPTION
             "A collection of objects providing the
-            Dell Networking OS IF Extenstion parameters."
+            Force10 IF Extenstion parameters."
         ::= { f10IfExtensionMibGroups 1 }
 
     f10IfStatsGroup    OBJECT-GROUP
@@ -580,9 +495,7 @@
            f10IfOut512To1023BytePkts,
            f10IfOutOver1023BytePkts,
            f10IfOutThrottles,
-           f10IfLastDiscontinuityTime,
-           f10IfInCentRate,
-           f10IfOutCentRate
+           f10IfLastDiscontinuityTime                                   
         }
         STATUS    current
         DESCRIPTION

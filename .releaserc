@@ -1,90 +1,36 @@
-#
 # Copyright 2021 Splunk Inc.
-#
-# Licensed under the Apache License, Version 2.0(the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-{
-  "branches":
-  [
-    "+([0-9])?(.{+([0-9]),x}).x",
-    "main",
-    { name: "next", channel: "alpha", prerelease: "alpha" },
-    { name: "develop", channel: "beta", prerelease: "beta" },
-  ],
-    plugins:
-  [
-    "@semantic-release/commit-analyzer",
-    [
-      "@google/semantic-release-replace-plugin",
-      {
-        "replacements": [          
-          {
-            "files": ["pyproject.toml"],
-            "from": "^version ?=.*",
-            "to": "version = \"${nextRelease.version}\"",
-            "results": [
-              {
-                "file": "pyproject.toml",
-                "hasChanged": true,
-                "numMatches": 1,
-                "numReplacements": 1
-              }
-            ],
-            "countMatches": true
-          },
-          # uv.lock records this project's own version in its [[package]]
-          # entry. Nothing else in the lock derives from it, so stamp that one
-          # line directly. Running `uv lock` here instead would re-resolve the
-          # whole graph to rewrite a string, which needs registry metadata the
-          # release job has no reason to be holding.
-          #
-          # The lookbehind pins the match to the pysnmp-mibs entry so a
-          # dependency that happens to share the version cannot be hit.
-          {
-            "files": ["uv.lock"],
-            "from": "(?<=name = \"pysnmp-mibs\"\\nversion = \")[^\"]+",
-            "to": "${nextRelease.version}",
-            "results": [
-              {
-                "file": "uv.lock",
-                "hasChanged": true,
-                "numMatches": 1,
-                "numReplacements": 1
-              }
-            ],
-            "countMatches": true
-          }
-        ]
-      }
-    ],
-    ["@semantic-release/exec", {
-      "prepareCmd": 'yq -i eval ".appVersion = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml;yq -i eval ".version = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml'
-    }],
-    "@semantic-release/release-notes-generator",
-    [
-      "@semantic-release/git",
-      {
-        "assets": ["NOTICE", "charts/mibserver/Chart.yaml", "pyproject.toml", "uv.lock"],
-        "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}",
-        },
-    ],
-    ["@semantic-release/github", { "assets": [
-        "NOTICE",
-        { "path": "dist/mibs-asn1.zip", "label": "MIB sources (ASN.1)" },
-        { "path": "dist/mibs-json.zip", "label": "Compiled to JSON" },
-        { "path": "dist/mibs-index.zip", "label": "OID indexes and standard.txt" },
-        { "path": "dist/mibs-compact.zip", "label": "Compact corpus (ASN.1 + index, no standard tree)" },
-        { "path": "dist/mibs-core-db.zip", "label": "Corpus database (core.db)" },
-      ] }],
-  ],
-}
+repositoryUrl: https://github.com/splunk/mibs.git
+tagFormat: v${version}
+branches:
+  - "+([0-9])?(.{+([0-9]),x}).x"
+  - main
+  - name: next
+    channel: alpha
+    prerelease: alpha
+  - name: develop
+    channel: beta
+    prerelease: beta
+plugins:
+  - "@semantic-release/commit-analyzer"
+  - - "@google/semantic-release-replace-plugin"
+    - replacements:
+        - files: [pyproject.toml]
+          from: "^version ?=.*"
+          to: 'version = "${nextRelease.version}"'
+          results:
+            - file: pyproject.toml
+              hasChanged: true
+              numMatches: 1
+              numReplacements: 1
+          countMatches: true
+  - - "@semantic-release/exec"
+    - prepareCmd: >-
+        yq -i eval ".appVersion = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml &&
+        yq -i eval ".version = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml
+  - "@semantic-release/release-notes-generator"
+  - - "@semantic-release/git"
+    - assets:
+        - charts/mibserver/Chart.yaml
+        - pyproject.toml
+      message: "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
+  - "@semantic-release/github"

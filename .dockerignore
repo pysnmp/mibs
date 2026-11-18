@@ -1,11 +1,25 @@
-# The corpus images are FROM scratch and copy one directory; the tools image
-# copies nothing at all. Everything else in the tree is build input that has
-# already been consumed by `make corpus`, so keeping it out of the context is
-# what makes the build a copy rather than a build.
-*
-!output
-!output-compact
-# core.db's directory, for the corpus-db image. An allowlist entry is exact:
-# "!output" does not readmit "output-db", so a tree left out here reaches the
-# COPY as nothing at all rather than as an error.
-!output-db
+.git
+.github
+.venv
+.cache
+.pycache
+.mypy_cache
+.pytest_cache
+__pycache__
+**/__pycache__
+src
+rendered
+dist
+log
+*.tgz
+*.log
+*.pem
+*.key
+.env
+.env.*
+.npmrc
+.pypirc
+.netrc
+.ssh
+.aws
+list.tmp

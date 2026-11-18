@@ -5,7 +5,7 @@
 
 -- July 2021, Richard Fu
 
--- Copyright (c) 2020-2022 by Cisco Systems, Inc.
+-- Copyright (c) 2020-2021 by Cisco Systems, Inc.
 -- All rights reserved.
 -- *****************************************************************
 
@@ -58,12 +58,6 @@ UnsignedShort ::= TEXTUAL-CONVENTION
     DESCRIPTION "xs:unsignedShort"
     SYNTAX      Unsigned32 (0 .. 65535)
 
-ConfdString ::= TEXTUAL-CONVENTION
-    DISPLAY-HINT "1t"
-    STATUS      current
-    DESCRIPTION "xs: and confd: types mapped to strings"
-    SYNTAX      OCTET STRING
-
 String ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "1t"
     STATUS      current
@@ -71,10 +65,9 @@ String ::= TEXTUAL-CONVENTION
     SYNTAX      OCTET STRING
 
 InetAddressIP ::= TEXTUAL-CONVENTION
-    DISPLAY-HINT "1d."
-    STATUS       current
-    DESCRIPTION  "confd:inetAddressIP"
-    SYNTAX       OCTET STRING (SIZE (4|16))
+    STATUS      current
+    DESCRIPTION "confd:inetAddressIP"
+    SYNTAX      OCTET STRING (SIZE (4|16))
 
 ciscoSdwanAppRouteMIBObjects OBJECT IDENTIFIER
                           ::= { ciscoSdwanAppRouteMIB 1 }
@@ -116,7 +109,10 @@ AppRouteStatisticsEntry ::=
         appRouteStatisticsDstPort UnsignedShort,
         appRouteStatisticsRemoteSystemIp InetAddressIP,
         appRouteStatisticsLocalColor INTEGER,
-        appRouteStatisticsRemoteColor INTEGER
+        appRouteStatisticsRemoteColor INTEGER,
+        appRouteStatisticsMeanLoss UnsignedByte,
+        appRouteStatisticsMeanLatency Unsigned32,
+        appRouteStatisticsMeanJitter Unsigned32
     }
 
 -- tagpath /app-route/statistics/src-ip
@@ -226,175 +222,137 @@ appRouteStatisticsRemoteColor OBJECT-TYPE
     DESCRIPTION "Remote TLOC color"
     ::= { appRouteStatisticsEntry 8 }
 
--- tagpath /app-route/statistics/app-probe-class-list
-appRouteStatisticsAppProbeClassTable OBJECT-TYPE
-    SYNTAX      SEQUENCE OF AppRouteStatisticsAppProbeClassEntry
-    MAX-ACCESS  not-accessible
-    STATUS      current
-    DESCRIPTION ""
-    ::= { ciscoSdwanAppRouteMIBObjects 5 }
-
--- tagpath /app-route/statistics/app-probe-class-list
-appRouteStatisticsAppProbeClassEntry OBJECT-TYPE
-    SYNTAX      AppRouteStatisticsAppProbeClassEntry
-    MAX-ACCESS  not-accessible
-    STATUS      current
-    DESCRIPTION ""
-    INDEX { appRouteStatisticsSrcIp,
-            appRouteStatisticsDstIp,
-            appRouteStatisticsProto,
-            appRouteStatisticsSrcPort,
-            appRouteStatisticsDstPort,
-            appRouteStatisticsAppProbeClassName }
-        ::= { appRouteStatisticsAppProbeClassTable 1 }
-
-AppRouteStatisticsAppProbeClassEntry ::=
-   SEQUENCE {
-       appRouteStatisticsAppProbeClassName String,
-       appRouteStatisticsAppProbeClassMeanLoss UnsignedByte,
-       appRouteStatisticsAppProbeClassMeanLatency Unsigned32,
-       appRouteStatisticsAppProbeClassMeanJitter Unsigned32
-   }
-
- -- tagpath /app-route/statistics/app-probe-class-list/name
-appRouteStatisticsAppProbeClassName OBJECT-TYPE
-    SYNTAX      String (SIZE (1 .. 32))
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Name of app probe class list"
-    ::= { appRouteStatisticsAppProbeClassEntry 1 }
-
--- tagpath /app-route/statistics/app-probe-class-list/mean-loss
-appRouteStatisticsAppProbeClassMeanLoss OBJECT-TYPE
+-- tagpath /app-route/statistics/mean-loss
+appRouteStatisticsMeanLoss OBJECT-TYPE
     SYNTAX      UnsignedByte
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Average loss in percentage across all the polling intervals"
-    ::= { appRouteStatisticsAppProbeClassEntry 2 }
+    DESCRIPTION "Average loss in percentage 
+                 across all the polling intervals"
+    ::= { appRouteStatisticsEntry 9 }
 
--- tagpath /app-route/statistics/app-probe-class-list/mean-latency
-appRouteStatisticsAppProbeClassMeanLatency OBJECT-TYPE
+-- tagpath /app-route/statistics/mean-latency
+appRouteStatisticsMeanLatency OBJECT-TYPE
     SYNTAX      Unsigned32
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Average latency across all the polling intervals"
-    ::= { appRouteStatisticsAppProbeClassEntry 3 }
+    ::= { appRouteStatisticsEntry 10 }
 
--- tagpath /app-route/statistics/app-probe-class-list/mean-jitter
-appRouteStatisticsAppProbeClassMeanJitter OBJECT-TYPE
+-- tagpath /app-route/statistics/mean-jitter
+appRouteStatisticsMeanJitter OBJECT-TYPE
     SYNTAX      Unsigned32
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Average jitter across all polling intervals"
-    ::= { appRouteStatisticsAppProbeClassEntry 4 }
+    ::= { appRouteStatisticsEntry 12 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval
-appRouteStatisticsAppProbeClassIntervalTable OBJECT-TYPE
-    SYNTAX      SEQUENCE OF AppRouteStatisticsAppProbeClassIntervalEntry
+-- tagpath /app-route/statistics/interval
+appRouteStatisticsIntervalTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF AppRouteStatisticsIntervalEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION ""
-    ::= { ciscoSdwanAppRouteMIBObjects 6 }
+    DESCRIPTION "Statistics interval table"
+    ::= { ciscoSdwanAppRouteMIBObjects 3 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval
-appRouteStatisticsAppProbeClassIntervalEntry OBJECT-TYPE
-    SYNTAX      AppRouteStatisticsAppProbeClassIntervalEntry
+-- tagpath /app-route/statistics/interval
+appRouteStatisticsIntervalEntry OBJECT-TYPE
+    SYNTAX      AppRouteStatisticsIntervalEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION ""
-    INDEX { appRouteStatisticsSrcIp,
-            appRouteStatisticsDstIp,
+    DESCRIPTION "Statistics interval table entry"
+    INDEX { appRouteStatisticsSrcIp, 
+            appRouteStatisticsDstIp, 
             appRouteStatisticsProto,
-            appRouteStatisticsSrcPort,
-            appRouteStatisticsDstPort,
-            appRouteStatisticsAppProbeClassName,
-            appRouteStatisticsAppProbeClassIntervalIndex }
-        ::= { appRouteStatisticsAppProbeClassIntervalTable 1 }
+	    appRouteStatisticsSrcPort, 
+	    appRouteStatisticsDstPort, 
+	    appRouteStatisticsIntervalIndex }
+        ::= { appRouteStatisticsIntervalTable 1 }
 
-AppRouteStatisticsAppProbeClassIntervalEntry ::=
+AppRouteStatisticsIntervalEntry ::=
     SEQUENCE {
-        appRouteStatisticsAppProbeClassIntervalIndex UnsignedByte,
-        appRouteStatisticsAppProbeClassIntervalTotalPackets Integer32,
-        appRouteStatisticsAppProbeClassIntervalLoss Integer32,
-        appRouteStatisticsAppProbeClassIntervalAverageLatency Counter64,
-        appRouteStatisticsAppProbeClassIntervalAverageJitter Counter64,
-        appRouteStatisticsAppProbeClassIntervalTxDataPkts Counter64,
-        appRouteStatisticsAppProbeClassIntervalRxDataPkts Counter64,
-        appRouteStatisticsAppProbeClassIntervalIpv6TxDataPkts Counter64,
-        appRouteStatisticsAppProbeClassIntervalIpv6RxDataPkts Counter64
+        appRouteStatisticsIntervalIndex UnsignedByte,
+        appRouteStatisticsIntervalTotalPackets Integer32,
+        appRouteStatisticsIntervalLoss Integer32,
+        appRouteStatisticsIntervalAverageLatency Counter64,
+        appRouteStatisticsIntervalAverageJitter Counter64,
+        appRouteStatisticsIntervalTxDataPkts Counter64,
+        appRouteStatisticsIntervalRxDataPkts Counter64,
+        appRouteStatisticsIntervalIpv6TxDataPkts Counter64,
+        appRouteStatisticsIntervalIpv6RxDataPkts Counter64
     }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/index
-appRouteStatisticsAppProbeClassIntervalIndex OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/index
+appRouteStatisticsIntervalIndex OBJECT-TYPE
     SYNTAX      UnsignedByte
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "Polling interval index"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 1 }
+    ::= { appRouteStatisticsIntervalEntry 1 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/total-packets
-appRouteStatisticsAppProbeClassIntervalTotalPackets OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/total-packets
+appRouteStatisticsIntervalTotalPackets OBJECT-TYPE
     SYNTAX      Integer32
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Total packets sent"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 2 }
+    ::= { appRouteStatisticsIntervalEntry 2 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/loss
-appRouteStatisticsAppProbeClassIntervalLoss OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/loss
+appRouteStatisticsIntervalLoss OBJECT-TYPE
     SYNTAX      Integer32
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Packets lost"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 3 }
+    ::= { appRouteStatisticsIntervalEntry 3 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/average-latency
-appRouteStatisticsAppProbeClassIntervalAverageLatency OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/average-latency
+appRouteStatisticsIntervalAverageLatency OBJECT-TYPE
     SYNTAX      Counter64
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Average latency"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 4 }
+    ::= { appRouteStatisticsIntervalEntry 4 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/average-jitter
-appRouteStatisticsAppProbeClassIntervalAverageJitter OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/average-jitter
+appRouteStatisticsIntervalAverageJitter OBJECT-TYPE
     SYNTAX      Counter64
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Average jitter"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 5 }
+    ::= { appRouteStatisticsIntervalEntry 5 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/tx-data-pkts
-appRouteStatisticsAppProbeClassIntervalTxDataPkts OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/tx-data-pkts
+appRouteStatisticsIntervalTxDataPkts OBJECT-TYPE
     SYNTAX      Counter64
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Data packets transmitted"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 6 }
+    ::= { appRouteStatisticsIntervalEntry 6 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/rx-data-pkts
-appRouteStatisticsAppProbeClassIntervalRxDataPkts OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/rx-data-pkts
+appRouteStatisticsIntervalRxDataPkts OBJECT-TYPE
     SYNTAX      Counter64
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Data packets received"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 7 }
+    ::= { appRouteStatisticsIntervalEntry 7 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/ipv6-tx-data-pkts
-appRouteStatisticsAppProbeClassIntervalIpv6TxDataPkts OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/ipv6-tx-data-pkts
+appRouteStatisticsIntervalIpv6TxDataPkts OBJECT-TYPE
     SYNTAX      Counter64
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "IPv6 Data packets transmitted"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 8 }
+    ::= { appRouteStatisticsIntervalEntry 8 }
 
--- tagpath /app-route/statistics/app-probe-class-list/interval/ipv6-rx-data-pkts
-appRouteStatisticsAppProbeClassIntervalIpv6RxDataPkts OBJECT-TYPE
+-- tagpath /app-route/statistics/interval/ipv6-rx-data-pkts
+appRouteStatisticsIntervalIpv6RxDataPkts OBJECT-TYPE
     SYNTAX      Counter64
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "IPv6 Data packets received"
-    ::= { appRouteStatisticsAppProbeClassIntervalEntry 9 }
+    ::= { appRouteStatisticsIntervalEntry 9 }
 
 -- tagpath /app-route/sla-class
 appRouteSlaClassTable OBJECT-TYPE
@@ -480,8 +438,7 @@ ciscoSdwanAppRouteMIBCompliance MODULE-COMPLIANCE
     MODULE          -- this module
     MANDATORY-GROUPS {
                         cSdwanAppRouteStatisticsGroup,
-                        cSdwanAppRouteStatisticsAppProbeClassGroup,
-                        cSdwanAppRouteStatisticsAppProbeClassIntervalGroup,
+                        cSdwanAppRouteStatisticsIntervalGroup,
                         cSdwanAppRouteSlaClassGroup
                     }
     ::= { ciscoSdwanAppRouteMIBCompliances 1 }
@@ -494,40 +451,32 @@ cSdwanAppRouteStatisticsGroup OBJECT-GROUP
     OBJECTS         {
                        appRouteStatisticsRemoteSystemIp,
                        appRouteStatisticsLocalColor,
-                       appRouteStatisticsRemoteColor
+                       appRouteStatisticsRemoteColor,
+                       appRouteStatisticsMeanLoss,
+                       appRouteStatisticsMeanLatency,
+                       appRouteStatisticsMeanJitter
                     }
     STATUS          current
     DESCRIPTION
         "This is a collection of objects of AppRoute statistics."
     ::= { ciscoSdwanAppRouteMIBGroups 1 }
 
-cSdwanAppRouteStatisticsAppProbeClassGroup OBJECT-GROUP
+cSdwanAppRouteStatisticsIntervalGroup OBJECT-GROUP
     OBJECTS         {
-                       appRouteStatisticsAppProbeClassName,
-                       appRouteStatisticsAppProbeClassMeanLoss,
-                       appRouteStatisticsAppProbeClassMeanLatency,
-                       appRouteStatisticsAppProbeClassMeanJitter
+                       appRouteStatisticsIntervalTotalPackets,
+                       appRouteStatisticsIntervalLoss,
+                       appRouteStatisticsIntervalAverageLatency,
+                       appRouteStatisticsIntervalAverageJitter,
+                       appRouteStatisticsIntervalTxDataPkts,
+                       appRouteStatisticsIntervalRxDataPkts,
+                       appRouteStatisticsIntervalIpv6TxDataPkts,
+                       appRouteStatisticsIntervalIpv6RxDataPkts
                     }
     STATUS          current
     DESCRIPTION
-        "This is a collection of objects of AppRoute App Probe Class statistics."
+        "This is a collection of objects of AppRoute
+         statistics interval."
     ::= { ciscoSdwanAppRouteMIBGroups 2 }
-
-cSdwanAppRouteStatisticsAppProbeClassIntervalGroup OBJECT-GROUP
-    OBJECTS         {
-                       appRouteStatisticsAppProbeClassIntervalTotalPackets,
-                       appRouteStatisticsAppProbeClassIntervalLoss,
-                       appRouteStatisticsAppProbeClassIntervalAverageLatency,
-                       appRouteStatisticsAppProbeClassIntervalAverageJitter,
-                       appRouteStatisticsAppProbeClassIntervalTxDataPkts,
-                       appRouteStatisticsAppProbeClassIntervalRxDataPkts,
-                       appRouteStatisticsAppProbeClassIntervalIpv6TxDataPkts,
-                       appRouteStatisticsAppProbeClassIntervalIpv6RxDataPkts
-                    }
-    STATUS          current
-    DESCRIPTION
-        "This is a collection of objects of AppRoute App Probe Class interval statistics."
-    ::= { ciscoSdwanAppRouteMIBGroups 3 }
 
 cSdwanAppRouteSlaClassGroup OBJECT-GROUP
     OBJECTS         {
@@ -539,6 +488,6 @@ cSdwanAppRouteSlaClassGroup OBJECT-GROUP
     STATUS          current
     DESCRIPTION
         "This is a collection of objects of AppRoute SLA class."
-    ::= { ciscoSdwanAppRouteMIBGroups 4 }
+    ::= { ciscoSdwanAppRouteMIBGroups 3 }
 
 END

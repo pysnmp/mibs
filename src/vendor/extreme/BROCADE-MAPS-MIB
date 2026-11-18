@@ -1,7 +1,7 @@
 -- *********************************************************************
 -- BROCADE-PRODUCTS-MIB.mib: Brocade Products MIB.
 --
--- Jun 2012, Prabhu Sundaram
+-- Dec 2014, Prabhu Sundaram
 --
 -- Copyright (c) 2012 by Brocade Communications Systems, Inc.
 -- All rights reserved.
@@ -19,7 +19,7 @@ BROCADE-MAPS-MIB DEFINITIONS ::= BEGIN
 			 FROM Brocade-REG-MIB
 
 			 swVfId
-			 FROM SW-MIB;
+			 FROM SYSTEM-MIB;
 
              maps MODULE-IDENTITY
              LAST-UPDATED "201304221330Z" -- April 22, 2013 1:30pm
@@ -39,6 +39,10 @@ BROCADE-MAPS-MIB DEFINITIONS ::= BEGIN
 		DESCRIPTION "added db category"
 		REVISION	"201304221330Z" -- April 22, 2013 01:30pm
 		DESCRIPTION "Updated mapsConfigObjectGroupType syntax values"
+		REVISION	"201501131400Z" -- January 13, 2015 02:00pm
+		DESCRIPTION "modified SW-MIB from IMPORTS to SYSTEM-MIB"
+		REVISION	"201501131400Z" -- June 10, 2015 02:00pm
+		DESCRIPTION "Updated mapsConfigObjectGroupType enum value"
              ::=        { bcsiModules 4 }     
             
     mapsTraps OBJECT-IDENTITY
@@ -101,8 +105,9 @@ BROCADE-MAPS-MIB DEFINITIONS ::= BEGIN
 				chassis (12),
 				cpu (13),
 				wwn (14),
-				flow (15)
-    		}	
+				flow (15),
+				eth-port (16)
+    		}
     MAX-ACCESS     read-only
     STATUS         current
     DESCRIPTION    "It indicates the object group type like circuit, PS, FAN."   

@@ -51,7 +51,7 @@ IMPORTS
 
 
 ciscoIfExtensionMIB MODULE-IDENTITY
-    LAST-UPDATED    "202606120000Z"
+    LAST-UPDATED    "202102120000Z"
     ORGANIZATION    "Cisco Systems, Inc."
     CONTACT-INFO
             "Cisco Systems
@@ -91,10 +91,6 @@ ciscoIfExtensionMIB MODULE-IDENTITY
 
         Drop Virtual Link - According to 802.3 standard,
             Traffic drop may occur on this virtual Link."
-    REVISION        "202606120000Z"
-    DESCRIPTION
-        "Added cieIfCRCError to cieIfPacketStatsTable and
-        cieIfAutoNegotiate to cieIfInterfaceTable."
     REVISION        "202102120000Z"
     DESCRIPTION
         "Added enumerated value eightSixteenThirtyTwoSixtyFourG to
@@ -463,8 +459,7 @@ CieIfPacketStatsEntry ::= SEQUENCE {
         cieIfInAbortErrs             Counter32,
         cieIfInputQueueDrops         Counter32,
         cieIfOutputQueueDrops        Counter32,
-        cieIfPacketDiscontinuityTime TimeStamp,
-        cieIfCRCError                Counter32
+        cieIfPacketDiscontinuityTime TimeStamp
 }
 
 -- The following section describes the objects in the table
@@ -688,29 +683,6 @@ cieIfPacketDiscontinuityTime OBJECT-TYPE
         local management subsystem, then this 
         object contains a value of zero." 
     ::= { cieIfPacketStatsEntry 12 }
-
-cieIfCRCError OBJECT-TYPE
-    SYNTAX          Counter32
-    MAX-ACCESS      read-only
-    STATUS          current
-    DESCRIPTION
-        "The number of input packets on a physical interface which
-        were dropped due to CRC (Cyclic Redundancy Check) errors.
-
-        CRC errors indicate that the received packet failed the CRC
-        check, suggesting data corruption during transmission. This
-        typically occurs due to:
-
-        o  Physical layer issues (bad cables, connectors, or
-           transceivers)
-        o  Electromagnetic interference
-        o  Hardware issues on the interface
-
-        Discontinuities in the value of this variable can occur at
-        re-initialization of the management system, and at other
-        times as indicated by the values of
-        cieIfPacketDiscontinuityTime."
-    ::= { cieIfPacketStatsEntry 13 }
  
 
 -- Cisco IF Extension Interface Table
@@ -761,8 +733,7 @@ CieIfInterfaceEntry ::= SEQUENCE {
         cieIfIgnoreBitErrorsConfig          TruthValue,
         cieIfIgnoreInterruptThresholdConfig TruthValue,
         cieIfDuplexCfgStatus                INTEGER,
-        cieIfDuplexDetectStatus             INTEGER,
-        cieIfAutoNegotiate                  TruthValue
+        cieIfDuplexDetectStatus             INTEGER
 }
 
 cieIfResetCount OBJECT-TYPE
@@ -1179,16 +1150,6 @@ cieIfDuplexDetectStatus OBJECT-TYPE
         "This object specifies the detected duplex status on the
         given interface." 
     ::= { cieIfInterfaceEntry 21 }
-
-cieIfAutoNegotiate OBJECT-TYPE
-    SYNTAX          TruthValue
-    MAX-ACCESS      read-write
-    STATUS          current
-    DESCRIPTION
-        "The auto-negotiate mode manages the switch settings for speed
-        and duplex."
-    DEFVAL          { false }
-    ::= { cieIfInterfaceEntry 22 }
  
 
 -- Cisco IF Extension Interface Status List Table
@@ -1559,6 +1520,8 @@ cieIfIndexPersistenceControl OBJECT-TYPE
     DEFVAL          { global } 
     ::= { cieIfIndexPersistenceEntry 2 }
  
+
+
 cieDelayedLinkUpDownNotifEnable OBJECT-TYPE
     SYNTAX          TruthValue
     MAX-ACCESS      read-write
@@ -3230,14 +3193,6 @@ ciscoIfExtensionMIBCompliance15 MODULE-COMPLIANCE
     MIN-ACCESS      read-only
     DESCRIPTION
         "Write access is optional."
-
-    OBJECT          cieIfAutoNegotiate
-    SYNTAX          INTEGER  {
-                        false(2)
-                    }
-    MIN-ACCESS      read-only
-    DESCRIPTION
-        "It is compliant to implement this object as read-only."
     ::= { ciscoIfExtensionMIBCompliances 16 }
 
 ciscoIfExtensionTablePacketGroup OBJECT-GROUP
@@ -3253,8 +3208,7 @@ ciscoIfExtensionTablePacketGroup OBJECT-GROUP
                         cieIfInAbortErrs,
                         cieIfInputQueueDrops,
                         cieIfOutputQueueDrops,
-                        cieIfPacketDiscontinuityTime,
-                        cieIfCRCError
+                        cieIfPacketDiscontinuityTime
                     }
     STATUS          current
     DESCRIPTION
@@ -3465,8 +3419,7 @@ ciscoIfExtensionTableIntfGroup3 OBJECT-GROUP
                         cieIfContextName,
                         cieIfOperStatusCause,
                         cieIfOperStatusCauseDescr,
-                        cieIfOwner,
-                        cieIfAutoNegotiate
+                        cieIfOwner
                     }
     STATUS          current
     DESCRIPTION
@@ -3532,3 +3485,5 @@ ciscoIfExtensionTableIntfGroup3SupR02 OBJECT-GROUP
     ::= { ciscoIfExtensionMIBGroups 24 }
 
 END
+
+

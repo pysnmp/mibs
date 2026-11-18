@@ -3,11 +3,11 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: default-mibserver
+  name: release-name-mibserver
   labels:
     helm.sh/chart: mibserver-CURRENT-VERSION
     app.kubernetes.io/name: mibserver
-    app.kubernetes.io/instance: default
+    app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "CURRENT-VERSION"
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -15,4 +15,4 @@ spec:
   selector:
     matchLabels:
         app.kubernetes.io/name: mibserver
-        app.kubernetes.io/instance: default
+        app.kubernetes.io/instance: release-name

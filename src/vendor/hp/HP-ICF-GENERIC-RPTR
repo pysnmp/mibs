@@ -13,8 +13,9 @@
                FROM HP-ICF-OID;
 
        hpicfGenRptrMib MODULE-IDENTITY
-            LAST-UPDATED "200910261203Z"  -- October 26, 2009
-            ORGANIZATION "HP Networking"
+            LAST-UPDATED "200306092237Z"  -- June 9, 2003
+            ORGANIZATION "Hewlett Packard Company,
+                          Network Infrastructure Solutions"
             CONTACT-INFO
                     "Hewlett Packard Company
                      8000 Foothills Blvd.
@@ -24,11 +25,6 @@
                     are common to all repeater devices in the HP 
                     Integrated Communication Facility product 
                     line."
-
-            REVISION     "200910261203Z"  -- October 26, 2009
-            DESCRIPTION  "Deprecate hpSecPtAddressLimit, create and add
-                          hpSecPtAddressLimit2 to HpSecurePortEntry and
-                          hpicfSecPtGroup3."
 
             REVISION     "200306092237Z"  -- June 9, 2003
             DESCRIPTION  "Added learnLimitedContinuous mode to 
@@ -496,8 +492,7 @@
                hpSecPtLearnMode               INTEGER,
                hpSecPtPreventEavesdrop        INTEGER,
                hpSecPtAlarmEnable             INTEGER,
-               hpSecPtIntrusionFlag           INTEGER,
-               hpSecPtAddressLimit2           Integer32
+               hpSecPtIntrusionFlag           INTEGER
            }
 
        hpSecPtGroupIndex OBJECT-TYPE
@@ -528,7 +523,7 @@
        hpSecPtAddressLimit OBJECT-TYPE
            SYNTAX     Integer32 (1..32)
            MAX-ACCESS read-write
-           STATUS     deprecated
+           STATUS     current
            DESCRIPTION
                    "This object identifies the maximum number of
                    MAC addresses learned on this port when the
@@ -537,9 +532,7 @@
                    while in these modes clears any addresses for
                    this port in the hpSecureAuthAddrTable.
                    This limit does not apply when the learn mode
-                   is set to configureSpecific. This object will
-                   return the default value of 1 when 
-                   hpSecPtAddressLimit2 is greater than 32."
+                   is set to configureSpecific."
            ::= { hpSecurePortEntry 3 }
 
        hpSecPtLearnMode OBJECT-TYPE
@@ -600,7 +593,7 @@
                            N is specified by the hpSecPtAddressLimit
                            object.  When a new authorized address is learned, it
                            will be stored in the hpSecureAuthAddrTable.  When
-			   the table has reached its limit N for this port, any
+                           the table has reached its limit N for this port, any
                            new source MAC addresses received on the port
                            constitutes an intrusion.   See hpSecPtAlarmEnable
                            for possible responses.  The authorized addresses in
@@ -665,21 +658,6 @@
                    noIntrusion.  On a switch, packets causing
                    intrusions will be not be forwarded."
            ::= { hpSecurePortEntry 7 }
-
-       hpSecPtAddressLimit2 OBJECT-TYPE
-           SYNTAX     Integer32 (1..65535)
-           MAX-ACCESS read-write
-           STATUS     current
-           DESCRIPTION
-                   "This object identifies the maximum number of
-                   MAC addresses learned on this port when the
-                   hpSecPtLearnMode is set to learnFirstN or
-                   learnFirstNConditionally. The current maximum
-                   limit is 64. Changing the limit while in these
-                   modes clears any addresses for this port in the
-                   hpSecureAuthAddrTable. This limit does apply when
-                   the learn mode is set to configureSpecific."
-           ::= { hpSecurePortEntry 8 }
 
        hpSecureCfgAddrTable OBJECT-TYPE
            SYNTAX     SEQUENCE OF HpSecureCfgAddrEntry
@@ -1987,10 +1965,9 @@
            ::= { hpicfGenRptrCompliances 7 }
 
        hpicfGenRptrMultiSecOnlyCompliance2 MODULE-COMPLIANCE
-           STATUS     deprecated 
-           DESCRIPTION "********* THIS COMPLIANCE IS DEPRECATED *********
-
-                   The updated compliance statement for non-repeater
+           STATUS      current
+           DESCRIPTION
+                   "The updated compliance statement for non-repeater
                    devices that implement per-port security with multiple
                    authorized address per port."
            MODULE
@@ -1998,16 +1975,6 @@
 
            ::= { hpicfGenRptrCompliances 8 }
 
-       hpicfGenRptrMultiSecOnlyCompliance3 MODULE-COMPLIANCE
-           STATUS      current
-           DESCRIPTION
-                   "The updated compliance statement for non-repeater
-                   devices that implement per-port security with multiple
-                   authorized address per port."
-           MODULE
-               MANDATORY-GROUPS { hpicfSecPtGroup3 }
-
-           ::= { hpicfGenRptrCompliances 9 }
 
        -- units of conformance
 
@@ -2201,34 +2168,11 @@
                         hubIntruderType,
                         hubIntruderTrainingViolation
                       }
-           STATUS    deprecated 
-           DESCRIPTION "********* THIS GROUP IS DEPRECATED *********
-
-                   A collection of objects for managing per-port
-                   security in a managed repeater or switch system."
-           ::= { hpicfGenRptrGroups 13 }
-
-       hpicfSecPtGroup3 OBJECT-GROUP
-           OBJECTS    { hpSecPtAddressLimit,
-                        hpSecPtLearnMode,
-                        hpSecPtAlarmEnable,
-                        hpSecPtIntrusionFlag,
-                        hpSecCfgStatus,
-                        hpSecAuthAddress,
-                        hubIntruderIndex,
-                        hubIntruderGroup,
-                        hubIntruderPort,
-                        hubIntruderAddress,
-                        hubIntruderTime,
-                        hubIntruderType,
-                        hubIntruderTrainingViolation,
-                        hpSecPtAddressLimit2
-                      }
            STATUS     current
            DESCRIPTION
                    "A collection of objects for managing per-port
                    security in a managed repeater or switch system."
-           ::= { hpicfGenRptrGroups 14 }
+           ::= { hpicfGenRptrGroups 13 }
 
        END
 

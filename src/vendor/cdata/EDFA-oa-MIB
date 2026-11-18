@@ -7,10 +7,8 @@
 	EDFA-oa-MIB DEFINITIONS ::= BEGIN
  
 		IMPORTS
-			OBJECT-TYPE, enterprises, MODULE-IDENTITY, OBJECT-IDENTITY
-				FROM SNMPv2-SMI
-			DisplayString
-				FROM SNMPv2-TC;
+			OBJECT-TYPE			
+				FROM SNMPv2-SMI;
 	
 	
 --

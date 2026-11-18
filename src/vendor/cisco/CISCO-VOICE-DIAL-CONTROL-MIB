@@ -38,7 +38,7 @@ IMPORTS
     callActivePeerId
         FROM DIAL-CONTROL-MIB
     QosService
-        FROM INTEGRATED-SERVICES-MIB
+        FROM INT-SERV-MIB
     ifIndex,
     InterfaceIndexOrZero
         FROM IF-MIB

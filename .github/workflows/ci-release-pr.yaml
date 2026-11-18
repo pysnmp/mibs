@@ -1,0 +1,76 @@
+name: ci-release-pr
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+      - next
+
+permissions:
+  contents: read
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - uses: pre-commit/action@v3.0.1
+
+  release:
+    name: Build
+    needs: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: false
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y parallel
+          pipx install --python python3.11 poetry==2.1.2
+          poetry install
+      - name: Build and index MIBs
+        run: MIB_SOURCE_URL="file://$PWD/src" poetry run make index
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: mibserver-build-logs
+          path: log/
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Docker meta
+        id: docker_meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/splunk/mibs/container
+          tags: |
+            type=semver,pattern=v{{major}}.{{minor}}
+            type=semver,pattern=v{{major}}
+            type=semver,pattern=v{{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=semver,pattern={{version}}
+            type=ref,event=branch
+      - name: Build and push action
+        id: docker_action_build
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: false
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
+          cache-to: type=inline

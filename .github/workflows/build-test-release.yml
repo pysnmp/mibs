@@ -1,18 +1,16 @@
-# This is a basic workflow to help you get started with Actions
+name: ci-release
 
-name: CI
-
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches:
-      - "main"
-      - "develop"
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
-  pull_request:
-    branches: [main, develop]
+      - main
+      - develop
+      - next
+    tags-ignore:
+      - "v*"
+
+permissions:
+  contents: read
 
 jobs:
   pre-commit:
@@ -21,819 +19,49 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
-          python-version: "3.14"
+          python-version: "3.11"
       - uses: pre-commit/action@v3.0.1
 
-  # The version core.db is stamped with, resolved before anything is built.
-  #
-  # semantic-release bumps pyproject.toml in the Release job, which runs after
-  # the builds -- so a database stamped from the working tree carries the
-  # *previous* release's number. v2.1.0 shipped a core.db saying 2.0.2. A
-  # dry run answers the same question semantic-release will answer later,
-  # early enough for the artifacts to agree with the release that carries them.
-  #
-  # A push that publishes nothing (a chore, or a pull request) has no next
-  # version, and there the working tree's number is the right answer: the
-  # database is a build of that tree and no release will claim otherwise.
-  version:
-    name: Next version
+  release:
+    name: Release
+    needs: pre-commit
+    if: github.repository == 'splunk/mibs'
     runs-on: ubuntu-latest
-    outputs:
-      corpus-version: ${{ steps.resolve.outputs.version }}
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "20"
-      - name: Ask semantic-release what the next version is
-        id: semrel
-        uses: cycjimmy/semantic-release-action@v6.0.0
-        with:
-          semantic_version: 24
-          dry_run: true
-          extra_plugins: |
-            @semantic-release/exec
-            @semantic-release/git
-            @google/semantic-release-replace-plugin@1.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Resolve
-        id: resolve
-        run: |
-          set -eu
-          next='${{ steps.semrel.outputs.new_release_version }}'
-          if [ -n "$next" ]; then
-            echo "version=$next" >> "$GITHUB_OUTPUT"
-          else
-            tree=$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)
-            echo "version=$tree" >> "$GITHUB_OUTPUT"
-          fi
-      - run: echo "corpus_version=${{ steps.resolve.outputs.version }}"
-
-  mib-sources:
-    name: MIB source manifest
     permissions:
-      # Reads the tree and nothing else. The workflow as a whole has no
-      # permissions block, so without this the job would inherit the
-      # repository default, which includes write.
       contents: read
-    # Offline half of the freshness tooling: does mib-sources.json still
-    # describe the tree it is checked in against? The half that talks to
-    # vendors runs on a schedule instead, in mib-freshness.yml, so a
-    # contributor's pull request cannot go red over somebody's outage.
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          persist-credentials: false
-      - name: Install uv
-        uses: astral-sh/setup-uv@v10.0.1
-        with:
-          version: "0.12.9"
-          python-version: "3.14"
-          enable-cache: true
-      - run: uv sync --frozen
-      - name: Test the provenance tooling
-        # Offline and quick. Covers the two judgements that were wrong
-        # once and looked right: per-line attribution, and confirming
-        # drift on the publisher's bytes rather than on the verdict.
-        run: uv run python tests/test_mib_sources.py
-      - name: Test the contribution importer
-        # The unit tests only, offline, over a git checkout in a temporary
-        # directory. scripts/import_contribution.py writes MIBs into
-        # src/vendor/ and provenance into mib-sources.json, so what is pinned
-        # is what it commits and the four things it refuses to commit into.
-        # See docs/contributing-mibs.md.
-        run: uv run python tests/test_import_contribution.py
-      - name: Source layout contract
-        # One module per file under src/, each file named for its module
-        # and carrying no extension. A combined file publishes once per
-        # module it declares -- the same bytes under every name -- and
-        # makes every diff on it name the wrong module. Offline, ~40s.
-        run: uv run python tests/source-layout-contract.py
-      - name: No page states a count outright
-        # Every count this distribution publishes moves when a MIB is added.
-        # A page that states one is wrong at the next contribution and is a
-        # diff to review on every one after that -- which is what the
-        # documentation did, saying 5,510 modules until the corpus passed
-        # 7,000. The pages name a figure now and docs/conf.py supplies it
-        # from the build report. This is the check that they keep doing so.
-        # Offline and instant. See scripts/corpus_figures.py.
-        run: uv run python scripts/corpus_figures.py --check
-      - run: uv run python scripts/update_vendor_mibs.py --validate
-      - name: Check the registry snapshots against the committed index
-        # Offline: the committed arc list against index-frozen.csv, and
-        # the committed PEN snapshot against that arc list. Catches a
-        # snapshot nobody re-reduced after the corpus gained an arc,
-        # without waiting for the five-minute corpus build to say so.
-        run: uv run python scripts/update_registries.py --validate
-
-  chart:
-    name: Chart contract
-    permissions:
-      # Reads the tree and nothing else, like mib-sources above.
-      contents: read
-    # Renders charts/mibserver and checks it against rendered/, which is
-    # committed as evidence of what the chart produces and which nothing
-    # regenerated until now -- so a template edit could leave those files
-    # describing a chart that no longer exists. Also asserts that a writable
-    # root follows from either local-MIB input, the property #208 was about.
-    #
-    # Its own job rather than a step in build: it needs helm and a checkout
-    # and nothing else, so it answers in seconds instead of behind a corpus
-    # build. See pysnmp/mibs#372.
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          persist-credentials: false
-      - name: Install Helm
-        uses: azure/setup-helm@v5
-      - run: ./tests/chart-contract.sh
-
-  # What used to be one "Build Release" job is four: three independent builds
-  # and the release that needs all of them. The old job ran two full driver
-  # invocations back to back and then an emulated pip install that had waited
-  # behind both, for no reason other than that they shared a checkout. Run
-  # side by side, the release starts when the slowest of the three finishes
-  # instead of when their sum does.
-  #
-  # pre-commit and chart gate all three, for the reason the single job gave:
-  # on main these deploy gh-pages, push images and lead to semantic release,
-  # so a failed chart contract that let them publish anyway would make the
-  # check advisory rather than a gate (pysnmp/mibs#372).
-  corpus:
-    name: Published corpus
-    needs:
-      - pre-commit
-      - chart
-    runs-on: ubuntu-latest
-    permissions:
-      # contents: write for the gh-pages push, packages: write for ghcr.
-      contents: write
       packages: write
-      pages: write
     concurrency:
-      # Only main deploys to gh-pages, so only main needs the shared lock.
-      # develop/tag/PR runs get their own group or they evict main while it is
-      # queued (GitHub keeps at most one pending run per group).
-      #
-      # This job alone carries it. A group shared with the sibling builds would
-      # queue them behind this one and undo the split; gh-pages is the only
-      # thing here two runs can race over, and it is deployed from here.
-      group: ${{ github.ref == 'refs/heads/main' && 'gh-pages' || format('ci-{0}', github.ref) }}
+      group: mibs-version-release
       cancel-in-progress: false
-    # Whether the depot can be published at all, derived from the credentials
-    # rather than from a separate switch to set. A secret cannot be read in a
-    # step's `if`, but it can be reduced to a boolean here and that can.
-    env:
-      HAS_CLOUDFLARE: ${{ secrets.CLOUDFLARE_API_TOKEN != ''
-        && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
-      HAS_R2_KEYS: ${{ secrets.R2_ACCESS_KEY_ID != ''
-        && secrets.R2_SECRET_ACCESS_KEY != '' }}
     steps:
       - uses: actions/checkout@v7
         with:
-          # The whole history, because the site states when this repository
-          # last changed each module and that is a fact about the history --
-          # see "Module dates" below. Twelve seconds on a repository this
-          # size, against a build measured in tens of minutes.
           fetch-depth: 0
+          submodules: false
           persist-credentials: false
-      - name: Install uv
-        uses: astral-sh/setup-uv@v10.0.1
+      - name: Set up Python
+        uses: actions/setup-python@v7
         with:
-          version: "0.12.9"
-          python-version: "3.14"
-          enable-cache: true
-      - run: uv sync --frozen
-      # One driver invocation, three published trees. corpus.json declares a
-      # publication per destination -- github-pages, depot-site, depot-data --
-      # and the plan shares one parse of the corpus rather than paying for
-      # every module three times. The compact corpus is a second invocation,
-      # in a job of its own; both come from the same source set and differ
-      # only in whether the standard namespace is published. See corpus.json
-      # and corpus-compact.json.
-      # Before the build, because corpus.json names the file this writes:
-      # `site.changed` is what gives browse/ its second recent list, ordered
-      # by when this repository last changed a module rather than by when its
-      # publisher last revised it. Derived from the history on every build, so
-      # there is nothing to keep right by hand.
-      - name: Module dates
-        run: uv run python scripts/module_dates.py
-      - name: Build the published corpus
-        # The registries are read from the checkout, never fetched: a build
-        # with the network unplugged has to produce the same corpus as one
-        # without, and the enterprise registry changes daily. Kept in step
-        # with the Makefile's own corpus target. See docs/registries.md.
+          python-version: "3.11"
+      - name: Install build tools
         run: |
-          uv run mibcorpus \
-            --manifest=corpus.json \
-            --output-directory=output \
-            --frozen-index=index-frozen.csv \
-            --oid-registry=registries/smi-numbers.xml \
-            --oid-registry=registries/pen-snapshot.csv
-          # GitHub Pages serves output/github-pages and would otherwise hide
-          # every path beginning with an underscore, which is where furo puts
-          # its stylesheets. Neither depot tree goes through Jekyll.
-          touch output/github-pages/.nojekyll
-      # Runs after the build so it checks the produced index.csv and
-      # index-v2.csv as well as the checked-in frozen snapshot. Gates before
-      # the image build, which is the expensive part.
-      - name: OID index contract
-        run: ./tests/index-contract.sh
-      - name: Published artifact contract
-        run: ./tests/artifact-contract.sh
-      # In the consumer group's environment, not the build one. The two hold
-      # different pysmi versions on purpose: the corpus above was built with
-      # the pysmi this repository pins, and this checks it against the pysmi
-      # pysnmp itself depends on, which is the one a consumer actually has.
-      # closure.json and arcs.json are small -- 1 MB and 1.6 MB against a
-      # 570 MB tree -- and each answers a question the rest of the corpus
-      # cannot. A closure says which files to fetch alongside a module for it
-      # to compile, which is the question every consumer of asn1/@mib@ hits
-      # second. The arc index says who registered each OID arc and on whose
-      # authority. Both are checked here because an artifact nothing asserts
-      # is an artifact that can quietly become empty.
-      - name: Closure and arc index contract
-        run: |
-          set -eu
-          python3 - <<'CHECK'
-          import json
-          import sys
-
-          failures = []
-
-          with open("output/depot-data/closure.json", encoding="utf-8") as f:
-              closure = json.load(f)
-
-          with open("output/depot-data/arcs.json", encoding="utf-8") as f:
-              arcs = json.load(f)
-
-          with open("output/depot-data/report.json", encoding="utf-8") as f:
-              modules = json.load(f)["modules"]
-
-          entries = closure["closure"]
-
-          if len(entries) != modules:
-              failures.append(
-                  f"closure covers {len(entries)} modules, the corpus has {modules}"
-              )
-
-          # A module's closure that does not name the module itself would send
-          # a consumer away without the file it asked for.
-          for name, entry in entries.items():
-              if name not in entry["files"]:
-                  failures.append(f"{name}: its own closure does not name it")
-                  break
-
-          # Every import resolving inside the corpus is what makes this corpus
-          # self-sufficient: a consumer fetching a closure gets a set it can
-          # compile without going anywhere else.
-          incomplete = [x for x, e in entries.items() if e["missing"]]
-
-          if incomplete:
-              failures.append(
-                  f"{len(incomplete)} closures name a module the corpus does "
-                  f"not carry, e.g. {incomplete[0]}"
-              )
-
-          named = arcs["meta"]["by-source"]
-
-          if len(arcs["arc"]) < 10000:
-              failures.append(f"the arc index holds {len(arcs['arc'])} arcs")
-
-          # The registries are committed snapshots, so an arc index that
-          # suddenly names nothing from them means they were not read.
-          if named.get("registry", 0) < 400:
-              failures.append(f"only {named.get('registry', 0)} arcs came from a registry")
-
-          for failure in failures:
-              print(f"::error::{failure}")
-
-          sys.exit(1 if failures else 0)
-          CHECK
-          echo "  ok closure.json and arcs.json"
-      - name: Runtime-compile contract
-        run: |
-          uv sync --frozen --only-group consumer
-          uv run --no-sync python ./tests/runtime-compile-contract.py
-          uv sync --frozen
-      # The other half of "no silent repairs". The step below catches what
-      # pysmi reports as repaired; this catches what it cannot see at all --
-      # a macro the grammar knows or a base type the relaxed parser resolves
-      # never becomes an undefined symbol, so nothing reports it and
-      # `mibdump --strict-imports` passes. AH_TRAP_MIB and EDFA-oa-MIB were
-      # found in #435 by a reviewer reading the diff, which does not scale to
-      # a corpus of thousands of modules. The ones already carrying it are
-      # listed in unimported-symbols.txt, so this gates against that list
-      # growing rather than against the debt existing.
-      - name: No new module omits a standard import
-        run: uv run python scripts/report_unimported_symbols.py --check
-      # A repair is pysmi supplying an import a module forgot, where the
-      # symbol is undefined, unimported and exported by exactly one base
-      # module. It compiles, so it is not a failure; the text still does not
-      # say what it means, so it is not nothing. This repository stores
-      # repaired text rather than the publisher's, which means the fix belongs
-      # in the MIB and in scripts/mib-patches, not in every build. Eighteen
-      # modules were being repaired this way and the only trace was a log
-      # line.
-      - name: No module is repaired at build time
-        run: |
-          set -eu
-          python3 - <<'CHECK'
-          import json
-          import sys
-
-          with open("output/depot-data/report.json", encoding="utf-8") as f:
-              report = json.load(f)
-
-          # Absent, not empty, is the case to fail loudly on: a pysmi without
-          # the key would make this check pass by having nothing to look at,
-          # which is the shape of guard that stops guarding without saying so.
-          if "repaired" not in report:
-              sys.exit(
-                  "report.json has no 'repaired' key: this pysmi cannot say "
-                  "whether anything was repaired, so nothing here can either"
-              )
-
-          repaired = {
-              name: supplied
-              for modules in report["repaired"].values()
-              for name, supplied in modules.items()
-          }
-
-          for name, supplied in sorted(repaired.items()):
-              named = ", ".join(f"{s} from {m}" for s, m in sorted(supplied.items()))
-              print(f"  {name}: {named}", file=sys.stderr)
-
-          if repaired:
-              sys.exit(
-                  f"{len(repaired)} module(s) compiled only because pysmi "
-                  "supplied an import they omit. Put the import in the MIB: "
-                  "`mibpatch --source=src --output-directory=scripts/mib-patches "
-                  "--apply` writes it, and a module with a mib-sources.json "
-                  "entry also needs `update_vendor_mibs.py --adopt PATH` so the "
-                  "change stays visible against its publisher."
-              )
-
-          print("  ok nothing was repaired at build time")
-          CHECK
-      # One report per tree, because each is its own publication and carries
-      # its own counts. All three are printed: a tree that emitted nothing
-      # still leaves a report, and printing only one would hide it.
-      - name: Corpus build report
-        run: |
-          set -eu
-          for tree in github-pages depot-site depot-data; do
-            echo "== $tree"
-            cat "output/$tree/report.json"
-          done
-      # One archive per format, for anyone who wants the corpus without
-      # fetching every file over HTTP or pulling an image -- an air-gapped
-      # install, or a build that vendors it. Named after the tree they hold so
-      # a release page says what each one is. semantic-release attaches them to
-      # the release it creates; the compact archive is built beside the compact
-      # corpus and meets these again in the release job.
-      #
-      # Deliberately not gated on a publishing ref. A step that only ever runs
-      # at release time is a step nothing has proved, which is how the image
-      # push gate in this same workflow came to be wrong; a pull request builds
-      # the archives and throws them away, and that is what keeps the release
-      # path honest. semantic-release attaches them only where it runs anyway.
-      - name: Archive the corpus for the release
-        run: |
-          set -eu
-          mkdir -p dist
-          # -X drops the extra-attributes fields whose contents vary between
-          # runs, so an unchanged tree archives to unchanged bytes.
-          # From the github-pages tree. For everything but json/ the depot
-          # tree holds the same bytes and the steps below assert it, so which
-          # one is archived is not a choice anything downstream can observe.
-          # json/ is the exception: this is the lean tree, which is what this
-          # archive has always carried. The texts-carrying tree is served
-          # per-module from data.mibsdepot.com/json/ rather than zipped, and
-          # llms.txt points at it.
-          (cd output/github-pages && zip -qrX ../../dist/mibs-asn1.zip asn1)
-          (cd output/github-pages && zip -qrX ../../dist/mibs-json.zip json)
-          (cd output/github-pages && zip -qrX ../../dist/mibs-index.zip \
-            index.csv index-v2.csv standard.txt)
-          ls -l dist
-      # The release runs in a container of its own now, so the archives have to
-      # travel to it. The name matches the pattern that job globs for; nothing
-      # else downloads them, and a day is longer than they are wanted for.
-      # compression-level 0 because these are already zips.
-      - uses: actions/upload-artifact@v7
+          sudo apt-get update
+          sudo apt-get install -y parallel
+          pipx install --python python3.11 poetry==2.1.2
+          poetry install
+      - name: Build and index MIBs
+        run: MIB_SOURCE_URL="file://$PWD/src" poetry run make index
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v7
         with:
-          name: release-archives-corpus
-          path: dist
-          compression-level: 0
-          retention-days: 1
-      - uses: actions/upload-artifact@v7
-        with:
-          name: corpus-report
-          path: output/github-pages/report.json
-      # The documentation for what this repository publishes, deployed onto the
-      # same tree as the thing it documents so the two cannot drift apart by a
-      # release. It lands at the root, which until now answered 404: every
-      # path the corpus serves is a directory or a CSV, and none of them
-      # collide with a Sphinx page.
-      #
-      # Its own uv project, on its own interpreter. The corpus build is pinned
-      # to 3.11 because its output is fingerprinted byte for byte, and current
-      # Sphinx needs 3.12 or newer; docs/pyproject.toml says more.
-      #
-      # Built on every ref, not just main. A pull request that breaks the docs
-      # build should fail on the pull request.
-      #
-      # It runs after `make corpus` in this same job, which is what makes the
-      # figures in the prose real: docs/conf.py reads
-      # output/github-pages/report.json and substitutes what that build
-      # counted, so no page states a count that a later MIB can falsify. A
-      # build with no report renders a phrase naming the scale instead, which
-      # is what a local `sphinx-build` on a fresh checkout gets.
-      - name: Build the documentation
-        run: >
-          uv run --directory docs --locked --group dev --python 3.14
-          sphinx-build -n -W --keep-going -b html
-          -d "${RUNNER_TEMP}/doctrees" . "${RUNNER_TEMP}/docs-html"
-      # Onto both browsable trees. The GitHub Pages site keeps the docs it has
-      # always carried, and the depot site is a site in its own right, so each
-      # gets a copy rather than one linking across to the other.
-      #
-      # depot-data gets none: it is downloads addressed by exact path, with no
-      # page to land on.
-      - name: Place the documentation at both site roots
-        run: |
-          set -eu
-          for tree in github-pages depot-site; do
-            cp -r "${RUNNER_TEMP}/docs-html/." "output/$tree/"
-            test -f "output/$tree/index.html"
-          done
-          test -f output/github-pages/asn1/IF-MIB
-      # The same reasoning as the assertion above, for what the site emit
-      # produces: a generator that wrote nothing still leaves a tree, and the
-      # deploy would publish the absence quietly. One page each, named, so the
-      # failure says which half went missing.
-      - name: Published site contract
-        run: |
-          set -eu
-          test -f output/depot-site/browse/index.html
-          test -f output/depot-site/mib/IF-MIB/index.html
-          test -f output/depot-site/entity/index.html
-          test -f output/depot-site/oid/index.html
-          test -s output/depot-data/search.db
-          # A module page that carries no definitions is a page that compiled
-          # and said nothing; IF-MIB has ninety.
-          grep -q 'class="defs' output/depot-site/mib/IF-MIB/index.html
-          # The crawl surface. It is written only where the manifest declares
-          # site.base-url, and a manifest that lost that field would still
-          # build a site that looks right in a browser: the canonical links,
-          # the descriptions, the JSON-LD and all three sitemaps would just be
-          # absent. That is how they were absent from the live site until
-          # 2.6.0 without a single check going red, so each is named here.
-          test -s output/depot-site/sitemap.xml
-          test -s output/depot-site/robots.txt
-          test -s output/depot-site/llms.txt
-          # Values, not marker strings. A grep for rel="canonical" passes on a
-          # canonical naming the wrong origin, and one for <meta name=
-          # "description" passes on an empty one -- which are the two ways this
-          # can be wrong while looking right.
-          python3 - <<'CHECK'
-          import json
-          import re
-          import sys
-
-          PAGE = "output/depot-site/mib/IF-MIB/index.html"
-          URL = "https://mibsdepot.com/mib/IF-MIB/"
-          head = open(PAGE, encoding="utf-8").read()
-          bad = []
-
-          canonical = re.search(r'<link rel="canonical" href="([^"]*)"', head)
-          if not canonical or canonical.group(1) != URL:
-              bad.append(f"canonical is {canonical and canonical.group(1)!r}, want {URL!r}")
-
-          described = re.search(r'<meta name="description" content="([^"]*)"', head)
-          text = described.group(1) if described else ""
-          # The generator falls back to "IF-MIB: 90 object(s), ..." where the
-          # build carries no DESCRIPTION. That fallback is a correct sentence
-          # and a useless search result, and it is what a texts-less build
-          # would publish on every page of the site.
-          if len(text) < 80 or text.startswith("IF-MIB:"):
-              bad.append(f"description is not the module's own prose: {text[:80]!r}")
-
-          block = re.search(
-              r'<script type="application/ld\+json">(.*?)</script>', head, re.S
-          )
-          if not block:
-              bad.append("no JSON-LD block")
-          else:
-              try:
-                  data = json.loads(block.group(1))
-              except ValueError as exc:
-                  bad.append(f"JSON-LD does not parse: {exc}")
-              else:
-                  if data.get("url") != URL:
-                      bad.append(f"JSON-LD url is {data.get('url')!r}")
-                  if "DefinedTermSet" not in data.get("@type", []):
-                      bad.append(f"JSON-LD @type is {data.get('@type')!r}")
-                  terms = data.get("hasDefinedTerm") or []
-                  if len(terms) < 50:
-                      bad.append(f"JSON-LD names {len(terms)} symbols; IF-MIB has ninety")
-
-          for line in bad:
-              print(f"::error::{line}")
-          sys.exit(1 if bad else 0)
-          CHECK
-          # Every sitemap URL is built from base-url, so a wrong origin
-          # publishes a site claiming to live somewhere it does not.
-          grep -q 'https://mibsdepot.com/sitemap.xml' output/depot-site/robots.txt
-          # The pages and the files are on two hosts, and llms.txt is the one
-          # artifact that names both. Its bulk links take data-url; everything
-          # that describes a page takes base-url. Written against one origin,
-          # the three bulk links 404 on the pages host, which is what they did
-          # before pysmi 5.0.0 had somewhere else to put them.
-          grep -q 'https://data.mibsdepot.com/asn1/' output/depot-site/llms.txt
-          grep -q 'https://data.mibsdepot.com/json/' output/depot-site/llms.txt
-          grep -q 'https://data.mibsdepot.com/index-v2.csv' output/depot-site/llms.txt
-          grep -q 'https://mibsdepot.com/browse/' output/depot-site/llms.txt
-          # Every sitemap file, not just the index. sitemap.xml lists the
-          # three child sitemaps and nothing else, so checking it alone says
-          # almost nothing: the page URLs, which are where a wrong origin
-          # would show up, are in sitemap-browse, sitemap-mib and sitemap-oid.
-          ! grep -R -q --include='sitemap*.xml' 'data.mibsdepot.com' output/depot-site
-          ! grep -q 'data.mibsdepot.com' output/depot-site/mib/IF-MIB/index.html
-      # github-pages and depot-data publish the same artifacts to two hosts.
-      # Nothing in the driver makes them agree -- they are separate
-      # publications over a shared parse -- so a divergence would be two
-      # distributions quietly disagreeing about what a module is. Compared by
-      # content, not by listing: a truncated file has the same name.
-      - name: The two data trees agree
-        run: |
-          set -eu
-          # Named rather than compared whole. github-pages also carries the
-          # documentation, the chart index and .nojekyll, none of which the
-          # depot serves, and each tree's report.json is its own by design --
-          # a report is an emitted artifact and says which set it came from.
-          # depot-data also carries search.db, which Pages has no room for.
-          # json/ is the one artifact the two deliberately differ on and is
-          # checked in the step below. These six are byte-identical.
-          for artifact in asn1 index.csv index-v2.csv standard.txt \
-                          closure.json arcs.json; do
-            diff -r --brief \
-              "output/github-pages/$artifact" "output/depot-data/$artifact"
-            echo "  ok $artifact"
-          done
-      # The exception, and the only one: depot-data's json/ carries the
-      # DESCRIPTION, REFERENCE, ORGANIZATION and CONTACT-INFO text and
-      # github-pages' does not. That is a size decision rather than a content
-      # one -- the texts are 41% more on disk, R2 has room and a 1 GB Pages
-      # site does not -- so the two must still be the same corpus.
-      #
-      # Asserted by walking the two documents together rather than by
-      # stripping four key names and comparing: those names are not reserved.
-      # Five modules define a column called `description`, and two more an
-      # INTEGER enumeration with a label of that name, so a blind strip
-      # deletes real definitions and reports a divergence that is not there.
-      # Seven seconds over 544 MB, which is cheap enough not to sample.
-      - name: The depot's JSON is the Pages JSON plus its texts
-        run: |
-          set -eu
-          python3 - <<'CHECK'
-          import json
-          import os
-          import sys
-
-          #: The fields pysmi writes only into the texts-carrying tree.
-          TEXTS = ("contactinfo", "description", "organization", "reference")
-
-          LEAN = "output/github-pages/json"
-          RICH = "output/depot-data/json"
-
-          #: Complaints to collect per module before giving up on it. A
-          #: systematic divergence would otherwise report itself once per
-          #: node across the whole corpus.
-          LIMIT = 5
-
-
-          def differences(lean, rich, path="$", found=None):
-              """Where the Pages document is not the depot's minus its texts.
-
-              Every node the Pages document has, the depot's has identically,
-              and every node the depot has that Pages does not is one of the
-              four text fields. Walked rather than pattern-matched, because a
-              MIB may name a column or an enumeration label `description` --
-              several here do -- and deleting the name wherever it appears
-              deletes a definition.
-              """
-              if found is None:
-                  found = []
-
-              if len(found) >= LIMIT:
-                  return found
-
-              if isinstance(rich, dict) and isinstance(lean, dict):
-                  for key in rich:
-                      if key not in lean:
-                          if key not in TEXTS:
-                              found.append(f"{path}.{key} is on the depot and not on Pages")
-
-                          continue
-
-                      differences(lean[key], rich[key], f"{path}.{key}", found)
-
-                  for key in lean:
-                      if key not in rich:
-                          found.append(f"{path}.{key} is on Pages and not on the depot")
-
-                  return found
-
-              if isinstance(rich, list) and isinstance(lean, list):
-                  if len(rich) != len(lean):
-                      found.append(
-                          f"{path} has {len(lean)} entries on Pages, {len(rich)} on the depot"
-                      )
-
-                      return found
-
-                  for index, pair in enumerate(zip(lean, rich)):
-                      differences(pair[0], pair[1], f"{path}[{index}]", found)
-
-                  return found
-
-              if lean != rich:
-                  found.append(f"{path} differs")
-
-              return found
-
-
-          def load(path):
-              with open(path, encoding="utf-8") as handle:
-                  return json.load(handle)
-
-
-          failures = []
-          lean_names = sorted(os.listdir(LEAN))
-          rich_names = sorted(os.listdir(RICH))
-
-          if lean_names != rich_names:
-              only_lean = set(lean_names) - set(rich_names)
-              only_rich = set(rich_names) - set(lean_names)
-              failures.append(
-                  f"the two json trees name different modules: "
-                  f"{sorted(only_lean)[:3]} only on Pages, "
-                  f"{sorted(only_rich)[:3]} only on the depot"
-              )
-
-          for name in sorted(set(lean_names) & set(rich_names)):
-              found = differences(
-                  load(os.path.join(LEAN, name)), load(os.path.join(RICH, name))
-              )
-
-              if found:
-                  failures.append(f"{name}: {'; '.join(found)}")
-
-              if len(failures) >= LIMIT:
-                  break
-
-          # The point of the divergence, stated as a check. Without these the
-          # walk above would pass on two identical lean trees and the depot
-          # would have quietly stopped carrying what it exists to carry.
-          #
-          # Guarded on the file being in both trees, because the module-set
-          # failure above already reports a missing IF-MIB and reading it here
-          # would end the step in a traceback instead of in that message.
-          if "IF-MIB.json" in set(lean_names) & set(rich_names):
-              rich = load(os.path.join(RICH, "IF-MIB.json"))
-              lean = load(os.path.join(LEAN, "IF-MIB.json"))
-
-              if "description" not in rich.get("ifDescr", {}):
-                  failures.append("the depot's IF-MIB.json carries no DESCRIPTION")
-
-              if "description" in lean.get("ifDescr", {}):
-                  failures.append(
-                      "the Pages IF-MIB.json carries DESCRIPTION; it is the lean tree"
-                  )
-
-          else:
-              failures.append("IF-MIB.json is not in both json trees")
-
-          if failures:
-              for failure in failures:
-                  print(f"::error::{failure}")
-
-              sys.exit(1)
-
-          print(f"  ok json: {len(rich_names)} modules, texts and all")
-          CHECK
-      # Every destination has a ceiling, and discovering one at the deploy
-      # means the corpus silently stops updating. Each is checked here
-      # instead, with room left to decide what to do about it.
-      #
-      # Apparent bytes throughout, which is what a host counts and what
-      # `du --apparent-size` reports; the runner's block size is not the limit.
-      - name: Each tree fits its host
-        run: |
-          set -eu
-          report() {
-            printf '%-13s %10s files %14s bytes (%.1f MB)\n' \
-              "$1" "$2" "$3" "$(echo "$3/1000000" | bc -l)"
-          }
-          over=0
-          for tree in github-pages depot-site depot-data; do
-            files="$(find "output/$tree" -type f | wc -l)"
-            size="$(du -sb --apparent-size "output/$tree" | cut -f1)"
-            report "$tree" "$files" "$size"
-            eval "files_$(echo "$tree" | tr - _)=$files"
-            eval "size_$(echo "$tree" | tr - _)=$size"
-          done
-          # Before the checks, so a tree that busts its ceiling says what is
-          # in it rather than only that it is too big.
-          du -sb --apparent-size output/*/* | sort -rn | head -15
-
-          # GitHub Pages refuses a published site over 1 GB, without saying
-          # whether it counts 10^9 or 2^30. 966 MB sits under the smaller
-          # reading with room to grow into rather than a cliff to discover.
-          if [ "$size_github_pages" -gt 966000000 ]; then
-            echo "::error::github-pages is over GitHub's 1 GB; see pysnmp/mibs#405"
-            over=1
-          fi
-
-          # Cloudflare Pages on the free plan serves at most 20,000 files per
-          # site and 25 MiB per file. There is no documented total size. The
-          # file count is the one that moves: a new module is a module page,
-          # and enough of them reach the ceiling long before the bytes do.
-          if [ "$files_depot_site" -gt 19000 ]; then
-            echo "::error::depot-site is near Cloudflare Pages' 20,000-file limit"
-            over=1
-          fi
-          big="$(find output/depot-site -type f -size +26214400c | head -5)"
-          if [ -n "$big" ]; then
-            echo "::error::files over Cloudflare Pages' 25 MiB limit:"
-            echo "$big"
-            over=1
-          fi
-
-          # R2 includes 10 GB-month on the free plan and caps neither the
-          # object count nor the object size that matters here. 9 GB leaves
-          # the margin the others have.
-          if [ "$size_depot_data" -gt 9000000000 ]; then
-            echo "::error::depot-data is over the 10 GB R2 free tier"
-            over=1
-          fi
-
-          [ "$over" -eq 0 ] || exit 1
-      - name: Carry forward legacy chart index
-        if: github.ref == 'refs/heads/main'
-        run: |
-          mkdir -p output/github-pages/charts
-          cp charts/index.yaml output/github-pages/charts/index.yaml
-          grep -q 'releases/download' output/github-pages/charts/index.yaml
-      - name: Deploy - GH-PAGES
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output/github-pages
-          force_orphan: true
+          name: mibserver-build-logs
+          path: log/
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
-        with:
-          image: tonistiigi/binfmt:qemu-v9.2.2
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
-      # The serving path, over real nginx and the config the chart renders.
-      # There is no image of ours on that path to smoke-test any more; what is
-      # ours is the nginx.conf, so that is what runs here. Needs helm for the
-      # render.
-      - name: Set up Helm
-        uses: azure/setup-helm@v5
-      # Extracted rather than served from the built tree directly: the image
-      # states its own file modes, and those are what a pod mounts. A corpus
-      # that serves fine on the runner and 403s from the image is exactly the
-      # failure this catches.
-      - name: Extract the corpus image
-        run: |
-          mkdir -m 0755 -p /tmp/corpus-image
-          docker buildx build -f docker/corpus.Dockerfile \
-            --build-arg CORPUS=output/github-pages \
-            -o type=local,dest=/tmp/corpus-image .
-      - name: Serving contract
-        run: ./tests/serving-contract.sh /tmp/corpus-image
-      # Only a ref that publishes needs credentials. A pull request builds the
-      # images to prove the Dockerfiles still work and pushes nothing.
-      #
-      # The tag ref matters as much as main: semantic-release tags the commit
-      # main just built, that tag starts a second run, and only in that run
-      # does docker/metadata-action have a version to derive the semver tags
-      # from. The chart's appVersion names those tags, so a gate that excluded
-      # the tag run would leave every release pointing at images nothing had
-      # pushed.
       - name: Login to GitHub Packages Docker Registry
-        if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
         uses: docker/login-action@v4.6.0
         with:
           registry: ghcr.io
@@ -843,7 +71,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v6
         with:
-          images: ghcr.io/pysnmp/mibs/corpus
+          images: ghcr.io/splunk/mibs/container
           tags: |
             type=semver,pattern=v{{major}}.{{minor}}
             type=semver,pattern=v{{major}}
@@ -853,472 +81,104 @@ jobs:
             type=semver,pattern={{version}}
             type=ref,event=branch
             type=ref,event=pr
-            type=sha
-            type=sha,format=long
-      # FROM scratch and a COPY, so there is nothing architecture-specific in
-      # it -- but it is mounted into pods on both, and a manifest naming both
-      # is what lets one tag serve them.
-      #
-      # No cache-to. This build wrote an inline cache that nothing ever read:
-      # inline cache is only reachable through a cache-from naming the pushed
-      # image, and no build in this workflow set one. The tools image is the
-      # one build whose layer is worth keeping, and it says so there.
-      - name: Build and push the corpus image
+      - name: Build and push action
         id: docker_action_build
         uses: docker/build-push-action@v7
         with:
           context: .
-          file: docker/corpus.Dockerfile
-          build-args: |
-            CORPUS=output/github-pages
-          push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
+          push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-      # The depot, last in the job on purpose.
-      #
-      # It used to sit between the gh-pages deploy and the corpus image, and
-      # the first time its credentials were wrong that cost more than the
-      # depot: a failing step skips every step after it, so an expired token
-      # on somebody else's service took out the serving contract and the
-      # corpus image push with it. A publish this repository does not control
-      # the credentials for should not be able to skip the tests and the
-      # artifacts that it does.
-      #
-      # Still fails the job rather than being tolerated. Skipping quietly is
-      # the failure mode this whole block exists to prevent -- it is just now
-      # the last thing that can fail, so nothing of ours is behind it.
-      #
-      # A deploy that is skipped because its configuration is half there
-      # looks exactly like a deploy that is skipped because it was never set
-      # up: the job goes green and the depot quietly stops updating. That is
-      # the same failure the contracts above exist to prevent, so the
-      # configuration is checked rather than trusted.
-      #
-      # The distinction that actually catches it: a bucket name is not a
-      # secret and is read from `vars`, while the four credentials are read
-      # from `secrets`. Putting the bucket name in the wrong one leaves the
-      # variable empty, the step skipped and nothing said. Here it fails.
-      - name: The depot deploy is configured or it is not
-        if: github.ref == 'refs/heads/main'
+          cache-to: type=inline
+      - name: Select release path
+        id: release_path
         env:
-          BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN_ADMIN }}
         run: |
-          set -eu
-          printf 'site  (Workers static assets): %s\n' "$HAS_CLOUDFLARE"
-          printf 'data  (R2 keys): %s, bucket variable: %s\n' \
-            "$HAS_R2_KEYS" "${BUCKET:-<unset>}"
-          if [ "$HAS_R2_KEYS" = "true" ] && [ -z "$BUCKET" ]; then
-            echo "::error::R2 credentials are set but the CLOUDFLARE_R2_BUCKET"\
-                 "*variable* is empty -- a bucket name is not a secret, and a"\
-                 "secret of that name is not read here. See docs/corpora.md."
+          git fetch origin --tags
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse "origin/$GITHUB_REF_NAME")" ]; then
+            echo "A newer branch commit supersedes this release run"
+            echo "mode=skip" >> "$GITHUB_OUTPUT"
+          elif git show-ref --verify --quiet refs/tags/v1.17.0; then
+            git merge-base --is-ancestor v1.17.0 HEAD
+            if ! git show v1.17.0:.releaserc | grep -Fq 'https://github.com/splunk/mibs.git'; then
+              echo "::error::The existing v1.17.0 tag is not the Splunk release baseline"
+              exit 1
+            fi
+            if gh release view v1.17.0 > /dev/null 2>&1; then
+              echo "mode=semantic" >> "$GITHUB_OUTPUT"
+            else
+              echo "mode=initial-release" >> "$GITHUB_OUTPUT"
+            fi
+          elif [ -n "$(git tag --list 'v[0-9]*')" ]; then
+            echo "::error::Existing version tags must be reviewed before initializing 1.17.0"
             exit 1
+          elif [ "$GITHUB_REF_NAME" != main ]; then
+            echo "The first release will be initialized from main"
+            echo "mode=skip" >> "$GITHUB_OUTPUT"
+          else
+            test "$(poetry version --short)" = 1.17.0
+            poetry run python - <<'PY'
+          from pathlib import Path
+
+          import yaml
+
+          chart = yaml.safe_load(Path("charts/mibserver/Chart.yaml").read_text())
+          if (chart.get("version"), str(chart.get("appVersion"))) != ("1.17.0", "1.17.0"):
+              raise SystemExit("The first chart release must be 1.17.0")
+          PY
+            git diff --exit-code a10677c28960c3f380019fd4705cc63e0333ea65 HEAD -- src poetry.lock
+            echo "mode=bootstrap" >> "$GITHUB_OUTPUT"
           fi
-          if [ -n "$BUCKET" ] && [ "$HAS_R2_KEYS" != "true" ]; then
-            echo "::error::CLOUDFLARE_R2_BUCKET names a bucket but"\
-                 "R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY are not both set."
-            exit 1
-          fi
-          if [ "$HAS_CLOUDFLARE" != "true" ] && [ -z "$BUCKET" ]; then
-            echo "::notice::the depot is not wired up on this repository;"\
-                 "all three trees were still built and checked."
-          fi
-      # mibsdepot.com, in two halves, because the two have different problems.
-      #
-      # The pages go to Workers static assets, which resolve a directory URL
-      # to that directory's index.html -- every link the generator writes is
-      # one, ../../mib/IF-MIB/ -- and which run no script to do it. That is
-      # the distinction that matters on a free plan: Cloudflare meters
-      # requests to a Worker script, not to its assets, so the site is not
-      # rate-limited, while a script in front of R2 rewriting the same paths
-      # would be, at 100,000 requests a day with cache hits counted. What it
-      # costs instead is a file count, 20,000 per version, which the page
-      # count is well inside. See wrangler.jsonc.
-      #
-      # The downloads go to R2, addressed by exact key: nothing to resolve, no
-      # file-count ceiling, 10 GB included and no egress charge. asn1/ and
-      # json/ are two files per module between them, which would be most of a
-      # static-asset budget spent on files that never needed one.
-      #
-      # Gated on the credentials being present as well as on main, so a fork
-      # -- and this repository until the Cloudflare side is wired up -- builds
-      # and checks all three trees and skips only the publish. There is no
-      # separate switch to set: holding the token is the decision to publish,
-      # and the Worker's name lives in wrangler.jsonc where it can be read.
-      # The step above refuses a half-configured account. See docs/corpora.md.
-      - name: Deploy - mibsdepot.com site
-        if: >-
-          github.ref == 'refs/heads/main'
-          && env.HAS_CLOUDFLARE == 'true'
-        uses: cloudflare/wrangler-action@v4
+      - name: Import first-release signing key
+        if: steps.release_path.outputs.mode == 'bootstrap'
+        uses: crazy-max/ghaction-import-gpg@v6
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
-      - name: Deploy - mibsdepot.com data
-        if: >-
-          github.ref == 'refs/heads/main'
-          && env.HAS_R2_KEYS == 'true'
-          && vars.CLOUDFLARE_R2_BUCKET != ''
+          git_committer_name: ${{ secrets.SA_GH_USER_NAME }}
+          git_committer_email: ${{ secrets.SA_GH_USER_EMAIL }}
+          gpg_private_key: ${{ secrets.SA_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SA_GPG_PASSPHRASE }}
+          git_user_signingkey: true
+      - name: Tag first release as 1.17.0
+        if: steps.release_path.outputs.mode == 'bootstrap'
         env:
-          # rclone reads its remote out of the environment, so no config file
-          # holding credentials is ever written to the runner's disk.
-          RCLONE_CONFIG_R2_TYPE: s3
-          RCLONE_CONFIG_R2_PROVIDER: Cloudflare
-          RCLONE_CONFIG_R2_ENV_AUTH: "false"
-          RCLONE_CONFIG_R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          RCLONE_CONFIG_R2_ENDPOINT: https://${{ secrets.CLOUDFLARE_ACCOUNT_ID }}.r2.cloudflarestorage.com
-          RCLONE_CONFIG_R2_NO_CHECK_BUCKET: "true"
-          BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN_ADMIN }}
         run: |
-          set -eu
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq rclone
-          # --checksum, not the default size-and-modification-time: the
-          # runner checks out fresh every run, so every local file looks newer
-          # than the object it matches and a time-based sync would re-upload
-          # every unchanged file each release. MD5 is what R2 stores.
-          #
-          # sync, not copy: a module dropped from the corpus has to stop being
-          # served, and the index no longer names it.
-          common="--checksum --transfers=32 --checkers=32 --stats-one-line"
-          # asn1/ holds extensionless files -- asn1/IF-MIB, because pysnmp
-          # substitutes a bare module name into the @mib@ source URL -- and
-          # rclone types a file it cannot name as a stream of bytes, which
-          # makes a browser download a MIB rather than show it. Uploaded in a
-          # pass of its own so the type can be stated.
-          # shellcheck disable=SC2086
-          rclone sync output/depot-data/asn1 "R2:${BUCKET}/asn1" $common \
-            --header-upload "Content-Type: text/plain; charset=utf-8"
-          # shellcheck disable=SC2086
-          rclone sync output/depot-data "R2:${BUCKET}" $common \
-            --exclude "/asn1/**"
-          rclone size "R2:${BUCKET}"
-      #Build docker images
+          gh auth setup-git
+          git tag --sign v1.17.0 "$GITHUB_SHA" --message "Release 1.17.0"
+          git push origin refs/tags/v1.17.0
+      - name: Create first GitHub release
+        if: steps.release_path.outputs.mode == 'bootstrap' || steps.release_path.outputs.mode == 'initial-release'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_ADMIN }}
+        run: |
+          gh release create v1.17.0 --verify-tag \
+            --title "1.17.0" \
+            --notes-file - <<'RELEASE_NOTES'
+          ### Features
 
-  # The same corpus without the modules a runtime that has pysmi already holds.
-  # Not served over HTTP and not in the mibserver chart: it is for mounting,
-  # and it is published as an image for exactly that.
-  #
-  # Its own job because it is its own driver invocation over the same sources.
-  # Nothing it produces is read by the published corpus and nothing the
-  # published corpus produces is read by it, so the only thing sequencing them
-  # bought was a longer wall clock.
-  corpus-compact:
-    name: Compact corpus
-    needs:
-      - pre-commit
-      - chart
-    runs-on: ubuntu-latest
-    permissions:
-      # Reads the tree; writes only to the package registry.
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          persist-credentials: false
-      - name: Install uv
-        uses: astral-sh/setup-uv@v10.0.1
-        with:
-          version: "0.12.9"
-          python-version: "3.14"
-          enable-cache: true
-      - run: uv sync --frozen
-      - name: Build the compact corpus
-        run: |
-          uv run mibcorpus \
-            --manifest=corpus-compact.json \
-            --output-directory=output-compact
-      - name: Compact corpus build report
-        run: cat output-compact/report.json
-      # Ungated for the reason the published archives are; see that step.
-      - name: Archive the compact corpus for the release
-        run: |
-          set -eu
-          mkdir -p dist
-          (cd output-compact && zip -qrX ../dist/mibs-compact.zip asn1 index-v2.csv)
-          ls -l dist
-      - uses: actions/upload-artifact@v7
-        with:
-          name: release-archives-compact
-          path: dist
-          compression-level: 0
-          retention-days: 1
-      - uses: actions/upload-artifact@v7
-        with:
-          name: corpus-compact-report
-          path: output-compact/report.json
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
-        with:
-          image: tonistiigi/binfmt:qemu-v9.2.2
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
-      - name: Login to GitHub Packages Docker Registry
-        if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
-        uses: docker/login-action@v4.6.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Docker meta (compact corpus)
-        id: docker_meta_compact
-        uses: docker/metadata-action@v6
-        with:
-          images: ghcr.io/pysnmp/mibs/corpus-compact
-          tags: |
-            type=semver,pattern=v{{major}}.{{minor}}
-            type=semver,pattern=v{{major}}
-            type=semver,pattern=v{{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=semver,pattern={{version}}
-            type=ref,event=branch
-            type=ref,event=pr
-            type=sha
-            type=sha,format=long
-      - name: Build and push the compact corpus image
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          file: docker/corpus.Dockerfile
-          build-args: |
-            CORPUS=output-compact
-          push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
-          platforms: linux/amd64,linux/arm64
-          tags: ${{ steps.docker_meta_compact.outputs.tags }}
-          labels: ${{ steps.docker_meta_compact.outputs.labels }}
+          - **IPv6 support:** Optional IPv6 listeners for MIB content on TCP/8000 and NGINX status and readiness on TCP/8080. Existing IPv4 listeners remain enabled.
 
-  corpus-db:
-    name: Corpus database
-    needs:
-      - pre-commit
-      - chart
-      - version
-    runs-on: ubuntu-latest
-    permissions:
-      # Reads the tree; writes only to the package registry.
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          persist-credentials: false
-      - name: Install uv
-        uses: astral-sh/setup-uv@v10.0.1
-        with:
-          version: "0.12.9"
-          python-version: "3.14"
-          enable-cache: true
-      - run: uv sync --frozen
-      # A third projection of the same sources, in a job of its own for the
-      # reason the compact corpus has one: it is a second full pass over the
-      # sources and there is no result to share between them.
-      - name: Build the corpus database
-        run: |
-          uv run mibcorpus \
-            --manifest=corpus-db.json \
-            --output-directory=output-db \
-            --corpus-id=pysnmp/mibs \
-            --corpus-version='${{ needs.version.outputs.corpus-version }}'
-      # Before the archive, so a database that would not answer never becomes a
-      # release asset. Python rather than shell because sqlite3 the module
-      # ships wherever this build runs and sqlite3 the command-line tool is a
-      # separate package.
-      - name: Corpus database contract
-        run: uv run python ./tests/corpus-db-contract.py
-      - name: Corpus database build report
-        run: cat output-db/report.json
-      # Ungated for the reason the other archives are; see that step in the
-      # published-corpus job.
-      - name: Archive the corpus database for the release
-        run: |
-          set -eu
-          mkdir -p dist
-          (cd output-db && zip -qrX ../dist/mibs-core-db.zip core.db)
-          ls -l dist
-      - uses: actions/upload-artifact@v7
-        with:
-          name: release-archives-core-db
-          path: dist
-          compression-level: 0
-          retention-days: 1
-      - uses: actions/upload-artifact@v7
-        with:
-          name: corpus-db-report
-          path: output-db/report.json
-      # The same scratch image the two corpus trees get, holding one file. A
-      # pysnmp runtime does not serve core.db over HTTP, it opens it -- and
-      # Kubernetes 1.33 mounts an OCI image as a read-only volume, which is
-      # exactly the immutable=1 file the reader wants and the migration path
-      # off index.csv for a deployment that already mounts a corpus image.
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
-        with:
-          image: tonistiigi/binfmt:qemu-v9.2.2
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
-      - name: Login to GitHub Packages Docker Registry
-        if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
-        uses: docker/login-action@v4.6.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Docker meta (corpus database)
-        id: docker_meta_db
-        uses: docker/metadata-action@v6
-        with:
-          images: ghcr.io/pysnmp/mibs/corpus-db
-          tags: |
-            type=semver,pattern=v{{major}}.{{minor}}
-            type=semver,pattern=v{{major}}
-            type=semver,pattern=v{{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=semver,pattern={{version}}
-            type=ref,event=branch
-            type=ref,event=pr
-            type=sha
-            type=sha,format=long
-      - name: Build and push the corpus database image
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          file: docker/corpus.Dockerfile
-          build-args: |
-            CORPUS=output-db
-          push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
-          platforms: linux/amd64,linux/arm64
-          tags: ${{ steps.docker_meta_db.outputs.tags }}
-          labels: ${{ steps.docker_meta_db.outputs.labels }}
+          ### Configuration
 
-  # pysmi on an upstream Python base, for the chart's local-MIB init container.
-  # The only image this project publishes that runs anything, and the only one
-  # that needs no corpus to build -- which is why it used to be the last thing
-  # in a job that had spent twenty minutes building two.
-  tools:
-    name: Tools image
-    needs:
-      - pre-commit
-      - chart
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          persist-credentials: false
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
-        with:
-          image: tonistiigi/binfmt:qemu-v9.2.2
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
-      - name: Login to GitHub Packages Docker Registry
-        if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
-        uses: docker/login-action@v4.6.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Docker meta (tools)
-        id: docker_meta_tools
-        uses: docker/metadata-action@v6
-        with:
-          images: ghcr.io/pysnmp/mibs/tools
-          tags: |
-            type=semver,pattern=v{{major}}.{{minor}}
-            type=semver,pattern=v{{major}}
-            type=semver,pattern=v{{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=semver,pattern={{version}}
-            type=ref,event=branch
-            type=ref,event=pr
-            type=sha
-            type=sha,format=long
-      - name: Build and push the tools image
-        uses: docker/build-push-action@v7
-        with:
-          # docker/, not the repository root. This Dockerfile copies nothing,
-          # but a root context hands the builder whatever .dockerignore lets
-          # through -- which here is output/ and output-compact/, near a
-          # gigabyte of corpus streamed into a build that does not read a byte
-          # of it. The two Dockerfiles are the whole of what it needs.
-          context: docker
-          file: docker/tools.Dockerfile
-          push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
-          platforms: linux/amd64,linux/arm64
-          tags: ${{ steps.docker_meta_tools.outputs.tags }}
-          labels: ${{ steps.docker_meta_tools.outputs.labels }}
-          # The whole of this image is one pip install, run twice: once native
-          # and once for arm64 under emulation, which is where its minutes go.
-          # Nothing in that layer comes from this repository -- it is the base
-          # image digest and PYSMI_VERSION -- so a run that changes neither can
-          # restore it whole instead of re-resolving and re-installing pysmi
-          # under qemu.
-          #
-          # Deliberately not extended to the corpus images. Those are FROM
-          # scratch with one COPY of a tree that `make corpus` rewrites on
-          # every run, so their only layer misses by construction; caching it
-          # would push hundreds of megabytes into the repository's 10 GB cache
-          # each build to buy a hit that cannot happen.
-          cache-from: type=gha,scope=tools
-          cache-to: type=gha,mode=max,scope=tools
+          - **Helm:** Set `ipv6Enabled: true` or pass `--set ipv6Enabled=true`.
+          - **Container:** Set `MIBSERVER_IPV6_ENABLED=true`.
+          - IPv6 is disabled by default. Set the corresponding option to `false` to disable IPv6 listeners.
+          - `MIBSERVER_IPV6_ENABLED` accepts lowercase `true` or `false`.
 
-  release:
-    name: Release
-    # Everything a release names has to exist before it names it. The chart's
-    # appVersion points at the images, and the assets are the archives, so a
-    # release that ran beside the builds could tag a commit whose images had
-    # not been pushed and whose archives did not exist. The single job kept
-    # that order by putting these steps last; this keeps it with needs.
-    needs:
-      - corpus
-      - corpus-compact
-      - corpus-db
-      - tools
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          #Very Important semantic-release won't trigger a tagged
-          #build if this is not set false
-          persist-credentials: false
-      # dist/ was built two jobs ago, in two of them. merge-multiple puts both
-      # uploads back into one directory, which is the shape .releaserc names
-      # its assets in.
-      - name: Collect the release archives
-        uses: actions/download-artifact@v7
-        with:
-          pattern: release-archives-*
-          merge-multiple: true
-          path: dist
-      - run: ls -l dist
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "20"
+          Enabling IPv6 requires IPv6-capable host or cluster networking. This option configures container listeners only and does not configure Kubernetes Service IP families.
+          RELEASE_NOTES
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v6.0.0
+        id: version
+        if: steps.release_path.outputs.mode == 'semantic'
+        uses: splunk/semantic-release-action@v1.3.10
         with:
-          semantic_version: 24
+          git_committer_name: ${{ secrets.SA_GH_USER_NAME }}
+          git_committer_email: ${{ secrets.SA_GH_USER_EMAIL }}
+          gpg_private_key: ${{ secrets.SA_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SA_GPG_PASSPHRASE }}
           extra_plugins: |
-            @semantic-release/exec
-            @semantic-release/git
-            @google/semantic-release-replace-plugin@1.2.0
+            @google/semantic-release-replace-plugin@1.2.7
         env:
-          GITHUB_TOKEN: ${{ secrets.SEMREL_TOKEN }} #
-  update-semver:
-    name: Move Respository semver tags
-    if: startsWith(github.ref, 'refs/tags/v')
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: haya14busa/action-update-semver@v1
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_ADMIN }}

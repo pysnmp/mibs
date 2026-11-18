@@ -13,16 +13,15 @@ IMPORTS
         FROM HP-ICF-OID;
 
 hpicfInstMonMIB MODULE-IDENTITY
-    LAST-UPDATED "200812040000Z" --December 4, 2008
-    ORGANIZATION "HP Networking"
+    LAST-UPDATED "200601230000Z"
+    ORGANIZATION "Hewlett-Packard Company
+                  ProCurve Networking Business"
     CONTACT-INFO "Hewlett-Packard Company
                   8000 Foothills Blvd.
                   Roseville, CA 95747"
     DESCRIPTION  "This MIB module contains HP proprietary
                   definitions for Instrumentation Monitor."
 
-    REVISION     "200812040000Z"  --December 4, 2008
-    DESCRIPTION  "Added 'hpicfInstConfig' object."
     REVISION     "200601230000Z"
     DESCRIPTION  "Initial revision."
 
@@ -86,7 +85,7 @@ hpicfInstMonParameterEntry OBJECT-TYPE
 
 HpicfInstMonParameterEntry ::= SEQUENCE {
     hpicfInstMonInterfaceIndex     InterfaceIndexOrZero,
-    hpicfInstMonParameterIndex     Integer32,
+    hpicfInstMonParameterIndex     INTEGER,
     hpicfInstMonParameterName      DisplayString,
     hpicfInstMonParameterThreshold Integer32 }
 
@@ -99,7 +98,7 @@ hpicfInstMonInterfaceIndex OBJECT-TYPE
     ::= { hpicfInstMonParameterEntry 1 }
 
 hpicfInstMonParameterIndex OBJECT-TYPE
-    SYNTAX      Integer32( 1..'FFFF'h )
+    SYNTAX      INTEGER( 1..'FFFF'h )
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "The index of the parameter."
@@ -136,22 +135,6 @@ hpicfInstMonNotification NOTIFICATION-TYPE
                  parameter is beyond the configured threshold value."
     ::= { hpicfInstMonObjects 5 }
 
-
--- Configuration support for instrumentation
-
-hpicfInstConfig OBJECT-TYPE 
-    SYNTAX     TruthValue
-    MAX-ACCESS read-write 
-    STATUS     current 
-    DESCRIPTION 
-            "This object enables/disables instrumentation on the
-            switch. The value true(1) means that instrumentation is
-            enabled; the value false(2) means that instrumentation is
-            disabled."
-    DEFVAL  { true }    
-   ::= { hpicfInstMonObjects 6 } 
-
-
 -- **********************************************************************
 -- Conformance Information
 -- **********************************************************************
@@ -166,55 +149,26 @@ hpicfInstMonNotificationGroup NOTIFICATION-GROUP
 hpicfInstMonBaseGroup OBJECT-GROUP
     OBJECTS   { hpicfInstMonLogEnable,
                 hpicfInstMonTrapEnable,
+                hpicfInstMonInterfaceIndex,
+                hpicfInstMonParameterIndex,
                 hpicfInstMonParameterName,
                 hpicfInstMonParameterThreshold }
     STATUS      current
     DESCRIPTION "A collection of objects to support basic Instrumentation
-                 Monitor configuration on HP switches."
+                 Monitor configuration on ProCurve switches."
     ::= { hpicfInstMonGroups 2 }
 
-hpicfInstConfigGroup OBJECT-GROUP
-    OBJECTS   { hpicfInstConfig }
-    STATUS      current
-    DESCRIPTION "A collection of objects to support basic Instrumentation
-                 Collection configuration on HP switches."
-    ::= { hpicfInstMonGroups 3 }
-
-hpicfInstMonNotifyGroup OBJECT-GROUP
-    OBJECTS   { hpicfInstMonNotificationText }
-    STATUS      current
-    DESCRIPTION "A collection of objects to support basic notification
-                 details on HP switches."
-    ::= { hpicfInstMonGroups 4 }
- 
 -- **********************************************************************
 -- Compliance statements
 -- **********************************************************************
 
 hpicfInstMonBaseCompliance MODULE-COMPLIANCE
     STATUS      current
-    DESCRIPTION "The compliance statement for HP switches running
+    DESCRIPTION "The compliance statement for ProCurve switches running
                  Instrumentation Monitor and implementing the
                  HP-ICF-INST-MON MIB."
     MODULE  -- this module
     MANDATORY-GROUPS { hpicfInstMonBaseGroup }
     ::= { hpicfInstMonCompliances 1 }
-
-hpicfInstConfigCompliance MODULE-COMPLIANCE
-    STATUS      current
-    DESCRIPTION "The compliance statement for HP switches running
-                 Instrumentation collection and implementing the
-                 HP-ICF-INST-MON MIB."
-    MODULE  -- this module
-    MANDATORY-GROUPS { hpicfInstConfigGroup }
-    ::= { hpicfInstMonCompliances 2 }
-
-hpicfInstMonNotifyCompliance MODULE-COMPLIANCE
-    STATUS      current
-    DESCRIPTION "The compliance statement for HP switches running
-                 Instrumentation Monitor."
-    MODULE  -- this module
-    MANDATORY-GROUPS { hpicfInstMonNotifyGroup }
-    ::= { hpicfInstMonCompliances 3 }
 
 END

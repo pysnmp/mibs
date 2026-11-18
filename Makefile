@@ -1,56 +1,101 @@
 .DEFAULT_GOAL := help
-PY ?= uv run
-MIBCORPUS ?= $(PY) mibcorpus
+.PHONY: all vendor
+#RFC=$(notdir $(wildcard mibs/*))
+RFC=$(wildcard src/standard/*)
 
-# Each corpus is a manifest: it names its own source set, the artifacts it
-# carries and what must be true of the result. What is left here is what a
-# manifest cannot declare -- see docs/corpora.md for why each corpus is shaped
-# the way it is.
-CORPUS_ID ?= pysnmp/mibs
-CORPUS_VERSION ?= $(shell sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)
+# fetch:  ## Download all mibs from the source
+# 	@# Wget recursive
+# 	wget --recursive --reject-regex 'index.html*' \
+# 	  --no-parent --no-host-directories http://mibs.snmplabs.com/asn1/
+# 	rm -rf asn1/index.html*
+dirs:
+	mkdir -p output/asn1/ || true
+	mkdir -p output/texts/ || true
+	mkdir -p output/notexts/ || true
+	mkdir -p output/json/ || true
+	mkdir -p log || true
 
-# The IANA registries the arc names come from, committed rather than fetched:
-# a build with the network unplugged has to produce the same corpus as one
-# without, and the enterprise registry changes daily. See
-# scripts/update_registries.py and docs/registries.md.
-OID_REGISTRIES ?= --oid-registry=registries/smi-numbers.xml \
-	  --oid-registry=registries/pen-snapshot.csv
-
-.PHONY: corpus corpus-compact corpus-db render help
-
-corpus:  ## Build the three published trees into output/
-	@# --frozen-index is the reason this target exists rather than a
-	@# documented command line: a build that forgets it silently produces an
-	@# index.csv that disagrees with the published one, which is the exact
-	@# failure index-frozen.csv is kept to prevent.
-	@#
-	@# One invocation, three trees. corpus.json declares a publication per
-	@# destination -- github-pages, depot-site, depot-data -- and the plan
-	@# shares one parse of the corpus rather than paying for 5510 modules
-	@# three times. See docs/corpora.md.
-	$(MIBCORPUS) --manifest=corpus.json \
-	  --output-directory=output \
-	  --frozen-index=index-frozen.csv \
-	  $(OID_REGISTRIES)
-	@# GitHub Pages serves output/github-pages, and would otherwise hide
-	@# every path beginning with an underscore -- which is where furo puts
-	@# its stylesheets. Neither depot tree goes through Jekyll.
-	touch output/github-pages/.nojekyll
-
-corpus-compact:  ## Build the compact corpus into output-compact/
-	$(MIBCORPUS) --manifest=corpus-compact.json \
-	  --output-directory=output-compact
-
-corpus-db:  ## Build the corpus database into output-db/
-	@# CI overrides CORPUS_VERSION with the version semantic-release is about
-	@# to publish; the default is right for a local build. See docs/corpora.md.
-	@test -n "$(CORPUS_VERSION)" || { echo "CORPUS_VERSION is empty"; exit 1; }
-	$(MIBCORPUS) --manifest=corpus-db.json \
-	  --output-directory=output-db \
-	  --corpus-id=$(CORPUS_ID) --corpus-version=$(CORPUS_VERSION)
-
-render:  ## Re-render the chart into rendered/manifests
+render:
+	rm -rf rendered/manifests/*
+	helm template --namespace default --output-dir rendered/manifests/default default charts/mibserver
 	./render_manifests.sh
+
+standard: dirs $(RFC)
+	@# Compile mibs
+
+	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
+	./scripts/vendor.sh standard	
+
+vendor: dirs $(RFC)
+	./scripts/vendor.sh vendor
+
+localmibs:
+	find src/vendor -type d -maxdepth 1 -mindepth 1   | sort >list.tmp
+	while read line; do ./scripts/localmibs.sh "$$line"; done < list.tmp
+
+index: standard vendor  ##generate index
+	touch output/.nojekyll
+	poetry run python index.py
+
+index-local-mibs: dirs $(RFC) localmibs
+	touch output/.nojekyll
+	poetry run python index.py
+
+compile-changed:  ## Compile With Texts all MIBs into .py files
+	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
+		echo "## Compiling $$f"; \
+		poetry run mibdump \
+			--no-python-compile \
+			--mib-source=file://$$(pwd)/src/standardasn1 \
+			--destination-directory=./pysnmp \
+			$$f; \
+	done
+
+compile-with-texts:  ## Compile With Texts all MIBs into .py files
+	@for f in $$(ls mibs/asn1); do \
+	  echo "## Compiling $$f with texts"; \
+	  poetry run mibdump \
+	    --generate-mib-texts \
+	    --no-python-compile \
+	    --mib-source=file://$$(pwd)/src/standardasn1 \
+	    --destination-directory=./pysnmp-with-texts \
+	    $$f; \
+	done
+
+compile-with-texts-changed:  ## Compile With Texts all MIBs into .py files
+	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
+	  echo "## Compiling $$f with texts"; \
+	  poetry run mibdump \
+	    --generate-mib-texts \
+	    --no-python-compile \
+	    --mib-source=file://$$(pwd)/src/standardasn1 \
+	    --destination-directory=./pysnmp-with-texts \
+	    $$f; \
+	done
+
+compile-json:  ## Compile With Texts all MIBs into .py files
+	@for f in $$(ls output/asn1); do \
+	  echo "## Compiling $$f with texts"; \
+	  poetry run mibdump \
+	    --generate-mib-texts \
+	    --no-python-compile \
+	    --mib-source=file://$$(pwd)/src/standardasn1 \
+	    --destination-format=json \
+	    --destination-directory=./mibs/json \
+	    $$f; \
+	done
+
+compile-json-changed:  ## Compile With Texts all MIBs into .py files
+	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
+	  echo "## Compiling $$f with texts"; \
+	  poetry run mibdump \
+	    --generate-mib-texts \
+	    --no-python-compile \
+	    --mib-source=file://$$(pwd)/src/standardasn1 \
+	    --destination-format=json \
+	    --destination-directory=./mibs/json \
+	    $$f; \
+	done
 
 help:  ## Print list of Makefile targets
 	@# Taken from https://github.com/spf13/hugo/blob/master/Makefile

@@ -1,8 +1,7 @@
 -- ****************************************************************************
 --  COLUBRIS-802DOT11-MIB definitions
 --
---  Copyright (c) 2004, Hewlett-Packard Development Company, L.P. 
---  The information contained herein is subject to change without notice.
+--  Copyright (c) 2004, Colubris Networks, Inc.
 --  All Rights Reserved.
 --
 --  Colubris Networks IEEE802.11 MIB file.
@@ -27,14 +26,13 @@ IMPORTS
         FROM    COLUBRIS-VIRTUAL-AP-MIB
     colubrisMgmtV2
         FROM    COLUBRIS-SMI
-    ColubrisSSID, ColubrisSSIDOrNone, ColubrisNotificationEnable,
-    ColubrisDataRate, ColubrisRadioType
+    ColubrisSSIDOrNone, ColubrisNotificationEnable, ColubrisDataRate, ColubrisRadioType
         FROM    COLUBRIS-TC
 ;
 
 
 colubris802dot11 MODULE-IDENTITY
-    LAST-UPDATED    "200910200000Z"
+    LAST-UPDATED    "200802210000Z"
     ORGANIZATION    "Colubris Networks, Inc."
     CONTACT-INFO    "Colubris Networks
                      Postal: 200 West Street Ste 300
@@ -113,9 +111,9 @@ coDot11AccessPointConfigTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF CoDot11AccessPointConfigEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION "WLAN profile configuration attributes. In tabular form to
+    DESCRIPTION "WLAN profile configuration attributes. In tablular form to
                  allow for multiple instances on an agent. Not supported on
-                 the M111."
+                 the WCB-200."
     ::= { coDot11ap 1 }
 
 coDot11AccessPointConfigEntry OBJECT-TYPE
@@ -170,7 +168,7 @@ coDot11DTIMPeriod OBJECT-TYPE
     SYNTAX      Integer32 (1..255)
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "Specifies the number of beacon intervals that elapse 
+    DESCRIPTION "Specifies the number of beacon intervals that elapses 
                  between transmission of Beacons frames containing a TIM 
                  element whose DTIM Count field is 0. This value is 
                  transmitted in the DTIM Period field of Beacon frames.
@@ -212,7 +210,12 @@ coDot11PhyTxPowerAdminLevel OBJECT-TYPE
     UNITS       "dBm"
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "Specifies the transmission power of the radio."
+    DESCRIPTION "Specifies the transmission power of the radio.
+                 On Intersil hardware, only a few specific values are allowed.
+
+                       { 13, 17, 23 } for North America,
+
+                       { 13, 17, 20 } for Europe and the rest of the world."
     ::= { coDot11AccessPointConfigEntry 8 }
 
 coDot11PhyTxPowerOperLevel OBJECT-TYPE
@@ -220,7 +223,7 @@ coDot11PhyTxPowerOperLevel OBJECT-TYPE
     UNITS       "dBm"
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Indicates the transmission power of the radio."
+    DESCRIPTION "Transmission power of the radio."
     ::= { coDot11AccessPointConfigEntry 9 }
 
 coDot11CurrentSNRLevel OBJECT-TYPE
@@ -243,23 +246,21 @@ coDot11AdminMinimumDataRate OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      deprecated
     DESCRIPTION "Specifies the minimum transmission rate that clients stations 
-                 must meet in order to connect with this profile. Client 
-                 stations that are below this setting will not be able to 
-                 connect.
-                 
+                 must meet in order to connect with this profile. Client stations 
+                 that are below this setting will not be able to connect.
                  The value of this object must always be less or equal
                  than the value of coDot11MaximumDataRate.
 
                  Allowed values will change according to the state of the 
                  radio's wireless mode (coDot11CurrentOperPHYType).
 
-                   ieee802dot11b: Lowest, 1, 2, 5.5, 11 Mbps
+                   ieee802dot11b:    Lowest, 1, 2, 5.5, and 11 Meg
 
-                   ieee802dot11a: Lowest, 6, 9, 12, 18, 24, 36, 48, 54 Mbps
+                   ieee802dot11a:    Lowest, 6, 9, 12, 18, 24, 36, 48, and 54 Meg
 
-                   ieee802dot11g: Lowest, 6, 9, 12, 18, 24, 36, 48, 54 Mbps
+                   ieee802dot11g:    Lowest, 6, 9, 12, 18, 24, 36, 48, and 54 Meg
 
-                   11bAndg:       All rates permitted."
+                   11bAndg:          All rates permitted."
 
     ::= { coDot11AccessPointConfigEntry 12 }
 
@@ -269,22 +270,21 @@ coDot11AdminMaximumDataRate OBJECT-TYPE
     STATUS      deprecated
     DESCRIPTION "Specifies the maximum transmission rate that clients stations 
                  must respect to connect with this profile. Clients stations 
-                 that attempt to associate at a higher data rate will be 
-                 refused.
+                 that attempt to associate at a higher data rate will be refused.
 
-                 The value of this object must always be greater than the value 
-                 of  coDot11MinimumDataRate.
+                 The value of this object must always be greater than the value of 
+                 coDot11MinimumDataRate.
 
                  Allowed values will change according to the state of the 
                  radio's wireless mode (coDot11CurrentOperPHYType).
 
-                   ieee802dot11b: 1, 2, 5.5, 11Mbs, highest
+                   ieee802dot11b: 1, 2, 5.5, 11Meg and highest
 
-                   ieee802dot11a: 6, 9, 12, 18, 24, 36, 48, 54 Mbps, highest
+                   ieee802dot11a: 6, 9, 12, 18, 24, 36, 48, 54 Meg, and highest
 
-                   ieee802dot11g: 6, 9, 12, 18, 24, 36, 48, 54 Mbps, highest
+                   ieee802dot11g: 6, 9, 12, 18, 24, 36, 48, 54 Meg, and highest
 
-                   11bAndg:       All rates permitted." 
+                   11bAndg: All rates permitted." 
     ::= { coDot11AccessPointConfigEntry 13 }
 
 coDot11HighThroughputOptionImplemented OBJECT-TYPE
@@ -324,8 +324,7 @@ coDot11AuthenticationAlgorithmsEntry OBJECT-TYPE
                            ifIndex.
 
                  coDot11AuthenticationAlgorithmsIndex - Uniquely identify an
-                                                        algorithm in the
-                                                        table."
+                                                        algorithm in the table."
     INDEX       { ifIndex, coDot11AuthenticationAlgorithmsIndex }
     ::= { coDot11AuthenticationAlgorithmsTable 1 }
 
@@ -355,9 +354,7 @@ coDot11AuthenticationAlgorithm OBJECT-TYPE
     DESCRIPTION "Identifies all the authentication algorithms supported by 
                  the STAs. The following are the default values and the
                  their associated algorithms.
-
                     Value = 1: Open System
-
                     Value = 2: Shared Key"
     ::= { coDot11AuthenticationAlgorithmsEntry 2 }
 
@@ -389,7 +386,7 @@ coDot11WEPDefaultKeysTable OBJECT-TYPE
                  read the entries in this table will return unsuccessful
                  status and values of null or zero. The default value of
                  each WEP default key is null. This table is not supported
-                 on the M111."
+                 on the WCB-200."
     REFERENCE   "IEEE Std 802.11-1997, 8.3.2"
     ::= { coDot11ap 3 }
 
@@ -421,8 +418,7 @@ coDot11WEPDefaultKey1Value OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "A WEP default secret key1 value.
-                 Reading this attribute will always return a Zero-Length
-                 string."
+                 Reading this attribute will always return a Zero-Length string."
     ::= { coDot11WEPDefaultKeysEntry 1 }
 
 coDot11WEPDefaultKey2Value OBJECT-TYPE
@@ -430,8 +426,7 @@ coDot11WEPDefaultKey2Value OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "A WEP default secret key2 value.
-                 Reading this attribute will always return a Zero-Length          
-                 string."
+                 Reading this attribute will always return a Zero-Length string."
     ::= { coDot11WEPDefaultKeysEntry 2 }
 
 coDot11WEPDefaultKey3Value OBJECT-TYPE
@@ -439,8 +434,7 @@ coDot11WEPDefaultKey3Value OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "A WEP default secret key3 value.
-                 Reading this attribute will always return a Zero-Length
-                 string."
+                 Reading this attribute will always return a Zero-Length string."
     ::= { coDot11WEPDefaultKeysEntry 3 }
 
 coDot11WEPDefaultKey4Value OBJECT-TYPE
@@ -448,8 +442,7 @@ coDot11WEPDefaultKey4Value OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "A WEP default secret key4 value.
-                 Reading this attribute will always return a Zero-Length
-                 string."
+                 Reading this attribute will always return a Zero-Length string."
     ::= { coDot11WEPDefaultKeysEntry 4 }
 
 -- *** End of WEP Default Keys Table ******************************************
@@ -462,7 +455,7 @@ coDot11PrivacyTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION "Group containing attributes related to IEEE 802.11
                  Privacy. In tabular form to allow multiple instances on
-                 an agent. This table is not supported on the M111."
+                 an agent. This table is not supported on the WCB-200."
     ::= { coDot11ap 4 }
 
 coDot11PrivacyEntry OBJECT-TYPE
@@ -499,11 +492,11 @@ coDot11PrivacyInvoked OBJECT-TYPE
                  For IEEE 802.11-1999 clients, the security mechanism used is
                  WEP. For RSNA-capable clients, an additional variable
                  coDot11RSNAEnabled indicates whether RSNA is enabled. If
-                 coDot11RSNAEnabled is FALSE or the MIB variable does not
-                 exist, the security mechanism invoked is WEP; if 
-                 coDot11RSNAEnabled is TRUE, RSNA security mechanisms invoked 
-                 are configured in the coDot11RSNAConfigTable. The default 
-                 value of this attribute is FALSE."
+                 coDot11RSNAEnabled is FALSE or the MIB variable does not exist,
+                 the security mechanism invoked is WEP; if coDot11RSNAEnabled is
+                 TRUE, RSNA security mechanisms invoked are configured in the
+                 coDot11RSNAConfigTable. The default value of this attribute
+                 is FALSE."
     ::= { coDot11PrivacyEntry 1 }
 
 coDot11WEPDefaultKeyID OBJECT-TYPE
@@ -526,7 +519,7 @@ coDot11ExcludeUnencrypted OBJECT-TYPE
                  subfield of the Frame Control field equal to zero. When this
                  attribute is false, the STA may accept MSDUs that have the WEP
                  subfield of the Frame Control field equal to zero. The default
-                 value of this attribute is true."
+                 value of this attribute shall be true."
     ::= { coDot11PrivacyEntry 3 }
 
 coDot11WEPICVErrorCount OBJECT-TYPE
@@ -571,7 +564,7 @@ coDot11AssociationTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION "Group containing attributes related to associated stations.
                  In tabular form to allow multiple instances on an agent. This
-                 table is not supported on the M111."
+                 table is not supported on the WCB-200."
     ::= { coDot11ap 5 }
 
 coDot11AssociationEntry OBJECT-TYPE
@@ -584,8 +577,8 @@ coDot11AssociationEntry OBJECT-TYPE
                            Interface tables in this MIB module are indexed by
                            ifIndex.
 
-                 coDot11AssociationIndex - Uniquely identify a device inside 
-                                           the association table."
+                 coDot11AssociationIndex - Uniquely identify a device inside the
+                                           association table."
     INDEX       { ifIndex, coDot11AssociationIndex }
     ::= { coDot11AssociationTable 1 }
 
@@ -620,20 +613,7 @@ CoDot11AssociationEntry ::= SEQUENCE
     coDot11StationIPAddress     IpAddress,
     coDot11StationVLAN          Integer32,
     coDot11StationLocalInterface InterfaceIndex,
-    coDot11StaHT                TruthValue,
-    coDot11StaEncryptionType    INTEGER,
-    coDot11PktsTxRate1          Counter32,
-    coDot11PktsTxRate2          Counter32,
-    coDot11PktsTxRate5dot5      Counter32,
-    coDot11PktsTxRate11         Counter32,
-    coDot11PktsTxRate6          Counter32,
-    coDot11PktsTxRate9          Counter32,
-    coDot11PktsTxRate12         Counter32,
-    coDot11PktsTxRate18         Counter32,
-    coDot11PktsTxRate24         Counter32,
-    coDot11PktsTxRate36         Counter32,
-    coDot11PktsTxRate48         Counter32,
-    coDot11PktsTxRate54         Counter32
+    coDot11StaHT                TruthValue
 }
 
 coDot11AssociationIndex OBJECT-TYPE
@@ -688,84 +668,84 @@ coDot11PktsRate1 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 1 Mbps."
+    DESCRIPTION "Number of frames received at 1 Mbit/s."
     ::= { coDot11AssociationEntry 7 }
 
 coDot11PktsRate2 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 2 Mbps."
+    DESCRIPTION "Number of frames received at 2 Mbit/s."
     ::= { coDot11AssociationEntry 8 }
 
 coDot11PktsRate5dot5 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 5.5 Mbps."
+    DESCRIPTION "Number of frames received at 5.5 Mbit/s."
     ::= { coDot11AssociationEntry 9 }
 
 coDot11PktsRate11 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 11 Mbps."
+    DESCRIPTION "Number of frames received at 11 Mbit/s."
     ::= { coDot11AssociationEntry 10 }
 
 coDot11PktsRate6 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 6 Mbps."
+    DESCRIPTION "Number of frames received at 6 Mbit/s."
     ::= { coDot11AssociationEntry 11 }
 
 coDot11PktsRate9 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 9 Mbps."
+    DESCRIPTION "Number of frames received at 9 Mbit/s."
     ::= { coDot11AssociationEntry 12 }
 
 coDot11PktsRate12 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 12 Mbps."
+    DESCRIPTION "Number of frames received at 12 Mbit/s."
     ::= { coDot11AssociationEntry 13 }
 
 coDot11PktsRate18 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 18 Mbps."
+    DESCRIPTION "Number of frames received at 18 Mbit/s."
     ::= { coDot11AssociationEntry 14 }
 
 coDot11PktsRate24 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 24 Mbps."
+    DESCRIPTION "Number of frames received at 24 Mbit/s."
     ::= { coDot11AssociationEntry 15 }
 
 coDot11PktsRate36 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 36 Mbps."
+    DESCRIPTION "Number of frames received at 36 Mbit/s."
     ::= { coDot11AssociationEntry 16 }
 
 coDot11PktsRate48 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 48 Mbps."
+    DESCRIPTION "Number of frames received at 48 Mbit/s."
     ::= { coDot11AssociationEntry 17 }
 
 coDot11PktsRate54 OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of frames received at 54 Mbps."
+    DESCRIPTION "Number of frames received at 54 Mbit/s."
     ::= { coDot11AssociationEntry 18 }
 
 coDot11TransmitRate OBJECT-TYPE
@@ -842,8 +822,8 @@ coDot11StationVLAN OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "VLAN ID of the associated station.
-                 This object is always available on autonomous APs.
-                 However, on access-controller APs, this object is
+                 This object is always available on satellite devices.
+                 However, on access-controller devices, this object is
                  only available under certain conditions, when the client
                  station is connected to a profile that is
                  not access-controlled."
@@ -864,104 +844,6 @@ coDot11StaHT OBJECT-TYPE
     DESCRIPTION "Indicates that the associated station is HT."
     ::= { coDot11AssociationEntry 30 }
 
-coDot11StaEncryptionType OBJECT-TYPE
-    SYNTAX      INTEGER
-                {
-                    none(1),
-                    wep(2),
-                    tkip(3),
-                    aes(4)
-                }
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Indicates the encryption type used by the wireless
-                 station."
-    ::= { coDot11AssociationEntry 31 }
-
-coDot11PktsTxRate1 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 1 Mbps."
-    ::= { coDot11AssociationEntry 32 }
-
-coDot11PktsTxRate2 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 2 Mbps."
-    ::= { coDot11AssociationEntry 33 }
-
-coDot11PktsTxRate5dot5 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 5.5 Mbps."
-    ::= { coDot11AssociationEntry 34 }
-
-coDot11PktsTxRate11 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 11 Mbps."
-    ::= { coDot11AssociationEntry 35 }
-
-coDot11PktsTxRate6 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 6 Mbps."
-    ::= { coDot11AssociationEntry 36 }
-
-coDot11PktsTxRate9 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 9 Mbps."
-    ::= { coDot11AssociationEntry 37 }
-
-coDot11PktsTxRate12 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 12 Mbps."
-    ::= { coDot11AssociationEntry 38 }
-
-coDot11PktsTxRate18 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 18 Mbps."
-    ::= { coDot11AssociationEntry 39 }
-
-coDot11PktsTxRate24 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 24 Mbps."
-    ::= { coDot11AssociationEntry 40 }
-
-coDot11PktsTxRate36 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 36 Mbps."
-    ::= { coDot11AssociationEntry 41 }
-
-coDot11PktsTxRate48 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 48 Mbps."
-    ::= { coDot11AssociationEntry 42 }
-
-coDot11PktsTxRate54 OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of frames transmitted at 54 Mbps."
-    ::= { coDot11AssociationEntry 43 }
-
 -- *** End of Association Table ***********************************************
 
 
@@ -970,9 +852,9 @@ coDot11WDSPortTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF CoDot11WDSPortEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION "Conceptual table for the local mesh links.  This table 
-                 contains the six local mesh MAC address. This table is not 
-                 supported on the M111."
+    DESCRIPTION "Conceptual table for the WDS Ports.  This table contains
+                 the six WDS MAC address. This table is not supported on
+                 the WCB-200."
     ::= { coDot11ap 6 }
 
 coDot11WDSPortEntry OBJECT-TYPE
@@ -985,8 +867,8 @@ coDot11WDSPortEntry OBJECT-TYPE
                            Interface tables in this MIB module are indexed by
                            ifIndex.
 
-                 coDot11WDSPortIndex - Uniquely identify a local mesh link
-                                       inside the local mesh table."
+                 coDot11WDSPortIndex - Uniquely identify a WDS port inside the
+                                       WDS table."
     INDEX       { ifIndex, coDot11WDSPortIndex }
     ::= { coDot11WDSPortTable 1 }
 
@@ -1008,23 +890,22 @@ coDot11WDSPortIndex OBJECT-TYPE
     SYNTAX      Integer32 (1..6)
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION "The auxiliary variable used to identify instances of local 
-                  mesh links."
+    DESCRIPTION "The auxiliary variable used to identify instances of WDS
+                 ports."
     ::= { coDot11WDSPortEntry 1 }
 
 coDot11WDSPortMacAddress OBJECT-TYPE
     SYNTAX      MacAddress
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "MAC address of the remote device on the other side of the 
-                 local mesh link."
+    DESCRIPTION "MAC address of the remote device on the other side of the link."
     ::= { coDot11WDSPortEntry 2 }
 
 coDot11WDSPortCurrentRate OBJECT-TYPE
     SYNTAX      Unsigned32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Current rate of the local mesh link."
+    DESCRIPTION "Current rate of the WDS port."
     ::= { coDot11WDSPortEntry 3 }
 
 coDot11WDSPortSNRLevel OBJECT-TYPE
@@ -1039,15 +920,15 @@ coDot11WDSPortTxPackets OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of packets transmitted on this local mesh link."
+    DESCRIPTION "Number of packets transmitted on this WDS port."
     ::= { coDot11WDSPortEntry 5 }
 
 coDot11WDSPortTxDropped OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of packets that could not be transmitted on this 
-                 local mesh link."
+    DESCRIPTION "Number of packets that could not be transmitted on this WDS
+                 port."
     ::= { coDot11WDSPortEntry 6 }
 
 coDot11WDSPortTxErrors OBJECT-TYPE
@@ -1063,15 +944,15 @@ coDot11WDSPortRxPackets OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of packets received on this local mesh link."
+    DESCRIPTION "Number of packets received on this WDS port."
     ::= { coDot11WDSPortEntry 8 }
 
 coDot11WDSPortRxDropped OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Number of packets that were dropped on this local mesh link
-                 due to a lack of resources."
+    DESCRIPTION "Number of packets that were dropped on this WDS port due to
+                 a lack of resources."
     ::= { coDot11WDSPortEntry 9 }
 
 coDot11WDSPortRxErrors OBJECT-TYPE
@@ -1121,9 +1002,7 @@ CoDot11ScanEntry ::= SEQUENCE
     coDot11ScanSNR              Integer32,
     coDot11ScanStatus           INTEGER,
     coDot11ScanPHYType          INTEGER,
-    coDot11ScanInactivityTime   TimeTicks,
-    coDot11ScanNetworkType      INTEGER,
-    coDot11ScanSecurity         INTEGER
+    coDot11ScanInactivityTime   TimeTicks
 }
 
 coDot11ScanIndex OBJECT-TYPE
@@ -1189,8 +1068,8 @@ coDot11ScanStatus OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "The status of the scanned device.
-                   'unknown': The device could not determine the status of the 
-                              scanned AP.
+                   'unknown': The device could not determine the
+                              status of the scanned AP.
                    'authorized': The AP is part of the authorized list of APs.
                    'unauthorized': The AP is not part of the authorized
                                    list of APs."
@@ -1216,32 +1095,6 @@ coDot11ScanInactivityTime OBJECT-TYPE
     STATUS      current
     DESCRIPTION "Elapsed time since the last beacon was seen for this device."
     ::= { coDot11ScanEntry 10 }
-
-coDot11ScanNetworkType OBJECT-TYPE
-    SYNTAX      INTEGER
-                {
-                    ess(1),
-                    ibss(2)
-                }
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Network type used by the device."
-    ::= { coDot11ScanEntry 11 }
-
-coDot11ScanSecurity OBJECT-TYPE
-    SYNTAX      INTEGER
-                {
-                    none(1),
-                    wep(2),
-                    wpa(3),
-                    wpa2(4),
-                    wpaAndWpa2(5)
-                }
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Indicates the WPA/Encryption type used by the wireless
-                 station."
-    ::= { coDot11ScanEntry 12 }
 
 
 -- *** End of Scan Table ******************************************************
@@ -1274,7 +1127,7 @@ coDot11ScanPeriodicity OBJECT-TYPE
                  amount of periodic scans are needed in order complete a full
                  scan of all the supported frequencies. This parameter only 
                  applies when coDot11ScanEnabled is set to 'enable'.
-                 Not supported on the M111."
+                 Not supported on the WCB-200."
     DEFVAL      { 600 }
     ::= { coDot11ap 9 }
 
@@ -1284,11 +1137,11 @@ coDot11ScanAuthorizedListURL OBJECT-TYPE
     STATUS      current
     DESCRIPTION "Specifies the URL of the file that contains a list of all
                  authorized access points. If no valid URL is present in this
-                 field, the AP will not be able to compute the rogue table.
+                 field, the AP will no be able to compute the rogue table.
                  The format of this file is XML. Each entry in the file
                  is composed of two items: MAC address and SSID. Each
                  entry should appear on a new line. Not supported on the 
-                 M111."
+                 WCB-200."
     ::= { coDot11ap 10 }
 
 coDot11UnauthorizedAPNotificationEnabled OBJECT-TYPE
@@ -1296,7 +1149,7 @@ coDot11UnauthorizedAPNotificationEnabled OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "Specifies if periodic coDot11UnauthorizedAPNotification events
-                 are generated. Not supported on the M111."
+                 are generated. Not supported on the WCB-200."
     DEFVAL      { enable }
     ::= { coDot11ap 11 }
 
@@ -1306,7 +1159,7 @@ coDot11UnauthorizedAPNotificationInterval OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "Interval in minutes between unauthorized AP notifications.
-                 Not supported on the M111."
+                 Not supported on the WCB-200."
     ::= { coDot11ap 12 }
 
 coDot11AssociationNotificationEnabled OBJECT-TYPE
@@ -1314,7 +1167,7 @@ coDot11AssociationNotificationEnabled OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "Specifies if coDot11AssociationNotification events are 
-                 generated. Not supported on the M111."
+                 generated. Not supported on the WCB-200."
     DEFVAL      { disable }
     ::= { coDot11ap 13 }
 
@@ -1325,7 +1178,7 @@ coDot11AssociationNotificationInterval OBJECT-TYPE
     STATUS      current
     DESCRIPTION "Interval in minutes between association notifications.
                  Setting this attribute to 0 will disable periodic sending
-                 of association notification. Not supported on the M111."
+                 of association notification. Not supported on the WCB-200."
     ::= { coDot11ap 14 }
 
 -- *** End of Configuration of the AP Scan process ****************************
@@ -1349,8 +1202,8 @@ coDot11StationHTEntry OBJECT-TYPE
                            Interface tables in this MIB module are indexed by
                            ifIndex.
 
-                 coDot11AssociationIndex - Uniquely identify a device inside
-                                           the association table."
+                 coDot11AssociationIndex - Uniquely identify a device inside the
+                                           association table."
     AUGMENTS    { coDot11AssociationEntry }
     ::= { coDot11StationHTTable 1 }
 
@@ -1398,7 +1251,7 @@ coDot11StaTransmitMCS OBJECT-TYPE
     SYNTAX      Unsigned32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "MCS used while trasnmitting the last frame to the HT
+    DESCRIPTION "MSC used while trasnmitting the last frame to the HT
                  station."
     ::= { coDot11StationHTEntry 1 }
 
@@ -1653,134 +1506,6 @@ coDot11StaPktsRxMCS15 OBJECT-TYPE
 
 -- *** End of Station HT Table ***********************************************
 
--- *** Station Detection ******************************************************
-coDot11NbDetectedStation OBJECT-TYPE
-    SYNTAX      Unsigned32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Number of stations in the detected station table."
-    ::= { coDot11ap 16 }
-
-coDot11DetectedStationTable OBJECT-TYPE
-    SYNTAX      SEQUENCE OF CoDot11DetectedStationEntry
-    MAX-ACCESS  not-accessible
-    STATUS      current
-    DESCRIPTION "Group containing attributes related to stations
-                 sending probe request.
-                 This table is not supported on the M111."
-    ::= { coDot11ap 17 }
-
-coDot11DetectedStationEntry OBJECT-TYPE
-    SYNTAX      CoDot11DetectedStationEntry
-    MAX-ACCESS  not-accessible
-    STATUS      current
-    DESCRIPTION "An entry in the detected station Table.
-
-                 ifIndex - Each 802.11 interface is represented by an ifEntry.
-                           Interface tables in this MIB module are indexed by
-                           ifIndex.
-
-                 coDot11DetStaIndex - Uniquely identify a device inside the
-                                      detected station table."
-    INDEX       { ifIndex, coDot11DetStaIndex }
-    ::= { coDot11DetectedStationTable 1 }
-
-CoDot11DetectedStationEntry ::= SEQUENCE
-{
-    coDot11DetStaIndex           Integer32,
-    coDot11DetStaMacAddress      MacAddress,
-    coDot11DetStaChannel         Integer32,
-    coDot11DetStaSignalLevel     Integer32,
-    coDot11DetStaNoiseLevel      Integer32,
-    coDot11DetStaNbProbeReq      Counter32,
-    coDot11DetStaRate            Unsigned32,
-    coDot11DetStaSSID            ColubrisSSID,
-    coDot11DetStaTimeDiscovered  Counter32,
-    coDot11DetStaTimeLastSeen    Unsigned32
-}
-
-coDot11DetStaIndex OBJECT-TYPE
-    SYNTAX      Integer32 (1..2147483647)
-    MAX-ACCESS  not-accessible
-    STATUS      current
-    DESCRIPTION "The auxiliary variable used to identify instances of the
-                 columnar objects in the detected station table."
-    ::= { coDot11DetectedStationEntry 1 }
-
-coDot11DetStaMacAddress OBJECT-TYPE
-    SYNTAX      MacAddress
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "MAC address of the wireless client."
-    ::= { coDot11DetectedStationEntry 2 }
-
-coDot11DetStaChannel OBJECT-TYPE
-    SYNTAX      Integer32 (1..2147483647)
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "The operating frequency channel when the last probe
-                 request was received."
-    ::= { coDot11DetectedStationEntry 3 }
-
-coDot11DetStaSignalLevel OBJECT-TYPE
-    SYNTAX      Integer32
-    UNITS       "dBm"
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Strength of the wireless signal."
-    ::= { coDot11DetectedStationEntry 4 }
-
-coDot11DetStaNoiseLevel OBJECT-TYPE
-    SYNTAX      Integer32
-    UNITS       "dBm"
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Level of local background noise."
-    ::= { coDot11DetectedStationEntry 5 }
-
-coDot11DetStaNbProbeReq OBJECT-TYPE
-    SYNTAX      Counter32
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Total number of probes request received from this client."
-    ::= { coDot11DetectedStationEntry 6 }
-
-coDot11DetStaRate OBJECT-TYPE
-    SYNTAX      Unsigned32
-    UNITS       "500Kb/s"
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Receive rate of the last probe request received from
-                 this client."
-    ::= { coDot11DetectedStationEntry 7 }
-
-coDot11DetStaSSID OBJECT-TYPE
-    SYNTAX      ColubrisSSID
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "SSID contained in the last probe request received from
-                 this client."
-    ::= { coDot11DetectedStationEntry 8 }
-
-coDot11DetStaTimeDiscovered OBJECT-TYPE
-    SYNTAX      Counter32
-    UNITS       "seconds"
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Elapsed time in seconds since the first probe has
-                 been received from this client."
-    ::= { coDot11DetectedStationEntry 9 }
-
-coDot11DetStaTimeLastSeen OBJECT-TYPE
-    SYNTAX      Unsigned32
-    UNITS       "seconds"
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION "Elapsed time in seconds since the last probe has
-                 been received from this client."
-    ::= { coDot11DetectedStationEntry 10 }
-
--- *** End of Station Detection ***********************************************
 
 -- *** MAC Attribute Templates ************************************************
 
@@ -1818,8 +1543,7 @@ CoDot11OperationEntry ::= SEQUENCE
     coDot11MaxReceiveLifetime         Unsigned32,
     coDot11ManufacturerID             DisplayString,
     coDot11ProductID                  DisplayString,
-    coDot11RadioType                  ColubrisRadioType,
-    coDot11StationDetectionState      TruthValue
+    coDot11RadioType                  ColubrisRadioType
 }
 
 coDot11MACAddress OBJECT-TYPE
@@ -1833,7 +1557,7 @@ coDot11RTSThreshold OBJECT-TYPE
     SYNTAX      Integer32 (128..1540|2347)
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "Specifies the number of octets in an MPDU,
+    DESCRIPTION "Indicated the number of octets in an MPDU,
                  below which an RTS/CTS handshake is not performed. An
                  RTS/CTS handshake is performed at the beginning of any
                  frame exchange sequence where the MPDU is of type Data or
@@ -1851,7 +1575,7 @@ coDot11ShortRetryLimit OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "Indicates the maximum number of transmission attempts of a 
-                 frame, the length of which is less than or equal to
+                 frame, the length of which is less  than or equal to
                  coDot11RTSThreshold, that are made before a failure condition
                  is indicated. The default value of this attribute is 7."
     ::= { coDot11OperationEntry 3 }
@@ -1862,7 +1586,7 @@ coDot11LongRetryLimit OBJECT-TYPE
     STATUS      current
     DESCRIPTION "Indicates the maximum number of  transmission attempts of a
                  frame, the length of which is greater than
-                 coDot11RTSThreshold, that are made before a
+                 coDot11RTSThreshold, that shall be made before a
                  failure condition is indicated. The default value of this
                  attribute is 4."
     ::= { coDot11OperationEntry 4 }
@@ -1879,9 +1603,9 @@ coDot11FragmentationThreshold OBJECT-TYPE
                  in the Address1 field, and the length of the frame is larger
                  than this threshold. The default value for this attribute is
                  the lesser of 2346 or the aMPDUMaxLength of the attached PHY
-                 and will never exceed the lesser of 2346 or the
-                 aMPDUMaxLength of the attached PHY. The value of this 
-                 attribute will never be less than 256. "
+                 and will never exceed the lesser of 2346 or the  aMPDUMaxLength 
+                 of the attached PHY. The value of this attribute will never 
+                 be less than 256. "
     ::= { coDot11OperationEntry 5 }
 
 coDot11MaxTransmitMSDULifetime OBJECT-TYPE
@@ -1925,19 +1649,8 @@ coDot11RadioType OBJECT-TYPE
     SYNTAX      ColubrisRadioType
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Identify the wireless device inside the HP product."
+    DESCRIPTION "Identify the wireless device inside the Colubris product."
     ::= { coDot11OperationEntry 10 }
-
-coDot11StationDetectionState OBJECT-TYPE
-    SYNTAX      TruthValue
-    MAX-ACCESS  read-write
-    STATUS      current
-    DESCRIPTION "The desired state of the station detection process.
-
-                   'true': Analyze probe requests.
-
-                   'false': Do not analyze probe requests."
-    ::= { coDot11OperationEntry 11 }
 
 -- *** End of Operation Table *************************************************
 
@@ -2097,7 +1810,7 @@ coDot11WEPUndecryptableCount OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "This counter is incremented when a frame is received with the
-                 WEP subfield of the Frame Control field set to one, and the
+                 WEP subfield of the Frame Control field set to one and the
                  WEPOn value for the key mapped to the TA's MAC address
                  indicates that the frame should not have been encrypted or
                  that frame is discarded due to the receiving STA not
@@ -2161,7 +1874,7 @@ coDot11PHYType OBJECT-TYPE
                  supported by the attached PLCP and PMD. Currently defined
                  values and their corresponding PHY types are: 
                  FHSS 2.4 GHz = 01 , DSSS 2.4 GHz = 02, IR Baseband = 03,
-                 OFDM 5 GHz = 04."
+                 OFDM 5 GHz = 04"
     ::= { coDot11PhyOperationEntry 1 }
 
 coDot11CurrentRegDomain OBJECT-TYPE
@@ -2211,7 +1924,7 @@ coDot11CurrentOperPHYType OBJECT-TYPE
                 }
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "The current operating PHY type of the radio."
+    DESCRIPTION "The current operating phy type of the radio."
     ::= { coDot11PhyOperationEntry 5 }
 
 coDot11Sensitivity OBJECT-TYPE
@@ -2247,26 +1960,20 @@ coDot11OperatingMode OBJECT-TYPE
     DESCRIPTION "Operating mode of the radio. Available options are:
 
                     Access point and Wireless links: 
-                        Standard operating mode provides support for all 
-                        wireless functions.
+                        Standard operating mode provides support for all wireless functions.
 
                     Access point only: 
-                        Only provides access point functionality, local mesh 
-                        links cannot be created.
+                        Only provides access point functionality, wireless links cannot be created.
 
                     Wireless links only: 
-                        Only provides local mesh functionality. Wireless 
-                        client stations cannot connect.
+                        Only provides wireless links functionality. Wireless client stations cannot connect.
 
                     Monitor: 
-                        Disables access point and local mesh functions. Use 
-                        this option for continuous scanning across all channels 
-                        in all supported wireless modes.
-                        
+                        Enables the radio to be used for monitoring (wireless neighborhood) only. 
+                        Both access point and wireless links functionality are disabled.
+
                     Sensor: 
-                        Enables RF sensor functionality on this radio.
-                        Operation of this feature requires that the appropriate 
-                        license is installed."
+                        Enables the radio to be used for monitoring only."
     ::= { coDot11PhyOperationEntry 8 }
 
 coDot11AutoChannelEnabled OBJECT-TYPE
@@ -2290,12 +1997,11 @@ coDot11AutoChannelInterval OBJECT-TYPE
                 }
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "Time interval, in minutes, between auto rescanning of the 
-                 channels. Maximum is 1440 minutes (24 hours). A value of zero 
-                 disables automatic rescanning of channels, the radio will 
-                 automatically select a channel when the interface initializes 
-                 and utilize that channel as long as the interface is 
-                 operational."
+    DESCRIPTION "Time interval, in minutes, between auto rescanning of the channels.
+                 Maximum is 1440 minutes (24 hours). A value of zero disables automatic
+                 rescanning of channels, the radio will automatically select a channel
+                 when the interface intializes and utilize that channel as long as the
+                 interface is operational."
     ::= { coDot11PhyOperationEntry 10 }
 
 coDot11AutoPowerEnabled OBJECT-TYPE
@@ -2317,8 +2023,8 @@ coDot11AutoPowerInterval OBJECT-TYPE
                 }
     MAX-ACCESS  read-write
     STATUS      current
-    DESCRIPTION "Time interval, in minutes, between auto rescanning of the
-                 channels. Maximum is 1440 minutes (24 hours)."
+    DESCRIPTION "Time interval, in minutes, between auto rescanning of the channels.
+                 Maximum is 1440 minutes (24 hours)."
     ::= { coDot11PhyOperationEntry 12 }
 
 
@@ -2375,8 +2081,7 @@ coDot11DiversitySupport OBJECT-TYPE
     DESCRIPTION "This implementation's support for diversity, encoded as:
 
                  X'01': Diversity is available and is performed over the fixed
-                        list of antennas defined in
-                        coDot11DiversitySelectionRx.
+                        list of antennas defined in coDot11DiversitySelectionRx.
 
                  X'02': Diversity is not supported.
 
@@ -2435,11 +2140,8 @@ coDot11PhyAdminStatus OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "The desired state of the radio interface.
-
-                  'up': Sets the radio interface to be ready to transmit and 
-                        receive.
-
-                  'down': Stops the transmission and reception of packets on
+                  'up': Sets the radio interface to be ready to pass packets.
+                  'down': Stops the transmit and receive of packets on
                           the interface."
     ::= { coDot11PhyConfigEntry 1 }
 
@@ -2453,11 +2155,10 @@ coDot11PhyOperStatus OBJECT-TYPE
     STATUS      current
     DESCRIPTION "The current state of the radio interface.
 
-                   'up': The radio interface is ready to ready to transmit and 
-                        receive.
+                   'up': The radio interface is ready to pass packets.
 
-                   'down': The radio is not able to transmit or receive
-                           on the interface."
+                   'down': The radio is not able to transmit nor receive
+                           packets on the interface."
     ::= { coDot11PhyConfigEntry 2 }
 
 -- *** End of Phy Config Table ************************************************
@@ -2508,13 +2209,13 @@ coDot11CCAModeSupported OBJECT-TYPE
                  representing all of the CCA modes supported by the PHY.
                  Valid values are:
 
-                   energy detect only (ED_ONLY) = 01
+                   energy detect only (ED_ONLY) = 01,
 
-                   carrier sense only (CS_ONLY) = 02
+                   carrier sense only (CS_ONLY) = 02,
 
                    carrier sense and energy detect (ED_and_CS)= 04
 
-                   Or the logical sum of any of these values."
+                   or the logical sum of any of these values."
     ::= { coDot11PhyDSSSEntry 2 }
 
 coDot11CurrentCCAMode OBJECT-TYPE
@@ -2526,13 +2227,13 @@ coDot11CurrentCCAMode OBJECT-TYPE
                 }
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "The current CCA method in operation. Valid values are:
+    DESCRIPTION "The current CCA method in operation.
+                 Valid values are:
+                   energy detect only (edonly) = 01,
 
-                   energy detect only (edonly) = 01
+                   carrier sense only (csonly) = 02,
 
-                   carrier sense only (csonly) = 02
-
-                   carrier sense and energy detect (edandcs)= 04"
+                   carrier sense and energy detect (edandcs)= 04."
     ::= { coDot11PhyDSSSEntry 3 }
 
 -- *** End of Phy DSSS Table **************************************************
@@ -2548,18 +2249,9 @@ coDot11RegDomainsSupportedTable OBJECT-TYPE
                  regulatory domains the PLCP and PMD support in this
                  implementation.  Currently defined values and their
                  corresponding Regulatory Domains are:
-
-                   FCC (USA) = X'10'
-
-                   DOC (Canada) = X'20'
-
-                   ETSI (most of Europe) = X'30'
-
-                   Spain = X'31'
-                 
-                   France = X'32'
-
-                   Japan = X'41' "
+                 FCC (USA) = X'10', DOC (Canada) = X'20', ETSI (most of
+                 Europe) = X'30', Spain = X'31', France = X'32',
+                 Japan = X'41' "
     ::= { coDot11phy 5 }
 
 coDot11RegDomainsSupportedEntry OBJECT-TYPE
@@ -2609,17 +2301,8 @@ coDot11RegDomainsSupportValue OBJECT-TYPE
                  regulatory domains the PLCP and PMD support in this
                  implementation. Currently defined values and their 
                  corresponding Regulatory Domains are:
-
-                   FCC (USA) = X'10'
-
-                   DOC (Canada) = X'20'
-
-                   ETSI (most of Europe) = X'30'
-
-                   Spain = X'31'
-                 
-                   France = X'32'
-
+                   FCC (USA) = X'10', DOC (Canada) = X'20', ETSI (most of
+                   Europe) = X'30', Spain = X'31', France = X'32',
                    Japan = X'41' "
     ::= { coDot11RegDomainsSupportedEntry 2 }
 
@@ -2706,8 +2389,8 @@ coDot11SupportedDataRatesTxTable OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION "The Transmit bit rates supported by the PLCP and PMD, data
-                 rates are increments of 500Kb/s from 1 Mbps to 63.5 Mbps
-                 subject to limitations of each individual PHY."
+                 rates are increments of 500Kb/s from 1 Mb/s to 63.5 Mb/s subject
+                 to limitations of each individual PHY."
     ::= { coDot11phy 7 }
 
 coDot11SupportedDataRatesTxEntry OBJECT-TYPE
@@ -2744,8 +2427,8 @@ coDot11SupportedDataRatesTxValue OBJECT-TYPE
     SYNTAX      Integer32 (2..127)
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "The transmit bit rates supported by the PLCP and PMD. Data
-                 rates are increments of 500Kb/s from 1 Mbps to 63.5 Mbps
+    DESCRIPTION "The Transmit bit rates supported by the PLCP and PMD, data
+                 rates are increments of 500Kb/s from 1 Mb/s to 63.5 Mb/s
                  subject to limitations of each individual PHY."
     ::= { coDot11SupportedDataRatesTxEntry 2 }
 
@@ -2757,8 +2440,8 @@ coDot11SupportedDataRatesRxTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF CoDot11SupportedDataRatesRxEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION "The receive bit rates supported by the PLCP and PMD. Data
-                 rates are increments of 500Kb/s from 1 Mbps to 63.5 Mbps
+    DESCRIPTION "The receive bit rates supported by the PLCP and PMD, data
+                 rates are increments of 500Kb/s from 1 Mb/s to 63.5 Mb/s
                  subject to limitations of each individual PHY."
     ::= { coDot11phy 8 }
 
@@ -2796,8 +2479,8 @@ coDot11SupportedDataRatesRxValue OBJECT-TYPE
     SYNTAX      Integer32 (2..127)
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "The receive bit rates supported by the PLCP and PMD. Data
-                 rates are increments of 500Kb/s from 1 Mbps to 63.5 Mbps
+    DESCRIPTION "The receive bit rates supported by the PLCP and PMD, data
+                 rates are increments of 500Kb/s from 1 Mb/s to 63.5 Mb/s
                  subject to limitations of each individual PHY."
     ::= { coDot11SupportedDataRatesRxEntry 2 }
 
@@ -2811,7 +2494,7 @@ coDot11PhyOFDMTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION "Entry of attributes for coDot11PhyOFDMEntry. In tabular form
                  to allow multiple instances on an agent. This table only apply
-		     when in OFDM 5 GHz range."
+		 when in OFDM 5 GHz range."
     ::= { coDot11phy 9 }
 
 coDot11PhyOFDMEntry OBJECT-TYPE
@@ -2845,7 +2528,7 @@ coDot11TIThreshold OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "The threshold being used to detect a busy medium (frequency).
-                 CCA reports a busy medium upon detecting the RSSI above
+                 CCA shall report a busy medium upon detecting the RSSI above
                  this threshold."
     ::= { coDot11PhyOFDMEntry 2 }
 
@@ -2854,20 +2537,20 @@ coDot11FrequencyBandsSupported OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "The capability of the OFDM PHY implementation to operate in
-                 the three U-NII bands. Coded as an integer value of a 
-                 three  1 bit fields as follow:
+                 the three U-NII bands. Coded as an integer value of a three bit
+                 fields as follow:
 
-                 bit 0  - Capable of operating in the lower (5.15-5.25 GHz)
+                 bit 0 .. capable of operating in the lower (5.15-5.25 GHz)
                           U-NII band.
 
-                 bit 1  - Capable of operating in the middle (5.25-5.35 GHz)
+                 bit 1 .. capable of operating in the middle (5.25-5.35 GHz)
                           U-NII band.
 
-                 bit 2  - Capable of operating in the middle (5.725-5.825 GHz)
+                 bit 2 .. capable of operating in the middle (5.725-5.825 GHz)
                           U-NII band.
 
                  For example, for an implementation capable of operating in the
-                 lower and middle bands, this object would take the value 3."
+                 lower and middle bands, this attribute would take the value 3."
     ::= { coDot11PhyOFDMEntry 3 }
 
 -- *** End of Phy OFDM Table **************************************************
@@ -2879,7 +2562,7 @@ coDot11MinimumSNRLevel OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "An SNR level notification is generated when the average SNR
-                 level is below this attribute. Not supported on the M111."
+                 level is below this attribute. Not supported on the WCB-200."
     ::= { coDot11phy 10 }
 
 coDot11SNRLevelNotificationEnabled OBJECT-TYPE
@@ -2887,7 +2570,7 @@ coDot11SNRLevelNotificationEnabled OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "This attribute, when true, enables the generation of SNR level
-                 notifications. Not supported on the M111."
+                 notifications. Not supported on the WCB-200."
     DEFVAL      { enable }
     ::= { coDot11phy 11 }
 
@@ -2897,7 +2580,7 @@ coDot11SNRLevelNotificationInterval OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION "Interval in minutes between SNR Level notifications. Not 
-                 supported on the M111."
+                 supported on the WCB-200."
     ::= { coDot11phy 12 }
 
 coDot11CountryCode OBJECT-TYPE
@@ -3057,7 +2740,7 @@ coDot11FortyMHzOperationImplemented OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "This attribute, when TRUE, indicates that 40 MHz
+    DESCRIPTION "This attribute, when TRUE, indicates that the 40 MHz
                  Operation is implemented."
     ::= { coDot11PhyHTEntry 1 }
 
@@ -3065,7 +2748,7 @@ coDot11FortyMHzOperationEnabled OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "This attribute, when TRUE, indicates that 40 MHz
+    DESCRIPTION "This attribute, when TRUE, indicates that the 40 MHz
                  Operation is enabled."
     ::= { coDot11PhyHTEntry 2 }
 
@@ -3084,7 +2767,7 @@ coDot11CurrentSecondaryChannel OBJECT-TYPE
     STATUS      current
     DESCRIPTION "This attribute indicates the channel number of the
                  secondary channel. If 20/40 MHz mode is not currently
-                 in use, this attribute value is 0."
+                 in use, this attribute value shall be 0."
     ::= { coDot11PhyHTEntry 4 }
 
 coDot11GreenfieldOptionImplemented OBJECT-TYPE
@@ -3124,7 +2807,7 @@ coDot11ShortGIOptionInFortyImplemented OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION	"This attribute, when TRUE, indicates that the Short
-                   Guard option is implemented for 40 MHz operation."
+                 Guard option is implemented for 40 MHz operation."
     ::= { coDot11PhyHTEntry 9 }
 
 coDot11ShortGIOptionInFortyEnabled OBJECT-TYPE
@@ -3140,7 +2823,7 @@ coDot11HighestSupportedDataRate OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION "This attribute shall specify the Highest Data Rate in
-                 Mbps at which the station may receive data."
+                 Mb/s at which the station may receive data."
     ::= { coDot11PhyHTEntry 11 }
 
 -- *** End of Phy HT Table **************************************************
@@ -3193,23 +2876,23 @@ coDot11RSNAStatsSelectedPairwiseCipher OBJECT-TYPE
     STATUS      current
     DESCRIPTION "The AKM Suite the AP selected during association.
                  The value consists of a three octet OUI followed by a
-                 one octet type as follows:
+                  one octet type as follows:
 
                     OUI Value, Cipher, Type
 
-                    XX-XX-XX,  0,      Reserved
+                    XX-XX-XX, 0, Reserved
 
-                    XX-XX-XX,  1,      WEP-40
+                    XX-XX-XX, 1, WEP-40
 
-                    XX-XX-XX,  2,      TKIP
+                    XX-XX-XX, 2, TKIP
 
-                    XX-XX-XX,  3,      Reserved
+                    XX-XX-XX, 3, Reserved
 
-                    XX-XX-XX,  4,      CCMP
+                    XX-XX-XX, 4, CCMP
 
-                    XX-XX-XX,  5,      WEP-104
+                    XX-XX-XX, 5, WEP-104
 
-                    XX-XX-XX,  6-255,  Reserved
+                    XX-XX-XX, 6-255, Reserved
 
                     Vendor, any, Vendor Specific
 
@@ -3228,7 +2911,7 @@ coDot11RSNAStatsTKIPLocalMICFailures OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION "Counts the number of Michael MIC failures encountered when
+    DESCRIPTION "Counts the number of Michael MIC failure encountered when
                  checking the integrity of packets received from the AP at
                  this entity."
     ::= { coDot11RSNAStatsEntry 5 }
@@ -3304,7 +2987,8 @@ coDot11SNRLevelNotification NOTIFICATION-TYPE
                     }
         STATUS      current
         DESCRIPTION "The average SNR level for all the stations using
-                     this VSC during the last three intervals is low."
+                     this virtual ap during the last three intervals
+                     is low."
       --#SUMMARY "Low SNR of %d for wireless profile %s on interface %s"
       --#ARGUMENTS { 3, 2, 1 }
       --#SEVERITY WARNING
@@ -3435,8 +3119,7 @@ coDot11ComplianceExt MODULE-COMPLIANCE
                         coDot11ScanConfigGroup,
                         coDot11WDSComplianceGroup,
                         coDot11NotificationGroup,
-                        coDot11StationHTGroup,
-                        coDot11StationDetectionGroup
+                        coDot11StationHTGroup
                    }
 
     GROUP coDot11PhyDSSSComplianceGroup
@@ -3492,8 +3175,8 @@ coDot11APPrivacyGroup OBJECT-GROUP
                     coDot11RSNAEnabled
                 }
     STATUS      current
-    DESCRIPTION "The APPrivacy package is a set of attributes that are
-                 present if WEP is implemented on the Access Point."
+    DESCRIPTION "The APPrivacy package is a set of attributes that shall be
+                 present if WEP is implemented in the Access Point."
     ::= { coDot11Groups 2 }
 
 coDot11MACBaseGroup OBJECT-GROUP
@@ -3507,11 +3190,10 @@ coDot11MACBaseGroup OBJECT-GROUP
                     coDot11MaxReceiveLifetime,
                     coDot11ManufacturerID,
                     coDot11ProductID,
-                    coDot11RadioType,
-                    coDot11StationDetectionState
+                    coDot11RadioType
                 }
     STATUS      current
-    DESCRIPTION "The MAC object class provides the necessary support for 
+    DESCRIPTION "The MAC object class provides the necessary support for the
                  access control, generation, and verification of frame check
                  sequences, and proper delivery of valid data to upper layers."
     ::= { coDot11Groups 3 }
@@ -3667,20 +3349,7 @@ coDot11AssociationGroup OBJECT-GROUP
                     coDot11StationIPAddress,
                     coDot11StationVLAN,
                     coDot11StationLocalInterface,
-                    coDot11StaHT,
-                    coDot11StaEncryptionType,
-                    coDot11PktsTxRate1,
-                    coDot11PktsTxRate2,
-                    coDot11PktsTxRate5dot5,
-                    coDot11PktsTxRate11,
-                    coDot11PktsTxRate6,
-                    coDot11PktsTxRate9,
-                    coDot11PktsTxRate12,
-                    coDot11PktsTxRate18,
-                    coDot11PktsTxRate24,
-                    coDot11PktsTxRate36,
-                    coDot11PktsTxRate48,
-                    coDot11PktsTxRate54
+                    coDot11StaHT
                 }
     STATUS      current
     DESCRIPTION "The AP object class provides the necessary support at the
@@ -3695,7 +3364,7 @@ coDot11AssociationConfigGroup OBJECT-GROUP
     STATUS      current
     DESCRIPTION "The AP object class provides the necessary support at the
                  Access Point to manage the association table. Not supported
-                 on the M111."
+                 on the WCB-200."
     ::= { coDot11Groups 15 }
 
 coDot11ScanGroup OBJECT-GROUP
@@ -3708,9 +3377,7 @@ coDot11ScanGroup OBJECT-GROUP
                     coDot11ScanSNR,
                     coDot11ScanStatus,
                     coDot11ScanPHYType,
-                    coDot11ScanInactivityTime,
-                    coDot11ScanNetworkType,
-                    coDot11ScanSecurity
+                    coDot11ScanInactivityTime
                 }
     STATUS      current
     DESCRIPTION "The AP object class provides the necessary support at the
@@ -3728,7 +3395,7 @@ coDot11ScanConfigGroup OBJECT-GROUP
     STATUS      current
     DESCRIPTION "The AP object class provides the necessary support at the
                  Access Point to manage the scan table. Not supported on
-                 the M111."
+                 the WCB-200."
     ::= { coDot11Groups 17 }
 
 coDot11WDSComplianceGroup OBJECT-GROUP
@@ -3868,23 +3535,5 @@ coDot11APBaseGroupExt OBJECT-GROUP
                  the STA may work cooperatively as a part of an IEEE 802.11
                  network."
     ::= { coDot11Groups 24 }
-
-coDot11StationDetectionGroup OBJECT-GROUP
-    OBJECTS     {
-                    coDot11NbDetectedStation,
-                    coDot11DetStaMacAddress,
-                    coDot11DetStaChannel,
-                    coDot11DetStaSignalLevel,
-                    coDot11DetStaNoiseLevel,
-                    coDot11DetStaNbProbeReq,
-                    coDot11DetStaRate,
-                    coDot11DetStaSSID,
-                    coDot11DetStaTimeDiscovered,
-                    coDot11DetStaTimeLastSeen
-                }
-    STATUS      current
-    DESCRIPTION "The AP object class provides the necessary support at the
-                 Access Point to manage the station detection information."
-    ::= { coDot11Groups 25 }
 
 END

@@ -17,7 +17,7 @@ IMPORTS
 	enterprises 
 		FROM SNMPv2-SMI
 	TEXTUAL-CONVENTION, 
-	DisplayString, MacAddress
+	DisplayString 
 		FROM SNMPv2-TC
 	mwWncVarsHostName
 		FROM MERU-CONFIG-CONTROLLER-MIB

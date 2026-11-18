@@ -9,7 +9,7 @@
         RowStatus, TruthValue            FROM SNMPv2-TC
         OwnerString                      FROM RFC1271-MIB
         MODULE-COMPLIANCE, OBJECT-GROUP  FROM SNMPv2-CONF
-        igmpInterfaceEntry               FROM IGMP-STD-MIB;
+        igmpInterfaceEntry               FROM IGMP-MIB;
 
     ciscoMcastMIB MODULE-IDENTITY
         LAST-UPDATED "9407301359Z"

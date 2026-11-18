@@ -1,4 +1,13 @@
-
+------------------------------------------------------------------------------
+--
+--  File              : gbnPlatformOAMMailalarm-MIB.mi2
+--  Description       : Mailalarm configuration MIB 
+--  Version           : 1.0  
+--  Date              : Jul 25, 2005     
+--  Author            : wukaijian
+--  Copyright (c) 2001-2008 admin Co. Ltd.  All Rights Reserved.
+--
+------------------------------------------------------------------------------
 
     GBNPlatformOAMMailalarm-MIB DEFINITIONS ::= BEGIN
 
@@ -7,21 +16,21 @@
         Counter32, Gauge32,
         Unsigned32, Integer32,
         IpAddress, NOTIFICATION-TYPE            FROM SNMPv2-SMI
-
-        RowStatus, TruthValue,
+        
+        RowStatus, TruthValue, 
         DisplayString, MacAddress               FROM SNMPv2-TC
-
+        
         MODULE-COMPLIANCE, OBJECT-GROUP         FROM SNMPv2-CONF
-
+        
         snmpTraps                               FROM SNMPv2-MIB
-
+        
         gbnPlatformOAM                          FROM GBNPlatformOAM-MIB;
-
+    
     gbnPlatformOAMMailalarm  MODULE-IDENTITY
         LAST-UPDATED    "0507250000Z"  -- Jul 25, 2005
-        ORGANIZATION    "Greentech"
-        CONTACT-INFO    "Adam Armstrong
-                         E-mail: adama@observium.org"
+        ORGANIZATION    "admin Co. Ltd"
+        CONTACT-INFO    "admin Co. Ltd
+                         E-mail: service@admin.com.cn"
 
         DESCRIPTION     "Mailalarm mib definition."
 
@@ -29,8 +38,8 @@
         DESCRIPTION     "Initial MIB creation."
 
         ::= { gbnPlatformOAM 12 }
-
-    mailalarmState OBJECT-TYPE
+        
+	mailalarmState OBJECT-TYPE
         SYNTAX INTEGER {
             enable(1),
             disable(2)
@@ -39,33 +48,36 @@
         STATUS current
         DESCRIPTION
             "enable or disable Mailalarm."
-        ::= { gbnPlatformOAMMailalarm 1 }
-
+        ::= { gbnPlatformOAMMailalarm 1 } 
+        
      mailalarmSrvAddr OBJECT-TYPE
         SYNTAX IpAddress
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
             "the address of the SMTP server used by Mailalarm."
+            --SMTP
         ::= { gbnPlatformOAMMailalarm 2 }
-
-    mailalarmRceiverAddr OBJECT-TYPE
+        
+	mailalarmRceiverAddr OBJECT-TYPE
         SYNTAX   OCTET STRING (SIZE (0..127))
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
             "the e-mail address of the receiver."
-        ::= { gbnPlatformOAMMailalarm 3 }
-
+            --e-mail
+        ::= { gbnPlatformOAMMailalarm 3 }         
+                     
     mailalarmLogLevel OBJECT-TYPE
         SYNTAX   INTEGER (0..7)
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
             "the mailalarm level of syslog."
+            --syslog
         ::= { gbnPlatformOAMMailalarm 4 }
 
-    mailalarmSmtpAuthEnable OBJECT-TYPE
+	mailalarmSmtpAuthEnable OBJECT-TYPE
         SYNTAX INTEGER {
             enable(1),
             disable(2)
@@ -74,25 +86,28 @@
         STATUS current
         DESCRIPTION
             "enable or disable smtp authentication."
+            --smtp
         ::= { gbnPlatformOAMMailalarm 5 }
 
-    mailalarmSmtpUsername OBJECT-TYPE
+	mailalarmSmtpUsername OBJECT-TYPE
         SYNTAX   OCTET STRING (SIZE (0..31))
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
             "smtp username."
+            --smtp
         ::= { gbnPlatformOAMMailalarm 6 }
-
-    mailalarmSmtpPasswd OBJECT-TYPE
+               
+	mailalarmSmtpPasswd OBJECT-TYPE
         SYNTAX   OCTET STRING (SIZE (0..31))
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
             "smtp password."
+            --smtp
         ::= { gbnPlatformOAMMailalarm 7 }
-
-------------------------------------------------------------------------------
+                               
+------------------------------------------------------------------------------     
 --  mailalarmCcAddrTable:
 ------------------------------------------------------------------------------
 
@@ -102,39 +117,42 @@
         STATUS   current
         DESCRIPTION
             "the e-mail address table of the Cc. receiver."
-        ::= { gbnPlatformOAMMailalarm 8 }
-
+            --e-mail
+        ::= { gbnPlatformOAMMailalarm 8 }   
+        
     mailalarmCcAddrEntry OBJECT-TYPE
         SYNTAX   MailalarmCcAddrEntry
         MAX-ACCESS   not-accessible
         STATUS   current
         DESCRIPTION
             "the e-mail address entry of the Cc. receiver."
+            --e-mail
         INDEX { mailalarmCcAddrIdx }
         ::= { mailalarmCcAddrTable 1 }
-
+        
     MailalarmCcAddrEntry ::=
-        SEQUENCE {
-            mailalarmCcAddrIdx
-                INTEGER (0..3),
-            mailalarmCcAddr
-                OCTET STRING (SIZE (0..127))
-            }
-
-    mailalarmCcAddrIdx OBJECT-TYPE
+	    SEQUENCE {
+	        mailalarmCcAddrIdx
+	            INTEGER (0..3),
+	        mailalarmCcAddr
+	        	OCTET STRING (SIZE (0..127))       	            
+	        }
+                 
+	mailalarmCcAddrIdx OBJECT-TYPE
         SYNTAX   INTEGER (0..3)
         MAX-ACCESS   read-only
         STATUS   current
         DESCRIPTION
             "the index of the address entry."
-        ::= { mailalarmCcAddrEntry 1 }
-
-    mailalarmCcAddr OBJECT-TYPE
+        ::= { mailalarmCcAddrEntry 1 }               
+                 
+	mailalarmCcAddr OBJECT-TYPE
         SYNTAX   OCTET STRING (SIZE (0..127))
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
             "the e-mail address of the Cc. receiver."
-        ::= { mailalarmCcAddrEntry 2 }
-
+            --e-mail
+        ::= { mailalarmCcAddrEntry 2 } 
+                                                   
    END

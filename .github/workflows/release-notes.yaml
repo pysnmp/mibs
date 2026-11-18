@@ -8,10 +8,15 @@ on:
 
 jobs:
   preview:
+    if: >-
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request != null)
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      pull-requests: write
+      statuses: write
     steps:
       - name: Free Disk Space
         uses: jlumbroso/free-disk-space@main
@@ -26,7 +31,17 @@ jobs:
         with:
           fetch-depth: 0
           filter: blob:none
+      - name: Check release baseline
+        id: release_baseline
+        run: |
+          if git describe --abbrev=0 --tags origin/main > /dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "No release tag is reachable from main. Skipping release-notes preview"
+          fi
       - uses: snyk/release-notes-preview@v1.6.2
+        if: steps.release_baseline.outputs.exists == 'true'
         with:
           releaseBranch: main
         env:

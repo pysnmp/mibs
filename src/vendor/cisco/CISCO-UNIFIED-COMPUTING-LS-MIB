@@ -4,9 +4,9 @@
 -- MIB representation of the Cisco Unified Computing System
 -- LS management information model package
 -- 
--- Created July 2018 by Charles Bullis
+-- Created January 2016 by Charles Bullis
 -- 
--- Copyright (c) 2005-2018 Cisco Systems, Inc. All rights reserved.
+-- Copyright (c) 2005-2016 Cisco Systems, Inc. All rights reserved.
 -- 
 -- *********************************************************************
 
@@ -53,10 +53,7 @@ IMPORTS
     CucsFabricVConTransportPref,
     CucsFsmCompletion,
     CucsFsmFsmStageStatus,
-    CucsLsAdminActionTrigger,
-    CucsLsAdminActionType,
     CucsLsAgentCapability,
-    CucsLsAgentLoadCatalog,
     CucsLsAgentMode,
     CucsLsApply,
     CucsLsAssignment,
@@ -67,7 +64,6 @@ IMPORTS
     CucsLsConfigWarnings,
     CucsLsFcZoneGroupSwitchId,
     CucsLsFcZoneState,
-    CucsLsIdentityInfoWriteMode,
     CucsLsOperState,
     CucsLsOwner,
     CucsLsPowerState,
@@ -93,7 +89,7 @@ IMPORTS
         FROM CISCO-UNIFIED-COMPUTING-TC-MIB;
 
 cucsLsObjects MODULE-IDENTITY
-    LAST-UPDATED    "201807260000Z"
+    LAST-UPDATED    "201601180000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
         "Cisco Systems
@@ -138,8 +134,7 @@ CucsLsAgentPolicyEntry ::= SEQUENCE {
     cucsLsAgentPolicyMode                                            CucsLsAgentMode,
     cucsLsAgentPolicyName                                            SnmpAdminString,
     cucsLsAgentPolicyPolicyLevel                                     Gauge32,
-    cucsLsAgentPolicyPolicyOwner                                     CucsPolicyPolicyOwner,
-    cucsLsAgentPolicyLoadCatalog                                     CucsLsAgentLoadCatalog
+    cucsLsAgentPolicyPolicyOwner                                     CucsPolicyPolicyOwner
 }
 
 cucsLsAgentPolicyInstanceId OBJECT-TYPE
@@ -222,14 +217,6 @@ cucsLsAgentPolicyPolicyOwner OBJECT-TYPE
         "Cisco UCS ls:AgentPolicy:policyOwner managed object property"
     ::= { cucsLsAgentPolicyEntry 10 }
 
-cucsLsAgentPolicyLoadCatalog OBJECT-TYPE
-    SYNTAX       CucsLsAgentLoadCatalog
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:AgentPolicy:loadCatalog managed object property"
-    ::= { cucsLsAgentPolicyEntry 11 }
-
 cucsLsBindingTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsLsBindingEntry
     MAX-ACCESS       not-accessible
@@ -258,9 +245,7 @@ CucsLsBindingEntry ::= SEQUENCE {
     cucsLsBindingAssignedToDn                                        SnmpAdminString,
     cucsLsBindingIssues                                              CucsLsConfigIssues,
     cucsLsBindingOperState                                           CucsLsComputeBindingOperState,
-    cucsLsBindingPropAcl                                             Unsigned64,
-    cucsLsBindingAdminAction                                         CucsLsAdminActionType,
-    cucsLsBindingAdminActionTrigger                                  CucsLsAdminActionTrigger
+    cucsLsBindingPropAcl                                             Unsigned64
 }
 
 cucsLsBindingInstanceId OBJECT-TYPE
@@ -350,22 +335,6 @@ cucsLsBindingPropAcl OBJECT-TYPE
     DESCRIPTION
         "Cisco UCS ls:Binding:propAcl managed object property"
     ::= { cucsLsBindingEntry 11 }
-
-cucsLsBindingAdminAction OBJECT-TYPE
-    SYNTAX       CucsLsAdminActionType
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Binding:adminAction managed object property"
-    ::= { cucsLsBindingEntry 12 }
-
-cucsLsBindingAdminActionTrigger OBJECT-TYPE
-    SYNTAX       CucsLsAdminActionTrigger
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Binding:adminActionTrigger managed object property"
-    ::= { cucsLsBindingEntry 13 }
 
 cucsLsFcLocaleTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsLsFcLocaleEntry
@@ -664,8 +633,7 @@ CucsLsIdentityInfoEntry ::= SEQUENCE {
     cucsLsIdentityInfoInstanceId                                     CucsManagedObjectId,
     cucsLsIdentityInfoDn                                             CucsManagedObjectDn,
     cucsLsIdentityInfoRn                                             SnmpAdminString,
-    cucsLsIdentityInfoUuidIdentityState                              CucsLsUUIDIdentityState,
-    cucsLsIdentityInfoWriteMode                                      CucsLsIdentityInfoWriteMode
+    cucsLsIdentityInfoUuidIdentityState                              CucsLsUUIDIdentityState
 }
 
 cucsLsIdentityInfoInstanceId OBJECT-TYPE
@@ -700,14 +668,6 @@ cucsLsIdentityInfoUuidIdentityState OBJECT-TYPE
         "Cisco UCS ls:IdentityInfo:uuidIdentityState managed
         object property"
     ::= { cucsLsIdentityInfoEntry 4 }
-
-cucsLsIdentityInfoWriteMode OBJECT-TYPE
-    SYNTAX       CucsLsIdentityInfoWriteMode
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:IdentityInfo:writeMode managed object property"
-    ::= { cucsLsIdentityInfoEntry 5 }
 
 cucsLsIssuesTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsLsIssuesEntry
@@ -841,8 +801,7 @@ CucsLsPowerEntry ::= SEQUENCE {
     cucsLsPowerDn                                                    CucsManagedObjectDn,
     cucsLsPowerRn                                                    SnmpAdminString,
     cucsLsPowerState                                                 CucsLsPowerState,
-    cucsLsPowerPropAcl                                               Unsigned64,
-    cucsLsPowerSoftShutdownTimer                                     TimeIntervalSec
+    cucsLsPowerPropAcl                                               Unsigned64
 }
 
 cucsLsPowerInstanceId OBJECT-TYPE
@@ -885,14 +844,6 @@ cucsLsPowerPropAcl OBJECT-TYPE
         "Cisco UCS ls:Power:propAcl managed object property"
     ::= { cucsLsPowerEntry 5 }
 
-cucsLsPowerSoftShutdownTimer OBJECT-TYPE
-    SYNTAX       TimeIntervalSec
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Power:softShutdownTimer managed object property"
-    ::= { cucsLsPowerEntry 6 }
-
 cucsLsRequirementTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsLsRequirementEntry
     MAX-ACCESS       not-accessible
@@ -923,9 +874,7 @@ CucsLsRequirementEntry ::= SEQUENCE {
     cucsLsRequirementIssues                                          CucsLsConfigIssues,
     cucsLsRequirementOperState                                       CucsLsComputeBindingOperState,
     cucsLsRequirementPnDn                                            SnmpAdminString,
-    cucsLsRequirementOperName                                        SnmpAdminString,
-    cucsLsRequirementAdminAction                                     CucsLsAdminActionType,
-    cucsLsRequirementAdminActionTrigger                              CucsLsAdminActionTrigger
+    cucsLsRequirementOperName                                        SnmpAdminString
 }
 
 cucsLsRequirementInstanceId OBJECT-TYPE
@@ -1033,23 +982,6 @@ cucsLsRequirementOperName OBJECT-TYPE
         "Cisco UCS ls:Requirement:operName managed object property"
     ::= { cucsLsRequirementEntry 13 }
 
-cucsLsRequirementAdminAction OBJECT-TYPE
-    SYNTAX       CucsLsAdminActionType
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Requirement:adminAction managed object property"
-    ::= { cucsLsRequirementEntry 14 }
-
-cucsLsRequirementAdminActionTrigger OBJECT-TYPE
-    SYNTAX       CucsLsAdminActionTrigger
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Requirement:adminActionTrigger managed
-        object property"
-    ::= { cucsLsRequirementEntry 15 }
-
 cucsLsServerTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsLsServerEntry
     MAX-ACCESS       not-accessible
@@ -1139,11 +1071,7 @@ CucsLsServerEntry ::= SEQUENCE {
     cucsLsServerOperVmediaPolicyName                                 SnmpAdminString,
     cucsLsServerSvnicConfig                                          TruthValue,
     cucsLsServerVmediaPolicyName                                     SnmpAdminString,
-    cucsLsServerPropAcl                                              Unsigned64,
-    cucsLsServerOperPowerSyncPolicyName                              SnmpAdminString,
-    cucsLsServerPowerSyncPolicyName                                  SnmpAdminString,
-    cucsLsServerGraphicsCardPolicyName                               SnmpAdminString,
-    cucsLsServerOperGraphicsCardPolicyName                           SnmpAdminString
+    cucsLsServerPropAcl                                              Unsigned64
 }
 
 cucsLsServerInstanceId OBJECT-TYPE
@@ -1726,41 +1654,6 @@ cucsLsServerPropAcl OBJECT-TYPE
         "Cisco UCS ls:Server:propAcl managed object property"
     ::= { cucsLsServerEntry 72 }
 
-cucsLsServerOperPowerSyncPolicyName OBJECT-TYPE
-    SYNTAX       SnmpAdminString
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Server:operPowerSyncPolicyName managed
-        object property"
-    ::= { cucsLsServerEntry 78 }
-
-cucsLsServerPowerSyncPolicyName OBJECT-TYPE
-    SYNTAX       SnmpAdminString
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Server:powerSyncPolicyName managed object property"
-    ::= { cucsLsServerEntry 79 }
-
-cucsLsServerGraphicsCardPolicyName OBJECT-TYPE
-    SYNTAX       SnmpAdminString
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Server:graphicsCardPolicyName managed
-        object property"
-    ::= { cucsLsServerEntry 80 }
-
-cucsLsServerOperGraphicsCardPolicyName OBJECT-TYPE
-    SYNTAX       SnmpAdminString
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:Server:operGraphicsCardPolicyName
-        managed object property"
-    ::= { cucsLsServerEntry 81 }
-
 cucsLsServerAssocCtxTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsLsServerAssocCtxEntry
     MAX-ACCESS       not-accessible
@@ -1841,8 +1734,7 @@ CucsLsServerExtensionEntry ::= SEQUENCE {
     cucsLsServerExtensionGuid                                        SnmpAdminString,
     cucsLsServerExtensionVersion                                     Gauge32,
     cucsLsServerExtensionPropAcl                                     Unsigned64,
-    cucsLsServerExtensionVlanGrpRequestComputeTime                   DateAndTime,
-    cucsLsServerExtensionAssetTag                                    SnmpAdminString
+    cucsLsServerExtensionVlanGrpRequestComputeTime                   DateAndTime
 }
 
 cucsLsServerExtensionInstanceId OBJECT-TYPE
@@ -1901,14 +1793,6 @@ cucsLsServerExtensionVlanGrpRequestComputeTime OBJECT-TYPE
         "Cisco UCS ls:ServerExtension:vlanGrpRequestComputeTime
         managed object property"
     ::= { cucsLsServerExtensionEntry 7 }
-
-cucsLsServerExtensionAssetTag OBJECT-TYPE
-    SYNTAX       SnmpAdminString
-    MAX-ACCESS   read-only
-    STATUS       current
-    DESCRIPTION
-        "Cisco UCS ls:ServerExtension:assetTag managed object property"
-    ::= { cucsLsServerExtensionEntry 8 }
 
 cucsLsServerFsmTable OBJECT-TYPE
     SYNTAX           SEQUENCE OF CucsLsServerFsmEntry
