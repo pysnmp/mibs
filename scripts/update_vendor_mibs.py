@@ -25,6 +25,7 @@ import argparse
 import datetime
 import hashlib
 import pathlib
+import re
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -333,6 +334,47 @@ def check(manifest: dict[str, Any]) -> int:
     return 0
 
 
+def unpublished(relative: str, patch: str, modules: dict[str, Any]) -> list[str]:
+    """Judge a patch that no manifest entry names.
+
+    A module whose publisher serves nothing fetchable has no entry, and its
+    repair is still worth keeping apart from the vendor's text. Such a patch
+    is accepted when the one thing checkable without a baseline holds:
+    taking the patch back out of the checked-in file applies cleanly, so the
+    file is some text with exactly this repair on top. It must also name
+    its defect, since no manifest entry carries a reason for it.
+
+    Returns:
+        The problems found, empty when the patch stands.
+    """
+    path = f"src/vendor/{relative.removesuffix('.patch')}"
+
+    if path in modules or not (ROOT / path).is_file():
+        return [f"{relative}: a patch no entry applies"]
+
+    header, diff = split_patch(patch)
+
+    if not header.defects:
+        return [f"{relative}: repairs a module with no publisher and names no defect"]
+
+    swap = {"+": "-", "-": "+"}
+    undo = "\n".join(
+        re.sub(r"^@@ -(\S+) \+(\S+) @@", r"@@ -\2 +\1 @@", line)
+        if line.startswith("@@")
+        else line
+        if line.startswith(("--- ", "+++ "))
+        else swap.get(line[:1], line[:1]) + line[1:]
+        for line in diff.split("\n")
+    )
+
+    try:
+        apply_patch((ROOT / path).read_bytes(), undo, path)
+    except ValueError as exc:
+        return [f"{relative}: is not what {path} carries -- {exc}"]
+
+    return []
+
+
 def validate(manifest: dict[str, Any]) -> int:
     """Check the manifest against the working tree, without the network.
 
@@ -376,7 +418,7 @@ def validate(manifest: dict[str, Any]) -> int:
     for patch in sorted(PATCHES.rglob("*.patch")):
         relative = patch.relative_to(PATCHES).as_posix()
         if not any(e.get("patch") == relative for e in modules.values()):
-            problems.append(f"{relative}: a patch no entry applies")
+            problems.extend(unpublished(relative, patch.read_text(), modules))
 
     if problems:
         sys.stderr.write("mib-sources.json does not match the tree:\n")

@@ -191,6 +191,44 @@ def test_shipped_patches_carry_a_reason() -> None:
         check(f"{name} still has a diff", diff.startswith("--- "), True)
 
 
+def test_a_patch_without_a_publisher_must_describe_its_file() -> None:
+    """A patch no entry names stands only if the file carries exactly it.
+
+    With no publisher there is no baseline to apply it to, so the check
+    runs the other way: the patch has to come back out of the checked-in
+    text. One that does not is a diff about some other file.
+    """
+    vendor = b"a\nb\nc\n"
+    ours = b"a\nb,\nx\nc\n"
+    diff = mib_sources.make_patch(vendor, ours, "M")
+    patch = "Defect: SMI-MISSING-IMPORT https://example.invalid/\n\n" + diff
+    root = update_vendor_mibs.ROOT
+
+    with tempfile.TemporaryDirectory() as tmp:
+        work = pathlib.Path(tmp)
+        (work / "src/vendor/v").mkdir(parents=True)
+        (work / "src/vendor/v/M").write_bytes(ours)
+        update_vendor_mibs.ROOT = work
+
+        try:
+            judge = update_vendor_mibs.unpublished
+            managed: dict[str, dict] = {"src/vendor/v/M": {}}
+            check("a publisher-less patch stands", judge("v/M.patch", patch, {}), [])
+            check("not without a defect", bool(judge("v/M.patch", diff, {})), True)
+            check(
+                "not on a managed module",
+                bool(judge("v/M.patch", patch, managed)),
+                True,
+            )
+            check("not for a missing module", bool(judge("v/N.patch", patch, {})), True)
+            (work / "src/vendor/v/M").write_bytes(vendor)
+            check(
+                "not when the file lacks it", bool(judge("v/M.patch", patch, {})), True
+            )
+        finally:
+            update_vendor_mibs.ROOT = root
+
+
 def test_deletion_only_attribution() -> None:
     """Removing publisher text leaves nothing for git to attribute."""
     sys.stdout.write("\nchanged ranges\n")
@@ -463,6 +501,7 @@ def main() -> int:
     test_patch_round_trip()
     test_patch_header_is_not_applied()
     test_shipped_patches_carry_a_reason()
+    test_a_patch_without_a_publisher_must_describe_its_file()
     test_deletion_only_attribution()
     test_attribution_is_per_line()
     test_drift_is_confirmed_on_the_bytes()
