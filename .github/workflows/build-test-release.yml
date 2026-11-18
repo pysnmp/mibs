@@ -30,9 +30,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-    concurrency:
-      group: mibs-version-release
-      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v7
         with:
@@ -91,87 +88,8 @@ jobs:
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
           cache-to: type=inline
-      - name: Select release path
-        id: release_path
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN_ADMIN }}
-        run: |
-          git fetch origin --tags
-          if [ "$(git rev-parse HEAD)" != "$(git rev-parse "origin/$GITHUB_REF_NAME")" ]; then
-            echo "A newer branch commit supersedes this release run"
-            echo "mode=skip" >> "$GITHUB_OUTPUT"
-          elif git show-ref --verify --quiet refs/tags/v1.17.0; then
-            git merge-base --is-ancestor v1.17.0 HEAD
-            if ! git show v1.17.0:.releaserc | grep -Fq 'https://github.com/splunk/mibs.git'; then
-              echo "::error::The existing v1.17.0 tag is not the Splunk release baseline"
-              exit 1
-            fi
-            if gh release view v1.17.0 > /dev/null 2>&1; then
-              echo "mode=semantic" >> "$GITHUB_OUTPUT"
-            else
-              echo "mode=initial-release" >> "$GITHUB_OUTPUT"
-            fi
-          elif [ -n "$(git tag --list 'v[0-9]*')" ]; then
-            echo "::error::Existing version tags must be reviewed before initializing 1.17.0"
-            exit 1
-          elif [ "$GITHUB_REF_NAME" != main ]; then
-            echo "The first release will be initialized from main"
-            echo "mode=skip" >> "$GITHUB_OUTPUT"
-          else
-            test "$(poetry version --short)" = 1.17.0
-            poetry run python - <<'PY'
-          from pathlib import Path
-
-          import yaml
-
-          chart = yaml.safe_load(Path("charts/mibserver/Chart.yaml").read_text())
-          if (chart.get("version"), str(chart.get("appVersion"))) != ("1.17.0", "1.17.0"):
-              raise SystemExit("The first chart release must be 1.17.0")
-          PY
-            git diff --exit-code a10677c28960c3f380019fd4705cc63e0333ea65 HEAD -- src poetry.lock
-            echo "mode=bootstrap" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Import first-release signing key
-        if: steps.release_path.outputs.mode == 'bootstrap'
-        uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          git_committer_name: ${{ secrets.SA_GH_USER_NAME }}
-          git_committer_email: ${{ secrets.SA_GH_USER_EMAIL }}
-          gpg_private_key: ${{ secrets.SA_GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SA_GPG_PASSPHRASE }}
-          git_user_signingkey: true
-      - name: Tag first release as 1.17.0
-        if: steps.release_path.outputs.mode == 'bootstrap'
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN_ADMIN }}
-        run: |
-          gh auth setup-git
-          git tag --sign v1.17.0 "$GITHUB_SHA" --message "Release 1.17.0"
-          git push origin refs/tags/v1.17.0
-      - name: Create first GitHub release
-        if: steps.release_path.outputs.mode == 'bootstrap' || steps.release_path.outputs.mode == 'initial-release'
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN_ADMIN }}
-        run: |
-          gh release create v1.17.0 --verify-tag \
-            --title "1.17.0" \
-            --notes-file - <<'RELEASE_NOTES'
-          ### Features
-
-          - **IPv6 support:** Optional IPv6 listeners for MIB content on TCP/8000 and NGINX status and readiness on TCP/8080. Existing IPv4 listeners remain enabled.
-
-          ### Configuration
-
-          - **Helm:** Set `ipv6Enabled: true` or pass `--set ipv6Enabled=true`.
-          - **Container:** Set `MIBSERVER_IPV6_ENABLED=true`.
-          - IPv6 is disabled by default. Set the corresponding option to `false` to disable IPv6 listeners.
-          - `MIBSERVER_IPV6_ENABLED` accepts lowercase `true` or `false`.
-
-          Enabling IPv6 requires IPv6-capable host or cluster networking. This option configures container listeners only and does not configure Kubernetes Service IP families.
-          RELEASE_NOTES
       - name: Semantic Release
         id: version
-        if: steps.release_path.outputs.mode == 'semantic'
         uses: splunk/semantic-release-action@v1.3.10
         with:
           git_committer_name: ${{ secrets.SA_GH_USER_NAME }}

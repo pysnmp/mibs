@@ -31,17 +31,7 @@ jobs:
         with:
           fetch-depth: 0
           filter: blob:none
-      - name: Check release baseline
-        id: release_baseline
-        run: |
-          if git describe --abbrev=0 --tags origin/main > /dev/null 2>&1; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-            echo "No release tag is reachable from main. Skipping release-notes preview"
-          fi
       - uses: snyk/release-notes-preview@v1.6.2
-        if: steps.release_baseline.outputs.exists == 'true'
         with:
           releaseBranch: main
         env:
