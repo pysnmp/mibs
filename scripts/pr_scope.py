@@ -64,7 +64,8 @@ PATCHES = "scripts/mib-patches/"
 #: The provenance manifest, which maps a patch back to the module it repairs.
 #: Consulted rather than trusted: a patch it does not name still repairs the
 #: module its file name gives, and ``update_vendor_mibs.py --validate``
-#: already refuses a patch no entry applies.
+#: refuses one that neither an entry applies nor a publisher-less module
+#: carries.
 SOURCES_MANIFEST = "mib-sources.json"
 
 #: Paths that change how a page is built without changing what is on it.

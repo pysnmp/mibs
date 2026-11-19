@@ -1,4 +1,4 @@
---- ArubaOS 6.5.2.0_59123
+--- ArubaOS 8.5.0.7_74786
 -- vim:set ts=4 sw=4:
 WLSX-HA-MIB DEFINITIONS ::= BEGIN
 
@@ -12,7 +12,6 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
        Unsigned32,
 	   Counter32,
 	   IpAddress,
-	   Gauge32,
 	   NOTIFICATION-TYPE
            FROM SNMPv2-SMI
 
@@ -229,13 +228,13 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
    WlsxHighAvalabilityApEntry ::=
      SEQUENCE {
 
-		haActiveAPs					Gauge32,
-		haStandbyAPs       		    Gauge32,
-		haTotalAPs       			Gauge32
+		haActiveAPs					Gauge,
+		haStandbyAPs       		    Gauge,
+		haTotalAPs       			Gauge
      }
 
     haActiveAPs OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -245,7 +244,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxHighAvalabilityApEntry 1 }
 
     haStandbyAPs OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -255,7 +254,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxHighAvalabilityApEntry 2 }
 
     haTotalAPs OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -291,10 +290,10 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
      SEQUENCE {
         haActiveCtrl				DisplayString,
         haActiveCtrlIp				DisplayString,
-		haReferenceCnt	  			Gauge32,
+		haReferenceCnt	  			Gauge,
 		haTotalHbtRequestsSent		Counter32,
 		haTotalHbtResponsesRcvd	    Counter32,
-		haLastMissedHbtCnt			Gauge32,
+		haLastMissedHbtCnt			Gauge,
 		haLastHbtMissedTime			DisplayString
      }
 
@@ -320,7 +319,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
 
 
     haReferenceCnt OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -350,7 +349,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxIntercontrollerHbtEntry 5 }
 
     haLastMissedHbtCnt OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -378,7 +377,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
       STATUS       current 
       DESCRIPTION 
         "
-            This Table lists the counts of active/replicated pmk-cache and 
+            This Table lists the counts of active/replicated pmk-cache and
             key-cache entries related to HA state sync.
         "
 	
@@ -396,16 +395,16 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
    WlsxStateSyncEntry ::=
      SEQUENCE {
 
-		haActivePmkCacheEntries  		Gauge32,
-		haReplicatedPmkCacheEntries  	Gauge32,
-		haTotalPmkCacheEntries  		Gauge32,
-		haActiveKeyCacheEntries 	 	Gauge32,
-		haReplicatedKeyCacheEntries 	Gauge32,
-		haTotalKeyCacheEntries  		Gauge32
+		haActivePmkCacheEntries  		Gauge,
+		haReplicatedPmkCacheEntries  	Gauge,
+		haTotalPmkCacheEntries  		Gauge,
+		haActiveKeyCacheEntries 	 	Gauge,
+		haReplicatedKeyCacheEntries 	Gauge,
+		haTotalKeyCacheEntries  		Gauge
      }
 
     haActivePmkCacheEntries OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -416,7 +415,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
 
 
     haReplicatedPmkCacheEntries OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -426,7 +425,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxStateSyncEntry 2 }
 
     haTotalPmkCacheEntries OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -436,7 +435,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxStateSyncEntry 3 }
 
     haActiveKeyCacheEntries OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -446,7 +445,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxStateSyncEntry 4 }
 
     haReplicatedKeyCacheEntries OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -456,7 +455,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxStateSyncEntry 5 }
 
     haTotalKeyCacheEntries OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -492,14 +491,14 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
    WlsxHighAvalabilityTunnelEntry ::=
      SEQUENCE {
 
-		haActiveVapTunnels				Gauge32,
-		haStandbyVapTunnels  			Gauge32,
-		haTotalVapTunnels      			Gauge32,
-		haAPHbtTunnels	 				Gauge32
+		haActiveVapTunnels				Gauge,
+		haStandbyVapTunnels  			Gauge,
+		haTotalVapTunnels      			Gauge,
+		haAPHbtTunnels	 				Gauge
      }
 
     haActiveVapTunnels OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -509,7 +508,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxHighAvalabilityTunnelEntry 1 }
 
     haStandbyVapTunnels OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -519,7 +518,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxHighAvalabilityTunnelEntry 2 }
 
     haTotalVapTunnels OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION
@@ -529,7 +528,7 @@ WLSX-HA-MIB DEFINITIONS ::= BEGIN
         ::= { wlsxHighAvalabilityTunnelEntry 3 }
 
     haAPHbtTunnels OBJECT-TYPE
-         SYNTAX       Gauge32
+         SYNTAX       Gauge
          MAX-ACCESS   read-only
          STATUS       current
          DESCRIPTION

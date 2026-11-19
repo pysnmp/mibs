@@ -1,0 +1,42 @@
+Defect: SMI-MISSING-IMPORT https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-missing-import
+
+The module as published in ArubaOS 8.5.0.7 names three symbols it never
+imports.
+
+It gives wlanAPFlexRadioMode the SYNTAX ArubaFlexRadioMode and
+wlanAPDual5GMode the SYNTAX ArubaDual5GMode. ARUBA-TC defines both
+textual conventions, and the clause already imports nineteen others from
+it. Without them the module does not compile: both objects have an
+unknown parent type.
+
+It also uses Gauge32 as a SYNTAX throughout the statistics tables
+without naming it in the SNMPv2-SMI group.
+
+The repair adds the two names to the existing FROM ARUBA-TC group and
+Gauge32 to the existing FROM SNMPv2-SMI group.
+
+Aruba serves its MIBs behind a support login, so this module has no
+entry in mib-sources.json and nothing re-fetches the text under this
+patch. The baseline is aruba-wlan.my from aruba-mibs_8.5.0.7_74786.
+
+--- a/WLSX-WLAN-MIB
++++ b/WLSX-WLAN-MIB
+@@ -12,6 +12,7 @@
+        Unsigned32,
+ 	   Counter32,
+ 	   IpAddress,
++	   Gauge32,
+ 	   NOTIFICATION-TYPE
+            FROM SNMPv2-SMI
+ 
+@@ -48,7 +49,9 @@
+        ArubaMeshRole,
+ 	   ArubaHTMode,
+ 	   ArubaPortSpeed,
+-	   ArubaHTExtChannel
++	   ArubaHTExtChannel,
++	   ArubaFlexRadioMode,
++	   ArubaDual5GMode
+ 	   		FROM ARUBA-TC
+ 
+        OBJECT-GROUP

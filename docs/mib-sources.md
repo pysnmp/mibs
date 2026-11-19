@@ -67,6 +67,12 @@ Two things, and neither is a gap to be closed later.
 **A module whose publisher serves nothing fetchable has no baseline.**
 Plenty of vendors publish MIBs only behind a support login, or only
 inside a firmware image, or not at all. Those modules stay unmanaged.
+A repair to one is still kept as a patch, under the same
+`scripts/mib-patches/<vendor>/<MODULE>.patch` name and with the same
+defect header. Nothing can re-fetch the text under it, so `--validate`
+checks the one thing it can: the patch comes back out of the checked-in
+file cleanly, which means the file is some text with exactly that repair
+on top. The patch header says which publication the baseline was.
 `--report` counts them, so the size of the gap stays visible rather than
 being excluded from a green check without notice.
 
