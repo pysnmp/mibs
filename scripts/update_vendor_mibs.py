@@ -418,7 +418,7 @@ def validate(manifest: dict[str, Any]) -> int:
     for patch in sorted(PATCHES.rglob("*.patch")):
         relative = patch.relative_to(PATCHES).as_posix()
         if not any(e.get("patch") == relative for e in modules.values()):
-            problems.extend(unpublished(relative, patch.read_text(), modules))
+            problems.extend(unpublished(relative, patch.read_bytes().decode(), modules))
 
     if problems:
         sys.stderr.write("mib-sources.json does not match the tree:\n")

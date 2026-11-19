@@ -1,0 +1,22 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+A REVISION reads 200904310000Z, the 31st of April. Its own trailing
+comment says Dec 04, 2009, and the clause sits between the revisions of
+October 29, 2009 and May 20, 2013, which is where December 2009 belongs
+and April 2009 does not. The repair is the date the comment gives.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/JUNIPER-COS-MIB
++++ b/JUNIPER-COS-MIB
+@@ -52,7 +52,7 @@
+     	DESCRIPTION
+         "Modified the max range for JnxCosFcIdentifier from 7 to 15."
+ 
+-        REVISION     "200904310000Z"    -- Dec 04, 2009
++        REVISION     "200912040000Z"    -- Dec 04, 2009
+         DESCRIPTION  "Added Rate Limit stats"
+ 
+         REVISION     "200910290000Z"    -- Oct 29, 2009

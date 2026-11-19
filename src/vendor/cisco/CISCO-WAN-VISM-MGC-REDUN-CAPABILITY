@@ -36,7 +36,7 @@ ciscoWanVismMgcRedunCapability MODULE-IDENTITY
                 "The Agent Capabilities for CISCO-WAN-MGC-REDUN-MIB
                 "
 
-        REVISION        "                   "
+        REVISION        "200108220000Z"
         DESCRIPTION
                 "Initial version of this MIB module"
         ::= { ciscoWanAgentCapability 338 }

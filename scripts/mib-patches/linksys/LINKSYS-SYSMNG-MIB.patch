@@ -1,0 +1,27 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+LAST-UPDATED and REVISION: The value ends in 'a' where ExtUTCTime ends
+in the literal Z. The digits are a well-formed date and are kept.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/LINKSYS-SYSMNG-MIB
++++ b/LINKSYS-SYSMNG-MIB
+@@ -13,13 +13,13 @@
+ 
+ 
+ rlSysmngMib MODULE-IDENTITY
+-        LAST-UPDATED "201010310000a"
++        LAST-UPDATED "201010310000Z"
+         ORGANIZATION "Linksys LLC."
+         CONTACT-INFO
+              "linksys.com"
+         DESCRIPTION
+              "The private MIB module definition for System Manager pool."
+-        REVISION "201010310000a"
++        REVISION "201010310000Z"
+         DESCRIPTION
+              "Initial revision."
+         ::= { rnd 204 }

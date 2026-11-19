@@ -1,0 +1,21 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+LAST-UPDATED reads 201209310000Z, the 31st of September. The newest
+REVISION clause in the same MODULE-IDENTITY is 201209300000Z, and the
+two are meant to agree, so the repair is that date.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/F3-AMP-MIB
++++ b/F3-AMP-MIB
+@@ -16,7 +16,7 @@
+              FROM  CM-IP-MIB;
+ 
+ f3AMPMIB MODULE-IDENTITY
+-    LAST-UPDATED        "201209310000Z"
++    LAST-UPDATED        "201209300000Z"
+     ORGANIZATION    "ADVA Optical Networking"
+     CONTACT-INFO
+             "        Jakub Zalewski

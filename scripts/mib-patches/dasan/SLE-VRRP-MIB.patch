@@ -1,0 +1,23 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+The module's only REVISION clause carries an empty string for its date.
+By convention the newest REVISION carries the LAST-UPDATED date, and
+this is the only one, so the repair gives it the LAST-UPDATED value,
+201603161455Z. That is inferred from the convention, not read from the
+vendor.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/SLE-VRRP-MIB
++++ b/SLE-VRRP-MIB
+@@ -26,7 +26,7 @@
+ 				" "
+ 			DESCRIPTION 
+ 				"This MIB contains information about RIP version 2."
+-			REVISION ""		-- 
++			REVISION "201603161455Z"		-- 
+ 			DESCRIPTION 
+ 				"OSFPv2"
+ 			::= { sleMgmt 57 }
