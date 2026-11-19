@@ -1,0 +1,308 @@
+
+-- File Name : mystro-videoport.mib
+-- Date      : Mon Jan 20 10:45:34 MST 2003
+-- Author    : AdventNet AgentToolkit (C Edition) - MibEditor 5.1
+
+MYSTRO-VIDEOPORT-MIB	DEFINITIONS ::= BEGIN
+	IMPORTS
+		generic
+			FROM MYSTRO-ROOT-MIB
+		DisplayString, udpLocalPort, udpLocalAddress
+			FROM RFC1213-MIB
+		DisplayString
+			FROM SNMPv2-TC
+		enterprises, MODULE-IDENTITY, OBJECT-TYPE, IpAddress, NOTIFICATION-TYPE
+			FROM SNMPv2-SMI
+		IpAddress
+			FROM RFC1155-SMI;
+
+	videoport	MODULE-IDENTITY
+		LAST-UPDATED	"200211052324Z"
+		ORGANIZATION	"Mystro TV - an AOL Time Warner Company"
+		CONTACT-INFO	"Michael Durand : Senior Software Engineer : 720-279-2865 :	mdurand@mystrotv.com"
+		DESCRIPTION
+			"This file defines the video port MIB implemented by encoders, rate shapers, and multiplexers in Mystro TV."
+		REVISION		"200211050100Z"
+		DESCRIPTION
+			""
+		::=  {  generic  1  }
+
+	org	OBJECT IDENTIFIER
+		::=  {  iso  3  }
+
+	dod	OBJECT IDENTIFIER
+		::=  {  org  6  }
+
+	internet	OBJECT IDENTIFIER
+		::=  {  dod  1  }
+
+	private	OBJECT IDENTIFIER
+		::=  {  internet  4  }
+
+	enterprises	OBJECT IDENTIFIER
+		::=  {  private  1  }
+
+	videoServicesTable	OBJECT-TYPE
+		SYNTAX		SEQUENCE  OF  VideoServicesEntry
+		MAX-ACCESS	not-accessible
+		STATUS		current
+		DESCRIPTION
+			"Table of all video services being streamed by this device."
+		::=  { videoport  1 }
+
+	videoServicesEntry	OBJECT-TYPE
+		SYNTAX		VideoServicesEntry
+		MAX-ACCESS	not-accessible
+		STATUS		current
+		DESCRIPTION
+			"Entry for the videoServicesTable"
+		INDEX		{  serviceID, definition  }
+		::=  { videoServicesTable 1 }
+
+	VideoServicesEntry  ::=  SEQUENCE {
+		serviceID  OCTET STRING,
+		definition  INTEGER,
+		transportType  INTEGER,
+		bitRate  Unsigned32
+		}
+
+
+	serviceID	OBJECT-TYPE	
+		SYNTAX			OCTET STRING  ( SIZE ( 1 .. 16  ) ) 
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"Call sign of the video service."
+		::=  {  videoServicesEntry  1  }
+
+
+	definition	OBJECT-TYPE	
+		SYNTAX			INTEGER  { stddef ( 1 ) , highdef ( 2 ) , mixture ( 3 ) } 
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"Type of video resolution to be expected on the service."
+		::=  {  videoServicesEntry  2  }
+
+
+	transportType	OBJECT-TYPE	
+		SYNTAX			INTEGER  { udp ( 1 ) , asi ( 2 ) } 
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"The type of transport over which the service is available."
+		::=  {  videoServicesEntry  3  }
+
+
+	bitRate	OBJECT-TYPE	
+		SYNTAX			Unsigned32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"Bit rate of of the video service in bits per second."
+		::=  {  videoServicesEntry  4  }
+
+	udpServicesTable	OBJECT-TYPE
+		SYNTAX		SEQUENCE  OF  UdpServicesEntry
+		MAX-ACCESS	not-accessible
+		STATUS		current
+		DESCRIPTION
+			"Table of video services being streamed via UDP/IP."
+		::=  { videoport  10 }
+
+	udpServicesEntry	OBJECT-TYPE
+		SYNTAX		UdpServicesEntry
+		MAX-ACCESS	not-accessible
+		STATUS		current
+		DESCRIPTION
+			"Entry for the udpServicesTable."
+		INDEX		{  serviceID, definition  }
+		::=  { udpServicesTable 1 }
+
+	UdpServicesEntry  ::=  SEQUENCE {
+		destIPAddr  IpAddress,
+		dataUdpPort  Integer32,
+		trickModeUdpPort  Integer32
+		}
+
+
+	destIPAddr	OBJECT-TYPE	
+		SYNTAX			IpAddress
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"Destination IP address to which the service is being streamed."
+		::=  {  udpServicesEntry  1  }
+
+
+	dataUdpPort	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"Destination UDP port on which the service data is being streamed."
+		::=  {  udpServicesEntry  2  }
+
+
+	trickModeUdpPort	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"UDP port number for trick mode index data. (-1 if none is being streamed)"
+		::=  {  udpServicesEntry  3  }
+
+	asiServicesTable	OBJECT-TYPE
+		SYNTAX		SEQUENCE  OF  AsiServicesEntry
+		MAX-ACCESS	not-accessible
+		STATUS		current
+		DESCRIPTION
+			"Table of services being streamed over an ASI port."
+		::=  { videoport  15 }
+
+	asiServicesEntry	OBJECT-TYPE
+		SYNTAX		AsiServicesEntry
+		MAX-ACCESS	not-accessible
+		STATUS		current
+		DESCRIPTION
+			"Entry for the asiServices table."
+		INDEX		{  serviceID, definition  }
+		::=  { asiServicesTable 1 }
+
+	AsiServicesEntry  ::=  SEQUENCE {
+		progNumber  Integer32,
+		pidPMT  Integer32,
+		pidVideo  Integer32,
+		pidAudio0  Integer32,
+		pidAudio1  Integer32,
+		pidAudio2  Integer32,
+		pidAudio3  Integer32,
+		pidAudio4  Integer32,
+		pidAudio5  Integer32,
+		connector  Integer32
+		}
+
+
+	progNumber	OBJECT-TYPE	
+		SYNTAX			Integer32  ( -2147483648 .. 2147483647  ) 
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"Program number of the ASI service."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  1  }
+
+
+	pidPMT	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"MPEG PID for PMT data."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  2  }
+
+
+	pidVideo	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"MPEG PID for video."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  3  }
+
+
+	pidAudio0	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"MPEG PID for audio 0."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  4  }
+
+
+	pidAudio1	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"MPEG PID for audio 1."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  5  }
+
+
+	pidAudio2	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"MPEG PID for audio 2."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  6  }
+
+
+	pidAudio3	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"MPEG PID for audio 3."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  7  }
+
+
+	pidAudio4	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"MPEG PID for audio 4."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  8  }
+
+
+	pidAudio5	OBJECT-TYPE	
+		SYNTAX			Integer32
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"MPEG PID for audio 5."
+		DEFVAL			{ -1 }
+		::=  {  asiServicesEntry  9  }
+
+
+	connector	OBJECT-TYPE	
+		SYNTAX			Integer32  ( 0 .. 255  ) 
+		MAX-ACCESS		read-only
+		STATUS			current
+		DESCRIPTION
+			"ASI output port on the device that carries the service."
+		::=  {  asiServicesEntry  10  }
+
+	notifications	OBJECT IDENTIFIER
+		::=  {  videoport  500  }
+
+	addService	NOTIFICATION-TYPE
+		OBJECTS			{ serviceID ,definition ,transportType  }
+		STATUS			current
+		DESCRIPTION
+			"Sent when the device is providing a new service."
+		::=  {  notifications  1  }
+
+	removeService	NOTIFICATION-TYPE
+		OBJECTS			{ serviceID ,definition ,transportType  }
+		STATUS			current
+		DESCRIPTION
+			"Sent when the device is no longer providing a service."
+		::=  {  notifications  2  }
+
+	updateService	NOTIFICATION-TYPE
+		OBJECTS			{ serviceID ,definition ,transportType  }
+		STATUS			current
+		DESCRIPTION
+			"Sent when an existing service changes."
+		::=  {  notifications  3  }
+
+END

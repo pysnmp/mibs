@@ -1,0 +1,7 @@
+SNMPv2-CONF-v1 DEFINITIONS ::= BEGIN
+
+-- From file: "rfc1444.sm2"
+-- Compile options "X A"
+
+
+END

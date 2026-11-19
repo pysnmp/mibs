@@ -1,0 +1,208 @@
+--  **************************************************************************
+--  File SA_Europe_Administration.mib
+--
+--  Copyright (c) 2002 by Scientific-Atlanta Europe nv
+--
+--  This document (SNMP mib file) is the intellectual property of 
+--  Scientific Atlanta Europe nv and contains confidential information. 
+--  All reproduction and communication to third parties is strictly prohibited
+--  without prior consent of Scientific-Atlanta Europe nv.
+--
+--  **************************************************************************
+
+
+SAEUROPE-ADMINISTRATION-MIB DEFINITIONS  ::=  BEGIN
+
+
+IMPORTS
+    OBJECT-TYPE
+        FROM  RFC-1212
+    DisplayString
+        FROM  RFC1213-MIB
+    common
+        FROM  SAEUROPE-ROOT-MIB;           
+
+
+saEuropeAdministration  OBJECT IDENTIFIER
+--  MODULE-IDENTITY
+--  
+--  LAST-UPDATED "202010201100Z"    
+--
+--  ORGANIZATION "Synamedia"
+--
+--  CONTACT-INFO "Customer Services Synamedia 
+--                Luipaardstraat 12
+--                B-8500 Kortrijk
+--                Belgium
+--                https://www.synamedia.com"
+--
+--  
+--  DESCRIPTION
+--      "This MIB contains administrative information about the 
+--       device." 
+--  
+--  REVISION     "202010201100Z"  
+--  DESCRIPTION
+--      "Updated contact information for Synamedia" 
+--
+--  REVISION     "200810281400Z"              
+--  DESCRIPTION
+--      "V01.00.04
+--       Updated comments for adminAlarmDetectionControl to match DCM behaviour"
+--
+--  REVISION     "200211301400Z"
+--  DESCRIPTION
+--      "V01.00.03		
+--       Initial version of the SA Europe Administration MIB.
+--       Changes to MIB name and OID names, contents of the MIB are 
+--       the same as BarcoNet Administration MIB V01.00.02."
+--
+--  REVISION     "200207011200Z"
+--  DESCRIPTION
+--      "V01.00.02
+--       Small editorial changes."
+--
+--  REVISION     "200111271100Z"
+--  DESCRIPTION
+--      "V01.00.01
+--       1. adminState, adminRestart objects were added."
+--
+--  REVISION     "200108291215Z"
+--  DESCRIPTION
+--      "V01.00.00		
+--       Initial version of the Administration MIB."
+-- 
+::=   { common 6 }
+
+
+-- ***************************************************************************
+
+
+adminVendor  OBJECT-TYPE
+    SYNTAX  DisplayString  (SIZE(0..255))
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION  "Displays the Manufacturer of the Device.
+                  Displayed in human-readable format."
+    ::=  { saEuropeAdministration 1 }
+
+adminModelNumber  OBJECT-TYPE
+    SYNTAX  DisplayString  (SIZE(0..255))
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION  "Displays the Model Number of the Device. 
+                  Displayed in human-readable format."
+    ::=  { saEuropeAdministration 2 }
+
+adminSerialNumber  OBJECT-TYPE
+    SYNTAX  DisplayString  (SIZE(0..255))
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION  "Returns the Serial Number of the Device. 
+                  Displayed in human-readable format."
+    ::=  { saEuropeAdministration 3 }
+
+adminVendorInfo  OBJECT-TYPE
+    SYNTAX  DisplayString  (SIZE(0..255))
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION  "Returns Vendor-specific Information.
+                  Displayed in human-readable format."
+    ::=  { saEuropeAdministration 4 }
+
+adminAlarmDetectionControl  OBJECT-TYPE
+    SYNTAX  INTEGER
+    {
+        detectionDisabled  (1),
+        detectionEnabled   (2),
+        detectionEnabledAndRegenerate (3)
+    }
+    ACCESS  read-write
+    STATUS  mandatory
+    DESCRIPTION  "This object is used to control the detection of alarms
+                  in this Device.
+
+                  When a threshold from either the property table or the
+                  discrete property table is crossed in a manner
+                  described by that MIB, then an alarm is said to have
+                  occurred. When the alarm is detected, an entry is
+                  placed in the alarm log table, which serves as a log
+                  of the most recent alarm events.  When an alarm is
+                  detected, then an alarm trap is also generated. A
+                  property which is not in the nominal state will have
+                  an entry in the currentAlarmTable.
+
+                  The detectionDisabled(1) value prevents the threshold
+                  detection process associated with the property table and 
+                  discrete property table from running. The device will not
+                  generate alarms. The contents of the alarmLogTable,
+                  currentAlarmTable, each instance of discreteAlarmState,
+                  and each instance of currentAlarmState remain in the
+                  state prior to detectionDisabled being applied.
+
+                  The detectionEnabled(2) value permits alarm detection
+                  to run.  The detection process continues from the state
+                  the transponder was in prior to detectionDisabled being
+                  set. Alarms that occurred during detectionDisabled state 
+                  are lost.
+
+                  The detectionEnabledAndRegenerate(3) value clears all alarm
+                  information and permits alarm detection to run. All alarm 
+                  properties, both discrete and analog, are restored to the
+                  nominal value before alarm detection runs. Any properties
+                  which where in an alarm state to not produce a return to
+                  nominal alarm.  Setting this value clears the alarmLogTable
+                  and the currentAlarmTable.
+
+                  The detectionEnabledAndRegenerate(3) value is transient.
+                  When setting adminAlarmDetectionControl to
+                  detectionEnabledAndRegnerate(3), the response will contain
+                  detectionEnabledAndRegnerate(3). Subsequent reads of the
+                  object report detectionEnabled(2).
+
+                  Note: The detectionDisabled setting is not supported. The 
+                  device will always return detectionEnabled and will only 
+                  accept detectionEnabled and detectionEnabledAndRegenerate 
+                  as a setting."
+    ::=  { saEuropeAdministration 5 }
+
+adminTime  OBJECT-TYPE
+    SYNTAX  INTEGER  (-2147483648..2147483647)
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION  "All values are signed 32 bit integers.
+                  Time since the Epoch (00:00:00 UTC, January 1, 1970),
+                  measured in seconds(POSIX)."
+    ::=  { saEuropeAdministration 6 }
+
+adminState  OBJECT-TYPE
+    SYNTAX  INTEGER
+    {
+        responding    (1),
+        localControl  (2),
+        maintenance	  (3) 
+    }
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION  "This object gives the current state of the device.
+                  The responding value informs that the device is working
+                  in normal way and it can be controlled remotely.
+                  The localControl value informs that the device is
+                  controlled locally and remote control is not possible.
+                  The maintenance value informs that the device is in
+                  maintenance mode.  It could be due to upgrading of the
+                  software."
+    ::=  { saEuropeAdministration 7 }
+
+adminRestart  OBJECT-TYPE
+    SYNTAX  INTEGER
+    {
+        warmRestart  (1)
+    }
+    ACCESS  read-write
+    STATUS  mandatory
+    DESCRIPTION  "This object is used to restart the device."
+    ::=  { saEuropeAdministration 8 } 
+
+
+END

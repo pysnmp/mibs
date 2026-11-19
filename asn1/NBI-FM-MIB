@@ -1,0 +1,811 @@
+-- **************************************************************************
+--
+--                                Fault Manager
+--                             MODULE DEFINITION
+--                   COPYRIGHT 2018 MOTOROLA SOLUTIONS, INC.
+--                             ALL RIGHTS RESERVED.
+--                MOTOROLA SOLUTIONS CONFIDENTIAL RESTRICTED
+--
+-- **************************************************************************
+
+-- This module defines the North Bound Interface MIB module for the Fault Manager.
+
+-- --------------------------------------------------------------------------
+--                             MODULE IDENTIFIER
+-- --------------------------------------------------------------------------
+
+NBI-FM-MIB DEFINITIONS ::= BEGIN
+
+-- --------------------------------------------------------------------------
+--                                 IMPORTS
+-- --------------------------------------------------------------------------
+
+    IMPORTS
+        enterprises, MODULE-IDENTITY, OBJECT-TYPE, IpAddress, TimeTicks, 
+        Gauge32, Counter32, Integer32, Unsigned32, NOTIFICATION-TYPE
+            FROM SNMPv2-SMI
+        TEXTUAL-CONVENTION, DisplayString, DateAndTime, TruthValue, RowStatus
+            FROM SNMPv2-TC;
+            
+-- --------------------------------------------------------------------------
+--                  REGISTRATION OF MIB'S TOP LEVEL STRUCTURE
+-- --------------------------------------------------------------------------
+            
+    nbiFmMib MODULE-IDENTITY
+        LAST-UPDATED    "201803060000Z"
+        ORGANIZATION    "Motorola Solutions Inc."
+        CONTACT-INFO    "Motorola Solutions Inc."
+        DESCRIPTION     "The NBI-FM-MIB"
+        REVISION        "201803060000Z"
+        DESCRIPTION 
+            "The NBI-FM-MIB defines the North Bound Interface MIB module for the Fault Manager"
+        ::= { nbiReg 1}
+
+    motorola            OBJECT IDENTIFIER
+        ::=  {  enterprises  161  }
+
+    landmobile          OBJECT IDENTIFIER
+        ::=  {  motorola  3  }
+
+    fmNbi               OBJECT IDENTIFIER
+        ::=  {  landmobile 10 }
+
+    nbiSystem           OBJECT IDENTIFIER
+        ::=  {  fmNbi  1  }
+        
+    nbiReg              OBJECT IDENTIFIER
+        ::=  {  fmNbi  100  }
+
+    nbiOperations       OBJECT IDENTIFIER
+        ::=  {  fmNbi 102 }
+
+    nbiEventNoti        OBJECT IDENTIFIER
+        ::=  {  fmNbi 104 }
+
+    nbiEventNotiVarbinds    OBJECT IDENTIFIER
+        ::=  {  fmNbi 105 }
+
+    nbiNotificationsPersistMib  OBJECT IDENTIFIER
+        ::=  {  fmNbi 106}
+        
+-- --------------------------------------------------------------------------
+--                             OBJECT DEFINITIONS
+-- --------------------------------------------------------------------------
+
+    NbiOperationRequestStatus   ::= TEXTUAL-CONVENTION
+        STATUS          current
+        DESCRIPTION
+                "OperationRequestStatus is used to indicate whether 
+                the manager asked the   fault 
+                manager to take some action (ON = action requested; OFF =
+                no action requested)"
+        SYNTAX          INTEGER {  
+                                    on(1),
+                                    off(2) 
+                                } 
+
+    NbiEventType        ::= TEXTUAL-CONVENTION
+        STATUS          current
+        DESCRIPTION
+                "See definition of the eventType attribute of the eventRecord 
+                class in the CNEOMI UML model."
+        SYNTAX          INTEGER {
+                                    attribute-Value-Change_Event (1),
+                                    communication_Alarm (2),
+                                    equipment_Alarm (4),
+                                    object-Creation_Event (6),
+                                    object-Deletion_Event (7),
+                                    quality-of-Service_Alarm (11),
+                                    security_Violation (13),
+                                    nBI_Management_Event (255),
+                                    informational_Event (256),
+                                    management_Event (257)                                }
+
+    NbiReasonCode       ::= TEXTUAL-CONVENTION
+        STATUS          current
+        DESCRIPTION      
+                "This is used to report the reason codes
+                of asynchronous operations."
+        SYNTAX          INTEGER { 
+                                    notUsed(0),
+                                    unknown(1),
+                                    dataNotAvailable(2),
+                                    dataExtractionError(3),
+                                    checksumError(4),
+                                    fileCreationError(5),
+                                    requestError(6),
+                                    operationConcurrencyError(7)
+                                }
+
+    NbiOperationType    ::= TEXTUAL-CONVENTION   
+        STATUS          current
+        DESCRIPTION      
+                "The operation identifier. The valid operations are:
+                syncAlarms(1),syncEvents(2)"
+        SYNTAX          INTEGER { 
+                                    notUsed(1), 
+                                    syncAlarms(2),
+                                    syncEvents(3) 
+                                }
+
+    nbiOperationType    OBJECT-TYPE 
+        SYNTAX          NbiOperationType  
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION        
+                "The operation identifier. The valid operations are: NotUsed(1)
+                SyncAlarms(2),SyncEvents(3)"
+        ::=  { nbiOperationStatusEntry 1 }
+
+    nbiOperationStatus  OBJECT-TYPE 
+        SYNTAX          INTEGER { 
+                                    inQueue (1),
+                                    inProcess (2),
+                                    rejected (3),
+                                    done (4),
+                                    fail (5) 
+                                }
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION        
+                "This specifies the status of the operation
+                being processed.  
+                It can be one of following fourstates:inQueue ( 1 )
+                inProcess ( 2 )rejected ( 3 )   done ( 4 )fail ( 5 )"
+        ::=  { nbiOperationStatusEntry 2 }   
+
+    nbiOperationProgressPercentage  OBJECT-TYPE 
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION     
+                "This specifies the progress percentage of an
+                operation. It is reserved for time consuming
+                operation. It is NOT supported for any operations
+                right now."
+        ::=  { nbiOperationStatusEntry 3}
+
+    nbiOperationReasonCode  OBJECT-TYPE 
+        SYNTAX          NbiReasonCode
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION     
+                "This is used to report the reason codes of 
+                asynchronous operations."
+        ::=  { nbiOperationStatusEntry   4  }
+
+    nbiOperationAdditionalInfo  OBJECT-TYPE 
+        SYNTAX          DisplayString  ( SIZE ( 0 .. 255  ) )       
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION     
+                "It provides some additional information"
+        ::=  { nbiOperationStatusEntry 5 }
+
+    nbiOperationStatusTable OBJECT-TYPE 
+        SYNTAX          SEQUENCE  OF  NbiOperationStatusEntry  
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION 
+            "A table of nbiOperation instances"
+        ::=  { nbiOperations 2 }
+
+    nbiOperationStatusEntry OBJECT-TYPE
+        SYNTAX          NbiOperationStatusEntry 
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION    
+            "A collection of objects specific to the nbiOperation"
+        INDEX           { nbiNmsId, 
+                        nbiOperationId }
+        ::=  { nbiOperationStatusTable  1 }
+
+    NbiOperationStatusEntry ::=  SEQUENCE {
+        nbiOperationType    NbiOperationType,
+        nbiOperationStatus  INTEGER,
+        nbiOperationProgressPercentage  Integer32,
+        nbiOperationReasonCode  NbiReasonCode,
+        nbiOperationAdditionalInfo      DisplayString
+    }
+        
+    nbiNmsId            OBJECT-TYPE 
+        SYNTAX          DisplayString  ( SIZE ( 0 .. 255  ) )   
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION        
+                "IP Address of the NMS"
+        ::=  { nbiOperationsEntry 1 }
+
+    nbiOperationId      OBJECT-TYPE  
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION        
+                "Job Id (correlation Tag) specified in the
+                initial operation request."
+        ::=  { nbiOperationsEntry 2 }
+
+    nbiStartTime        OBJECT-TYPE 
+        SYNTAX          DateAndTime
+        MAX-ACCESS      read-create
+        STATUS          current
+        DESCRIPTION     
+              "Time stamp that is used collect events whose Event 
+               Time is later or equal to this time.
+               This parameter is expressed in UTC time."
+        ::=  { nbiOperationsEntry 3 }
+
+    nbiEndTime          OBJECT-TYPE 
+       SYNTAX           DateAndTime
+       MAX-ACCESS       read-create
+       STATUS           current
+       DESCRIPTION      
+                "Time stamp that is used to collect events whose
+                Event Time is earlier  than or equal to this time.
+                This parameter is expressed in UTC time."
+        ::=  { nbiOperationsEntry 4 }
+
+    nbiSequenceId       OBJECT-TYPE 
+       SYNTAX           Integer32
+       MAX-ACCESS       read-create
+       STATUS           current
+       DESCRIPTION      
+                "Message identifier for each NMS synchronization
+                request. This parameter is optional when triggering
+                synchronization."
+        ::=  { nbiOperationsEntry 5 }
+
+    nbiOperationsType   OBJECT-TYPE 
+        SYNTAX          NbiOperationType
+        MAX-ACCESS      read-create
+        STATUS          current
+        DESCRIPTION        
+                "The operation identifier. The valid operations are:
+                SyncAlarms(1),SyncEvents(2)"
+        ::=  { nbiOperationsEntry 6 }
+
+    nbiOperationRowStatus   OBJECT-TYPE   
+        SYNTAX          RowStatus 
+        MAX-ACCESS      read-create
+        STATUS          current
+        DESCRIPTION     
+                "This specifies  the process by which the data
+                have to be entered.
+                This is the first value which needs to be set..
+                the value of 1 specifies 'active'
+                the value of 2 specifies 'notInService'
+                the value of 3 specifies 'notReady'
+                the value of 4 specifies 'createAndGo'.
+                the value of 5 specifies 'createAndWait'
+                the value of 6 specifies 'destroy'"
+        ::=  { nbiOperationsEntry 7 }
+
+    nbiStartRecordId    OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-create
+        STATUS          current
+        DESCRIPTION
+                "Record Identifier that is used to collect events
+                whose EventRecordId is greater than or equal to this ID"
+        ::=  { nbiOperationsEntry 8 }
+
+    nbiEndRecordId      OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-create
+        STATUS          current
+        DESCRIPTION
+                "Record Identifier that is used to collect events
+                whose EventRecordId is lesser than or equal to this ID"
+        ::=  { nbiOperationsEntry 9 }
+
+    nbiOperationsTable  OBJECT-TYPE 
+        SYNTAX          SEQUENCE OF     NbiOperationsEntry   
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION 
+                "A table of nbiOperationTriggerTable instances"
+        ::=  { nbiOperations 1 }
+
+    nbiOperationsEntry  OBJECT-TYPE           
+        SYNTAX          NbiOperationsEntry   
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "Each table in the entry refers to the latest  
+                nbiOperationTriggerTable."
+        INDEX           { nbiNmsId, 
+                        nbiOperationId }
+        ::=  { nbiOperationsTable 1 }
+
+    NbiOperationsEntry  ::=  SEQUENCE {
+        nbiNmsId        DisplayString,
+        nbiOperationId  Integer32,
+        nbiStartTime    DateAndTime,
+        nbiEndTime      DateAndTime,
+        nbiSequenceId   Integer32,
+        nbiOperationsType   NbiOperationType ,
+        nbiOperationRowStatus   RowStatus,
+        nbiStartRecordId    Integer32,
+        nbiEndRecordId      Integer32
+    }
+    
+    nbiEventRecord      NOTIFICATION-TYPE
+        OBJECTS         { nbiSequenceTag,
+                        nbiCorrelationTag,
+                        nbiNotiSequenceNum,
+                        nbiEventId,
+                        nbiEventType,
+                        nbiEntityId,
+                        nbiEntityName,
+                        nbiEventRecordId,
+                        nbiSourceAgentIP,
+                        nbiManagedObjectUserName,
+                        nbiSeverity,
+                        nbiSourceDevice,
+                        nbiDetectionEventTime,
+                        nbiSourceEventTime,
+                        nbiText,
+                        nbiAdditionalInformation }
+        STATUS          current
+        DESCRIPTION       
+                "This notification is sent from
+                EMS to the registered NMS."
+        ::=  { nbiEventNoti 1 }
+
+    nbiManagementEvent  NOTIFICATION-TYPE
+        OBJECTS         { nbiSequenceTag,
+                        nbiCorrelationTag,
+                        nbiEventId,
+                        nbiEventType,
+                        nbiEntityId,
+                        nbiEntityName,
+                        nbiManagedObjectUserName,
+                        nbiSeverity,
+                        nbiSourceDevice,
+                        nbiDetectionEventTime, 
+                        nbiSourceEventTime,
+                        nbiText,
+                        nbiAdditionalInformation,
+                        nbiMgmtEventType, 
+                        nbiMgmtReasonCode,
+                        nbiSyncFileId,
+                        nbiSyncFileToken }
+        STATUS          current
+        DESCRIPTION      
+                "This notification is sent for the following NBI management
+                eventsNBI management eventstransfer-Complete (2), data-Committed (3),job-Aborted (4),
+                job-Complete (7),file-Transfer-Failed (11)"
+        ::=  { nbiEventNoti 2 }
+
+    nbiUpTime           OBJECT-TYPE 
+        SYNTAX          TimeTicks
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION     
+                "This variable states the duration for 
+                which the NMS Server has been running"
+        ::=  { nbiSystem 7 }
+
+          
+    nbiCorrelationTag   OBJECT-TYPE 
+        SYNTAX          Unsigned32  
+        MAX-ACCESS      accessible-for-notify   
+        STATUS          current
+        DESCRIPTION        
+                "This unsigned integer is used to bind
+                all activity associated with a 'cause' or
+                'root'(either a manager request or an 
+                NMS-initiated event).Correlation tag values are
+                unique, but tag sequence is not guaranteed
+                (i.e., they may not
+                be received in the order sent).  No history 
+                is kept of recently used tags - only 
+                active tags are traked. The following
+                non-overlapping ranges of tags are 
+                reserved for assignment by the NMS and
+                the FM: 00000000 - 7FFFFFFF allocated
+                for FM-initiated transactions
+                80000000 - FFFFFFFF allocated for NMS-initiated
+                transactions"
+        ::=  { nbiEventNotiVarbinds 1 }
+
+    nbiSequenceTag      OBJECT-TYPE         
+        SYNTAX          Unsigned32    
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION        
+                "This attribute specifies sequence
+                number of the notification. The sequence 
+                number is maintained for every receiver of
+                the notification. This attribute is
+                persisted and hence the sequence
+                is mainitained across
+                restarts/reboots"
+        ::=  { nbiEventNotiVarbinds 2 }
+
+    nbiNotiSequenceNum  OBJECT-TYPE 
+        SYNTAX          Unsigned32  
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION        
+                "This attribute specifies sequence number
+                of the notification. The sequence number is 
+                maintained for every receiver of the
+                notification. This attribute is persisted
+                and hence the sequence is mainitained across
+                restarts/reboots."
+        ::=  { nbiEventNotiVarbinds 3 }
+
+    nbiEventId          OBJECT-TYPE
+        SYNTAX          DisplayString   
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This attribute specifies the class
+                identifier of the event."
+        ::=  { nbiEventNotiVarbinds 4 }
+
+    nbiEventType        OBJECT-TYPE 
+        SYNTAX          NbiEventType              
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     "This attribute specifies the type of event ."
+        ::= { nbiEventNotiVarbinds 5 }
+
+    nbiEntityId         OBJECT-TYPE     
+        SYNTAX          DisplayString       
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION        
+                "This attribute specifies the Identifier
+                of the managed entity, 
+                having the problem or the condition,
+                that intiated the event/alarm."
+        ::=  { nbiEventNotiVarbinds 6 }
+
+    nbiEntityName       OBJECT-TYPE 
+        SYNTAX          DisplayString   
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This attribute specifies the User
+                defined name of the managed entity, 
+                having the problem or the condition,
+                that intiated the event/alarm. "
+        ::=  { nbiEventNotiVarbinds 7 }
+
+    nbiManagedObjectUserName    OBJECT-TYPE   
+        SYNTAX          DisplayString 
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This attribute specifies the User 
+                defined name of the source managed
+                resource, that is managing the Entity,
+                reporting the event/alarm. 
+                This attribute is set to NULL
+                if not used."
+        ::=  { nbiEventNotiVarbinds 8 }
+
+    nbiSeverity         OBJECT-TYPE    
+        SYNTAX          INTEGER {
+                                    commFailure(1),
+                                    critical(2),
+                                    major(3),
+                                    minor(4),
+                                    warning(5),
+                                    clear(6),
+                                    info(7),
+                                    unknown(8)
+                                }
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This attribute indicates the
+                severity level of this event/alarm."
+        ::=  { nbiEventNotiVarbinds 9 }
+
+    nbiSourceDevice     OBJECT-TYPE    
+        SYNTAX          DisplayString
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This attribute specifies the managed
+                resource, that is managing the Entity,
+                reporting the event/alarm."
+        ::=  { nbiEventNotiVarbinds 10 }
+
+    nbiDetectionEventTime   OBJECT-TYPE    
+        SYNTAX          DateAndTime    
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This attribute contains the time
+                when the event was detected on 
+                the manager."
+        ::=  { nbiEventNotiVarbinds 11 }
+
+    nbiSourceEventTime  OBJECT-TYPE   
+        SYNTAX          DateAndTime   
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This attribute contains the time
+                when the event was sourced at the NE.
+                This attribute is set to NULL if not used."
+        ::=  { nbiEventNotiVarbinds 12 }
+
+    nbiText             OBJECT-TYPE  
+        SYNTAX          DisplayString        
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This parameter, if present, 
+                specifies a specific event message. 
+                This attribute is set to NULL if not used."
+        ::=  { nbiEventNotiVarbinds 13 }
+
+    nbiAdditionalInformation    OBJECT-TYPE 
+        SYNTAX          DisplayString   
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This parameter, when present,
+                allows the inclusion of a set of
+                additional information in the event
+                report. This attribute is set
+                to NULL if not used."
+        ::=  { nbiEventNotiVarbinds 14 }
+
+    nbiMgmtEventType    OBJECT-TYPE   
+        SYNTAX          INTEGER { 
+                                    transferComplete (2),
+                                    dataCommitted (3),
+                                    jobAborted (4),
+                                    jobComplete (7),  
+                                    fileTransferFailed (11)
+                                }
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION       
+                "This parameter indicates the type of management
+                event being communicated.  Following are the management 
+                information types and corresponding
+                values:transferComplete (2),
+                dataCommitted (3),jobAborted (4),
+                jobComplete (7),
+                fileTransferFailed (11)"
+        ::=  { nbiEventNotiVarbinds 15 }
+
+    nbiMgmtReasonCode   OBJECT-TYPE    
+        SYNTAX          NbiReasonCode
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION      
+                "It gives the status of the operation for example whether
+                the operation is sucessful , failure,waiting ,invalid, 
+                or failure due to some other reason "
+         ::=  { nbiEventNotiVarbinds 16 }
+         
+    nbiSyncFileId       OBJECT-TYPE
+        SYNTAX          DisplayString
+        MAX-ACCESS      accessible-for-notify
+        STATUS          deprecated
+        DESCRIPTION
+                "It gives the file ID for NBI file synchronization"
+        ::=  { nbiEventNotiVarbinds 17 }
+
+    nbiSyncFileToken    OBJECT-TYPE
+        SYNTAX          DisplayString
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION
+                "It gives the token for NBI file synchronization"
+        ::=  { nbiEventNotiVarbinds 18 }
+
+    nbiEventRecordId    OBJECT-TYPE	
+        SYNTAX	    	Unsigned32	
+        MAX-ACCESS		accessible-for-notify
+        STATUS			current
+        DESCRIPTION		
+                "Unique event identifier"
+	::=  { nbiEventNotiVarbinds 19 }
+
+    nbiSourceAgentIP    OBJECT-TYPE    
+        SYNTAX          DisplayString
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION     
+                "This attribute specifies the
+                IP Address of the agent (device)
+                reporting the event/alarm."
+        ::= { nbiEventNotiVarbinds 20 }
+
+
+    nmsSequenceNumberTable  OBJECT-TYPE
+        SYNTAX          SEQUENCE  OF  NmsSequenceNumberEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION 
+                "This table maintains the nmssequence number and ip address.
+                The main aim of the lastest nms sequence number of 
+                the specified nms."
+        ::=  { nbiNotificationsPersistMib 1 }
+
+    nmsSequenceNumberEntry  OBJECT-TYPE           
+        SYNTAX          NmsSequenceNumberEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "Each table in the entry 
+                refers to the latest nmssequencenumber "
+        INDEX           { nmsIpAddress,
+                        nmsPortNumber }
+        ::=  { nmsSequenceNumberTable 1 }
+        
+    NmsSequenceNumberEntry  ::=  SEQUENCE {
+        nmsIpAddress       IpAddress,
+        nmsPortNumber     Integer32,
+        latestSequenceNumber  Integer32,
+        latestEventRecordId Integer32
+    }
+            
+    nmsIpAddress        OBJECT-TYPE 
+        SYNTAX          IpAddress
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION     
+                "This gives the ip address of
+                the registered nms " 
+        ::=  { nmsSequenceNumberEntry 1 }
+
+    nmsPortNumber       OBJECT-TYPE 
+        SYNTAX          Integer32 ( 0 .. 65535)
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION     
+                "This gives the port number of the registered nms " 
+        ::=  { nmsSequenceNumberEntry 2 }
+                                    
+
+    latestSequenceNumber    OBJECT-TYPE 
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current         
+        DESCRIPTION     
+                "This is the unique and the latest  sequence number 
+                which is present in each nms present.This give the 
+                latest  nms sequence number
+                which is used for the synchronization purpose."
+        ::=  { nmsSequenceNumberEntry 3 }
+
+    latestEventRecordId OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "This is the unique and the latest event record
+                identifier which is used for the synchronization purpose."
+        ::=  { nmsSequenceNumberEntry 4 }
+
+    nbiQuickSyncTable   OBJECT-TYPE
+        SYNTAX          SEQUENCE  OF  NbiQuickSyncEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION 
+                "This table maintains the managers information such as 
+                emssequence number, nmssequence number, and ip address."
+        ::=  { nbiNotificationsPersistMib 2 }
+
+    nbiQuickSyncEntry   OBJECT-TYPE           
+        SYNTAX          NbiQuickSyncEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "Each table in the entry refers to either nmssequencenumber
+                or emssequence number"
+        INDEX           { nmsIpAddress,
+                        nmsPortNumber,
+                        nmsSequenceNumber }
+        ::=  { nbiQuickSyncTable 1 }
+
+    NbiQuickSyncEntry  ::=  SEQUENCE {
+        nmsSequenceNumber  DisplayString,
+        nmsCorrelationId Integer32
+    }
+                                                                         
+    nmsSequenceNumber   OBJECT-TYPE 
+        SYNTAX          DisplayString
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION     
+                "The unique sequence number manintained by each nms present.
+                The reason for maintaining the sequence number is , when the nms
+                wants  an specific trap it can map with  ems number and get the
+                exact trap . since the ems will be  having a diferent sequence
+                number that is being maintained by it .As the Ems forward 
+                traps  to multiple nms so its  sequence numeber will be 
+                different from that of the nms.So nms sequence number is 
+                maintained. Following are the example values for this object:
+                Eg-1: 1
+                Eg-2: 1,2,3
+                Eg-3: 1,2,5-7,9,10
+                Eg-4: 1-20
+                Eg-5: 1-5,10-15,20,21
+
+                This object can have individual sequence numbers as well a
+                range of numbers. All the traps with the corresponding sequence
+                numbers shall be forwarded by the NBI agent." 
+        ::=  { nbiQuickSyncEntry 1 }
+
+    nmsCorrelationId    OBJECT-TYPE 
+        SYNTAX          Integer32
+        MAX-ACCESS      read-write
+        STATUS          current
+        DESCRIPTION     
+                "This is the unique sequence number which is going to
+                be maintained." 
+        ::=  { nbiQuickSyncEntry 2 }
+
+    nbiEventRecordSyncTable OBJECT-TYPE
+        SYNTAX          SEQUENCE  OF  NbiEventRecordSyncEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "This table maintains the managers information such as
+                emssequence number, nmssequence number, and ip address."
+        ::=  { nbiNotificationsPersistMib 3 }
+
+    nbiEventRecordSyncEntry OBJECT-TYPE
+        SYNTAX          NbiEventRecordSyncEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "Each table in the entry refers to either nmssequencenumber
+                or emssequence number"
+        INDEX           { nmsIpAddress,
+                        nmsPortNumber,
+                        nmsEventRecordSequenceNumber }
+        ::=  { nbiEventRecordSyncTable 1 }
+
+    NbiEventRecordSyncEntry  ::=  SEQUENCE {
+        nmsEventRecordSequenceNumber  DisplayString,
+        nmsEventRecordCorrelationId Integer32
+    }
+
+    nmsEventRecordSequenceNumber    OBJECT-TYPE
+        SYNTAX          DisplayString
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "The unique sequence number manintained by each nms present.
+                The reason for maintaining the sequence number is , when the nms
+                wants  an specific trap it can map with  ems number and get the
+                exact trap . since the ems will be  having a diferent sequence
+                number that is being maintained by it .As the Ems forward
+                traps  to multiple nms so its  sequence numeber will be
+                different from that of the nms.So nms sequence number is
+                maintained. Following are the example values for this object:
+                Eg-1: 1
+                Eg-2: 1,2,3
+                Eg-3: 1,2,5-7,9,10
+                Eg-4: 1-20
+                Eg-5: 1-5,10-15,20,21
+
+                This object can have individual sequence numbers as well a
+                range of numbers. All the traps with the corresponding sequence
+                numbers shall be forwarded by the NBI agent."
+        ::=  { nbiEventRecordSyncEntry 1 }
+
+    nmsEventRecordCorrelationId OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      read-write
+        STATUS          current
+        DESCRIPTION
+                "This is the unique sequence number which is going to
+                be maintained."
+    ::=  { nbiEventRecordSyncEntry 2 }
+                                    
+-- --------------------------------------------------------------------------
+     
+END

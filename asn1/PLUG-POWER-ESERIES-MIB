@@ -1,0 +1,1330 @@
+    PLUG-POWER-ESERIES-MIB DEFINITIONS ::= BEGIN
+
+    --
+    -- Plug Power ESeries Mib
+    -- Version 01.01.02
+    -- Plug Power Part Number: 142-111863
+    --
+    -- Note:    The SNMP OID fcsEMainMIBVersion010102
+    --          below has the ending 010102 which represents
+    --          this version and the returned ascii string from
+    --          the system should be "01.01.02".  If the
+    --          fcsEMainMIBVersion010102 OID does not get a
+    --          returned ascii string of "01.01.02" then this
+    --          MIB is not compatible with the system.
+    --
+    -- Note:    The initial MIB, version 01.00.00 was released in
+    --          the documentation system as version 01.00.01.
+    --          So the first changed version is 01.00.02.
+    --
+    -- Changes in 01.00.02
+    --          Added fcsEMainName
+    --          Added fcsEMainLocation
+    --          Added fcsEExerciseTimeOfDay
+    --
+    -- Changes in 01.00.03
+    --          Added fcsEMainResetSystem
+    --          Added fcsERunPowerLimiting
+    --          Added fcsERunClearNoPressureAlarm
+    --          Added fcsMJAlarmModsTooHotToRun
+    --
+    -- Changes in 01.00.04
+    --          Removed fcsEExerciseReserved1StartStop
+    --          Removed fcsEExerciseReserved2StartStop
+    --
+    -- Changes in 01.00.05
+    --          Added fcsERunLowH2PressureAlarm
+    --                fcsERunAuxOutAssigned
+    --                fcsERunSystemLockTime
+    --                fcsERunSystemLockTimeOut
+    --                fcsERunLockSystem
+    --                fcsEExerciseCond1StartStop
+    --                fcsMJAlarmSystemLocked
+    --                fcsMJAlarmTesting
+    --                fcsMNAlarmTesting
+    --                fcsMNAlarmLowH2Pressure
+    --
+    -- Changes in 01.00.06
+    --          Changed fcsERunLowVoltTimer to show
+    --          half-volt-above-float for a value of 0 and
+    --          minutesxxx where xxx is the numerical value
+    --          of minutes to set for everything else.
+    --          Changed fcsERunPowerLimiting display from
+    --          xx-percent to percentxxx so the selection
+    --          would show up in increasing order.  It use
+    --          to list 100 percent first then 20 percent.
+    --
+    -- Changes in 01.01.00
+    --          Removed half-volt-above-float setting from
+    --          fcsERunLowVoltTimer
+    --          Added Exercise to fcsERunAuxOutAssigned
+    --          Added fcsEMainVolts
+    --                fcsEMainAmps
+    --                fcsEMainWatts
+    --                fcsERunAuxInAssigned
+    --                fcsERunVolts
+    --                fcsERunAmps
+    --                fcsERunWatts
+    --
+    -- Changes in 01.01.01
+    --          Changed descriptions for fcsETrapRunning
+    --          and fcsETrapExercising to specify that
+    --          fcsETrapRunEnded will be sent when system
+    --          shuts down instead of fcsETrapShutDown.
+    -- Changes in 01.01.02
+    --          Added fcsMNAlarmDoorOpen
+    --                fcsMNAlarmSystemDateInvalid
+
+
+    IMPORTS
+        MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+        OBJECT-IDENTITY, Integer32, enterprises
+            FROM SNMPv2-SMI
+        DisplayString, AutonomousType, TEXTUAL-CONVENTION
+            FROM SNMPv2-TC
+        MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+            FROM SNMPv2-CONF;
+
+    -- org         OBJECT IDENTIFIER ::= {iso 3}
+    -- dod         OBJECT IDENTIFIER ::= {org 6}
+    -- internet    OBJECT IDENTIFIER ::= {dod 1}
+    -- private     OBJECT IDENTIFIER ::= {internet 4}
+    -- enterprises OBJECT IDENTIFIER ::= {private 1}
+    -- plugPowerMIB OBJECT IDENTIFIER ::= {enterprises 17022}
+
+    plugPowerMIB MODULE-IDENTITY
+       LAST-UPDATED "201603030000Z" -- March 3,2016
+       ORGANIZATION "Plug Power, Inc"
+       CONTACT-INFO
+              "
+                Postal: Plug Power
+                        15913 East Euclid Avenue
+                        Spokane, Wa  99216
+
+                   Tel: +1 509-228-6500
+       24 Hour Support: +1 866-661-0020
+
+              Internet: www.plugpower.com
+                E-mail: GenSureTechSupport@plugpower.com"
+
+       DESCRIPTION
+               "MIB module for Plug Power products."
+       REVISION "201603030000Z" -- March 3,2016
+       DESCRIPTION
+               "Seventh version."
+       -- 1.3.6.1.4.1.17022 --
+       ::= {enterprises 17022}
+
+   PositiveInteger ::= TEXTUAL-CONVENTION
+       DISPLAY-HINT "d"
+       STATUS       current
+       DESCRIPTION
+               "This data type is a non-zero and non-negative value."
+       SYNTAX       Integer32 (1..2147483647)
+
+   NonNegativeInteger ::= TEXTUAL-CONVENTION
+       DISPLAY-HINT "d"
+       STATUS       current
+       DESCRIPTION
+               "This data type is a non-negative value."
+       SYNTAX       Integer32 (0..2147483647)
+
+    FloatingPointNumber ::= TEXTUAL-CONVENTION
+       DISPLAY-HINT "x"
+       STATUS       current
+       DESCRIPTION
+               "This data type is a floating point number."
+       SYNTAX       Integer32 (0..2147483647)
+
+    fuelCellSys OBJECT IDENTIFIER ::= {plugPowerMIB 1}
+--     DESCRIPTION
+--             "Object Identifier to describe fuel cell products."
+
+    fcsTSeries  OBJECT IDENTIFIER ::= {fuelCellSys 1}
+
+    fcsESeries  OBJECT IDENTIFIER ::= {fuelCellSys 2}
+
+    fcsE2Gen2  OBJECT IDENTIFIER ::= {fuelCellSys 3}
+
+--     DESCRIPTION
+--             "Object Identifier to describe E-series fuel cell
+--              products."
+
+   fcsEObjects     OBJECT IDENTIFIER ::= { fcsESeries 1 }
+   fcsEMain        OBJECT IDENTIFIER ::= { fcsEObjects 1 }
+
+   fcsEMainManufacturerModel OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..31))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "Model designation."
+       ::= { fcsEMain 1 }
+
+   fcsEMainMIBVersion010102 OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..31))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The MIB version."
+       ::= { fcsEMain 2 }
+
+   fcsEMainName OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE(0..15))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "A string displaying the system's name."
+       ::= { fcsEMain 3 }
+
+   fcsEMainLocation OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE(0..15))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "A string displaying the system's location."
+       ::= { fcsEMain 4 }
+
+   fcsEMainDate OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE(0..11))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "A string displaying the date in the format mm/dd/yy."
+       ::= { fcsEMain 5 }
+
+   fcsEMainTime OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE(0..31))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "A string displaying the time in the format hh:mm:ss.
+                The hour is 24 hour time, 0->23."
+       ::= { fcsEMain 6}
+
+   fcsEMainAlarms OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE(0..31))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "Indication of any alarms, will display None, Minor,
+                Major, or Customer Attn."
+       ::= { fcsEMain 7 }
+
+   fcsEMainSystemStatus OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The present System status.
+                POWERUP, STANDBY, WARMUP, RUN, EXERCISE, COOLDOWN, ALARM"
+       ::= { fcsEMain 8 }
+
+   fcsEMainChassisSerNum OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE(0..15))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The chassis serial number."
+       ::= { fcsEMain 9 }
+
+   fcsEMainCommCardVersion OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..15))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The firmware/software version of CommCard."
+       ::= { fcsEMain 10 }
+
+   fcsEMainConverterVersion OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..15))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The firmware/software version of Converter."
+       ::= { fcsEMain 11 }
+
+   fcsEMainPower OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..36))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The voltage, current, and watts being produced by
+                the fuel cell."
+       ::= { fcsEMain 12 }
+
+   fcsEMainPressurePSI OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The H2 pressure."
+       ::= { fcsEMain 13 }
+
+   fcsEMainHeater OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The main heater status, on/off."
+       ::= { fcsEMain 14 }
+
+   fcsEMainLastRun OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The date of last run."
+       ::= { fcsEMain 15 }
+
+   fcsEMainTotalTime OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The total run time (hh:mm)."
+       ::= { fcsEMain 16 }
+
+   fcsEMainKilowattHours OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The kilowatt hours (hh:mm)."
+       ::= { fcsEMain 17 }
+
+   fcsEMainSystemRuns OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The Number of System Runs."
+       ::= { fcsEMain 18 }
+
+   fcsEMainChassisTemp OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The current chassis temperature, degrees C."
+       ::= { fcsEMain 19 }
+
+   fcsEMainBleedTempSensor OBJECT-TYPE
+       SYNTAX     INTEGER {
+            no(1),
+            yes(2)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Indicates if the bleed temperature sensor is installed."
+       ::= { fcsEMain 20 }
+
+   fcsEMainResetSystem OBJECT-TYPE
+       SYNTAX     INTEGER {
+            no(1),
+            yes(2)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Resets / Reboots the system."
+       ::= { fcsEMain 21 }
+
+    fcsEMainVolts OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..36))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The voltage being produced by the fuel cell."
+       ::= { fcsEMain 22 }
+
+    fcsEMainAmps OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..36))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The current being produced by the fuel cell."
+       ::= { fcsEMain 23 }
+
+    fcsEMainWatts OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..36))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The watts being produced by the fuel cell."
+       ::= { fcsEMain 24 }
+
+   --
+   -- The Run group.
+   --
+
+   fcsERun         OBJECT IDENTIFIER ::= { fcsEObjects 2 }
+
+   fcsERunStartStop OBJECT-TYPE
+       SYNTAX     INTEGER {
+            start(1),
+            stop(2),
+            busy(3)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Manual Start and Stop."
+       ::= { fcsERun 1 }
+
+   fcsERunSystemStatus OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The present System status."
+       ::= { fcsERun 2 }
+
+   fcsERunStartStatus OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The present Run status."
+       ::= { fcsERun 3 }
+
+   fcsERunFloatVolt OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..12))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "The Float Voltage.  The voltage to charge
+                the batteries to when the system is running."
+       ::= { fcsERun 4 }
+
+   fcsERunLowVoltThreshold OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "The low voltage at which the system will start
+                automatically if enabled."
+       ::= { fcsERun 5 }
+
+   fcsERunLowVoltStartMode OBJECT-TYPE
+       SYNTAX     INTEGER {
+            off(1),
+            float(2),
+            maintain(3)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Disables low voltage start or Enables low voltage
+                start in either float or maintain modes."
+       ::= { fcsERun 6 }
+
+   fcsERunLowVoltTimer OBJECT-TYPE
+       SYNTAX     INTEGER {
+            minutes005(5),
+            minutes010(10),
+            minutes015(15),
+            minutes020(20),
+            minutes025(25),
+            minutes030(30),
+            minutes035(35),
+            minutes040(40),
+            minutes045(45),
+            minutes050(50),
+            minutes055(55),
+            minutes060(60),
+            minutes065(65),
+            minutes070(70),
+            minutes075(75),
+            minutes080(80),
+            minutes085(85),
+            minutes090(90),
+            minutes095(95),
+            minutes100(100),
+            minutes105(105),
+            minutes110(110),
+            minutes115(115),
+            minutes120(120),
+            minutes240(240)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Number of minutes to maintain Float Voltage on
+                the batteries before shutting down.  Valid minutes
+                are between 5 and 120 in 5 minute increments and
+                240.  A value of 0 sets a 1/2 volt above the float
+                voltage before the low volt start will end, this
+                requires another voltage source to drive the 1/2
+                volt above.  A value of 0 will continue to run on
+                a low volt start until another voltage source picks
+                up the load."
+       ::= { fcsERun 7 }
+
+   fcsERunLowVoltageFloatTimeOut OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The current time at float voltage, (mm:ss)."
+       ::= { fcsERun 8 }
+
+   fcsERunContactStartDelay OBJECT-TYPE
+       SYNTAX     Integer32 (0..60)
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Number of minutes to wait on a contact start
+                condition before the system starts."
+       ::= { fcsERun 9 }
+
+   fcsERunContactStartTimeOut OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The current time at contact start delay, (mm:ss)."
+       ::= { fcsERun 10 }
+
+   fcsERunPower OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..36))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The voltage, current, and watts being produced by
+                the fuel cell."
+       ::= { fcsERun 11 }
+
+   fcsERunPressurePSI OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The H2 pressure."
+       ::= { fcsERun 12 }
+
+    fcsERunLowH2PressureAlarm OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "The Low H2 Pressure Alarm setting.  "
+       ::= { fcsERun 13 }
+
+    fcsERunLowH2PressureAlert OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "The Low H2 Pressure Alert setting.  "
+       ::= { fcsERun 14}
+
+   fcsERunLowH2PressureAlertStatus OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The Low H2 Pressure Alert current status."
+       ::= { fcsERun 15 }
+
+    fcsERunAuxOutAssigned OBJECT-TYPE
+       SYNTAX     INTEGER {
+            lowH2Alert(1),
+            auxInput(2),
+            exercise(3)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Aux Out assigned to."
+       ::= { fcsERun 16}
+
+   fcsERunPowerLimiting OBJECT-TYPE
+       SYNTAX     INTEGER {
+            percent020(2),
+            percent030(3),
+            percent040(4),
+            percent050(5),
+            percent060(6),
+            percent070(7),
+            percent080(8),
+            percent090(9),
+            percent100(10)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Percentage of rated power to limit the
+                output power to."
+       ::= { fcsERun 17 }
+
+   fcsERunClearNoPressureAlarm OBJECT-TYPE
+       SYNTAX     INTEGER {
+            no(1),
+            yes(2)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Clears the No Pressure / No H2 Fuel Major alarm."
+       ::= { fcsERun 18 }
+
+   fcsERunSystemLockTime OBJECT-TYPE
+       SYNTAX     Integer32 (5..120)
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Number of minutes to lock the system."
+       ::= { fcsERun 19 }
+
+   fcsERunSystemLockTimeOut OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "Time left that the system will be locked, (mm:ss)."
+       ::= { fcsERun 20 }
+
+   fcsERunLockSystem OBJECT-TYPE
+       SYNTAX     INTEGER {
+            lock(1),
+            unlock(2),
+            locked(3)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Lock the system."
+       ::= { fcsERun 21 }
+
+    fcsERunAuxInAssigned OBJECT-TYPE
+       SYNTAX     INTEGER {
+            nothing(1),
+            lock(2),
+            door(3),
+            extLd1-2k(4),
+            extLd1-3k(5),
+            extLd2(6)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Aux Out assigned to."
+       ::= { fcsERun 22}
+
+    fcsERunVolts OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..36))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The voltage being produced by the fuel cell."
+       ::= { fcsERun 23 }
+
+    fcsERunAmps OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..36))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The current being produced by the fuel cell."
+       ::= { fcsERun 24 }
+
+    fcsERunWatts OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..36))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The watts being produced by the fuel cell."
+       ::= { fcsERun 25 }
+
+   --
+   -- The Exercise group.
+   --
+
+   fcsEExercise    OBJECT IDENTIFIER ::= { fcsEObjects 3 }
+
+   fcsEExerciseManualExercise OBJECT-TYPE
+       SYNTAX     INTEGER {
+            start(1),
+            stop(2),
+            busy(3)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Manual Start and Stop."
+       ::= { fcsEExercise 1 }
+
+   fcsEExerciseExerciseMode OBJECT-TYPE
+       SYNTAX     INTEGER {
+            autoSchedule(1),
+            numOfDays(2),
+            dayOfMonth(3),
+            disabled(4)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Auto Schedule mode, number of day mode,
+                day of the month mode, or disabled."
+       ::= { fcsEExercise 2 }
+
+   fcsEExerciseNumOfDaysOrDayOfMonth OBJECT-TYPE
+       SYNTAX     Integer32 (1..45)
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Number of days between Auto exercising, or
+                day of the month that system will auto exercise
+                depending on ExerciseType setting."
+       ::= { fcsEExercise 3 }
+
+   fcsEExerciseTimeOfDay OBJECT-TYPE
+       SYNTAX     INTEGER {
+            at-0-AM(1),
+            at-1-AM(2),
+            at-2-AM(3),
+            at-3-AM(4),
+            at-4-AM(5),
+            at-5-AM(6),
+            at-6-AM(7)
+       }
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Time of day for Auto exercising, on the hour
+                between midnight and 6 AM."
+       ::= { fcsEExercise 4 }
+
+   fcsEExerciseSetNextExerciseDate OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-write
+       STATUS     current
+       DESCRIPTION
+               "Set the next date for auto exercising to be done."
+       ::= { fcsEExercise 5 }
+
+   fcsEExerciseNextExerciseDate OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..30))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "Displays date and time of when the next scheduled
+                auto exercise is to run."
+       ::= { fcsEExercise 6 }
+
+   fcsEExerciseCond1StartStop OBJECT-TYPE
+       SYNTAX     INTEGER {
+            start(1),
+            stop(2),
+            busy(3)
+       }
+       MAX-ACCESS read-write
+       STATUS current
+       DESCRIPTION
+               "Conditioning 1 Run, Start and Stop"
+       ::= { fcsEExercise 7 }
+
+   --
+   -- The Alarm group.
+   --
+
+   fcsEAlarm            OBJECT IDENTIFIER ::= { fcsEObjects 4 }
+
+   fcsEAlarms OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE(0..31))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The present number of Major and Minor alarms."
+       ::= { fcsEAlarm 1 }
+
+   fcsEAlarmTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF FcsEAlarmEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+               "A list of alarm table entries.  The table contains
+               zero, one, or many rows at any moment, depending upon
+               the number of alarm conditions in effect.  The agent
+               creates a row in the table each time a condition is
+               detected and deletes that row when that condition no
+               longer pertains.  The fcsEAlarmId that indexes the table
+               is the index into the products alarm table. Consequently
+               the table is sparse, e.g., containing entries
+               for alarm indices 5, 10, 11, and 20 and the entries should
+               not be assumed to be in chronological or alarm severity
+               order.
+
+               Alarms are named by an AutonomousType (OBJECT IDENTIFIER),
+               fcsEAlarmDescr.  No two rows will have the same value of
+               fcsEAlarmDescr, since alarms define conditions.  In order
+               to meet this requirement, care should be taken in the
+               definition of alarm conditions to insure that a system
+               cannot enter the same condition multiple times simultaneously.
+
+               The number of rows in the table at any given time is
+               reflected by the value of fcsEAlarmsPresent."
+       ::= { fcsEAlarm 2 }
+
+   fcsEAlarmEntry OBJECT-TYPE
+       SYNTAX     FcsEAlarmEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+               "An entry containing information applicable to a
+               particular alarm."
+       INDEX { fcsEAlarmId }
+       ::= { fcsEAlarmTable 1 }
+
+   FcsEAlarmEntry ::= SEQUENCE {
+       fcsEAlarmId        PositiveInteger,
+       fcsEAlarmDescr     AutonomousType,
+       fcsEAlarmType      INTEGER,
+       fcsEAlarmTime      DisplayString
+   }
+
+   fcsEAlarmId OBJECT-TYPE
+       SYNTAX     PositiveInteger
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+               "A unique identifier for an alarm condition.  This
+               value must remain constant."
+       ::= { fcsEAlarmEntry 1 }
+
+   fcsEAlarmDescr OBJECT-TYPE
+       SYNTAX     AutonomousType
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "A reference to an alarm description object.  The
+               object referenced should not be accessible, but rather
+               be used to provide a unique description of the alarm
+               condition."
+       ::= { fcsEAlarmEntry 2 }
+
+   fcsEAlarmType OBJECT-TYPE
+       SYNTAX     INTEGER {
+           major(1),
+           minor(2)
+       }
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The type of alarm, Major or Minor."
+       ::= { fcsEAlarmEntry 3 }
+
+   fcsEAlarmTime OBJECT-TYPE
+       SYNTAX     DisplayString (SIZE (0..31))
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+               "The date and time of when the alarm became active
+                in the format mm/dd/yy hh:mm:ss"
+       ::= { fcsEAlarmEntry 4 }
+
+
+--*****************************************************************************
+-- Plug Power Alarm OID section below
+
+   --
+   -- alarm conditions.
+   --
+
+   fcsESystemAlarms    OBJECT IDENTIFIER ::= { fcsEObjects 5 }
+
+   fcsEAlarmNoCurrentAlarms OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "No current alarms.  Not used."
+       ::= { fcsESystemAlarms  0 }
+
+   fcsMJAlarmVerMismatch OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  Comm Card running an incompatible
+                version to the Controller running version."
+       ::= { fcsESystemAlarms  1 }
+
+   fcsMJAlarmTermVoltsLow OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  The System's Terminal voltage is so
+                low that there isn't enough power for the fuel
+                cell system to start."
+       ::= { fcsESystemAlarms  2 }
+
+   fcsMJAlarmTermVoltsHigh OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  High Terminal Voltage.
+                System will not start."
+       ::= { fcsESystemAlarms  3 }
+
+   fcsMJAlarmNoH2Pressure OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  No H2 Pressure.
+                System will not run."
+       ::= { fcsESystemAlarms  4 }
+
+   fcsMJAlarmCommLinkDown OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  CommCard and Converter communications
+                link is down.  System will not start."
+       ::= { fcsESystemAlarms  5 }
+
+   fcsMJAlarmSafetyCheckFail OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  Safety Check Failed.
+                System will not start."
+       ::= { fcsESystemAlarms  6 }
+
+   fcsMJAlarmH2SensorTopLtHigh OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  H2 Sensor is detecting a high
+                concentration of H2.
+                Top sensor on E2500, Left sensor on E1100."
+       ::= { fcsESystemAlarms  7 }
+
+   fcsMJAlarmH2SensorBotRtHigh OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  H2 Sensor is detecting a high
+                concentration of H2.
+                Bot sensor on E2500, Right sensor on E1100."
+       ::= { fcsESystemAlarms  8 }
+
+   fcsMJAlarmH2SensorTopLtFail OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  H2 Sensor has failed.
+                Top sensor on E2500, Left sensor on E1100."
+       ::= { fcsESystemAlarms  9 }
+
+   fcsMJAlarmH2SensorBotRtFail OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  H2 Sensor 2 has failed.
+                Bot sensor on E2500, Right sensor on E1100."
+       ::= { fcsESystemAlarms  10 }
+
+   fcsMJAlarmSafetyFanFail OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  Safety Circuit Fan has failed."
+       ::= { fcsESystemAlarms  11 }
+
+   fcsMJAlarmSafetyTempFail OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  System is too hot to run."
+       ::= { fcsESystemAlarms  12 }
+
+   fcsMJAlarmModOpenCircuitVoltage OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  Fuel Cell Module did not have high
+                enough voltage on startup to run."
+       ::= { fcsESystemAlarms  13 }
+
+   fcsMJAlarmModShortedCircuitVoltage OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  While running the Fuel Cell Module
+                voltage got too low to continue to run."
+       ::= { fcsESystemAlarms  14 }
+
+   fcsMJAlarmModTooHighVoltage OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  While running the Fuel Cell Module
+                voltage got too high to continue to run."
+       ::= { fcsESystemAlarms  15 }
+
+   fcsMJAlarmConverterID OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  The Comm Card does not know
+                what the Converter is.  System will not run."
+       ::= { fcsESystemAlarms  16 }
+
+   fcsMJAllModTempSensorsFailed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  All Fuel Cell Modules temperature
+                sensors have failed.  System will not run."
+       ::= { fcsESystemAlarms  17 }
+
+   fcsMJAlarmSystemIsDown OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  The System is down.  It cannot run."
+       ::= { fcsESystemAlarms  18 }
+
+   fcsMJAlarmModsTooCold OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  Modules are TOO cold to run."
+       ::= { fcsESystemAlarms  19 }
+
+   fcsMNAlarmModTopFailed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Top Module did not reach Open Circuit
+                voltage when starting up.
+                System will run on bottom module(s) at half power."
+       ::= { fcsESystemAlarms  20 }
+
+   fcsMNAlarmMod2Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  E2500 Module 2 did not reach Open Circuit
+                voltage when starting up.
+                System will run on bottom modules at half power."
+       ::= { fcsESystemAlarms  21 }
+
+   fcsMNAlarmMod3Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  E2500 Module 3 did not reach Open Circuit
+                voltage when starting up.
+                System will run on top modules at half power."
+       ::= { fcsESystemAlarms  22 }
+
+   fcsMNAlarmModBotFailed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Bottom Module did not reach Open Circuit
+                voltage when starting up.
+                System will run on top module(s) at half power."
+       ::= { fcsESystemAlarms  23 }
+
+   fcsMNAlarmH2SensorTopLtLow OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  H2 Sensor is detecting a low
+                concentration of H2.
+                Top sensor on E2500, Left sensor on E1100."
+       ::= { fcsESystemAlarms  24 }
+
+   fcsMNAlarmH2SensorBotRtLow OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  H2 Sensor is detecting a low
+                concentration of H2.
+                Bottom sensor on E2500, Right sensor on E1100."
+       ::= { fcsESystemAlarms  25 }
+
+   fcsMNAlarmBleedTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Bleed temperature sensor has failed."
+       ::= { fcsESystemAlarms  26 }
+
+   fcsMNAlarmModTopLtTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Top Module Left temperature sensor
+                has failed."
+       ::= { fcsESystemAlarms  27 }
+
+   fcsMNAlarmModTopRtTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Top Module Right temperature sensor
+                has failed."
+       ::= { fcsESystemAlarms  28 }
+
+   fcsMNAlarmModTwoLtTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Module two Left temperature sensor
+                has failed.  Only E2500 alarm."
+       ::= { fcsESystemAlarms  29 }
+
+   fcsMNAlarmModTwoRtTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Module two Right temperature sensor
+                has failed.  Only E2500 alarm."
+       ::= { fcsESystemAlarms  30 }
+
+   fcsMNAlarmModThreeLtTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Module three Left temperature sensor
+                has failed.  Only E2500 alarm."
+       ::= { fcsESystemAlarms  31 }
+
+   fcsMNAlarmModThreeRtTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Module three Right temperature sensor
+                has failed.  Only E2500 alarm."
+       ::= { fcsESystemAlarms  32 }
+
+   fcsMNAlarmModBotLtTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Bottom Module Left temperature sensor
+                has failed."
+       ::= { fcsESystemAlarms  33 }
+
+   fcsMNAlarmModBotRtTempSensor OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Bottom Module Right temperature sensor
+                has failed."
+       ::= { fcsESystemAlarms  34 }
+
+   fcsMNAlarmExtFan1Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Exhaust Fan 1 has Failed."
+       ::= { fcsESystemAlarms  35 }
+
+   fcsMNAlarmExtFan2Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Exhaust Fan 2 has Failed."
+       ::= { fcsESystemAlarms  36 }
+
+   fcsMNAlarmExtFan3Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Exhaust Fan 3 has Failed."
+       ::= { fcsESystemAlarms  37 }
+
+   fcsMNAlarmExtFan4Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Exhaust Fan 4 has Failed."
+       ::= { fcsESystemAlarms  38 }
+
+   fcsMNAlarmExtFan5Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Exhaust Fan 5 has Failed."
+       ::= { fcsESystemAlarms  39 }
+
+   fcsMNAlarmExtFan6Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Exhaust Fan 6 has Failed."
+       ::= { fcsESystemAlarms  40 }
+
+   fcsMNAlarmRecFan1Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 1 has Failed."
+       ::= { fcsESystemAlarms  41 }
+
+   fcsMNAlarmRecFan2Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 2 has Failed."
+       ::= { fcsESystemAlarms  42 }
+
+   fcsMNAlarmRecFan3Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 3 has Failed."
+       ::= { fcsESystemAlarms  43 }
+
+   fcsMNAlarmRecFan4Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 4 has Failed."
+       ::= { fcsESystemAlarms  44 }
+
+   fcsMNAlarmRecFan5Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 5 has Failed."
+       ::= { fcsESystemAlarms  45 }
+
+   fcsMNAlarmRecFan6Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 6 has Failed."
+       ::= { fcsESystemAlarms  46 }
+
+   fcsMNAlarmRecFan7Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 7 has Failed."
+       ::= { fcsESystemAlarms  47 }
+
+   fcsMNAlarmRecFan8Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 8 has Failed."
+       ::= { fcsESystemAlarms  48 }
+
+   fcsMNAlarmRecFan9Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 9 has Failed."
+       ::= { fcsESystemAlarms  49 }
+
+   fcsMNAlarmRecFan10Failed OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Recirculation Fan 10 has Failed."
+       ::= { fcsESystemAlarms  50 }
+
+   fcsMNAlarmConverterCheckSumError OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Converter Code Checksum Error."
+       ::= { fcsESystemAlarms  51 }
+
+   fcsMJAlarmModsTooHotToRun OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  Modules Too Hot to Run."
+       ::= { fcsESystemAlarms  52 }
+
+   fcsMJAlarmSystemLocked OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  User has locked the system."
+       ::= { fcsESystemAlarms  53 }
+
+   fcsMNAlarmCommCardCheckSumError OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Comm Card Code Checksum Error."
+       ::= { fcsESystemAlarms  54 }
+
+   fcsMNAlarmWebPagesCheckSumError OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Web Pages Checksum Error."
+       ::= { fcsESystemAlarms  55 }
+
+   fcsMJAlarmTesting OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Major Alarm:  Testing the Major alarm funtion."
+       ::= { fcsESystemAlarms  56 }
+
+   fcsMNAlarmTesting OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Testing the Minor alarm funtion."
+       ::= { fcsESystemAlarms  57 }
+
+   fcsMNAlarmLowH2Pressure OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Low H2 Pressure."
+       ::= { fcsESystemAlarms  58 }
+
+   fcsMNAlarmDoorOpen OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  Cabinet Door is Open."
+       ::= { fcsESystemAlarms  59 }
+
+   fcsMNAlarmSystemDateInvalid OBJECT-IDENTITY
+       STATUS     current
+       DESCRIPTION
+               "Minor Alarm:  System Date is Invalid."
+       ::= { fcsESystemAlarms  60 }
+
+-- Plug Power Alarm OID section above this
+--*****************************************************************************
+
+
+   --
+   -- notifications, i.e., traps
+   --
+   fcsETraps              OBJECT IDENTIFIER ::= { fcsESeries 2 }
+
+   -- This section defines the notifications sent by an E-1100 or E-2500
+   -- Care must be taken to insure that no particular notification
+   -- is sent to a single receiving entity more often than once
+   -- every five seconds.
+
+   fcsETrapMJAlarmEntryAdded NOTIFICATION-TYPE
+       OBJECTS { fcsEAlarmDescr }
+       STATUS  current
+       DESCRIPTION
+               "This trap is sent each time a major alarm is inserted
+               into the alarm table."
+     ::= { fcsETraps 1 }
+
+   fcsETrapMJAlarmEntryRemoved NOTIFICATION-TYPE
+       OBJECTS { fcsEAlarmDescr }
+       STATUS  current
+       DESCRIPTION
+               "This trap is sent each time a major alarm is removed
+               from the alarm table."
+     ::= { fcsETraps 2 }
+
+   fcsETrapMNAlarmEntryAdded NOTIFICATION-TYPE
+       OBJECTS { fcsEAlarmDescr }
+       STATUS  current
+       DESCRIPTION
+               "This trap is sent each time a minor alarm is inserted
+               into the alarm table."
+     ::= { fcsETraps 3 }
+
+   fcsETrapMNAlarmEntryRemoved NOTIFICATION-TYPE
+       OBJECTS { fcsEAlarmDescr }
+       STATUS  current
+       DESCRIPTION
+               "This trap is sent each time a minor alarm is removed
+               from the alarm table."
+     ::= { fcsETraps 4 }
+
+   fcsETrapRunning NOTIFICATION-TYPE
+       OBJECTS { fcsEMainDate, fcsEMainTime }
+       STATUS  current
+       DESCRIPTION
+               "The Fuel Cell System is running.
+                This trap gets sent when the system goes into
+                run mode.  The fcsETrapRunEnded trap will
+                be sent when the system exits run mode."
+     ::= { fcsETraps 5 }
+
+   fcsETrapExercising NOTIFICATION-TYPE
+       OBJECTS { fcsEMainDate, fcsEMainTime }
+       STATUS  current
+       DESCRIPTION
+               "The Fuel Cell System is exercising.
+                This trap gets sent when the system goes into
+                exercise mode.  The fcsETrapRunEnded trap will
+                be sent when the system exits exercise mode."
+     ::= { fcsETraps 6 }
+
+   fcsETrapRunEnded NOTIFICATION-TYPE
+       OBJECTS { fcsEMainDate, fcsEMainTime }
+       STATUS  current
+       DESCRIPTION
+               "The Fuel Cell System just shut down from either
+                exercising or running."
+     ::= { fcsETraps 7 }
+
+   fcsETrapLowH2FuelAlertOn NOTIFICATION-TYPE
+       OBJECTS { fcsEMainDate, fcsEMainTime }
+       STATUS  current
+       DESCRIPTION
+               "Low H2 Fuel alert is on."
+     ::= { fcsETraps 8 }
+
+   fcsETrapLowH2FuelAlertOff NOTIFICATION-TYPE
+       OBJECTS { fcsEMainDate, fcsEMainTime }
+       STATUS  current
+       DESCRIPTION
+               "Low H2 Fuel alert is off."
+     ::= { fcsETraps 9 }
+
+   END
+

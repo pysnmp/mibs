@@ -1,0 +1,1097 @@
+GARDEROS-ROUTER-MIB DEFINITIONS ::= BEGIN
+
+
+IMPORTS
+    garderos
+        FROM GARDEROS-SMI-MIB
+    MODULE-COMPLIANCE, NOTIFICATION-GROUP, OBJECT-GROUP
+        FROM SNMPv2-CONF
+    MODULE-IDENTITY, NOTIFICATION-TYPE, OBJECT-IDENTITY, OBJECT-TYPE, TimeTicks, Integer32, Unsigned32
+        FROM SNMPv2-SMI
+    DisplayString, PhysAddress, TEXTUAL-CONVENTION
+        FROM SNMPv2-TC;
+
+
+--===========================================--
+--===========================================--
+--             MODULE-IDENTITY                
+--===========================================--
+--===========================================--
+
+router MODULE-IDENTITY
+        LAST-UPDATED "201703101018Z"
+        ORGANIZATION "Garderos GmbH"
+        CONTACT-INFO
+                "info@garderos.com"
+        DESCRIPTION
+                "The MIB Module for Garderos Router Products"
+        REVISION "201703101018Z"
+        DESCRIPTION
+                "Router"
+        ::= { garderos 3 }                       -- 1.3.6.1.4.1.16108.3
+
+
+--===========================================--
+--===========================================--
+--                Conventions                --
+--===========================================--
+--===========================================--
+
+RouterType ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "Type of device"
+        SYNTAX INTEGER {
+                        grs(3)                   -- GRS 
+                       }
+
+
+RouterComponent ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "Component who generated the trap"
+        SYNTAX INTEGER {
+                        netd(1),                 -- netd
+                        radius(2),               -- radius
+                        www(3),                  -- www
+                        ppp(4),                  -- ppp
+                        configd(5),              -- configd
+                        snmpd(6),                -- snmpd
+                        system(7),               -- system
+                        ntpd(8),                 -- ntpd
+                        sshd(9),                 -- sshd 
+                        telnetd(10),             -- telnetd
+                        console(11),             -- console
+                        cli(12),                 -- cli
+                        dhcpd(13)                -- dhcpd
+                       }
+
+
+RouterSeverity ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "The severity of the event associated to the trap"
+        SYNTAX INTEGER {
+                        debug(0),                -- debug
+                        info(1),                 -- info
+                        error(2),                -- error
+                        panic(3)                 -- panic 
+                       }
+
+
+RouterSyslogSeverity ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "The syslog severity of the event associated to the trap"
+        SYNTAX INTEGER {
+                        emergency(0),            -- emergency
+                        alert(1),                -- alert
+                        critical(2),             -- critical
+                        error(3),                -- error
+                        warning(4),              -- warning
+                        notice(5),               -- notice
+                        info(6),                 -- info
+                        debug(7)                 --debug
+                       }
+
+
+--===========================================--
+--             Identifiers                   --
+--===========================================--
+--===========================================--
+
+-- Router MIB
+routerMIB OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Router MIB"
+        ::= { router 1 }                         -- 1.3.6.1.4.1.16108.3.1
+        
+
+-- Notifications
+routerNotifications OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Notifications"
+        ::= { routerMIB 0 }                      -- 1.3.6.1.4.1.16108.3.1.0
+
+-- Objects
+routerObjects OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "GRS object"
+        ::= { routerMIB 1 }                      -- 1.3.6.1.4.1.16108.3.1.1
+        
+routerInformation OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "GRS information object"
+        ::= { routerObjects 1 }                  -- 1.3.6.1.4.1.16108.3.1.1.1
+        
+routerTrap OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Traps"
+        ::= { routerObjects 3 }                  -- 1.3.6.1.4.1.16108.3.1.1.3
+        
+        
+routerTables OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "GRS list definitions."
+        ::= { routerObjects 1000 }               -- 1.3.6.1.4.1.16108.3.1.1.1000
+        
+routerDhcpIpv4Tables OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "DHCP IPv4"
+        ::= { routerTables 10 }                  -- 1.3.6.1.4.1.16108.3.1.1.1000.10
+
+routerLqeTables OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "LQE"
+        ::= { routerTables 20 }                 -- 1.3.6.1.4.1.16108.3.1.1.1000.20
+
+routerWwanTables OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "WWAN"
+        ::= { routerTables 100 }                 -- 1.3.6.1.4.1.16108.3.1.1.1000.100
+
+routerDslTables OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "DSL"
+        ::= { routerTables 200 }                 -- 1.3.6.1.4.1.16108.3.1.1.1000.200
+
+
+
+-- Conformance
+routerConformance OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Conformance"
+        ::= { routerMIB 2 }                      -- 1.3.6.1.4.1.16108.3.1.2
+        
+routerGroups OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Groups"
+        ::= { routerConformance 1 }              -- 1.3.6.1.4.1.16108.3.1.2.1
+        
+routerCompliances OBJECT-IDENTITY
+        STATUS        current
+        DESCRIPTION
+                "Compliance"
+        ::= { routerConformance 2 }              -- 1.3.6.1.4.1.16108.3.1.2.2
+
+
+--===========================================--
+--===========================================--
+--              Compliance group             --
+--===========================================--
+--===========================================--
+
+
+routerModuleCompliance MODULE-COMPLIANCE
+        STATUS  current
+        DESCRIPTION
+                "The compliance statement for entities which
+                 implement the router MIB."
+
+        MODULE GARDEROS-ROUTER-MIB
+        MANDATORY-GROUPS { routerNotificationGroup, routerInformationGroup, routerDhcpIpv4SubnetGroup, routerLqeResultGroup, routerWwanModemGeneralGroup, routerDslModemGeneralGroup }
+        GROUP routerTrapObjectGroup
+        DESCRIPTION
+              "The trap group is mandatory only for entities
+               implementing traps"
+        ::= { routerCompliances 1 }              -- 1.3.6.1.4.1.16108.3.1.2.2.1
+
+
+--===========================================--
+--===========================================--
+--             Information object            --
+--===========================================--
+--===========================================--
+
+
+-- Group all entry elements (must referenced)
+routerInformationGroup OBJECT-GROUP
+        OBJECTS {
+                routerName,
+                routerVersion,
+                routerConfigAge,
+                routerConfigType,
+                routerConfigServer,
+                routerKernel,
+                routerSystemMac,
+                routerTemperature,
+                routerSerial,
+                routerSecureBoot,
+                routerStartupConfigHash,
+                routerDescription }
+        STATUS  current
+        DESCRIPTION
+                "Group of GRS standard MIB objects"
+        ::= { routerGroups 1 }                   -- 1.3.6.1.4.1.16108.3.1.2.1.1
+
+-- Name of GRS device.
+routerName OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "GRS name"
+        ::= { routerInformation 1 }              -- 1.3.6.1.4.1.16108.3.1.1.1.1
+
+-- Version from "show system version".
+routerVersion OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Version"
+        ::= { routerInformation 2 }              -- 1.3.6.1.4.1.16108.3.1.1.1.2
+
+-- UNIX timestamp of the configuration age.
+routerConfigAge OBJECT-TYPE
+        SYNTAX  TimeTicks
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Configuration Age"
+        ::= { routerInformation 3 }              -- 1.3.6.1.4.1.16108.3.1.1.1.3
+
+-- Configuration source type, e.g. CLI, startup, remote  (values from "show configuration source")
+routerConfigType OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Configuration source type"
+        ::= { routerInformation 4 }              -- 1.3.6.1.4.1.16108.3.1.1.1.4
+
+-- If using a remote configuration, URL where current configuration file was taken from.
+routerConfigServer OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "URL of the configuration source"
+        ::= { routerInformation 5 }              -- 1.3.6.1.4.1.16108.3.1.1.1.5
+
+-- "uname -a"
+routerKernel OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "OS information (output of uname -a)"
+        ::= { routerInformation 6 }              -- 1.3.6.1.4.1.16108.3.1.1.1.6
+
+-- System MAC address. Address of eth0.
+routerSystemMac OBJECT-TYPE
+        SYNTAX  PhysAddress
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "System MAC address"
+        ::= { routerInformation 7 }              -- 1.3.6.1.4.1.16108.3.1.1.1.7
+
+-- "show system temperature (CPU temperature)"
+routerTemperature OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Temperature of the device in centigrade"
+        ::= { routerInformation 8 }              -- 1.3.6.1.4.1.16108.3.1.1.1.8
+
+-- "show system serial"
+routerSerial OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Serial number of the device."
+        ::= { routerInformation  9 }             -- 1.3.6.1.4.1.16108.3.1.1.1.9
+
+-- "show hardware all"
+routerSecureBoot OBJECT-TYPE
+        SYNTAX  Integer32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "State of secure boot."
+        ::= { routerInformation  10 }            -- 1.3.6.1.4.1.16108.3.1.1.1.10
+
+-- "md5sum <startup>"
+routerStartupConfigHash OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "MD5 hash of the startup configuration."
+        ::= { routerInformation  11 }            -- 1.3.6.1.4.1.16108.3.1.1.1.11
+
+-- ""system.description", if empty """
+routerDescription OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Description of router."
+        ::= { routerInformation  12 }            -- 1.3.6.1.4.1.16108.3.1.1.1.12
+
+
+
+
+--===========================================--
+--===========================================--
+--                  Traps                    --
+--===========================================--
+--===========================================--
+
+
+routerNotificationGroup NOTIFICATION-GROUP
+        NOTIFICATIONS {
+            routerNotification
+            }
+        STATUS current
+        DESCRIPTION
+            "Garderos Notifications Group"
+        ::= { routerGroups 2 }                   -- 1.3.6.1.4.1.16108.3.1.2.1.2
+
+routerNotification NOTIFICATION-TYPE
+        OBJECTS {
+                routerName,
+                routerTrapSeverity,
+                routerTrapComponent,
+                routerTrapType,
+                routerTrapDescription,
+                routerTrapErrorCode,
+                routerTrapErrorDescription,
+                routerTrapSyslogSeverity
+                }
+        STATUS  current
+        DESCRIPTION
+                "Our sent trap itself"
+        ::= { routerNotifications 1 }            -- 1.3.6.1.4.1.16108.3.1.0.1
+
+routerTrapObjectGroup OBJECT-GROUP
+        OBJECTS {
+                routerTrapSeverity,
+                routerTrapType,
+                routerTrapComponent,
+                routerTrapDescription,
+                routerTrapErrorCode,
+                routerTrapErrorDescription,
+                routerTrapSyslogSeverity,
+                routerName
+                } 
+        STATUS  current
+        DESCRIPTION
+                "Garderos Group of all trap objects"
+        ::= { routerGroups 3 }                   -- 1.3.6.1.4.1.16108.3.1.2.1.3
+
+routerTrapSeverity OBJECT-TYPE
+        SYNTAX  RouterSeverity
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Severity"
+        ::= { routerTrap 1 }                     -- 1.3.6.1.4.1.16108.3.1.1.3.1
+
+routerTrapComponent OBJECT-TYPE
+        SYNTAX  RouterComponent
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Component (netd|radius|www|ppp|configd|snmpd|system|ntpd|sshd|telnetd|console|cli|dhcpd)"
+        ::= { routerTrap 2 }                     -- 1.3.6.1.4.1.16108.3.1.1.3.2
+
+routerTrapType OBJECT-TYPE
+        SYNTAX  RouterType
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Type (grs)"
+        ::= { routerTrap 3 }                     -- 1.3.6.1.4.1.16108.3.1.1.3.3
+
+routerTrapDescription OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Unique description of the error"
+        ::= { routerTrap 4 }                     -- 1.3.6.1.4.1.16108.3.1.1.3.4
+
+routerTrapErrorCode OBJECT-TYPE
+        SYNTAX  Integer32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Unique error code of the error"
+        ::= { routerTrap 5 }                     -- 1.3.6.1.4.1.16108.3.1.1.3.5
+
+routerTrapErrorDescription OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Error code description"
+        ::= { routerTrap 6 }                     -- 1.3.6.1.4.1.16108.3.1.1.3.6
+
+routerTrapSyslogSeverity OBJECT-TYPE
+        SYNTAX  RouterSyslogSeverity
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Syslog severity value"
+        ::= { routerTrap 7 }                     -- 1.3.6.1.4.1.16108.3.1.1.3.7
+
+
+--===========================================--
+--===========================================--
+--            DHCP IPv4 Service Table        --
+--===========================================--
+--===========================================--
+
+
+-- Table definition for DHCP IPv4 subnet table
+routerDhcpIpv4SubnetTable OBJECT-TYPE
+        SYNTAX  SEQUENCE OF RouterDhcpIpv4SubnetEntry
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "DHCP IPv4 subnets"
+        ::= { routerDhcpIpv4Tables 1 }           -- 1.3.6.1.4.1.16108.3.1.1.1000.10.1
+        
+-- Entry definition for table with index (rows)
+routerDhcpIpv4SubnetEntry OBJECT-TYPE
+        SYNTAX  RouterDhcpIpv4SubnetEntry
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "DHCP IPv4 subnet definition"
+        INDEX {
+                routerDhcpIpv4SubnetIndex }
+        ::= { routerDhcpIpv4SubnetTable 1 }      -- 1.3.6.1.4.1.16108.3.1.1.1000.10.1.1      
+
+-- Sequence definition (columns)
+RouterDhcpIpv4SubnetEntry ::= SEQUENCE {
+            routerDhcpIpv4SubnetId DisplayString,
+            routerDhcpIpv4SubnetTotalLeases Unsigned32,
+            routerDhcpIpv4SubnetFreeLeases Unsigned32,
+            routerDhcpIpv4SubnetUsedLeases Unsigned32,
+            routerDhcpIpv4SubnetIndex Unsigned32 }
+            
+routerDhcpIpv4SubnetGroup OBJECT-GROUP
+        OBJECTS {
+                routerDhcpIpv4SubnetId,
+                routerDhcpIpv4SubnetTotalLeases,
+                routerDhcpIpv4SubnetFreeLeases,
+                routerDhcpIpv4SubnetUsedLeases }
+        STATUS  current
+        DESCRIPTION
+                "DHCP IPv4 subnet object group"
+        ::= { routerGroups 1011 }                -- 1.3.6.1.4.1.16108.3.1.2.1.1011            
+
+routerDhcpIpv4SubnetId OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Identifier of the subnet"
+        ::= { routerDhcpIpv4SubnetEntry 1 }      -- 1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.1
+        
+routerDhcpIpv4SubnetTotalLeases OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Total number of leases of the subnet"
+        ::= { routerDhcpIpv4SubnetEntry 2 }      -- 1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.2
+        
+routerDhcpIpv4SubnetFreeLeases OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Total number of free leases of the subnet"
+        ::= { routerDhcpIpv4SubnetEntry 3 }      -- 1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.3
+        
+routerDhcpIpv4SubnetUsedLeases OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Total number of used leases of the subnet"
+        ::= { routerDhcpIpv4SubnetEntry 4 }      -- 1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.4                        
+
+-- Index
+routerDhcpIpv4SubnetIndex OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "DHCP IPv4 service table index"
+        ::= { routerDhcpIpv4SubnetEntry 100 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.100
+
+
+--===========================================--
+--===========================================--
+--                   LqeTable                --
+--===========================================--
+--===========================================--
+
+-- Table definition for garderosLqeInformation
+routerLqeResultTable OBJECT-TYPE
+        SYNTAX  SEQUENCE OF RouterLqeResultEntry
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "LQE result table"
+        ::= { routerLqeTables 1 }               -- 1.3.6.1.4.1.16108.3.1.1.1000.20.1
+
+-- Entry definition for table with index (rows)
+routerLqeResultEntry OBJECT-TYPE
+        SYNTAX  RouterLqeResultEntry
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "Entry into LQE result table"
+        INDEX { routerLqeIndex }
+        ::= { routerLqeResultTable 1 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.20.1.1      
+
+-- Sequence definition (columns)
+RouterLqeResultEntry ::= SEQUENCE {
+            routerLqeResultName DisplayString,
+            routerLqeResultAlgorithm DisplayString,
+            routerLqeResultInterface DisplayString,
+            routerLqeResultLqi Unsigned32,
+            routerLqeResultLastLqi Unsigned32,
+            routerLqeIndex Unsigned32
+            }
+
+routerLqeResultGroup OBJECT-GROUP
+        OBJECTS {
+            routerLqeResultName,
+            routerLqeResultAlgorithm,
+            routerLqeResultInterface,
+            routerLqeResultLqi,
+            routerLqeResultLastLqi }
+        STATUS  current
+        DESCRIPTION
+                "LQE result values object group"
+        ::= { routerGroups 1021 }                -- 1.3.6.1.4.1.16108.3.1.2.1.1021 (1.000+20+1)
+
+routerLqeResultName OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "LQE name."
+        ::= { routerLqeResultEntry 1 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.1
+
+routerLqeResultAlgorithm OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "LQE algorithm name."
+        ::= { routerLqeResultEntry 2 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.2
+
+routerLqeResultInterface OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "LQE interface name."
+        ::= { routerLqeResultEntry 3 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.3
+
+routerLqeResultLqi OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "LQI."
+        ::= { routerLqeResultEntry 4 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.4
+
+routerLqeResultLastLqi OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Last LQI."
+        ::= { routerLqeResultEntry 5 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.5
+
+
+-- Index
+routerLqeIndex OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "Index of LQE result entry. Not readable."
+        ::= { routerLqeResultEntry 100 }  -- 1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.100
+
+
+
+--===========================================--
+--===========================================--
+--                   WwanTable               --
+--===========================================--
+--===========================================--
+
+-- Table definition for garderosWwanInformation
+routerWwanModemGeneralTable OBJECT-TYPE
+        SYNTAX  SEQUENCE OF RouterWwanModemGeneralEntry
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "WWAN general values table"
+        ::= { routerWwanTables 1 }               -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1
+
+-- Entry definition for table with index (rows)
+routerWwanModemGeneralEntry OBJECT-TYPE
+        SYNTAX  RouterWwanModemGeneralEntry
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "Entry into WWAN general values table"
+        INDEX { routerWwanIndex }
+        ::= { routerWwanModemGeneralTable 1 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1      
+
+-- Sequence definition (columns)
+RouterWwanModemGeneralEntry ::= SEQUENCE {
+            routerWwanModemName DisplayString,
+            routerWwanModemModel DisplayString,
+            routerWwanSupportedTech DisplayString,
+            routerWwanDialInNumber DisplayString,
+            routerWwanApn DisplayString,
+            routerWwanImsi DisplayString,
+            routerWwanSimId DisplayString,
+            routerWwanPinState DisplayString,
+            routerWwanNetworkTech DisplayString,
+            routerWwanCurrentTech DisplayString,
+            routerWwanUseTech DisplayString,
+            routerWwanBand DisplayString,
+            routerWwanLinkQuality Integer32,
+            routerWwanLinkRefSigRecQuality Integer32,
+            routerWwanLinkRefSigRecPower Integer32,
+            routerWwanLinkSigIntNoiseRatio Integer32,
+            routerWwanLinkEcIo Integer32,
+            routerWwanOperatorName DisplayString,
+            routerWwanOperatorId Unsigned32,
+            routerWwanCellIdDec Unsigned32,
+            routerWwanCellIdHex DisplayString,
+            routerWwanIndex Unsigned32
+            }
+
+routerWwanModemGeneralGroup OBJECT-GROUP
+        OBJECTS {
+            routerWwanModemName,
+            routerWwanModemModel,
+            routerWwanSupportedTech,
+            routerWwanDialInNumber,
+            routerWwanApn,
+            routerWwanImsi,
+            routerWwanSimId,
+            routerWwanPinState,
+            routerWwanNetworkTech,
+            routerWwanCurrentTech,
+            routerWwanUseTech,
+            routerWwanBand,
+            routerWwanLinkQuality,
+            routerWwanLinkRefSigRecQuality,
+            routerWwanLinkRefSigRecPower,
+            routerWwanLinkSigIntNoiseRatio,
+            routerWwanLinkEcIo,
+            routerWwanOperatorName,
+            routerWwanOperatorId,
+            routerWwanCellIdDec,
+            routerWwanCellIdHex }
+        STATUS  current
+        DESCRIPTION
+                "WWAN general values object group"
+        ::= { routerGroups 1101 }                -- 1.3.6.1.4.1.16108.3.1.2.1.1101 (1.000+100+1)
+
+routerWwanModemName OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Name of the modem."
+        ::= { routerWwanModemGeneralEntry 1 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.1
+
+routerWwanModemModel OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Model of the modem."
+        ::= { routerWwanModemGeneralEntry 2 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.2
+
+routerWwanSupportedTech OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Technologies supported by the modem."
+        ::= { routerWwanModemGeneralEntry 3 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.3
+
+routerWwanDialInNumber OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Dial in number configured for the modem."
+        ::= { routerWwanModemGeneralEntry 4 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.4
+
+routerWwanApn OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "APN configured for the modem."
+        ::= { routerWwanModemGeneralEntry 5 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.5
+
+routerWwanImsi OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "IMSI of the SIM card that is used by the modem."
+        ::= { routerWwanModemGeneralEntry 10 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.10
+
+routerWwanSimId OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "SIM ID of the SIM card that is used by the modem."
+        ::= { routerWwanModemGeneralEntry 11 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.11
+
+routerWwanPinState OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current PIN state on the SIM card."
+        ::= { routerWwanModemGeneralEntry 12 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.12
+
+routerWwanNetworkTech OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Technologies offer by the network."
+        ::= { routerWwanModemGeneralEntry 13 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.13
+
+routerWwanCurrentTech OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Technology currently used by the modem."
+        ::= { routerWwanModemGeneralEntry 14 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.14
+
+routerWwanUseTech OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Technology to be used by the modem."
+        ::= { routerWwanModemGeneralEntry 15 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.15
+
+routerWwanBand OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current band used by the modem."
+        ::= { routerWwanModemGeneralEntry 16 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.16
+
+routerWwanLinkQuality OBJECT-TYPE
+        SYNTAX  Integer32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Link quality (RSSI)."
+        ::= { routerWwanModemGeneralEntry 17 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.17
+
+routerWwanLinkRefSigRecQuality OBJECT-TYPE
+        SYNTAX  Integer32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "LTE link RSRQ, LTE only."
+        ::= { routerWwanModemGeneralEntry 18 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.18
+
+routerWwanLinkRefSigRecPower OBJECT-TYPE
+        SYNTAX  Integer32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "LTE link RSRP, LTE only."
+        ::= { routerWwanModemGeneralEntry 19 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.19
+
+routerWwanLinkSigIntNoiseRatio OBJECT-TYPE
+        SYNTAX  Integer32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "LTE link SINR, LTE only."
+        ::= { routerWwanModemGeneralEntry 20 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.20
+
+routerWwanLinkEcIo OBJECT-TYPE
+        SYNTAX  Integer32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Link EC/IO, CDMA only."
+        ::= { routerWwanModemGeneralEntry 21 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.21
+
+routerWwanOperatorName OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Clear text operator name."
+        ::= { routerWwanModemGeneralEntry 30 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.30
+
+routerWwanOperatorId OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Operator ID: MCC + MNC"
+        ::= { routerWwanModemGeneralEntry 31 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.31
+
+routerWwanCellIdDec OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Basestation cell Id (decimal)."
+        ::= { routerWwanModemGeneralEntry 32 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.32
+
+routerWwanCellIdHex OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Basestation cell Id (hex)."
+        ::= { routerWwanModemGeneralEntry 33 }   -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.33
+
+-- Index
+routerWwanIndex OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "Index of WWAN general entry. Not readable."
+        ::= { routerWwanModemGeneralEntry 100 }  -- 1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.100
+
+
+--===========================================--
+--===========================================--
+--                   DslTable                --
+--===========================================--
+--===========================================--
+
+-- Table definition for garderosDslInformation
+routerDslModemGeneralTable OBJECT-TYPE
+        SYNTAX  SEQUENCE OF RouterDslModemGeneralEntry
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "DSL general values table"
+        ::= { routerDslTables 1 }               -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1
+
+-- Entry definition for table with index (rows)
+routerDslModemGeneralEntry OBJECT-TYPE
+        SYNTAX  RouterDslModemGeneralEntry
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "Entry into DSL general values table"
+        INDEX { routerDslIndex }
+        ::= { routerDslModemGeneralTable 1 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1      
+
+-- Sequence definition (columns)
+RouterDslModemGeneralEntry ::= SEQUENCE {
+            routerDslModemName DisplayString,
+            routerDslModemModel DisplayString,
+            routerDslModemSupportedTech DisplayString,
+            routerDslModemFirmware DisplayString,
+            routerDslModemStatus DisplayString,
+            routerDslModemMode DisplayString,
+            routerDslModemWanService DisplayString,
+            routerDslDslamVendor DisplayString,
+            routerDslUptime TimeTicks,
+            routerDslDownRate Unsigned32,
+            routerDslUpRate Unsigned32,
+            routerDslDownSigNoiseRatio Unsigned32,
+            routerDslUpSigNoiseRatio Unsigned32,
+            routerDslDownAttenuation Unsigned32,
+            routerDslUpAttenuation Unsigned32,
+            routerDslIndex Unsigned32
+            }
+
+routerDslModemGeneralGroup OBJECT-GROUP
+        OBJECTS {
+            routerDslModemName,
+            routerDslModemModel,
+            routerDslModemSupportedTech,
+            routerDslModemFirmware,
+            routerDslModemStatus,
+            routerDslModemMode,
+            routerDslModemWanService,
+            routerDslDslamVendor,
+            routerDslUptime,
+            routerDslDownRate,
+            routerDslUpRate,
+            routerDslDownSigNoiseRatio,
+            routerDslUpSigNoiseRatio,
+            routerDslDownAttenuation,
+            routerDslUpAttenuation}
+        STATUS  current
+        DESCRIPTION
+                "DSL general values object group"
+        ::= { routerGroups 1201 }                -- 1.3.6.1.4.1.16108.3.1.2.1.1101 (1.000+200+1)
+
+routerDslModemName OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Name of the modem."
+        ::= { routerDslModemGeneralEntry 1 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.1
+
+routerDslModemModel OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Model of the modem."
+        ::= { routerDslModemGeneralEntry 2 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.2
+
+routerDslModemSupportedTech OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Technologies supported by the modem."
+        ::= { routerDslModemGeneralEntry 3 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.3
+
+routerDslModemFirmware OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Firmware version of the modem."
+        ::= { routerDslModemGeneralEntry 4 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.4
+
+routerDslModemStatus OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current modem status."
+        ::= { routerDslModemGeneralEntry 5 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.5
+
+routerDslModemMode OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current DSL mode."
+        ::= { routerDslModemGeneralEntry 6 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.6
+
+routerDslModemWanService OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Layer 2 service."
+        ::= { routerDslModemGeneralEntry 7 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.7
+
+routerDslDslamVendor OBJECT-TYPE
+        SYNTAX  DisplayString
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "DSLAM that the modem is connected to."
+        ::= { routerDslModemGeneralEntry 8 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.8
+
+routerDslUptime OBJECT-TYPE
+        SYNTAX  TimeTicks
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Modem uptime."
+        ::= { routerDslModemGeneralEntry 9 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.9
+
+routerDslDownRate OBJECT-TYPE
+        SYNTAX Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current down rate."
+        ::= { routerDslModemGeneralEntry 10 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.10
+
+routerDslUpRate OBJECT-TYPE
+        SYNTAX Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current up rate."
+        ::= { routerDslModemGeneralEntry 11 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.11
+
+routerDslDownSigNoiseRatio OBJECT-TYPE
+        SYNTAX Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current down SNR."
+        ::= { routerDslModemGeneralEntry 12 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.12
+
+routerDslUpSigNoiseRatio OBJECT-TYPE
+        SYNTAX Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current up SNR."
+        ::= { routerDslModemGeneralEntry 13 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.13
+
+routerDslDownAttenuation OBJECT-TYPE
+        SYNTAX Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current down attenuation."
+        ::= { routerDslModemGeneralEntry 14 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.14
+
+routerDslUpAttenuation OBJECT-TYPE
+        SYNTAX Unsigned32
+        MAX-ACCESS read-only
+        STATUS  current
+        DESCRIPTION
+                "Current up attenuation."
+        ::= { routerDslModemGeneralEntry 15 }    -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.15
+
+
+-- Index
+routerDslIndex OBJECT-TYPE
+        SYNTAX  Unsigned32
+        MAX-ACCESS not-accessible
+        STATUS  current
+        DESCRIPTION
+                "Index of DSL general entry, not readable"
+        ::= { routerDslModemGeneralEntry 100 }  -- 1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.100
+
+
+END

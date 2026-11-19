@@ -1,0 +1,743 @@
+ACOS-FW-RATE-LIMIT-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		fwRateLimitModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "fwRateLimitModule OID for ACOS"
+				::=  {  acosSchema 483 }
+
+rateLimit		 OBJECT IDENTIFIER ::= { fwRateLimitModule 1}
+
+rateLimitStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RateLimitStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "View Rate Limit Entries from object 'fw.rate-limit'"
+	::= {rateLimit 1}
+
+rateLimitStatsEntry OBJECT-TYPE
+	SYNTAX RateLimitStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rateLimitStats stats entry"
+	INDEX {
+		rateLimitStatsSlotId
+	}
+	::= { rateLimitStatsTable 1 }
+
+RateLimitStatsEntry ::=
+	SEQUENCE {
+		rateLimitStatsSlotId Integer32,
+		rateLimitStatsRatelimitUsedTotalMem	 CounterBasedGauge64,
+		rateLimitStatsRatelimitUsedSpmMem	 CounterBasedGauge64,
+		rateLimitStatsRatelimitUsedHeapMem	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryAllocFrmSpmMem	 CounterBasedGauge64,
+		rateLimitStatsRatelimitHighAccurateEntryAllocFail	 CounterBasedGauge64,
+		rateLimitStatsRatelimitHighPerfEntryAllocFail	 CounterBasedGauge64,
+		rateLimitStatsRatelimitHighPerfEntrySecondaryAllocFail	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryAllocFailRateTooHigh	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryAllocFailMetricCountGtSupported	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountT2Key	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountFwRuleUid	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountIpAddr	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountIp6Addr	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountSessionId	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountRuleIpv4Prefix	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountRuleIpv6Prefix	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountParentUid	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountParentIpv4Prefix	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountParentIpv6Prefix	 CounterBasedGauge64,
+		rateLimitStatsRatelimitInfraGenericErrors	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountAllocated	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountFreed	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountRuleIp	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountParentIp	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountRadiusUsergroup	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountParentRadiusUsergroup	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountRadiusUserid	 CounterBasedGauge64,
+		rateLimitStatsRatelimitEntryCountParentRadiusUserid	 CounterBasedGauge64
+	}
+
+rateLimitStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { rateLimitStatsEntry 1 }
+
+rateLimitStatsRatelimitUsedTotalMem OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_used_total_mem"
+	::= { rateLimitStatsEntry 2 }
+
+rateLimitStatsRatelimitUsedSpmMem OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_used_spm_mem"
+	::= { rateLimitStatsEntry 3 }
+
+rateLimitStatsRatelimitUsedHeapMem OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_used_heap_mem"
+	::= { rateLimitStatsEntry 4 }
+
+rateLimitStatsRatelimitEntryAllocFrmSpmMem OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_alloc_frm_spm_mem"
+	::= { rateLimitStatsEntry 5 }
+
+rateLimitStatsRatelimitHighAccurateEntryAllocFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_high_accurate_entry_alloc_fail"
+	::= { rateLimitStatsEntry 6 }
+
+rateLimitStatsRatelimitHighPerfEntryAllocFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_high_perf_entry_alloc_fail"
+	::= { rateLimitStatsEntry 7 }
+
+rateLimitStatsRatelimitHighPerfEntrySecondaryAllocFail OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_high_perf_entry_secondary_alloc_fail"
+	::= { rateLimitStatsEntry 8 }
+
+rateLimitStatsRatelimitEntryAllocFailRateTooHigh OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_alloc_fail_rate_too_high"
+	::= { rateLimitStatsEntry 9 }
+
+rateLimitStatsRatelimitEntryAllocFailMetricCountGtSupported OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_alloc_fail_metric_count_gt_supported"
+	::= { rateLimitStatsEntry 10 }
+
+rateLimitStatsRatelimitEntryCountT2Key OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_t2_key"
+	::= { rateLimitStatsEntry 11 }
+
+rateLimitStatsRatelimitEntryCountFwRuleUid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_fw_rule_uid"
+	::= { rateLimitStatsEntry 12 }
+
+rateLimitStatsRatelimitEntryCountIpAddr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_ip_addr"
+	::= { rateLimitStatsEntry 13 }
+
+rateLimitStatsRatelimitEntryCountIp6Addr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_ip6_addr"
+	::= { rateLimitStatsEntry 14 }
+
+rateLimitStatsRatelimitEntryCountSessionId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_session_id"
+	::= { rateLimitStatsEntry 15 }
+
+rateLimitStatsRatelimitEntryCountRuleIpv4Prefix OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_rule_ipv4_prefix"
+	::= { rateLimitStatsEntry 16 }
+
+rateLimitStatsRatelimitEntryCountRuleIpv6Prefix OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_rule_ipv6_prefix"
+	::= { rateLimitStatsEntry 17 }
+
+rateLimitStatsRatelimitEntryCountParentUid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_parent_uid"
+	::= { rateLimitStatsEntry 18 }
+
+rateLimitStatsRatelimitEntryCountParentIpv4Prefix OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_parent_ipv4_prefix"
+	::= { rateLimitStatsEntry 19 }
+
+rateLimitStatsRatelimitEntryCountParentIpv6Prefix OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_parent_ipv6_prefix"
+	::= { rateLimitStatsEntry 20 }
+
+rateLimitStatsRatelimitInfraGenericErrors OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_infra_generic_errors"
+	::= { rateLimitStatsEntry 21 }
+
+rateLimitStatsRatelimitEntryCountAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_allocated"
+	::= { rateLimitStatsEntry 22 }
+
+rateLimitStatsRatelimitEntryCountFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_freed"
+	::= { rateLimitStatsEntry 23 }
+
+rateLimitStatsRatelimitEntryCountRuleIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_rule_ip"
+	::= { rateLimitStatsEntry 24 }
+
+rateLimitStatsRatelimitEntryCountParentIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_parent_ip"
+	::= { rateLimitStatsEntry 25 }
+
+rateLimitStatsRatelimitEntryCountRadiusUsergroup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_radius_usergroup"
+	::= { rateLimitStatsEntry 26 }
+
+rateLimitStatsRatelimitEntryCountParentRadiusUsergroup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_parent_radius_usergroup"
+	::= { rateLimitStatsEntry 27 }
+
+rateLimitStatsRatelimitEntryCountRadiusUserid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_radius_userid"
+	::= { rateLimitStatsEntry 28 }
+
+rateLimitStatsRatelimitEntryCountParentRadiusUserid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ratelimit_entry_count_parent_radius_userid"
+	::= { rateLimitStatsEntry 29 }
+
+rateLimitOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RateLimitOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "View Rate Limit Entries from object 'fw.rate-limit'"
+	::= {rateLimit 2}
+
+rateLimitOperEntry OBJECT-TYPE
+	SYNTAX RateLimitOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rateLimitOper entry"
+	INDEX {
+		rateLimitOperSlotId
+	}
+	::= { rateLimitOperTable 1 }
+
+RateLimitOperEntry ::=
+	SEQUENCE {
+		rateLimitOperSlotId Integer32,
+		rateLimitOperV4Address	 DisplayString,
+		rateLimitOperV4Netmask	 DisplayString,
+		rateLimitOperV6Prefix	 DisplayString,
+		rateLimitOperStringValue	 DisplayString,
+		rateLimitOperTemplateId	 Integer32
+	}
+
+rateLimitOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { rateLimitOperEntry 1 }
+
+rateLimitOperV4Address OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v4-address"
+	::= { rateLimitOperEntry 2 }
+
+rateLimitOperV4Netmask OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v4-netmask"
+	::= { rateLimitOperEntry 3 }
+
+rateLimitOperV6Prefix OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "v6-prefix"
+	::= { rateLimitOperEntry 4 }
+
+rateLimitOperStringValue OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "string-value"
+	::= { rateLimitOperEntry 6 }
+
+rateLimitOperTemplateId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "template-id"
+	::= { rateLimitOperEntry 5 }
+
+rateLimitOperRateLimitListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF RateLimitOperRateLimitListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "View Rate Limit Entries from object 'fw.rate-limit'"
+	::= {rateLimit 3}
+
+rateLimitOperRateLimitListEntry OBJECT-TYPE
+	SYNTAX RateLimitOperRateLimitListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The rateLimitOperRateLimitList entry:rate-limit-list"
+	INDEX {
+		rateLimitOperRateLimitListSlotId,
+		rateLimitOperRateLimitListRateLimitListListId
+	}
+	::= { rateLimitOperRateLimitListTable 1}
+
+RateLimitOperRateLimitListEntry ::=
+	SEQUENCE {
+		rateLimitOperRateLimitListSlotId Integer32,
+		rateLimitOperRateLimitListRateLimitListListId Integer32,
+		rateLimitOperRateLimitListStringValue	DisplayString,
+		rateLimitOperRateLimitListAddress	DisplayString,
+		rateLimitOperRateLimitListPrefixLen	Integer32,
+		rateLimitOperRateLimitListRuleName	DisplayString,
+		rateLimitOperRateLimitListTemplateId	Integer32,
+		rateLimitOperRateLimitListType	DisplayString,
+		rateLimitOperRateLimitListCpsReceived	Integer32,
+		rateLimitOperRateLimitListCpsAllowed	Integer32,
+		rateLimitOperRateLimitListUplinkTrafficReceived	Integer32,
+		rateLimitOperRateLimitListUplinkTrafficAllowed	Integer32,
+		rateLimitOperRateLimitListDownlinkTrafficReceived	Integer32,
+		rateLimitOperRateLimitListDownlinkTrafficAllowed	Integer32,
+		rateLimitOperRateLimitListTotalTrafficReceived	Integer32,
+		rateLimitOperRateLimitListTotalTrafficAllowed	Integer32,
+		rateLimitOperRateLimitListDropCount	Integer32
+	}
+
+rateLimitOperRateLimitListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rateLimitOperRateLimitListEntry 1}
+
+rateLimitOperRateLimitListRateLimitListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { rateLimitOperRateLimitListEntry 2}
+
+rateLimitOperRateLimitListStringValue OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"string-value"
+	::= { rateLimitOperRateLimitListEntry 17}
+
+rateLimitOperRateLimitListAddress OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"address"
+	::= { rateLimitOperRateLimitListEntry 3}
+
+rateLimitOperRateLimitListPrefixLen OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"prefix-len"
+	::= { rateLimitOperRateLimitListEntry 4}
+
+rateLimitOperRateLimitListRuleName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rule-name"
+	::= { rateLimitOperRateLimitListEntry 5}
+
+rateLimitOperRateLimitListTemplateId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"template-id"
+	::= { rateLimitOperRateLimitListEntry 6}
+
+rateLimitOperRateLimitListType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"type"
+	::= { rateLimitOperRateLimitListEntry 7}
+
+rateLimitOperRateLimitListCpsReceived OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cps-received"
+	::= { rateLimitOperRateLimitListEntry 8}
+
+rateLimitOperRateLimitListCpsAllowed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cps-allowed"
+	::= { rateLimitOperRateLimitListEntry 9}
+
+rateLimitOperRateLimitListUplinkTrafficReceived OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"uplink-traffic-received"
+	::= { rateLimitOperRateLimitListEntry 10}
+
+rateLimitOperRateLimitListUplinkTrafficAllowed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"uplink-traffic-allowed"
+	::= { rateLimitOperRateLimitListEntry 11}
+
+rateLimitOperRateLimitListDownlinkTrafficReceived OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"downlink-traffic-received"
+	::= { rateLimitOperRateLimitListEntry 12}
+
+rateLimitOperRateLimitListDownlinkTrafficAllowed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"downlink-traffic-allowed"
+	::= { rateLimitOperRateLimitListEntry 13}
+
+rateLimitOperRateLimitListTotalTrafficReceived OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"total-traffic-received"
+	::= { rateLimitOperRateLimitListEntry 14}
+
+rateLimitOperRateLimitListTotalTrafficAllowed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"total-traffic-allowed"
+	::= { rateLimitOperRateLimitListEntry 15}
+
+rateLimitOperRateLimitListDropCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drop-count"
+	::= { rateLimitOperRateLimitListEntry 16}
+
+summary		 OBJECT IDENTIFIER ::= { rateLimit 4}
+
+summaryOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SummaryOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "View A Summary About Rate Limit Entries from object 'fw.rate-limit.summary'"
+	::= {summary 2}
+
+summaryOperEntry OBJECT-TYPE
+	SYNTAX SummaryOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The summaryOper entry"
+	INDEX {
+		summaryOperSlotId
+	}
+	::= { summaryOperTable 1 }
+
+SummaryOperEntry ::=
+	SEQUENCE {
+		summaryOperSlotId Integer32,
+		summaryOperMemReserved	 Integer32,
+		summaryOperMemUsed	 Integer32,
+		summaryOperAllocFailures	 Integer32,
+		summaryOperTotalNumEntries	 Integer32,
+		summaryOperTotalNumEntriesAllocated	 Integer32,
+		summaryOperTotalNumEntriesFreed	 Integer32,
+		summaryOperTotalEntriesScopeAggregate	 Integer32,
+		summaryOperTotalEntriesScopeSubscriberIp	 Integer32,
+		summaryOperTotalEntriesScopeSubscriberPrefix	 Integer32,
+		summaryOperTotalEntriesScopeRadiusUsergroup	 Integer32,
+		summaryOperTotalEntriesScopeRadiusUserid	 Integer32,
+		summaryOperTotalEntriesScopeParent	 Integer32,
+		summaryOperTotalEntriesScopeParentSubscriberIp	 Integer32,
+		summaryOperTotalEntriesScopeParentSubscriberPrefix	 Integer32,
+		summaryOperTotalEntriesScopeParentRadiusUsergroup	 Integer32,
+		summaryOperTotalEntriesScopeParentRadiusUserid	 Integer32
+	}
+
+summaryOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { summaryOperEntry 1 }
+
+summaryOperMemReserved OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mem_reserved"
+	::= { summaryOperEntry 2 }
+
+summaryOperMemUsed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mem_used"
+	::= { summaryOperEntry 3 }
+
+summaryOperAllocFailures OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "alloc_failures"
+	::= { summaryOperEntry 4 }
+
+summaryOperTotalNumEntries OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_num_entries"
+	::= { summaryOperEntry 5 }
+
+summaryOperTotalNumEntriesAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_num_entries_allocated"
+	::= { summaryOperEntry 6 }
+
+summaryOperTotalNumEntriesFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_num_entries_freed"
+	::= { summaryOperEntry 7 }
+
+summaryOperTotalEntriesScopeAggregate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_aggregate"
+	::= { summaryOperEntry 8 }
+
+summaryOperTotalEntriesScopeSubscriberIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_subscriber_ip"
+	::= { summaryOperEntry 9 }
+
+summaryOperTotalEntriesScopeSubscriberPrefix OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_subscriber_prefix"
+	::= { summaryOperEntry 10 }
+
+summaryOperTotalEntriesScopeRadiusUsergroup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_radius_usergroup"
+	::= { summaryOperEntry 14 }
+
+summaryOperTotalEntriesScopeRadiusUserid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_radius_userid"
+	::= { summaryOperEntry 15 }
+
+summaryOperTotalEntriesScopeParent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_parent"
+	::= { summaryOperEntry 11 }
+
+summaryOperTotalEntriesScopeParentSubscriberIp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_parent_subscriber_ip"
+	::= { summaryOperEntry 12 }
+
+summaryOperTotalEntriesScopeParentSubscriberPrefix OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_parent_subscriber-prefix"
+	::= { summaryOperEntry 13 }
+
+summaryOperTotalEntriesScopeParentRadiusUsergroup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_parent_radius_usergroup"
+	::= { summaryOperEntry 16 }
+
+summaryOperTotalEntriesScopeParentRadiusUserid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_entries_scope_parent_radius_userid"
+	::= { summaryOperEntry 17 }
+
+END
+

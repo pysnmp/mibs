@@ -1,0 +1,96 @@
+ACOS-VRRPA-MAC-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vrrpAMacModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vrrpAMacModule OID for ACOS"
+				::=  {  acosSchema 11 }
+
+mac		 OBJECT IDENTIFIER ::= { vrrpAMacModule 1}
+
+macOperVridMacListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF MacOperVridMacListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "corresponding virtual mac from object 'vrrp-a.mac'"
+	::= {mac 2}
+
+macOperVridMacListEntry OBJECT-TYPE
+	SYNTAX MacOperVridMacListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The macOperVridMacList entry:vrid-mac-list"
+	INDEX {
+		macOperVridMacListSlotId,
+		macOperVridMacListVridMacListListId
+	}
+	::= { macOperVridMacListTable 1}
+
+MacOperVridMacListEntry ::=
+	SEQUENCE {
+		macOperVridMacListSlotId Integer32,
+		macOperVridMacListVridMacListListId Integer32,
+		macOperVridMacListVrid	Integer32,
+		macOperVridMacListMacAddress	DisplayString,
+		macOperVridMacListMacWithSynCookie	DisplayString
+	}
+
+macOperVridMacListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { macOperVridMacListEntry 1}
+
+macOperVridMacListVridMacListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { macOperVridMacListEntry 2}
+
+macOperVridMacListVrid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vrid"
+	::= { macOperVridMacListEntry 3}
+
+macOperVridMacListMacAddress OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"mac_address"
+	::= { macOperVridMacListEntry 4}
+
+macOperVridMacListMacWithSynCookie OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"mac_with_syn_cookie"
+	::= { macOperVridMacListEntry 5}
+
+END
+

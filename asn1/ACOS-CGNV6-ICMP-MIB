@@ -1,0 +1,392 @@
+ACOS-CGNV6-ICMP-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		cgnv6IcmpModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "cgnv6IcmpModule OID for ACOS"
+				::=  {  acosSchema 418 }
+
+icmp		 OBJECT IDENTIFIER ::= { cgnv6IcmpModule 1}
+
+icmpStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF IcmpStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "CGNV6 ICMP Statistics from object 'cgnv6.icmp'"
+	::= {icmp 1}
+
+icmpStatsEntry OBJECT-TYPE
+	SYNTAX IcmpStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The icmpStats stats entry"
+	INDEX {
+		icmpStatsSlotId
+	}
+	::= { icmpStatsTable 1 }
+
+IcmpStatsEntry ::=
+	SEQUENCE {
+		icmpStatsSlotId Integer32,
+		icmpStatsIcmpUnknownType	 CounterBasedGauge64,
+		icmpStatsIcmpNoPortInfo	 CounterBasedGauge64,
+		icmpStatsIcmpNoSessionDrop	 CounterBasedGauge64,
+		icmpStatsIcmpv6UnknownType	 CounterBasedGauge64,
+		icmpStatsIcmpv6NoPortInfo	 CounterBasedGauge64,
+		icmpStatsIcmpv6NoSessionDrop	 CounterBasedGauge64,
+		icmpStatsIcmpToIcmp	 CounterBasedGauge64,
+		icmpStatsIcmpToIcmpv6	 CounterBasedGauge64,
+		icmpStatsIcmpv6ToIcmp	 CounterBasedGauge64,
+		icmpStatsIcmpv6ToIcmpv6	 CounterBasedGauge64,
+		icmpStatsIcmpBadType	 CounterBasedGauge64,
+		icmpStatsIcmpv6BadType	 CounterBasedGauge64,
+		icmpStats64KnownDrop	 CounterBasedGauge64,
+		icmpStats64UnknownDrop	 CounterBasedGauge64,
+		icmpStats64MidpointHop	 CounterBasedGauge64,
+		icmpStats46KnownDrop	 CounterBasedGauge64,
+		icmpStats46UnknownDrop	 CounterBasedGauge64,
+		icmpStats46NoPrefixForIpv4	 CounterBasedGauge64,
+		icmpStats46BadEncapIpHeaderLen	 CounterBasedGauge64,
+		icmpStatsIcmpToIcmpErr	 CounterBasedGauge64,
+		icmpStatsIcmpToIcmpv6Err	 CounterBasedGauge64,
+		icmpStatsIcmpv6ToIcmpErr	 CounterBasedGauge64,
+		icmpStatsIcmpv6ToIcmpv6Err	 CounterBasedGauge64,
+		icmpStatsEncapCrossCpuNoMatch	 CounterBasedGauge64,
+		icmpStatsEncapCrossCpuPreprocessErr	 CounterBasedGauge64,
+		icmpStatsIcmpToIcmpUnknownL4	 CounterBasedGauge64,
+		icmpStatsIcmpToIcmpv6UnknownL4	 CounterBasedGauge64,
+		icmpStatsIcmpv6ToIcmpUnknownL4	 CounterBasedGauge64,
+		icmpStatsIcmpv6ToIcmpv6UnknownL4	 CounterBasedGauge64,
+		icmpStatsStaticNat	 CounterBasedGauge64,
+		icmpStatsEchoToPoolReply	 CounterBasedGauge64,
+		icmpStatsEchoToPoolDrop	 CounterBasedGauge64,
+		icmpStatsErrorToPoolDrop	 CounterBasedGauge64,
+		icmpStatsEchoToPoolReplyV6	 CounterBasedGauge64,
+		icmpStatsEchoToPoolDropV6	 CounterBasedGauge64,
+		icmpStatsErrorToPoolDropV6	 CounterBasedGauge64,
+		icmpStatsErrorIpMismatch	 CounterBasedGauge64
+	}
+
+icmpStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { icmpStatsEntry 1 }
+
+icmpStatsIcmpUnknownType OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-unknown-type"
+	::= { icmpStatsEntry 2 }
+
+icmpStatsIcmpNoPortInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-no-port-info"
+	::= { icmpStatsEntry 3 }
+
+icmpStatsIcmpNoSessionDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-no-session-drop"
+	::= { icmpStatsEntry 4 }
+
+icmpStatsIcmpv6UnknownType OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-unknown-type"
+	::= { icmpStatsEntry 5 }
+
+icmpStatsIcmpv6NoPortInfo OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-no-port-info"
+	::= { icmpStatsEntry 6 }
+
+icmpStatsIcmpv6NoSessionDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-no-session-drop"
+	::= { icmpStatsEntry 7 }
+
+icmpStatsIcmpToIcmp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-to-icmp"
+	::= { icmpStatsEntry 8 }
+
+icmpStatsIcmpToIcmpv6 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-to-icmpv6"
+	::= { icmpStatsEntry 9 }
+
+icmpStatsIcmpv6ToIcmp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-to-icmp"
+	::= { icmpStatsEntry 10 }
+
+icmpStatsIcmpv6ToIcmpv6 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-to-icmpv6"
+	::= { icmpStatsEntry 11 }
+
+icmpStatsIcmpBadType OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-bad-type"
+	::= { icmpStatsEntry 12 }
+
+icmpStatsIcmpv6BadType OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-bad-type"
+	::= { icmpStatsEntry 13 }
+
+icmpStats64KnownDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "64-known-drop"
+	::= { icmpStatsEntry 14 }
+
+icmpStats64UnknownDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "64-unknown-drop"
+	::= { icmpStatsEntry 15 }
+
+icmpStats64MidpointHop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "64-midpoint-hop"
+	::= { icmpStatsEntry 16 }
+
+icmpStats46KnownDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "46-known-drop"
+	::= { icmpStatsEntry 17 }
+
+icmpStats46UnknownDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "46-unknown-drop"
+	::= { icmpStatsEntry 18 }
+
+icmpStats46NoPrefixForIpv4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "46-no-prefix-for-ipv4"
+	::= { icmpStatsEntry 19 }
+
+icmpStats46BadEncapIpHeaderLen OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "46-bad-encap-ip-header-len"
+	::= { icmpStatsEntry 20 }
+
+icmpStatsIcmpToIcmpErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-to-icmp-err"
+	::= { icmpStatsEntry 21 }
+
+icmpStatsIcmpToIcmpv6Err OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-to-icmpv6-err"
+	::= { icmpStatsEntry 22 }
+
+icmpStatsIcmpv6ToIcmpErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-to-icmp-err"
+	::= { icmpStatsEntry 23 }
+
+icmpStatsIcmpv6ToIcmpv6Err OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-to-icmpv6-err"
+	::= { icmpStatsEntry 24 }
+
+icmpStatsEncapCrossCpuNoMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "encap-cross-cpu-no-match"
+	::= { icmpStatsEntry 25 }
+
+icmpStatsEncapCrossCpuPreprocessErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "encap-cross-cpu-preprocess-err"
+	::= { icmpStatsEntry 26 }
+
+icmpStatsIcmpToIcmpUnknownL4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-to-icmp-unknown-l4"
+	::= { icmpStatsEntry 27 }
+
+icmpStatsIcmpToIcmpv6UnknownL4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-to-icmpv6-unknown-l4"
+	::= { icmpStatsEntry 28 }
+
+icmpStatsIcmpv6ToIcmpUnknownL4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-to-icmp-unknown-l4"
+	::= { icmpStatsEntry 29 }
+
+icmpStatsIcmpv6ToIcmpv6UnknownL4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-to-icmpv6-unknown-l4"
+	::= { icmpStatsEntry 30 }
+
+icmpStatsStaticNat OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "static-nat"
+	::= { icmpStatsEntry 31 }
+
+icmpStatsEchoToPoolReply OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "echo-to-pool-reply"
+	::= { icmpStatsEntry 32 }
+
+icmpStatsEchoToPoolDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "echo-to-pool-drop"
+	::= { icmpStatsEntry 33 }
+
+icmpStatsErrorToPoolDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "error-to-pool-drop"
+	::= { icmpStatsEntry 34 }
+
+icmpStatsEchoToPoolReplyV6 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "echo-to-pool-reply-v6"
+	::= { icmpStatsEntry 35 }
+
+icmpStatsEchoToPoolDropV6 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "echo-to-pool-drop-v6"
+	::= { icmpStatsEntry 36 }
+
+icmpStatsErrorToPoolDropV6 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "error-to-pool-drop-v6"
+	::= { icmpStatsEntry 37 }
+
+icmpStatsErrorIpMismatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "error-ip-mismatch"
+	::= { icmpStatsEntry 38 }
+
+END
+

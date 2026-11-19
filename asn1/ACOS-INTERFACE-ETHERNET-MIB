@@ -1,0 +1,1009 @@
+ACOS-INTERFACE-ETHERNET-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		interfaceEthernetModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "interfaceEthernetModule OID for ACOS"
+				::=  {  acosSchema 189 }
+
+ethernet		 OBJECT IDENTIFIER ::= { interfaceEthernetModule 1}
+
+ethernetStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF EthernetStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Ethernet interface from object 'interface.ethernet'"
+	::= {ethernet 1}
+
+ethernetStatsEntry OBJECT-TYPE
+	SYNTAX EthernetStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ethernetStats stats entry"
+	INDEX {
+		ethernetStatsSlotId,
+		ethernetStatsIfnum
+	}
+	::= { ethernetStatsTable 1 }
+
+EthernetStatsEntry ::=
+	SEQUENCE {
+		ethernetStatsSlotId Integer32,
+		ethernetStatsIfnum Integer32,
+		ethernetStatsPacketsInput	 CounterBasedGauge64,
+		ethernetStatsBytesInput	 CounterBasedGauge64,
+		ethernetStatsReceivedBroadcasts	 CounterBasedGauge64,
+		ethernetStatsReceivedMulticasts	 CounterBasedGauge64,
+		ethernetStatsReceivedUnicasts	 CounterBasedGauge64,
+		ethernetStatsInputErrors	 CounterBasedGauge64,
+		ethernetStatsCrc	 CounterBasedGauge64,
+		ethernetStatsFrame	 CounterBasedGauge64,
+		ethernetStatsRunts	 CounterBasedGauge64,
+		ethernetStatsGiants	 CounterBasedGauge64,
+		ethernetStatsPacketsOutput	 CounterBasedGauge64,
+		ethernetStatsBytesOutput	 CounterBasedGauge64,
+		ethernetStatsTransmittedBroadcasts	 CounterBasedGauge64,
+		ethernetStatsTransmittedMulticasts	 CounterBasedGauge64,
+		ethernetStatsTransmittedUnicasts	 CounterBasedGauge64,
+		ethernetStatsOutputErrors	 CounterBasedGauge64,
+		ethernetStatsCollisions	 CounterBasedGauge64,
+		ethernetStatsGiantsOutput	 CounterBasedGauge64,
+		ethernetStatsRatePktSent	 CounterBasedGauge64,
+		ethernetStatsRateByteSent	 CounterBasedGauge64,
+		ethernetStatsRatePktRcvd	 CounterBasedGauge64,
+		ethernetStatsRateByteRcvd	 CounterBasedGauge64,
+		ethernetStatsLoadInterval	 CounterBasedGauge64,
+		ethernetStatsTransmitDrops	 CounterBasedGauge64,
+		ethernetStatsReceiveDrops	 CounterBasedGauge64,
+		ethernetStatsInputUtilization	 CounterBasedGauge64,
+		ethernetStatsOutputUtilization	 CounterBasedGauge64
+	}
+
+ethernetStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ethernetStatsEntry 1 }
+
+ethernetStatsIfnum OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ifnum"
+	::= { ethernetStatsEntry 2 }
+
+ethernetStatsPacketsInput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "packets_input"
+	::= { ethernetStatsEntry 3 }
+
+ethernetStatsBytesInput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bytes_input"
+	::= { ethernetStatsEntry 4 }
+
+ethernetStatsReceivedBroadcasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "received_broadcasts"
+	::= { ethernetStatsEntry 5 }
+
+ethernetStatsReceivedMulticasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "received_multicasts"
+	::= { ethernetStatsEntry 6 }
+
+ethernetStatsReceivedUnicasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "received_unicasts"
+	::= { ethernetStatsEntry 7 }
+
+ethernetStatsInputErrors OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "input_errors"
+	::= { ethernetStatsEntry 8 }
+
+ethernetStatsCrc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "crc"
+	::= { ethernetStatsEntry 9 }
+
+ethernetStatsFrame OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "frame"
+	::= { ethernetStatsEntry 10 }
+
+ethernetStatsRunts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "runts"
+	::= { ethernetStatsEntry 11 }
+
+ethernetStatsGiants OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "giants"
+	::= { ethernetStatsEntry 12 }
+
+ethernetStatsPacketsOutput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "packets_output"
+	::= { ethernetStatsEntry 13 }
+
+ethernetStatsBytesOutput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bytes_output"
+	::= { ethernetStatsEntry 14 }
+
+ethernetStatsTransmittedBroadcasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transmitted_broadcasts"
+	::= { ethernetStatsEntry 15 }
+
+ethernetStatsTransmittedMulticasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transmitted_multicasts"
+	::= { ethernetStatsEntry 16 }
+
+ethernetStatsTransmittedUnicasts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transmitted_unicasts"
+	::= { ethernetStatsEntry 17 }
+
+ethernetStatsOutputErrors OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "output_errors"
+	::= { ethernetStatsEntry 18 }
+
+ethernetStatsCollisions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "collisions"
+	::= { ethernetStatsEntry 19 }
+
+ethernetStatsGiantsOutput OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "giants_output"
+	::= { ethernetStatsEntry 20 }
+
+ethernetStatsRatePktSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_pkt_sent"
+	::= { ethernetStatsEntry 21 }
+
+ethernetStatsRateByteSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_byte_sent"
+	::= { ethernetStatsEntry 22 }
+
+ethernetStatsRatePktRcvd OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_pkt_rcvd"
+	::= { ethernetStatsEntry 23 }
+
+ethernetStatsRateByteRcvd OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_byte_rcvd"
+	::= { ethernetStatsEntry 24 }
+
+ethernetStatsLoadInterval OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "load_interval"
+	::= { ethernetStatsEntry 25 }
+
+ethernetStatsTransmitDrops OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "transmit_drops"
+	::= { ethernetStatsEntry 26 }
+
+ethernetStatsReceiveDrops OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "receive_drops"
+	::= { ethernetStatsEntry 27 }
+
+ethernetStatsInputUtilization OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "input_utilization"
+	::= { ethernetStatsEntry 28 }
+
+ethernetStatsOutputUtilization OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "output_utilization"
+	::= { ethernetStatsEntry 29 }
+
+ethernetOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF EthernetOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Ethernet interface from object 'interface.ethernet'"
+	::= {ethernet 2}
+
+ethernetOperEntry OBJECT-TYPE
+	SYNTAX EthernetOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ethernetOper entry"
+	INDEX {
+		ethernetOperSlotId,
+		ethernetOperIfnum
+	}
+	::= { ethernetOperTable 1 }
+
+EthernetOperEntry ::=
+	SEQUENCE {
+		ethernetOperSlotId Integer32,
+		ethernetOperIfnum Integer32,
+		ethernetOperState	 DisplayString,
+		ethernetOperLineProtocol	 DisplayString,
+		ethernetOperLinkType	 DisplayString,
+		ethernetOperMac	 DisplayString,
+		ethernetOperConfigSpeed	 DisplayString,
+		ethernetOperActualSpeed	 DisplayString,
+		ethernetOperConfigDuplexity	 DisplayString,
+		ethernetOperActualDuplexity	 DisplayString,
+		ethernetOperMediaType	 DisplayString,
+		ethernetOperIpv4Address	 DisplayString,
+		ethernetOperIpv4Netmask	 DisplayString,
+		ethernetOperIpv4AddrCount	 Integer32,
+		ethernetOperIpv6AddrCount	 Integer32,
+		ethernetOperIpv6LinkLocal	 DisplayString,
+		ethernetOperIpv6LinkLocalPrefix	 DisplayString,
+		ethernetOperIpv6LinkLocalType	 DisplayString,
+		ethernetOperIpv6LinkLocalScope	 DisplayString,
+		ethernetOperIgmpQuerySent	 Integer32,
+		ethernetOperIcmpRateLimitCurrent	 Integer32,
+		ethernetOperIcmpRateOverLimitDrop	 Integer32,
+		ethernetOperIcmp6RateLimitCurrent	 Integer32,
+		ethernetOperIcmp6RateOverLimitDrop	 Integer32,
+		ethernetOperIsTagged	 Integer32,
+		ethernetOperVlanId	 Integer32,
+		ethernetOperTaggedVlanList	 DisplayString,
+		ethernetOperSpanMode	 DisplayString,
+		ethernetOperSpanPortState	 DisplayString,
+		ethernetOperIsLeadMember	 Integer32,
+		ethernetOperIsBlocked	 Integer32,
+		ethernetOperCurrentVnpId	 Integer32,
+		ethernetOperPortVnpId	 Integer32,
+		ethernetOperIsPristine	 Integer32,
+		ethernetOperRateByteRcvd	 Integer32,
+		ethernetOperRateByteSent	 Integer32,
+		ethernetOperRatePktRcvd	 Integer32,
+		ethernetOperRatePktSent	 Integer32,
+		ethernetOperInputUtilization	 Integer32,
+		ethernetOperOutputUtilization	 Integer32,
+		ethernetOperIsDeviceTransparent	 Integer32,
+		ethernetOperIncomingPktsMirrored	 Integer32,
+		ethernetOperOutgoingPktsMirrored	 Integer32,
+		ethernetOperIncomingPktsMonitored	 Integer32,
+		ethernetOperOutgoingPktsMonitored	 Integer32,
+		ethernetOperIpUnnumberedOper	 Integer32,
+		ethernetOperIpUnnumberedEnabled	 Integer32,
+		ethernetOperIpUnnumberedMacLearned	 Integer32,
+		ethernetOperIpUnnumberedPeerLla	 DisplayString,
+		ethernetOperLastCountClearAt	 DisplayString,
+		ethernetOperLastUpEventAt	 DisplayString,
+		ethernetOperLastDownEventAt	 DisplayString
+	}
+
+ethernetOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { ethernetOperEntry 1 }
+
+ethernetOperIfnum OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ifnum"
+	::= { ethernetOperEntry 2 }
+
+ethernetOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { ethernetOperEntry 3 }
+
+ethernetOperLineProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "line_protocol"
+	::= { ethernetOperEntry 4 }
+
+ethernetOperLinkType OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "link_type"
+	::= { ethernetOperEntry 5 }
+
+ethernetOperMac OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mac"
+	::= { ethernetOperEntry 6 }
+
+ethernetOperConfigSpeed OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "config_speed"
+	::= { ethernetOperEntry 7 }
+
+ethernetOperActualSpeed OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "actual_speed"
+	::= { ethernetOperEntry 8 }
+
+ethernetOperConfigDuplexity OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "config_duplexity"
+	::= { ethernetOperEntry 9 }
+
+ethernetOperActualDuplexity OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "actual_duplexity"
+	::= { ethernetOperEntry 10 }
+
+ethernetOperMediaType OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "media_type"
+	::= { ethernetOperEntry 11 }
+
+ethernetOperIpv4Address OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-address"
+	::= { ethernetOperEntry 12 }
+
+ethernetOperIpv4Netmask OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-netmask"
+	::= { ethernetOperEntry 13 }
+
+ethernetOperIpv4AddrCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4_addr_count"
+	::= { ethernetOperEntry 14 }
+
+ethernetOperIpv6AddrCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6_addr_count"
+	::= { ethernetOperEntry 15 }
+
+ethernetOperIpv6LinkLocal OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-link-local"
+	::= { ethernetOperEntry 16 }
+
+ethernetOperIpv6LinkLocalPrefix OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-link-local-prefix"
+	::= { ethernetOperEntry 17 }
+
+ethernetOperIpv6LinkLocalType OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-link-local-type"
+	::= { ethernetOperEntry 18 }
+
+ethernetOperIpv6LinkLocalScope OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-link-local-scope"
+	::= { ethernetOperEntry 19 }
+
+ethernetOperIgmpQuerySent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "igmp-query-sent"
+	::= { ethernetOperEntry 20 }
+
+ethernetOperIcmpRateLimitCurrent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-rate-limit-current"
+	::= { ethernetOperEntry 21 }
+
+ethernetOperIcmpRateOverLimitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-rate-over-limit-drop"
+	::= { ethernetOperEntry 22 }
+
+ethernetOperIcmp6RateLimitCurrent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp6-rate-limit-current"
+	::= { ethernetOperEntry 23 }
+
+ethernetOperIcmp6RateOverLimitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp6-rate-over-limit-drop"
+	::= { ethernetOperEntry 24 }
+
+ethernetOperIsTagged OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "is-tagged"
+	::= { ethernetOperEntry 25 }
+
+ethernetOperVlanId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vlan-id"
+	::= { ethernetOperEntry 26 }
+
+ethernetOperTaggedVlanList OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tagged-vlan-list"
+	::= { ethernetOperEntry 27 }
+
+ethernetOperSpanMode OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "span_mode"
+	::= { ethernetOperEntry 28 }
+
+ethernetOperSpanPortState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "span_port_state"
+	::= { ethernetOperEntry 29 }
+
+ethernetOperIsLeadMember OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "is_lead_member"
+	::= { ethernetOperEntry 30 }
+
+ethernetOperIsBlocked OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "is_blocked"
+	::= { ethernetOperEntry 31 }
+
+ethernetOperCurrentVnpId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "current_vnp_id"
+	::= { ethernetOperEntry 32 }
+
+ethernetOperPortVnpId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port_vnp_id"
+	::= { ethernetOperEntry 33 }
+
+ethernetOperIsPristine OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "is_pristine"
+	::= { ethernetOperEntry 34 }
+
+ethernetOperRateByteRcvd OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_byte_rcvd"
+	::= { ethernetOperEntry 35 }
+
+ethernetOperRateByteSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_byte_sent"
+	::= { ethernetOperEntry 36 }
+
+ethernetOperRatePktRcvd OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_pkt_rcvd"
+	::= { ethernetOperEntry 37 }
+
+ethernetOperRatePktSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_pkt_sent"
+	::= { ethernetOperEntry 38 }
+
+ethernetOperInputUtilization OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "input_utilization"
+	::= { ethernetOperEntry 39 }
+
+ethernetOperOutputUtilization OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "output_utilization"
+	::= { ethernetOperEntry 40 }
+
+ethernetOperIsDeviceTransparent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "is_device_transparent"
+	::= { ethernetOperEntry 41 }
+
+ethernetOperIncomingPktsMirrored OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "incoming_pkts_mirrored"
+	::= { ethernetOperEntry 42 }
+
+ethernetOperOutgoingPktsMirrored OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outgoing_pkts_mirrored"
+	::= { ethernetOperEntry 43 }
+
+ethernetOperIncomingPktsMonitored OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "incoming_pkts_monitored"
+	::= { ethernetOperEntry 44 }
+
+ethernetOperOutgoingPktsMonitored OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "outgoing_pkts_monitored"
+	::= { ethernetOperEntry 45 }
+
+ethernetOperIpUnnumberedOper OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_unnumbered_oper"
+	::= { ethernetOperEntry 46 }
+
+ethernetOperIpUnnumberedEnabled OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_unnumbered_enabled"
+	::= { ethernetOperEntry 47 }
+
+ethernetOperIpUnnumberedMacLearned OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_unnumbered_mac_learned"
+	::= { ethernetOperEntry 48 }
+
+ethernetOperIpUnnumberedPeerLla OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_unnumbered_peer_lla"
+	::= { ethernetOperEntry 49 }
+
+ethernetOperLastCountClearAt OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last_count_clear_at"
+	::= { ethernetOperEntry 50 }
+
+ethernetOperLastUpEventAt OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last_up_event_at"
+	::= { ethernetOperEntry 51 }
+
+ethernetOperLastDownEventAt OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last_down_event_at"
+	::= { ethernetOperEntry 52 }
+
+ethernetOperIpv4ListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF EthernetOperIpv4ListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Ethernet interface from object 'interface.ethernet'"
+	::= {ethernet 3}
+
+ethernetOperIpv4ListEntry OBJECT-TYPE
+	SYNTAX EthernetOperIpv4ListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ethernetOperIpv4List entry:ipv4_list"
+	INDEX {
+		ethernetOperIpv4ListSlotId,
+		ethernetOperIpv4ListIfnum,
+		ethernetOperIpv4ListIpv4ListListId
+	}
+	::= { ethernetOperIpv4ListTable 1}
+
+EthernetOperIpv4ListEntry ::=
+	SEQUENCE {
+		ethernetOperIpv4ListSlotId Integer32,
+		ethernetOperIpv4ListIfnum Integer32,
+		ethernetOperIpv4ListIpv4ListListId Integer32,
+		ethernetOperIpv4ListAddr	DisplayString,
+		ethernetOperIpv4ListMask	DisplayString
+	}
+
+ethernetOperIpv4ListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ethernetOperIpv4ListEntry 1}
+
+ethernetOperIpv4ListIfnum OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ifnum"
+	::= { ethernetOperIpv4ListEntry 2}
+
+ethernetOperIpv4ListIpv4ListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ethernetOperIpv4ListEntry 3}
+
+ethernetOperIpv4ListAddr OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"addr"
+	::= { ethernetOperIpv4ListEntry 4}
+
+ethernetOperIpv4ListMask OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"mask"
+	::= { ethernetOperIpv4ListEntry 5}
+
+ethernetOperIpv6ListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF EthernetOperIpv6ListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Ethernet interface from object 'interface.ethernet'"
+	::= {ethernet 4}
+
+ethernetOperIpv6ListEntry OBJECT-TYPE
+	SYNTAX EthernetOperIpv6ListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The ethernetOperIpv6List entry:ipv6_list"
+	INDEX {
+		ethernetOperIpv6ListSlotId,
+		ethernetOperIpv6ListIfnum,
+		ethernetOperIpv6ListIpv6ListListId
+	}
+	::= { ethernetOperIpv6ListTable 1}
+
+EthernetOperIpv6ListEntry ::=
+	SEQUENCE {
+		ethernetOperIpv6ListSlotId Integer32,
+		ethernetOperIpv6ListIfnum Integer32,
+		ethernetOperIpv6ListIpv6ListListId Integer32,
+		ethernetOperIpv6ListAddr	DisplayString,
+		ethernetOperIpv6ListPrefix	DisplayString,
+		ethernetOperIpv6ListIsAnycast	Integer32
+	}
+
+ethernetOperIpv6ListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ethernetOperIpv6ListEntry 1}
+
+ethernetOperIpv6ListIfnum OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ifnum"
+	::= { ethernetOperIpv6ListEntry 2}
+
+ethernetOperIpv6ListIpv6ListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { ethernetOperIpv6ListEntry 3}
+
+ethernetOperIpv6ListAddr OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"addr"
+	::= { ethernetOperIpv6ListEntry 4}
+
+ethernetOperIpv6ListPrefix OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"prefix"
+	::= { ethernetOperIpv6ListEntry 5}
+
+ethernetOperIpv6ListIsAnycast OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"is_anycast"
+	::= { ethernetOperIpv6ListEntry 6}
+
+lldp		 OBJECT IDENTIFIER ::= { ethernet 5}
+
+ddos		 OBJECT IDENTIFIER ::= { ethernet 6}
+
+ip		 OBJECT IDENTIFIER ::= { ethernet 7}
+
+statefulFirewall		 OBJECT IDENTIFIER ::= { ip 2}
+
+router		 OBJECT IDENTIFIER ::= { ip 3}
+
+isis		 OBJECT IDENTIFIER ::= { router 2}
+
+rip		 OBJECT IDENTIFIER ::= { ip 4}
+
+ospf		 OBJECT IDENTIFIER ::= { ip 5}
+
+ospfGlobal		 OBJECT IDENTIFIER ::= { ospf 2}
+
+ospfIp		 OBJECT IDENTIFIER ::= { ospf 3}
+
+ipv6		 OBJECT IDENTIFIER ::= { ethernet 8}
+
+statefulFirewallIpv6		 OBJECT IDENTIFIER ::= { ipv6 2}
+
+routerIpv6		 OBJECT IDENTIFIER ::= { ipv6 3}
+
+ripng		 OBJECT IDENTIFIER ::= { routerIpv6 2}
+
+ospfRouterIpv6		 OBJECT IDENTIFIER ::= { routerIpv6 3}
+
+isisRouterIpv6		 OBJECT IDENTIFIER ::= { routerIpv6 4}
+
+ripIpv6		 OBJECT IDENTIFIER ::= { ipv6 4}
+
+ospfIpv6		 OBJECT IDENTIFIER ::= { ipv6 5}
+
+nptv6		 OBJECT IDENTIFIER ::= { ethernet 9}
+
+domain		 OBJECT IDENTIFIER ::= { nptv6 2}
+
+dhcpv6		 OBJECT IDENTIFIER ::= { ethernet 10}
+
+mapT		 OBJECT IDENTIFIER ::= { dhcpv6 2}
+
+map		 OBJECT IDENTIFIER ::= { ethernet 11}
+
+lw4o6		 OBJECT IDENTIFIER ::= { ethernet 12}
+
+trunkGroup		 OBJECT IDENTIFIER ::= { ethernet 13}
+
+bfd		 OBJECT IDENTIFIER ::= { ethernet 14}
+
+isisEthernet		 OBJECT IDENTIFIER ::= { ethernet 15}
+
+spanningTree		 OBJECT IDENTIFIER ::= { ethernet 16}
+
+END
+

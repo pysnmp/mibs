@@ -1,0 +1,2543 @@
+ACOS-GSLB-ZONE-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		gslbZoneModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "gslbZoneModule OID for ACOS"
+				::=  {  acosSchema 428 }
+
+zone		 OBJECT IDENTIFIER ::= { gslbZoneModule 1}
+
+zoneStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ZoneStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify the DNS zone name for which global SLB is provided from object 'gslb.zone'"
+	::= {zone 1}
+
+zoneStatsEntry OBJECT-TYPE
+	SYNTAX ZoneStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The zoneStats stats entry"
+	INDEX {
+		zoneStatsSlotId,
+		zoneStatsName
+	}
+	::= { zoneStatsTable 1 }
+
+ZoneStatsEntry ::=
+	SEQUENCE {
+		zoneStatsSlotId Integer32,
+		zoneStatsName DisplayString,
+		zoneStatsReceivedQuery	 CounterBasedGauge64,
+		zoneStatsSentResponse	 CounterBasedGauge64,
+		zoneStatsProxyModeResponse	 CounterBasedGauge64,
+		zoneStatsCacheModeResponse	 CounterBasedGauge64,
+		zoneStatsServerModeResponse	 CounterBasedGauge64,
+		zoneStatsStickyModeResponse	 CounterBasedGauge64,
+		zoneStatsBackupModeResponse	 CounterBasedGauge64,
+		zoneStatsSmruleRedirFromSvcHit	 CounterBasedGauge64,
+		zoneStatsSmruleRedirFromSvcMiss	 CounterBasedGauge64
+	}
+
+zoneStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { zoneStatsEntry 1 }
+
+zoneStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { zoneStatsEntry 2 }
+
+zoneStatsReceivedQuery OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "received-query"
+	::= { zoneStatsEntry 3 }
+
+zoneStatsSentResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sent-response"
+	::= { zoneStatsEntry 4 }
+
+zoneStatsProxyModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy-mode-response"
+	::= { zoneStatsEntry 5 }
+
+zoneStatsCacheModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cache-mode-response"
+	::= { zoneStatsEntry 6 }
+
+zoneStatsServerModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server-mode-response"
+	::= { zoneStatsEntry 7 }
+
+zoneStatsStickyModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sticky-mode-response"
+	::= { zoneStatsEntry 8 }
+
+zoneStatsBackupModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "backup-mode-response"
+	::= { zoneStatsEntry 9 }
+
+zoneStatsSmruleRedirFromSvcHit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "smrule-redir-from-svc-hit"
+	::= { zoneStatsEntry 10 }
+
+zoneStatsSmruleRedirFromSvcMiss OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "smrule-redir-from-svc-miss"
+	::= { zoneStatsEntry 11 }
+
+zoneOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ZoneOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify the DNS zone name for which global SLB is provided from object 'gslb.zone'"
+	::= {zone 2}
+
+zoneOperEntry OBJECT-TYPE
+	SYNTAX ZoneOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The zoneOper entry"
+	INDEX {
+		zoneOperSlotId,
+		zoneOperName
+	}
+	::= { zoneOperTable 1 }
+
+ZoneOperEntry ::=
+	SEQUENCE {
+		zoneOperSlotId Integer32,
+		zoneOperName DisplayString,
+		zoneOperState	 DisplayString,
+		zoneOperSmrule	 DisplayString
+	}
+
+zoneOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { zoneOperEntry 1 }
+
+zoneOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { zoneOperEntry 2 }
+
+zoneOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { zoneOperEntry 3 }
+
+zoneOperSmrule OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "smrule"
+	::= { zoneOperEntry 4 }
+
+zoneOperDnsSoaRecordListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ZoneOperDnsSoaRecordListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify the DNS zone name for which global SLB is provided from object 'gslb.zone'"
+	::= {zone 3}
+
+zoneOperDnsSoaRecordListEntry OBJECT-TYPE
+	SYNTAX ZoneOperDnsSoaRecordListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The zoneOperDnsSoaRecordList entry:dns-soa-record-list"
+	INDEX {
+		zoneOperDnsSoaRecordListSlotId,
+		zoneOperDnsSoaRecordListName,
+		zoneOperDnsSoaRecordListDnsSoaRecordListListId
+	}
+	::= { zoneOperDnsSoaRecordListTable 1}
+
+ZoneOperDnsSoaRecordListEntry ::=
+	SEQUENCE {
+		zoneOperDnsSoaRecordListSlotId Integer32,
+		zoneOperDnsSoaRecordListName DisplayString,
+		zoneOperDnsSoaRecordListDnsSoaRecordListListId Integer32,
+		zoneOperDnsSoaRecordListName1	DisplayString,
+		zoneOperDnsSoaRecordListType	DisplayString,
+		zoneOperDnsSoaRecordListExpire	Integer32,
+		zoneOperDnsSoaRecordListRefresh	Integer32,
+		zoneOperDnsSoaRecordListSerial	Integer32,
+		zoneOperDnsSoaRecordListRetry	Integer32,
+		zoneOperDnsSoaRecordListTtl	Integer32,
+		zoneOperDnsSoaRecordListMxName	DisplayString
+	}
+
+zoneOperDnsSoaRecordListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { zoneOperDnsSoaRecordListEntry 1}
+
+zoneOperDnsSoaRecordListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { zoneOperDnsSoaRecordListEntry 2}
+
+zoneOperDnsSoaRecordListDnsSoaRecordListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { zoneOperDnsSoaRecordListEntry 3}
+
+zoneOperDnsSoaRecordListName1 OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { zoneOperDnsSoaRecordListEntry 4}
+
+zoneOperDnsSoaRecordListType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"type"
+	::= { zoneOperDnsSoaRecordListEntry 5}
+
+zoneOperDnsSoaRecordListExpire OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"expire"
+	::= { zoneOperDnsSoaRecordListEntry 6}
+
+zoneOperDnsSoaRecordListRefresh OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"refresh"
+	::= { zoneOperDnsSoaRecordListEntry 7}
+
+zoneOperDnsSoaRecordListSerial OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"serial"
+	::= { zoneOperDnsSoaRecordListEntry 8}
+
+zoneOperDnsSoaRecordListRetry OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"retry"
+	::= { zoneOperDnsSoaRecordListEntry 9}
+
+zoneOperDnsSoaRecordListTtl OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ttl"
+	::= { zoneOperDnsSoaRecordListEntry 10}
+
+zoneOperDnsSoaRecordListMxName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"mx-name"
+	::= { zoneOperDnsSoaRecordListEntry 11}
+
+dnsMxRecord		 OBJECT IDENTIFIER ::= { zone 4}
+
+dnsMxRecordStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsMxRecordStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS MX Record from object 'gslb.zone.dns-mx-record'"
+	::= {dnsMxRecord 1}
+
+dnsMxRecordStatsEntry OBJECT-TYPE
+	SYNTAX DnsMxRecordStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsMxRecordStats stats entry"
+	INDEX {
+		dnsMxRecordStatsSlotId,
+		dnsMxRecordStatsName,
+		dnsMxRecordStatsMxName
+	}
+	::= { dnsMxRecordStatsTable 1 }
+
+DnsMxRecordStatsEntry ::=
+	SEQUENCE {
+		dnsMxRecordStatsSlotId Integer32,
+		dnsMxRecordStatsName DisplayString,
+		dnsMxRecordStatsMxName DisplayString,
+		dnsMxRecordStatsHits	 CounterBasedGauge64
+	}
+
+dnsMxRecordStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsMxRecordStatsEntry 1 }
+
+dnsMxRecordStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsMxRecordStatsEntry 2 }
+
+dnsMxRecordStatsMxName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mx-name"
+	::= { dnsMxRecordStatsEntry 3 }
+
+dnsMxRecordStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsMxRecordStatsEntry 4 }
+
+dnsMxRecordOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsMxRecordOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify DNS MX Record from object 'gslb.zone.dns-mx-record'"
+	::= {dnsMxRecord 2}
+
+dnsMxRecordOperEntry OBJECT-TYPE
+	SYNTAX DnsMxRecordOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsMxRecordOper entry"
+	INDEX {
+		dnsMxRecordOperSlotId,
+		dnsMxRecordOperName,
+		dnsMxRecordOperMxName
+	}
+	::= { dnsMxRecordOperTable 1 }
+
+DnsMxRecordOperEntry ::=
+	SEQUENCE {
+		dnsMxRecordOperSlotId Integer32,
+		dnsMxRecordOperName DisplayString,
+		dnsMxRecordOperMxName DisplayString,
+		dnsMxRecordOperLastServer	 DisplayString,
+		dnsMxRecordOperHits	 Integer32,
+		dnsMxRecordOperPriority	 Integer32
+	}
+
+dnsMxRecordOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsMxRecordOperEntry 1 }
+
+dnsMxRecordOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsMxRecordOperEntry 2 }
+
+dnsMxRecordOperMxName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mx-name"
+	::= { dnsMxRecordOperEntry 3 }
+
+dnsMxRecordOperLastServer OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last-server"
+	::= { dnsMxRecordOperEntry 4 }
+
+dnsMxRecordOperHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsMxRecordOperEntry 5 }
+
+dnsMxRecordOperPriority OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "priority"
+	::= { dnsMxRecordOperEntry 6 }
+
+dnsNsRecord		 OBJECT IDENTIFIER ::= { zone 5}
+
+dnsNsRecordStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsNsRecordStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS NS Record from object 'gslb.zone.dns-ns-record'"
+	::= {dnsNsRecord 1}
+
+dnsNsRecordStatsEntry OBJECT-TYPE
+	SYNTAX DnsNsRecordStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsNsRecordStats stats entry"
+	INDEX {
+		dnsNsRecordStatsSlotId,
+		dnsNsRecordStatsName,
+		dnsNsRecordStatsNsName
+	}
+	::= { dnsNsRecordStatsTable 1 }
+
+DnsNsRecordStatsEntry ::=
+	SEQUENCE {
+		dnsNsRecordStatsSlotId Integer32,
+		dnsNsRecordStatsName DisplayString,
+		dnsNsRecordStatsNsName DisplayString,
+		dnsNsRecordStatsHits	 CounterBasedGauge64
+	}
+
+dnsNsRecordStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsNsRecordStatsEntry 1 }
+
+dnsNsRecordStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsNsRecordStatsEntry 2 }
+
+dnsNsRecordStatsNsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ns-name"
+	::= { dnsNsRecordStatsEntry 3 }
+
+dnsNsRecordStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsNsRecordStatsEntry 4 }
+
+dnsNsRecordOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsNsRecordOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify DNS NS Record from object 'gslb.zone.dns-ns-record'"
+	::= {dnsNsRecord 2}
+
+dnsNsRecordOperEntry OBJECT-TYPE
+	SYNTAX DnsNsRecordOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsNsRecordOper entry"
+	INDEX {
+		dnsNsRecordOperSlotId,
+		dnsNsRecordOperName,
+		dnsNsRecordOperNsName
+	}
+	::= { dnsNsRecordOperTable 1 }
+
+DnsNsRecordOperEntry ::=
+	SEQUENCE {
+		dnsNsRecordOperSlotId Integer32,
+		dnsNsRecordOperName DisplayString,
+		dnsNsRecordOperNsName DisplayString,
+		dnsNsRecordOperLastServer	 DisplayString,
+		dnsNsRecordOperHits	 Integer32
+	}
+
+dnsNsRecordOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsNsRecordOperEntry 1 }
+
+dnsNsRecordOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsNsRecordOperEntry 2 }
+
+dnsNsRecordOperNsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ns-name"
+	::= { dnsNsRecordOperEntry 3 }
+
+dnsNsRecordOperLastServer OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last-server"
+	::= { dnsNsRecordOperEntry 4 }
+
+dnsNsRecordOperHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsNsRecordOperEntry 5 }
+
+dnsCaaRecord		 OBJECT IDENTIFIER ::= { zone 6}
+
+dnsCaaRecordStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsCaaRecordStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS CAA Record from object 'gslb.zone.dns-caa-record'"
+	::= {dnsCaaRecord 1}
+
+dnsCaaRecordStatsEntry OBJECT-TYPE
+	SYNTAX DnsCaaRecordStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsCaaRecordStats stats entry"
+	INDEX {
+		dnsCaaRecordStatsSlotId,
+		dnsCaaRecordStatsName,
+		dnsCaaRecordStatsCriticalFlag,
+		dnsCaaRecordStatsPropertyTag,
+		dnsCaaRecordStatsRdata
+	}
+	::= { dnsCaaRecordStatsTable 1 }
+
+DnsCaaRecordStatsEntry ::=
+	SEQUENCE {
+		dnsCaaRecordStatsSlotId Integer32,
+		dnsCaaRecordStatsName DisplayString,
+		dnsCaaRecordStatsCriticalFlag Integer32,
+		dnsCaaRecordStatsPropertyTag DisplayString,
+		dnsCaaRecordStatsRdata DisplayString,
+		dnsCaaRecordStatsHits	 CounterBasedGauge64
+	}
+
+dnsCaaRecordStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsCaaRecordStatsEntry 1 }
+
+dnsCaaRecordStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsCaaRecordStatsEntry 2 }
+
+dnsCaaRecordStatsCriticalFlag OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "critical-flag"
+	::= { dnsCaaRecordStatsEntry 3 }
+
+dnsCaaRecordStatsPropertyTag OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "property-tag"
+	::= { dnsCaaRecordStatsEntry 4 }
+
+dnsCaaRecordStatsRdata OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rdata"
+	::= { dnsCaaRecordStatsEntry 5 }
+
+dnsCaaRecordStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsCaaRecordStatsEntry 6 }
+
+dnsCaaRecordOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsCaaRecordOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify DNS CAA Record from object 'gslb.zone.dns-caa-record'"
+	::= {dnsCaaRecord 2}
+
+dnsCaaRecordOperEntry OBJECT-TYPE
+	SYNTAX DnsCaaRecordOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsCaaRecordOper entry"
+	INDEX {
+		dnsCaaRecordOperSlotId,
+		dnsCaaRecordOperName,
+		dnsCaaRecordOperCriticalFlag,
+		dnsCaaRecordOperPropertyTag,
+		dnsCaaRecordOperRdata
+	}
+	::= { dnsCaaRecordOperTable 1 }
+
+DnsCaaRecordOperEntry ::=
+	SEQUENCE {
+		dnsCaaRecordOperSlotId Integer32,
+		dnsCaaRecordOperName DisplayString,
+		dnsCaaRecordOperCriticalFlag Integer32,
+		dnsCaaRecordOperPropertyTag DisplayString,
+		dnsCaaRecordOperRdata DisplayString,
+		dnsCaaRecordOperLastServer	 DisplayString
+	}
+
+dnsCaaRecordOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsCaaRecordOperEntry 1 }
+
+dnsCaaRecordOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsCaaRecordOperEntry 2 }
+
+dnsCaaRecordOperCriticalFlag OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "critical-flag"
+	::= { dnsCaaRecordOperEntry 3 }
+
+dnsCaaRecordOperPropertyTag OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "property-tag"
+	::= { dnsCaaRecordOperEntry 4 }
+
+dnsCaaRecordOperRdata OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rdata"
+	::= { dnsCaaRecordOperEntry 5 }
+
+dnsCaaRecordOperLastServer OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last-server"
+	::= { dnsCaaRecordOperEntry 6 }
+
+service		 OBJECT IDENTIFIER ::= { zone 7}
+
+serviceStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServiceStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Service information for the GSLB zone from object 'gslb.zone.service'"
+	::= {service 1}
+
+serviceStatsEntry OBJECT-TYPE
+	SYNTAX ServiceStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serviceStats stats entry"
+	INDEX {
+		serviceStatsSlotId,
+		serviceStatsName,
+		serviceStatsServicePort,
+		serviceStatsServiceName
+	}
+	::= { serviceStatsTable 1 }
+
+ServiceStatsEntry ::=
+	SEQUENCE {
+		serviceStatsSlotId Integer32,
+		serviceStatsName DisplayString,
+		serviceStatsServicePort Integer32,
+		serviceStatsServiceName DisplayString,
+		serviceStatsReceivedQuery	 CounterBasedGauge64,
+		serviceStatsSentResponse	 CounterBasedGauge64,
+		serviceStatsProxyModeResponse	 CounterBasedGauge64,
+		serviceStatsCacheModeResponse	 CounterBasedGauge64,
+		serviceStatsServerModeResponse	 CounterBasedGauge64,
+		serviceStatsStickyModeResponse	 CounterBasedGauge64,
+		serviceStatsBackupModeResponse	 CounterBasedGauge64,
+		serviceStatsSmruleRedirFromSvcHit	 CounterBasedGauge64,
+		serviceStatsSmruleRedirFromSvcMiss	 CounterBasedGauge64
+	}
+
+serviceStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { serviceStatsEntry 1 }
+
+serviceStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { serviceStatsEntry 2 }
+
+serviceStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { serviceStatsEntry 3 }
+
+serviceStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { serviceStatsEntry 4 }
+
+serviceStatsReceivedQuery OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "received-query"
+	::= { serviceStatsEntry 5 }
+
+serviceStatsSentResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sent-response"
+	::= { serviceStatsEntry 6 }
+
+serviceStatsProxyModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "proxy-mode-response"
+	::= { serviceStatsEntry 7 }
+
+serviceStatsCacheModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cache-mode-response"
+	::= { serviceStatsEntry 8 }
+
+serviceStatsServerModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server-mode-response"
+	::= { serviceStatsEntry 9 }
+
+serviceStatsStickyModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "sticky-mode-response"
+	::= { serviceStatsEntry 10 }
+
+serviceStatsBackupModeResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "backup-mode-response"
+	::= { serviceStatsEntry 11 }
+
+serviceStatsSmruleRedirFromSvcHit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "smrule-redir-from-svc-hit"
+	::= { serviceStatsEntry 12 }
+
+serviceStatsSmruleRedirFromSvcMiss OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "smrule-redir-from-svc-miss"
+	::= { serviceStatsEntry 13 }
+
+serviceOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServiceOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service information for the GSLB zone from object 'gslb.zone.service'"
+	::= {service 2}
+
+serviceOperEntry OBJECT-TYPE
+	SYNTAX ServiceOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serviceOper entry"
+	INDEX {
+		serviceOperSlotId,
+		serviceOperName,
+		serviceOperServicePort,
+		serviceOperServiceName
+	}
+	::= { serviceOperTable 1 }
+
+ServiceOperEntry ::=
+	SEQUENCE {
+		serviceOperSlotId Integer32,
+		serviceOperName DisplayString,
+		serviceOperServicePort Integer32,
+		serviceOperServiceName DisplayString,
+		serviceOperState	 DisplayString,
+		serviceOperMatched	 Integer32,
+		serviceOperTotalSessions	 Integer32
+	}
+
+serviceOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { serviceOperEntry 1 }
+
+serviceOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { serviceOperEntry 2 }
+
+serviceOperServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { serviceOperEntry 3 }
+
+serviceOperServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { serviceOperEntry 4 }
+
+serviceOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { serviceOperEntry 5 }
+
+serviceOperMatched OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "matched"
+	::= { serviceOperEntry 6 }
+
+serviceOperTotalSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-sessions"
+	::= { serviceOperEntry 7 }
+
+serviceOperCacheListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServiceOperCacheListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service information for the GSLB zone from object 'gslb.zone.service'"
+	::= {service 3}
+
+serviceOperCacheListEntry OBJECT-TYPE
+	SYNTAX ServiceOperCacheListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serviceOperCacheList entry:cache-list"
+	INDEX {
+		serviceOperCacheListSlotId,
+		serviceOperCacheListName,
+		serviceOperCacheListServicePort,
+		serviceOperCacheListServiceName,
+		serviceOperCacheListCacheListListId
+	}
+	::= { serviceOperCacheListTable 1}
+
+ServiceOperCacheListEntry ::=
+	SEQUENCE {
+		serviceOperCacheListSlotId Integer32,
+		serviceOperCacheListName DisplayString,
+		serviceOperCacheListServicePort Integer32,
+		serviceOperCacheListServiceName DisplayString,
+		serviceOperCacheListCacheListListId Integer32,
+		serviceOperCacheListAlias	DisplayString,
+		serviceOperCacheListCacheLength	Integer32,
+		serviceOperCacheListCacheTtl	Integer32,
+		serviceOperCacheListCacheDnsFlag	DisplayString,
+		serviceOperCacheListQuestionRecords	Integer32,
+		serviceOperCacheListAnswerRecords	Integer32,
+		serviceOperCacheListAuthorityRecords	Integer32,
+		serviceOperCacheListAdditionalRecords	Integer32
+	}
+
+serviceOperCacheListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serviceOperCacheListEntry 1}
+
+serviceOperCacheListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { serviceOperCacheListEntry 2}
+
+serviceOperCacheListServicePort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service-port"
+	::= { serviceOperCacheListEntry 3}
+
+serviceOperCacheListServiceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service-name"
+	::= { serviceOperCacheListEntry 4}
+
+serviceOperCacheListCacheListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serviceOperCacheListEntry 5}
+
+serviceOperCacheListAlias OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alias"
+	::= { serviceOperCacheListEntry 6}
+
+serviceOperCacheListCacheLength OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cache-length"
+	::= { serviceOperCacheListEntry 7}
+
+serviceOperCacheListCacheTtl OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cache-ttl"
+	::= { serviceOperCacheListEntry 8}
+
+serviceOperCacheListCacheDnsFlag OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cache-dns-flag"
+	::= { serviceOperCacheListEntry 9}
+
+serviceOperCacheListQuestionRecords OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"question-records"
+	::= { serviceOperCacheListEntry 10}
+
+serviceOperCacheListAnswerRecords OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"answer-records"
+	::= { serviceOperCacheListEntry 11}
+
+serviceOperCacheListAuthorityRecords OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"authority-records"
+	::= { serviceOperCacheListEntry 12}
+
+serviceOperCacheListAdditionalRecords OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"additional-records"
+	::= { serviceOperCacheListEntry 13}
+
+serviceOperSessionListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServiceOperSessionListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service information for the GSLB zone from object 'gslb.zone.service'"
+	::= {service 4}
+
+serviceOperSessionListEntry OBJECT-TYPE
+	SYNTAX ServiceOperSessionListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serviceOperSessionList entry:session-list"
+	INDEX {
+		serviceOperSessionListSlotId,
+		serviceOperSessionListName,
+		serviceOperSessionListServicePort,
+		serviceOperSessionListServiceName,
+		serviceOperSessionListSessionListListId
+	}
+	::= { serviceOperSessionListTable 1}
+
+ServiceOperSessionListEntry ::=
+	SEQUENCE {
+		serviceOperSessionListSlotId Integer32,
+		serviceOperSessionListName DisplayString,
+		serviceOperSessionListServicePort Integer32,
+		serviceOperSessionListServiceName DisplayString,
+		serviceOperSessionListSessionListListId Integer32,
+		serviceOperSessionListClient	DisplayString,
+		serviceOperSessionListBest	DisplayString,
+		serviceOperSessionListMode	DisplayString,
+		serviceOperSessionListHits	Integer32,
+		serviceOperSessionListLastSecondHits	Integer32,
+		serviceOperSessionListTtl	DisplayString,
+		serviceOperSessionListUpdate	Integer32,
+		serviceOperSessionListAging	Integer32
+	}
+
+serviceOperSessionListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serviceOperSessionListEntry 1}
+
+serviceOperSessionListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { serviceOperSessionListEntry 2}
+
+serviceOperSessionListServicePort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service-port"
+	::= { serviceOperSessionListEntry 3}
+
+serviceOperSessionListServiceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service-name"
+	::= { serviceOperSessionListEntry 4}
+
+serviceOperSessionListSessionListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serviceOperSessionListEntry 5}
+
+serviceOperSessionListClient OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"client"
+	::= { serviceOperSessionListEntry 6}
+
+serviceOperSessionListBest OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"best"
+	::= { serviceOperSessionListEntry 7}
+
+serviceOperSessionListMode OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"mode"
+	::= { serviceOperSessionListEntry 8}
+
+serviceOperSessionListHits OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"hits"
+	::= { serviceOperSessionListEntry 9}
+
+serviceOperSessionListLastSecondHits OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"last-second-hits"
+	::= { serviceOperSessionListEntry 10}
+
+serviceOperSessionListTtl OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ttl"
+	::= { serviceOperSessionListEntry 11}
+
+serviceOperSessionListUpdate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"update"
+	::= { serviceOperSessionListEntry 12}
+
+serviceOperSessionListAging OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"aging"
+	::= { serviceOperSessionListEntry 13}
+
+serviceOperDnsARecordListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServiceOperDnsARecordListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Service information for the GSLB zone from object 'gslb.zone.service'"
+	::= {service 5}
+
+serviceOperDnsARecordListEntry OBJECT-TYPE
+	SYNTAX ServiceOperDnsARecordListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serviceOperDnsARecordList entry:dns-a-record-list"
+	INDEX {
+		serviceOperDnsARecordListSlotId,
+		serviceOperDnsARecordListName,
+		serviceOperDnsARecordListServicePort,
+		serviceOperDnsARecordListServiceName,
+		serviceOperDnsARecordListDnsARecordListListId
+	}
+	::= { serviceOperDnsARecordListTable 1}
+
+ServiceOperDnsARecordListEntry ::=
+	SEQUENCE {
+		serviceOperDnsARecordListSlotId Integer32,
+		serviceOperDnsARecordListName DisplayString,
+		serviceOperDnsARecordListServicePort Integer32,
+		serviceOperDnsARecordListServiceName DisplayString,
+		serviceOperDnsARecordListDnsARecordListListId Integer32,
+		serviceOperDnsARecordListIp	DisplayString,
+		serviceOperDnsARecordListRecTtl	Integer32
+	}
+
+serviceOperDnsARecordListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serviceOperDnsARecordListEntry 1}
+
+serviceOperDnsARecordListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { serviceOperDnsARecordListEntry 2}
+
+serviceOperDnsARecordListServicePort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service-port"
+	::= { serviceOperDnsARecordListEntry 3}
+
+serviceOperDnsARecordListServiceName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"service-name"
+	::= { serviceOperDnsARecordListEntry 4}
+
+serviceOperDnsARecordListDnsARecordListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serviceOperDnsARecordListEntry 5}
+
+serviceOperDnsARecordListIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip"
+	::= { serviceOperDnsARecordListEntry 6}
+
+serviceOperDnsARecordListRecTtl OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"rec-ttl"
+	::= { serviceOperDnsARecordListEntry 7}
+
+dnsARecord		 OBJECT IDENTIFIER ::= { service 6}
+
+dnsARecordSrv		 OBJECT IDENTIFIER ::= { dnsARecord 2}
+
+dnsARecordSrvStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsARecordSrvStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS Address Record from object 'gslb.zone.service.dns-a-record.dns-a-record-srv'"
+	::= {dnsARecordSrv 1}
+
+dnsARecordSrvStatsEntry OBJECT-TYPE
+	SYNTAX DnsARecordSrvStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsARecordSrvStats stats entry"
+	INDEX {
+		dnsARecordSrvStatsSlotId,
+		dnsARecordSrvStatsName,
+		dnsARecordSrvStatsServicePort,
+		dnsARecordSrvStatsServiceName,
+		dnsARecordSrvStatsSvrname
+	}
+	::= { dnsARecordSrvStatsTable 1 }
+
+DnsARecordSrvStatsEntry ::=
+	SEQUENCE {
+		dnsARecordSrvStatsSlotId Integer32,
+		dnsARecordSrvStatsName DisplayString,
+		dnsARecordSrvStatsServicePort Integer32,
+		dnsARecordSrvStatsServiceName DisplayString,
+		dnsARecordSrvStatsSvrname DisplayString,
+		dnsARecordSrvStatsHits	 CounterBasedGauge64
+	}
+
+dnsARecordSrvStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsARecordSrvStatsEntry 1 }
+
+dnsARecordSrvStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsARecordSrvStatsEntry 2 }
+
+dnsARecordSrvStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsARecordSrvStatsEntry 3 }
+
+dnsARecordSrvStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsARecordSrvStatsEntry 4 }
+
+dnsARecordSrvStatsSvrname OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "svrname"
+	::= { dnsARecordSrvStatsEntry 5 }
+
+dnsARecordSrvStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsARecordSrvStatsEntry 6 }
+
+dnsARecordIpv4		 OBJECT IDENTIFIER ::= { dnsARecord 3}
+
+dnsARecordIpv4StatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsARecordIpv4StatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS Address Record from object 'gslb.zone.service.dns-a-record.dns-a-record-ipv4'"
+	::= {dnsARecordIpv4 1}
+
+dnsARecordIpv4StatsEntry OBJECT-TYPE
+	SYNTAX DnsARecordIpv4StatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsARecordIpv4Stats stats entry"
+	INDEX {
+		dnsARecordIpv4StatsSlotId,
+		dnsARecordIpv4StatsName,
+		dnsARecordIpv4StatsServicePort,
+		dnsARecordIpv4StatsServiceName,
+		dnsARecordIpv4StatsIp
+	}
+	::= { dnsARecordIpv4StatsTable 1 }
+
+DnsARecordIpv4StatsEntry ::=
+	SEQUENCE {
+		dnsARecordIpv4StatsSlotId Integer32,
+		dnsARecordIpv4StatsName DisplayString,
+		dnsARecordIpv4StatsServicePort Integer32,
+		dnsARecordIpv4StatsServiceName DisplayString,
+		dnsARecordIpv4StatsIp DisplayString,
+		dnsARecordIpv4StatsHits	 CounterBasedGauge64
+	}
+
+dnsARecordIpv4StatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsARecordIpv4StatsEntry 1 }
+
+dnsARecordIpv4StatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsARecordIpv4StatsEntry 2 }
+
+dnsARecordIpv4StatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsARecordIpv4StatsEntry 3 }
+
+dnsARecordIpv4StatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsARecordIpv4StatsEntry 4 }
+
+dnsARecordIpv4StatsIp OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns-a-record-ip"
+	::= { dnsARecordIpv4StatsEntry 5 }
+
+dnsARecordIpv4StatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsARecordIpv4StatsEntry 6 }
+
+dnsARecordIpv6		 OBJECT IDENTIFIER ::= { dnsARecord 4}
+
+dnsARecordIpv6StatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsARecordIpv6StatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS Address Record from object 'gslb.zone.service.dns-a-record.dns-a-record-ipv6'"
+	::= {dnsARecordIpv6 1}
+
+dnsARecordIpv6StatsEntry OBJECT-TYPE
+	SYNTAX DnsARecordIpv6StatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsARecordIpv6Stats stats entry"
+	INDEX {
+		dnsARecordIpv6StatsSlotId,
+		dnsARecordIpv6StatsName,
+		dnsARecordIpv6StatsServicePort,
+		dnsARecordIpv6StatsServiceName,
+		dnsARecordIpv6StatsIpv6
+	}
+	::= { dnsARecordIpv6StatsTable 1 }
+
+DnsARecordIpv6StatsEntry ::=
+	SEQUENCE {
+		dnsARecordIpv6StatsSlotId Integer32,
+		dnsARecordIpv6StatsName DisplayString,
+		dnsARecordIpv6StatsServicePort Integer32,
+		dnsARecordIpv6StatsServiceName DisplayString,
+		dnsARecordIpv6StatsIpv6 DisplayString,
+		dnsARecordIpv6StatsHits	 CounterBasedGauge64
+	}
+
+dnsARecordIpv6StatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsARecordIpv6StatsEntry 1 }
+
+dnsARecordIpv6StatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsARecordIpv6StatsEntry 2 }
+
+dnsARecordIpv6StatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsARecordIpv6StatsEntry 3 }
+
+dnsARecordIpv6StatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsARecordIpv6StatsEntry 4 }
+
+dnsARecordIpv6StatsIpv6 OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns-a-record-ipv6"
+	::= { dnsARecordIpv6StatsEntry 5 }
+
+dnsARecordIpv6StatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsARecordIpv6StatsEntry 6 }
+
+dnsCnameRecord		 OBJECT IDENTIFIER ::= { service 7}
+
+dnsCnameRecordStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsCnameRecordStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS CNAME Record from object 'gslb.zone.service.dns-cname-record'"
+	::= {dnsCnameRecord 1}
+
+dnsCnameRecordStatsEntry OBJECT-TYPE
+	SYNTAX DnsCnameRecordStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsCnameRecordStats stats entry"
+	INDEX {
+		dnsCnameRecordStatsSlotId,
+		dnsCnameRecordStatsName,
+		dnsCnameRecordStatsServicePort,
+		dnsCnameRecordStatsServiceName,
+		dnsCnameRecordStatsAliasName
+	}
+	::= { dnsCnameRecordStatsTable 1 }
+
+DnsCnameRecordStatsEntry ::=
+	SEQUENCE {
+		dnsCnameRecordStatsSlotId Integer32,
+		dnsCnameRecordStatsName DisplayString,
+		dnsCnameRecordStatsServicePort Integer32,
+		dnsCnameRecordStatsServiceName DisplayString,
+		dnsCnameRecordStatsAliasName DisplayString,
+		dnsCnameRecordStatsCnameHits	 CounterBasedGauge64
+	}
+
+dnsCnameRecordStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsCnameRecordStatsEntry 1 }
+
+dnsCnameRecordStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsCnameRecordStatsEntry 2 }
+
+dnsCnameRecordStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsCnameRecordStatsEntry 3 }
+
+dnsCnameRecordStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsCnameRecordStatsEntry 4 }
+
+dnsCnameRecordStatsAliasName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "alias-name"
+	::= { dnsCnameRecordStatsEntry 5 }
+
+dnsCnameRecordStatsCnameHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cname-hits"
+	::= { dnsCnameRecordStatsEntry 6 }
+
+dnsMxRecordService		 OBJECT IDENTIFIER ::= { service 8}
+
+dnsMxRecordServiceStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsMxRecordServiceStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS MX Record from object 'gslb.zone.service.dns-mx-record'"
+	::= {dnsMxRecordService 1}
+
+dnsMxRecordServiceStatsEntry OBJECT-TYPE
+	SYNTAX DnsMxRecordServiceStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsMxRecordServiceStats stats entry"
+	INDEX {
+		dnsMxRecordServiceStatsSlotId,
+		dnsMxRecordServiceStatsName,
+		dnsMxRecordServiceStatsServicePort,
+		dnsMxRecordServiceStatsServiceName,
+		dnsMxRecordServiceStatsMxName
+	}
+	::= { dnsMxRecordServiceStatsTable 1 }
+
+DnsMxRecordServiceStatsEntry ::=
+	SEQUENCE {
+		dnsMxRecordServiceStatsSlotId Integer32,
+		dnsMxRecordServiceStatsName DisplayString,
+		dnsMxRecordServiceStatsServicePort Integer32,
+		dnsMxRecordServiceStatsServiceName DisplayString,
+		dnsMxRecordServiceStatsMxName DisplayString,
+		dnsMxRecordServiceStatsHits	 CounterBasedGauge64
+	}
+
+dnsMxRecordServiceStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsMxRecordServiceStatsEntry 1 }
+
+dnsMxRecordServiceStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsMxRecordServiceStatsEntry 2 }
+
+dnsMxRecordServiceStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsMxRecordServiceStatsEntry 3 }
+
+dnsMxRecordServiceStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsMxRecordServiceStatsEntry 4 }
+
+dnsMxRecordServiceStatsMxName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mx-name"
+	::= { dnsMxRecordServiceStatsEntry 5 }
+
+dnsMxRecordServiceStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsMxRecordServiceStatsEntry 6 }
+
+dnsMxRecordServiceOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsMxRecordServiceOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify DNS MX Record from object 'gslb.zone.service.dns-mx-record'"
+	::= {dnsMxRecordService 2}
+
+dnsMxRecordServiceOperEntry OBJECT-TYPE
+	SYNTAX DnsMxRecordServiceOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsMxRecordServiceOper entry"
+	INDEX {
+		dnsMxRecordServiceOperSlotId,
+		dnsMxRecordServiceOperName,
+		dnsMxRecordServiceOperServicePort,
+		dnsMxRecordServiceOperServiceName,
+		dnsMxRecordServiceOperMxName
+	}
+	::= { dnsMxRecordServiceOperTable 1 }
+
+DnsMxRecordServiceOperEntry ::=
+	SEQUENCE {
+		dnsMxRecordServiceOperSlotId Integer32,
+		dnsMxRecordServiceOperName DisplayString,
+		dnsMxRecordServiceOperServicePort Integer32,
+		dnsMxRecordServiceOperServiceName DisplayString,
+		dnsMxRecordServiceOperMxName DisplayString,
+		dnsMxRecordServiceOperLastServer	 DisplayString,
+		dnsMxRecordServiceOperHits	 Integer32,
+		dnsMxRecordServiceOperPriority	 Integer32
+	}
+
+dnsMxRecordServiceOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsMxRecordServiceOperEntry 1 }
+
+dnsMxRecordServiceOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsMxRecordServiceOperEntry 2 }
+
+dnsMxRecordServiceOperServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsMxRecordServiceOperEntry 3 }
+
+dnsMxRecordServiceOperServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsMxRecordServiceOperEntry 4 }
+
+dnsMxRecordServiceOperMxName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "mx-name"
+	::= { dnsMxRecordServiceOperEntry 5 }
+
+dnsMxRecordServiceOperLastServer OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last-server"
+	::= { dnsMxRecordServiceOperEntry 6 }
+
+dnsMxRecordServiceOperHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsMxRecordServiceOperEntry 7 }
+
+dnsMxRecordServiceOperPriority OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "priority"
+	::= { dnsMxRecordServiceOperEntry 8 }
+
+dnsNsRecordService		 OBJECT IDENTIFIER ::= { service 9}
+
+dnsNsRecordServiceStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsNsRecordServiceStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS NS Record from object 'gslb.zone.service.dns-ns-record'"
+	::= {dnsNsRecordService 1}
+
+dnsNsRecordServiceStatsEntry OBJECT-TYPE
+	SYNTAX DnsNsRecordServiceStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsNsRecordServiceStats stats entry"
+	INDEX {
+		dnsNsRecordServiceStatsSlotId,
+		dnsNsRecordServiceStatsName,
+		dnsNsRecordServiceStatsServicePort,
+		dnsNsRecordServiceStatsServiceName,
+		dnsNsRecordServiceStatsNsName
+	}
+	::= { dnsNsRecordServiceStatsTable 1 }
+
+DnsNsRecordServiceStatsEntry ::=
+	SEQUENCE {
+		dnsNsRecordServiceStatsSlotId Integer32,
+		dnsNsRecordServiceStatsName DisplayString,
+		dnsNsRecordServiceStatsServicePort Integer32,
+		dnsNsRecordServiceStatsServiceName DisplayString,
+		dnsNsRecordServiceStatsNsName DisplayString,
+		dnsNsRecordServiceStatsHits	 CounterBasedGauge64
+	}
+
+dnsNsRecordServiceStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsNsRecordServiceStatsEntry 1 }
+
+dnsNsRecordServiceStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsNsRecordServiceStatsEntry 2 }
+
+dnsNsRecordServiceStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsNsRecordServiceStatsEntry 3 }
+
+dnsNsRecordServiceStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsNsRecordServiceStatsEntry 4 }
+
+dnsNsRecordServiceStatsNsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ns-name"
+	::= { dnsNsRecordServiceStatsEntry 5 }
+
+dnsNsRecordServiceStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsNsRecordServiceStatsEntry 6 }
+
+dnsNsRecordServiceOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsNsRecordServiceOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Specify DNS NS Record from object 'gslb.zone.service.dns-ns-record'"
+	::= {dnsNsRecordService 2}
+
+dnsNsRecordServiceOperEntry OBJECT-TYPE
+	SYNTAX DnsNsRecordServiceOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsNsRecordServiceOper entry"
+	INDEX {
+		dnsNsRecordServiceOperSlotId,
+		dnsNsRecordServiceOperName,
+		dnsNsRecordServiceOperServicePort,
+		dnsNsRecordServiceOperServiceName,
+		dnsNsRecordServiceOperNsName
+	}
+	::= { dnsNsRecordServiceOperTable 1 }
+
+DnsNsRecordServiceOperEntry ::=
+	SEQUENCE {
+		dnsNsRecordServiceOperSlotId Integer32,
+		dnsNsRecordServiceOperName DisplayString,
+		dnsNsRecordServiceOperServicePort Integer32,
+		dnsNsRecordServiceOperServiceName DisplayString,
+		dnsNsRecordServiceOperNsName DisplayString,
+		dnsNsRecordServiceOperLastServer	 DisplayString,
+		dnsNsRecordServiceOperHits	 Integer32
+	}
+
+dnsNsRecordServiceOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsNsRecordServiceOperEntry 1 }
+
+dnsNsRecordServiceOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsNsRecordServiceOperEntry 2 }
+
+dnsNsRecordServiceOperServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsNsRecordServiceOperEntry 3 }
+
+dnsNsRecordServiceOperServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsNsRecordServiceOperEntry 4 }
+
+dnsNsRecordServiceOperNsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ns-name"
+	::= { dnsNsRecordServiceOperEntry 5 }
+
+dnsNsRecordServiceOperLastServer OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last-server"
+	::= { dnsNsRecordServiceOperEntry 6 }
+
+dnsNsRecordServiceOperHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsNsRecordServiceOperEntry 7 }
+
+dnsPtrRecord		 OBJECT IDENTIFIER ::= { service 10}
+
+dnsPtrRecordStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsPtrRecordStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS PTR Record from object 'gslb.zone.service.dns-ptr-record'"
+	::= {dnsPtrRecord 1}
+
+dnsPtrRecordStatsEntry OBJECT-TYPE
+	SYNTAX DnsPtrRecordStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsPtrRecordStats stats entry"
+	INDEX {
+		dnsPtrRecordStatsSlotId,
+		dnsPtrRecordStatsName,
+		dnsPtrRecordStatsServicePort,
+		dnsPtrRecordStatsServiceName,
+		dnsPtrRecordStatsPtrName
+	}
+	::= { dnsPtrRecordStatsTable 1 }
+
+DnsPtrRecordStatsEntry ::=
+	SEQUENCE {
+		dnsPtrRecordStatsSlotId Integer32,
+		dnsPtrRecordStatsName DisplayString,
+		dnsPtrRecordStatsServicePort Integer32,
+		dnsPtrRecordStatsServiceName DisplayString,
+		dnsPtrRecordStatsPtrName DisplayString,
+		dnsPtrRecordStatsHits	 CounterBasedGauge64
+	}
+
+dnsPtrRecordStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsPtrRecordStatsEntry 1 }
+
+dnsPtrRecordStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsPtrRecordStatsEntry 2 }
+
+dnsPtrRecordStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsPtrRecordStatsEntry 3 }
+
+dnsPtrRecordStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsPtrRecordStatsEntry 4 }
+
+dnsPtrRecordStatsPtrName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ptr-name"
+	::= { dnsPtrRecordStatsEntry 5 }
+
+dnsPtrRecordStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsPtrRecordStatsEntry 6 }
+
+dnsSrvRecord		 OBJECT IDENTIFIER ::= { service 11}
+
+dnsSrvRecordStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsSrvRecordStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS SRV Record from object 'gslb.zone.service.dns-srv-record'"
+	::= {dnsSrvRecord 1}
+
+dnsSrvRecordStatsEntry OBJECT-TYPE
+	SYNTAX DnsSrvRecordStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsSrvRecordStats stats entry"
+	INDEX {
+		dnsSrvRecordStatsSlotId,
+		dnsSrvRecordStatsName,
+		dnsSrvRecordStatsServicePort,
+		dnsSrvRecordStatsServiceName,
+		dnsSrvRecordStatsSrvName,
+		dnsSrvRecordStatsPort
+	}
+	::= { dnsSrvRecordStatsTable 1 }
+
+DnsSrvRecordStatsEntry ::=
+	SEQUENCE {
+		dnsSrvRecordStatsSlotId Integer32,
+		dnsSrvRecordStatsName DisplayString,
+		dnsSrvRecordStatsServicePort Integer32,
+		dnsSrvRecordStatsServiceName DisplayString,
+		dnsSrvRecordStatsSrvName DisplayString,
+		dnsSrvRecordStatsPort Integer32,
+		dnsSrvRecordStatsHits	 CounterBasedGauge64
+	}
+
+dnsSrvRecordStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsSrvRecordStatsEntry 1 }
+
+dnsSrvRecordStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsSrvRecordStatsEntry 2 }
+
+dnsSrvRecordStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsSrvRecordStatsEntry 3 }
+
+dnsSrvRecordStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsSrvRecordStatsEntry 4 }
+
+dnsSrvRecordStatsSrvName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "srv-name"
+	::= { dnsSrvRecordStatsEntry 5 }
+
+dnsSrvRecordStatsPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port"
+	::= { dnsSrvRecordStatsEntry 6 }
+
+dnsSrvRecordStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsSrvRecordStatsEntry 7 }
+
+dnsNaptrRecord		 OBJECT IDENTIFIER ::= { service 12}
+
+dnsNaptrRecordStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsNaptrRecordStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS NAPTR Record from object 'gslb.zone.service.dns-naptr-record'"
+	::= {dnsNaptrRecord 1}
+
+dnsNaptrRecordStatsEntry OBJECT-TYPE
+	SYNTAX DnsNaptrRecordStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsNaptrRecordStats stats entry"
+	INDEX {
+		dnsNaptrRecordStatsSlotId,
+		dnsNaptrRecordStatsName,
+		dnsNaptrRecordStatsServicePort,
+		dnsNaptrRecordStatsServiceName,
+		dnsNaptrRecordStatsNaptrTarget,
+		dnsNaptrRecordStatsServiceProto,
+		dnsNaptrRecordStatsFlag
+	}
+	::= { dnsNaptrRecordStatsTable 1 }
+
+DnsNaptrRecordStatsEntry ::=
+	SEQUENCE {
+		dnsNaptrRecordStatsSlotId Integer32,
+		dnsNaptrRecordStatsName DisplayString,
+		dnsNaptrRecordStatsServicePort Integer32,
+		dnsNaptrRecordStatsServiceName DisplayString,
+		dnsNaptrRecordStatsNaptrTarget DisplayString,
+		dnsNaptrRecordStatsServiceProto DisplayString,
+		dnsNaptrRecordStatsFlag DisplayString,
+		dnsNaptrRecordStatsNaptrHits	 CounterBasedGauge64
+	}
+
+dnsNaptrRecordStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsNaptrRecordStatsEntry 1 }
+
+dnsNaptrRecordStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsNaptrRecordStatsEntry 2 }
+
+dnsNaptrRecordStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsNaptrRecordStatsEntry 3 }
+
+dnsNaptrRecordStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsNaptrRecordStatsEntry 4 }
+
+dnsNaptrRecordStatsNaptrTarget OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "naptr-target"
+	::= { dnsNaptrRecordStatsEntry 5 }
+
+dnsNaptrRecordStatsServiceProto OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-proto"
+	::= { dnsNaptrRecordStatsEntry 6 }
+
+dnsNaptrRecordStatsFlag OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "flag"
+	::= { dnsNaptrRecordStatsEntry 7 }
+
+dnsNaptrRecordStatsNaptrHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "naptr-hits"
+	::= { dnsNaptrRecordStatsEntry 8 }
+
+dnsTxtRecord		 OBJECT IDENTIFIER ::= { service 13}
+
+dnsTxtRecordStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsTxtRecordStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS TXT Record from object 'gslb.zone.service.dns-txt-record'"
+	::= {dnsTxtRecord 1}
+
+dnsTxtRecordStatsEntry OBJECT-TYPE
+	SYNTAX DnsTxtRecordStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsTxtRecordStats stats entry"
+	INDEX {
+		dnsTxtRecordStatsSlotId,
+		dnsTxtRecordStatsName,
+		dnsTxtRecordStatsServicePort,
+		dnsTxtRecordStatsServiceName,
+		dnsTxtRecordStatsRecordName
+	}
+	::= { dnsTxtRecordStatsTable 1 }
+
+DnsTxtRecordStatsEntry ::=
+	SEQUENCE {
+		dnsTxtRecordStatsSlotId Integer32,
+		dnsTxtRecordStatsName DisplayString,
+		dnsTxtRecordStatsServicePort Integer32,
+		dnsTxtRecordStatsServiceName DisplayString,
+		dnsTxtRecordStatsRecordName DisplayString,
+		dnsTxtRecordStatsHits	 CounterBasedGauge64
+	}
+
+dnsTxtRecordStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsTxtRecordStatsEntry 1 }
+
+dnsTxtRecordStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsTxtRecordStatsEntry 2 }
+
+dnsTxtRecordStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsTxtRecordStatsEntry 3 }
+
+dnsTxtRecordStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsTxtRecordStatsEntry 4 }
+
+dnsTxtRecordStatsRecordName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "record-name"
+	::= { dnsTxtRecordStatsEntry 5 }
+
+dnsTxtRecordStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsTxtRecordStatsEntry 6 }
+
+dnsCaaRecordService		 OBJECT IDENTIFIER ::= { service 14}
+
+dnsCaaRecordServiceStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF DnsCaaRecordServiceStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Specify DNS CAA Record from object 'gslb.zone.service.dns-caa-record'"
+	::= {dnsCaaRecordService 1}
+
+dnsCaaRecordServiceStatsEntry OBJECT-TYPE
+	SYNTAX DnsCaaRecordServiceStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The dnsCaaRecordServiceStats stats entry"
+	INDEX {
+		dnsCaaRecordServiceStatsSlotId,
+		dnsCaaRecordServiceStatsName,
+		dnsCaaRecordServiceStatsServicePort,
+		dnsCaaRecordServiceStatsServiceName,
+		dnsCaaRecordServiceStatsCriticalFlag,
+		dnsCaaRecordServiceStatsPropertyTag,
+		dnsCaaRecordServiceStatsRdata
+	}
+	::= { dnsCaaRecordServiceStatsTable 1 }
+
+DnsCaaRecordServiceStatsEntry ::=
+	SEQUENCE {
+		dnsCaaRecordServiceStatsSlotId Integer32,
+		dnsCaaRecordServiceStatsName DisplayString,
+		dnsCaaRecordServiceStatsServicePort Integer32,
+		dnsCaaRecordServiceStatsServiceName DisplayString,
+		dnsCaaRecordServiceStatsCriticalFlag Integer32,
+		dnsCaaRecordServiceStatsPropertyTag DisplayString,
+		dnsCaaRecordServiceStatsRdata DisplayString,
+		dnsCaaRecordServiceStatsHits	 CounterBasedGauge64
+	}
+
+dnsCaaRecordServiceStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { dnsCaaRecordServiceStatsEntry 1 }
+
+dnsCaaRecordServiceStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { dnsCaaRecordServiceStatsEntry 2 }
+
+dnsCaaRecordServiceStatsServicePort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-port"
+	::= { dnsCaaRecordServiceStatsEntry 3 }
+
+dnsCaaRecordServiceStatsServiceName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "service-name"
+	::= { dnsCaaRecordServiceStatsEntry 4 }
+
+dnsCaaRecordServiceStatsCriticalFlag OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "critical-flag"
+	::= { dnsCaaRecordServiceStatsEntry 5 }
+
+dnsCaaRecordServiceStatsPropertyTag OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "property-tag"
+	::= { dnsCaaRecordServiceStatsEntry 6 }
+
+dnsCaaRecordServiceStatsRdata OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rdata"
+	::= { dnsCaaRecordServiceStatsEntry 7 }
+
+dnsCaaRecordServiceStatsHits OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hits"
+	::= { dnsCaaRecordServiceStatsEntry 8 }
+
+dnsRecord		 OBJECT IDENTIFIER ::= { service 15}
+
+geoLocation		 OBJECT IDENTIFIER ::= { service 16}
+
+END
+

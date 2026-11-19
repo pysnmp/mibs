@@ -1,0 +1,588 @@
+ACOS-FW-SERVER-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		fwServerModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "fwServerModule OID for ACOS"
+				::=  {  acosSchema 478 }
+
+server		 OBJECT IDENTIFIER ::= { fwServerModule 1}
+
+serverStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServerStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Firewall logging Server from object 'fw.server'"
+	::= {server 1}
+
+serverStatsEntry OBJECT-TYPE
+	SYNTAX ServerStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serverStats stats entry"
+	INDEX {
+		serverStatsSlotId,
+		serverStatsName
+	}
+	::= { serverStatsTable 1 }
+
+ServerStatsEntry ::=
+	SEQUENCE {
+		serverStatsSlotId Integer32,
+		serverStatsName DisplayString,
+		serverStatsCurrConn	 CounterBasedGauge64,
+		serverStatsTotalConn	 CounterBasedGauge64,
+		serverStatsFwdPkt	 CounterBasedGauge64,
+		serverStatsRevPkt	 CounterBasedGauge64,
+		serverStatsPeakConn	 CounterBasedGauge64
+	}
+
+serverStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { serverStatsEntry 1 }
+
+serverStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { serverStatsEntry 2 }
+
+serverStatsCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr-conn"
+	::= { serverStatsEntry 3 }
+
+serverStatsTotalConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-conn"
+	::= { serverStatsEntry 4 }
+
+serverStatsFwdPkt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwd-pkt"
+	::= { serverStatsEntry 5 }
+
+serverStatsRevPkt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rev-pkt"
+	::= { serverStatsEntry 6 }
+
+serverStatsPeakConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "peak-conn"
+	::= { serverStatsEntry 7 }
+
+serverOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServerOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Firewall logging Server from object 'fw.server'"
+	::= {server 2}
+
+serverOperEntry OBJECT-TYPE
+	SYNTAX ServerOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serverOper entry"
+	INDEX {
+		serverOperSlotId,
+		serverOperName
+	}
+	::= { serverOperTable 1 }
+
+ServerOperEntry ::=
+	SEQUENCE {
+		serverOperSlotId Integer32,
+		serverOperName DisplayString,
+		serverOperState	 DisplayString
+	}
+
+serverOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { serverOperEntry 1 }
+
+serverOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { serverOperEntry 2 }
+
+serverOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { serverOperEntry 3 }
+
+port		 OBJECT IDENTIFIER ::= { server 3}
+
+portStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Real Server Port from object 'fw.server.port'"
+	::= {port 1}
+
+portStatsEntry OBJECT-TYPE
+	SYNTAX PortStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portStats stats entry"
+	INDEX {
+		portStatsSlotId,
+		portStatsName,
+		portStatsPort,
+		portStatsProtocol
+	}
+	::= { portStatsTable 1 }
+
+PortStatsEntry ::=
+	SEQUENCE {
+		portStatsSlotId Integer32,
+		portStatsName DisplayString,
+		portStatsPort Integer32,
+		portStatsProtocol DisplayString,
+		portStatsCurrConn	 CounterBasedGauge64,
+		portStatsCurrReq	 CounterBasedGauge64,
+		portStatsTotalReq	 CounterBasedGauge64,
+		portStatsTotalReqSucc	 CounterBasedGauge64,
+		portStatsTotalFwdBytes	 CounterBasedGauge64,
+		portStatsTotalFwdPkts	 CounterBasedGauge64,
+		portStatsTotalRevBytes	 CounterBasedGauge64,
+		portStatsTotalRevPkts	 CounterBasedGauge64,
+		portStatsTotalConn	 CounterBasedGauge64,
+		portStatsLastTotalConn	 CounterBasedGauge64,
+		portStatsPeakConn	 CounterBasedGauge64,
+		portStatsEsResp200	 CounterBasedGauge64,
+		portStatsEsResp300	 CounterBasedGauge64,
+		portStatsEsResp400	 CounterBasedGauge64,
+		portStatsEsResp500	 CounterBasedGauge64,
+		portStatsEsRespOther	 CounterBasedGauge64,
+		portStatsEsReqCount	 CounterBasedGauge64,
+		portStatsEsRespCount	 CounterBasedGauge64,
+		portStatsEsRespInvalidHttp	 CounterBasedGauge64,
+		portStatsTotalRevPktsInspected	 CounterBasedGauge64,
+		portStatsTotalRevPktsInspectedGoodStatusCode	 CounterBasedGauge64,
+		portStatsResponseTime	 CounterBasedGauge64,
+		portStatsFastestRspTime	 CounterBasedGauge64,
+		portStatsSlowestRspTime	 CounterBasedGauge64
+	}
+
+portStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { portStatsEntry 1 }
+
+portStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { portStatsEntry 2 }
+
+portStatsPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-number"
+	::= { portStatsEntry 3 }
+
+portStatsProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "protocol"
+	::= { portStatsEntry 4 }
+
+portStatsCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn"
+	::= { portStatsEntry 5 }
+
+portStatsCurrReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_req"
+	::= { portStatsEntry 6 }
+
+portStatsTotalReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req"
+	::= { portStatsEntry 7 }
+
+portStatsTotalReqSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req_succ"
+	::= { portStatsEntry 8 }
+
+portStatsTotalFwdBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_bytes"
+	::= { portStatsEntry 9 }
+
+portStatsTotalFwdPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_pkts"
+	::= { portStatsEntry 10 }
+
+portStatsTotalRevBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_bytes"
+	::= { portStatsEntry 11 }
+
+portStatsTotalRevPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts"
+	::= { portStatsEntry 12 }
+
+portStatsTotalConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_conn"
+	::= { portStatsEntry 13 }
+
+portStatsLastTotalConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last_total_conn"
+	::= { portStatsEntry 14 }
+
+portStatsPeakConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "peak_conn"
+	::= { portStatsEntry 15 }
+
+portStatsEsResp200 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_200"
+	::= { portStatsEntry 16 }
+
+portStatsEsResp300 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_300"
+	::= { portStatsEntry 17 }
+
+portStatsEsResp400 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_400"
+	::= { portStatsEntry 18 }
+
+portStatsEsResp500 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_500"
+	::= { portStatsEntry 19 }
+
+portStatsEsRespOther OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_other"
+	::= { portStatsEntry 20 }
+
+portStatsEsReqCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_req_count"
+	::= { portStatsEntry 21 }
+
+portStatsEsRespCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_count"
+	::= { portStatsEntry 22 }
+
+portStatsEsRespInvalidHttp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_invalid_http"
+	::= { portStatsEntry 23 }
+
+portStatsTotalRevPktsInspected OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts_inspected"
+	::= { portStatsEntry 24 }
+
+portStatsTotalRevPktsInspectedGoodStatusCode OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts_inspected_good_status_code"
+	::= { portStatsEntry 25 }
+
+portStatsResponseTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_time"
+	::= { portStatsEntry 26 }
+
+portStatsFastestRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fastest_rsp_time"
+	::= { portStatsEntry 27 }
+
+portStatsSlowestRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slowest_rsp_time"
+	::= { portStatsEntry 28 }
+
+portOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Real Server Port from object 'fw.server.port'"
+	::= {port 2}
+
+portOperEntry OBJECT-TYPE
+	SYNTAX PortOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOper entry"
+	INDEX {
+		portOperSlotId,
+		portOperName,
+		portOperPort,
+		portOperProtocol
+	}
+	::= { portOperTable 1 }
+
+PortOperEntry ::=
+	SEQUENCE {
+		portOperSlotId Integer32,
+		portOperName DisplayString,
+		portOperPort Integer32,
+		portOperProtocol DisplayString,
+		portOperState	 DisplayString,
+		portOperIp	 DisplayString,
+		portOperIpv6	 DisplayString,
+		portOperVrid	 Integer32,
+		portOperHaGroupId	 Integer32,
+		portOperPortsConsumed	 Integer32,
+		portOperPortsConsumedTotal	 Integer32,
+		portOperPortsFreedTotal	 Integer32,
+		portOperAllocFailed	 Integer32
+	}
+
+portOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { portOperEntry 1 }
+
+portOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { portOperEntry 2 }
+
+portOperPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-number"
+	::= { portOperEntry 3 }
+
+portOperProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "protocol"
+	::= { portOperEntry 4 }
+
+portOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { portOperEntry 5 }
+
+portOperIp OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip"
+	::= { portOperEntry 6 }
+
+portOperIpv6 OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6"
+	::= { portOperEntry 7 }
+
+portOperVrid OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "vrid"
+	::= { portOperEntry 8 }
+
+portOperHaGroupId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ha_group_id"
+	::= { portOperEntry 9 }
+
+portOperPortsConsumed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ports_consumed"
+	::= { portOperEntry 10 }
+
+portOperPortsConsumedTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ports_consumed_total"
+	::= { portOperEntry 11 }
+
+portOperPortsFreedTotal OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ports_freed_total"
+	::= { portOperEntry 12 }
+
+portOperAllocFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "alloc_failed"
+	::= { portOperEntry 13 }
+
+END
+
