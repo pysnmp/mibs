@@ -4,7 +4,8 @@ LAST-UPDATED reads 2016083000Z, eleven characters, which the SMI takes
 as the two-digit-year form and which is not a date in it. Read as a
 four-digit year it is August 30, 2016 with two digits of the time
 missing, a week before the module's newest REVISION of September 6,
-2016. The repair writes that day at 00:00.
+2016. The repair uses the newest REVISION date at 00:00 so the
+module date metadata agrees.
 
 No publisher on record serves this module, so the baseline is the text
 this repository carried before the repair; which publication that was is
@@ -17,7 +18,7 @@ not recovered.
  
  applianceMonitoringMib MODULE-IDENTITY
 -LAST-UPDATED "2016083000Z"
-+LAST-UPDATED "201608300000Z"
++LAST-UPDATED "201609060000Z"
  ORGANIZATION "Veritas Technologies LLC"
  CONTACT-INFO "500 East Middlefield Road
  Mountain View, CA 94043 US

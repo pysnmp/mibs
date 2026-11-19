@@ -214,6 +214,29 @@ def test_a_patch_without_a_publisher_must_describe_its_file() -> None:
             judge = update_vendor_mibs.unpublished
             managed: dict[str, dict] = {"src/vendor/v/M": {}}
             check("a publisher-less patch stands", judge("v/M.patch", patch, {}), [])
+            crlf_header = "Defect: SMI-MISSING-IMPORT https://example.invalid/\r\n\r\n"
+            check(
+                "a CRLF header stands",
+                judge("v/M.patch", crlf_header + diff, {}),
+                [],
+            )
+            (work / "src/vendor/v/M").write_bytes(ours.replace(b"\n", b"\r\n"))
+            crlf_diff = mib_sources.make_patch(
+                vendor.replace(b"\n", b"\r\n"),
+                ours.replace(b"\n", b"\r\n"),
+                "M",
+            )
+            check(
+                "CRLF diff bytes are preserved",
+                judge("v/M.patch", crlf_header + crlf_diff, {}),
+                [],
+            )
+            check(
+                "LF diff cannot stand for CRLF text",
+                bool(judge("v/M.patch", crlf_header + diff, {})),
+                True,
+            )
+            (work / "src/vendor/v/M").write_bytes(ours)
             check("not without a defect", bool(judge("v/M.patch", diff, {})), True)
             check(
                 "not on a managed module",
