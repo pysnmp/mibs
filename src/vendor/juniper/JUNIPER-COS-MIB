@@ -52,7 +52,7 @@
     	DESCRIPTION
         "Modified the max range for JnxCosFcIdentifier from 7 to 15."
 
-        REVISION     "200904310000Z"    -- Dec 04, 2009
+        REVISION     "200912040000Z"    -- Dec 04, 2009
         DESCRIPTION  "Added Rate Limit stats"
 
         REVISION     "200910290000Z"    -- Oct 29, 2009

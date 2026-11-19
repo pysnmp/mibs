@@ -51,7 +51,7 @@ PDN-ATMEXT-MIB DEFINITIONS ::= BEGIN
             o  Added Two New Traffic Descriptor Types
                   o pdnAtmNoClpTaggingNoScrCdvtMdcr
                   o pdnAtmNoClpNoScrCdvtMdcr"
-        REVISION "200304310000Z"
+        REVISION "200304300000Z"
         DESCRIPTION "P. Easwar
             o  Added pdnAtmTrafficRateShape."
 

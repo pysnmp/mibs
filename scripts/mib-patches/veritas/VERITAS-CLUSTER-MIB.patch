@@ -1,0 +1,21 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+LAST-UPDATED reads 03202001. That is not year-first, since there is no
+month 20; it is March 20, 2001 written month, day, year. The repair
+writes the same day in the SMI's form, at 00:00.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/VERITAS-CLUSTER-MIB
++++ b/VERITAS-CLUSTER-MIB
+@@ -91,7 +91,7 @@
+      products                OBJECT IDENTIFIER ::= { veritassoftware 3 }
+ 
+      veritasCluster MODULE-IDENTITY
+-     LAST-UPDATED "03202001"
++     LAST-UPDATED "200103200000Z"
+      ORGANIZATION "VERITAS Software, Inc."
+      CONTACT-INFO "1600 Plymouth Street.
+                    Mountain View, CA 94043 US

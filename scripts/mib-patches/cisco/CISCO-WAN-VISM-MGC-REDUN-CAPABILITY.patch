@@ -1,0 +1,23 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+The module's only REVISION clause carries nineteen spaces for its date.
+By convention the newest REVISION carries the LAST-UPDATED date, and
+this is the only one, so the repair gives it the LAST-UPDATED value,
+200108220000Z. That is inferred from the convention, not read from the
+vendor.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/CISCO-WAN-VISM-MGC-REDUN-CAPABILITY
++++ b/CISCO-WAN-VISM-MGC-REDUN-CAPABILITY
+@@ -36,7 +36,7 @@
+                 "The Agent Capabilities for CISCO-WAN-MGC-REDUN-MIB
+                 "
+ 
+-        REVISION        "                   "
++        REVISION        "200108220000Z"
+         DESCRIPTION
+                 "Initial version of this MIB module"
+         ::= { ciscoWanAgentCapability 338 }

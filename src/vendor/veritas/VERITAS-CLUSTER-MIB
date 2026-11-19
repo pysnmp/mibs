@@ -91,7 +91,7 @@
      products                OBJECT IDENTIFIER ::= { veritassoftware 3 }
 
      veritasCluster MODULE-IDENTITY
-     LAST-UPDATED "03202001"
+     LAST-UPDATED "200103200000Z"
      ORGANIZATION "VERITAS Software, Inc."
      CONTACT-INFO "1600 Plymouth Street.
                    Mountain View, CA 94043 US

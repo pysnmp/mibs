@@ -1,0 +1,20 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+LAST-UPDATED is written with a space inside the quotes, ahead of an
+otherwise well-formed date. The repair removes the space.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/PKTC-ES-TAP-MIB
++++ b/PKTC-ES-TAP-MIB
+@@ -27,7 +27,7 @@
+ pktcESSupportMibs
+ FROM CLAB-DEF-MIB;
+ pktcESTapMib MODULE-IDENTITY
+-LAST-UPDATED " 200604060000Z"
++LAST-UPDATED "200604060000Z"
+ ORGANIZATION "PacketCable"
+ CONTACT-INFO
+ "Bernie McKibben

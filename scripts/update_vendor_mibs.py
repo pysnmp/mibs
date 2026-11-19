@@ -352,7 +352,10 @@ def unpublished(relative: str, patch: str, modules: dict[str, Any]) -> list[str]
     if path in modules or not (ROOT / path).is_file():
         return [f"{relative}: a patch no entry applies"]
 
-    header, diff = split_patch(patch)
+    _, diff = split_patch(patch)
+    # Parse header line endings independently: CR in the diff is MIB data.
+    header_text = patch[: len(patch) - len(diff)]
+    header, _ = split_patch(header_text.replace("\r\n", "\n"))
 
     if not header.defects:
         return [f"{relative}: repairs a module with no publisher and names no defect"]
@@ -418,7 +421,7 @@ def validate(manifest: dict[str, Any]) -> int:
     for patch in sorted(PATCHES.rglob("*.patch")):
         relative = patch.relative_to(PATCHES).as_posix()
         if not any(e.get("patch") == relative for e in modules.values()):
-            problems.extend(unpublished(relative, patch.read_text(), modules))
+            problems.extend(unpublished(relative, patch.read_bytes().decode(), modules))
 
     if problems:
         sys.stderr.write("mib-sources.json does not match the tree:\n")

@@ -1,0 +1,20 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+LAST-UPDATED gives a date, 20000725, with no time and no Z. The repair
+keeps the day and writes it in the full form, at 00:00.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/BDCOM-IF-MIB
++++ b/BDCOM-IF-MIB
+@@ -16,7 +16,7 @@
+             FROM SNMPv2-TC;
+                         
+ bdIfMIB  MODULE-IDENTITY
+-        LAST-UPDATED    "20000725"
++        LAST-UPDATED    "200007250000Z"
+         ORGANIZATION    "BDCom,Inc"
+         CONTACT-INFO
+                 	"Shanghai baud data communication Co.ltd

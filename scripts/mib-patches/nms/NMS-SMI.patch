@@ -1,0 +1,20 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+LAST-UPDATED gives a date and the Z, 20000628Z, with no time. The repair
+keeps the day and writes it in the full form, at 00:00.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/NMS-SMI
++++ b/NMS-SMI
+@@ -14,7 +14,7 @@
+ 		FROM SNMPv2-SMI;
+ 
+ nms MODULE-IDENTITY
+-	LAST-UPDATED "20000628Z"
++	LAST-UPDATED "200006280000Z"
+ 	ORGANIZATION ""
+ 	CONTACT-INFO
+ 		""

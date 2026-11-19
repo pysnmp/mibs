@@ -1,0 +1,24 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+LAST-UPDATED is an empty string, and the MODULE-IDENTITY has no REVISION
+to take a date from. The only date the file carries is the MIB builder's
+own stamp in its opening comment, Wednesday, April 20, 2016 at 17:07:15,
+so the repair is that minute. It is the date the file was generated,
+which is the nearest thing to a last update the text records, and not a
+date the vendor wrote into the clause.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/SLE-EPON-MIB
++++ b/SLE-EPON-MIB
+@@ -28,7 +28,7 @@
+ 	
+ 	
+ 		sleEpon MODULE-IDENTITY 
+-			LAST-UPDATED ""		-- 
++			LAST-UPDATED "201604201707Z"		-- 
+ 			ORGANIZATION 
+ 				"Organization."
+ 			CONTACT-INFO 

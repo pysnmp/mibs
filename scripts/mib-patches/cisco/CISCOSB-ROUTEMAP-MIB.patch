@@ -1,0 +1,29 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+LAST-UPDATED and REVISION: The value ends in 'A' where ExtUTCTime ends
+in the literal Z. The digits are a well-formed date and are kept.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/CISCOSB-ROUTEMAP-MIB
++++ b/CISCOSB-ROUTEMAP-MIB
+@@ -9,7 +9,7 @@
+ 
+ 
+ rlRouteMap   MODULE-IDENTITY
+-        LAST-UPDATED "201506080000A"
++        LAST-UPDATED "201506080000Z"
+         ORGANIZATION "Cisco Systems, Inc."
+ 
+         CONTACT-INFO
+@@ -22,7 +22,7 @@
+ 
+         DESCRIPTION
+                 "The private MIB module definition for Route Map distribution mechanism."
+-        REVISION "201506080000A"
++        REVISION "201506080000Z"
+         DESCRIPTION
+                 "Added this MODULE-IDENTITY clause."
+         ::= { switch001 227 }

@@ -1,0 +1,23 @@
+Defect: SMI-INVALID-DATE https://pysnmp.github.io/pysmi/stable/mib-defects.html#smi-invalid-date
+
+A REVISION reads 200304310000Z, the 31st of April. It sits between the
+revisions of March 31, 2003 and May 11, 2003, so April is right and only
+the day is impossible. Nothing in the module says which day was meant;
+the repair takes the last day April has, the smallest change that makes
+the date readable.
+
+No publisher on record serves this module, so the baseline is the text
+this repository carried before the repair; which publication that was is
+not recovered.
+
+--- a/PDN-ATMEXT-MIB
++++ b/PDN-ATMEXT-MIB
+@@ -51,7 +51,7 @@
+             o  Added Two New Traffic Descriptor Types
+                   o pdnAtmNoClpTaggingNoScrCdvtMdcr
+                   o pdnAtmNoClpNoScrCdvtMdcr"
+-        REVISION "200304310000Z"
++        REVISION "200304300000Z"
+         DESCRIPTION "P. Easwar
+             o  Added pdnAtmTrafficRateShape."
+ 

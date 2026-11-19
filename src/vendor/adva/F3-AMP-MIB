@@ -16,7 +16,7 @@ IMPORTS
              FROM  CM-IP-MIB;
 
 f3AMPMIB MODULE-IDENTITY
-    LAST-UPDATED        "201209310000Z"
+    LAST-UPDATED        "201209300000Z"
     ORGANIZATION    "ADVA Optical Networking"
     CONTACT-INFO
             "        Jakub Zalewski

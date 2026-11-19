@@ -26,7 +26,7 @@
 				" "
 			DESCRIPTION 
 				"This MIB contains information about RIP version 2."
-			REVISION ""		-- 
+			REVISION "201603161455Z"		-- 
 			DESCRIPTION 
 				"OSFPv2"
 			::= { sleMgmt 57 }
